@@ -1,6 +1,6 @@
 # Data Engineering Zoomcamp
 
-dataset: taxi rides NY dataset
+[dataset: taxi rides NY dataset](dataset.md)
 
 Running use cases:
 
