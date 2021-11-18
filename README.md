@@ -71,11 +71,28 @@ Plan:
          * Spark on airflow (10 mins)
     * ?Data skew?
     * Terraform code for that
-* Analytics engineering (1 h)
-    * dbt - models, how they look like
-    * dashboards? superset / looker
-    * project:
-         * deduplication
+* Analytics engineering (1.5 to 2 weeks)
+    * Basics (15 mins)
+        * What is DBT?
+        * ETL vs ELT 
+        * Data modeling
+        * DBT fit of the tool in the tech stack
+    
+    * Usage (Combination of coding + theory) (1:30-1:45 mins)
+        * Anatomy of a dbt model: written code vs compiled Sources
+        * Materialisations: table, view, incremental, ephemeral  
+        * Seeds 
+        * Sources and ref  
+        * Jinja and Macros 
+        * Tests  
+        * Documentation 
+        * Packages 
+        * Deployment: local development vs production 
+        * Dbt cloud: scheduler, sources and data catalog (Airflow)
+    
+    * Extra knowledge:
+        * DBT cli (local)
+    
 * Streaming (1-1.5 weeks)
     * What is Kafka, internals of Kafka, broker
     * Partitoning of Kafka topic
