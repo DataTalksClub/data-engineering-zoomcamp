@@ -1,8 +1,7 @@
 # Data Engineering Zoomcamp
-
 Registration link: https://airtable.com/shr6oVXeQvSI5HuWD
 
-dataset: taxi rides NY dataset
+[dataset: taxi rides NY dataset](dataset.md)
 
 Running use cases:
 
