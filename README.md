@@ -94,11 +94,15 @@ Plan:
         * DBT cli (local)
     
 * Streaming (1-1.5 weeks)
-    * What is Kafka, internals of Kafka, broker
-    * Partitoning of Kafka topic
-    * Replication of Kafka topic
-    * consumer-producer
-    * kafka streams, spark streaming-Transformation
+    * Basics
+      * What is Kafka
+      *  internals of Kafka, broker
+      * Partitoning of Kafka topic
+      * Replication of Kafka topic
+    * Consumer-producer
+    * Streaming
+      * kafka streams, 
+      * spark streaming-Transformation
     * Kafka connect
     * KSQLDB?
     * streaming analytics ???
