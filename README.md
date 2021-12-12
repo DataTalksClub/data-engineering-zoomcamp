@@ -1,6 +1,7 @@
 # Data Engineering Zoomcamp
 
-Registration link: https://airtable.com/shr6oVXeQvSI5HuWD
+- **Start**: 17 January 2022
+- **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 
 
 ## Syllabus
