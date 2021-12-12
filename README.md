@@ -6,6 +6,7 @@
 - Join the `#course-data-engineering` channel
 
 
+
 ## Syllabus
 
 > **Note**: This is preliminary and may change
@@ -128,4 +129,11 @@ Duration: 2-3 weeks
 
 <img src="images/architecture/arch_1.jpg"/>
 
+
+## Instructors
+
+- Ankush Khanna (https://linkedin.com/in/ankushkhanna2)
+- Sejal Vaidya (https://linkedin.com/in/vaidyasejal)
+- Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
+- Alexey Grigorev (https://linkedin.com/in/agrigorev)
 
