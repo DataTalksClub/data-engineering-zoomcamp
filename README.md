@@ -2,11 +2,13 @@
 
 - **Start**: 17 January 2022
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
+- Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
+- Join the `#course-data-engineering` channel
 
 
 ## Syllabus
 
-This is preliminary and may change
+> **Note**: This is preliminary and may change
 
 ### Week 1: Introduction & Prerequisites
 
