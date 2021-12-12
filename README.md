@@ -121,4 +121,8 @@ Duration: 10 mins
 Duration: 2-3 weeks
 
 
+## Architecture diagram
+
+<img src="images/architecture/arch_1.jpg"/>
+
 
