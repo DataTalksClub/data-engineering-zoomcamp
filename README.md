@@ -3,7 +3,7 @@
 - **Start**: 17 January 2022
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
-- Join the `#course-data-engineering` channel
+- Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
 
 
 
@@ -137,3 +137,12 @@ Duration: 2-3 weeks
 - Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
 - Alexey Grigorev (https://linkedin.com/in/agrigorev)
 
+
+## FAQ
+
+* **Q**: At what time of the day will it happen?
+  **A**: Most likely on Mondays at 17:00 CET. But everything will be recorded, so you can watch it whenever it's convenient for you
+* **Q**: Will there be a certificate?
+  **A**: Yes, if you complete the project
+* **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
+  **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace. 
