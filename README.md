@@ -140,6 +140,8 @@ Duration: 2-3 weeks
 
 ## FAQ
 
+* **Q**: I registered, but haven't received a confirmation email. Is it normal?
+  **A**: Yes, it's normal. It's not automated. But you will receive an email eventually 
 * **Q**: At what time of the day will it happen?
   **A**: Most likely on Mondays at 17:00 CET. But everything will be recorded, so you can watch it whenever it's convenient for you
 * **Q**: Will there be a certificate?
