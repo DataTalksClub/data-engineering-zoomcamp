@@ -1,6 +1,8 @@
 
 .DS_Store
-week_2_airflow_dbt/taxi_rides_ny/data/yellow_tripdata_2021-01.csv
-week_2_airflow_dbt/taxi_rides_ny/data/fhv_tripdata_2021-01.csv
-week_2_airflow_dbt/taxi_rides_ny/data/fhvhv_tripdata_2021-01.csv
-week_2_airflow_dbt/taxi_rides_ny/data/green_tripdata_2021-01.csv
+.idea
+**/data
+*.tfstate
+*.tfstate.*
+**.terraform
+**.terraform.lock.*
