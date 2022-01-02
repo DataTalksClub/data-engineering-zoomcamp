@@ -4,7 +4,7 @@ locals {
 
 variable "project" {
   description = "The name of the GCP project"
-  default = "pivotal-surfer-336713"
+  default = "<your-project-id>"
 }
 
 variable "region" {
