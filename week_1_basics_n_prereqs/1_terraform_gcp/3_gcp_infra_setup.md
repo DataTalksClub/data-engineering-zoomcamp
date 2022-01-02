@@ -9,7 +9,7 @@
 
 4. Set env-var to point to your downloaded GCP auth-keys:
    ```
-   export GOOGLE_APPLICATION_CREDENTIALS="/home/user/<project-id-service-account>.json"
+   export GOOGLE_APPLICATION_CREDENTIALS="<path/to/your/service-account-authkeys>.json"
    gcloud auth application-default login
    ```
 
