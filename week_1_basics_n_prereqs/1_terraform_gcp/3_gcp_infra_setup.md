@@ -18,9 +18,10 @@
 
 (Explanation TBD)
 
-1. `terraform init`
-2. `terraform plan`
-3. `terraform apply`
+1. `cd data-engineering-zoomcamp/project/terraform`
+2. `terraform init`
+3. `terraform plan`
+4. `terraform apply`
 
 
 ## References
