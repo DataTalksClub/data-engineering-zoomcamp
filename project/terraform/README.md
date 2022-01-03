@@ -1,5 +1,10 @@
+(In Draft mode)
+
 ## Create infrastructure for our project with Terraform
 
+### Project infrastructure modules in GCP:
+* Google Cloud Storage (GCS): Data Lake
+* BigQuery: Data Warehouse
 
 ### Setup Access
  
