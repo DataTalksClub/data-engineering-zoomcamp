@@ -46,4 +46,3 @@ terraform destroy
 * (bigquery ?)
 * https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference
 * https://www.terraform.io/language/settings/backends/gcs
-* https://cloud.google.com/about/locations#europe
