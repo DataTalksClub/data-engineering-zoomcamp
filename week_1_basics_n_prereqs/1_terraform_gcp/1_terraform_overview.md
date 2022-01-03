@@ -1,6 +1,7 @@
+(In Draft mode)
+
 ## Terraform Overview
 
 ## Concepts
 
-## Installation
-https://www.terraform.io/downloads
+## Setup
