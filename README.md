@@ -4,7 +4,8 @@
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-
+- Give this GitHub repository a star! 
+- [Tweet about it!](https://ctt.ac/1X_S7)
 
 
 ## Syllabus
