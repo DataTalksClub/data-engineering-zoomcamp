@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+    webserver:
+        container_name: airflow
+        build:
+            context: ..
+            dockerfile: ../Dockerfile
+        environment:
+            - PYTHONPATH=/home/airflow
+            # airflow connection with SQLAlchemy container
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=sqlite:///$AIRFLOW_HOME/airflow.db
+            - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+            # disable example loading
+            - AIRFLOW__CORE__LOAD_EXAMPLES=FALSE
+
+        volumes:
+            - ./dags:/home/airflow/dags
+        # user: "${AIRFLOW_UID:-50000}:0"
+        ports:
+            - "8080:8080"
+        command: >  # airflow db upgrade;
+            bash -c "
+                airflow scheduler -D;
+                rm /home/airflow/airflow-scheduler.*;
+                airflow webserver"
+        healthcheck:
+            test: [ "CMD-SHELL", "[ -f /home/airflow/airflow-webserver.pid ]" ]
+            interval: 30s
+            timeout: 30s
+            retries: 3
