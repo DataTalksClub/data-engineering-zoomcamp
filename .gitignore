@@ -1,7 +1,6 @@
 
 .DS_Store
 .idea
-**/data
 *.tfstate
 *.tfstate.*
 **.terraform
