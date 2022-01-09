@@ -47,7 +47,6 @@ terraform destroy
 ## References
 
 * https://registry.terraform.io/providers/hashicorp/google/latest/docs
-* https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
-* (bigquery ?)
+* https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
 * https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/provider_reference
 * https://www.terraform.io/language/settings/backends/gcs
