@@ -1,4 +1,4 @@
-"LocationID","Borough","Zone","service_zone"
+"locationid","borough","zone","service_zone"
 1,"EWR","Newark Airport","EWR"
 2,"Queens","Jamaica Bay","Boro Zone"
 3,"Bronx","Allerton/Pelham Gardens","Boro Zone"
