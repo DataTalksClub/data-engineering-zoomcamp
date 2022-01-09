@@ -2,13 +2,13 @@
 
 
 select
-    dispatching_base_num::text COLLATE pg_catalog."default",
+    dispatching_base_num::varchar,
     pickup_datetime::timestamp without time zone,
     dropoff_datetime::timestamp without time zone,
     pulocationid::integer,
     dolocationid::integer,
     sr_flag::integer,
-    affiliated_base_number::text COLLATE pg_catalog."default"
+    affiliated_base_number::varchar
 
 from {{ source('staging','fhv_tripdata_2021_01') }}
 
