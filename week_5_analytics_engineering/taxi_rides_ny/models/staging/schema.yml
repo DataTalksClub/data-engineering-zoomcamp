@@ -2,18 +2,18 @@
 version: 2
 sources:
     - name: staging
-    database: production
-    schema: staging
+      database: production
+      schema: staging
 
-    #loaded_at_field: _metadata__timestamp
+      #loaded_at_field: _metadata__timestamp
 
-    tables:
-      - name: fhv_tripdata_2021_01
-      - name: green_tripdata_2021_01
-      - name: yellow_tripdata_2021_01
-      - name: fhvhv_tripdata_2021_01
-        #freshness:
-          #error_after: {count: 24, period: hour}
+      tables:
+        - name: fhv_tripdata_2021_01
+        - name: green_tripdata_2021_01
+        - name: yellow_tripdata_2021_01
+        - name: fhvhv_tripdata_2021_01
+          #freshness:
+            #error_after: {count: 24, period: hour}
 
 models:
     - name: stg_fhbhv_tripdata
