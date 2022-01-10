@@ -5,7 +5,8 @@ FROM apache/airflow:2.2.3
 ENV AIRFLOW_HOME=/opt/airflow
 
 USER root
-# RUN apt-get update -qq && apt-get install git gcc g++ -qqq
+RUN apt-get update -qq && apt-get install vim -qqq
+# git gcc g++ -qqq
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
@@ -41,4 +42,5 @@ ENV AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT="google-cloud-platform://?extra__google_cl
 
 WORKDIR $AIRFLOW_HOME
 
-USER airflow
+# USER airflow
+USER $AIRFLOW_UID
