@@ -12,17 +12,17 @@ profile: 'pg-dbt-workshop'
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
 target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
     - "target"
-    - "dbt_modules"
+    - "dbt_packages"
 
 
 # Configuring models
@@ -32,7 +32,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  my_new_project:
-      # Applies to all files under models/example/
-      example:
+  taxi_rides_ny:
+      # Applies to all files under models/.../
+      staging:
           materialized: view
+      core:
+          materialized: table
+vars:
+  payment_type_values: [1, 2, 3, 4, 5, 6]
+
+seeds: 
+    taxi_rides_ny:
+        taxi_zone_lookup:
+            +column_types:
+                locationid: int

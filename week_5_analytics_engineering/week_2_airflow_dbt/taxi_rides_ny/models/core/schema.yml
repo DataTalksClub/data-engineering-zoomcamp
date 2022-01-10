@@ -1,8 +1,0 @@
-
-version: 2
-
-models:
-    - name: dim_vendors
-
-    - name: fact_trips
-
