@@ -65,7 +65,7 @@ Duration: 1h
 Duration: 2h 
 
 
-### Week 5: [Analytics engineering](week_5_analytics_engineering)
+### [Week 5: Analytics engineering](week_5_analytics_engineering)
 
 * Basics (15 mins)
     * What is DBT?
