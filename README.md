@@ -4,15 +4,14 @@
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-- Give this GitHub repository a star! 
-- [Tweet about it!](https://ctt.ac/1X_S7)
+
 
 
 ## Syllabus
 
 > **Note**: This is preliminary and may change
 
-### Week 1: Introduction & Prerequisites
+### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
 * SQL
 * Docker and Terraform
@@ -22,7 +21,7 @@
 Duration: 1h
 
 
-### Week 2: Data ingestion + data lake + exploration
+### [Week 2: Data ingestion + data lake + exploration](week_2_data_ingestion)
 
 * Data ingestion: 2 step process
     * Download and unpack the data
@@ -41,7 +40,7 @@ Duration: 1h
 Duration: 1h
 
 
-### Week 3 & 4: Batch processing (BigQuery, Spark and Airflow)
+### [Week 3 & 4: Batch processing (BigQuery, Spark and Airflow)](week_3_4_batch_processing)
 
 * Data warehouse (BigQuery) (25 minutes)
     * What is a data warehouse solution
@@ -55,7 +54,7 @@ Duration: 1h
     * Explaining potential of Spark (10 mins)
     * What is broadcast variables, partitioning, shuffle (10 mins)
     * Pre-joining data (10 mins)
-    * use-case ?
+    * use-case
     * What else is out there  (Flink) (5 mins)
 * Orchestration tool (airflow) (30 minutes)
     * Basic: Airflow dags (10 mins)
@@ -66,7 +65,7 @@ Duration: 1h
 Duration: 2h 
 
 
-### Week 5: Analytics engineering
+### Week 5: [Analytics engineering](week_5_analytics_engineering)
 
 * Basics (15 mins)
     * What is DBT?
@@ -89,7 +88,7 @@ Duration: 2h
 
 Duration: 1.5-2h    
 
-### Week 6: Streaming
+### [Week 6: Streaming](week_6_stream_processing)
 
 * Basics
     * What is Kafka
@@ -119,7 +118,7 @@ Duration: 1-1.5h
 Duration: 10 mins
 
 
-### Week 7, 8 & 9: Project
+### [Week 7, 8 & 9: Project](project)
 
 * Putting everything we learned to practice
 
@@ -153,7 +152,7 @@ Prior experience with data engineering is not required.
 * **Q**: I registered, but haven't received a confirmation email. Is it normal?
   **A**: Yes, it's normal. It's not automated. But you will receive an email eventually 
 * **Q**: At what time of the day will it happen?
-  **A**: Most likely on Mondays at 17:00 CET. But everything will be recorded, so you can watch it whenever it's convenient for you
+  **A**: Office hours will happen on Mondays at 17:00 CET. But everything will be recorded, so you can watch it whenever it's convenient for you
 * **Q**: Will there be a certificate?
   **A**: Yes, if you complete the project
 * **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
