@@ -3,7 +3,7 @@
 
 1. Create a new sub-directory called `airflow` in your `project` dir (such as the one we're currently in)
    
-2. Import the latest Airflow image:
+2. Import the official image & setup from the latest Airflow version:
    ```shell
    curl -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'
    ```
@@ -22,20 +22,31 @@
    
 6. Back in your `docker-compose.yaml`:
    * Remove the `image` tag in `x-airflow-common`, to replace it with your `build` from your Dockerfile.
-   * Optionally, change `AIRFLOW__CORE__LOAD_EXAMPLES` to `false`.
+   * Change `AIRFLOW__CORE__LOAD_EXAMPLES` to `false` (optional)
    
 8. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose.yml](./docker-compose.yaml) should look.
    
 
 ### Execution
 
-1. Kick up the container:
+1. Build the image (only first-time, or when there's any change in the `Dockerfile`):
 ```shell
-docker compose up --build`
+docker compose build
 ```
 
-2. Login to Airflow web on `localhost:8080` with default creds: `airflow/airflow`
+2. Initialize the Airflow scheduler, DB, and other config
+```shell
+docker compose up airflow-init
+```
 
+3. Kick up the all the services from the container:
+```shell
+docker compose up
+```
+
+4. Login to Airflow web UI on `localhost:8080` with default creds: `airflow/airflow`
+
+5. Run your DAG ()
 
 
 For more info, check out these official docs:
