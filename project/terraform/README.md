@@ -10,7 +10,7 @@
 
 ### Setup
 
-### Pre-requisites
+#### Pre-requisites
 
 You need your GCP account, project, and service-keys, to continue. Please follow instructions for those here:
 https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/1_terraform_gcp
