@@ -24,7 +24,7 @@
    *  What GCP is, why we need it
      
 * Terraform (Sejal)
-   * Intro to Terraform - Concepts
+   * [ ] Intro to Terraform - Concepts
    * [x] Setting up GCP with TF: Storage, BigQuery
    
 * Docker (Alexey)
@@ -61,14 +61,14 @@ Instructor: Sejal
 
 * Demo:
   * Setup: (15 mins)
-   * Docker pre-reqs (refresher)
-   * Airflow env with Docker
+   * [ ] Docker pre-reqs (refresher)
+   * [x] Airflow env with Docker
   * Data ingestion DAG - Demo (30 mins): 
    * [x] Extraction: Download and unpack the data
    * [ ] Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
    * [x] Load: Raw data to GCS
    * [x] Exploration: External Table for BigQuery -- Taking a look at the data
-   * Further Enhancements: Transfer Service (AWS -> GCP)
+   * [ ] Further Enhancements: Transfer Service (AWS -> GCP)
    
 Duration: 1.5h
 
