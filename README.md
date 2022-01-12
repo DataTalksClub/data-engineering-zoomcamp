@@ -44,15 +44,16 @@
 Duration: 1h
 
 
-### [Week 2: Data ingestion + data lake + exploration](week_2_data_ingestion)
+### [Week 2: Data ingestion](week_2_data_ingestion)
 
-Goal: Raw data -> Data Lake
+Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
 
 Instructor: Sejal
 
 * Data Lake (GCS)
-   * Basics, What is a Data Lake
-   * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
+  * Basics, What is a Data Lake
+  * ELT vs. ETL
+  * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
 * Orchestration (Airflow)
   * Basics
   * What is an Orchestration Pipeline
@@ -60,7 +61,7 @@ Instructor: Sejal
 
 * Setup (5 mins):
    * Docker env
-* Data ingestion flow (20 mins): 
+* Data ingestion DAG - Demo (20 mins): 
     * Extracting: Download and unpack the data
     * Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
     * Loading: Raw data to GCS
@@ -89,9 +90,9 @@ Instructor: Ankush
 Duration: 1-1.5h
 
 
-### [Week 4: Analytics engineering]()
+### [Week 4: Analytics engineering](week_5_analytics_engineering)
 
-Goal: DWH -> Views
+Goal: Transforming Data in DWH to Analytical Views
 
 Instructor: Victoria
 
@@ -118,7 +119,7 @@ Instructor: Victoria
 Duration: 1.5-2h    
 
 
-### [Week 5: Batch processing (BigQuery, Spark and Airflow)]()
+### [Week 5: Batch processing](week_3_4_batch_processing)
 
 Goal: 
 
@@ -135,11 +136,11 @@ Instructor: Alexey
     * Big query on airflow (10 mins)
     * Spark on airflow (10 mins)
 
-Duration: 2h 
+Duration: 1-1.5h
 
 ### [Week 6: Streaming](week_6_stream_processing)
 
-Goal:
+Goal: 
 
 Instructor: Ankush
 
