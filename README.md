@@ -46,7 +46,8 @@ Duration: 1h
 
 ### [Week 2: Data ingestion + data lake + exploration](week_2_data_ingestion)
 
-Goal: Raw data -> Local DB / GCS
+Goal: Raw data -> Data Lake
+
 Instructor: Sejal
 
 * Data Lake (GCS)
@@ -71,7 +72,8 @@ Duration: 1.5-2h
 
 ### [Week 3: Data Warehouse]()
 
-Goal: Raw data -> DWH
+Goal: Data Lake -> DWH
+
 Instructor: Ankush
 
 * Data warehouse (BigQuery) (25 minutes)
@@ -90,6 +92,7 @@ Duration: 1-1.5h
 ### [Week 4: Analytics engineering]()
 
 Goal: DWH -> Views
+
 Instructor: Victoria
 
 * Basics (15 mins)
@@ -117,8 +120,10 @@ Duration: 1.5-2h
 
 ### [Week 5: Batch processing (BigQuery, Spark and Airflow)]()
 
-Goal: DWH -> 
+Goal: 
+
 Instructor: Alexey
+
 * Distributed processing (Spark) (40 + ? minutes)
     * What is Spark, spark cluster (5 mins)
     * Explaining potential of Spark (10 mins)
@@ -133,6 +138,9 @@ Instructor: Alexey
 Duration: 2h 
 
 ### [Week 6: Streaming](week_6_stream_processing)
+
+Goal:
+
 Instructor: Ankush
 
 * Basics
