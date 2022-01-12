@@ -25,7 +25,7 @@
      
 * Terraform (Sejal)
    * Intro to Terraform - Concepts
-   * Setting up GCP with TF: Storage, BigQuery
+   * [x] Setting up GCP with TF: Storage, BigQuery
    
 * Docker (Alexey)
    * What docker is, why we need it
@@ -41,7 +41,7 @@
    * Experimentation: Taking a first look at the data 
    * (Alexey and Victoria will coordinate)
 
-Duration: 1h
+Duration: 1-1.5h
 
 
 ### [Week 2: Data ingestion](week_2_data_ingestion)
@@ -50,30 +50,32 @@ Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
 
 Instructor: Sejal
 
-* Data Lake (GCS)
+* Data Lake (GCS) -- 10 mins
   * Basics, What is a Data Lake
   * ELT vs. ETL
   * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
-* Orchestration (Airflow)
+* Orchestration (Airflow) -- 15 mins
   * Basics
   * What is an Orchestration Pipeline
   * ...
 
-* Setup (5 mins):
-   * Docker env
-* Data ingestion DAG - Demo (20 mins): 
-    * Extracting: Download and unpack the data
-    * Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
-    * Loading: Raw data to GCS
-    * Exploration: External Table for BigQuery -- Taking a look at the data
-    * Further Enhancements: Transfer Service (AWS -> GCP)
+* Demo:
+  * Setup: (15 mins)
+   * Docker pre-reqs (refresher)
+   * Airflow env with Docker
+  * Data ingestion DAG - Demo (30 mins): 
+   * [x] Extraction: Download and unpack the data
+   * [ ] Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
+   * [x] Load: Raw data to GCS
+   * [x] Exploration: External Table for BigQuery -- Taking a look at the data
+   * Further Enhancements: Transfer Service (AWS -> GCP)
    
-Duration: 1.5-2h
+Duration: 1.5h
 
 
 ### [Week 3: Data Warehouse]()
 
-Goal: Data Lake -> DWH
+Goal: Structuring data into a Data Warehouse
 
 Instructor: Ankush
 
