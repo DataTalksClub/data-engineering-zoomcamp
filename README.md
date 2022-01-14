@@ -13,33 +13,28 @@
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
-* Big Picture (Everyone, live call)
+* Big Picture
    * Introduction to all instructors
    * What to expect in this course
    * Architecture / Data Flow
    * What do we want to build (DE Concepts using Taxi Rides, and end results)
-
-* GCP (Ankush)
-   *  Intro to GCP - Concepts: IAM, Cloud Storage, BigQuery (relevant components)
-   *  What GCP is, why we need it
-     
-* Terraform (Sejal)
-   * [ ] Intro to Terraform - Concepts
-   * [x] Setting up GCP with TF: Storage, BigQuery
-   
-* Docker (Alexey)
+* GCP
+   * Intro to GCP - Concepts: IAM, Cloud Storage, BigQuery (relevant components)
+   * What GCP is, why we need it
+* Docker
    * What docker is, why we need it
    * Running postgres locally with docker
    * Putting some data for testing to local postres with Python
    * Packaging this script in docker
    * Running postgres and the script in one network
    * Docker compose and running pgadmin and postres together with docker-compose
-
-* SQL (Alexey, Victoria)
-   * Relevant SQL Queries (Refresher): group by, joins, window function, union
+* Data and SQL
    * [Dataset: Taxi Rides NY dataset](dataset.md)
    * Experimentation: Taking a first look at the data 
-   * (Alexey and Victoria will coordinate)
+   * Relevant SQL Queries (Refresher): group by, joins, window function, union
+* Terraform (Sejal)
+   * [ ] Intro to Terraform - Concepts
+   * [x] Setting up GCP with TF: Storage, BigQuery
 
 Duration: 1-1.5h
 
