@@ -4,7 +4,7 @@
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-
+- Subscribe to our public [Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
 
 
 ## Syllabus
@@ -13,59 +13,85 @@
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
-* SQL
-* Docker and Terraform
-* [Dataset: Taxi Rides NY dataset](dataset.md)
-* Taking a first look at the data 
+* Big Picture
+   * Introduction to all instructors
+   * What to expect in this course
+   * Architecture / Data Flow
+   * What do we want to build (DE Concepts using Taxi Rides, and end results)
+* GCP
+   * Intro to GCP - Concepts: IAM, Cloud Storage, BigQuery (relevant components)
+   * What GCP is, why we need it
+* Docker
+   * What docker is, why we need it
+   * Running postgres locally with docker
+   * Putting some data for testing to local postres with Python
+   * Packaging this script in docker
+   * Running postgres and the script in one network
+   * Docker compose and running pgadmin and postres together with docker-compose
+* Data and SQL
+   * [Dataset: Taxi Rides NY dataset](dataset.md)
+   * Experimentation: Taking a first look at the data 
+   * Relevant SQL Queries (Refresher): group by, joins, window function, union
+* Terraform (Sejal)
+   * [ ] Intro to Terraform - Concepts
+   * [x] Setting up GCP with TF: Storage, BigQuery
 
-Duration: 1h
+Duration: 1-1.5h
 
 
-### [Week 2: Data ingestion + data lake + exploration](week_2_data_ingestion)
+### [Week 2: Data ingestion](week_2_data_ingestion)
 
-* Data ingestion: 2 step process
-    * Download and unpack the data
-    * Save the data to GCS
-* Data Lake (20 min)
-    * What is data lake?
-    * Convert this raw data to parquet, partition
-    * Alternatives to gcs (S3/HDFS)
-* Exploration (20 min)
-    * Taking a look at the data
-    * Data fusion => Glue crawler equivalent
-    * Partitioning
-    * Google data studio -> Dashboard
-* Terraform code for that
+Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
 
-Duration: 1h
+Instructor: Sejal
+
+* Data Lake (GCS) -- 10 mins
+  * Basics, What is a Data Lake
+  * ELT vs. ETL
+  * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
+* Orchestration (Airflow) -- 15 mins
+  * Basics
+  * What is an Orchestration Pipeline
+  * ...
+
+* Demo:
+  * Setup: (15 mins)
+    * [ ] Docker pre-reqs (refresher)
+    * [x] Airflow env with Docker
+  * Data ingestion DAG - Demo (30 mins): 
+    * [x] Extraction: Download and unpack the data
+    * [ ] Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
+    * [x] Load: Raw data to GCS
+    * [x] Exploration: External Table for BigQuery -- Taking a look at the data
+    * [ ] Further Enhancements: Transfer Service (AWS -> GCP)
+   
+Duration: 1.5h
 
 
-### [Week 3 & 4: Batch processing (BigQuery, Spark and Airflow)](week_5_batch_processing)
+### [Week 3: Data Warehouse]()
+
+Goal: Structuring data into a Data Warehouse
+
+Instructor: Ankush
 
 * Data warehouse (BigQuery) (25 minutes)
     * What is a data warehouse solution
-    * What is big query, why is so fast  (5 min)
-    * Partitoning and clustering (10 min)
+    * What is big query, why is it so fast, Cost of BQ,  (5 min)
+    * Partitoning and clustering, Automatic re-clustering (10 min)
     * Pointing to a location in google storage (5 min)
-    * Putting data to big query (5 min)
+    * Loading data to big query & PG (10 min) -- using Airflow operator?
+    * BQ best practices
+    * Misc: BQ Geo location, BQ ML 
     * Alternatives (Snowflake/Redshift)
-* Distributed processing (Spark) (40 + ? minutes)
-    * What is Spark, spark cluster (5 mins)
-    * Explaining potential of Spark (10 mins)
-    * What is broadcast variables, partitioning, shuffle (10 mins)
-    * Pre-joining data (10 mins)
-    * use-case
-    * What else is out there  (Flink) (5 mins)
-* Orchestration tool (airflow) (30 minutes)
-    * Basic: Airflow dags (10 mins)
-    * Big query on airflow (10 mins)
-    * Spark on airflow (10 mins)
-* Terraform code for that
 
-Duration: 2h 
+Duration: 1-1.5h
 
 
-### [Week 5: Analytics engineering](week_4_analytics_engineering)
+### [Week 4: Analytics engineering](week_5_analytics_engineering)
+
+Goal: Transforming Data in DWH to Analytical Views
+
+Instructor: Victoria
 
 * Basics (15 mins)
     * What is DBT?
@@ -83,12 +109,37 @@ Duration: 2h
     * Packages 
     * Deployment: local development vs production 
     * DBT cloud: scheduler, sources and data catalog (Airflow)
+* Google data studio -> Dashboard
 * Extra knowledge:
     * DBT cli (local)
 
 Duration: 1.5-2h    
 
+
+### [Week 5: Batch processing](week_3_4_batch_processing)
+
+Goal: 
+
+Instructor: Alexey
+
+* Distributed processing (Spark) (40 + ? minutes)
+    * What is Spark, spark cluster (5 mins)
+    * Explaining potential of Spark (10 mins)
+    * What is broadcast variables, partitioning, shuffle (10 mins)
+    * Pre-joining data (10 mins)
+    * use-case
+    * What else is out there (Flink) (5 mins)
+* Extending Orchestration env (airflow) (30 minutes)
+    * Big query on airflow (10 mins)
+    * Spark on airflow (10 mins)
+
+Duration: 1-1.5h
+
 ### [Week 6: Streaming](week_6_stream_processing)
+
+Goal: 
+
+Instructor: Ankush
 
 * Basics
     * What is Kafka
