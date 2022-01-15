@@ -1,13 +1,15 @@
-(In Draft mode)
+### Architecture
+[images/architecture/](images/architecture/)
 
-## Technologies
+#### Technologies used through this course
 
 * Google Cloud Platform (GCP): Cloud-based auto-scaling platform by Google
   * Google Cloud Storage (GCS): Data Lake
   * BigQuery: Data Warehouse
 * Terraform: Infrastructure-as-Code (IaC), to create project infra on Google Cloud Platform
-* Docker: Containerization, for Airflow environment
+* Docker: Containerized environment for resources such as Postgres
+* SQL: Data Analysis & Exploration
 * Airflow: Pipeline Orchestration tool
-* Spark: Distributed Processing
 * DBT: Data Transformation tool
-* SQL: Analysis
+* Spark: Distributed Processing
+* Kafka: Streaming
