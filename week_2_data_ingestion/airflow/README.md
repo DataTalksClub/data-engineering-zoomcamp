@@ -1,4 +1,3 @@
-
 ### Setup
 
 1. Create a new sub-directory called `airflow` in your `project` dir (such as the one we're currently in)
@@ -54,3 +53,6 @@ For more info, check out these official docs:
    * https://airflow.apache.org/docs/docker-stack/build.html
    * https://airflow.apache.org/docs/docker-stack/recipes.html
    
+
+### Future Enhancements
+* Deploy self-hosted Airflow setup on Kubernetes cluster, or use a Managed Airflow (Cloud Composer) service by GCP

@@ -40,7 +40,7 @@ Duration: 1h
 Duration: 1h
 
 
-### [Week 3 & 4: Batch processing (BigQuery, Spark and Airflow)](week_3_4_batch_processing)
+### [Week 3 & 4: Batch processing (BigQuery, Spark and Airflow)](week_5_batch_processing)
 
 * Data warehouse (BigQuery) (25 minutes)
     * What is a data warehouse solution
@@ -65,7 +65,7 @@ Duration: 1h
 Duration: 2h 
 
 
-### [Week 5: Analytics engineering](week_5_analytics_engineering)
+### [Week 5: Analytics engineering](week_4_analytics_engineering)
 
 * Basics (15 mins)
     * What is DBT?
