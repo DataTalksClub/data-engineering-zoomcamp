@@ -68,7 +68,7 @@ Instructor: Sejal
 Duration: 1.5h
 
 
-### [Week 3: Data Warehouse]()
+### [Week 3: Data Warehouse](week_3_data_warehouse)
 
 Goal: Structuring data into a Data Warehouse
 
@@ -87,7 +87,7 @@ Instructor: Ankush
 Duration: 1-1.5h
 
 
-### [Week 4: Analytics engineering](week_5_analytics_engineering)
+### [Week 4: Analytics engineering](week_4_analytics_engineering/taxi_rides_ny/)
 
 Goal: Transforming Data in DWH to Analytical Views
 
@@ -116,7 +116,7 @@ Instructor: Victoria
 Duration: 1.5-2h    
 
 
-### [Week 5: Batch processing](week_3_4_batch_processing)
+### [Week 5: Batch processing](week_5_batch_processing)
 
 Goal: 
 
