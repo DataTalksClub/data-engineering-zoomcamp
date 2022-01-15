@@ -24,7 +24,7 @@
    * Remove the `image` tag in `x-airflow-common`, to replace it with your `build` from your Dockerfile.
    * Change `AIRFLOW__CORE__LOAD_EXAMPLES` to `false` (optional)
    
-8. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose.yml](./docker-compose.yaml) should look.
+7. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose.yml](./docker-compose.yaml) should look.
    
 
 ### Execution

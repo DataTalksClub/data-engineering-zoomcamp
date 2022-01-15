@@ -6,6 +6,8 @@ from airflow.utils.dates import days_ago
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from google.cloud import storage
+from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
 
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID", "pivotal-surfer-336713")
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc_data_lake_pivotal-surfer-336713")
@@ -15,15 +17,11 @@ dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 # path_to_creds = f"{path_to_local_home}/google_credentials.json"
 
-default_args = {
-    "owner": "airflow",
-    "start_date": days_ago(1),
-    "depends_on_past": False,
-    "retries": 1,
-}
+DATASET_NAME = os.environ.get("GCP_DATASET_NAME", 'ny_trips_from_dag')
+TABLE_NAME = os.environ.get("GCP_TABLE_NAME", 'trips_data_all')
 
 
-# Takes 15-20 mins to run. Good case for using Spark (distributed processing, in place of chunks)
+# NOTE: takes 20 mins, at an upload speed of 800kbps. Faster if your internet has a better upload speed
 def upload_to_gcs(bucket, object_name, local_file):
     """
     Ref: https://cloud.google.com/storage/docs/uploading-objects#storage-upload-object-python
@@ -44,23 +42,29 @@ def upload_to_gcs(bucket, object_name, local_file):
     blob.upload_from_filename(local_file)
 
 
+default_args = {
+    "owner": "airflow",
+    "start_date": days_ago(1),
+    "depends_on_past": False,
+    "retries": 1,
+}
+
 with DAG(
     dag_id="data_ingestion_gcs_dag",
     schedule_interval="@daily",
     default_args=default_args,
-    catchup=True,
+    catchup=False,
     max_active_runs=1,
+    tags=['example'],
 ) as dag:
 
-    # Takes ~2 mins, depending upon your internet's download speed
     download_dataset_task = BashOperator(
         task_id="download_dataset_task",
         bash_command=f"curl -sS {dataset_url} > {path_to_local_home}/{dataset_file}"
     )
 
-    # NOTE: takes 20 mins, at an upload speed of 800kbps. Faster if your internet has a better upload speed
-    upload_to_gcs_task = PythonOperator(
-        task_id="upload_to_gcs_task",
+    local_to_gcs_task = PythonOperator(
+        task_id="local_to_gcs_task",
         python_callable=upload_to_gcs,
         op_kwargs={
             "bucket": BUCKET,
@@ -70,4 +74,17 @@ with DAG(
         },
     )
 
-    download_dataset_task >> upload_to_gcs_task
+    # gcs_to_bq_task = GCSToBigQueryOperator(
+    #     task_id='gcs_to_bq_task',
+    #     bucket=BUCKET,
+    #     source_objects=[f"raw/{dataset_file}"],
+    #     destination_project_dataset_table=f"{DATASET_NAME}.{TABLE_NAME}",
+    #     # schema_fields=[
+    #     #     {'name': 'name', 'type': 'STRING', 'mode': 'NULLABLE'},
+    #     #     {'name': 'post_abbr', 'type': 'STRING', 'mode': 'NULLABLE'},
+    #     # ],
+    #     write_disposition='WRITE_TRUNCATE',
+    # )
+
+
+    download_dataset_task >> local_to_gcs_task # >> gcs_to_bq_task
