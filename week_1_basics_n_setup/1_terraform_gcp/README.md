@@ -1,26 +1,17 @@
-(In Draft mode)
-
 ## Local Setup for Terraform and GCP
 
-### Terraform
+### Pre-Requisites
+1. Terraform client installation: https://www.terraform.io/downloads
+2. Cloud Provider account: https://console.cloud.google.com/ 
 
-Installation: https://www.terraform.io/downloads
+### Terraform Concepts
+[Terraform Overview](1_terraform_overview.md)
 
-### GCP
+### GCP setup
 
-For this course, we'll use a free version (upto EUR 300 credits). 
+1. [Setup for First-time](2_gcp_overview.md#Initial Setup)
+2. [IAM / Access specific to this course](2_gcp_overview.md#Setup for Access)
 
-1. Create an account with your Google email ID 
-2. Setup your first [project](https://console.cloud.google.com/), eg. "DTC DE Course", and note down the "Project ID"
-3. Setup [service account & authentication](https://cloud.google.com/docs/authentication/getting-started) for this project, and download auth-keys (.json).
-4. Download [SDK](https://cloud.google.com/sdk/docs/quickstart) for local setup
-5. Set environment variable to point to your downloaded GCP auth-keys:
-   ```shell
-   export GOOGLE_APPLICATION_CREDENTIALS="<path/to/your/service-account-authkeys>.json"
-   
-   # Refresh token, and verify authentication
-   gcloud auth application-default login
-   ```
-
-### Workshop
-Continue [here](../../project/terraform): `data-engineering-zoomcamp/project/terraform`
+### Terraform Workshop for GCP Infra
+Continue [here](terraform).
+`week_1_basics_n_setup/1_terraform_gcp/terraform`
