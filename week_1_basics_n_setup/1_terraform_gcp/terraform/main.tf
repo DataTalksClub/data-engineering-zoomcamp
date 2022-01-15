@@ -15,6 +15,7 @@ provider "google" {
 }
 
 # Data Lake Bucket
+# Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
 resource "google_storage_bucket" "data-lake-bucket" {
   name          = "${local.data_lake_bucket}_${var.project}" # Concatenating DL bucket & Project name for unique naming
   location      = var.region
@@ -39,24 +40,10 @@ resource "google_storage_bucket" "data-lake-bucket" {
   force_destroy = true
 }
 
-// In-Progress
-//
-//# DWH
-//resource "google_bigquery_dataset" "dataset" {
-//  dataset_id = var.BQ_DATASET
-//}
-//
-//# May not be needed if covered by DBT
-//resource "google_bigquery_table" "table" {
-//  dataset_id = google_bigquery_dataset.dw.dataset_id
-//  table_id   = var.TABLE_NAME[count.index]
-//  count      = length(var.TABLE_NAME)
-//
-//  external_data_configuration {
-//    autodetect    = true
-//    source_format = "CSV"
-//    source_uris = [
-//      "gs://${var.BUCKET_NAME}/dw/${var.TABLE_NAME[count.index]}/*.csv"
-//    ]
-//  }
-//}
+# DWH
+# Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
+resource "google_bigquery_dataset" "dataset" {
+  dataset_id = var.BQ_DATASET
+  project    = var.project
+  location   = var.region
+}
