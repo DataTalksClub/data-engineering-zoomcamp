@@ -14,30 +14,30 @@
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
-* Big Picture
-   * Introduction to all instructors
-   * What to expect in this course
-   * Architecture / Data Flow
-   * What do we want to build (DE Concepts using Taxi Rides, and end results)
-* GCP
-   * Intro to GCP - Concepts: IAM, Cloud Storage, BigQuery (relevant components)
-   * What GCP is, why we need it
-* Docker
-   * What docker is, why we need it
-   * Running postgres locally with docker
-   * Putting some data for testing to local postres with Python
-   * Packaging this script in docker
-   * Running postgres and the script in one network
-   * Docker compose and running pgadmin and postres together with docker-compose
-* Data and SQL
-   * [Dataset: Taxi Rides NY dataset](dataset.md)
-   * Experimentation: Taking a first look at the data 
-   * Relevant SQL Queries (Refresher): group by, joins, window function, union
-* Terraform (Sejal)
-   * [ ] Intro to Terraform - Concepts
+* Big Picture : 1 hr
+   * [x] Introduction to all instructors
+   * [x] What to expect in this course
+   * [x] Architecture / Data Flow
+   * [x] What do we want to build (DE Concepts using Taxi Rides, and end results)
+* GCP : 5 mins
+   * [x] Intro to GCP - Concepts: IAM, Cloud Storage, BigQuery (relevant components)
+   * [x] What is GCP, why we need it
+* Docker : 45 mins
+   * [x] What is docker, why we need it
+   * [x] Running postgres locally with docker
+   * [x] Putting some data for testing to local postres with Python
+   * [x] Packaging this script in docker
+   * [x] Running postgres and the script in one network
+   * [x] Docker compose and running pgadmin and postres together with docker-compose
+* Data and SQL : 15 mins
+   * [x] [Dataset: Taxi Rides NY dataset](dataset.md)
+   * [x] Experimentation: Taking a first look at the data 
+   * [x] Relevant SQL Queries (Refresher): group by, joins, window function, union
+* Terraform (Sejal) : 45-60 mins
+   * [x] Intro to Terraform - Concepts
    * [x] Setting up GCP with TF: Storage, BigQuery
 
-Duration: 1-1.5h
+Duration: 2.5-3h
 
 
 ### [Week 2: Data ingestion](week_2_data_ingestion)
