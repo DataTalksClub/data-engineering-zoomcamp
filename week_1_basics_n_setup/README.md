@@ -5,11 +5,11 @@
 
 
 ### Docker + Postgres
-* Intro to Docker
+* Introduction to Docker
   * [Video](https://www.youtube.com/watch?v=EYNwNlOrpr0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
-* Docker with Postgres
+* Setup: Postgres with Docker 
   * [Video](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=4)
-* Data Exploration with SQL (NY Trips Data)
+* Workshop: Data Exploration with SQL (NY Trips Data)
   * [Video](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5)
 
 
@@ -19,7 +19,7 @@
 * Introduction to Terraform Concepts & GCP Pre-Requisites
   * [Video](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=6)
   * [Companion Notes](1_terraform_gcp)
-* In Practice: Create GCP Infra with Terraform
+* Workshop: Creating GCP Infrastructure with Terraform
   * Video: TBD (18.01)
   * [Workshop](1_terraform_gcp/terraform)
 
