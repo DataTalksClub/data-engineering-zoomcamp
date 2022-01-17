@@ -4,7 +4,7 @@
 
 #### Introduction
 1. What if Terraform?
-   * open-source tool by HashiCorp, used for provisioning infrastructure resources
+   * open-source tool by [HashiCorp](https://www.hashicorp.com/), used for provisioning infrastructure resources
    * supports DevOps best practices for change management
    * Managing configuration files in source control to maintain an ideal provisioning state 
      for testing and production environments
