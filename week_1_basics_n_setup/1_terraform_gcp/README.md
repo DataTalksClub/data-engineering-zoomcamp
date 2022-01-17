@@ -9,8 +9,8 @@
 
 ### GCP setup
 
-1. [Setup for First-time](2_gcp_overview.md#Initial Setup)
-2. [IAM / Access specific to this course](2_gcp_overview.md#Setup for Access)
+1. [Setup for First-time](2_gcp_overview.md#initial-setup)
+2. [IAM / Access specific to this course](2_gcp_overview.md#setup-for-access)
 
 ### Terraform Workshop for GCP Infra
 Continue [here](terraform).
