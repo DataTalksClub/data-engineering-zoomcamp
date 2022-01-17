@@ -14,7 +14,7 @@
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
-* Big Picture : 1 hr
+* Big Picture : 30-60 mins
    * [x] Introduction to all instructors
    * [x] What to expect in this course
    * [x] Architecture / Data Flow
@@ -37,7 +37,7 @@
    * [x] Intro to Terraform - Concepts
    * [x] Setting up GCP with TF: Storage, BigQuery
 
-Duration: 2.5-3h
+Duration: 2-2.5h
 
 
 ### [Week 2: Data ingestion](week_2_data_ingestion)
