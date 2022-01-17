@@ -182,7 +182,7 @@ Duration: 2-3 weeks
 ### Architecture diagram
 <img src="images/architecture/arch_1.jpg"/>
 
-### Technologies used through this course**
+### Technologies
 * *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
   * *Google Cloud Storage (GCS)*: Data Lake
   * *BigQuery*: Data Warehouse
