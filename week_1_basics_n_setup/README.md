@@ -1,5 +1,5 @@
 ### Architecture
-[images/architecture/](images/architecture/)
+<img src="../images/architecture/arch_1.jpg"/>
 
 #### Technologies used through this course
 
