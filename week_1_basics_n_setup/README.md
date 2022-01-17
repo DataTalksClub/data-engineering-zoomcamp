@@ -1,7 +1,7 @@
 ### Introduction
 * [Video](https://www.youtube.com/watch?v=bkJZDmreIpA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=1)
 * (PPT Link: ?)
-* **Architecture**: [images/architecture/](images/architecture/)
+* **Architecture**: [images/architecture/](../images/architecture/arch_1.jpg)
 * **Technologies used through this course**
   * *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
     * *Google Cloud Storage (GCS)*: Data Lake
