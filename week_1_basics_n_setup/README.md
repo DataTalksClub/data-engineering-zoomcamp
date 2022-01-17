@@ -1,7 +1,7 @@
 ### Introduction
 * [Video](https://www.youtube.com/watch?v=bkJZDmreIpA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=1)
 * (PPT Link: ?)
-* [Overview of Architecture, Technologies & Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview)
+* Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
 
 ### Docker + Postgres
