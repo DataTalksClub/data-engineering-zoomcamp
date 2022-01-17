@@ -177,11 +177,25 @@ Duration: 10 mins
 Duration: 2-3 weeks
 
 
-## Architecture diagram
+## Overview
 
+### Architecture diagram
 <img src="images/architecture/arch_1.jpg"/>
 
-## Prerequisites
+### Technologies used through this course**
+* *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
+  * *Google Cloud Storage (GCS)*: Data Lake
+  * *BigQuery*: Data Warehouse
+* *Terraform*: Infrastructure-as-Code (IaC)
+* *Docker*: Containerization
+* *SQL*: Data Analysis & Exploration
+* *Airflow*: Pipeline Orchestration
+* *DBT*: Data Transformation
+* *Spark*: Distributed Processing
+* *Kafka*: Streaming
+
+
+### Prerequisites
 
 To get most out of this course, you should feel comfortable with coding and command line,
 and know the basics of SQL. Prior experience with Python will be helpful, but you can pick 
