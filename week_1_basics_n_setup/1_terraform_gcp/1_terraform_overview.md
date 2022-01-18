@@ -3,17 +3,16 @@
 ### Concepts
 
 #### Introduction
-1. What if Terraform?
+
+1. What if [Terraform](https://www.terraform.io/downloads)?
    * open-source tool by [HashiCorp](https://www.hashicorp.com/), used for provisioning infrastructure resources
    * supports DevOps best practices for change management
    * Managing configuration files in source control to maintain an ideal provisioning state 
      for testing and production environments
-
 2. What is IaC?
    * Infrastructure-as-Code
    * build, change, and manage your infrastructure in a safe, consistent, and repeatable way 
      by defining resource configurations that you can version, reuse, and share.
-
 3. Some advantages
    * Infrastructure lifecycle management
    * Version control commits
@@ -22,6 +21,7 @@
 
 
 #### Files
+
 * `main.tf`
 * `variables.tf`
 * Optional: `resources.tf`, `output.tf`
@@ -48,3 +48,7 @@
 
 ### Terraform Workshop for GCP Infra
 Continue [here](../terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
+
+
+### References
+https://learn.hashicorp.com/collections/terraform/gcp-get-started
