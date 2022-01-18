@@ -62,5 +62,10 @@ What's the pickup-dropoff pair with the largest
 average price for a ride (calculated based on `total_amount`)?
 
 
+## Submitting the solutions
+
+Form for sumitting (TBA)
+
+Deadline: 24 January, 17:00 CET
 
 
