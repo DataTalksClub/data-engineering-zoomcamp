@@ -144,7 +144,27 @@ docker run -it \
     --url=${URL}
 ```
 
+### Docker-Compose 
 
-### SQL
+Run it:
 
-WIP
+```bash
+docker-compose up
+```
+
+Run in detached mode:
+
+```bash
+docker-compose up -d
+```
+
+Shutting it down:
+
+```bash
+docker-compose down
+```
+
+
+### SQL 
+
+Coming soon!
