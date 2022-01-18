@@ -10,6 +10,7 @@
 ### GCP setup
 
 1. [Setup for First-time](2_gcp_overview.md#initial-setup)
+    * [Only for Windows](windows.md)
 2. [IAM / Access specific to this course](2_gcp_overview.md#setup-for-access)
 
 ### Terraform Workshop for GCP Infra
