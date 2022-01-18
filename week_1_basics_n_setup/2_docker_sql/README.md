@@ -47,6 +47,13 @@ Installing pgcli
 pip install pgcli
 ```
 
+If you have problems installing pgcli with the command above, try this:
+
+```bash
+conda install -c conda-forge pgcli
+pip install -U mycli
+```
+
 Using pgcli to connect to postgres
 
 ```bash
