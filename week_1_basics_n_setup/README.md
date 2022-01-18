@@ -5,7 +5,7 @@
 * Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
 
-### Docker + Postgres
+### [Docker + Postgres](2_docker_sql)
 
 * Introduction to Docker
   * [Video](https://www.youtube.com/watch?v=EYNwNlOrpr0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
@@ -21,7 +21,7 @@
   * Video: WIP
 
 
-### GCP + Terraform
+### [GCP + Terraform](1_terraform_gcp)
 
 * Introduction to GCP (Google Cloud Platform)
   * [Video](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
@@ -32,5 +32,6 @@
   * Video: TBD (18.01)
   * [Workshop](1_terraform_gcp/terraform)
 
-### Homework
-* TBD
+### [Homework](homework.md)
+
+* More information [here](homework.md)
