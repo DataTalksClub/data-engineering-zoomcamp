@@ -1,3 +1,10 @@
+## Docker and SQL
+
+Notes I used for preparing the videos: [link](https://docs.google.com/document/d/e/2PACX-1vRJUuGfzgIdbkalPgg2nQ884CnZkCg314T_OBq-_hfcowPxNIA0-z5OtMTDzuzute9VBHMjNYZFTCc1/pub)
+
+
+## Commands 
+
 All the commands from the video
 
 Downloading the data
@@ -5,6 +12,8 @@ Downloading the data
 ```bash
 wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
 ```
+
+### Running Postgres with Docker
 
 Running postgres on windows (note the full path)
 
@@ -49,6 +58,7 @@ Dataset:
 * https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
 
+
 Running pgAdmin
 
 ```bash
@@ -59,7 +69,7 @@ docker run -it \
   dpage/pgadmin4
 ```
 
-## Network
+### Running Postgres and pgAdmin together
 
 Create a network
 
@@ -67,6 +77,9 @@ Create a network
 docker network create pg-network
 ```
 
+Run Postgres (change the path)
+
+```bash
 docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
@@ -76,8 +89,11 @@ docker run -it \
   --network=pg-network \
   --name pg-database \
   postgres:13
+```
 
+Run pgAdmin
 
+```bash
 docker run -it \
   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
   -e PGADMIN_DEFAULT_PASSWORD="root" \
@@ -85,8 +101,14 @@ docker run -it \
   --network=pg-network \
   --name pgadmin-2 \
   dpage/pgadmin4
+```
 
 
+### Data ingestion
+
+Running locally
+
+```bash
 URL="https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv"
 
 python ingest_data.py \
@@ -97,9 +119,17 @@ python ingest_data.py \
   --db=ny_taxi \
   --table_name=yellow_taxi_trips \
   --url=${URL}
+```
 
+Build the image
+
+```bash
 docker build -t taxi_ingest:v001 .
+```
 
+Run the script with Docker
+
+```bash
 URL="http://172.24.208.1:8000/yellow_tripdata_2021-01.csv"
 
 docker run -it \
@@ -112,3 +142,9 @@ docker run -it \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
     --url=${URL}
+```
+
+
+### SQL
+
+WIP
