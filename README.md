@@ -45,7 +45,7 @@ Duration: 2-2.5h
 
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
 
-Instructor: Sejal
+Instructor: Sejal & Alexey
 
 * Data Lake (GCS) -- 10 mins
   * Basics, What is a Data Lake
@@ -53,8 +53,8 @@ Instructor: Sejal
   * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
 * Orchestration (Airflow) -- 15 mins
   * Basics
-  * What is an Orchestration Pipeline
-  * ...
+    * What is an Orchestration Pipeline?
+    * What is a DAG?
 
 * Demo:
   * Setup: (15 mins)
@@ -115,7 +115,7 @@ Instructor: Victoria
 * Extra knowledge:
     * DBT cli (local)
 
-Duration: 1.5-2h    
+Duration: 2h    
 
 
 ### [Week 5: Batch processing](week_5_batch_processing)
@@ -149,26 +149,14 @@ Instructor: Ankush
     * Partitoning of Kafka topic
     * Replication of Kafka topic
 * Consumer-producer
+* Schemas (avro)
 * Streaming
     * Kafka streams
-    * spark streaming-Transformation
 * Kafka connect
-* KSQLDB?
-* streaming analytics ???
-* (pretend rides are coming in a stream)
 * Alternatives (PubSub/Pulsar)
 
-Duration: 1-1.5h
+Duration: 1.5h
 
-### Upcoming buzzwords
-
-* Delta Lake/Lakehouse
-    * Databricks
-    * Apache iceberg
-    * Apache hudi
-* Data mesh
-
-Duration: 10 mins
 
 
 ### [Week 7, 8 & 9: Project](project)
@@ -177,6 +165,17 @@ Duration: 10 mins
 
 Duration: 2-3 weeks
 
+* Upcoming buzzwords
+  *  Delta Lake/Lakehouse
+    * Databricks
+    * Apache iceberg
+    * Apache hudi
+  * Data mesh
+  * KSQLDB
+  * Streaming analytics
+  * Mlops
+  
+Duration: 30 mins
 
 ## Overview
 
