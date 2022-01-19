@@ -15,6 +15,8 @@ wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
 
 ### Running Postgres with Docker
 
+#### Windows
+
 Running postgres on windows (note the full path)
 
 ```bash
@@ -27,20 +29,7 @@ docker run -it \
   postgres:13
 ```
 
-Running postgres on Linux/MacOS
-
-
-```bash
-docker run -it \
-  -e POSTGRES_USER="root" \
-  -e POSTGRES_PASSWORD="root" \
-  -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  postgres:13
-```
-
-If on Windows you have the following error:
+If you have the following error:
 
 ```
 docker run -it \
@@ -55,11 +44,31 @@ docker: Error response from daemon: invalid mode: \Program Files\Git\var\lib\pos
 See 'docker run --help'.
 ```
 
-Try changing the mouning path. Replace it with the following:
+Change the mouning path. Replace it with the following:
 
 ```
 -p /e/zoomcamp/...:/var/lib/postgresql/data
 ```
+
+#### Linux and MacOS
+
+
+```bash
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:13
+```
+
+If you see that `ny_taxi_postgres_data` is empty after running
+the container, try these:
+
+* Deleting the folder and running Docker again (Docker will re-create the folder)
+* Adjust the permissions of the folder by running `sudo chmod  a+rwx ny_taxi_postgres_data`
+
 
 ### CLI for Postgres
 
