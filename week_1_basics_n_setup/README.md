@@ -29,7 +29,7 @@
   * [Video](https://www.youtube.com/watch?v=Hajwnmj0xfQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=6)
   * [Companion Notes](1_terraform_gcp)
 * Workshop: Creating GCP Infrastructure with Terraform
-  * [Audio](https://drive.google.com/file/d/1IqMRDwJV-m0v9_le_i2HA_UbM_sIWgWx/view?usp=sharing)
+  * [Audio](https://drive.google.com/file/d/1IqMRDwJV-m0v9_le_i2HA_UbM_sIWgWx/view?usp=sharing) (Video had technical issues and will be updated soon)
   * [Workshop](1_terraform_gcp/terraform)
 
 ### [Homework](homework.md)
