@@ -14,4 +14,5 @@
 2. [IAM / Access specific to this course](2_gcp_overview.md#setup-for-access)
 
 ### Terraform Workshop for GCP Infra
-Continue [here](terraform). (`week_1_basics_n_setup/1_terraform_gcp/terraform`)
+Your setup is ready!
+Now head to the [terraform](terraform) directory, and perform the execution steps.
