@@ -24,7 +24,7 @@ After that, run
 * `terraform plan`
 * `terraform apply` 
 
-Apply the plan and copy the output to the form
+Apply the plan and copy the output (after running `apply`) to the form
 
 ## Prepare Postgres 
 
@@ -34,6 +34,12 @@ We'll use the yellow taxi trips from January 2021:
 
 ```bash
 wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
+```
+
+You will also need the dataset with zones:
+
+```bash 
+wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
 ```
 
 Download this data and put it to Postgres
@@ -54,13 +60,18 @@ On which day it was the largest tip in January?
 What was the most popular destination for passengers picked up 
 in central park on January 14?
 
-Enter the district name (not id)
+Enter the zone name (not id)
 
 ## Question 6. 
 
 What's the pickup-dropoff pair with the largest 
 average price for a ride (calculated based on `total_amount`)?
 
+Enter two zone names separated by a slash
+
+For example:
+
+"Jamaica Bay / Clinton East"
 
 ## Submitting the solutions
 
