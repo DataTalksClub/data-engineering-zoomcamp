@@ -5,7 +5,9 @@
 * Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
 
-### [Docker + Postgres](2_docker_sql)
+### Docker + Postgres
+
+[Code](2_docker_sql)
 
 * [Introduction to Docker](https://www.youtube.com/watch?v=EYNwNlOrpr0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Why do we need Docker
@@ -28,7 +30,9 @@
 * SQL refreshser (WIP)
 
 
-### [GCP + Terraform](1_terraform_gcp)
+### GCP + Terraform
+
+[Code](1_terraform_gcp)
 
 * Introduction to GCP (Google Cloud Platform)
   * [Video](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
@@ -43,7 +47,19 @@
 ### Environment setup 
 
 * [Setting up the environment on cloud VM](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
+  * Generating SSH keys
+  * Creating a virtual machine on GCP
+  * Connecting to the VM with SSH
+  * Installing Anaconda
+  * Installing Docker
+  * Creating SSH `config` file
+  * Accessing the remote machine with VS Code and SSH remote
+  * Installing docker-compose
+  * Installing pgcli
+  * Port-forwarding with VS code: connecting to pgAdmin and Jupyter from the local computer
+  * Installing terraform
+  * Using `sftp` for putting the credentials to the remote machine
+  * Shutting down and removing the instance
 
 ### [Homework](homework.md)
 
