@@ -42,4 +42,5 @@
 Did you take notes? You can share them here
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md)
+* [Notes from Abd](https://www.notion.so/itnadigital/Week-1-Introduction-f18de7e69eb4453594175d0b1334b2f4)
 * Add your notes here
