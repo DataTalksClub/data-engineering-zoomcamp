@@ -44,3 +44,5 @@ For this course, we'll use a free version (upto EUR 300 credits).
    export GOOGLE_APPLICATION_CREDENTIALS="<path/to/your/service-account-authkeys>.json"
    ```
  
+### Terraform Workshop to create GCP Infra
+Continue [here](../terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
