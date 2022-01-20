@@ -60,7 +60,7 @@ On which day it was the largest tip in January?
 What was the most popular destination for passengers picked up 
 in central park on January 14?
 
-Enter the zone name (not id)
+Enter the zone name (not id). If the zone name is unknown (missing), write "Unknown" 
 
 ## Question 6. 
 
@@ -72,6 +72,9 @@ Enter two zone names separated by a slash
 For example:
 
 "Jamaica Bay / Clinton East"
+
+If any of the zone names are unknown (missing), write "Unknown". For example, "Unknown / Clinton East". 
+
 
 ## Submitting the solutions
 
