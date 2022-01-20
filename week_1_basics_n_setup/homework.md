@@ -78,8 +78,8 @@ If any of the zone names are unknown (missing), write "Unknown". For example, "U
 
 ## Submitting the solutions
 
-Form for sumitting (TBA)
+* Form for submitting: https://forms.gle/yGQrkgRdVbiFs8Vd7
+* You can submit your homework multiple times. In this case, only the last submission will be used. 
 
 Deadline: 24 January, 17:00 CET
-
 
