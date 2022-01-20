@@ -35,3 +35,10 @@
 ### [Homework](homework.md)
 
 * More information [here](homework.md)
+
+## Community notes
+
+Did you take notes? You can share them here (or in each unit separately)
+
+* [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md)
+* Add your notes here
