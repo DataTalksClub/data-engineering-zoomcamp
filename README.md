@@ -209,3 +209,13 @@ Prior experience with data engineering is not required.
 * **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
   **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace. 
 * **Q**: Do you plan to run a ML engineering course as well? **A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
+
+
+## Our friends 
+
+Big thanks to other communities for helping us spread the word about the course: 
+
+* [DPhi](https://dphi.tech/)
+* [MLOps.community](https://mlops.community/)
+
+Check them out - they are cool!
