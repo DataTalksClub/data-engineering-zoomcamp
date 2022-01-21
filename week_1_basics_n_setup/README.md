@@ -27,7 +27,12 @@
   * Why do we need Docker-compose
   * Docker-compose YAML file
   * Running multuple containers with `docker-compose up`
-* SQL refreshser (WIP)
+* [SQL refreshser](https://www.youtube.com/watch?v=QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+  * Adding the Zones table
+  * Inner joins
+  * Basic data quality checks
+  * Left, Right and Outer joins
+  * Group by
 
 
 ### GCP + Terraform
