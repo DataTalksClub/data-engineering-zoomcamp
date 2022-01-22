@@ -2,29 +2,40 @@ services:
   pgdatabase:
     image: postgres:13
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=ny_taxi
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPW}
+      - POSTGRES_DB=${PGDB}
     volumes:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
-      - "5432:5432"
+      - "${PGPort}:5432"
   
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_DEFAULT_EMAIL=${PGADMINUSER}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMINPW}
     ports:
-      - "8080:80"
+      - "${PGADMINPort}:80"
     
-  ingest-data:
-    image: taxi_ingest:0.1
+  ingest-data-zones:
+    build: .
     command:
-      - --user=root 
-      - --password=root 
-      - --host=pgdatabase 
-      - --port=5432 
-      - --db=ny_taxi 
+      - --user=${PGUSER}
+      - --password=${PGPW} 
+      - --host=${DB}  
+      - --port=${PGPort}
+      - --db=${PGDB} 
       - --table_name=zones 
       - --url=https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
+
+  ingest-data:
+    build: .
+    command:
+      - --user=${PGUSER}
+      - --password=${PGPW}
+      - --host=${DB} 
+      - --port=${PGPort} 
+      - --db=${PGDB} 
+      - --table_name=yellow_tripdata 
+      - --url=https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv

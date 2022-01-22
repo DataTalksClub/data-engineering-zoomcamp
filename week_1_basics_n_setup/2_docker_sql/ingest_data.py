@@ -27,9 +27,11 @@ def main(params):
     df_iter = pd.read_csv(csv_name, iterator=True, chunksize=100000)
 
     df = next(df_iter)
-
-    #df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-    #df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+    
+    date_time_cols = ["tpep_pickup_datetime", "tpep_dropoff_datetime"]
+    for date_time_col in date_time_cols:
+        if date_time_col in df.columns:
+            df[date_time_col] = pd.to_datetime(df[date_time_col]) 
 
     df.head(n=0).to_sql(name=table_name, con=engine, if_exists='replace')
 
@@ -41,8 +43,9 @@ def main(params):
 
         df = next(df_iter)
 
-        #df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-        #df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+        for date_time_col in date_time_cols:
+                if date_time_col in df.columns:
+                    df[date_time_col] = pd.to_datetime(df[date_time_col]) 
 
         df.to_sql(name=table_name, con=engine, if_exists='append')
 
