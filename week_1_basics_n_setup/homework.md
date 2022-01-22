@@ -56,11 +56,13 @@ SELECT COUNT(1) FROM yellow_tripdata WHERE EXTRACT(MONTH from tpep_pickup_dateti
 Find the largest tip for each day. 
 On which day it was the largest tip in January?
 
-**answer** 2021-01-10 1140.44 
+**answer** 2021-01-20 1140.44 
 
-SELECT DATE(tpep_pickup_datetime), max(tip_amount) from yellow_tripdata group by 1 order by 1 asc
-
-SELECT DATE(tpep_pickup_datetime), tip_amount from yellow_tripdata where tip_amount= (SELECT max(tip_amount) from yellow_tripdata)
+SELECT DATE(tpep_pickup_datetime) as date, max(tip_amount) as max_tip 
+FROM yellow_tripdata 
+GROUP BY date 
+ORDER BY max_tip desc 
+LIMIT 1
 
 (note: it's not a typo, it's "tip", not "trip")
 
