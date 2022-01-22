@@ -9,6 +9,7 @@ services:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
       - "5432:5432"
+  
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -17,3 +18,13 @@ services:
     ports:
       - "8080:80"
     
+  ingest-data:
+    image: taxi_ingest:0.1
+    command:
+      - --user=root 
+      - --password=root 
+      - --host=pgdatabase 
+      - --port=5432 
+      - --db=ny_taxi 
+      - --table_name=zones 
+      - --url=https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
