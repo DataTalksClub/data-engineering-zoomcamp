@@ -32,7 +32,7 @@ if you have troubles setting up the environment and following along the videos.
 * [Running Postgres and pgAdmin with Docker-Compose](https://www.youtube.com/watch?v=hKI6PkPhpa0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Why do we need Docker-compose
   * Docker-compose YAML file
-  * Running multuple containers with `docker-compose up`
+  * Running multiple containers with `docker-compose up`
 * [SQL refreshser](https://www.youtube.com/watch?v=QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Adding the Zones table
   * Inner joins
