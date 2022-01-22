@@ -49,7 +49,6 @@ Download this data and put it to Postgres
 How many taxi trips were there on January 15?
 
 **Answer:** 53024
-SELECT COUNT(1) FROM yellow_tripdata WHERE EXTRACT(MONTH from tpep_pickup_datetime) = 1 AND EXTRACT(DAY from tpep_pickup_datetime) = 15
 
 ## Question 4. Average
 
@@ -57,12 +56,6 @@ Find the largest tip for each day.
 On which day it was the largest tip in January?
 
 **answer** 2021-01-20 1140.44 
-
-SELECT DATE(tpep_pickup_datetime) as date, max(tip_amount) as max_tip 
-FROM yellow_tripdata 
-GROUP BY date 
-ORDER BY max_tip desc 
-LIMIT 1
 
 (note: it's not a typo, it's "tip", not "trip")
 
@@ -73,15 +66,7 @@ in central park on January 14?
 
 Enter the zone name (not id). If the zone name is unknown (missing), write "Unknown" 
 
-SELECT * FROM
-(SELECT "DOLocationID", COUNT(*)
-FROM yellow_tripdata
-LEFT JOIN zones ON "PULocationID" = "LocationID"
-WHERE EXTRACT(DAY FROM tpep_pickup_datetime) = 14 AND EXTRACT(MONTH FROM tpep_pickup_datetime) = 1 AND "Zone" = 'Central Park'
-GROUP BY "DOLocationID"
-ORDER BY 1 desc
-Limit 1) as a
-left join zones on a."DOLocationID" = zones."LocationID"
+**answer** Upper East Side South
 
 ## Question 6. 
 
@@ -96,18 +81,8 @@ For example:
 
 If any of the zone names are unknown (missing), write "Unknown". For example, "Unknown / Clinton East". 
 
-SELECT pickup_zone, "Zone" as dropoff_zone, avg_price
-FROM (SELECT "Zone" as pickup_zone, avg_price, "DOLocationID"
-	from (
-		SELECT "PULocationID", "DOLocationID", AVG(total_amount) as avg_price
-		from yellow_tripdata
-		group by "PULocationID", "DOLocationID"
-		order by 3 desc
-		limit 1) as a
-	left join zones on a."PULocationID" = "LocationID") as b
-left join zones on b."DOLocationID" = "LocationID"
 
-Alphabet City/Unknown
+**answer** Alphabet City/Unknown
 
 
 ## Submitting the solutions
