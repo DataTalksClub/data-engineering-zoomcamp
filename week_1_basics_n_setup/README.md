@@ -59,7 +59,14 @@ if you have troubles setting up the environment and following along the videos.
 
 ### Environment setup 
 
-This is an optional part - check it if you have any problems setting up the environment
+For the course you'll need:
+
+* Python 3 (e.g. installed with Anaconda)
+* Google Cloud SDK
+* Docker with docker-compose
+* Terraform
+
+If you have problems setting up the env, you can check this video:
 
 * [Setting up the environment on cloud VM](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Generating SSH keys
