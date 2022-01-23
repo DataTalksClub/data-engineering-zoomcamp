@@ -24,7 +24,9 @@ After that, run
 * `terraform plan`
 * `terraform apply` 
 
-Apply the plan and copy the output (after running `apply`) to the form
+Apply the plan and copy the output (after running `apply`) to the form.
+
+It should be the entire output - from the moment you typed `terraform init` to the very end.
 
 ## Prepare Postgres 
 
