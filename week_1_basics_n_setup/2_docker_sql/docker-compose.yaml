@@ -29,7 +29,7 @@ services:
       - --table_name=zones 
       - --url=https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
 
-  ingest-data:
+  ingest-data-trips:
     build: .
     command:
       - --user=${PGUSER}
