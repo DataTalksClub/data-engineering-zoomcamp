@@ -59,7 +59,14 @@ if you have troubles setting up the environment and following along the videos.
 
 ### Environment setup 
 
-This is an optional part - check it if you have any problems setting up the environment
+For the course you'll need:
+
+* Python 3 (e.g. installed with Anaconda)
+* Google Cloud SDK
+* Docker with docker-compose
+* Terraform
+
+If you have problems setting up the env, you can check this video:
 
 * [Setting up the environment on cloud VM](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Generating SSH keys
@@ -87,4 +94,6 @@ Did you take notes? You can share them here
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md)
 * [Notes from Abd](https://itnadigital.notion.site/Week-1-Introduction-f18de7e69eb4453594175d0b1334b2f4)
+* [Notes from Aaron](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_1_basics_n_setup/README.md)
+* [Notes from Faisal](https://github.com/FaisalMohd/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/Notes/DE%20Zoomcamp%20Week-1.pdf)
 * Add your notes here
