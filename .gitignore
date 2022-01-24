@@ -9,3 +9,4 @@
 **logs/
 **.env
 **__pycache__/
+.history
