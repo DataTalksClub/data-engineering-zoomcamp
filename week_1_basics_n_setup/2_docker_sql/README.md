@@ -202,6 +202,17 @@ Shutting it down:
 docker-compose down
 ```
 
+Note: to make pgAdmin configuration persistent, mount a volume to the `/var/lib/pgadmin` folder:
+
+```yaml
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - ./data_pgadmin:/var/lib/pgadmin
+    ...
+```
+
 
 ### SQL 
 

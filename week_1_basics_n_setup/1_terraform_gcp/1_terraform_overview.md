@@ -57,7 +57,7 @@
 
 
 ### Terraform Workshop to create GCP Infra
-Continue [here](../terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
+Continue [here](./terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
 
 
 ### References
