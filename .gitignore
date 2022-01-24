@@ -9,3 +9,9 @@
 **logs/
 **.env
 **__pycache__/
+
+# config files
+config/
+# my working files
+week_1_basics_n_setup/video0101/
+week_1_basics_n_setup/video0102/
