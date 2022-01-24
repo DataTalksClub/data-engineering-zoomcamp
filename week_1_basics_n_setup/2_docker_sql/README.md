@@ -27,7 +27,6 @@ docker run -it \
   postgres:13
 ```
 
-
 Running postgres on Linux/MacOS
 
 
@@ -41,10 +40,40 @@ docker run -it \
   postgres:13
 ```
 
+If on Windows you have the following error:
+
+```
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v e:/zoomcamp/data_engineer/week_1_fundamentals/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data  \
+  -p 5432:5432 \
+  postgres:13
+
+docker: Error response from daemon: invalid mode: \Program Files\Git\var\lib\postgresql\data.
+See 'docker run --help'.
+```
+
+Try changing the mouning path. Replace it with the following:
+
+```
+-p /e/zoomcamp/...:/var/lib/postgresql/data
+```
+
+### CLI for Postgres
+
 Installing pgcli
 
 ```bash
 pip install pgcli
+```
+
+If you have problems installing pgcli with the command above, try this:
+
+```bash
+conda install -c conda-forge pgcli
+pip install -U mycli
 ```
 
 Using pgcli to connect to postgres

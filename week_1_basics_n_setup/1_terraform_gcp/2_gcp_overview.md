@@ -28,8 +28,9 @@ For this course, we'll use a free version (upto EUR 300 credits).
 ### Setup for Access
  
 1. [IAM Roles](https://cloud.google.com/storage/docs/access-control/iam-roles) for Service account:
-   
-   Viewer + Storage Admin + Storage Object Admin + BigQuery Admin
+   * Go to the *IAM* section of *IAM & Admin* https://console.cloud.google.com/iam-admin/iam
+   * Click the *Edit principal* icon for your service account.
+   * Add these roles in addition to *Viewer* : **Storage Admin** + **Storage Object Admin** + **BigQuery Admin**
    
 2. Enable these APIs for your project:
    * https://console.cloud.google.com/apis/library/iam.googleapis.com
