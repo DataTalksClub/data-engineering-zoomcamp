@@ -4,7 +4,8 @@
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-- Subscribe to our public [Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+- Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+- The videos will be published to [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) 
 
 
 ## Syllabus
@@ -13,37 +14,23 @@
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
-* Big Picture
-   * Introduction to all instructors
-   * What to expect in this course
-   * Architecture / Data Flow
-   * What do we want to build (DE Concepts using Taxi Rides, and end results)
-* GCP
-   * Intro to GCP - Concepts: IAM, Cloud Storage, BigQuery (relevant components)
-   * What GCP is, why we need it
-* Docker
-   * What docker is, why we need it
-   * Running postgres locally with docker
-   * Putting some data for testing to local postres with Python
-   * Packaging this script in docker
-   * Running postgres and the script in one network
-   * Docker compose and running pgadmin and postres together with docker-compose
-* Data and SQL
-   * [Dataset: Taxi Rides NY dataset](dataset.md)
-   * Experimentation: Taking a first look at the data 
-   * Relevant SQL Queries (Refresher): group by, joins, window function, union
-* Terraform (Sejal)
-   * [ ] Intro to Terraform - Concepts
-   * [x] Setting up GCP with TF: Storage, BigQuery
+* Course overview
+* Introduction to GCP
+* Docker and docker-compose 
+* Running Postgres locally with Docker
+* Setting up infrastructure on GCP with Terraform
+* Preparing the environment for the course
+* Homework
 
-Duration: 1-1.5h
+[Details](week_1_basics_n_setup)
 
+Duration: 2-2.5h
 
 ### [Week 2: Data ingestion](week_2_data_ingestion)
 
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
 
-Instructor: Sejal
+Instructor: Sejal & Alexey
 
 * Data Lake (GCS) -- 10 mins
   * Basics, What is a Data Lake
@@ -51,8 +38,8 @@ Instructor: Sejal
   * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
 * Orchestration (Airflow) -- 15 mins
   * Basics
-  * What is an Orchestration Pipeline
-  * ...
+    * What is an Orchestration Pipeline?
+    * What is a DAG?
 
 * Demo:
   * Setup: (15 mins)
@@ -68,7 +55,7 @@ Instructor: Sejal
 Duration: 1.5h
 
 
-### [Week 3: Data Warehouse]()
+### [Week 3: Data Warehouse](week_3_data_warehouse)
 
 Goal: Structuring data into a Data Warehouse
 
@@ -87,7 +74,7 @@ Instructor: Ankush
 Duration: 1-1.5h
 
 
-### [Week 4: Analytics engineering](week_5_analytics_engineering)
+### [Week 4: Analytics engineering](week_4_analytics_engineering/taxi_rides_ny/)
 
 Goal: Transforming Data in DWH to Analytical Views
 
@@ -113,10 +100,10 @@ Instructor: Victoria
 * Extra knowledge:
     * DBT cli (local)
 
-Duration: 1.5-2h    
+Duration: 2h    
 
 
-### [Week 5: Batch processing](week_3_4_batch_processing)
+### [Week 5: Batch processing](week_5_batch_processing)
 
 Goal: 
 
@@ -147,26 +134,14 @@ Instructor: Ankush
     * Partitoning of Kafka topic
     * Replication of Kafka topic
 * Consumer-producer
+* Schemas (avro)
 * Streaming
     * Kafka streams
-    * spark streaming-Transformation
 * Kafka connect
-* KSQLDB?
-* streaming analytics ???
-* (pretend rides are coming in a stream)
 * Alternatives (PubSub/Pulsar)
 
-Duration: 1-1.5h
+Duration: 1.5h
 
-### Upcoming buzzwords
-
-* Delta Lake/Lakehouse
-    * Databricks
-    * Apache iceberg
-    * Apache hudi
-* Data mesh
-
-Duration: 10 mins
 
 
 ### [Week 7, 8 & 9: Project](project)
@@ -175,12 +150,37 @@ Duration: 10 mins
 
 Duration: 2-3 weeks
 
+* Upcoming buzzwords
+  *  Delta Lake/Lakehouse
+    * Databricks
+    * Apache iceberg
+    * Apache hudi
+  * Data mesh
+  * KSQLDB
+  * Streaming analytics
+  * Mlops
+  
+Duration: 30 mins
 
-## Architecture diagram
+## Overview
 
+### Architecture diagram
 <img src="images/architecture/arch_1.jpg"/>
 
-## Prerequisites
+### Technologies
+* *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
+  * *Google Cloud Storage (GCS)*: Data Lake
+  * *BigQuery*: Data Warehouse
+* *Terraform*: Infrastructure-as-Code (IaC)
+* *Docker*: Containerization
+* *SQL*: Data Analysis & Exploration
+* *Airflow*: Pipeline Orchestration
+* *DBT*: Data Transformation
+* *Spark*: Distributed Processing
+* *Kafka*: Streaming
+
+
+### Prerequisites
 
 To get most out of this course, you should feel comfortable with coding and command line,
 and know the basics of SQL. Prior experience with Python will be helpful, but you can pick 
@@ -209,3 +209,13 @@ Prior experience with data engineering is not required.
 * **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
   **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace. 
 * **Q**: Do you plan to run a ML engineering course as well? **A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
+
+
+## Our friends 
+
+Big thanks to other communities for helping us spread the word about the course: 
+
+* [DPhi](https://dphi.tech/)
+* [MLOps.community](https://mlops.community/)
+
+Check them out - they are cool!
