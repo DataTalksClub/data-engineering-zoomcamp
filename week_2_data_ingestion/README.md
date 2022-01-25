@@ -15,6 +15,7 @@
     
 ### Workshop:
   * Setting up Docker with Airflow: -- 15 mins
+    * [Video](https://www.youtube.com/watch?v=lqDMzReAtrw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17) 
   * Data ingestion DAG: -- 30 mins 
     * Extraction: Download and unpack the data
     * Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
@@ -23,6 +24,8 @@
            * Raw data in parquet format, to GCS
            * Exploration: BigQuery's External Table, to take a look at the data
         * Local, with Postgres
+           * (TBD)
+    * [Video - Ready / To be uploaded]()
     
        
 ### Further Enhancements
