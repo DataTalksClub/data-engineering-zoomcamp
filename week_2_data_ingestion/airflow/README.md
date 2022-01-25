@@ -27,6 +27,10 @@ docker-compose up
 
 5. Run your DAG on the Web Console.
 
+6. On finishing your run or to shut down the container/s:
+```shell
+docker-compose down
+```
 
 For more info, check out these official docs:
    * https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html
