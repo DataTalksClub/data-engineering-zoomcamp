@@ -5,7 +5,7 @@
 * Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
 
-We suggest to watch the videos in the same order as in this document.
+We suggest watching videos in the same order as in this document.
 
 The last video (setting up the environment) is optional, but you can check it earlier 
 if you have troubles setting up the environment and following along the videos.
