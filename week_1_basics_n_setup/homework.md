@@ -92,5 +92,5 @@ If any of the zone names are unknown (missing), write "Unknown". For example, "U
 * Form for submitting: https://forms.gle/yGQrkgRdVbiFs8Vd7
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 24 January, 17:00 CET
+Deadline: 26 January (Wednesday), 22:00 CET
 
