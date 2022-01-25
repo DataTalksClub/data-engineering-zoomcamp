@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 import logging
 
 from airflow import DAG
@@ -12,8 +11,8 @@ from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExte
 import pyarrow.csv as pv
 import pyarrow.parquet as pq
 
-PROJECT_ID = os.environ.get("GCP_PROJECT_ID", "pivotal-surfer-336713")
-BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc_data_lake_pivotal-surfer-336713")
+PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
+BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
 dataset_file = "yellow_tripdata_2021-01.csv"
 dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
@@ -61,6 +60,7 @@ default_args = {
     "retries": 1,
 }
 
+# NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
     dag_id="data_ingestion_gcs_dag",
     schedule_interval="@daily",
@@ -83,7 +83,7 @@ with DAG(
         },
     )
 
-    # TODO: Homework: research and try XCOM to communicate output values between 2 tasks/operators
+    # TODO: Homework - research and try XCOM to communicate output values between 2 tasks/operators
     local_to_gcs_task = PythonOperator(
         task_id="local_to_gcs_task",
         python_callable=upload_to_gcs,
