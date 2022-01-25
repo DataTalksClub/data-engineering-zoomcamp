@@ -30,27 +30,19 @@ Duration: 2-2.5h
 
 Goal: Orchestrating a job to ingest web data to a Data Lake in its raw form.
 
-Instructor: Sejal & Alexey
+Instructors: Sejal, Alexey, Ankush
 
-* Data Lake (GCS) -- 10 mins
-  * Basics, What is a Data Lake
-  * ELT vs. ETL
-  * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
-* Orchestration (Airflow) -- 15 mins
-  * Basics
-    * What is an Orchestration Pipeline?
-    * What is a DAG?
+* Introduction to Data Lake (GCS) -- 10 mins
+  
+* Introduction to Orchestration (Airflow) -- 15 mins
+  
+* Workshop:
+  * Setting up Docker with Airflow: -- 15 mins
+  * Data ingestion DAG: -- 30 mins 
+    * Cloud-based, i.e. with GCP (GCS + BigQuery)
+    * Local, with Postgres
 
-* Demo:
-  * Setup: (15 mins)
-    * [ ] Docker pre-reqs (refresher)
-    * [x] Airflow env with Docker
-  * Data ingestion DAG - Demo (30 mins): 
-    * [x] Extraction: Download and unpack the data
-    * [ ] Pre-processing: Convert this raw data to parquet, partition (raw/yy/mm/dd)
-    * [x] Load: Raw data to GCS
-    * [x] Exploration: External Table for BigQuery -- Taking a look at the data
-    * [ ] Further Enhancements: Transfer Service (AWS -> GCP)
+* Further Enhancements: Transfer Service (AWS -> GCP)
    
 Duration: 1.5h
 
