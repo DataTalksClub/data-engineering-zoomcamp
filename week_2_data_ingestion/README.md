@@ -4,14 +4,14 @@
   * What is a Data Lake
   * ELT vs. ETL
   * Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
-  * [Video]()
+  * [Video](https://www.youtube.com/watch?v=W3Zm6rjOq70&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=14)
   * [Slides](https://docs.google.com/presentation/d/1RkH-YhBz2apIjYZAxUz2Uks4Pt51-fVWVN9CcH9ckyY/edit?usp=sharing)
 
 
 ### Orchestration (Airflow)
   * What is an Orchestration Pipeline?
   * What is a DAG?
-  * [Video]()
+  * [Video](https://www.youtube.com/watch?v=0yK7LXwYeD0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=15)
     
 ### Workshop:
   * Setting up Docker with Airflow: -- 15 mins
@@ -26,4 +26,6 @@
     
        
 ### Further Enhancements
-    * Transfer Service (AWS -> GCP)
+  * Transfer Service (AWS -> GCP)
+    * [Video 1](https://www.youtube.com/watch?v=rFOFTfD1uGk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=16)
+    * [Video 2](https://www.youtube.com/watch?v=VhmmbqpIzeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17)   
