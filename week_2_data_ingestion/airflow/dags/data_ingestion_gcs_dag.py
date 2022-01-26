@@ -73,7 +73,7 @@ with DAG(
         bash_command=f"curl -sS {dataset_url} > {path_to_local_home}/{dataset_file}"
     )
 
-    format_to_parquet = PythonOperator(
+    format_to_parquet_task = PythonOperator(
         task_id="format_to_parquet_task",
         python_callable=format_to_parquet,
         op_kwargs={
@@ -107,4 +107,4 @@ with DAG(
         },
     )
 
-    download_dataset_task >> format_to_parquet >> local_to_gcs_task >> bigquery_external_table_task
+    download_dataset_task >> format_to_parquet_task >> local_to_gcs_task >> bigquery_external_table_task
