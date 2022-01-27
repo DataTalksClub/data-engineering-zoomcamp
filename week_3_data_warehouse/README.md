@@ -3,21 +3,21 @@
 [SQL](big_query.sql)
 
 ### Data Warehouse
-[Video]()
+[Video](https://youtu.be/jrHljAoD6nM)
 
 ### Partitoning and clustering
-[Video](Partioning and clustering)
-[Video](Partioning vs clustering)
+[Video](https://youtu.be/jrHljAoD6nM)
+[Video](https://youtu.be/-CqXf7vhhDs)
 
 ### Best practices
-[Video]()
+[Video](https://youtu.be/k81mLJVX08w)
 
 ### Internals of BigQuery
-[Video]()
+[Video](https://youtu.be/eduHi1inM4s)
 
 ### Advance
 #### ML
-[Video]()
+[Video](https://youtu.be/B-WtpB0PuG4)
 [SQL](big_query_ml.sql)
 - [BigQuery ML Tutorials](https://cloud.google.com/bigquery-ml/docs/tutorials)
 - [BigQuery ML Reference Parameter](https://cloud.google.com/bigquery-ml/docs/analytics-reference-patterns)
@@ -25,7 +25,7 @@
 - [Feature preprocessing](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-preprocess-overview)
 
 ##### Deploying ML model
-[Video]()
+[Video](https://youtu.be/BjARzEWaznU)
 [Extract and deploy in docker](extract_model.md)
 
 
