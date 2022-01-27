@@ -24,7 +24,9 @@ After that, run
 * `terraform plan`
 * `terraform apply` 
 
-Apply the plan and copy the output (after running `apply`) to the form
+Apply the plan and copy the output (after running `apply`) to the form.
+
+It should be the entire output - from the moment you typed `terraform init` to the very end.
 
 ## Prepare Postgres 
 
@@ -48,21 +50,30 @@ Download this data and put it to Postgres
 
 How many taxi trips were there on January 15?
 
-## Question 4. Average
+Consider only trips that started on January 15.
+
+
+## Question 4. Largest tip for each day
 
 Find the largest tip for each day. 
 On which day it was the largest tip in January?
 
+Use the pick up time for your calculations.
+
 (note: it's not a typo, it's "tip", not "trip")
+
 
 ## Question 5. Most popular destination
 
 What was the most popular destination for passengers picked up 
 in central park on January 14?
 
-Enter the zone name (not id)
+Use the pick up time for your calculations.
 
-## Question 6. 
+Enter the zone name (not id). If the zone name is unknown (missing), write "Unknown" 
+
+
+## Question 6. Most expensive locations
 
 What's the pickup-dropoff pair with the largest 
 average price for a ride (calculated based on `total_amount`)?
@@ -73,10 +84,13 @@ For example:
 
 "Jamaica Bay / Clinton East"
 
+If any of the zone names are unknown (missing), write "Unknown". For example, "Unknown / Clinton East". 
+
+
 ## Submitting the solutions
 
-Form for sumitting (TBA)
+* Form for submitting: https://forms.gle/yGQrkgRdVbiFs8Vd7
+* You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 24 January, 17:00 CET
-
+Deadline: 26 January (Wednesday), 22:00 CET
 
