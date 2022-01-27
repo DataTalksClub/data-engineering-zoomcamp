@@ -6,7 +6,7 @@
 [Data Warehouse and BigQuery](https://youtu.be/jrHljAoD6nM)
 
 ### Partitoning and clustering
-[Partioning and Clustering](https://youtu.be/jrHljAoD6nM)  
+[Partioning and Clustering](https://youtu.be/jrHljAoD6nM?t=726)  
 [Partioning vs Clustering](https://youtu.be/-CqXf7vhhDs)  
 
 ### Best practices
