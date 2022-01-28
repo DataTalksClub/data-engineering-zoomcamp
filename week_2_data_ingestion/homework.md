@@ -15,6 +15,10 @@ In this homework, we will:
 * Create another dag for the Zones data
 
 
+If you don't have access to GCP, you can do that locally and ingest data to postgres 
+instead.
+
+
 ## Question 1: Start date for the Yellow taxi data
 
 You'll need to parametrize the DAG we created in the videos. 
@@ -76,4 +80,3 @@ How often does it need to run?
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
 Deadline: TBA
-
