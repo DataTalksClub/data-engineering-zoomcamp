@@ -15,7 +15,7 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
 * Instead of screenshots, it's better to copy-paste the error you're getting in text.
   Use ` ``` ` for formatting your code.
   It's very difficult to read text from screenshots
-* You don't need to the instructors us when you have a problem. We will see it eventually.
+* You don't need to tag the instructors when you have a problem. We will see it eventually.
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
 
