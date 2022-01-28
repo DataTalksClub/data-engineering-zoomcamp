@@ -28,14 +28,16 @@
 * Extraction: Download and unpack the data
 * Pre-processing: Convert this raw data to parquet
 * Upload the parquet files to GCS
-* Create external table in BigQuery
+* Create an external table in BigQuery
 * [Video](https://www.youtube.com/watch?v=9ksX9REfL8w&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=19)
 
 ### Ingesting data to Local Postgres with Airflow
 
 * Converting the ingestion script for loading data to Postgres to Airflow DAG
-       
-### Transfer Service
+* [Video](https://www.youtube.com/watch?v=s2U8MWJH5xA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+
+
+### Transfer service (AWS -> GCP)
 
 Moving files from AWS to GCP.
 
