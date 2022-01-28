@@ -32,3 +32,10 @@
   * Transfer Service (AWS -> GCP)
     * [Video 1](https://www.youtube.com/watch?v=rFOFTfD1uGk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=16)
     * [Video 2](https://www.youtube.com/watch?v=VhmmbqpIzeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17)   
+
+## Community notes
+
+Did you take notes? You can share them here.
+
+* [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
+* Add your notes here
