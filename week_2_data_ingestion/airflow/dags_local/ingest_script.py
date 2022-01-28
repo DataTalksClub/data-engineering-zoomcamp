@@ -32,7 +32,11 @@ def ingest_callable(user, password, host, port, db, table_name, csv_file, execut
     while True: 
         t_start = time()
 
-        df = next(df_iter)
+        try:
+            df = next(df_iter)
+        except StopIteration:
+            print("completed")
+            break
 
         df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
         df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
