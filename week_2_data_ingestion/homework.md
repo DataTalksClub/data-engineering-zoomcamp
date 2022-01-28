@@ -40,6 +40,16 @@ How often do we need to run it?
 * Yearly
 * Once
 
+## Re-running the DAGs for past dates
+
+If you have problems executing your DAG for past dates, try this:
+
+* First, delete your DAG from the web interface (the bin icon)
+* Set the `catchup` parameter to `True`
+* Rename the DAG to something like `data_ingestion_gcs_dag_new` 
+* Execute it from the Airflow GUI (the play button)
+months nomms 
+
 
 ## Question 3: DAG for FHV Data
 
@@ -51,10 +61,11 @@ We will need three steps:
 * Parquetize it 
 * Upload to GSC
 
+(Or Download -> Ingest for local ingestion)
 
 Use the same frequency and the start date as for the green taxi dataset
 
-Question: TBA
+Question: how a
 
 
 ## Question 4: DAG for Zones
@@ -65,6 +76,8 @@ Create the final DAG - for Zones:
 * Download it
 * Parquetize 
 * Upload to GCS
+
+(Download -> Ingest for local ingestion)
 
 How often does it need to run?
 
