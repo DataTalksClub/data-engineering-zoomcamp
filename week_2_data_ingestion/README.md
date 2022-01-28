@@ -25,7 +25,7 @@
            * Exploration: BigQuery's External Table, to take a look at the data
         * Local, with Postgres
            * (TBD)
-    * [Video - Ready / To be uploaded]()
+    * [Video](https://www.youtube.com/watch?v=9ksX9REfL8w&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=19)
     
        
 ### Further Enhancements
