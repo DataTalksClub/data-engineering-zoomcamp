@@ -19,7 +19,7 @@ If you don't have access to GCP, you can do that locally and ingest data to post
 instead.
 
 
-## Question 1: Start date for the Yellow taxi data
+## Question 1: Start date for the Yellow taxi data (1 point)
 
 You'll need to parametrize the DAG we created in the videos. 
 
@@ -31,7 +31,7 @@ What should be the start date for this dag?
 * days_ago(1)
 
 
-## Question 2: Frequency
+## Question 2: Frequency (1 point)
 
 How often do we need to run it?
 
@@ -39,6 +39,7 @@ How often do we need to run it?
 * Monthly
 * Yearly
 * Once
+
 
 ## Re-running the DAGs for past dates
 
@@ -48,10 +49,16 @@ If you have problems executing your DAG for past dates, try this:
 * Set the `catchup` parameter to `True`
 * Rename the DAG to something like `data_ingestion_gcs_dag_new` 
 * Execute it from the Airflow GUI (the play button)
-months nomms 
+
+Also, there's no data for the recent months, but `curl` will exist successfully.
+To make it fail on 404, add the `-f` flag:
+
+```bash
+curl -sSLf { URL } > { LOCAL_PATH }
+```
 
 
-## Question 3: DAG for FHV Data
+## Question 3: DAG for FHV Data (2 points)
 
 Now create another DAG - for uploading the FHV data. 
 
@@ -65,10 +72,10 @@ We will need three steps:
 
 Use the same frequency and the start date as for the green taxi dataset
 
-Question: how a
+Question: how many DAG runs are green after finishing everything? 
 
 
-## Question 4: DAG for Zones
+## Question 4: DAG for Zones (2 points)
 
 
 Create the final DAG - for Zones:
@@ -92,4 +99,4 @@ How often does it need to run?
 * Form for submitting: TBA
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: TBA
+Deadline: February 4, 22:00 CET 
