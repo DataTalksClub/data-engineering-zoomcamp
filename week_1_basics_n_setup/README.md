@@ -20,8 +20,11 @@ if you have troubles setting up the environment and following along the videos.
   * Creating a simple "data pipeline" in Docker
 * [Ingesting NY Taxi Data to Postgres](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Running Posgtres locally with Docker
+  * Using `pgcli` for connecting to the database
   * Exploring the NY Taxi dataset
   * Ingesting the data to the database
+  * **Note** if you have problems with pgcli, check [this video](https://www.youtube.com/watch?v=3IkfkTwqHx4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+    for an alternative way to connect to your database
 * [Connecting pgAdmin and Postgres](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * The pgAdmin tool
   * Docker networks
@@ -39,6 +42,11 @@ if you have troubles setting up the environment and following along the videos.
   * Basic data quality checks
   * Left, Right and Outer joins
   * Group by
+* Optional: If you have some problems with docker networking, check [Port Mapping and Networks in Docker](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+  * Docker networks
+  * Port forwarding to the host environment
+  * Communicating between containers in the network
+  * `.dockerignore` file
 
 
 ### GCP + Terraform
