@@ -76,9 +76,7 @@ We will need three steps:
 
 * Donwload the data
 * Parquetize it 
-* Upload to GSC
-
-(Or Download -> Ingest for local ingestion)
+* Upload to GCS (Or Download -> Ingest, for local ingestion)
 
 Use the same frequency and the start date as for the yellow taxi dataset
 
@@ -92,9 +90,7 @@ Create the final DAG - for Zones:
 
 * Download it
 * Parquetize 
-* Upload to GCS
-
-(Download -> Ingest for local ingestion)
+* Upload to GCS (Or Download -> Ingest, for local ingestion)
 
 How often does it need to run?
 
