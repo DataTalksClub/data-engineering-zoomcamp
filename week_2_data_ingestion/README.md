@@ -47,6 +47,13 @@ You will need an AWS account for this. This section is optional
 * [Video 2](https://www.youtube.com/watch?v=VhmmbqpIzeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
+### Homework 
+
+In the homework, you'll create a few DAGs for processing the NY Taxi data for 2019-2021
+
+More information [here](homework.md)
+
+
 ## Community notes
 
 Did you take notes? You can share them here.
