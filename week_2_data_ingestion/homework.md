@@ -47,7 +47,7 @@ If you have problems executing your DAG for past dates, try this:
 
 * First, delete your DAG from the web interface (the bin icon)
 * Set the `catchup` parameter to `True`
-* Rename the DAG to something like `data_ingestion_gcs_dag_new` 
+* Rename the DAG to something like `data_ingestion_gcs_dag_v02` 
 * Execute it from the Airflow GUI (the play button)
 
 Also, there's no data for the recent months, but `curl` will exit successfully.
@@ -70,7 +70,7 @@ We will need three steps:
 
 (Or Download -> Ingest for local ingestion)
 
-Use the same frequency and the start date as for the green taxi dataset
+Use the same frequency and the start date as for the yellow taxi dataset
 
 Question: how many DAG runs are green after finishing everything? 
 
