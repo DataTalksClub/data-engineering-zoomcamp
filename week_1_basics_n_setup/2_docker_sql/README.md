@@ -91,11 +91,16 @@ Using pgcli to connect to postgres
 pgcli -h localhost -p 5432 -u root -d ny_taxi
 ```
 
+
+### NY Trips Dataset
+
 Dataset:
 
 * https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
 
+
+### pgAdmin
 
 Running pgAdmin
 
@@ -164,6 +169,22 @@ Build the image
 ```bash
 docker build -t taxi_ingest:v001 .
 ```
+
+On Linux you may have a problem building it:
+
+```
+error checking context: 'can't stat '/home/name/data_engineering/ny_taxi_postgres_data''.
+```
+
+You can solve it with `.dockerignore`:
+
+* Create a folder `data`
+* Move `ny_taxi_postgres_data` to `data` (you might need to use `sudo` for that)
+* Map `-v $(pwd)/data/ny_taxi_postgres_data:/var/lib/postgresql/data`
+* Create a file `.dockerignore` and add `data` there
+* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details 
+
+
 
 Run the script with Docker
 
