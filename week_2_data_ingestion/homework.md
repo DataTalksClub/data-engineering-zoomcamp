@@ -10,7 +10,7 @@ You can find all the URLs on [the dataset page](https://www1.nyc.gov/site/tlc/ab
 
 In this homework, we will:
 
-* Modify the DAG we created during the lessons for trasnferring the yellow taxi data
+* Modify the DAG we created during the lessons for transferring the yellow taxi data
 * Create a new dag for transferring the FHV data
 * Create another dag for the Zones data
 
@@ -50,7 +50,7 @@ If you have problems executing your DAG for past dates, try this:
 * Rename the DAG to something like `data_ingestion_gcs_dag_new` 
 * Execute it from the Airflow GUI (the play button)
 
-Also, there's no data for the recent months, but `curl` will exist successfully.
+Also, there's no data for the recent months, but `curl` will exit successfully.
 To make it fail on 404, add the `-f` flag:
 
 ```bash
