@@ -3,6 +3,9 @@
 In this homework we'll prepare the environment 
 and practice with terraform and SQL
 
+[Solution](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+
+
 ## Question 1. Google Cloud SDK
 
 Install Google Cloud SDK. What's the version you have? 
