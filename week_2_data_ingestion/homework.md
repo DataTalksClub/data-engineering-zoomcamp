@@ -79,7 +79,7 @@ We will need three steps:
 * Parquetize it 
 * Upload to GCS
 
-If you don't have a GCP account, for local injestion you'll need two steps:
+If you don't have a GCP account, for local ingestion you'll need two steps:
 
 * Download the data
 * Ingest to Postgres
