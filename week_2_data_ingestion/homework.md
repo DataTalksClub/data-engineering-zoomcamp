@@ -19,6 +19,7 @@ If you don't have access to GCP, you can do that locally and ingest data to post
 instead.
 
 
+
 ## Question 1: Start date for the Yellow taxi data (1 point)
 
 You'll need to parametrize the DAG we created in the videos. 
@@ -76,7 +77,12 @@ We will need three steps:
 
 * Donwload the data
 * Parquetize it 
-* Upload to GCS (Or Download -> Ingest, for local ingestion)
+* Upload to GCS
+
+If you don't have a GCP account, for local injestion you'll need two steps:
+
+* Download the data
+* Ingest to Postgres
 
 Use the same frequency and the start date as for the yellow taxi dataset
 
@@ -90,7 +96,9 @@ Create the final DAG - for Zones:
 
 * Download it
 * Parquetize 
-* Upload to GCS (Or Download -> Ingest, for local ingestion)
+* Upload to GCS
+
+(Or two steps for local ingestion: download -> ingest to postgres)
 
 How often does it need to run?
 
