@@ -43,18 +43,28 @@ How often do we need to run it?
 
 ## Re-running the DAGs for past dates
 
-If you have problems executing your DAG for past dates, try this:
+To execute your DAG for past dates, try this:
 
 * First, delete your DAG from the web interface (the bin icon)
 * Set the `catchup` parameter to `True`
+* Be careful with running a lot of jobs in parallel - your system may not like it. Don't set it higher than 3: `max_active_runs=3`
 * Rename the DAG to something like `data_ingestion_gcs_dag_v02` 
 * Execute it from the Airflow GUI (the play button)
+
 
 Also, there's no data for the recent months, but `curl` will exit successfully.
 To make it fail on 404, add the `-f` flag:
 
 ```bash
 curl -sSLf { URL } > { LOCAL_PATH }
+```
+
+When you run this for all the data, the temporary files will be saved in Docker and will consume your 
+disk space. If it causes problems for you, you can add another step in your DAG that cleans everything up.
+It could be a bash operator that runs this command:
+
+```bash
+rm name-of-csv-file.csv name-of-parquet-file.parquet
 ```
 
 
