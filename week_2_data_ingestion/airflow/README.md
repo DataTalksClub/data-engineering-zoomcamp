@@ -1,4 +1,4 @@
-### Official Setup & Execution 
+### Official Version
 (For the section on the Custom/Lightweight setup, scroll down)
 
 #### Setup
@@ -46,7 +46,7 @@ Takes ~15 mins for the first-time
     docker-compose down --volumes --remove-orphans
     ```
        
-### Custom Setup & Execution (lightweight)
+### Custom No-Frills Version (Lightweight)
 This is a quick, simple & less memory-intensive setup of Airflow that works on a LocalExecutor.
 
 #### Setup
