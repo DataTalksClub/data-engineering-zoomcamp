@@ -1,5 +1,5 @@
 ### Official Setup & Execution 
-(Section on the Custom setup below this)
+(For the section on the Custom/Lightweight setup, scroll down)
 
 [Airflow Setup with Docker, through official guidelines](2_setup_official.md)
 
@@ -47,7 +47,8 @@ For more info, check out these official docs:
    * https://airflow.apache.org/docs/docker-stack/build.html
    * https://airflow.apache.org/docs/docker-stack/recipes.html
    
-### Custom Setup & Execution (quick & less memory-intensive)
+### Custom Setup & Execution (lightweight)
+(quick & less memory-intensive)
 
 [Airflow Setup with Docker, customized](3_setup_nofrills.md)
 
@@ -61,12 +62,12 @@ Takes ~5-10 mins for the first-time
     docker build .
     ```
 
-2. Kick up the all the services from the container:
+2. Kick up the all the services from the container (not need to specially initialize):
     ```shell
     docker-compose -f docker-compose-nofrills.yml up
     ```
 
-4. Login to Airflow web UI on `localhost:8080` with default creds: `admin/admin`
+4. Login to Airflow web UI on `localhost:8080` with creds: `admin/admin` (explicit creation of admin user required)
 
 5. Run your DAG on the Web Console.
 
