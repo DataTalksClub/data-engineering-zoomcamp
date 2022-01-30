@@ -50,3 +50,11 @@ For more information, see [Architecture Overview](https://airflow.apache.org/doc
 
 * `Task Instance`: an individual run of a single task. Task instances also have an indicative state, which could be “running”, “success”, “failed”, “skipped”, “up for retry”, etc.
     * Ideally, a task should flow from `none`, to `scheduled`, to `queued`, to `running`, and finally to `success`.
+
+
+### References
+
+https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html
+
+https://airflow.apache.org/docs/apache-airflow/stable/concepts/tasks.html
+
