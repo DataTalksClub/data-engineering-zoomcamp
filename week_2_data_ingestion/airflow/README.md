@@ -25,11 +25,13 @@ Takes ~15 mins for the first-time
     docker-compose up
     ```
 
-4. Login to Airflow web UI on `localhost:8080` with default creds: `airflow/airflow`
+4. In another terminal, run `docker-compose ps` to see which containers are up & running.
 
-5. Run your DAG on the Web Console.
+5. Login to Airflow web UI on `localhost:8080` with default creds: `airflow/airflow`
 
-6. On finishing your run or to shut down the container/s:
+6. Run your DAG on the Web Console.
+
+7. On finishing your run or to shut down the container/s:
     ```shell
     docker-compose down
     ```
@@ -71,6 +73,8 @@ Takes ~5-10 mins for the first-time
     ```shell
     docker-compose -f docker-compose-nofrills.yml up
     ```
+
+3. In another terminal, run `docker ps` to see which containers are up & running.
 
 4. Login to Airflow web UI on `localhost:8080` with creds: `admin/admin` (explicit creation of admin user was required)
 
