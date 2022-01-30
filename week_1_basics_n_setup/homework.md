@@ -3,6 +3,7 @@
 In this homework we'll prepare the environment 
 and practice with terraform and SQL
 
+
 ## Question 1. Google Cloud SDK
 
 Install Google Cloud SDK. What's the version you have? 
@@ -24,7 +25,9 @@ After that, run
 * `terraform plan`
 * `terraform apply` 
 
-Apply the plan and copy the output (after running `apply`) to the form
+Apply the plan and copy the output (after running `apply`) to the form.
+
+It should be the entire output - from the moment you typed `terraform init` to the very end.
 
 ## Prepare Postgres 
 
@@ -50,7 +53,8 @@ How many taxi trips were there on January 15?
 
 **Answer:** 53024
 
-## Question 4. Average
+
+## Question 4. Largest tip for each day
 
 Find the largest tip for each day. 
 On which day it was the largest tip in January?
@@ -58,6 +62,7 @@ On which day it was the largest tip in January?
 **answer** 2021-01-20 1140.44 
 
 (note: it's not a typo, it's "tip", not "trip")
+
 
 ## Question 5. Most popular destination
 
@@ -90,5 +95,10 @@ If any of the zone names are unknown (missing), write "Unknown". For example, "U
 * Form for submitting: https://forms.gle/yGQrkgRdVbiFs8Vd7
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 24 January, 17:00 CET
+Deadline: 26 January (Wednesday), 22:00 CET
+
+
+## Solution
+
+Here is the solution to questions 3-6: [video](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 

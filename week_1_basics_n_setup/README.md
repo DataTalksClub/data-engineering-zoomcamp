@@ -5,7 +5,7 @@
 * Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
 
-We suggest to watch the videos in the same order as in this document.
+We suggest watching videos in the same order as in this document.
 
 The last video (setting up the environment) is optional, but you can check it earlier 
 if you have troubles setting up the environment and following along the videos.
@@ -20,8 +20,11 @@ if you have troubles setting up the environment and following along the videos.
   * Creating a simple "data pipeline" in Docker
 * [Ingesting NY Taxi Data to Postgres](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Running Posgtres locally with Docker
+  * Using `pgcli` for connecting to the database
   * Exploring the NY Taxi dataset
   * Ingesting the data to the database
+  * **Note** if you have problems with pgcli, check [this video](https://www.youtube.com/watch?v=3IkfkTwqHx4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+    for an alternative way to connect to your database
 * [Connecting pgAdmin and Postgres](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * The pgAdmin tool
   * Docker networks
@@ -32,13 +35,18 @@ if you have troubles setting up the environment and following along the videos.
 * [Running Postgres and pgAdmin with Docker-Compose](https://www.youtube.com/watch?v=hKI6PkPhpa0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Why do we need Docker-compose
   * Docker-compose YAML file
-  * Running multuple containers with `docker-compose up`
+  * Running multiple containers with `docker-compose up`
 * [SQL refreshser](https://www.youtube.com/watch?v=QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Adding the Zones table
   * Inner joins
   * Basic data quality checks
   * Left, Right and Outer joins
   * Group by
+* Optional: If you have some problems with docker networking, check [Port Mapping and Networks in Docker](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+  * Docker networks
+  * Port forwarding to the host environment
+  * Communicating between containers in the network
+  * `.dockerignore` file
 
 
 ### GCP + Terraform
@@ -59,7 +67,14 @@ if you have troubles setting up the environment and following along the videos.
 
 ### Environment setup 
 
-This is an optional part - check it if you have any problems setting up the environment
+For the course you'll need:
+
+* Python 3 (e.g. installed with Anaconda)
+* Google Cloud SDK
+* Docker with docker-compose
+* Terraform
+
+If you have problems setting up the env, you can check this video:
 
 * [Setting up the environment on cloud VM](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Generating SSH keys
@@ -87,4 +102,8 @@ Did you take notes? You can share them here
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md)
 * [Notes from Abd](https://itnadigital.notion.site/Week-1-Introduction-f18de7e69eb4453594175d0b1334b2f4)
+* [Notes from Aaron](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_1_basics_n_setup/README.md)
+* [Notes from Faisal](https://github.com/FaisalMohd/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/Notes/DE%20Zoomcamp%20Week-1.pdf)
+* [Michael Harty's Notes](https://github.com/mharty3/data_engineering_zoomcamp_2022/tree/main/week01)
+* [Blog post from Isaac Kargar](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/18/data-engineering-w1.html)
 * Add your notes here

@@ -1,4 +1,4 @@
-# First-time build can take upto 20 mins.
+# First-time build can take upto 10 mins.
 
 FROM apache/airflow:2.2.3
 
@@ -10,7 +10,6 @@ RUN apt-get update -qq && apt-get install vim -qqq
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
 
 # Ref: https://airflow.apache.org/docs/docker-stack/recipes.html
 
@@ -34,13 +33,9 @@ RUN DOWNLOAD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/goo
     && rm -rf "${TMP_DIR}" \
     && gcloud --version
 
-
-# Only for this tutorial, not recommended in PROD. Use volumes, SSH, or Secret Key Managers like Vault
-COPY google_credentials.json $AIRFLOW_HOME/google_credentials.json
-ENV GOOGLE_APPLICATION_CREDENTIALS="${AIRFLOW_HOME}/google_credentials.json"
-ENV AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT="google-cloud-platform://?extra__google_cloud_platform__key_path=${AIRFLOW_HOME}/google_credentials.json"
-
 WORKDIR $AIRFLOW_HOME
 
-# USER airflow
+COPY scripts scripts
+RUN chmod +x scripts
+
 USER $AIRFLOW_UID
