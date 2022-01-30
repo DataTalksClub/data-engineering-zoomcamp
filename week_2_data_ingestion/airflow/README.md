@@ -1,4 +1,4 @@
-### Official Setup & Execution
+### Official Setup & Execution (Custom setup below)
 
 [Airflow Setup with Docker, through official guidelines](2_setup_official.md)
 
@@ -62,7 +62,7 @@ Takes ~5-10 mins for the first-time
 
 2. Kick up the all the services from the container:
     ```shell
-    docker-compose up
+    docker-compose -f docker-compose-nofrills.yml up
     ```
 
 4. Login to Airflow web UI on `localhost:8080` with default creds: `admin/admin`
