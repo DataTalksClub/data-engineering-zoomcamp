@@ -51,7 +51,7 @@
     * Adding your custom packages to be installed. The one we'll need the most is `gcloud` to connect with the GCS bucket/Data Lake.
     * Also, integrating `requirements.txt` to install libraries via  `pip install`
 
-4. Copy the [docker-compose-nofrills.yml](docker-compose-nofrills.yml) and [.env_example](.env_example) from this repo.
+4. Copy [docker-compose-nofrills.yml](docker-compose-nofrills.yml), [.env_example](.env_example) & [entrypoint.sh](scripts/entrypoint.sh) from this repo.
     The changes from the official setup are:
     * Removal of `redis` queue, `worker` & `triggerer` services, 
     and changing from `CeleryExecutor` mode to `LocalExecutor` mode 
