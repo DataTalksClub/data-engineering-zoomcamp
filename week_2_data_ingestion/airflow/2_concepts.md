@@ -1,6 +1,7 @@
-### Concepts
+## Airflow concepts
 
-#### Airflow architecture
+
+### Airflow architecture
 ![](arch-diag-basic.png)
 
 Ref: https://airflow.apache.org/docs/apache-airflow/stable/concepts/overview.html
@@ -27,13 +28,16 @@ Backend to the Airflow environment. Used by the scheduler, executor and webserve
 All these services allow you to run Airflow with CeleryExecutor. 
 For more information, see [Architecture Overview](https://airflow.apache.org/docs/apache-airflow/stable/concepts/overview.html).
 
-#### Project Structure:
-* `./dags` - `DAG_FOLDER` for DAG files
+
+### Project Structure:
+
+* `./dags` - `DAG_FOLDER` for DAG files (use `./dags_local` for the local ingestion DAG)
 * `./logs` - contains logs from task execution and scheduler.
 * `./plugins` - for custom plugins
 
 
-#### Workflow components
+### Workflow components
+
 * `DAG`: Directed acyclic graph, specifies the dependencies between a set of tasks with explicit execution order, and has a beginning as well as an end. (Hence, “acyclic”)
     * `DAG Structure`: DAG Definition, Tasks (eg. Operators), Task Dependencies (control flow: `>>` or `<<` )
     
