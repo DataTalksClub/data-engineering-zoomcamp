@@ -4,7 +4,7 @@ In this homework, we'll prepare data for the next week. We'll need
 to put the NY Taxi data from 2019 and 2020 to our data lake.
 
 For the lessons, we'll need the Yellow taxi dataset. For the homework 
-of week 3, we'll need FHV Data (for-hire vehicles).
+of week 3, we'll need FHV Data (for-hire vehicles, for 2019 only).
 
 You can find all the URLs on [the dataset page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
@@ -23,7 +23,8 @@ only if you want.
 
 ## Question 1: Start date for the Yellow taxi data (1 point)
 
-You'll need to parametrize the DAG we created in the videos. 
+You'll need to parametrize the DAG for processing the yellow taxi data that
+we created in the videos. 
 
 What should be the start date for this dag?
 
@@ -33,9 +34,9 @@ What should be the start date for this dag?
 * days_ago(1)
 
 
-## Question 2: Frequency (1 point)
+## Question 2: Frequency for the Yellow taxi data (1 point)
 
-How often do we need to run it?
+How often do we need to run this DAG?
 
 * Daily
 * Monthly
@@ -87,7 +88,10 @@ If you don't have a GCP account, for local ingestion you'll need two steps:
 
 Use the same frequency and the start date as for the yellow taxi dataset
 
-Question: how many DAG runs are green after finishing everything? 
+Question: how many DAG runs are green for data in 2019 after finishing everything? 
+
+Note: when processing the data for 2020-01 you probably will get an error. It's up 
+to you to decide what to do with it - for Week 3 homework we won't need 2020 data.
 
 
 ## Question 4: DAG for Zones (2 points)
