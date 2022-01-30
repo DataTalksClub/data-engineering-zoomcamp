@@ -72,7 +72,7 @@ Takes ~5-10 mins for the first-time
     docker-compose -f docker-compose-nofrills.yml up
     ```
 
-4. Login to Airflow web UI on `localhost:8080` with creds: `admin/admin` (explicit creation of admin user required)
+4. Login to Airflow web UI on `localhost:8080` with creds: `admin/admin` (explicit creation of admin user was required)
 
 5. Run your DAG on the Web Console.
 
