@@ -1,3 +1,6 @@
+### Concepts
+[Airflow Concepts and Architecture](1_concepts.md)
+
 ### Official Version
 (For the section on the Custom/Lightweight setup, scroll down)
 
