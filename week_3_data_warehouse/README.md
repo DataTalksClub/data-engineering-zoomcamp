@@ -32,3 +32,10 @@
 
 
 ### [Homework](homework.md)
+
+
+## Community notes
+
+Did you take notes? You can share them here.
+
+* Add your notes here (above this line)

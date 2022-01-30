@@ -70,3 +70,41 @@
    * Change `AIRFLOW__CORE__LOAD_EXAMPLES` to `false` (optional)
 
 8. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose.yml](./docker-compose.yaml) should look.
+
+
+## Problems
+
+### `File /.google/credentials/google_credentials.json was not found`
+
+First, make sure you have your crendentials in your `$HOME/.google/credentials`.
+Maybe you missed the step and didn't copy the your JSON with credentials there?
+Also, make sure the name is `/google_credentials.json`.
+
+Second, check that docker-compose can correctly map this directory to airflow worker.
+
+Execute `docker ps` to see the list of docker containers running on your host machine and find the ID of the airflow worker.
+
+Then execute `bash` on this container:
+
+```bash
+docker exec -it <container-ID> bash
+```
+
+Now check if the file with credentials is actually there:
+
+```bash
+ls -lh /.google/credentials/
+```
+
+If it's empty, docker-compose couldn't map the folder with credentials. 
+In this case, try changing it to the absolute path to this folder:
+
+```yaml
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    # here: ----------------------------
+    - c:/Users/alexe/.google/credentials/:/.google/credentials:ro
+    # -----------------------------------
+```

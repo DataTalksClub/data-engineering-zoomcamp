@@ -15,8 +15,9 @@ In this homework, we will:
 * Create another dag for the Zones data
 
 
-If you don't have access to GCP, you can do that locally and ingest data to postgres 
-instead.
+If you don't have access to GCP, you can do that locally and ingest data to Postgres 
+instead. If you have access to GCP, you don't need to do it for local Postgres -
+only if you want.
 
 
 
@@ -61,7 +62,7 @@ curl -sSLf { URL } > { LOCAL_PATH }
 ```
 
 When you run this for all the data, the temporary files will be saved in Docker and will consume your 
-disk space. If it causes problems for you, you can add another step in your DAG that cleans everything up.
+disk space. If it causes problems for you, add another step in your DAG that cleans everything up.
 It could be a bash operator that runs this command:
 
 ```bash
