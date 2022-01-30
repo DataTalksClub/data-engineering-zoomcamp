@@ -62,7 +62,7 @@ Takes ~5-10 mins for the first-time
     docker build .
     ```
 
-2. Kick up the all the services from the container (not need to specially initialize):
+2. Kick up the all the services from the container (no need to specially initialize):
     ```shell
     docker-compose -f docker-compose-nofrills.yml up
     ```
