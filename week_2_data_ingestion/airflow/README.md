@@ -45,12 +45,7 @@ Takes ~15 mins for the first-time
     ```
     docker-compose down --volumes --remove-orphans
     ```
-    
-For more info, check out these official docs:
-   * https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html
-   * https://airflow.apache.org/docs/docker-stack/build.html
-   * https://airflow.apache.org/docs/docker-stack/recipes.html
-   
+       
 ### Custom Setup & Execution (lightweight)
 This is a quick, simple & less memory-intensive setup of Airflow that works on a LocalExecutor.
 
@@ -98,3 +93,10 @@ Takes ~5-10 mins for the first-time
 
 ### Future Enhancements
 * Deploy self-hosted Airflow setup on Kubernetes cluster, or use a Managed Airflow (Cloud Composer) service by GCP
+
+### References
+For more info, check out these official docs:
+   * https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html
+   * https://airflow.apache.org/docs/docker-stack/build.html
+   * https://airflow.apache.org/docs/docker-stack/recipes.html
+
