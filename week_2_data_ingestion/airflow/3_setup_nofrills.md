@@ -63,7 +63,7 @@
         ```shell
         mv .env_example .env
         ```
-    * Set environment variables `GCP_PROJECT_ID`, `GCP_GCS_BUCKET` & `AIRFLOW_UID` as per your setting.
+    * Set environment variables `AIRFLOW_UID`, `GCP_PROJECT_ID` & `GCP_GCS_BUCKET`, as per your setting.
     * Optionally, if your `google-credentials.json` is stored somewhere else, eg. `~/.gc`, 
     modify the env-vars (`GOOGLE_APPLICATION_CREDENTIALS`, `AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT`) and `volumes` path in `docker-compose-nofrills.yml`
 
