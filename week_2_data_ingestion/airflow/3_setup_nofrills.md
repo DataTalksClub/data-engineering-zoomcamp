@@ -54,7 +54,7 @@
 
 4. Copy [docker-compose-nofrills.yml](docker-compose-nofrills.yml), [.env_example](.env_example) & [entrypoint.sh](scripts/entrypoint.sh) from this repo.
     The changes from the official setup are:
-    * Removal of `redis` queue, `worker` & `triggerer` services, 
+    * Removal of `redis` queue, `worker`, `triggerer`, `flower` & `airflow-init` services, 
     and changing from `CeleryExecutor` mode to `LocalExecutor` mode 
     * Inclusion of `.env` for better parametrization & flexibility
     * Inclusion of simple `entrypoint.sh` to the `webserver` container, responsible to initialize the database and create login-user (admin).
