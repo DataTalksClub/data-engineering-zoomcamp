@@ -1,4 +1,5 @@
-### Official Setup & Execution (Custom setup below)
+### Official Setup & Execution 
+(Section on the Custom setup below this)
 
 [Airflow Setup with Docker, through official guidelines](2_setup_official.md)
 
