@@ -8,15 +8,17 @@
   [Airflow Setup with Docker, through official guidelines](2_setup_official.md)
 
  #### Execution
-  1. Build the image (only first-time, or when there's any change in the `Dockerfile`):
-  Takes ~15 mins for the first-time
-    ```shell
-    docker-compose build
-    ```
-    or (for legacy versions)
-    ```shell
-    docker build .
-    ```
+ 
+  1. Build the image (only first-time, or when there's any change in the `Dockerfile`, takes ~15 mins for the first-time):
+     ```shell
+     docker-compose build
+     ```
+   
+     or (for legacy versions)
+   
+     ```shell
+     docker build .
+     ```
 
  2. Initialize the Airflow scheduler, DB, and other config
     ```shell
