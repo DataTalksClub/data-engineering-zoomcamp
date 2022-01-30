@@ -26,7 +26,7 @@
 
     ```bash
     mkdir -p ./dags ./logs ./plugins
-    echo -e "AIRFLOW_UID=$(id -u)" > .env
+    echo -e "AIRFLOW_UID=$(id -u)" >> .env
     ```
 
     On Windows you will probably also need it. If you use MINGW/GitBash, execute the same command. 
@@ -48,7 +48,7 @@
     such as `apache/airflow:2.2.3`, as the base image,
        
     And customize this `Dockerfile` by:
-    * Adding your custom packages to be installed. The one we'll need the most is `gcloud` to connect with the GCS bucket/Data Lake.
+    * Adding your custom packages to be installed. The one we'll need the most is `gcloud` to connect with the GCS bucket (Data Lake).
     * Also, integrating `requirements.txt` to install libraries via  `pip install`
 
 4. Copy [docker-compose-nofrills.yml](docker-compose-nofrills.yml), [.env_example](.env_example) & [entrypoint.sh](scripts/entrypoint.sh) from this repo.
@@ -56,14 +56,14 @@
     * Removal of `redis` queue, `worker` & `triggerer` services, 
     and changing from `CeleryExecutor` mode to `LocalExecutor` mode 
     * Inclusion of `.env` for better parametrization & flexibility
-    * Inclusion of `entrypoint.sh` to the `webserver` container responsible to initialize the database and create login-user (admin).
+    * Inclusion of simple `entrypoint.sh` to the `webserver` container, responsible to initialize the database and create login-user (admin).
         
 5. `.env`:
     * Make a copy of `.env_example`:
         ```shell
         mv .env_example .env
         ```
-    * Set environment variables `GCP_PROJECT_ID` and `GCP_GCS_BUCKET`
+    * Set environment variables `GCP_PROJECT_ID`, `GCP_GCS_BUCKET` & `AIRFLOW_UID` as per your setting.
     * Optionally, if your `google-credentials.json` is stored somewhere else, eg. `~/.gc`, 
     modify the env-vars (`GOOGLE_APPLICATION_CREDENTIALS`, `AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT`) and `volumes` path in `docker-compose-nofrills.yml`
 
