@@ -1,8 +1,10 @@
 ### Official Setup & Execution 
 (For the section on the Custom/Lightweight setup, scroll down)
 
+#### Setup
 [Airflow Setup with Docker, through official guidelines](2_setup_official.md)
 
+#### Execution
 1. Build the image (only first-time, or when there's any change in the `Dockerfile`):
 Takes ~15 mins for the first-time
     ```shell
@@ -48,9 +50,12 @@ For more info, check out these official docs:
    * https://airflow.apache.org/docs/docker-stack/recipes.html
    
 ### Custom Setup & Execution (lightweight)
-(quick & less memory-intensive)
+This is a quick, simple & less memory-intensive setup of Airflow that works on a LocalExecutor.
 
+#### Setup
 [Airflow Setup with Docker, customized](3_setup_nofrills.md)
+
+#### Execution
 
 1. Build the image (only first-time, or when there's any change in the `Dockerfile`):
 Takes ~5-10 mins for the first-time
