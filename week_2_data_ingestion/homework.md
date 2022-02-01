@@ -77,7 +77,7 @@ Now create another DAG - for uploading the FHV data.
 
 We will need three steps: 
 
-* Donwload the data
+* Download the data
 * Parquetize it 
 * Upload to GCS
 
