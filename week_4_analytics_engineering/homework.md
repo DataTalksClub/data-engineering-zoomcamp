@@ -24,4 +24,4 @@ only if you want.
 * Form for submitting: TBA
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: February 14, 22:00 CET 
+Deadline: February 21, 17:00 CET 
