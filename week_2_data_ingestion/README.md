@@ -22,6 +22,8 @@
 * [Video](https://www.youtube.com/watch?v=lqDMzReAtrw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * More information in the [airflow folder](airflow)
 
+If you want to run a lighter version of Airflow with fewer services, check this [video](https://www.youtube.com/watch?v=A1p5LQ0zzaQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb). It's optional.
+
 
 ### Ingesting data to GCP with Airflow
 
