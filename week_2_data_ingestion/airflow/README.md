@@ -2,7 +2,11 @@
 
  [Airflow Concepts and Architecture](docs/1_concepts.md)
 
-### Official Version
+### Workflow
+
+ ![](docs/gcs_ingestion_dag.png)
+ 
+### Setup - Official Version
  (For the section on the Custom/Lightweight setup, scroll down)
 
  #### Setup
@@ -52,7 +56,7 @@
     docker-compose down --volumes --remove-orphans
     ```
        
-### Custom No-Frills Version (Lightweight)
+### Setup - Custom No-Frills Version (Lightweight)
 This is a quick, simple & less memory-intensive setup of Airflow that works on a LocalExecutor.
 
   #### Setup
