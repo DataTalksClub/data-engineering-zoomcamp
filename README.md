@@ -9,7 +9,7 @@
 
 ## 2022 Iteration
 
-- **Start**: 17 January 2022
+* **Start**: 17 January 2022
 * [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
 
 ## Syllabus
