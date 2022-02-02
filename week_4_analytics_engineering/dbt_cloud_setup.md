@@ -1,4 +1,5 @@
 # How to setup dbt cloud with bigquery
+[Official documentation](https://docs.getdbt.com/tutorial/setting-up)
 
 ## Create a BigQuery service account 
 In order to connect we need the service account JSON file generated from bigquery:
@@ -34,3 +35,12 @@ You are going to need:
 3. ![image](https://user-images.githubusercontent.com/4315804/152147783-264f9da8-ec55-4d07-a9ec-4a8591006ea8.png)
 Click on add key and paste the deploy key provided by dbt cloud. Make sure to tikce on "write access"
 ![image](https://user-images.githubusercontent.com/4315804/152147942-e76ff8b5-986d-4df1-88cc-ed3e98707d62.png)
+
+
+## Link to your github account
+You could simplify the process of adding and creating repositories by linking your GH account. [Official documentation](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-installing-the-github-application)
+1. Go to the user profile -> integrations 
+![image](https://user-images.githubusercontent.com/4315804/152150786-a9119145-d8be-4e8c-bf8d-265a82fca7ad.png)
+2. ![image](https://user-images.githubusercontent.com/4315804/152150993-f2f51ae7-39b4-4e0e-aed1-b06cc7f93257.png)
+
+
