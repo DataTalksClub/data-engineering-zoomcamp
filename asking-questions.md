@@ -14,7 +14,9 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
   and then put the actual error in the thread - so it doesn't take the entire screen.
 * Instead of screenshots, it's better to copy-paste the error you're getting in text.
   Use ` ``` ` for formatting your code.
-  It's very difficult to read text from screenshots
+  It's very difficult to read text from screenshots.
+* Please don't take pictures of your code with a phone. It's even harder to read. Follow the previous suggestion,
+  and in rare cases when you need to show what happens on your screen, take a screenshot.
 * You don't need to tag the instructors when you have a problem. We will see it eventually.
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
