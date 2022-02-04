@@ -39,6 +39,10 @@ You are going to need:
 3. Click on add key and paste the deploy key provided by dbt cloud. Make sure to tikce on "write access"
 ![image](https://user-images.githubusercontent.com/4315804/152147942-e76ff8b5-986d-4df1-88cc-ed3e98707d62.png)
 
+## Review your project settings
+At the end, if you go to your projects it should look some like this: 
+![image](https://user-images.githubusercontent.com/4315804/152606066-f4d70546-7a5e-414a-9df9-8efd090216f8.png)
+
 
 ## [Optional] Link to your github account
 You could simplify the process of adding and creating repositories by linking your GH account. [Official documentation](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-installing-the-github-application)
