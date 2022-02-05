@@ -45,8 +45,7 @@
     containing some additional dependencies - for example you might add new python packages, 
     or upgrade airflow providers to a later version.
     
-    Create a `Dockerfile` pointing to Airflow version you've just downloaded, 
-    such as `apache/airflow:2.2.3`, as the base image,
+    Create a `Dockerfile` pointing to the latest Airflow version such as `apache/airflow:2.2.3`, for the base image,
        
     And customize this `Dockerfile` by:
     * Adding your custom packages to be installed. The one we'll need the most is `gcloud` to connect with the GCS bucket (Data Lake).
@@ -55,12 +54,13 @@
 4. Copy [docker-compose-nofrills.yml](docker-compose-nofrills.yml), [.env_example](.env_example) & [entrypoint.sh](scripts/entrypoint.sh) from this repo.
     The changes from the official setup are:
     * Removal of `redis` queue, `worker`, `triggerer`, `flower` & `airflow-init` services, 
-    and changing from `CeleryExecutor` mode to `LocalExecutor` mode 
+    and changing from `CeleryExecutor` (multi-node) mode to `LocalExecutor` (single-node) mode 
     * Inclusion of `.env` for better parametrization & flexibility
     * Inclusion of simple `entrypoint.sh` to the `webserver` container, responsible to initialize the database and create login-user (admin).
+    * Updated `Dockerfile` to grant permissions on executing `scripts/entrypoint.sh`
         
 5. `.env`:
-    * Make a copy of `.env_example`:
+    * Rebuild your `.env` file by making a copy of `.env_example` (but make sure your `AIRFLOW_UID` remains):
         ```shell
         mv .env_example .env
         ```
@@ -68,7 +68,7 @@
     * Optionally, if your `google-credentials.json` is stored somewhere else, such as a path like `$HOME/.gc`, 
     modify the env-vars (`GOOGLE_APPLICATION_CREDENTIALS`, `AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT`) and `volumes` path in `docker-compose-nofrills.yml`
 
-8. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose-nofrills](./docker-compose-nofrills.yml) should look.
+6. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose-nofrills](./docker-compose-nofrills.yml) should look.
 
 
 ## Problems
