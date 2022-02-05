@@ -14,23 +14,23 @@ select
     cast(lpep_dropoff_datetime as timestamp) as dropoff_datetime,
     
     -- trip info
-    cast(store_and_fwd_flag as varchar) as store_and_fwd_flag,
+    store_and_fwd_flag,
     cast(passenger_count as integer) as passenger_count,
-    cast(trip_distance as double precision) as trip_distance,
+    cast(trip_distance as numeric) as trip_distance,
     cast(trip_type as integer) as trip_type,
     
     -- payment info
-    cast(fare_amount as double precision) as fare_amount,
-    cast(extra as double precision) as extra,
-    cast(mta_tax as double precision) as mta_tax,
-    cast(tip_amount as double precision) as tip_amount,
-    cast(tolls_amount as double precision) as tolls_amount,
+    cast(fare_amount as numeric) as fare_amount,
+    cast(extra as numeric) as extra,
+    cast(mta_tax as numeric) as mta_tax,
+    cast(tip_amount as numeric) as tip_amount,
+    cast(tolls_amount as numeric) as tolls_amount,
     cast(ehail_fee as integer) as ehail_fee,
-    cast(improvement_surcharge as double precision) as improvement_surcharge,
-    cast(total_amount as double precision) as total_amount,
+    cast(improvement_surcharge as numeric) as improvement_surcharge,
+    cast(total_amount as numeric) as total_amount,
     cast(payment_type as integer) as payment_type,
     {{ get_payment_type_description('payment_type') }} as payment_type_description, 
-    cast(congestion_surcharge as double precision) as congestion_surcharge
+    cast(congestion_surcharge as numeric) as congestion_surcharge
 from {{ source('staging','green_tripdata_2021_01') }}
 where vendorid is not null 
   -- qualify row_number() over(partition by tripid) = 1
