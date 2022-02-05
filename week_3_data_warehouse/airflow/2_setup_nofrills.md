@@ -1,4 +1,4 @@
-## Setup (Official)
+## Setup (No-frills)
 
 ### Pre-Reqs
 
@@ -9,7 +9,7 @@
         mv <path/to/your/service-account-authkeys>.json ~/.google/credentials/google_credentials.json
     ```
 
-2. You may need to upgrade your docker-compose version to v2.x+, and set the memory for your Docker Engine to minimum 5GB
+2. You may need to upgrade your docker-compose version to v2.x+, and set the memory for your Docker Engine to minimum 4GB
 (ideally 8GB). If enough memory is not allocated, it might lead to airflow-webserver continuously restarting.
 
 3. Python version: 3.7+
@@ -18,7 +18,7 @@
 ### Airflow Setup
 
 1. Create a new sub-directory called `airflow` in your `project` dir (such as the one we're currently in)
-
+   
 2. **Set the Airflow user**:
 
     On Linux, the quick-start needs to know your host user-id and needs to have group id set to 0. 
@@ -27,7 +27,7 @@
 
     ```bash
     mkdir -p ./dags ./logs ./plugins
-    echo -e "AIRFLOW_UID=$(id -u)" > .env
+    echo -e "AIRFLOW_UID=$(id -u)" >> .env
     ```
 
     On Windows you will probably also need it. If you use MINGW/GitBash, execute the same command. 
@@ -45,33 +45,30 @@
     containing some additional dependencies - for example you might add new python packages, 
     or upgrade airflow providers to a later version.
     
-    Create a `Dockerfile` pointing to Airflow version you've just downloaded, 
-    such as `apache/airflow:2.2.3`, as the base image,
+    Create a `Dockerfile` pointing to the latest Airflow version such as `apache/airflow:2.2.3`, for the base image,
        
     And customize this `Dockerfile` by:
-    * Adding your custom packages to be installed. The one we'll need the most is `gcloud` to connect with the GCS bucket/Data Lake.
+    * Adding your custom packages to be installed. The one we'll need the most is `gcloud` to connect with the GCS bucket (Data Lake).
     * Also, integrating `requirements.txt` to install libraries via  `pip install`
 
-   
-4. **Import the official docker setup file** from the latest Airflow version:
-   ```shell
-   curl -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'
-   ```
-   
-5. It could be overwhelming to see a lot of services in here. 
-   But this is only a quick-start template, and as you proceed you'll figure out which unused services can be removed.
-   Eg. [Here's](docker-compose-nofrills.yml) a no-frills version of that template.
+4. Copy [docker-compose-nofrills.yml](docker-compose-nofrills.yml), [.env_example](.env_example) & [entrypoint.sh](scripts/entrypoint.sh) from this repo.
+    The changes from the official setup are:
+    * Removal of `redis` queue, `worker`, `triggerer`, `flower` & `airflow-init` services, 
+    and changing from `CeleryExecutor` (multi-node) mode to `LocalExecutor` (single-node) mode 
+    * Inclusion of `.env` for better parametrization & flexibility
+    * Inclusion of simple `entrypoint.sh` to the `webserver` container, responsible to initialize the database and create login-user (admin).
+    * Updated `Dockerfile` to grant permissions on executing `scripts/entrypoint.sh`
+        
+5. `.env`:
+    * Rebuild your `.env` file by making a copy of `.env_example` (but make sure your `AIRFLOW_UID` remains):
+        ```shell
+        mv .env_example .env
+        ```
+    * Set environment variables `AIRFLOW_UID`, `GCP_PROJECT_ID` & `GCP_GCS_BUCKET`, as per your config.
+    * Optionally, if your `google-credentials.json` is stored somewhere else, such as a path like `$HOME/.gc`, 
+    modify the env-vars (`GOOGLE_APPLICATION_CREDENTIALS`, `AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT`) and `volumes` path in `docker-compose-nofrills.yml`
 
-7. **Docker Compose**:
-
-    Back in your `docker-compose.yaml`:
-   * In `x-airflow-common`: 
-     * Remove the `image` tag, to replace it with your `build` from your Dockerfile, as shown
-     * Mount your `google_credentials` in `volumes` section as read-only
-     * Set environment variables `GOOGLE_APPLICATION_CREDENTIALS` and `AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT`
-   * Change `AIRFLOW__CORE__LOAD_EXAMPLES` to `false` (optional)
-
-8. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose.yml](./docker-compose.yaml) should look.
+6. Here's how the final versions of your [Dockerfile](./Dockerfile) and [docker-compose-nofrills](./docker-compose-nofrills.yml) should look.
 
 
 ## Problems

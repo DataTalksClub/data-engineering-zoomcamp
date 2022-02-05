@@ -31,6 +31,14 @@
 [Steps to extract and deploy model with docker](extract_model.md)  
 
 
+### [Workshop](airflow.md)
+Copy over the `airflow` directory (i.e. the Docker env) from `week_2_data_ingestion`:
+```
+cp ../week_2_data_ingestion/airflow airflow
+```
+Also, empty the `logs` directory, if you find it necessary.
+
+
 ### [Homework](homework.md)
 
 

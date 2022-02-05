@@ -2,7 +2,7 @@
 
 
 ### Airflow architecture
-![](arch-diag-basic.png)
+![](arch-diag-airflow.png)
 
 Ref: https://airflow.apache.org/docs/apache-airflow/stable/concepts/overview.html
 
