@@ -1,6 +1,18 @@
 
 version: 2
+#For bigquery
 sources:
+    - name: tripdata
+      database: taxi-rides-ny-339813
+      schema: trips_data_all
+
+      # loaded_at_field: record_loaded_at
+      tables:
+        - name: green_tripdata
+        - name: yellow_tripdata
+         # freshness:
+           # error_after: {count: 6, period: hour}
+# For postgres
     - name: staging
       database: production
       schema: staging
