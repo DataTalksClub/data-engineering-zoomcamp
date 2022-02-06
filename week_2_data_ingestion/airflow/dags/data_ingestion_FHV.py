@@ -16,9 +16,9 @@ BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
 
 URL_PREFIX = 'https://s3.amazonaws.com/nyc-tlc/trip+data' 
-FILE_NAME = '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+FILE_NAME = '/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
 URL_TEMPLATE = URL_PREFIX + FILE_NAME
-TABLE_NAME_TEMPLATE = 'yellow_taxi_{{ execution_date.strftime(\'%Y_%m\') }}'
+TABLE_NAME_TEMPLATE = 'fhv_table_{{ execution_date.strftime(\'%Y_%m\') }}'
 
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 OUTPUT_FILE_TEMPLATE = path_to_local_home + '/output_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
@@ -30,7 +30,7 @@ def format_to_parquet(src_file, parquet_file):
     if not src_file.endswith('.csv'):
         logging.error("Can only accept source files in CSV format, for the moment")
         return
-    table = pv.read_csv(src_file)
+    table = pv.read_csv(src_file, parse_options=pv.ParseOptions(delimiter=";"))
     pq.write_table(table, parquet_file)
 
 
@@ -65,7 +65,7 @@ default_args = {
 
 # NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
-    dag_id="data_ingestion_yellow_taxi_v04",
+    dag_id="data_ingestion_fhv_v03",
     schedule_interval="@monthly",
     default_args=default_args,
     catchup=True,
@@ -104,7 +104,7 @@ with DAG(
             "tableReference": {
                 "projectId": PROJECT_ID,
                 "datasetId": BIGQUERY_DATASET,
-                "tableId": "yellow_taxi",
+                "tableId": "FHV",
             },
             "externalDataConfiguration": {
                 "sourceFormat": "PARQUET",

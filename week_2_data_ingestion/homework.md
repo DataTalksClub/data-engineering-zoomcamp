@@ -28,7 +28,7 @@ we created in the videos.
 
 What should be the start date for this dag?
 
-* 2019-01-01
+* 2019-01-01 <-
 * 2020-01-01
 * 2021-01-01
 * days_ago(1)
@@ -39,7 +39,7 @@ What should be the start date for this dag?
 How often do we need to run this DAG?
 
 * Daily
-* Monthly
+* Monthly <-
 * Yearly
 * Once
 

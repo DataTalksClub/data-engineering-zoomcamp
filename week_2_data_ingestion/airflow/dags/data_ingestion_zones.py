@@ -14,14 +14,13 @@ import pyarrow.parquet as pq
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
 BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
-
-URL_PREFIX = 'https://s3.amazonaws.com/nyc-tlc/trip+data' 
-FILE_NAME = '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+URL_PREFIX = 'https://s3.amazonaws.com/nyc-tlc/misc' 
+FILE_NAME = '/taxi+_zone_lookup.csv'
 URL_TEMPLATE = URL_PREFIX + FILE_NAME
-TABLE_NAME_TEMPLATE = 'yellow_taxi_{{ execution_date.strftime(\'%Y_%m\') }}'
+TABLE_NAME_TEMPLATE = 'taxi_zones'
 
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
-OUTPUT_FILE_TEMPLATE = path_to_local_home + '/output_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+OUTPUT_FILE_TEMPLATE = path_to_local_home + '/output_zones.csv'
 parquet_file = FILE_NAME.replace('.csv', '.parquet')
 BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all')
 
@@ -65,11 +64,11 @@ default_args = {
 
 # NOTE: DAG declaration - using a Context Manager (an implicit way)
 with DAG(
-    dag_id="data_ingestion_yellow_taxi_v04",
-    schedule_interval="@monthly",
+    dag_id="data_ingestion_zones_v04",
+    schedule_interval="@once",
     default_args=default_args,
     catchup=True,
-    max_active_runs=5,
+    max_active_runs=1,
     tags=['dtc-de'],
 ) as dag:
 
@@ -104,7 +103,7 @@ with DAG(
             "tableReference": {
                 "projectId": PROJECT_ID,
                 "datasetId": BIGQUERY_DATASET,
-                "tableId": "yellow_taxi",
+                "tableId": "Zones",
             },
             "externalDataConfiguration": {
                 "sourceFormat": "PARQUET",
