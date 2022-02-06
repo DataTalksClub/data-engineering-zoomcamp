@@ -31,7 +31,7 @@ select
     cast(payment_type as integer) as payment_type,
     {{ get_payment_type_description('payment_type') }} as payment_type_description, 
     cast(congestion_surcharge as numeric) as congestion_surcharge
-from {{ source('staging','green_tripdata_2021_01') }}
+from {{ source('staging','green_tripdata') }}
 where vendorid is not null 
   -- qualify row_number() over(partition by tripid) = 1
 
