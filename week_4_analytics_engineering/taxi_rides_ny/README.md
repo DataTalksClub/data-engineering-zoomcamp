@@ -13,7 +13,8 @@ A project includes the following files:
 - csv files in the data folder: these will be our sources, files described above
 - Files inside folder models: The sql files contain the scripts to run our models, this will cover staging, core and a datamarts models. At the end, these models will follow this structure: 
 
-![image](https://user-images.githubusercontent.com/4315804/148698374-b3163748-a2a2-4dc8-910e-207f19e08fbc.png)
+![image](https://user-images.githubusercontent.com/4315804/152691312-e71b56a4-53ff-4884-859c-c9090dbd0db8.png)
+
 
 #### Workflow
 ![image](https://user-images.githubusercontent.com/4315804/148699280-964c4e0b-e685-4c0f-a266-4f3e097156c9.png)
