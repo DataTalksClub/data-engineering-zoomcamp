@@ -12,7 +12,7 @@ def ingest_callable(user, password, host, port, db, table_name, csv_file, execut
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
     engine.connect()
 
-    print('connection established successfully, instering data...')
+    print('connection established successfully, inserting data...')
 
     t_start = time()
     df_iter = pd.read_csv(csv_file, iterator=True, chunksize=100000)

@@ -1,12 +1,13 @@
 ## Week 2 Homework
 
 In this homework, we'll prepare data for the next week. We'll need
-to put the NY Taxi data from 2019 and 2020 to our data lake.
+to put these datasets to our data lake:
 
 For the lessons, we'll need the Yellow taxi dataset. For the homework 
 of week 3, we'll need FHV Data (for-hire vehicles, for 2019 only).
 
 You can find all the URLs on [the dataset page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+
 
 In this homework, we will:
 
@@ -18,6 +19,9 @@ In this homework, we will:
 If you don't have access to GCP, you can do that locally and ingest data to Postgres 
 instead. If you have access to GCP, you don't need to do it for local Postgres -
 only if you want.
+
+Also note that for this homework we don't need the last step - creating a table in GCP.
+After putting all the files to the datalake, we'll create the tables in Week 3.
 
 
 
@@ -77,7 +81,7 @@ Now create another DAG - for uploading the FHV data.
 
 We will need three steps: 
 
-* Donwload the data
+* Download the data
 * Parquetize it 
 * Upload to GCS
 
@@ -115,7 +119,7 @@ How often does it need to run?
 
 ## Submitting the solutions
 
-* Form for submitting: TBA
+* Form for submitting: https://forms.gle/ViWS8pDf2tZD4zSu5
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: February 4, 22:00 CET 
+Deadline: February 7, 17:00 CET 
