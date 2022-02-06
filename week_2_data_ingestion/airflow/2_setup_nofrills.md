@@ -73,6 +73,10 @@
 
 ## Problems
 
+### `no-frills setup does not work for me - WSL/Windows user `
+
+If you are running Docker in Windows/WSL/WSL2 and you have encountered some `ModuleNotFoundError` or low performance issues, take a look at this [Airflow & WSL2 gist](https://gist.github.com/nervuzz/d1afe81116cbfa3c834634ebce7f11c5) focused entirely on troubleshooting possible problems.
+
 ### `File /.google/credentials/google_credentials.json was not found`
 
 First, make sure you have your credentials in your `$HOME/.google/credentials`.
