@@ -52,4 +52,5 @@
 
 Did you take notes? You can share them here.
 
+* [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/3_data_warehouse.md)
 * Add your notes here (above this line)
