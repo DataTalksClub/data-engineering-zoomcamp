@@ -1,24 +1,24 @@
 
 version: 2
+
 sources:
     - name: staging
+      #For bigquery:
+      #database: taxi-rides-ny-339813
+
+      # For postgres:
       database: production
-      schema: staging
 
-      #loaded_at_field: record_loaded_at
+      schema: trips_data_all
 
+      # loaded_at_field: record_loaded_at
       tables:
-        - name: fhv_tripdata_2021_01
-        - name: green_tripdata_2021_01
-        - name: yellow_tripdata_2021_01
-        - name: fhvhv_tripdata_2021_01
-          #freshness:
-            #error_after: {count: 24, period: hour}
+        - name: green_tripdata
+        - name: yellow_tripdata
+         # freshness:
+           # error_after: {count: 6, period: hour}
 
 models:
-    - name: stg_fhbhv_tripdata
-    - name: stg_fhv_tripdata
-
     - name: stg_green_tripdata
       description: >
         Trip made by green taxis, also known as boro taxis and street-hail liveries.
@@ -83,12 +83,12 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
-          - name: payment_type_description
-            description: Description of the payment_type code
             tests: 
               - accepted_values:
                   values: "{{ var('payment_type_values') }}"
                   severity: warn
+          - name: payment_type_description
+            description: Description of the payment_type code
           - name: Fare_amount 
             description: > 
               The time-and-distance fare calculated by the meter.
@@ -174,12 +174,12 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
-          - name: payment_type_description
-            description: Description of the payment_type code
             tests: 
               - accepted_values:
                   values: "{{ var('payment_type_values') }}"
                   severity: warn
+          - name: payment_type_description
+            description: Description of the payment_type code
           - name: Fare_amount 
             description: > 
               The time-and-distance fare calculated by the meter.
