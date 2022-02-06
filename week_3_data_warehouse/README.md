@@ -32,11 +32,17 @@
 
 
 ### [Workshop](airflow.md)
-Copy over the `airflow` directory (i.e. the Docker env) from `week_2_data_ingestion`:
-```
-cp ../week_2_data_ingestion/airflow airflow
-```
-Also, empty the `logs` directory, if you find it necessary.
+
+- [Video](https://www.youtube.com/watch?v=lAxAhHNeGww&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
+
+- Setup:
+  Copy over the `airflow` directory (i.e. the Dockerized setup) from `week_2_data_ingestion`:
+  ```
+  cp ../week_2_data_ingestion/airflow airflow
+  ```
+  Also, empty the `logs` directory, if you find it necessary.
+
+- DAG: [gcs_to_bq_dag.py](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_3_data_warehouse/airflow/dags/gcs_to_bq_dag.py)
 
 
 ### [Homework](homework.md)
