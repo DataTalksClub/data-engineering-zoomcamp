@@ -83,12 +83,12 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
-          - name: payment_type_description
-            description: Description of the payment_type code
             tests: 
               - accepted_values:
                   values: "{{ var('payment_type_values') }}"
                   severity: warn
+          - name: payment_type_description
+            description: Description of the payment_type code
           - name: Fare_amount 
             description: > 
               The time-and-distance fare calculated by the meter.
@@ -174,12 +174,12 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
-          - name: payment_type_description
-            description: Description of the payment_type code
             tests: 
               - accepted_values:
                   values: "{{ var('payment_type_values') }}"
                   severity: warn
+          - name: payment_type_description
+            description: Description of the payment_type code
           - name: Fare_amount 
             description: > 
               The time-and-distance fare calculated by the meter.

@@ -22,16 +22,19 @@ After local installation you will have to set up the connection to PG in the `pr
  * What is analytics engineering?
  * ETL vs ELT 
  * Data modeling concepts (fact and dim tables)
+
  :movie_camera: Video
 
 ### What is dbt? 
  * Intro to dbt 
+
  :movie_camera:
 ### Starting a dbt project
 #### Alternative a: Using BigQuery + dbt cloud
  * Starting a new project with dbt init (dbt cloud and core)
  * dbt cloud setup
  * project.yml
+
  :movie_camera: Video
  
 #### Alternative b: Using Postgres + dbt core (locally)
@@ -39,6 +42,7 @@ After local installation you will have to set up the connection to PG in the `pr
  * dbt core local setup
  * profiles.yml
  * project.yml
+
  :movie_camera: Video
 ### Development of dbt models
  * Anatomy of a dbt model: written code vs compiled Sources
@@ -47,20 +51,24 @@ After local installation you will have to set up the connection to PG in the `pr
  * Jinja and Macros 
  * Packages 
  * Variables
+
  :movie_camera: Video
 
 ### Testing and documenting dbt models
  * Tests  
  * Documentation 
+
   :movie_camera: Video
 
 ### Deploying a dbt project
  * Deployment: local development vs production 
  * dbt cloud: scheduler, sources and hosted documentation
+
   :movie_camera: Video
 
 ### Visualising the transformed data
  * Google data studio -> Dashboard
+
  :movie_camera: Video
 ### Advanced knowledge:
  * Make a model Incremental 
