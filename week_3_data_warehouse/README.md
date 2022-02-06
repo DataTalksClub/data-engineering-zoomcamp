@@ -33,7 +33,7 @@
 
 ### [Workshop](airflow.md)
 
-- [Video](https://www.youtube.com/watch?v=lAxAhHNeGww&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
+- [Video: Integrating Bigquery with Airflow (+ Week 2 Review)](https://www.youtube.com/watch?v=lAxAhHNeGww&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
 
 - Setup:
   Copy over the `airflow` directory (i.e. the Dockerized setup) from `week_2_data_ingestion`:
