@@ -51,5 +51,6 @@
 ## Community notes
 
 Did you take notes? You can share them here.
+- [Isaac Kargar's blog post](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/30/data-engineering-w3.html)
 
 * Add your notes here (above this line)
