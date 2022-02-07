@@ -91,10 +91,10 @@ If you have problems setting up the env, you can check this video:
   * Using `sftp` for putting the credentials to the remote machine
   * Shutting down and removing the instance
 
-### [Homework](homework.md)
+### Homework
 
-* More information [here](homework.md)
-
+* [Homework](homework.md)
+* [Solution](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ## Community notes
 
