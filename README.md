@@ -64,27 +64,13 @@ Goal: Transforming Data in DWH to Analytical Views
 
 Instructor: Victoria
 
-* Basics (15 mins)
-    * What is DBT?
-    * ETL vs ELT 
-    * Data modeling
-    * DBT fit of the tool in the tech stack
-* Usage (Combination of coding + theory) (1:30-1:45 mins)
-    * Anatomy of a dbt model: written code vs compiled Sources
-    * Materialisations: table, view, incremental, ephemeral  
-    * Seeds 
-    * Sources and ref  
-    * Jinja and Macros 
-    * Tests  
-    * Documentation 
-    * Packages 
-    * Deployment: local development vs production 
-    * DBT cloud: scheduler, sources and data catalog (Airflow)
-* Google data studio -> Dashboard
-* Extra knowledge:
-    * DBT cli (local)
+* Basics of analytics engineering (15 mins)
+* Developing a dbt project (Combination of coding + theory) (1:30)
+* Visualising the data in Google data studio (15 mins)
 
 Duration: 2h    
+
+[More details](week_4_analytics_engineering)
 
 
 ### [Week 5: Batch processing](week_5_batch_processing)
