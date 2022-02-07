@@ -3,8 +3,8 @@
 In this homework, we'll prepare data for the next week. We'll need
 to put these datasets to our data lake:
 
-For the lessons, we'll need the Yellow taxi dataset. For the homework 
-of week 3, we'll need FHV Data (for-hire vehicles, for 2019 only).
+* For the lessons, we'll need the Yellow taxi dataset (years 2019 and 2020)
+* For the homework, we'll need FHV Data (for-hire vehicles, for 2019 only)
 
 You can find all the URLs on [the dataset page](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
