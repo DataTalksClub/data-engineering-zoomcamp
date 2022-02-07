@@ -16,7 +16,7 @@ After local installation you will have to set up the connection to BQ in the `pr
 ### Setting up dbt for using Postgres locally (Alternative B)
 As an alternative to the cloud, that require to have a cloud database, you will be able to run the project installing dbt locally.
 You can follow the [official dbt documentation](https://docs.getdbt.com/dbt-cli/installation) or use a docker image from oficial [dbt repo](https://github.com/dbt-labs/dbt/). You will need to install the latest version (1.0) with the postgres adapter (dbt-postgres).
-After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/reference/warehouse-profiles/postgres-profile
+After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/reference/warehouse-profiles/postgres-profile)
 ## Content
 ### Introduction to analytics engineering (15 mins)
  * What is analytics engineering?
@@ -61,7 +61,14 @@ After local installation you will have to set up the connection to PG in the `pr
   :movie_camera: Video
 
 ### Deploying a dbt project
- * Deployment: local development vs production 
+#### Alternative a: Using BigQuery + dbt cloud
+ * Deployment: development environment vs production 
+ * dbt cloud: scheduler, sources and hosted documentation
+
+  :movie_camera: Video
+  
+#### Alternative b: Using Postgres + dbt core (locally)
+ * Deployment: development environment vs production 
  * dbt cloud: scheduler, sources and hosted documentation
 
   :movie_camera: Video
@@ -70,10 +77,10 @@ After local installation you will have to set up the connection to PG in the `pr
  * Google data studio -> Dashboard
 
  :movie_camera: Video
+ 
 ### Advanced knowledge:
  * Make a model Incremental 
  * Use of tags 
- * Snapshots
 
 ## Homework 
 
