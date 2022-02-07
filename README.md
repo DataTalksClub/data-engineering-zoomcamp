@@ -167,6 +167,17 @@ Prior experience with data engineering is not required.
 - Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
 - Alexey Grigorev (https://linkedin.com/in/agrigorev)
 
+## Tools 
+
+For this course you'll need to have the following software installed on your computer:
+
+* Docker and Docker-Compose
+* Python 3 (e.g. via [Anaconda](https://www.anaconda.com/products/individual))
+* Google Cloud SDK 
+* Terraform
+
+See [Week 1](week_1_basics_n_setup) for more details about installing these tools
+
 
 ## Questions
 
