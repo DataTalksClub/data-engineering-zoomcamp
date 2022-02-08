@@ -40,7 +40,7 @@ with DAG(
             source_bucket=BUCKET,
             source_object=f'{INPUT_PART}/{colour}_{DATASET}*.{INPUT_FILETYPE}',
             destination_bucket=BUCKET,
-            destination_object=f'{colour}/{colour}_{DATASET}*.{INPUT_FILETYPE}',
+            destination_object=f'{colour}/{colour}_{DATASET}',
             move_object=True
         )
 
