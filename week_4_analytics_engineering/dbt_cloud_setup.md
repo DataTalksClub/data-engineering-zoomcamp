@@ -12,7 +12,7 @@ In order to connect we need the service account JSON file generated from bigquer
  ![image](https://user-images.githubusercontent.com/4315804/152142270-5aa8aec7-5cc7-4667-9ecc-721157de83d5.png)
 
 3. Now that the service account has been created we need to add and download a JSON key, go to the keys section, select "create new key" 
- ![image](https://user-images.githubusercontent.com/4315804/152146423-769bdfee-3846-4296-8dee-d6843081c9b1.png)
+ ![image](https://user-images.githubusercontent.com/4315804/152146423-769bdfee-3846-4296-8dee-d6843081c9b1.png)  
 Select key type JSON and once you click on create it will get inmediately downloaded for you to use. 
  ![image](https://user-images.githubusercontent.com/4315804/152146506-5b3e2e0f-3380-414d-bc20-f35ea3f47726.png)
 
@@ -26,8 +26,8 @@ You are going to need:
 3. Name your project
 4. Choose Bigquery as your data warehouse: ![image](https://user-images.githubusercontent.com/4315804/152138772-15950118-b69a-45b1-9c48-9c8a73581a05.png)
 5. Upload the key you downloaded from BQ on the *create from file* option. This will fill out most fields related to the production credentials. Scroll down to the end of the page and set up your development credentials: 
- ![image](https://user-images.githubusercontent.com/4315804/152147146-db024d57-d119-4a5b-8e6f-5475664bdf56.png)
-6.. Click on *Test* and after that you can continue with the setup 
+ ![image](https://user-images.githubusercontent.com/4315804/152147146-db024d57-d119-4a5b-8e6f-5475664bdf56.png)  
+6. Click on *Test* and after that you can continue with the setup 
 
  ## Add GitHub repository 
  _Note:_ This step could be skipped by using a managed repository if you don't have your own GitHub repo for the course.
