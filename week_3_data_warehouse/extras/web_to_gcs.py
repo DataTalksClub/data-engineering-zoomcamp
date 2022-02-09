@@ -33,7 +33,7 @@ def upload_to_gcs(bucket, object_name, local_file):
 
 
 def web_to_gcs(year, service):
-    for i in range(12):
+    for i in range(13):
         month = '0'+str(i+1)
         month = month[-2:]
         file_name = service + '_tripdata_' + year + '-' + month + '.csv'
