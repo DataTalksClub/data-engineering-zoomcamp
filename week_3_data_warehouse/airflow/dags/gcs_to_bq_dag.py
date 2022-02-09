@@ -54,7 +54,7 @@ with DAG(
                 },
                 "externalDataConfiguration": {
                     "autodetect": "True",
-                    "sourceFormat": "CSV",
+                    "sourceFormat": f"{INPUT_FILETYPE}",
                     "sourceUris": [f"gs://{BUCKET}/{colour}/*"],
                 },
             },
