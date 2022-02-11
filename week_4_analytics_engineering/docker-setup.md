@@ -2,7 +2,7 @@
 
 This is a quick guide on how to setup dbt with BigQuery on Docker.
 
-Note: You will need your authentication json key file for this method to work. You can use oauth alternatively.
+**Note:** You will need your authentication json key file for this method to work. You can use oauth alternatively.
 
 - Create a directory with the name of your choosing.
   ```
@@ -62,13 +62,13 @@ Note: You will need your authentication json key file for this method to work. Y
   - ```bash 
     docker compose run dbt-bq-dtc init
     ``` 
-    - Note: We are essentially running `dbt init` above because the `ENTRYPOINT` in the [Dockerfile](Dockerfile) is `['dbt']`.
+    - **Note:** We are essentially running `dbt init` above because the `ENTRYPOINT` in the [Dockerfile](Dockerfile) is `['dbt']`.
     - Input the required values. Project name will be `taxi_rides_ny`
     - This should create `dbt/taxi_rides_ny/` and you should see `dbt_project.yml` in there.
     - In `dbt_project.yml`, replace `profile: 'taxi_rides_ny'` with `profile: 'bq-dbt-workshop'` as we have a profile with the later name in our `profiles.yml`
   - ```bash
-    docker compose run --workdir="/usr/app/dbt/taxi_rides_ny" dbt-bq-dtc debug
+    docker compose run --workdir="//usr/app/dbt/taxi_rides_ny" dbt-bq-dtc debug
      ``` 
     - to test your connection. This should output `All checks passed!` in the end.
-    - Note: I had troubles running the above command in git bash. The `--workdir` flag took the local path instead of the path on docker. Others have also faced this issue.
+    - **Note:** The automatic path conversion in Git Bash will cause the commands to fail with `--workdir` flag. It can be fixed by prefixing the path with `//` as is done above. The solution was found [here](https://github.com/docker/cli/issues/2204#issuecomment-638993192).
     - Also, we change the working directory to the dbt project because the `dbt_project.yml` file should be in the current directory. Else it will throw `1 check failed: Could not load dbt_project.yml`
