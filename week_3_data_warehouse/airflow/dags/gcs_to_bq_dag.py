@@ -15,7 +15,7 @@ BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all')
 DATASET = "tripdata"
 COLOUR_RANGE = {'yellow': 'tpep_pickup_datetime', 'green': 'lpep_pickup_datetime'}
 INPUT_PART = "raw"
-INPUT_FILETYPE = "PARQUET"
+INPUT_FILETYPE = "parquet"
 
 default_args = {
     "owner": "airflow",
@@ -54,7 +54,7 @@ with DAG(
                 },
                 "externalDataConfiguration": {
                     "autodetect": "True",
-                    "sourceFormat": f"{INPUT_FILETYPE}",
+                    "sourceFormat": f"{INPUT_FILETYPE.upper()}",
                     "sourceUris": [f"gs://{BUCKET}/{colour}/*"],
                 },
             },
