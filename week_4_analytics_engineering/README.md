@@ -82,13 +82,19 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
  :movie_camera: [Video](https://www.youtube.com/watch?v=Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=39)
 
 ### Visualising the transformed data
- * Google data studio -> Dashboard
+ * Google data studio 
+ * [Metabase (local installation)](https://www.metabase.com/)
 
  :movie_camera: [Video]() - To be published soon
  
 ### Advanced knowledge:
- * Make a model Incremental 
- * Use of tags 
+ * [Make a model Incremental](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models)
+ * [Use of tags](https://docs.getdbt.com/reference/resource-configs/tags)
+ * [Hooks](https://docs.getdbt.com/docs/building-a-dbt-project/hooks-operations)
+ * [Analysis](https://docs.getdbt.com/docs/building-a-dbt-project/analyses)
+ * [Snapshots](https://docs.getdbt.com/docs/building-a-dbt-project/snapshots)
+ * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
+ * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
 
 ## Homework 
 
@@ -98,3 +104,6 @@ More information [here](homework.md)
 
 Did you take notes? You can share them here.
 
+## Useful links
+- [Visualizing data with Metabase course](https://www.metabase.com/learn/visualization/)
+- 
