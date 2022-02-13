@@ -33,7 +33,7 @@ Run it via the CLI without limits (is_test_run: false).
 ### Question 4: 
 **What is the count of records in the model fact_fhv_trips after running all dependencies with the test run variable disabled (:false)**  
 Create a core model for the stg_fhv_tripdata joining with dim_zones.
-Similar to what we've done in fact_trips, keep only records with knwon pickup and doproff locations entries for pickup and dropoff locations. 
+Similar to what we've done in fact_trips, keep only records with known pickup and dropoff locations entries for pickup and dropoff locations. 
 Run it via the CLI without limits (is_test_run: false).
 
 ### Question 5: 
