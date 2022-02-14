@@ -9,8 +9,9 @@ By this stage of the course you should have already:
 - A set of running pipelines ingesting the project dataset (week 3 completed): [Taxi Rides NY dataset](dataset.md)
     * Yellow taxi data - Years 2019 and 2020
     * Green taxi data - Years 2019 and 2020 
-    * fhv data - Year 2019
-  _Note: A quick hack has been shared to load that data quicker, check instructions in [week3/extras](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_3_data_warehouse/extras)_
+    * fhv data - Year 2019. 
+
+_Note: A quick hack has been shared to load that data quicker, check instructions in [week3/extras](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_3_data_warehouse/extras)_
     
 ### Setting up dbt for using BigQuery (Alternative A - preferred)
 You will need to create a dbt cloud account using [this link](https://www.getdbt.com/signup/) and connect to your warehouse [following these instructions](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth). More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)
