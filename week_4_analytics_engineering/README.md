@@ -108,6 +108,9 @@ More information [here](homework.md)
 
 Did you take notes? You can share them here.
 
+* [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/4_analytics.md)
+* Add your notes here (above this line)
+
 ## Useful links
 - [Visualizing data with Metabase course](https://www.metabase.com/learn/visualization/)
 - 
