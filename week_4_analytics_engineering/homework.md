@@ -22,7 +22,7 @@ You'll need to have completed the "Build the first dbt models" video and have be
 You should find the views and models for querying in your DWH.
 
 ### Question 2: 
-**What is the distribution between service type filtering by years 2019 and 2020 data**
+**What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos**
 You will need to complete "Visualising the data" videos, either using data studio or metabase. 
 
 ### Question 3: 
