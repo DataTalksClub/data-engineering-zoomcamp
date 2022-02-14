@@ -87,7 +87,10 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
  * Google data studio 
  * [Metabase (local installation)](https://www.metabase.com/)
 
- :movie_camera: [Video]() - To be published soon
+ :movie_camera: [Google data studio Video](https://www.youtube.com/watch?v=39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=42) 
+ 
+ :movie_camera: [Metabase Video](https://www.youtube.com/watch?v=BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) 
+
  
 ### Advanced knowledge:
  * [Make a model Incremental](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models)
