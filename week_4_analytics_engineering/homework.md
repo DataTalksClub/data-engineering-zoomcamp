@@ -27,8 +27,7 @@ You will need to complete "Visualising the data" videos, either using data studi
 
 ### Question 3: 
 **What is the count of records in the model stg_fhv_tripdata after running all models with the test run variable disabled (:false)**  
-Create a staging model for the fhv data for 2019 keeping only records with entries for affiliated_base_number. 
-Run it via the CLI without limits (is_test_run: false).
+Create a staging model for the fhv data for 2019. Run it via the CLI without limits (is_test_run: false).
 
 ### Question 4: 
 **What is the count of records in the model fact_fhv_trips after running all dependencies with the test run variable disabled (:false)**  
@@ -38,6 +37,6 @@ Run it via the CLI without limits (is_test_run: false).
 
 ### Question 5: 
 **What is the month with the biggest amount of rides after building a tile for the fact_fhv_trips table**
-Create a dashboard with some tiles that you find interesting to explore the data. One tile should show the amount of trips per month, based on the fact_fhv_trips table.
+Create a dashboard with some tiles that you find interesting to explore the data. One tile should show the amount of trips per month, as done in the videos for fact_trips, based on the fact_fhv_trips table.
 
 
