@@ -17,15 +17,15 @@ This is a quick guide on how to setup dbt with BigQuery on Docker.
   ```yaml
   version: '3'
     services:
-    dbt-bq-dtc:
+      dbt-bq-dtc:
         build:
-            context: .
-            target: dbt-bigquery
+          context: .
+          target: dbt-bigquery
         image: dbt/bigquery
         volumes:
-            - .:/usr/app
-            - ~/.dbt/:/root/.dbt/
-            - ~/.google/credentials/google_credentials.json:/.google/credentials/google_credentials.json
+          - .:/usr/app
+          - ~/.dbt/:/root/.dbt/
+          - ~/.google/credentials/google_credentials.json:/.google/credentials/google_credentials.json
         network_mode: host
   ```
   -   Name the service as you deem right or `dbt-bq-dtc`.
@@ -39,19 +39,19 @@ This is a quick guide on how to setup dbt with BigQuery on Docker.
 - Create `profiles.yml` file in `~/.dbt/` in your local machine or add the following code in your existing `profiles.yml` - 
   ```yaml
   bq-dbt-workshop:
-  outputs:
-    dev:
-      dataset: <bigquery-dataset>
-      fixed_retries: 1
-      keyfile: /.google/credentials/google_credentials.json
-      location: EU
-      method: service-account
-      priority: interactive
-      project: <gcp-project-id>
-      threads: 4
-      timeout_seconds: 300
-      type: bigquery
-  target: dev
+    outputs:
+      dev:
+        dataset: <bigquery-dataset>
+        fixed_retries: 1
+        keyfile: /.google/credentials/google_credentials.json
+        location: EU
+        method: service-account
+        priority: interactive
+        project: <gcp-project-id>
+        threads: 4
+        timeout_seconds: 300
+        type: bigquery
+    target: dev
   ```
   - Name the profile. `bq-dbt-workshop` in my case. This will be used in the `dbt_project.yml` file to refer and initiate dbt.
   - Replace with your `dataset`, `location` (my GCS bucket is in `EU` region, change to `US` if needed), `project` values.
