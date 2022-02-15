@@ -90,4 +90,4 @@ distData.filter(_ < 10).collect()
 
 ### PySpark
 
-It's the same for all platforms. Go to (pyspark.md)[pyspark.md]. 
+It's the same for all platforms. Go to [pyspark.md](pyspark.md). 

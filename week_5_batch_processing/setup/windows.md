@@ -65,14 +65,11 @@ export PATH="${HADOOP_HOME}/bin:${PATH}"
 
 Now download Spark. Select version 3.0.3 (3.2.0 has problems with starting the shell on Windows)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96b9afe8-0fdc-4d72-ab7d-f10b52bd5096/Untitled.png)
-
-
 ```bash
 wget https://dlcdn.apache.org/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz
 ```
 
-> You can find the closest mirrow to you using this [url](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz))
+> You can find the closest mirrow to you using this [url](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz).
 
 Unpack it in some location without spaces, e.g. `c:/tools/`: 
 
@@ -126,4 +123,4 @@ distData.filter(_ < 10).collect()
 
 ### PySpark
 
-It's the same for all platforms. Go to (pyspark.md)[pyspark.md]. 
+It's the same for all platforms. Go to [pyspark.md](pyspark.md). 
