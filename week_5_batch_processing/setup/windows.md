@@ -6,6 +6,8 @@ for other versions distros as well
 
 In this tutorial, we'll use [MINGW](https://www.mingw-w64.org/)/[Gitbash](https://gitforwindows.org/) for command line
 
+If you use WSL, follow the instructions from [linux.md](linux.md) 
+
 
 ### Installing Java
 
