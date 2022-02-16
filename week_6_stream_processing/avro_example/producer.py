@@ -3,6 +3,7 @@ from confluent_kafka.avro import AvroProducer
 import csv
 from time import sleep
 
+
 def load_avro_schema_from_file():
     key_schema = avro.load("taxi_ride_key.avsc")
     value_schema = avro.load("taxi_ride_value.avsc")
