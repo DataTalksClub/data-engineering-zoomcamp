@@ -124,7 +124,6 @@ Duration: 2-3 weeks
   *  Delta Lake/Lakehouse
     * Databricks
     * Apache iceberg
-    * Apache hudi
   * Data mesh
   * KSQLDB
   * Streaming analytics
@@ -145,7 +144,7 @@ Duration: 30 mins
 * *Docker*: Containerization
 * *SQL*: Data Analysis & Exploration
 * *Airflow*: Pipeline Orchestration
-* *DBT*: Data Transformation
+* *dbt*: Data Transformation
 * *Spark*: Distributed Processing
 * *Kafka*: Streaming
 
