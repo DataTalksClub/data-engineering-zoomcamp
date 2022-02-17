@@ -9,34 +9,48 @@ for other MacOs versions as well
 
 Ensure Brew and Java installed in your system.
 
-`xcode-select –install`
+```bash
+xcode-select –install
+```
 
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
 
-`brew cask install java`
+```bash
+brew cask install java
+```
 
 
 ### Installing and Setting Up Spark
 
 1. Install Scala
 
-`brew install scala@2.11`
+```bash
+brew install scala@2.11
+```
 
 2. Install Apache Spark
 
-`brew install apache-spark`
+```bash
+brew install apache-spark
+```
 
 3. Add Environment Variables: 
 Add the following environment variables to your `.bash_profile` or `.zshrc`
 
-`export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec`           
-`export PATH="$SPARK_HOME/bin/:$PATH`
+```bash
+export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec
+```           
+```bash
+export PATH="$SPARK_HOME/bin/:$PATH
+```
 
 4. Verify Installation
 
 ### Testing Spark
 
-Execute `spark-shell` and run the following:
+Execute ```spark-shell``` and run the following in scala:
 
 ```scala
 val data = 1 to 10000
