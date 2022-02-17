@@ -1,4 +1,4 @@
-## Week 4 Homework - WIP
+## Week 4 Homework 
 [Form](https://forms.gle/B5CXshja3MRbscVG8) 
 
 We will use all the knowledge learned in this week. Please answer your questions via form above.  
@@ -30,7 +30,7 @@ You will need to complete "Visualising the data" videos, either using data studi
 ### Question 3: 
 **What is the count of records in the model stg_fhv_tripdata after running all models with the test run variable disabled (:false)**  
 
-Create a staging model for the fhv data for 2019. Run it via the CLI without limits (is_test_run: false).
+Create a staging model for the fhv data for 2019 and do not add a deduplication step. Run it via the CLI without limits (is_test_run: false).
 Filter records with pickup time in year 2019.
 
 ### Question 4: 
