@@ -4,7 +4,7 @@ from confluent_kafka.avro import AvroConsumer
 def read_messages():
     consumer_config = {"bootstrap.servers": "localhost:9092",
                        "schema.registry.url": "http://localhost:8081",
-                       "group.id": "datatalkclubs.taxirides.avro.consumer.1",
+                       "group.id": "datatalkclubs.taxirides.avro.consumer.2",
                        "auto.offset.reset": "earliest"}
 
     consumer = AvroConsumer(consumer_config)
