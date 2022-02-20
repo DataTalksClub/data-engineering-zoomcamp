@@ -1,7 +1,12 @@
-
 ## PySpark
 
 This document assumes you already have python.
+
+Install PySpark (see [docs](https://spark.apache.org/docs/latest/api/python/getting_started/install.html))
+
+```sh
+pip install pyspark
+```
 
 To run PySpark, we first need to add it to `PYTHONPATH`:
 
