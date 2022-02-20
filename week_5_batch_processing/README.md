@@ -7,7 +7,7 @@
 
 ## Setting up Spark
 
-Follow installation instructions [here](https://github.com/gerrykou/data-engineering-zoomcamp/tree/main/week_5_batch_processing/setup) and [pyspark.md](setup/pyspark.md)
+Follow installation instructions [here](setup) and [pyspark.md](setup/pyspark.md)
 
 :movie_camera: [Installing Spark (Linux)](https://youtu.be/hqUbB9c8sKg?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   
