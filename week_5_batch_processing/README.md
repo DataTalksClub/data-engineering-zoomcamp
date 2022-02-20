@@ -19,4 +19,4 @@ Follow installation instructions [here](https://github.com/gerrykou/data-enginee
 
 :movie_camera: [Optional - Prepare a Dataset for this week](https://youtu.be/CI3P4tAtru4?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-Script to prepare the Dataset [download_data.sh](code/ownload_data.sh)
+Script to prepare the Dataset [download_data.sh](code/download_data.sh)
