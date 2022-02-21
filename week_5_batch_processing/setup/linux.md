@@ -27,7 +27,7 @@ tar xzfv openjdk-11.0.2_linux-x64_bin.tar.gz
 define `JAVA_HOME` and add it to `PATH`:
 
 ```bash
-export JAVA_HOME="${HOME}/bin/jdk-11.0.2"
+export JAVA_HOME="${HOME}/spark/jdk-11.0.2"
 export PATH="${JAVA_HOME}/bin:${PATH}"
 ```
 
@@ -74,7 +74,7 @@ rm spark-3.0.3-bin-hadoop3.2.tgz
 Add it to `PATH`:
 
 ```bash
-export SPARK_HOME="${HOME}/bin/spark-3.0.3-bin-hadoop3.2"
+export SPARK_HOME="${HOME}/spark/spark-3.0.3-bin-hadoop3.2"
 export PATH="${SPARK_HOME}/bin:${PATH}"
 ```
 
