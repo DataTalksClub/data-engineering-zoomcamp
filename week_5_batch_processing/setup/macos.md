@@ -36,7 +36,7 @@ Add the following environment variables to your `.bash_profile` or `.zshrc`
 
 ```bash
 export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec
-export PATH="$SPARK_HOME/bin/:$PATH
+export PATH="$SPARK_HOME/bin/:$PATH"
 ```
 
 
