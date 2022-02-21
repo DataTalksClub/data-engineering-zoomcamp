@@ -1,3 +1,7 @@
+## Stream processing with Kafka
+[Slides](https://docs.google.com/presentation/d/1bCtdCba8v1HxJ_uMm9pwjRUC-NAMeB-6nOG2ng3KujA/edit?usp=sharing)
+
+
 ### Configuration
 Please take a look at all configuration from kafka [here](https://docs.confluent.io/platform/current/installation/configuration/).
 
