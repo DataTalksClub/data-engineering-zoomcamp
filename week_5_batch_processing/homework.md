@@ -66,7 +66,16 @@ For example:
 
 "Jamaica Bay / Clinton East"
 
-For finding the answer, you'll need to perform a join.
+Enter two zone names separated by a slash
+
+If any of the zone names are unknown (missing), use "Unknown". For example, "Unknown / Clinton East". 
+
+
+## Bonus question. Join type
+
+(not graded) 
+
+For finding the answer to Q6, you'll need to perform a join.
 
 What type of join is it?
 
