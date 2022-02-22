@@ -29,7 +29,7 @@ in the lessons.
 Repartition it to 24 partitions and save it to
 parquet.
 
-What's the size of the result?
+What's the size of the folder with results (in MB)?
 
 
 ## Question 3. Count records 
