@@ -53,6 +53,11 @@ in this dataset.
 
 How many stages this spark job has?
 
+> Note: the answer may depend on how you write the query,
+> so there are multiple correct answers. 
+> Select the one you have.
+
+
 ## Question 6. Most common locations pair
 
 Find the most common pickup-dropoff pair. 
