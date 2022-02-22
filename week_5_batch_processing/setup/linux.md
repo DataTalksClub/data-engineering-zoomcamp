@@ -12,7 +12,7 @@ Download OpenJDK 11 or Oracle JDK 11 (It's important that the version is 11 - sp
 
 We'll use [OpenJDK](https://jdk.java.net/archive/)
 
-Download it (e.g. to `~/bin`):
+Download it (e.g. to `~/spark`):
 
 ```
 wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
