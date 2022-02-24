@@ -46,3 +46,10 @@ Coming soon
 ### Homework
 
 See [here](homework.md) for more details
+
+## Community notes
+
+Did you take notes? You can share them here.
+
+* [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/5_batch_processing.md)
+* Add your notes here (above this line)
