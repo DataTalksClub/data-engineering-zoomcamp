@@ -84,7 +84,7 @@ And how many stages your spark job has?
 
 ## Submitting the solutions
 
-* Form for submitting: TBA
+* Form for submitting: https://forms.gle/dBkVK9yT8cSMDwuw7
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
 Deadline: 02 March (Wednesday), 22:00 CET
