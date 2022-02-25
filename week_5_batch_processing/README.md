@@ -32,6 +32,7 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 
 :movie_camera: [SQL with Spark](https://www.youtube.com/watch?v=uAlp2VuZZPY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
+**Note**: The other way to infer the schema (apart from pandas) for the csv files, is to set the `inferSchema` option to `true` while reading the files in Spark.
 
 ### 5.4 Spark Internals
 
