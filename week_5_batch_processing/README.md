@@ -30,13 +30,18 @@ And follow [this](setup/pyspark.md) to run PySpark in Jupyter
 
 Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 
+**Note**: The other way to infer the schema (apart from pandas) for the csv files, is to set the `inferSchema` option to `true` while reading the files in Spark.
+
 :movie_camera: [SQL with Spark](https://www.youtube.com/watch?v=uAlp2VuZZPY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-**Note**: The other way to infer the schema (apart from pandas) for the csv files, is to set the `inferSchema` option to `true` while reading the files in Spark.
 
 ### 5.4 Spark Internals
 
-Coming soon
+:movie_camera: [Anatomy of a Spark Cluster](https://youtu.be/68CipcZt7ZA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+
+:movie_camera: [GroupBy in Spark](https://youtu.be/9qrDsY_2COo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+
+:movie_camera: [Joins in Spark](https://youtu.be/lu7TrqAWuH4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
 ### 5.5 RDDs
