@@ -24,7 +24,8 @@ wget https://nyc-tlc.s3.amazonaws.com/trip+data/fhvhv_tripdata_2021-02.csv
 ```
 
 Read it with Spark using the same schema as we did 
-in the lessons. 
+in the lessons. We will use this dataset for all
+the remaining questions.
 
 Repartition it to 24 partitions and save it to
 parquet.
