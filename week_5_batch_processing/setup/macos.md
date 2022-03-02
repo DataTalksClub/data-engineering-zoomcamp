@@ -14,12 +14,15 @@ xcode-select –install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew install java
 ```
-Add the following environment variables to your `.bash_profile` or `.zshrc`
+
+Add the following environment variables to your `.bash_profile` or `.zshrc`:
+
 ```bash
 export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12
 export PATH="$JAVA_HOME/bin/:$PATH"
 ```
-** make sure JAVA was installed to "/usr/local/Cellar/openjdk@11/11.0.12" location by going to Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12" if not then change path location to appropriate path on your machine**
+
+Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine.
 
 ### Installing Spark
 
