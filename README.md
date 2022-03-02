@@ -184,7 +184,10 @@ Please follow [these recommendations](asking-questions.md) when asking for help
   **A**: Yes, if you complete the project
 * **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
   **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace. 
-* **Q**: Do you plan to run a ML engineering course as well? **A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
+* **Q**: Do you plan to run a ML engineering course as well?
+**A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
+* **Q**: I'm stuck! I've got a technical question!
+  **A**: Ask on Slack! And check out the [student FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing); many common issues have been answered already. If your issue is solved, please add how you solved it to the document. Thanks!
 
 
 
