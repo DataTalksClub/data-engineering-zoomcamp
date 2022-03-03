@@ -101,7 +101,7 @@ Duration: 1.5h
 
 
 
-### [Week 7, 8 & 9: Project](project)
+### [Week 7, 8 & 9: Project](week_7_project)
 
 * Putting everything we learned to practice
 
