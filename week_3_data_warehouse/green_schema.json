@@ -1,0 +1,122 @@
+[
+    {
+        "description": "description",
+        "name": "VendorID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "lpep_pickup_datetime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "lpep_dropoff_datetime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {		
+        "description": "description",
+        "name": "store_and_fwd_flag",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "RatecodeID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "PULocationID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "DOLocationID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "passenger_count",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "trip_distance",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "fare_amount",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "extra",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "mta_tax",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "tip_amount",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "tolls_amount",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "ehail_fee",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "improvement_surcharge",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "total_amount",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "payment_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "trip_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "congestion_surcharge",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

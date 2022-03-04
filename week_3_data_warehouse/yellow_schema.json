@@ -1,0 +1,110 @@
+[
+    {
+        "description": "description",
+        "name": "VendorID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "tpep_pickup_datetime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "tpep_dropoff_datetime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {		
+        "description": "description",
+        "name": "passenger_count",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "Trip_distance",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "RatecodeID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "store_and_fwd_flag",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "PULocationID",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "DOLocationID",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "payment_type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "fare_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "extra",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "mta_tax",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "tip_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "tolls_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "improvement_surcharge",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "total_amount",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "congestion_surcharge",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    }
+]

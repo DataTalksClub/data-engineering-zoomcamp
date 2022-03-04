@@ -1,0 +1,44 @@
+[
+    {
+        "description": "description",
+        "name": "dispatching_base_num",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "pickup_datetime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "dropoff_datetime",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "PULocationID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "DOLocationID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "SR_Flag",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "description": "description",
+        "name": "Affiliated_base_number",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]

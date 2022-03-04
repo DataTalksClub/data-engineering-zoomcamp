@@ -1,0 +1,4 @@
+apache-airflow-providers-google
+pyarrow
+pandas
+datetime
