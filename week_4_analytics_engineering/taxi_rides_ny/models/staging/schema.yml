@@ -87,6 +87,7 @@ models:
               - accepted_values:
                   values: "{{ var('payment_type_values') }}"
                   severity: warn
+                  quote: false
           - name: payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 
@@ -178,6 +179,7 @@ models:
               - accepted_values:
                   values: "{{ var('payment_type_values') }}"
                   severity: warn
+                  quote: false
           - name: payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 
@@ -199,5 +201,3 @@ models:
             description: Total amount of all tolls paid in trip.
           - name: Total_amount 
             description: The total amount charged to passengers. Does not include cash tips.
-
-

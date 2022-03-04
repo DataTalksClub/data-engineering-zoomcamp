@@ -59,7 +59,17 @@ with DAG(
                         "sourceUris": [f"gs://{BUCKET}/{color}/*"],
                     },
                 },
+<<<<<<< HEAD
             )
+=======
+                "externalDataConfiguration": {
+                    "autodetect": "True",
+                    "sourceFormat": f"{INPUT_FILETYPE.upper()}",
+                    "sourceUris": [f"gs://{BUCKET}/{colour}/*"],
+                },
+            },
+        )
+>>>>>>> 6d491b6e61a15437c67ca32d61ccd9c9648d2ec5
 
         CREATE_BQ_TBL_QUERY = (
                 f""" \

@@ -7,6 +7,7 @@
 - Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
 - The videos are published to [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) 
 - [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
+- [Frequenty asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
 
 ## Syllabus
 
@@ -38,59 +39,45 @@
 [More details](week_2_data_ingestion)
 
 
-
 ### [Week 3: Data Warehouse](week_3_data_warehouse)
 
-Goal: Structuring data into a Data Warehouse
 
-Instructor: Ankush
+* Data Warehouse
+* BigQuery
+* Partitoning and clustering
+* BigQuery best practices
+* Internals of BigQuery
+* Integrating BigQuery with Airflow
+* BigQuery Machine Learning
 
-* Data warehouse (BigQuery) (25 minutes)
-    * What is a data warehouse solution
-    * What is big query, why is it so fast, Cost of BQ,  (5 min)
-    * Partitoning and clustering, Automatic re-clustering (10 min)
-    * Pointing to a location in google storage (5 min)
-    * Loading data to big query & PG (10 min) -- using Airflow operator?
-    * BQ best practices
-    * Misc: BQ Geo location, BQ ML 
-    * Alternatives (Snowflake/Redshift)
-
-Duration: 1-1.5h
+[More details](week_3_data_warehouse)
 
 
-### [Week 4: Analytics engineering](week_4_analytics_engineering/taxi_rides_ny/)
+### [Week 4: Analytics engineering](week_4_analytics_engineering/)
 
-Goal: Transforming Data in DWH to Analytical Views
+* Basics of analytics engineering
+* dbt (data build tool)
+* BigQuery and dbt
+* Postgres and dbt
+* dbt models
+* Testing and documenting
+* Deployment to the cloud and locally
+* Visualising the data with google data studio and metabase 
 
-Instructor: Victoria
-
-* Basics of analytics engineering (15 mins)
-* Developing a dbt project (Combination of coding + theory) (1:30)
-* Visualising the data in Google data studio (15 mins)
-
-Duration: 2h    
 
 [More details](week_4_analytics_engineering)
 
 
 ### [Week 5: Batch processing](week_5_batch_processing)
 
-Goal: 
+* Batch processing 
+* What is Spark
+* Spark Dataframes
+* Spark SQL
+* Internals: GroupBy and joins
 
-Instructor: Alexey
 
-* Distributed processing (Spark) (40 + ? minutes)
-    * What is Spark, spark cluster (5 mins)
-    * Explaining potential of Spark (10 mins)
-    * What is broadcast variables, partitioning, shuffle (10 mins)
-    * Pre-joining data (10 mins)
-    * use-case
-    * What else is out there (Flink) (5 mins)
-* Extending Orchestration env (airflow) (30 minutes)
-    * Big query on airflow (10 mins)
-    * Spark on airflow (10 mins)
-
-Duration: 1-1.5h
+[More details](week_5_batch_processing)
 
 ### [Week 6: Streaming](week_6_stream_processing)
 
@@ -114,7 +101,7 @@ Duration: 1.5h
 
 
 
-### [Week 7, 8 & 9: Project](project)
+### [Week 7, 8 & 9: Project](week_7_project)
 
 * Putting everything we learned to practice
 
@@ -124,7 +111,6 @@ Duration: 2-3 weeks
   *  Delta Lake/Lakehouse
     * Databricks
     * Apache iceberg
-    * Apache hudi
   * Data mesh
   * KSQLDB
   * Streaming analytics
@@ -145,7 +131,7 @@ Duration: 30 mins
 * *Docker*: Containerization
 * *SQL*: Data Analysis & Exploration
 * *Airflow*: Pipeline Orchestration
-* *DBT*: Data Transformation
+* *dbt*: Data Transformation
 * *Spark*: Distributed Processing
 * *Kafka*: Streaming
 
@@ -199,7 +185,10 @@ Please follow [these recommendations](asking-questions.md) when asking for help
   **A**: Yes, if you complete the project
 * **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
   **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace. 
-* **Q**: Do you plan to run a ML engineering course as well? **A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
+* **Q**: Do you plan to run a ML engineering course as well?
+**A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
+* **Q**: I'm stuck! I've got a technical question!
+  **A**: Ask on Slack! And check out the [student FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing); many common issues have been answered already. If your issue is solved, please add how you solved it to the document. Thanks!
 
 
 

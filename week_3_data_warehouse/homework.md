@@ -26,7 +26,7 @@ actual data processed can be found after the query is executed.
 ### Question 5: 
 **What will be the best partitioning or clustering strategy when filtering on dispatching_base_num and SR_Flag**  
 Review partitioning and clustering video. 
-Clustering cannot be created on all data types.
+Partitioning cannot be created on all data types.
 
 ### Question 6: 
 **What improvements can be seen by partitioning and clustering for data size less than 1 GB**  
