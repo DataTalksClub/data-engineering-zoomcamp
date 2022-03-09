@@ -9,7 +9,7 @@ For the project, we will ask you to build a dashboard with two tiles.
 
 For that, you will need:
 
-* Select a dataset that you're interested in (check [FAQ for a list of datasets](dataset.md))
+* Select a dataset that you're interested in (see [datasets.md](datasets.md))
 * Create a pipeline for processing this dataset and putting it to a datalake
 * Create a pipeline for moving the data from the lake to a data warehouse
 * Transform the data in the data warehouse: prepare it for the dashboard
