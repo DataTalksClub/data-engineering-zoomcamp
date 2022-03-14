@@ -64,21 +64,25 @@ Example of a dashboard: ?
         * 2 points: Partial workflow orchestration: some steps are orchestrated, some run manually
         * 4 points: End-to-end pipeline: multiple steps in the DAG, uploading data to data lake
     * Stream
-        * TODO: Discuss with Ankush
+        * 0 points: No streaming system (like Kafka, Pulsar, etc)
+        * 2 points: A simple pipeline with one consumer and one producer
+        * 4 points: Using consumer/producers and streaming technologies (like Kafka streaming, Spark streaming, Flink, etc)
 * Data warehouse
-    * 0 points: no DWH is used
+    * 0 points: No DWH is used
     * 2 points: Tables are created in DWH, but not optimized
-    * 4 points: Tables are partitioned and clustered in a way that makes sense for the upstream queries 
+    * 4 points: Tables are partitioned and clustered in a way that makes sense for the upstream queries (with explanation)
 * Transformations (dbt, spark, etc)
-    * TODO: Discuss with Vic
+    * 0 points: No tranformations
+    * 2 points: Simple SQL transformation (no dbt or similar tools)
+    * 4 points: Tranformations are defined with dbt, Spark or similar technologies
 * Dashboard
     * 0 points: No dashboard
     * 2 points: A dashboard with 1 tile
-    * 4 points: A dashboard with 2 tiles 
+    * 4 points: A dashboard with 2 tiles
 * Reproducibility
     * 0 points: No instructions how to run code at all
     * 2 points: Some instructions are there, but they are not complete
-    * 4 points: Instructions are clear and it's easy to run the code
+    * 4 points: Instructions are clear, it's easy to run the code, and the code works
 
 
 ## Going the extra mile 
