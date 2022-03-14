@@ -14,7 +14,8 @@ Pre-reqs:
 
 # services = ['fhv','green','yellow']
 init_url = 'https://nyc-tlc.s3.amazonaws.com/trip+data/'
-BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc_data_lake_pivotal-surfer-336713")
+# switch out the bucketname
+BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc-data-lake-bucketname")
 
 
 def upload_to_gcs(bucket, object_name, local_file):
@@ -33,18 +34,28 @@ def upload_to_gcs(bucket, object_name, local_file):
 
 
 def web_to_gcs(year, service):
-    for i in range(13):
+    for i in range(12):
+        
+        # sets the month part of the file_name string
         month = '0'+str(i+1)
         month = month[-2:]
+
+        # csv file_name 
         file_name = service + '_tripdata_' + year + '-' + month + '.csv'
+
+        # download it using requests via a pandas df
         request_url = init_url + file_name
         r = requests.get(request_url)
         pd.DataFrame(io.StringIO(r.text)).to_csv(file_name)
         print(f"Local: {file_name}")
+
+        # read it back into a parquet file
         df = pd.read_csv(file_name)
         file_name = file_name.replace('.csv', '.parquet')
         df.to_parquet(file_name, engine='pyarrow')
         print(f"Parquet: {file_name}")
+
+        # upload it to gcs 
         upload_to_gcs(BUCKET, f"{service}/{file_name}", file_name)
         print(f"GCS: {service}/{file_name}")
 
