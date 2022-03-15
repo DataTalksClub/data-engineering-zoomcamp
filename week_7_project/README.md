@@ -3,6 +3,12 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end data pipeline.
 
+Deadlines:
+
+* Submitting the project: 28 March, 22:00 CET
+* Peer reviewing: 4 April, 22:00 CET
+
+
 ### Problem statement
 
 For the project, we will ask you to build a dashboard with two tiles. 
@@ -14,6 +20,7 @@ For that, you will need:
 * Create a pipeline for moving the data from the lake to a data warehouse
 * Transform the data in the data warehouse: prepare it for the dashboard
 * Create a dashboard
+
 
 
 ## Data Pipeline 
@@ -98,22 +105,13 @@ This is not covered in the course and this is entirely optional.
 If you plan to use this project as your portfolio project, it'll 
 definitely help you to stand out from others.
 
-Some links to refer to-
-
-Unit Tests + CI for Airflow:
-https://www.astronomer.io/events/recaps/testing-airflow-to-bulletproof-your-code/
-
-CI/CD for Airflow (with Gitlab & GCP state file):
-https://engineering.ripple.com/building-ci-cd-with-airflow-gitlab-and-terraform-in-gcp
-
-CI/CD for Airflow (with GitHub and S3 state file)
-https://programmaticponderings.com/2021/12/14/devops-for-dataops-building-a-ci-cd-pipeline-for-apache-airflow-dags/
-
-CD for Terraform:
-https://towardsdatascience.com/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc
-
-Spark + Airflow:
-https://medium.com/doubtnut/github-actions-airflow-for-automating-your-spark-pipeline-c9dff32686b
+> **Note**: this part will not be graded. 
 
 
-> Note: this part will not be graded. 
+Some links to refer to:
+
+* [Unit Tests + CI for Airflow](https://www.astronomer.io/events/recaps/testing-airflow-to-bulletproof-your-code/)
+* [CI/CD for Airflow (with Gitlab & GCP state file)](https://engineering.ripple.com/building-ci-cd-with-airflow-gitlab-and-terraform-in-gcp)
+* [CI/CD for Airflow (with GitHub and S3 state file)](https://programmaticponderings.com/2021/12/14/devops-for-dataops-building-a-ci-cd-pipeline-for-apache-airflow-dags/)
+* [CD for Terraform](https://towardsdatascience.com/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc)
+* [Spark + Airflow](https://medium.com/doubtnut/github-actions-airflow-for-automating-your-spark-pipeline-c9dff32686b)
