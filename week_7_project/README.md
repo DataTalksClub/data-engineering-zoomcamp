@@ -98,4 +98,22 @@ This is not covered in the course and this is entirely optional.
 If you plan to use this project as your portfolio project, it'll 
 definitely help you to stand out from others.
 
-> Note: this will not be graded. 
+Some links to refer to-
+
+Unit Tests + CI for Airflow:
+https://www.astronomer.io/events/recaps/testing-airflow-to-bulletproof-your-code/
+
+CI/CD for Airflow (with Gitlab & GCP state file):
+https://engineering.ripple.com/building-ci-cd-with-airflow-gitlab-and-terraform-in-gcp
+
+CI/CD for Airflow (with GitHub and S3 state file)
+https://programmaticponderings.com/2021/12/14/devops-for-dataops-building-a-ci-cd-pipeline-for-apache-airflow-dags/
+
+CD for Terraform:
+https://towardsdatascience.com/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc
+
+Spark + Airflow:
+https://medium.com/doubtnut/github-actions-airflow-for-automating-your-spark-pipeline-c9dff32686b
+
+
+> Note: this part will not be graded. 
