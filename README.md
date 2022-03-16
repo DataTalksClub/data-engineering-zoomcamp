@@ -18,7 +18,7 @@ All the materials of the course are freely available, so you
 can take the course at your own pace. 
 
 * Follow the suggested syllabus (see below) week by week
-* For the self-paced mode, you don't need to use the registration link above. Just start watching the videos 
+* For the self-paced mode, you don't need to fill the registration form above. Just start watching the videos 
 * Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
 
