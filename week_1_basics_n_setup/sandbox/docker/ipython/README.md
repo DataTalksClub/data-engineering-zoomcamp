@@ -42,4 +42,13 @@ rebuild and rerun
 ```bash
 docker build -t test:pandas .
 docker run -it test:pandas
-````
+```
+
+We can also add CLI args to our pipeline, as I've done in this commit. I've also edited the Dockerfile so that it just runs the python `pipeline.py` script when the container is started rather than just a bash terminal.
+
+After making those changes, we rebuild, and then we can rerun it, but we have to provide an additional parameter or it will complain.
+
+```bash
+docker build -t test:pandas .
+docker run -it test:pandas 2022-03-16
+```

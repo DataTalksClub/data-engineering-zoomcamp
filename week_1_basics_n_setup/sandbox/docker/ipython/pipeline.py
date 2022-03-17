@@ -1,3 +1,5 @@
+import sys
+
 import pandas as pd
 
 
@@ -19,4 +21,8 @@ def main():
 
 
 if __name__ == "__main__":
+	print(sys.argv)
+	print(f"arg_0: {sys.argv[0]}")
+	day = sys.argv[1]
+	print(f"arg_1: {day}")
 	main()
