@@ -52,3 +52,30 @@ Enter that, provide the password from above ("root"), and we'll get basically a 
 https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=4
 
 Stopped 9 minutes and 32s in
+
+To interactively work with the postgres db in recorded way, we'll do work in an .ipynb file. I'm partial to jupyterlab, so I'll install that into my conda env and register that env with the ipython "kernel"
+
+```bash
+conda install -c conda-forge jupyterlab=3.3
+python -m ipykernel install --user --name de_env --display-name "Python (de_env)"
+```
+
+And I'll navigate up the tree a bit to the root_directory of this course, then I'll start the jupyter server on port 8889 (I already have another jupyter server running on the default port)
+
+```bash
+x@y: ~/.../data-engineering-zoomcamp$ jupyter lab --port=8889
+```
+
+We will be working with public [NYC taxi data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), and I'll download that data in my jupyter labbook.
+
+The data dictionarys for NYC cab cos are available via that link. We'll be initially working with yellow taxi data, so I'll include that [data dictionary link](https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf).
+
+
+We also have a few more packages to install. This can be done while our jupyter server is running.
+
+```bash
+conda install -c conda-forge sqlalchemy
+conda install -c conda-forge pandas
+```
+
+Subsequent notes will be included in the notebook.
