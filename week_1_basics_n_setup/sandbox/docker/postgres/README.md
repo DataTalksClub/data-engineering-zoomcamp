@@ -78,4 +78,52 @@ conda install -c conda-forge sqlalchemy
 conda install -c conda-forge pandas
 ```
 
-Subsequent notes will be included in the notebook.
+Subsequent initial data ingestion notes will be included in the notebook.
+
+# pgAdmin4
+
+pgAdmin4 is a nice interface for managing a postgres database system. We can spin up a pgAdmin4 container via the command
+
+```bash
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 6432:80 \
+dpage/pgadmin4
+```
+
+but if we want it to be able to access our postgres database container, we'll need to connect these currently isolated containers. We can do this by creating a `docker network` 
+
+```bash
+docker network create pg-network
+```
+
+and modifying the `docker run` command to include the network and container name for both our postgres container,
+
+```bash
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  --network=pg-network \
+  --name pg-database \
+postgres:13
+```
+
+and our pgAdmin4 container
+
+```bash
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 6432:80 \
+  --network pg-network \
+  --name pg-admin \
+dpage/pgadmin4
+```
+
+After starting this up, you can access the webinterface at http://localhost:6432/ (swap out the port number if you used a different port number).
+
+After logging in, click the **Add New Server** button. In the interface that pops up, enter the postgres server name we set above (pg-database), then click into the **Connection** tab, enter (pg-database) as the "Host name/address" and enter the postgres credentials from the `docker run` command, then Save the config. If things worked, you should see a dashboard showing sessions and connections, and in the left-side tray, you expanding `pg-database` and `Databases` should reveal our `ny_taxi` table.
