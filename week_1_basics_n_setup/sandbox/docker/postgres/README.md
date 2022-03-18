@@ -148,3 +148,19 @@ drwxrwxr-x  2 matt             matt  4096 Mar 17 17:29 ny_taxi_postgres_data_raw
 ```
 
 But, looking at the code, it's kind of a mess. I think I'll just make it from scratch.
+
+I repackaged it into an ETL format, and I'll make a second dockerized version.
+
+I saved that code in `ingest_data_cli.py`, and that script can be manually called via a command like:
+
+```bash
+python ingest_data_cli.py --user=root \
+	--password=root \
+	--host=localhost \
+	--port=5432 \
+	--db_name=ny_taxi \
+	--table_name=yellow_taxi_data \
+	--url=https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv \
+	--raw_file_path=./data_raw/yellow_tripdata_2021-01.csv
+```
+
