@@ -127,3 +127,24 @@ dpage/pgadmin4
 After starting this up, you can access the webinterface at http://localhost:6432/ (swap out the port number if you used a different port number).
 
 After logging in, click the **Add New Server** button. In the interface that pops up, enter the postgres server name we set above (pg-database), then click into the **Connection** tab, enter (pg-database) as the "Host name/address" and enter the postgres credentials from the `docker run` command, then Save the config. If things worked, you should see a dashboard showing sessions and connections, and in the left-side tray, you expanding `pg-database` and `Databases` should reveal our `ny_taxi` table.
+
+## Containerizing our pipeline
+
+We can convert our notebook into a script using `jupyter`'s `nbconvert` functionality. 
+
+```bash
+(de_env) matt@matt:...$ jupyter nbconvert --to=script ingest_data.ipynb 
+[NbConvertApp] Converting notebook ingest_data.ipynb to script
+[NbConvertApp] Writing 3411 bytes to ingest_data.py
+(de_env) matt@matt:...$ ls -la
+drwxrwxr-x  5 matt             matt  4096 Mar 17 19:47 .
+drwxrwxr-x  4 matt             matt  4096 Mar 16 22:33 ..
+-rw-rw-r--  1 matt             matt 22489 Mar 17 18:14 ingest_data.ipynb
+-rw-rw-r--  1 matt             matt  3411 Mar 17 19:47 ingest_data.py
+drwx------ 19 systemd-coredump matt  4096 Mar 17 19:36 ny_taxi_postgres_data
+drwxrwxr-x  2 matt             matt  4096 Mar 17 17:29 ny_taxi_postgres_data_raw
+-rw-rw-r--  1 matt             matt  4897 Mar 17 19:46 README.md
+
+```
+
+But, looking at the code, it's kind of a mess. I think I'll just make it from scratch.
