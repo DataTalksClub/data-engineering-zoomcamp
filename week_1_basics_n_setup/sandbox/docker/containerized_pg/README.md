@@ -179,3 +179,19 @@ ENTRYPOINT [ "python", "ingest_data_cli.py" ]
 
 and we can build that via 
 `docker build -t taxi_data_ingester:v01 .`
+
+and rather than call python to run the script, we can run docker. Note that now, the `host` parameter refers to the postgres container, which we named `pg-database`. 
+
+```bash
+docker run -it \
+  --network=pg-network \
+  taxi_data_ingester:v01 \
+    --user=root \
+    --password=root \
+    --host=pg-database \
+    --port=5432 \
+    --db_name=ny_taxi \
+    --table_name=yellow_taxi_data \
+    --url=https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv \
+    --raw_file_path=./data_raw/yellow_tripdata_2021-01.csv
+```
