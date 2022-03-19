@@ -63,13 +63,90 @@ Set the settings below
 * Machine type: e2-standard-4 ($0.14/hr)
 * Boot disk: Ubuntu 20.04LTS w 30GB persistant storage
 
-Click **Create**, and it will take a bit to create. When it's ready, copy its **External IP**, and we can use that to SSH into our VM, using our private key for authentication via the command below (with the bracked placeholders replaced with your real values, of course). NOTE: if you used an email address as your <USER> string when creating your SSH key, leave off the @-sign and email domain in your `ssh` connection string (eg if your <USER> string was "name@gmail.com", only use the "name" part).
+Click **Create**, and it will take a bit to create. When it's ready, we'll SSH to its **External IP**.
+
+### Connecting to the Instance
+
+Using the **External IP** address from our instance's line in the VM Instances dashboard, we SSH into our VM, using our private key for authentication via the command below (with the bracked placeholders replaced with your real values, of course). NOTE: if you used an email address as your <USER> string when creating your SSH key, leave off the @-sign and email domain in your `ssh` connection string (eg if your <USER> string was "name@gmail.com", only use the "name" part).
 
 ```bash
 ssh -i ~/.ssh/<KEY_FILENAME> <USER>@<EXTERNAL_IP>
-````
+```
 
- 
+That will provide a terminal in the container.
+
+### Writing an SSH Config file
+
+To make connecting easier, we can save ssh connection configurations to a file `~/.ssh/config` (the `ssh` program looks for that file).
+
+
+```txt
+Host <name-of-ssh-connection-config>
+	HostName <EXTERNAL_IP>
+	User <USER_STRING_WITHOUT_EMAIL_DOMAIN>
+	IdentityFile ~/.ssh/<KEY_FILENAME>
+```
+
+then you can reduce your `ssh` command to just
+
+```bash
+ssh <name-of-ssh-connection-config>
+```
+
+
+## Setting up our instance.
+
+### Installing Miniconda
+
+Grab the installer download link for the latest version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) for your platform and desired python version, as well as the SHA256 hash value corresponding to that link.
+
+At the time of writing, the latest python3.9 miniconda version is 4.11.0, and has the below link and SHA256. If you're following along at a later date, swap in your version, file name, and hash value as appropriate in the steps below.
+
+version: https://repo.anaconda.com/miniconda/Miniconda3-py39_4.11.0-Linux-x86_64.sh 
+SHA256: 4ee9c3aa53329cd7a63b49877c0babb49b19b7e5af29807b793a76bdb1d362b4
+
+Download the installer via
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.11.0-Linux-x86_64.sh
+```
+
+then confirm the file downloaded correctly, completely, and without any modification by a sneaky man-in-the-middle via
+
+```bash
+sha256sum Miniconda3-py39_4.11.0-Linux-x86_64.sh
+4ee9c3aa53329cd7a63b49877c0babb49b19b7e5af29807b793a76bdb1d362b4  Miniconda3-py39_4.11.0-Linux-x86_64.sh
+```
+
+The hash values should match exactly (it's easy to quickly check by pasting the output into a text file, then copying the SHA256 from the download page, and pasting that into the text file right below the prior paste (as shown below)). If they don't match, don't execute the file.
+
+```
+4ee9c3aa53329cd7a63b49877c0babb49b19b7e5af29807b793a76bdb1d362b4  Miniconda3-py39_4.11.0-Linux-x86_64.sh
+4ee9c3aa53329cd7a63b49877c0babb49b19b7e5af29807b793a76bdb1d362b4
+```
+
+If they do match you can install miniconda via 
+
+```bash
+bash Miniconda3-py39_4.11.0-Linux-x86_64.sh
+```
+
+* Press enter to get through the EULA then enter "yes" when prompted.
+* When prompted about the install location, press enter to pick the default location.
+* When asked if you want to run `conda init`, enter "yes"
+
+That last step adds the directories containing the `conda` program to PATH (the locations a shell's executor checks when trying to find the program files corresponding to command-names), which termials load on startup, so you'll need to restart the terminal to get the `conda` command to work. You can do that by exiting and re-`ssh`ing in.
+
+
+
+
+
+
+## Stopping your VM Instance
+
+If you aren't using a compute instance and it's not running any calculations, you can save a lot of money by stopping the VM instance. 
+
+To stop a VM instance, go to the **VM Instance** dashboard, click the three-dots for the VM instance you want to shut down, and click **Stop**. It will probably take 30 seconds to a minute to stop (90 seconds at the most, at which point GCP will kill it and it could cause memory loss), at which point the **Status** icon will show it's stopped and the **External IP** will show **None**.
 
 
 # Terraform overview
