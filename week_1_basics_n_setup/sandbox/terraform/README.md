@@ -39,6 +39,38 @@ We'll also need to enable both of these APIs for our project, so that our local 
 * https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com
 
 
+## Configuring a VM instance
+
+### Setting up an ssh key
+
+Google's [Create ssh key documentation](https://cloud.google.com/compute/docs/connect/create-ssh-keys) 
+
+Generate the key
+```bash
+ssh-keygen -t rsa -f ~/.ssh/<KEY_FILENAME> -C <USER> -b 2048
+```
+then you have to add the **public key** part of your ssh key to Google Cloud, but before you can do that, the GCP **Compute Engine API** must be enabled (just select **Compute Engine** from the **Resources** section of the [GCP Dashboard](https://console.cloud.google.com/home?project=dtc-de-course-344600) and then refresh). In the **Settings** group in the left-hand tray, select **Metadata** > click over to the **SSH Keys** tab > click the **Add SSH Key** button. Copy the contents of `~/.ssh/<KEY_FILENAME>.pub`, paste that into the webform field, and click save.
+
+### Create Instance
+
+Go back to the **VM instances** interface (it's the top option in the **Virtual Machines** group in the left-hand tray) and click the **Create Instance** button in the top row (if your window is too narrow, you might have to click the three-dots to see the option).
+
+While updating settings, you'll see the hourly run cost of such a setup
+
+Set the settings below
+* Instance name: dtc-de-zoomcamp
+* Region (and zone): us-central1
+* Machine type: e2-standard-4 ($0.14/hr)
+* Boot disk: Ubuntu 20.04LTS w 30GB persistant storage
+
+Click **Create**, and it will take a bit to create. When it's ready, copy its **External IP**, and we can use that to SSH into our VM, using our private key for authentication via the command below (with the bracked placeholders replaced with your real values, of course). NOTE: if you used an email address as your <USER> string when creating your SSH key, leave off the @-sign and email domain in your `ssh` connection string (eg if your <USER> string was "name@gmail.com", only use the "name" part).
+
+```bash
+ssh -i ~/.ssh/<KEY_FILENAME> <USER>@<EXTERNAL_IP>
+````
+
+ 
+
 
 # Terraform overview
 
