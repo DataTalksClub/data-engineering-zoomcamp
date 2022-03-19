@@ -195,3 +195,115 @@ docker run -it \
     --url=https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv \
     --raw_file_path=./data_raw/yellow_tripdata_2021-01.csv
 ```
+
+## docker-compose
+
+While setting up individual containers and manually hooking them up is more convenient than installing the applications manually, we still had to manually enter three commands, two of which were very long. It would be much nicer to just encapsulate the structure or configuration of our postgres and pgAdmin4 application in a reusable way.
+
+This is purpose of docker-compose. 
+
+First off, we can optionally indicate the version of the docker-compose command-set that we're using. 
+Then in the `services:` section, we can start defining the containers that will provide services for our application. 
+
+```yaml
+version: "3.9"
+services:
+```
+
+Our application consists of a postgres service and a pgAdmin4 service. We already configured these as independant containers, let's adapt them to docker-compose. Here's the docker run command we made for our postgres container:
+
+```bash
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="ny_taxi" \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+postgres:13
+```
+
+Adapting that to docker-compose, we'll 
+* give this service a name, `pg-database`,
+* indicate it should be built from the postgres:13 image,
+* pull in our environment variables, 
+* specify the volume on the host and container (the `:rw` flag at the end means read-write),
+* we can configure the service to restart if it fails or if the host machine reboots, and
+* enable access by specifying a host_port and the connected container_port.
+
+
+```yaml
+services:
+  pg-database:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=ny_taxi
+    volumes:
+      - ../postgres/ny_taxi_postgres_data:/var/lib/postgresql/data:rw
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+    restart: always
+    ports:
+      - "5432:5432"
+```
+
+and for our pgAdmin4 service we can adapt our docker run config
+
+```bash
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 6432:80 \
+  --network pg-network \
+  --name pg-admin \
+dpage/pgadmin4
+```
+
+to a compose service by just adding a name for the pgAdmin4 service, `pg-admin`
+
+```yaml
+services:
+  pg_database:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=ny_taxi
+    volumes:
+      - ../postgres/ny_taxi_postgres_data:/var/lib/postgresql/data:rw
+    restart: always
+    ports:
+      - "5432:5432"
+
+  pg-admin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "6432:80"
+```
+
+You may be wondering about the network connection, but docker-compose creates a network named `bridge` by default (ie if named explicit networks aren't defined in the docker-compose.yml) that conects services.  
+
+## Starting our docker-compose application
+
+First, we need to shut down our running docker containers. I didn't start them up with the -d (detached) flag, so they're still just running in terminal windows and I can shut them down by entering ctrl+c in those terminals (the keyboard interupt signal).
+
+Then, I can start up the docker-compose app by entering `docker-compose up` (while in the directory containing the docker-compose.yml file).
+
+We'll have to configure our connection again in pgAdmin4
+* General.name: `pg-database`
+* Connection.Host_name: `pg-database`
+* Connection.Port: `5432`
+* Connection.Username: `root`
+* > save
+
+You can spin down the docker-compose app via ctrl+c, then you can formally spin it down via
+
+```bash
+docker-compose down
+````
