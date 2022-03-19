@@ -307,3 +307,9 @@ You can spin down the docker-compose app via ctrl+c, then you can formally spin 
 ```bash
 docker-compose down
 ````
+
+## SQL
+
+This is a SQL refresher, so I'll skip over it. 
+
+If I do go back, Alexey also added in a zones table from this url: https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv.
