@@ -137,6 +137,238 @@ bash Miniconda3-py39_4.11.0-Linux-x86_64.sh
 
 That last step adds the directories containing the `conda` program to PATH (the locations a shell's executor checks when trying to find the program files corresponding to command-names), which termials load on startup, so you'll need to restart the terminal to get the `conda` command to work. You can do that by exiting and re-`ssh`ing in.
 
+### Installing Docker
+
+Before we can install anything via Ubuntu/Debian's `apt` (or `apt-get`) package manager, we need to update the list of package metadata.
+
+```bash
+sudo apt update
+````
+Then you can install things via `apt` or `apt-get`, like `docker.io` as shown in the below command. 
+
+```bash
+sudo apt-get install docker.io
+```
+
+I'm not sure why Alexey went with docker.io in the video, the [Docker Ubuntu install instructions](https://docs.docker.com/engine/install/ubuntu/#uninstall-old-versions) describe that as an old version to be installed, so I'm going to follow Docker instructions.
+
+```bash
+sudo apt-get remove docker.io docker
+
+sudo apt-get install ca-certificates curl gnupg lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+Then, after setting up docker's `gpg` key (so I can know if the executable file the machine receives is valid), we can install `Docker Engine` via
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+After that completes, you can confirm the installation via 
+
+```bash
+sudo docker run hello-world
+```
+
+#### Docker-without-sudo
+
+The standard Docker install runs things as root, which grants it great and terrible power. Alexey showed a guide called [docker-without-sudo](https://github.com/sindresorhus/guides/blob/main/docker-without-sudo.md) that contains a minimal set of instructions to setup that configuration (included below then executed).
+
+
+##### Run Docker commands without sudo
+1. Add the `docker` group if it doesn't already exist
+
+  ```console
+  $ sudo groupadd docker
+  ```
+
+2. Add the connected user `$USER` to the docker group
+  Optionally change the username to match your preferred user.
+
+  ```console
+  $ sudo gpasswd -a $USER docker
+  ```
+
+  **IMPORTANT**: Log out and log back in so that your group membership is re-evaluated.
+
+3. Restart the `docker` daemon
+
+  ```console
+  $ sudo service docker restart
+  ```
+
+  If you are on Ubuntu 14.04-15.10, use `docker.io` instead:
+
+  ```console
+  $ sudo service docker.io restart
+  ```
+
+### Docker-compose install
+
+Go to the [releases](https://github.com/docker/compose/releases/tag/v2.3.3) page for the docker/compose GitHub repo, and copy the download path for the most revent version (for me, that's v2.3.3) for linux and for systems with `x86_64` processor architecture. 
+
+link: https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64
+SHA256: d31e90dda58e21a6463cb918868421b4b58c32504b01b1612d154fe6a9167a91  docker-compose-linux-x86_64
+
+Checking
+
+```bash
+user@host:~$ mkdir bin && cd bin
+user@host:~/bin$ wget https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64
+user@host:~/bin$ sha256sum docker-compose-linux-x86_64 
+d31e90dda58e21a6463cb918868421b4b58c32504b01b1612d154fe6a9167a91  docker-compose-linux-x86_64
+```
+d31e90dda58e21a6463cb918868421b4b58c32504b01b1612d154fe6a9167a91
+
+It checks out.
+
+```bash
+(base) user@host:~/bin$ ls -la
+total 25404
+drwxrwxr-x  2 user user     4096 Mar 21 19:23 .
+drwxr-xr-x 10 user user     4096 Mar 21 19:23 ..
+-rw-rw-r--  1 user user 26005504 Mar  9 13:53 docker-compose-linux-x86_64
+````
+
+As you can see from the `ls -la` command above, that file only has `rw` permissions. As we've confirmed (via the checksums) that we've received a perfect copy of the file from the `compose` repo,  I'm comfortable giving it permission to be executed.
+
+```bash
+(base) user@host:~/bin$ chmod +x docker-compose-linux-x86_64 
+(base) user@host:~/bin$ ls -la
+total 25404
+drwxrwxr-x  2 user user     4096 Mar 21 19:23 .
+drwxr-xr-x 10 user user     4096 Mar 21 19:23 ..
+-rwxrwxr-x  1 user user 26005504 Mar  9 13:53 docker-compose-linux-x86_64
+```
+
+And we can execute it via
+
+```bash
+(base) user@host:~/bin$ ./docker-compose-linux-x86_64
+```
+
+But that only works from this directory. We'll add this `/bin` directory to path to make the files in `/bin` accessible everywhere.
+
+Open up the `~/.bashrc` file
+
+```bash
+nano ~/.bashrc
+```
+
+Then scroll down to the end of the file and append
+
+```bash
+export PATH="${HOME}/bin:${PATH}"
+```
+Then save (ctrl+o), exit (ctrl+x), and restart the bash terminal
+
+```bash
+source .bashrc
+````
+
+Also, I don't want to have the `-linux-x86_64` on the end, so I'll rename that file.
+
+```bash
+user@host:~/bin$ mv docker-compose-linux-x86_64 docker-compose
+```
+
+### Loading db:
+
+I'll use the scripts I already put together to load data into the db.
+
+First, I'll navigate to my the directory with my docker-compose that defines my application and spin it up:
+
+```bash
+(base) user@host:~/bin$ cd ~/data-engineering-zoomcamp/week_1_basics_n_setup/sandbox/docker/containerized_pg
+(base) user@host:~/.../containerized_pg$ docker-compose up --build 
+```
+
+Then, in another ssh terminal, I'll 
+
+And I'll make a 
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+conda create -n de_env python=3.9
+conda activate de_env
+(de_env) ...$ conda install -c conda-forge pgcli
+```
+
+
+
+
+
+
+
+
+
+
+### Downloading the DTC Data Engineering Zoomcamp repo
+
+Take the `https` clone option from the [repo page](https://github.com/DataTalksClub/data-engineering-zoomcamp) and clone it. I'm going download my fork of that repo.
+
+```bash
+git clone https://github.com/MattTriano/data-engineering-zoomcamp.git
+```
+
+I'm writing this in a branch I've named `mt_week1`, which you can see (along with all other branches) by entering 
+
+```bash
+git branch -a
+````
+and you can copy that to your local machine by the command
+
+```bash
+git fetch origin mt_week1:mt_week1
+```
+(it pulls the branch `mt_week1` from its origin (my fork), and put it in a local branch named `mt_week1`).
+
+Then you can check it out via the typical `git checkout mt_week1` type command.
+
+
+
+
+
+### Configuring VS-Code 
+If you're using VS-Code, you can install the "Remote - SSH" extension to connect to our VM more conveniently. [See video for more](https://youtu.be/ae-CV2KfoN0?t=1126)
+
+
+To install VS-Code on ubuntu, 
+
+```bash
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+```
+
+Then update the package cache (and install `apt-transport-https` if it's not already on your machine) via
+
+```bash
+sudo apt install apt-transport-https
+sudo apt update
+sudo apt install code 
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
