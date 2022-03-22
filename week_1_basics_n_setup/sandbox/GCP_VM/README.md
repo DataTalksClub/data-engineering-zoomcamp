@@ -279,6 +279,29 @@ Also, I don't want to have the `-linux-x86_64` on the end, so I'll rename that f
 user@host:~/bin$ mv docker-compose-linux-x86_64 docker-compose
 ```
 
+### Downloading the DTC Data Engineering Zoomcamp repo
+
+Take the `https` clone option from the [repo page](https://github.com/DataTalksClub/data-engineering-zoomcamp) and clone it. I'm going download my fork of that repo.
+
+```bash
+git clone https://github.com/MattTriano/data-engineering-zoomcamp.git
+```
+
+I'm writing this in a branch I've named `mt_week1`, which you can see (along with all other branches) by entering 
+
+```bash
+git branch -a
+````
+and you can copy that to your local machine by the command
+
+```bash
+git fetch origin mt_week1:mt_week1
+```
+(it pulls the branch `mt_week1` from its origin (my fork), and put it in a local branch named `mt_week1`).
+
+Then you can check it out via the typical `git checkout mt_week1` type command.
+
+
 ### Loading db:
 
 I'll use the scripts I already put together to load data into the db.
@@ -303,36 +326,71 @@ conda activate de_env
 If I had already ingested data, I could access it via
 
 ```bash
-{de_env} user@host:~/...$ pgcli -h localhost -U root -d ny_taxi
+(de_env) user@host:~/...$ pgcli -h localhost -U root -d ny_taxi
 ```
 
 but our docker-compose script just spins up the infrastructure and Alexey just ingests data through a notebook, so I'll skip that as we know how to do that (and we'll refactor our workflow to use Airflow soon).
 
 
+### Installing Terraform in VM
 
+From the [Terraform downloads page](https://www.terraform.io/downloads), copy the download link for the AMD64 linux binary, and `wget` that into `/bin`. Also, calculate the sha256 hash for the zipped file after `wget`-ing it.
 
-
-### Downloading the DTC Data Engineering Zoomcamp repo
-
-Take the `https` clone option from the [repo page](https://github.com/DataTalksClub/data-engineering-zoomcamp) and clone it. I'm going download my fork of that repo.
 
 ```bash
-git clone https://github.com/MattTriano/data-engineering-zoomcamp.git
+(de_env) user@host:~/bin$ wget https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip
+(de_env) user@host:~/bin$ sha256sum terraform_1.1.7_linux_amd64.zip 
+e4add092a54ff6febd3325d1e0c109c9e590dc6c38f8bb7f9632e4e6bcca99d4  terraform_1.1.7_linux_amd64.zip
 ```
 
-I'm writing this in a branch I've named `mt_week1`, which you can see (along with all other branches) by entering 
+The `downloads` page also has a link to download a file of SHA256 checksum hashes for the different available builds. Download that file and pull out the hash corresponding to the binary  you downloaded. From that file of sha256 hashes, here's the one for the file at the URL above.
 
 ```bash
-git branch -a
-````
-and you can copy that to your local machine by the command
-
-```bash
-git fetch origin mt_week1:mt_week1
+e4add092a54ff6febd3325d1e0c109c9e590dc6c38f8bb7f9632e4e6bcca99d4  terraform_1.1.7_linux_amd64.zip
 ```
-(it pulls the branch `mt_week1` from its origin (my fork), and put it in a local branch named `mt_week1`).
 
-Then you can check it out via the typical `git checkout mt_week1` type command.
+They match, so we're good.
+
+We need to unzip that file before it can be executed, so install `unzip`, unzip the file, then remove the zipped file.
+
+```bash
+(de_env) user@host:~/bin$ sudo apt install unzip
+(de_env) user@host:~/bin$ unzip terraform_1.1.7_linux_amd64.zip 
+(de_env) user@host:~/bin$ rm terraform_1.1.7_linux_amd64.zip 
+```
+
+Confirm it's executable by checking the version. 
+
+```bash
+(de_env) user@host:~/bin$ terraform version
+Terraform v1.1.7
+on linux_amd64
+```
+
+Now let's try to apply our `terraform` plan. We'll need to get our credential file on the VM though (and I `.gitignore`'d that for security). We can use `sftp` to securely put that file on our VM.
+
+In a terminal on your local machine, navigate to the location containing the file to `put` on the VM, then start an `sftp` (Secure File Transfer Protocol) connection. You can do this using the `Host` name you defined in your `~/.ssh/config` file.
+
+```bash
+local_user@local_host:~/.../secret_secrets$ sftp <name-of-ssh-connection-config>
+Connected to <name-of-ssh-connection-config>.
+sftp> ls
+Miniconda3-py39_4.11.0-Linux-x86_64.sh bin data-engineering-zoomcamp
+miniconda3 snap                                                   
+sftp> cd data-engineering-zoomcamp
+sftp> mkdir secret_secrets && cd secret_secrets
+sftp> put <google_cloud_authentication_file>.json
+sftp> exit
+```
+
+With that 
+
+```bash
+# Check changes to new infra plan
+terraform plan -var="project=<your-gcp-project-id>" -var="credentials=<path-to-you-project-key.json-file"
+```
+
+
 
 
 
@@ -380,6 +438,13 @@ sudo apt install code
 If you aren't using a compute instance and it's not running any calculations, you can save a lot of money by stopping the VM instance. 
 
 To stop a VM instance, go to the **VM Instance** dashboard, click the three-dots for the VM instance you want to shut down, and click **Stop**. It will probably take 30 seconds to a minute to stop (90 seconds at the most, at which point GCP will kill it and it could cause memory loss), at which point the **Status** icon will show it's stopped and the **External IP** will show **None**.
+
+You can also shut things down from the terminal by entering 
+
+```bash
+sudo shutdown
+```
+
 
 
 # Terraform overview
@@ -485,7 +550,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-    }
+    }terraform plan -var="project=dtc-de-course-344600" -var="credentials=/home/matt.triano/data-engineering-zoomcamp/credentials/dtc-de-course-344600-cb6fe6139243.json"
   }
 }
 ```
