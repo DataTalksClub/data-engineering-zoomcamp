@@ -59,8 +59,6 @@ Example of a dashboard: ![image](https://user-images.githubusercontent.com/43158
 
 ## Peer review criteria
 
-(DRAFT)
-
 * Problem description
     * 0 points: Problem is not described
     * 1 point: Problem is described but shortly or not clearly 
