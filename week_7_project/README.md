@@ -3,10 +3,18 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end data pipeline.
 
-Deadlines:
 
-* Submitting the project: 28 March, 22:00 CET
-* Peer reviewing: 4 April, 22:00 CET
+### Submitting 
+
+Project:
+
+* Form: https://forms.gle/6aeVcEVJipqR2BqC8
+* Deadline: 28 March, 22:00 CET
+
+Peer reviewing:
+
+* Form: TBA
+* Deadline: 4 April, 22:00 CET
 
 
 ### Problem statement
@@ -49,11 +57,16 @@ If you're not certain about some tools, ask in Slack.
 
 
 ## Dashboard
+
 You can build a dashboard with any of the tools shown in the course (Data Studio or Metabase) or any other BI tool of your choice. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
+
 Your dashboard should contain at least two tiles, we suggest you include:
+
 - 1 graph that shows the distribution of some categorical data 
 - 1 graph that shows the distribution of the data across a temporal line
+
 Make sure that your graph is clear to understand by adding references and titles. 
+
 Example of a dashboard: ![image](https://user-images.githubusercontent.com/4315804/159771458-b924d0c1-91d5-4a8a-8c34-f36c25c31a3c.png)
 
 
