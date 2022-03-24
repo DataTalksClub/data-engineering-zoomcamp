@@ -11,7 +11,6 @@ RUN apt-get update -qq && apt-get install vim -qqq
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-
 # Ref: https://airflow.apache.org/docs/docker-stack/recipes.html
 
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-u", "-x", "-c"]
@@ -35,5 +34,8 @@ RUN DOWNLOAD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/goo
     && gcloud --version
 
 WORKDIR $AIRFLOW_HOME
+
+COPY scripts scripts
+RUN chmod +x scripts
 
 USER $AIRFLOW_UID

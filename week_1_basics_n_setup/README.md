@@ -20,8 +20,11 @@ if you have troubles setting up the environment and following along the videos.
   * Creating a simple "data pipeline" in Docker
 * [Ingesting NY Taxi Data to Postgres](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Running Posgtres locally with Docker
+  * Using `pgcli` for connecting to the database
   * Exploring the NY Taxi dataset
   * Ingesting the data to the database
+  * **Note** if you have problems with pgcli, check [this video](https://www.youtube.com/watch?v=3IkfkTwqHx4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+    for an alternative way to connect to your database
 * [Connecting pgAdmin and Postgres](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * The pgAdmin tool
   * Docker networks
@@ -39,6 +42,11 @@ if you have troubles setting up the environment and following along the videos.
   * Basic data quality checks
   * Left, Right and Outer joins
   * Group by
+* Optional: If you have some problems with docker networking, check [Port Mapping and Networks in Docker](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+  * Docker networks
+  * Port forwarding to the host environment
+  * Communicating between containers in the network
+  * `.dockerignore` file
 
 
 ### GCP + Terraform
@@ -83,10 +91,10 @@ If you have problems setting up the env, you can check this video:
   * Using `sftp` for putting the credentials to the remote machine
   * Shutting down and removing the instance
 
-### [Homework](homework.md)
+### Homework
 
-* More information [here](homework.md)
-
+* [Homework](homework.md)
+* [Solution](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ## Community notes
 
@@ -97,4 +105,5 @@ Did you take notes? You can share them here
 * [Notes from Aaron](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_1_basics_n_setup/README.md)
 * [Notes from Faisal](https://github.com/FaisalMohd/data-engineering-zoomcamp/blob/main/week_1_basics_n_setup/Notes/DE%20Zoomcamp%20Week-1.pdf)
 * [Michael Harty's Notes](https://github.com/mharty3/data_engineering_zoomcamp_2022/tree/main/week01)
+* [Blog post from Isaac Kargar](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/18/data-engineering-w1.html)
 * Add your notes here
