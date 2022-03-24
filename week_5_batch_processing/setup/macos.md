@@ -12,9 +12,17 @@ Ensure Brew and Java installed in your system:
 ```bash
 xcode-select –install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew cask install java
+brew install java
 ```
 
+Add the following environment variables to your `.bash_profile` or `.zshrc`:
+
+```bash
+export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12
+export PATH="$JAVA_HOME/bin/:$PATH"
+```
+
+Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine.
 
 ### Installing Spark
 
@@ -36,7 +44,7 @@ Add the following environment variables to your `.bash_profile` or `.zshrc`
 
 ```bash
 export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec
-export PATH="$SPARK_HOME/bin/:$PATH
+export PATH="$SPARK_HOME/bin/:$PATH"
 ```
 
 

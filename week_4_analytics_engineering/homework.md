@@ -3,7 +3,8 @@
 
 We will use all the knowledge learned in this week. Please answer your questions via form above.  
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
-**Deadline** for the homework is 21th Feb 2022 17:00 CET.
+
+**Deadline** for the homework is 23rd Feb 2022 22:00 CET.
 
 
 In this homework, we'll use the models developed during the week 4 videos and enhance the already presented dbt project using the already loaded Taxi data for fhv vehicles for year 2019 in our DWH.
