@@ -9,12 +9,12 @@ in this course and build an end-to-end data pipeline.
 Project:
 
 * Form: https://forms.gle/6aeVcEVJipqR2BqC8
-* Deadline: 28 March, 22:00 CET
+* Deadline: 4 April, 22:00 CET
 
 Peer reviewing:
 
 * Form: TBA
-* Deadline: 4 April, 22:00 CET
+* Deadline: 11 April, 22:00 CET
 
 
 ### Problem statement
