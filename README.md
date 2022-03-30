@@ -9,9 +9,30 @@
 - [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
 - [Frequenty asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
 
-## Syllabus
 
-> **Note**: This is preliminary and may change
+## Taking the course
+
+### Self-paced mode
+
+All the materials of the course are freely available, so you 
+can take the course at your own pace. 
+
+* Follow the suggested syllabus (see below) week by week
+* For the self-paced mode, you don't need to fill the registration form above. Just start watching the videos 
+* Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
+* If you can't find a solution to your problem in FAQ, ask for help in Slack
+
+### Asking for help in Slack
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel.
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
+
+
+## Syllabus
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
@@ -76,47 +97,38 @@
 * Spark SQL
 * Internals: GroupBy and joins
 
-
 [More details](week_5_batch_processing)
 
 ### [Week 6: Streaming](week_6_stream_processing)
 
-Goal: 
-
-Instructor: Ankush
-
-* Basics
-    * What is Kafka
-    * Internals of Kafka, broker
-    * Partitoning of Kafka topic
-    * Replication of Kafka topic
-* Consumer-producer
+* Introduction to Kafka
 * Schemas (avro)
-* Streaming
-    * Kafka streams
-* Kafka connect
-* Alternatives (PubSub/Pulsar)
+* Kafka Streams
+* Kafka Connect and KSQL
 
-Duration: 1.5h
-
+[More details](week_6_stream_processing)
 
 
 ### [Week 7, 8 & 9: Project](week_7_project)
 
-* Putting everything we learned to practice
+Putting everything we learned to practice
 
-Duration: 2-3 weeks
+* Week 7 and 8: working on your own project
+* Week 9: reviewing your peers
 
-* Upcoming buzzwords
-  *  Delta Lake/Lakehouse
-    * Databricks
-    * Apache iceberg
-  * Data mesh
-  * KSQLDB
-  * Streaming analytics
-  * Mlops
-  
-Duration: 30 mins
+[More details](week_7_project)
+
+
+### Upcoming buzzwords
+
+*  Delta Lake/Lakehouse
+  * Databricks
+  * Apache iceberg
+* Data mesh
+* KSQLDB
+* Streaming analytics
+* MLOps
+
 
 ## Overview
 
@@ -165,16 +177,8 @@ For this course you'll need to have the following software installed on your com
 See [Week 1](week_1_basics_n_setup) for more details about installing these tools
 
 
-## Questions
 
-### Asking questions in Slack 
-
-You can ask any questions in the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel in [DataTalks.Club](https://datatalks.club) slack
-
-Please follow [these recommendations](asking-questions.md) when asking for help   
-
-
-### FAQ
+## FAQ
 
 
 * **Q**: I registered, but haven't received a confirmation email. Is it normal?
