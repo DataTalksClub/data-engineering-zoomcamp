@@ -1,11 +1,7 @@
 ## Asking questions
 
-Please don't be stuck.
-
 If you have any questions, ask them 
 in the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel in [DataTalks.Club](https://datatalks.club) slack.
-
-
 
 To keep our discussion in Slack more organized, we ask you to follow these suggestions:
 
