@@ -13,8 +13,10 @@ Project:
 
 Peer reviewing:
 
-* Form: TBA
+* Form: https://forms.gle/AZ62bXMp4SGcVUmK7
 * Deadline: 11 April, 22:00 CET
+
+Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.  
 
 
 ### Problem statement
