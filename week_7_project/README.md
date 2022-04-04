@@ -13,6 +13,7 @@ Project:
 
 Peer reviewing:
 
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vShnv8T4iY_5NA8h0nySIS8Wzr-DZGGigEikIW4ZMSi9HlvhaEB4RhwmepVIuIUGaQHS90r5iHR2YXV/pubhtml)
 * Form: https://forms.gle/AZ62bXMp4SGcVUmK7
 * Deadline: 11 April, 22:00 CET
 
