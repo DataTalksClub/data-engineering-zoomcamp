@@ -3,6 +3,8 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end data pipeline.
 
+Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.  
+
 
 ### Submitting 
 
@@ -33,7 +35,7 @@ Peer reviewing:
 * Form: https://forms.gle/AZ62bXMp4SGcVUmK7
 * Deadline: 11 April, 22:00 CET
 
-Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.  
+Project feedback: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vRcVCkO-jes5mbPAcikn9X_s2laJ1KhsO8aibHYQxxKqdCUYMVTEJLJQdM8C5aAUWKFl_0SJW4rme7H/pubhtml)
 
 
 ### Problem statement
