@@ -6,6 +6,22 @@ in this course and build an end-to-end data pipeline.
 
 ### Submitting 
 
+#### Project Cohort #2
+
+Project:
+
+* Form: https://forms.gle/JECXB9jYQ1vBXbsw6
+* Deadline: 25 April, 22:00 CET
+
+Peer reviewing:
+
+* Peer review assignments: TBA
+* Form: https://forms.gle/Pb2fBwYLQ3GGFsaK6
+* Deadline: 2 May, 22:00 CET
+
+
+#### Project Cohort #1
+
 Project:
 
 * Form: https://forms.gle/6aeVcEVJipqR2BqC8
