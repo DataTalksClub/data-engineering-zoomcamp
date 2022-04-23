@@ -6,6 +6,16 @@
 - [Frequenty asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
 
 
+Syllabus
+
+* [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
+* [Week 2: Data ingestion](#week-2-data-ingestion)
+* [Week 3: Data Warehouse](#week-3-data-warehouse)
+* [Week 4: Analytics Engineering](#week-4-analytics-engineering)
+* [Week 5: Batch processing](#week-5-batch-processing)
+* [Week 6: Streaming](#week-6-streaming)
+* [Week 7, 8 & 9: Project](#week-7-8--9-project)
+
 ## Taking the course
 
 ### Self-paced mode
@@ -38,6 +48,7 @@ To make discussions in Slack more organized:
 
 
 ## Syllabus
+
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
@@ -122,17 +133,6 @@ Putting everything we learned to practice
 * Week 9: reviewing your peers
 
 [More details](week_7_project)
-
-
-### Upcoming buzzwords
-
-*  Delta Lake/Lakehouse
-  * Databricks
-  * Apache iceberg
-* Data mesh
-* KSQLDB
-* Streaming analytics
-* MLOps
 
 
 ## Overview
