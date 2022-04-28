@@ -13,13 +13,13 @@ Remember that to pass the project, you must evaluate 3 peers. If you don't do th
 Project:
 
 * Form: https://forms.gle/JECXB9jYQ1vBXbsw6
-* Deadline: 25 April, 22:00 CET
+* Deadline: 2 May, 22:00 CET
 
 Peer reviewing:
 
 * Peer review assignments: TBA
 * Form: https://forms.gle/Pb2fBwYLQ3GGFsaK6
-* Deadline: 2 May, 22:00 CET
+* Deadline: 9 May, 22:00 CET
 
 
 #### Project Cohort #1
