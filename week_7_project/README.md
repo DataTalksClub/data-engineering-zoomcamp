@@ -17,7 +17,7 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: TBA
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vShnv8T4iY_5NA8h0nySIS8Wzr-DZGGigEikIW4ZMSi9HlvhaEB4RhwmepVIuIUGaQHS90r5iHR2YXV/pubhtml?gid=964123374&single=true)
 * Form: https://forms.gle/Pb2fBwYLQ3GGFsaK6
 * Deadline: 9 May, 22:00 CET
 
