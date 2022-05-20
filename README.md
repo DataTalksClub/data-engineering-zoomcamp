@@ -1,26 +1,41 @@
 # Data Engineering Zoomcamp
 
-- **Start**: 17 January 2022
-- **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-- Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
 - The videos are published to [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) 
-- [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
 - [Frequenty asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
 
+
+Syllabus
+
+* [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
+* [Week 2: Data ingestion](#week-2-data-ingestion)
+* [Week 3: Data Warehouse](#week-3-data-warehouse)
+* [Week 4: Analytics Engineering](#week-4-analytics-engineering)
+* [Week 5: Batch processing](#week-5-batch-processing)
+* [Week 6: Streaming](#week-6-streaming)
+* [Week 7, 8 & 9: Project](#week-7-8--9-project)
 
 ## Taking the course
 
 ### Self-paced mode
 
 All the materials of the course are freely available, so you 
-can take the course at your own pace. 
+can take the course at your own pace 
 
 * Follow the suggested syllabus (see below) week by week
-* For the self-paced mode, you don't need to fill the registration form above. Just start watching the videos 
+* You don't need to fill in the registration form. Just start watching the videos and join Slack 
 * Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
+
+
+### 2022 Cohort
+
+* **Start**: 17 January 2022
+* **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
+* [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
+* Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+
 
 ### Asking for help in Slack
 
@@ -33,6 +48,7 @@ To make discussions in Slack more organized:
 
 
 ## Syllabus
+
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
@@ -117,17 +133,6 @@ Putting everything we learned to practice
 * Week 9: reviewing your peers
 
 [More details](week_7_project)
-
-
-### Upcoming buzzwords
-
-*  Delta Lake/Lakehouse
-  * Databricks
-  * Apache iceberg
-* Data mesh
-* KSQLDB
-* Streaming analytics
-* MLOps
 
 
 ## Overview
