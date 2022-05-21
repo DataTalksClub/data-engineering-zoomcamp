@@ -36,7 +36,7 @@ Run Postgres and load data as shown in the videos
 We'll use the yellow taxi trips from January 2021:
 
 ```bash
-wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
+wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.parquet
 ```
 
 You will also need the dataset with zones:
