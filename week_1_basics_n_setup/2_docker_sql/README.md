@@ -98,6 +98,16 @@ Dataset:
 
 * https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+---
+>### 2022 Updates:
+>
+>According to the [TLC data website](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), from 05/13/2022, the data will be in ```.parquet``` format instead of ```.csv```
+>
+>The website has provided a useful [link](https://www1.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf) with sample steps to read ```.parquet``` file and convert it to Pandas data frame.
+>
+> ```ingest_data.py``` python script has been updated with the functions required to read ```.parquet``` file
+
+---
 
 
 ### pgAdmin
