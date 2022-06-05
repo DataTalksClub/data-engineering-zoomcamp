@@ -3,6 +3,7 @@
 
 import os
 import argparse
+import pyarrow
 
 from time import time
 
@@ -19,8 +20,11 @@ def main(params):
     table_name = params.table_name
     url = params.url
     csv_name = 'output.csv'
+    parquet = 'output.parquet'
+    os.system(f"wget {url} -O {parquet}")
 
-    os.system(f"wget {url} -O {csv_name}")
+    parquet_file = pd.read_parquet(parquet)
+    parquet_file.to_csv(csv_name, index=False)
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
 

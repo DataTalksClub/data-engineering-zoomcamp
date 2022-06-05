@@ -15,3 +15,4 @@ serving_dir
 *.csv
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
+week_1_basics_n_setup/2_docker_sql/data_pgadmin/pgadmin4.db
