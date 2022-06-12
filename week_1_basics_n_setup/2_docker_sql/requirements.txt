@@ -1,4 +1,4 @@
 pandas==1.4.2
-SQLAlchemy==1.3.22
+SQLAlchemy==1.4.0
 psycopg2==2.8.6
 pyarrow==3.0.0
