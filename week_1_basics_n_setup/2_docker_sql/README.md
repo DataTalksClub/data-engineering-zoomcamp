@@ -201,12 +201,14 @@ Run the script with Docker
 ```bash
 URL="http://172.24.208.1:8000/yellow_tripdata_2021-01.csv"
 
+URL="https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.parquet"
+
 docker run -it \
-  --network=pg-network \
+  --network=2_docker_sql_default \
   taxi_ingest:v001 \
     --user=root \
     --password=root \
-    --host=pg-database \
+    --host=pgdatabase \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \

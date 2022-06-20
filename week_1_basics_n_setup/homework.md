@@ -10,6 +10,18 @@ Install Google Cloud SDK. What's the version you have?
 
 To get the version, run `gcloud --version`
 
+```
+Google Cloud SDK 390.0.0
+alpha 2022.06.10
+beta 2022.06.10
+bq 2.0.75
+bundled-python3-unix 3.9.12
+core 2022.06.10
+gsutil 5.10
+minikube 1.25.2
+skaffold 1.38.0
+```
+
 ## Google Cloud account 
 
 Create an account in Google Cloud and create a project.
@@ -36,7 +48,7 @@ Run Postgres and load data as shown in the videos
 We'll use the yellow taxi trips from January 2021:
 
 ```bash
-wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
+wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.parquet
 ```
 
 You will also need the dataset with zones:
@@ -95,6 +107,7 @@ If any of the zone names are unknown (missing), write "Unknown". For example, "U
 
 Deadline: 26 January (Wednesday), 22:00 CET
 
+`N/A`
 
 ## Solution
 

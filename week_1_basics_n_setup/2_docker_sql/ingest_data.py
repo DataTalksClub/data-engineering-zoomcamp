@@ -1,11 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
-
 import argparse
+import chunk
 import os
+from typing import Generator
+
 import pyarrow.parquet as pq
 import pandas as pd
 from sqlalchemy import create_engine
+
+
+def iter_df(df: pd.DataFrame, chunksize: int) -> Generator[pd.DataFrame, None, None]:
+    for i in range(0, len(df), chunksize):
+        yield df.iloc[i:i+chunksize, :].copy()
 
 
 def main(params):
@@ -21,11 +28,21 @@ def main(params):
     os.system(f"wget {url} -O {filename}")
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
-    
-    parquet_table = pq.read_table(filename)
-    df = parquet_table.to_pandas()
 
-    df.to_sql(name="yellow_taxi_data", con=engine, if_exists='append', chunksize=100000)
+    df = pd.read_parquet(filename)
+
+    total = 0
+    for subset in iter_df(df, chunksize=100_000):
+        total += len(subset)
+
+        subset.to_sql(name="yellow_taxi_data", con=engine, if_exists='append')
+        print(total)
+    
+    os.system(f"wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv -O lookups.csv")
+
+    # cheating a little bit
+    lookups = pd.read_csv('lookups.csv')
+    lookups.to_sql(name="lookups", con=engine, if_exists='replace')
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@ terraform {
 
 provider "google" {
   project = var.project
-  region = var.region
+  region  = var.region
   // credentials = file(var.credentials)  # Use this if you do not want to set env-var GOOGLE_APPLICATION_CREDENTIALS
 }
 
@@ -21,11 +21,11 @@ resource "google_storage_bucket" "data-lake-bucket" {
   location      = var.region
 
   # Optional, but recommended settings:
-  storage_class = var.storage_class
+  storage_class               = var.storage_class
   uniform_bucket_level_access = true
 
   versioning {
-    enabled     = true
+    enabled = true
   }
 
   lifecycle_rule {
