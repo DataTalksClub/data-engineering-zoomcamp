@@ -10,8 +10,10 @@ All the commands from the video
 Downloading the data
 
 ```bash
-wget https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv
+wget https://s3.amazonaws.com/nyc-tlc/csv_backup/yellow_tripdata_2021-01.csv
 ```
+
+> Note: now the CSV data is stored in the `csv_backup` folder, not `trip+date` like previously
 
 ### Running Postgres with Docker
 
@@ -98,17 +100,21 @@ Dataset:
 
 * https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
----
->### 2022 Updates:
->
->According to the [TLC data website](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page), from 05/13/2022, the data will be in ```.parquet``` format instead of ```.csv```
->
->The website has provided a useful [link](https://www1.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf) with sample steps to read ```.parquet``` file and convert it to Pandas data frame.
+
+> According to the [TLC data website](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page),
+> from 05/13/2022, the data will be in ```.parquet``` format instead of ```.csv```
+> The website has provided a useful [link](https://www1.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf) with sample steps to read ```.parquet``` file and convert it to Pandas data frame.
 >
 > ```ingest_data.py``` python script has been updated with the functions required to read ```.parquet``` file
 
----
+> Note: The CSV data is still available under the `csv_backup` folder:
 
+```
+$ aws s3 ls s3://nyc-tlc
+                           PRE csv_backup/
+                           PRE misc/
+                           PRE trip data/
+```
 
 ### pgAdmin
 
