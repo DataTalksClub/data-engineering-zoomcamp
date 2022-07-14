@@ -49,6 +49,8 @@ To make discussions in Slack more organized:
 
 ## Syllabus
 
+> **Note:** NYC TLC changed the format of the data we use to parquet. But you can still access 
+> the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
 ### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
