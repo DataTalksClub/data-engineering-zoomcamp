@@ -19,6 +19,7 @@ Here are some datasets that you could use for the project:
 * [Datasets for streaming](https://github.com/ColinEberhardt/awesome-public-streaming-datasets)
 * [Dataset for Santander bicycle rentals in London](https://cycling.data.tfl.gov.uk/)
 * [Common crawl data](https://commoncrawl.org/) (copy of the internet)
+* [NASA's EarthData](https://search.earthdata.nasa.gov/search) (May require introductory geospatial analysis)
 * Collection Of Data Repositories
   * [part 1](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-1.html) (from agriculture and finance to government)
   * [part 2](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-2.html) (from healthcare to transportation)
