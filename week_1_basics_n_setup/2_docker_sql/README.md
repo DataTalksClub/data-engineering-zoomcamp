@@ -105,10 +105,7 @@ Dataset:
 > from 05/13/2022, the data will be in ```.parquet``` format instead of ```.csv```
 > The website has provided a useful [link](https://www1.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf) with sample steps to read ```.parquet``` file and convert it to Pandas data frame.
 >
-> ```ingest_data.py``` python script has been updated with the functions required to read ```.parquet``` file
-
-> Note: The CSV data is still available under the `csv_backup` folder:
-
+> You can use the csv backup located here, https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz, to follow along with the video.
 ```
 $ aws s3 ls s3://nyc-tlc
                            PRE csv_backup/
@@ -168,7 +165,7 @@ docker run -it \
 Running locally
 
 ```bash
-URL="https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv"
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
 
 python ingest_data.py \
   --user=root \
@@ -205,7 +202,7 @@ You can solve it with `.dockerignore`:
 Run the script with Docker
 
 ```bash
-URL="http://172.24.208.1:8000/yellow_tripdata_2021-01.csv"
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
 
 docker run -it \
   --network=pg-network \
