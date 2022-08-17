@@ -8,7 +8,7 @@
 We suggest watching videos in the same order as in this document.
 
 The last video (setting up the environment) is optional, but you can check it earlier 
-if you have troubles setting up the environment and following along the videos.
+if you have troubles setting up the environment and following along with the videos.
 
 
 ### Docker + Postgres
@@ -19,16 +19,16 @@ if you have troubles setting up the environment and following along the videos.
   * Why do we need Docker
   * Creating a simple "data pipeline" in Docker
 * [Ingesting NY Taxi Data to Postgres](https://www.youtube.com/watch?v=2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-  * Running Posgtres locally with Docker
+  * Running Postgres locally with Docker
   * Using `pgcli` for connecting to the database
   * Exploring the NY Taxi dataset
-  * Ingesting the data to the database
-  * **Note** if you have problems with pgcli, check [this video](https://www.youtube.com/watch?v=3IkfkTwqHx4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+  * Ingesting the data into the database
+  * **Note** if you have problems with `pgcli`, check [this video](https://www.youtube.com/watch?v=3IkfkTwqHx4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
     for an alternative way to connect to your database
 * [Connecting pgAdmin and Postgres](https://www.youtube.com/watch?v=hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * The pgAdmin tool
   * Docker networks
-* [Putting the ingestion script to Docker](https://www.youtube.com/watch?v=B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+* [Putting the ingestion script into Docker](https://www.youtube.com/watch?v=B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Converting the Jupyter notebook to a Python script
   * Parametrizing the script with argparse
   * Dockerizing the ingestion script
@@ -36,7 +36,7 @@ if you have troubles setting up the environment and following along the videos.
   * Why do we need Docker-compose
   * Docker-compose YAML file
   * Running multiple containers with `docker-compose up`
-* [SQL refreshser](https://www.youtube.com/watch?v=QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+* [SQL refresher](https://www.youtube.com/watch?v=QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Adding the Zones table
   * Inner joins
   * Basic data quality checks
@@ -87,7 +87,7 @@ If you have problems setting up the env, you can check this video:
   * Installing docker-compose
   * Installing pgcli
   * Port-forwarding with VS code: connecting to pgAdmin and Jupyter from the local computer
-  * Installing terraform
+  * Installing Terraform
   * Using `sftp` for putting the credentials to the remote machine
   * Shutting down and removing the instance
 
