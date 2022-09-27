@@ -214,11 +214,12 @@ See [Week 1](week_1_basics_n_setup) for more details about installing these tool
 
 
 
-## Our friends 
+## Supporters and partners
+
+Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
+
 
 Big thanks to other communities for helping us spread the word about the course: 
 
 * [DPhi](https://dphi.tech/)
 * [MLOps.community](https://mlops.community/)
-
-Check them out - they are cool!
