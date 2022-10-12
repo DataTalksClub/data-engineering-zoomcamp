@@ -1,0 +1,76 @@
+
+version: 2.1
+
+jobs:
+  
+  integration-postgres:
+    docker:
+      - image: cimg/python:3.9.9
+      - image: circleci/postgres:9.6.5-alpine-ram
+
+    steps:
+      - checkout
+      - run:
+          name: "Run Tests - Postgres"
+          environment:
+            POSTGRES_TEST_HOST: localhost
+            POSTGRES_TEST_USER: root
+            POSTGRES_TEST_PASS: ''
+            POSTGRES_TEST_PORT: 5432
+            POSTGRES_TEST_DBNAME: circle_test
+          command: ./run_test.sh postgres
+      - store_artifacts:
+          path: ./logs
+
+  integration-redshift:
+    docker:
+      - image: cimg/python:3.9.9
+    steps:
+      - checkout
+      - run:
+          name: "Run Tests - Redshift"
+          command: ./run_test.sh redshift
+      - store_artifacts:
+          path: ./logs
+
+  integration-snowflake:
+    docker:
+      - image: cimg/python:3.9.9
+    steps:
+      - checkout
+      - run:
+          name: "Run Tests - Snowflake"
+          command: ./run_test.sh snowflake
+      - store_artifacts:
+          path: ./logs          
+  
+  integration-bigquery:
+    environment:
+      BIGQUERY_SERVICE_KEY_PATH: "/home/circleci/bigquery-service-key.json"
+    docker:
+      - image: cimg/python:3.9.9
+    steps:
+      - checkout
+      - run:
+          name: "Set up credentials"
+          command: echo $BIGQUERY_SERVICE_ACCOUNT_JSON > ${HOME}/bigquery-service-key.json
+      - run:
+          name: "Run Tests - BigQuery"
+          command: ./run_test.sh bigquery
+      - store_artifacts:
+          path: ./logs
+
+workflows:
+  version: 2
+  test-all:
+    jobs:
+      - integration-postgres
+      - integration-redshift:
+          requires:
+            - integration-postgres
+      - integration-snowflake:
+          requires:
+            - integration-postgres
+      - integration-bigquery:
+          requires:
+            - integration-postgres

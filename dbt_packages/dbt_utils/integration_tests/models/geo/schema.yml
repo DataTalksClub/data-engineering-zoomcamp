@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: test_haversine_distance_km
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+  - name: test_haversine_distance_mi
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected

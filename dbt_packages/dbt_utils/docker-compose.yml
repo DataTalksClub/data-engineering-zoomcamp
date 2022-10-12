@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+
+  dbt:
+    image: circleci/python:3.6.3-stretch
+    depends_on:
+      - ${TARGET}
+    env_file: "./integration_tests/.env/${TARGET}.env"
+    entrypoint: "/repo/run_test.sh ${TARGET} ${MODELS} ${SEEDS}"
+    working_dir: /repo
+    volumes:
+        - ".:/repo"
+
+  postgres:
+    image: circleci/postgres:9.6.5-alpine-ram
+    ports:
+      - "5432:5432"
+
+  # dummy container, since snowflake is a managed service
+  snowflake:
+    image: circleci/python:3.6.3-stretch
+    entrypoint: "/bin/true"
+  
+  # dummy container, since bigquery is a managed service
+  bigquery:
+    image: circleci/python:3.6.3-stretch
+    entrypoint: "/bin/true"
+
+  # dummy container, since redshift is a managed service
+  redshift:
+    image: circleci/python:3.6.3-stretch
+    entrypoint: "/bin/true"

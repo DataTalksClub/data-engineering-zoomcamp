@@ -1,0 +1,18 @@
+version: 2
+
+seeds:
+  - name: data_test_sequential_values
+    columns:
+      - name: my_even_sequence
+        tests:
+          - dbt_utils.sequential_values:
+              interval: 2
+
+
+  - name: data_test_sequential_timestamps
+    columns:
+      - name: my_timestamp
+        tests:
+          - dbt_utils.sequential_values:
+              interval: 1
+              datepart: 'hour'

@@ -1,0 +1,134 @@
+version: 2
+
+models:
+  - name: test_generate_series
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_generate_series')
+
+  - name: test_get_column_values
+    columns:
+      - name: count_a
+        tests:
+          - accepted_values:
+              values:
+                - '1'
+
+      - name: count_b
+        tests:
+          - accepted_values:
+              values:
+                - '1'
+
+      - name: count_c
+        tests:
+          - accepted_values:
+              values:
+                - '1'
+
+      - name: count_d
+        tests:
+          - accepted_values:
+              values:
+                - '1'
+
+      - name: count_e
+        tests:
+          - accepted_values:
+              values:
+                - '1'
+
+      - name: count_f
+        tests:
+          - accepted_values:
+              values:
+                - '1'
+
+      - name: count_g
+        tests:
+          - accepted_values:
+              values:
+                - '5'
+
+  - name: test_get_relations_by_prefix_and_union
+    columns:
+      - name: event
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - dbt_utils.at_least_one
+          - not_null
+          - unique
+
+  - name: test_nullcheck_table
+    columns:
+      - name: field_1
+        tests:
+          - not_empty_string
+
+      - name: field_2
+        tests:
+          - not_empty_string
+
+      - name: field_3
+        tests:
+          - not_empty_string
+
+  - name: test_safe_add
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+
+  - name: test_pivot
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_pivot_expected')
+
+  - name: test_unpivot_original_api
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_unpivot_original_api_expected')
+
+  - name: test_unpivot
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_unpivot_expected')
+
+  - name: test_unpivot_bool
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_unpivot_bool_expected')
+
+  - name: test_star
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_star_expected')
+
+  - name: test_star_prefix_suffix
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_star_prefix_suffix_expected')
+
+  - name: test_surrogate_key
+    tests:
+      - assert_equal:
+          actual: actual_column_1_only
+          expected: expected_column_1_only
+      - assert_equal:
+          actual: actual_all_columns_arguments
+          expected: expected_all_columns
+      - assert_equal:
+          actual: actual_all_columns_list
+          expected: expected_all_columns
+
+  - name: test_union
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_union_expected')
+          
+  - name: test_get_relations_by_pattern
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_union_events_expected')
