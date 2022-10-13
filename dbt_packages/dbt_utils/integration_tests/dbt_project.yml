@@ -1,0 +1,67 @@
+
+name: 'dbt_utils_integration_tests'
+version: '1.0'
+
+profile: 'integration_tests'
+
+# require-dbt-version: inherit this from dbt-utils
+
+config-version: 2
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+    - "dbt_packages"
+
+dispatch:
+  - macro_namespace: 'dbt_utils'
+    search_order: ['dbt_utils_integration_tests', 'dbt_utils']
+
+seeds:
+
+  +quote_columns: false
+  dbt_utils_integration_tests:
+
+    cross_db:
+      data_date_trunc:
+        +column_types:
+          updated_at: timestamp
+          day: date
+          month: date
+
+      data_dateadd:
+        +column_types:
+          from_time: timestamp
+          result: timestamp
+
+      data_datediff:
+        +column_types:
+          first_date: timestamp
+          second_date: timestamp
+
+      data_width_bucket:
+        +column_types:
+          num_buckets: integer
+          min_value: float
+          max_value: float
+
+    sql:
+      data_events_20180103:
+        +schema: events
+      
+      data_get_column_values_dropped:
+        # this.incorporate() to hardcode the node's type as otherwise dbt doesn't know it yet
+        +post-hook: "{% do adapter.drop_relation(this.incorporate(type='table')) %}"
+
+
+    schema_tests:
+      data_test_sequential_timestamps:
+        +column_types:
+          my_timestamp: timestamp

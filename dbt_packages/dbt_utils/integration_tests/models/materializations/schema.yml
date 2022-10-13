@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: test_insert_by_period
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('expected_insert_by_period')

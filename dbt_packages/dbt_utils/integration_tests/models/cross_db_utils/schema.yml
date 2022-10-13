@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: test_concat
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_current_timestamp
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_date_trunc
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_dateadd
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_datediff
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_hash
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_last_day
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+          
+  - name: test_length
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_safe_cast
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+        
+  - name: test_split_part
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+          
+  - name: test_replace
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+          
+  - name: test_right
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+          
+  - name: test_position
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected
+
+  - name: test_width_bucket
+    tests:
+      - assert_equal:
+          actual: actual
+          expected: expected

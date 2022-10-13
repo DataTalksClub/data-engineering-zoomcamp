@@ -1,0 +1,170 @@
+version: 2
+
+models:
+  - name: data_test_not_constant
+    columns:
+      - name: field
+        tests:
+          - dbt_utils.not_constant
+
+  - name: data_test_at_least_one
+    columns:
+      - name: field
+        tests:
+          - dbt_utils.at_least_one
+
+  - name: data_test_expression_is_true
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: col_a + col_b = 1
+      - dbt_utils.expression_is_true:
+          expression: col_a = 0.5
+          condition: col_b = 0.5
+    columns:
+      - name: col_a
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: + col_b = 1
+      - name: col_b
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: = 0.5
+              condition: col_a = 0.5
+
+  - name: test_recency
+    tests:
+      - dbt_utils.recency:
+          datepart: day
+          field: today
+          interval: 1
+
+  - name: test_equal_rowcount
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('test_equal_rowcount')
+
+  - name: test_equal_column_subset
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_people')
+          compare_columns:
+            - first_name
+            - last_name
+            - email
+
+  - name: data_people
+    columns:
+      - name: is_active
+        tests:
+          - dbt_utils.cardinality_equality:
+              field: is_active
+              to: ref('data_people')
+
+  - name: data_test_unique_where
+    columns:
+      - name: id
+        tests:
+          - dbt_utils.unique_where:
+              where: "_deleted = false"
+
+  - name: data_test_not_null_where
+    columns:
+      - name: id
+        tests:
+          - dbt_utils.not_null_where:
+              where: "_deleted = false"
+
+  - name: data_test_not_accepted_values
+    columns:
+      - name: city
+        tests:
+          - dbt_utils.not_accepted_values:
+              values: ['Madrid', 'Berlin']
+
+  - name: data_test_relationships_where_table_2
+    columns:
+      - name: id
+        tests:
+          - dbt_utils.relationships_where:
+              to: ref('data_test_relationships_where_table_1')
+              field: id
+              from_condition: id <> 4
+
+  - name: data_test_mutually_exclusive_ranges_no_gaps
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: lower_bound
+          upper_bound_column: upper_bound
+          gaps: not_allowed
+
+  - name: data_test_mutually_exclusive_ranges_with_gaps
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: valid_from
+          upper_bound_column: coalesce(valid_to, '2099-01-01')
+          partition_by: subscription_id
+          gaps: allowed
+
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: valid_from
+          upper_bound_column: coalesce(valid_to, '2099-01-01')
+          partition_by: subscription_id
+          gaps: required
+
+  - name: data_test_mutually_exclusive_ranges_with_gaps_zero_length
+    tests:
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: valid_from
+          upper_bound_column: valid_to
+          partition_by: subscription_id
+          zero_length_range_allowed: true
+ 
+  - name: data_unique_combination_of_columns
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - month
+            - product
+  
+  - name: data_cardinality_equality_a
+    columns:
+      - name: same_name
+        tests:
+          - dbt_utils.cardinality_equality:
+              to: ref('data_cardinality_equality_b')
+              field: same_name
+          - dbt_utils.cardinality_equality:
+              to: ref('data_cardinality_equality_b')
+              field: different_name
+          
+
+  - name: data_test_accepted_range
+    columns:
+      - name: id
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: -1
+              max_value: 11
+              inclusive: true
+
+          - dbt_utils.accepted_range:
+              min_value: -2
+              max_value: 11.1
+              inclusive: false
+
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+              where: "id <> -1"
+
+  - name: data_not_null_proportion
+    columns:
+      - name: point_5
+        tests:
+          - dbt_utils.not_null_proportion:
+              at_least: 0.5
+              at_most: 0.5
+      - name: point_9
+        tests:
+          - dbt_utils.not_null_proportion:
+              at_least: 0.9

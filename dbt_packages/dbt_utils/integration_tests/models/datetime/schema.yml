@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: test_date_spine
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('data_date_spine')
