@@ -9,7 +9,7 @@ sources:
       # For postgres:
       # database: production
 
-      schema: trips_data_all
+      schema: trips_data_all_eu
 
       # loaded_at_field: record_loaded_at
       tables:
@@ -52,14 +52,14 @@ models:
             description: locationid where the meter was engaged.
             tests:
               - relationships:
-                  to: ref('taxi_zone_lookup')
+                  to: source('staging','taxi_zone')
                   field: locationid
                   severity: warn
           - name: dropoff_locationid 
             description: locationid where the meter was engaged.
             tests:
               - relationships:
-                  to: ref('taxi_zone_lookup')
+                  to: source('staging','taxi_zone')
                   field: locationid
           - name: RateCodeID 
             description: >
