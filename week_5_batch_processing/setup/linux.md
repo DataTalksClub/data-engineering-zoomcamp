@@ -1,7 +1,7 @@
 
 ## Linux
 
-Here we'll show you how to install Spark 3.3.0 for Linux.
+Here we'll show you how to install Spark 3.3.1 for Linux.
 We tested it on Ubuntu 20.04 (also WSL), but it should work
 for other Linux distros as well
 
@@ -56,7 +56,7 @@ rm openjdk-11.0.2_linux-x64_bin.tar.gz
 Download Spark. Use 3.3.0 version:
 
 ```bash
-wget https://dlcdn.apache.org/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz
+wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz
 ```
 
 Unpack:
