@@ -16,12 +16,8 @@ import org.example.data.VendorInfo;
 import java.time.Duration;
 import java.util.Optional;
 import java.util.Properties;
-
 public class JsonKStreamJoins {
     private Properties props = new Properties();
-    private static final String INPUT_RIDE_TOPIC = "rides";
-    private static final String INPUT_RIDE_LOCATION_TOPIC = "rides_location";
-    private static final String OUTPUT_TOPIC = "vendor_info";
 
     public JsonKStreamJoins() {
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "pkc-75m1o.europe-west3.gcp.confluent.cloud:9092");
@@ -37,8 +33,8 @@ public class JsonKStreamJoins {
 
     public Topology createTopology() {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
-        KStream<String, Ride> rides = streamsBuilder.stream(INPUT_RIDE_TOPIC, Consumed.with(Serdes.String(), CustomSerdes.getRideSerdes()));
-        KStream<String, PickupLocation> pickupLocations = streamsBuilder.stream(INPUT_RIDE_LOCATION_TOPIC, Consumed.with(Serdes.String(), CustomSerdes.getPickuLocationSerde()));
+        KStream<String, Ride> rides = streamsBuilder.stream(Topics.INPUT_RIDE_TOPIC, Consumed.with(Serdes.String(), CustomSerdes.getRideSerdes()));
+        KStream<String, PickupLocation> pickupLocations = streamsBuilder.stream(Topics.INPUT_RIDE_LOCATION_TOPIC, Consumed.with(Serdes.String(), CustomSerdes.getPickuLocationSerde()));
 
         var pickupLocationsKeyedOnPUId = pickupLocations.selectKey((key, value) -> String.valueOf(value.PULocationID));
 
@@ -50,7 +46,7 @@ public class JsonKStreamJoins {
                 StreamJoined.with(Serdes.String(), CustomSerdes.getRideSerdes(), CustomSerdes.getPickuLocationSerde()));
 
         joined.filter(((key, value) -> value.isPresent())).mapValues(Optional::get)
-                .to(OUTPUT_TOPIC, Produced.with(Serdes.String(), CustomSerdes.getVendorSerde()));
+                .to(Topics.OUTPUT_TOPIC, Produced.with(Serdes.String(), CustomSerdes.getVendorSerde()));
 
         return streamsBuilder.build();
     }

@@ -40,25 +40,21 @@ public class JsonKStream {
 
     }
 
+    public Topology createTopology() {
+        StreamsBuilder streamsBuilder = new StreamsBuilder();
+        var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getRideSerdes()));
+        var puLocationCount = ridesStream.groupByKey().count().toStream();
+        puLocationCount.to("rides-pulocation-count", Produced.with(Serdes.String(), Serdes.Long()));
+        return streamsBuilder.build();
+    }
+
     public void countPLocation() {
-        var topology = creatTopology();
+        var topology = createTopology();
         var kStreams = new KafkaStreams(topology, props);
         kStreams.start();
 
         Runtime.getRuntime().addShutdownHook(new Thread(kStreams::close));
     }
-
-    public Topology creatTopology() {
-        StreamsBuilder streamsBuilder = new StreamsBuilder();
-        var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getRideSerdes()));
-        var puLocationCount = ridesStream.groupByKey().count().toStream();
-        puLocationCount.to("rides-pulocation-count", Produced.with(Serdes.String(), Serdes.Long()));
-
-        return streamsBuilder.build();
-    }
-
-    // SERDE -> SER DE
-
 
     public static void main(String[] args) {
         var object = new JsonKStream();
