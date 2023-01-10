@@ -107,7 +107,9 @@ This is a quick, simple & less memory-intensive setup of Airflow that works on a
     docker-compose down
     ```
     
-   
+### Setup - Taken from DE Zoomcamp 2.3.4 - Optional: Lightweight Local Setup for Airflow
+
+Use the docker-compose_2.3.4.yaml file (and rename it to docker-compose.yaml). Don't forget to replace the variables `GCP_PROJECT_ID` and `GCP_GCS_BUCKET`.
 
 ### Future Enhancements
 * Deploy self-hosted Airflow setup on Kubernetes cluster, or use a Managed Airflow (Cloud Composer) service by GCP
