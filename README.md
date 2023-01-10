@@ -40,13 +40,6 @@ can take the course at your own pace
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
 
 
-### 2022 Cohort
-
-* **Start**: 17 January 2022
-* **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
-* Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
-
 
 ### Asking for help in Slack
 
@@ -76,17 +69,17 @@ To make discussions in Slack more organized:
 [More details](week_1_basics_n_setup)
 
 
-### [Week 2: Data ingestion](week_2_data_ingestion)
+### [Week 2: Workflow Orchestration](week_2_workflow_orchestration/)
 
 * Data Lake
 * Workflow orchestration
-* Setting up Airflow locally
-* Ingesting data to GCP with Airflow
-* Ingesting data to local Postgres with Airflow
-* Moving data from AWS to GCP (Transfer service)
+* Introduction to Prefect
+* ETL with GCP & Prefect
+* Parametrizing workflows
+* Prefect Cloud and additional resources 
 * Homework
 
-[More details](week_2_data_ingestion)
+[More details](week_2_workflow_orchestration/)
 
 
 ### [Week 3: Data Warehouse](week_3_data_warehouse)
