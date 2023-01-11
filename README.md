@@ -25,7 +25,7 @@ Syllabus
 
 ### 2023 Cohort
 
-* **Start**: 16 January 2023 (Monday)
+* **Start**: 16 January 2023 (Monday) at 18:00 CET
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 * Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
 
