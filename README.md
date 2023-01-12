@@ -209,10 +209,13 @@ See [Week 1](week_1_basics_n_setup) for more details about installing these tool
 
 ## Supporters and partners
 
+Thanks to the course sponsors for making it possible to create this course
+
+<p align="center">
+  <a href="https://www.prefect.io/">
+    <img height="100" src="https://github.com/DataTalksClub/mlops-zoomcamp/raw/main/images/prefect.png">
+  </a>
+</p>
+
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
 
-
-Big thanks to other communities for helping us spread the word about the course: 
-
-* [DPhi](https://dphi.tech/)
-* [MLOps.community](https://mlops.community/)
