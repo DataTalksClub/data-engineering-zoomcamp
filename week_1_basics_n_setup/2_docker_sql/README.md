@@ -49,7 +49,7 @@ See 'docker run --help'.
 Change the mounting path. Replace it with the following:
 
 ```
--p /e/zoomcamp/...:/var/lib/postgresql/data
+-v /e/zoomcamp/...:/var/lib/postgresql/data
 ```
 
 #### Linux and MacOS
