@@ -93,8 +93,8 @@ If you have problems setting up the env, you can check this video:
 
 ### Homework
 
-* [Homework](homework.md)
-* [Solution](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+* [Homework](../cohorts/2023/week_1_docker_sql/homework.md)
+
 
 ## Community notes
 
