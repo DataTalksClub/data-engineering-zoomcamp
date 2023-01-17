@@ -80,7 +80,7 @@ In 2019-01-01 how many trips had 2 and 3 passengers?
 
 ## Question 6. Largest tip
 
-For the passengers picked up in the Astoria Zone which was the drop up zone that had the largest tip?
+For the passengers picked up in the Astoria Zone which was the drop off zone that had the largest tip?
 We want the name of the zone, not the id.
 
 Note: it's not a typo, it's `tip` , not `trip`
