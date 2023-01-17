@@ -1,0 +1,31 @@
+GCP:
+    Prjektname: DTC DE Course
+    Projekt-ID: warm-ring-374916
+    Projektnummer: 154015611539
+
+ssh:
+    connect to GCP: ssh dtc-de-zoomcamp
+
+docker:
+    (from "(base) dmitri@dtc-de-zoomcamp:~/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql$")
+    start docker: docker-compose up -d
+    check docker: docker ps
+    build docker: docker build -t test:pandas .
+    close docker container: docker kill $ID
+
+pgcli: (CLI for Postgres with auto-complition)
+    connect to ny_taxi dataset: pgcli -h localhost -U root -d ny_taxi
+    --> pw: "root"
+    commands in ny_taxi:
+        - show data table: \dt
+
+pgadmin:
+    connection: localhost:8080
+    --> user: admin@admin.commands
+    --> pw: root
+
+jupyter notebook:
+    connection:  http://localhost:8888/?token=5c86a9875f459fdfc6fa64aca07f3f45aa5fd0b401ee489f 
+
+
+TODO pgcli from local machine does not work --> only freezes the terminal in Visual Studio
