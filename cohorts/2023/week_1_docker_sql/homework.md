@@ -1,10 +1,10 @@
 ## Week 1 Homework
 
 In this homework we'll prepare the environment 
-and practice with terraform and SQL
+and practice with Docker and SQL
 
 
-## Question 1. Google Cloud SDK
+## Question 1. Knowing docker tags
 
 
 ## Question 2. Terraform 
