@@ -22,7 +22,7 @@ Which tag has the following text? - *Write the image ID to the file*
 
 ## Question 2. Understanding docker first run 
 
-Run docker with the python:3.9 image in an iterative mode and the entrypoint of bash.
+Run docker with the python:3.9 image in an interative mode and the entrypoint of bash.
 Now check the python modules that are installed ( use pip list). 
 How many python packages/modules are installed?
 
