@@ -100,6 +100,7 @@ If you have problems setting up the env, you can check this video:
 
 Did you take notes? You can share them here
 
+* [Notes from Candace Williams - 2023 Cohort](https://teacherc.github.io/data-engineering/2023/01/18/zoomcamp1.html)
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md)
 * [Notes from Abd](https://itnadigital.notion.site/Week-1-Introduction-f18de7e69eb4453594175d0b1334b2f4)
 * [Notes from Aaron](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_1_basics_n_setup/README.md)
