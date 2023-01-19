@@ -4,6 +4,8 @@ locals {
 
 variable "project" {
   description = "Your GCP Project ID"
+  default = "datazoomcamp-375017"
+  type = string
 }
 
 variable "region" {

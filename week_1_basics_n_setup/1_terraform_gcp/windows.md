@@ -10,7 +10,7 @@ You don't need these instructions if you use WSL. It's only for "plain Windows"
   * source: https://cloud.google.com/sdk/docs/downloads-interactive
 * Unzip it and run the `install.sh` script
 
-When installing it, you might see something like that:
+When installixng it, you might see something like that:
 
 ```
 The installer is unable to automatically update your system PATH. Please add
