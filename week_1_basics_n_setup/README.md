@@ -47,6 +47,7 @@ if you have troubles setting up the environment and following along with the vid
   * Port forwarding to the host environment
   * Communicating between containers in the network
   * `.dockerignore` file
+* Optional: If you are willing to do the steps from "Ingesting NY Taxi Data to Postgres" till "Running Postgres and pgAdmin with Docker-Compose" with Windows Subsystem Linux please check [Docker Module Walk-Through on WSL](https://www.youtube.com/watch?v=Mv4zFm2AwzQ)
 
 
 ### GCP + Terraform
