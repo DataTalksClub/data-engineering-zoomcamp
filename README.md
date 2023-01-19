@@ -144,7 +144,7 @@ Putting everything we learned to practice
 ## Overview
 
 ### Architecture diagram
-<img src="images/architecture/arch_2.jpg"/>
+<img src="images/architecture/arch_2.png"/>
 
 ### Technologies
 * *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
