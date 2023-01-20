@@ -31,7 +31,7 @@
 [Steps to extract and deploy model with docker](extract_model.md)  
 
 
-### [Workshop](airflow.md)
+### [Workshop](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_3_data_warehouse/airflow/README.md)
 
 - [Integrating Bigquery with Airflow (+ Week 2 Review) - Video](https://www.youtube.com/watch?v=lAxAhHNeGww&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
 
