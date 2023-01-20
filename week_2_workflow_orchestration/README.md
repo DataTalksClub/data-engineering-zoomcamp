@@ -100,6 +100,7 @@ Did you take notes? You can share them here.
 ### 2022 notes 
 
 Most of these notes are about Airflow, but you might find them useful.
+Most of these notes are about Airflow, but you might find them useful.
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
 * [Notes from Aaron Wright](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_2_data_ingestion/README.md)
