@@ -144,7 +144,7 @@ Putting everything we learned to practice
 ## Overview
 
 ### Architecture diagram
-<img src="images/architecture/arch_1.jpg"/>
+<img src="images/architecture/arch_2.png"/>
 
 ### Technologies
 * *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
@@ -153,7 +153,7 @@ Putting everything we learned to practice
 * *Terraform*: Infrastructure-as-Code (IaC)
 * *Docker*: Containerization
 * *SQL*: Data Analysis & Exploration
-* *Airflow*: Pipeline Orchestration
+* *Prefect*: Workflow Orchestration
 * *dbt*: Data Transformation
 * *Spark*: Distributed Processing
 * *Kafka*: Streaming
@@ -174,6 +174,8 @@ Prior experience with data engineering is not required.
 - Ankush Khanna (https://linkedin.com/in/ankushkhanna2)
 - Sejal Vaidya (https://linkedin.com/in/vaidyasejal)
 - Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
+- Kalise Richmond (https://www.linkedin.com/in/kaliserichmond/)
+- Jeff Hale (https://www.linkedin.com/in/-jeffhale/)
 - Alexey Grigorev (https://linkedin.com/in/agrigorev)
 
 ## Tools
