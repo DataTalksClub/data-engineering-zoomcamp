@@ -80,7 +80,6 @@
 * [Pefect Discourse](https://discourse.prefect.io/)
 * [Prefect Cloud](https://app.prefect.cloud/)
 * [Prefect Slack](https://prefect-community.slack.com)
-<<<<<<< HEAD
 
 ### Code repository
 
@@ -104,7 +103,7 @@ To be posted on Monday by 14:00 CET
 1. Run a parameterized deployment for the green taxi dataset for the all the data in the year 2021. 
 1. Run your code with a DockerContainer infrastructure block.
 1. _Bonus:_ Create a deployment with your flow code saved in GCS in a storage block.
->>>>>>> 6d090e7 (add resources)
+
 
 
 ## Community notes
