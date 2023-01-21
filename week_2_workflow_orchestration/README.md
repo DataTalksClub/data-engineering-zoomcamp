@@ -81,19 +81,13 @@
 * [Prefect Cloud](https://app.prefect.cloud/)
 * [Prefect Slack](https://prefect-community.slack.com)
 
+### Code repository
+
+[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
+
 ### Homework 
 
-To be posted on Monday by 14:00 CET
-
-
-### Extra Practice
-
-1. Using Prefect flows and tasks with the *green* instead of *yellow* taxi dataset, ingest the data into your data lake in Google Cloud Storage, transform it, and put put it into BigQuery. 
-1. Create a deployment for the green taxi workflow(s) you created.
-1. Schedule the deployment to run every Sunday at 5pm UTC.
-1. Run a parameterized deployment for the green taxi dataset for the all the data in the year 2021. 
-1. Run your code with a DockerContainer infrastructure block.
-1. _Bonus:_ Create a deployment with your flow code saved in GCS in a storage block.
+To be linked here by Jan. 30
 
 
 ## Community notes
@@ -105,6 +99,7 @@ Did you take notes? You can share them here.
 
 ### 2022 notes 
 
+Most of these notes are about Airflow, but you might find them useful.
 Most of these notes are about Airflow, but you might find them useful.
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
