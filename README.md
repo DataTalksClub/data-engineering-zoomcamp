@@ -14,7 +14,7 @@
 Syllabus
 
 * [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
-* [Week 2: Data ingestion](#week-2-data-ingestion)
+* [Week 2: Workflow Orchestration](#week-2-workflow-orchestration)
 * [Week 3: Data Warehouse](#week-3-data-warehouse)
 * [Week 4: Analytics Engineering](#week-4-analytics-engineering)
 * [Week 5: Batch processing](#week-5-batch-processing)
@@ -28,6 +28,7 @@ Syllabus
 * **Start**: 16 January 2023 (Monday) at 18:00 CET
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 * Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+* [Cohort folder](cohorts/2023/) with homeworks and deadlines 
 
 ### Self-paced mode
 
