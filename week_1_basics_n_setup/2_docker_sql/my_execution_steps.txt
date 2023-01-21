@@ -1,0 +1,106 @@
+
+1. Navigate to the directory
+$ cd "Documents/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/"
+
+2. Create a postegres instance with docker and mounted my local file path with the db path 
+ $ sudo docker run -it \
+    -e POSTGRES_USER="root" \
+    -e POSTGRES_PASSWORD="root" \
+    -e POSTGRES_DB="ny_taxi" \
+    -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    postgres:13
+
+It worked. Above command starts the postgres. 
+
+3. We now need to fill with data.
+
+4. We use the client pgcli to connect to postgres
+$ pgcli -h localhost -p 5432 -u root -d ny_taxi
+
+5. We'll use python to store the data in the database
+source ~/anaconda3/bin/activate root
+anaconda navigator
+http://localhost:8890/tree?token=90bd90d180e2397a7a3857a263fa07117e6809dd56d06746
+
+--3 Hours till 5
+
+6. Run pgadmin with docker
+
+If port is binded: 
+
+$ sudo netstat -pna | grep 8080
+LISTEN      24116/utserver --> 24116 = PID
+$ kill <pid>
+
+or 
+$ sudo ss -lptn 'sport = :5432'
+$ kill <pid>
+
+I had installed utserver to listen to this port. 
+$ netstat -lnop --tcp | grep utserver
+$ sudo rm -r /opt/utorrent-server-alpha-v3_3 /usr/bin/utserver
+
+fixed the issue. 
+
+$ sudo docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8080:80 \
+  dpage/pgadmin4
+
+7. We now have to create a pg-network in order to connect pgadmin container with postgres container. 
+  $ sudo docker network create pg-network
+  returns: 813d49f60590ef22233165608b3773bf0a9615c6814999bc971407652da9600e
+  and we added: 
+
+  --network=pg-network \
+  --name pg-database \
+
+finally: 
+
+$ sudo docker run -it \
+         -e POSTGRES_USER="root" \
+         -e POSTGRES_PASSWORD="root" \
+         -e POSTGRES_DB="ny_taxi" \
+         -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+         -p 5432:5432 \
+         --network=pg-network \
+         --name pg-database \
+         postgres:13
+
+Same for pgadmin container: 
+
+$ sudo docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8080:80 \
+  --network=pg-network \
+  --name pgadmin-3 \
+  dpage/pgadmin4
+
+We now have to create both instances and they will be connected. 
+Above first. (Kill any running processes)
+
+====== My Queries ============
+SELECT COUNT(*) 
+FROM public.yellow_taxi_data
+
+SELECT
+MIN(tpep_pickup_datetime) AS min_date,
+MAX(tpep_pickup_datetime) AS max_date
+FROM public.yellow_taxi_data
+
+SELECT
+DISTINCT(DATE_TRUNC('day',tpep_pickup_datetime))
+FROM public.yellow_taxi_data
+WHERE date_part('month', tpep_pickup_datetime) = 1
+AND date_part('day', tpep_pickup_datetime) = 15
+AND date_part('year', tpep_pickup_datetime) = 2021
+
+SELECT
+COUNT(*)
+FROM public.yellow_taxi_data
+WHERE date_part('month', tpep_pickup_datetime) = 1
+AND date_part('day', tpep_pickup_datetime) = 15
+AND date_part('year', tpep_pickup_datetime) = 2021
