@@ -3,6 +3,7 @@ package org.example;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.streams.StreamsConfig;
 import org.example.data.Ride;
 
 import java.io.FileReader;
@@ -16,9 +17,9 @@ import java.util.stream.Collectors;
 public class JsonProducer {
     private Properties props = new Properties();
     public JsonProducer() {
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "pkc-75m1o.europe-west3.gcp.confluent.cloud:9092");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "pkc-75m1o.europe-west3.gcp.confluent.cloud:9092");
         props.put("security.protocol", "SASL_SSL");
-        props.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username='QA63KEUZ6UWEDIDP' password='o9moc8mvNLXW7YU3vSK74l9OYKqs/m5MyF0PWGrf3V7pLoGEbf3yby50D7hDE+Bk';");
+        props.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username='"+Secrets.KAFKA_CLUSTER_KEY+"' password='"+Secrets.KAFKA_CLUSTER_SECRET+"';");
         props.put("sasl.mechanism", "PLAIN");
         props.put("client.dns.lookup", "use_all_dns_ips");
         props.put("session.timeout.ms", "45000");

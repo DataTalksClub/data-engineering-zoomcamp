@@ -22,7 +22,7 @@ Which tag has the following text? - *Write the image ID to the file*
 
 ## Question 2. Understanding docker first run 
 
-Run docker with the python:3.9 image in an iterative mode and the entrypoint of bash.
+Run docker with the python:3.9 image in an interactive mode and the entrypoint of bash.
 Now check the python modules that are installed ( use pip list). 
 How many python packages/modules are installed?
 
@@ -80,7 +80,7 @@ In 2019-01-01 how many trips had 2 and 3 passengers?
 
 ## Question 6. Largest tip
 
-For the passengers picked up in the Astoria Zone which was the drop up zone that had the largest tip?
+For the passengers picked up in the Astoria Zone which was the drop off zone that had the largest tip?
 We want the name of the zone, not the id.
 
 Note: it's not a typo, it's `tip` , not `trip`
@@ -93,7 +93,7 @@ Note: it's not a typo, it's `tip` , not `trip`
 
 ## Submitting the solutions
 
-* Form for submitting: TBA
+* Form for submitting: [form](https://forms.gle/EjphSkR1b3nsdojv7)
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
 Deadline: 26 January (Thursday), 22:00 CET
