@@ -16,7 +16,7 @@ Paste the output of this command into the homework submission form.<br>
 
 ## Submitting the solutions
 
-* Form for submitting: [form](https://forms.gle/EjphSkR1b3nsdojv7)
+* Form for submitting: [form](https://forms.gle/S57Xs3HL9nB3YTzj9)
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
 Deadline: 26 January (Thursday), 22:00 CET
