@@ -1,0 +1,43 @@
+docker run -it \
+      -e POSTGRES_USER="root" \
+      -e POSTGRES_PASSWORD="root" \
+      -e POSTGRES_DB="ny_taxi" \
+      -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+        --> what this does is allow you to map a file on you local to a file in the DB.
+        --> you also do this becuase when your working with docker its stateless, you want it to read and write to a bd
+        --> that is outside the image so you can actually track changes
+      -p 5432:5432
+        --> Here we are mapping a port on our host machine to a port on the image
+    postgres:13
+
+
+
+docker run -it \
+      -e POSTGRES_USER="root" \
+      -e POSTGRES_PASSWORD="root" \
+      -e POSTGRES_DB="ny_taxi" \
+      -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+      -p 5432:5432 \
+      postgres:13
+
+##comments
+docker pull dpage/pgadmin4 --> used to pull pgadmin which is a GUI tool we can use to talk to our DB
+
+
+command
+
+docker run -it \
+    -e PGADMIN_DEFAULT_EMAIL="admin@admin.com"\
+    -e PGADMIN_DEFAULT_PASSWORD=e"root"\
+    -p 8080:80 \
+    dpage/pgadmin4
+
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8080:80 \
+  dpage/pgadmin4
+
+
+When working with multiple docker images you will want to create a docker network for the images to talk to each other
+
