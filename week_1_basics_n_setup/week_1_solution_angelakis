@@ -1,0 +1,56 @@
+DE Zoomcamp 2023 - Homework 1 - Solutions - Antonis Angelakis
+
+1. docker build --help
+2. sudo docker run -it python:3.9 bash
+Package    Version
+---------- -------
+pip        22.0.4
+setuptools 58.1.0
+wheel      0.38.4
+
+3. Ingest the correct dataset to postgres. Created new script because tpep (yellow taxi) acronym in columns is named lpep in green taxi dataset. Created a new ingest_data_green.py script with the appropriate names and ran it below. 
+
+$ URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz"
+python3 ingest_data_green.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=green_taxi_trips \
+  --url=${URL}
+
+SELECT
+COUNT(*)
+FROM public.green_taxi_trips
+WHERE date_part('month', lpep_pickup_datetime) = 1
+AND date_part('day', lpep_pickup_datetime) = 15
+
+4. 
+SELECT 
+DATE_TRUNC('day',lpep_pickup_datetime) AS trip_day, 
+MAX(trip_distance) AS max_trip_distance
+FROM public.green_taxi_trips
+GROUP BY trip_day
+ORDER BY max_trip_distance DESC
+
+5.
+SELECT 
+CASE WHEN passenger_count = 2 THEN '2_pass' ELSE '3_pass' END AS passenger_count_2_3,
+COUNT(*)
+FROM public.green_taxi_trips
+WHERE DATE_TRUNC('day',lpep_pickup_datetime) = '2019-01-01' AND passenger_count IN (2,3)
+GROUP BY passenger_count_2_3
+
+6. 
+SELECT 
+green_taxi_trips.*, 
+pu."Zone" AS pu_zone,
+doff."Zone" AS do_zone
+FROM green_taxi_trips
+LEFT JOIN zones pu
+ON green_taxi_trips."PULocationID" = pu."LocationID"
+LEFT JOIN zones doff
+ON green_taxi_trips."DOLocationID" = doff."LocationID"
+WHERE pu."Zone" = 'Astoria'
+ORDER BY tip_amount DESC
