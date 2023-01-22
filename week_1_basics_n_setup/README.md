@@ -95,6 +95,7 @@ If you have problems setting up the env, you can check this video:
 ### Homework
 
 * [Homework](../cohorts/2023/week_1_docker_sql/homework.md)
+* [Homework-PartB](../cohorts/2023/week_1_terraform/homework.md)
 
 
 ## Community notes
