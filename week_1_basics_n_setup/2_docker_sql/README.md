@@ -233,7 +233,7 @@ docker-compose up -d
 Shutting it down:
 
 ```bash
-docker-compose down
+docker-compose down --volumes
 ```
 
 Note: to make pgAdmin configuration persistent, create a folder `data_pgadmin`. Change its permission via
