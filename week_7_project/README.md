@@ -99,8 +99,8 @@ Example of a dashboard: ![image](https://user-images.githubusercontent.com/43158
     * 2 points: Problem is well described and it's clear what the problem the project solves
 * Cloud
     * 0 points: Cloud is not used, things run only locally
-    * 2 points: The project is developed on the cloud
-    * 4 points: The project is developed on the clound and IaC tools are used
+    * 2 points: The project is developed in the cloud
+    * 4 points: The project is developed in the cloud and IaC tools are used
 * Data ingestion (choose either batch or stream)
     * Batch / Workflow orchestration
         * 0 points: No workflow orchestration
