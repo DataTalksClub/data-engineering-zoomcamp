@@ -20,7 +20,7 @@ $ pgcli -h localhost -p 5432 -u root -d ny_taxi
 
 5. We'll use python to store the data in the database
 source ~/anaconda3/bin/activate root
-anaconda navigator
+anaconda-navigator
 http://localhost:8890/tree?token=90bd90d180e2397a7a3857a263fa07117e6809dd56d06746
 
 --3 Hours till 5
@@ -82,25 +82,58 @@ $ sudo docker run -it \
 We now have to create both instances and they will be connected. 
 Above first. (Kill any running processes)
 
-====== My Queries ============
-SELECT COUNT(*) 
-FROM public.yellow_taxi_data
 
-SELECT
-MIN(tpep_pickup_datetime) AS min_date,
-MAX(tpep_pickup_datetime) AS max_date
-FROM public.yellow_taxi_data
+8. To run all when starting the PC
+$ sudo docker start pgadmin-3 --> This is pgadmin
 
-SELECT
-DISTINCT(DATE_TRUNC('day',tpep_pickup_datetime))
-FROM public.yellow_taxi_data
-WHERE date_part('month', tpep_pickup_datetime) = 1
-AND date_part('day', tpep_pickup_datetime) = 15
-AND date_part('year', tpep_pickup_datetime) = 2021
+Kill postgres running instance
+$ sudo ss -lptn 'sport = :5432'
+$ sudo kill <pid>
+$ sudo docker start pg-database
+Test to connect with pgcli 
+$ pgcli -h localhost -p 5432 -u root -d ny_taxi
 
-SELECT
-COUNT(*)
-FROM public.yellow_taxi_data
-WHERE date_part('month', tpep_pickup_datetime) = 1
-AND date_part('day', tpep_pickup_datetime) = 15
-AND date_part('year', tpep_pickup_datetime) = 2021
+9. Ingest data from .py file
+
+URLs:
+https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz
+https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
+
+Had this issue when ran the script for 1st time: https://stackoverflow.com/questions/66934750/source-of-the-unexpected-keyword-argument-fetch-error-in-pandas-to-sql
+
+Fixed the problem with
+$ pip3 install psycopg2-binary==2.8.6
+
+$ URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+python3 ingest_data.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=yellow_taxi_trips \
+  --url=${URL}
+
+Success!
+
+10. Dockerize ingestion script
+$ sudo docker build -t taxi_ingest:v001 .
+Success!
+
+11. Run again with docker
+$ sudo docker run -it \
+         --network=pg-network \
+         taxi_ingest:v001 \
+           --user=root \
+           --password=root \
+           --host=pg-database \
+           --port=5432 \
+           --db=ny_taxi \
+           --table_name=yellow_taxi_trips \
+           --url=${URL}
+Success!
+
+12. Setup docker-compose to run all in one
+$ docker-compose up
+$ docker-compose down
+$ docker-compose up -d
