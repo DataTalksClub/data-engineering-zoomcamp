@@ -11,6 +11,7 @@ import org.apache.kafka.streams.kstream.Produced;
 import org.apache.kafka.streams.kstream.TimeWindows;
 import org.apache.kafka.streams.kstream.WindowedSerdes;
 import org.example.customserdes.CustomSerdes;
+import org.example.data.Ride;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -34,7 +35,7 @@ public class JsonKStreamWindow {
 
     public Topology createTopology() {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
-        var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getRideSerdes()));
+        var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getSerde(Ride.class)));
         var puLocationCount = ridesStream.groupByKey()
                 .windowedBy(TimeWindows.ofSizeAndGrace(Duration.ofSeconds(10), Duration.ofSeconds(5)))
                 .count().toStream();
