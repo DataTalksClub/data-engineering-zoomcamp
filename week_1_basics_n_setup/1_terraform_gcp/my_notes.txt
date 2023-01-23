@@ -1,0 +1,2 @@
+# Refresh token/session, and verify authentication
+$ gcloud auth application-default login

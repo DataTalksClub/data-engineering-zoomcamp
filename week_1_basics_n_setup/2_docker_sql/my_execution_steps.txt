@@ -134,6 +134,6 @@ $ sudo docker run -it \
 Success!
 
 12. Setup docker-compose to run all in one
-$ docker-compose up
+$ docker-compose up   -> In the week 1 directory
 $ docker-compose down
 $ docker-compose up -d
