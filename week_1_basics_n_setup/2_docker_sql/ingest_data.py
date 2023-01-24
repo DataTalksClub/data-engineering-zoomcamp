@@ -41,26 +41,22 @@ def main(params):
 
     df.to_sql(name=table_name, con=engine, if_exists='append')
 
+    
+    for df in df_iter:
+    
+        t_start = time()
 
-    while True: 
+        df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+        df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
 
-        try:
-            t_start = time()
-            
-            df = next(df_iter)
+        df.to_sql(name=table_name, con=engine, if_exists='append')
 
-            df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-            df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+        t_end = time()
 
-            df.to_sql(name=table_name, con=engine, if_exists='append')
+        print('inserted another chunk, took %.3f second' % (t_end - t_start))
 
-            t_end = time()
+    print("Finished ingesting data into the postgres database")
 
-            print('inserted another chunk, took %.3f second' % (t_end - t_start))
-
-        except StopIteration:
-            print("Finished ingesting data into the postgres database")
-            break
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Ingest CSV data to Postgres')
