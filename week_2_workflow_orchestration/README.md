@@ -76,10 +76,19 @@
 
 :movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=22)
 
+* [Prefect docs](https://docs.prefect.io/)
+* [Pefect Discourse](https://discourse.prefect.io/)
+* [Prefect Cloud](https://app.prefect.cloud/)
+* [Prefect Slack](https://prefect-community.slack.com)
+
+### Code repository
+
+[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
 
 ### Homework 
 
-TBA
+To be linked here by Jan. 30
+
 
 ## Community notes
 
@@ -90,8 +99,8 @@ Did you take notes? You can share them here.
 
 ### 2022 notes 
 
-Most of these notes are about Airflow, but you will most likely
-find them useful too.
+Most of these notes are about Airflow, but you might find them useful.
+Most of these notes are about Airflow, but you might find them useful.
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
 * [Notes from Aaron Wright](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_2_data_ingestion/README.md)

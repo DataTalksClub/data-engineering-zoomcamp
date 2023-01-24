@@ -27,7 +27,7 @@ class JsonKStreamTest {
             testDriver.close();
         }
         testDriver = new TopologyTestDriver(topology, props);
-        inputTopic = testDriver.createInputTopic("rides", Serdes.String().serializer(), CustomSerdes.getRideSerdes().serializer());
+        inputTopic = testDriver.createInputTopic("rides", Serdes.String().serializer(), CustomSerdes.getSerde(Ride.class).serializer());
         outputTopic = testDriver.createOutputTopic("rides-pulocation-count", Serdes.String().deserializer(), Serdes.Long().deserializer());
     }
 
