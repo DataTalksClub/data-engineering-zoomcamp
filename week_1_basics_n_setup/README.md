@@ -95,6 +95,7 @@ If you have problems setting up the env, you can check this video:
 ### Homework
 
 * [Homework](../cohorts/2023/week_1_docker_sql/homework.md)
+* [Homework-PartB](../cohorts/2023/week_1_terraform/homework.md)
 
 
 ## Community notes
@@ -111,4 +112,5 @@ Did you take notes? You can share them here
 * [Notes from Candace Williams](https://teacherc.github.io/data-engineering/2023/01/18/zoomcamp1.html)
 * [Notes from Marcos Torregrosa](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-1/)
 * [Notes from Vincenzo Galante](https://binchentso.notion.site/Data-Talks-Club-Data-Engineering-Zoomcamp-8699af8e7ff94ec49e6f9bdec8eb69fd)
+* [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week1)
 * Add your notes here
