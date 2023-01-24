@@ -19,7 +19,7 @@ Which tag has the following text? - *Write the image ID to the file*
 - `--idimage string`
 - `--idfile string`
 
-A1) B) 
+A1) **B)** 
 - `--iidfile string`
 ```
 docker build --help | grep "Write the image"
@@ -36,7 +36,7 @@ How many python packages/modules are installed?
 - 6
 - 3
 - 7
-A2) C)
+
 ```
  docker run --rm -ti python:3.9 /bin/bash -c ' pip list --disable-pip-version-check | tail -n +3'
 ```
@@ -52,7 +52,7 @@ to get line count :
  docker run --rm -ti python:3.9 /bin/bash -c ' pip list --disable-pip-version-check | tail -n +3 | wc -l'
 ```
 --> 3
-
+A2) **C)**
 # Prepare Postgres
 
 Run Postgres and load data as shown in the videos
@@ -67,6 +67,9 @@ You will also need the dataset with zones:
 Download this data and put it into Postgres (with jupyter notebooks or with a pipeline)
 
 A3)
+
+Run ingestion scripts for green taxi trips and lookup zones;
+ingestion script was modified to pass datetime_columns parameter ( it's different than in yellow_taxi data, in lookup zones also there is no datetime columns )
 ```bash
 
 URL_GREEN="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz"
@@ -115,7 +118,7 @@ WHERE lpep_pickup_datetime >= '2019-01-15 00:00:00'
 AND lpep_dropoff_datetime < '2019-01-16 00:00:00' ;
 ```
 
---> 20530 B)
+--> 20530 **B)**
 
 
 ## Question 4. Largest trip for each day
@@ -132,7 +135,7 @@ A4)
 SELECT date(gtt.lpep_pickup_datetime) FROM green_taxi_trips gtt
 WHERE gtt.trip_distance = (SELECT max(trip_distance) FROM green_taxi_trips);
 ```
-"2019-01-15" -> C)
+"2019-01-15" -> **C)**
 
 ## Question 5. The number of passengers
 
@@ -143,7 +146,7 @@ In 2019-01-01 how many trips had 2 and 3 passengers?
 - 2: 1282 ; 3: 254
 - 2: 1282 ; 3: 274
 
-A5)
+A5) 
 ```sql
 SELECT passenger_count, COUNT(*) FROM green_taxi_trips
 WHERE lpep_pickup_datetime >= '2019-01-01 00:00:00'
@@ -151,16 +154,17 @@ WHERE lpep_pickup_datetime >= '2019-01-01 00:00:00'
 GROUP BY passenger_count;
 
 ```
-| 0   | 21    |
-|-----|-------|
-| 1   | 12415 |
-| 2   | 1282  |
-| 3   | 254   |
-| 4   | 129   |
-| 5   | 616   |
-| 6   | 273   |
+| passenger_count   | count |
+|----|-------|
+| 0  | 21    |
+| 1  | 12415 |
+| 2  | 1282  |
+| 3  | 254   |
+| 4  | 129   |
+| 5  | 616   |
+| 6  | 273   |
 
-2: 1282; 3: 254 -> C)
+2: 1282; 3: 254 -> **C)**
 
 ## Question 6. Largest tip
 
@@ -183,7 +187,7 @@ JOIN zone_lookup zl ON gtt."DOLocationID" = zl."LocationID"
 		WHERE "Zone" = 'Astoria');
 ```
 88	"Long Island City/Queens Plaza"
--> D)
+-> **D)**
 
 ## Submitting the solutions
 
