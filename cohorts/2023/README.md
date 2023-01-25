@@ -9,8 +9,8 @@
 
 [**Week 1: Introduction & Prerequisites**](week_1_docker_sql/)
 
-* [Homework](week_1_docker_sql/homework.md)
-
+* [Homework SQL](week_1_docker_sql/homework.md)
+* [Homework Terraform](week_1_terraform/homework.md)
 
 
 Week 2: Workflow Orchestration
