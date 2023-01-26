@@ -3,7 +3,7 @@ DE Zoomcamp 2023
 Week 1 Homework
 
 1.	Run the command to get information on Docker.  Which tag has the following text? – Write the image ID to the file
-	**Answer:** --iidfile string
+	**Answer:** `--iidfile string`
 	**Code:** `docker build --help`
 
 2.	Run docker with the python:3.9 image in an interactive mode and the entrypoint of bash.  Now check the python modules that are installed (use pip list).  How 		many python packages/modules are installed?
