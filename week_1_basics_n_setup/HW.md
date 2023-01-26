@@ -63,7 +63,7 @@ Week 1 Homework
         **Answer:** 
 	```google_bigquery_dataset.dataset: Creating...
         google_storage_bucket.data-lake-bucket: Creating...
-        google_storage_bucket.data-lake-bucket: Creation complete after 2s [id=dtc_data_lake_tribal-incline-374717]
+        google_storage_bucket.data-lake-bucket: Creation complete after 2s \[id=dtc_data_lake_tribal-incline-374717]\
         
         Error: Error creating Dataset: googleapi: Error 409: Already Exists: Dataset tribal-incline-374717:trips_data_all, duplicate
         
