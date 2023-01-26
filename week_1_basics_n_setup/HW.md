@@ -25,8 +25,7 @@ Week 1 Homework
 4.	Which was the day with the largest trip distance. Use the pick up time for your calculations.
 	**Answer:** 2019-01-05
 	**Code:** 
-	```
-	SELECT date(lpep_pickup_datetime), trip_distance
+	```SELECT date(lpep_pickup_datetime), trip_distance
 	     FROM public.green_taxi_trips gtt 
 	     WHERE date(lpep_pickup_datetime) = date(lpep_pickup_datetime)
 	     ORDER by 2 DESC;
@@ -34,8 +33,7 @@ Week 1 Homework
 5.	In 2019-01-01 how many trips had 2 and 3 passengers? (using pickup data only)
 	**Answer:** 2: 1282 ; 3: 254
 	**Code:** 
-	```
-	SELECT passenger_count, count(passenger_count) num
+	```SELECT passenger_count, count(passenger_count) num
 		FROM (
 			SELECT passenger_count
 			FROM public.green_taxi_trips gtt 
@@ -64,8 +62,7 @@ Week 1 Homework
     Question 1: Enter the Output Displayed After Running Terraform Apply
        After running `terraform apply`, got the following results becuase I had setup the Dataset previously
         **Answer:**
-	```
-	google_bigquery_dataset.dataset: Creating...
+	```google_bigquery_dataset.dataset: Creating...
         google_storage_bucket.data-lake-bucket: Creating...
         google_storage_bucket.data-lake-bucket: Creation complete after 2s [id=dtc_data_lake_tribal-incline-374717]
         
