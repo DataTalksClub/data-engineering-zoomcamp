@@ -59,8 +59,8 @@ Week 1 Homework
 		```  
 **Homework 1 PartB**  
     Question 1: Enter the Output Displayed After Running `terraform apply`  
-       After running `terraform apply`, got the following results becuase I had setup the Dataset previously
-        **Answer:**  
+       After running `terraform apply`, got the following results becuase I had setup the Dataset previously  
+        **Answer:** 
 	```google_bigquery_dataset.dataset: Creating...
         google_storage_bucket.data-lake-bucket: Creating...
         google_storage_bucket.data-lake-bucket: Creation complete after 2s [id=dtc_data_lake_tribal-incline-374717]
