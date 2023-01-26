@@ -60,15 +60,15 @@ Week 1 Homework
 **Homework 1 PartB**  
     Question 1: Enter the Output Displayed After Running `terraform apply`  
        After running `terraform apply`, got the following results becuase I had setup the Dataset previously  
-        **Answer:** 
-	```google bigquery dataset.dataset: Creating...
-        google storage_bucket.data-lake-bucket: Creating...
-        google storage_bucket.data-lake-bucket: Creation complete after 2s \[id=dtc_data_lake_tribal-incline-374717]
+        **Answer:**  
+	```google_bigquery_dataset.dataset: Creating...  
+        google_storage_bucket.data-lake-bucket: Creating...  
+        google_storage_bucket.data-lake-bucket: Creation complete after 2s \[id=dtc_data_lake_tribal-incline-374717]  
         
-        Error: Error creating Dataset: googleapi: Error 409: Already Exists: Dataset tribal-incline-374717:trips_data_all, duplicate
+        Error: Error creating Dataset: googleapi: Error 409: Already Exists: Dataset tribal-incline-374717:trips_data_all, duplicate  
         
-        with google_bigquery_dataset.dataset,
-        on main.tf line 45, in resource "google_bigquery_dataset" "dataset":
-        45: resource "google_bigquery_dataset" "dataset" {
+        with google_bigquery_dataset.dataset,  
+        on main.tf line 45, in resource "google_bigquery_dataset" "dataset":  
+        45: resource "google_bigquery_dataset" "dataset" {  
 	```  
 
