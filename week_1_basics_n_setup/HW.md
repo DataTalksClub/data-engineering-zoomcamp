@@ -53,16 +53,16 @@ Week 1 Homework
 	ORDER BY gtt."tip_amount" DESC 
 	LIMIT 1)
 	
-SELECT "Zone" 
-FROM zone_lookup zl
-WHERE "LocationID" = (
-SELECT "DOLocationID"
-	FROM public.green_taxi_trips gtt 
-		JOIN public.zone_lookup zl 
-			ON gtt."PULocationID" = zl."LocationID"
-	WHERE zl."Zone" = 'Astoria'
-	ORDER BY gtt."tip_amount" DESC 
-	LIMIT 1)
+    SELECT "Zone" 
+    FROM zone_lookup zl
+    WHERE "LocationID" = (
+        SELECT "DOLocationID"
+	        FROM public.green_taxi_trips gtt 
+		        JOIN public.zone_lookup zl 
+			        ON gtt."PULocationID" = zl."LocationID"
+	    WHERE zl."Zone" = 'Astoria'
+	    ORDER BY gtt."tip_amount" DESC 
+	    LIMIT 1);
 		```  
 **Homework 1 PartB**  
     Question 1: Enter the Output Displayed After Running `terraform apply`  
