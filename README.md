@@ -14,7 +14,7 @@
 Syllabus
 
 * [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
-* [Week 2: Data ingestion](#week-2-data-ingestion)
+* [Week 2: Workflow Orchestration](#week-2-workflow-orchestration)
 * [Week 3: Data Warehouse](#week-3-data-warehouse)
 * [Week 4: Analytics Engineering](#week-4-analytics-engineering)
 * [Week 5: Batch processing](#week-5-batch-processing)
@@ -28,6 +28,7 @@ Syllabus
 * **Start**: 16 January 2023 (Monday) at 18:00 CET
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 * Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+* [Cohort folder](cohorts/2023/) with homeworks and deadlines 
 
 ### Self-paced mode
 
@@ -144,7 +145,7 @@ Putting everything we learned to practice
 ## Overview
 
 ### Architecture diagram
-<img src="images/architecture/arch_1.jpg"/>
+<img src="images/architecture/arch_2.png"/>
 
 ### Technologies
 * *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
@@ -153,7 +154,7 @@ Putting everything we learned to practice
 * *Terraform*: Infrastructure-as-Code (IaC)
 * *Docker*: Containerization
 * *SQL*: Data Analysis & Exploration
-* *Airflow*: Pipeline Orchestration
+* *Prefect*: Workflow Orchestration
 * *dbt*: Data Transformation
 * *Spark*: Distributed Processing
 * *Kafka*: Streaming
@@ -174,6 +175,8 @@ Prior experience with data engineering is not required.
 - Ankush Khanna (https://linkedin.com/in/ankushkhanna2)
 - Sejal Vaidya (https://linkedin.com/in/vaidyasejal)
 - Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
+- Kalise Richmond (https://www.linkedin.com/in/kaliserichmond/)
+- Jeff Hale (https://www.linkedin.com/in/-jeffhale/)
 - Alexey Grigorev (https://linkedin.com/in/agrigorev)
 
 ## Tools

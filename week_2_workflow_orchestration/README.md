@@ -76,26 +76,34 @@
 
 :movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=22)
 
+* [Prefect docs](https://docs.prefect.io/)
+* [Pefect Discourse](https://discourse.prefect.io/)
+* [Prefect Cloud](https://app.prefect.cloud/)
+* [Prefect Slack](https://prefect-community.slack.com)
+
+### Code repository
+
+[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
 
 ### Homework 
 
-TBA
+To be linked here by Jan. 30
+
 
 ## Community notes
 
 Did you take notes? You can share them here.
 
+* [Blog by Marcos Torregrosa (Prefect)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-2/)
 * Add your notes here (above this line)
 
 
 ### 2022 notes 
 
-Most of these notes are about Airflow, but you will most likely
-find them useful too.
+Most of these notes are about Airflow, but you might find them useful.
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
 * [Notes from Aaron Wright](https://github.com/ABZ-Aaron/DataEngineerZoomCamp/blob/master/week_2_data_ingestion/README.md)
 * [Notes from Abd](https://itnadigital.notion.site/Week-2-Data-Ingestion-ec2d0d36c0664bc4b8be6a554b2765fd)
 * [Blog post by Isaac Kargar](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/25/data-engineering-w2.html)
 * [Blog, notes, walkthroughs by Sandy Behrens](https://learningdataengineering540969211.wordpress.com/2022/01/30/week-2-de-zoomcamp-2-3-2-ingesting-data-to-gcp-with-airflow/)
-* Add your notes here (above this line)
