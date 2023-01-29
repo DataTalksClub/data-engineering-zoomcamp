@@ -95,6 +95,7 @@ To be linked here by Jan. 30
 Did you take notes? You can share them here.
 
 * [Blog by Marcos Torregrosa (Prefect)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-2/)
+* [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week2)
 * Add your notes here (above this line)
 
 
