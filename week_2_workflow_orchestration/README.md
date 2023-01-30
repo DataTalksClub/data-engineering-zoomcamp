@@ -20,7 +20,7 @@
 * Core features of a workflow orchestration tool
 * Different types of workflow orchestration tools that currently exist 
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=8oLs6pzHp68&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=16)
+:movie_camera: [Video](https://www.youtube.com/watch?v=8oLs6pzHp68&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
 ### 2. Introduction to Prefect concepts
@@ -31,22 +31,22 @@
 * Creating an ETL
 * Prefect task
 * Blocks and collections
-* Orion UI 
+* Orion UI
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=jAwRCyGLKOY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17)
+:movie_camera: [Video](https://www.youtube.com/watch?v=cdtN6dhp708&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 3. ETL with GCP & Prefect
 
 * Flow 1: Putting data to Google Cloud Storage 
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=W-rMz_2GwqQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=18)
+:movie_camera: [Video](https://www.youtube.com/watch?v=W-rMz_2GwqQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
 ### 4. From Google Cloud Storage to Big Query
 
 * Flow 2: From GCS to BigQuery
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=Cx5jt-V5sgE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=19)
+:movie_camera: [Video](https://www.youtube.com/watch?v=Cx5jt-V5sgE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 5. Parametrizing Flow & Deployments 
 
@@ -57,7 +57,7 @@
 * Running the flow
 * Notifications
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=QrDxPjX10iw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=20)
+:movie_camera: [Video](https://www.youtube.com/watch?v=QrDxPjX10iw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 6. Schedules & Docker Storage with Infrastructure
 
@@ -65,7 +65,7 @@
 * Flow code storage
 * Running tasks in Docker
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=psNSzqTsi-s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=21)
+:movie_camera: [Video](https://www.youtube.com/watch?v=psNSzqTsi-s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 7. Prefect Cloud and Additional Resources 
 
@@ -74,7 +74,7 @@
 * Workspaces
 * Running flows on GCP
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=22)
+:movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 * [Prefect docs](https://docs.prefect.io/)
 * [Pefect Discourse](https://discourse.prefect.io/)
@@ -94,12 +94,15 @@ To be linked here by Jan. 30
 
 Did you take notes? You can share them here.
 
+* [Blog by Marcos Torregrosa (Prefect)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-2/)
+* [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week2)
+* [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week2.md)
+* [Notes by Candace Williams](https://github.com/teacherc/de_zoomcamp_candace2023/blob/main/week_2/week2_notes.md)
 * Add your notes here (above this line)
 
 
 ### 2022 notes 
 
-Most of these notes are about Airflow, but you might find them useful.
 Most of these notes are about Airflow, but you might find them useful.
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/2_data_ingestion.md)
@@ -107,4 +110,3 @@ Most of these notes are about Airflow, but you might find them useful.
 * [Notes from Abd](https://itnadigital.notion.site/Week-2-Data-Ingestion-ec2d0d36c0664bc4b8be6a554b2765fd)
 * [Blog post by Isaac Kargar](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/25/data-engineering-w2.html)
 * [Blog, notes, walkthroughs by Sandy Behrens](https://learningdataengineering540969211.wordpress.com/2022/01/30/week-2-de-zoomcamp-2-3-2-ingesting-data-to-gcp-with-airflow/)
-* Add your notes here (above this line)

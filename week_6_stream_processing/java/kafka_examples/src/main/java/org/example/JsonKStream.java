@@ -9,6 +9,7 @@ import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.Produced;
 import org.example.customserdes.CustomSerdes;
+import org.example.data.Ride;
 
 import java.util.Properties;
 
@@ -30,7 +31,7 @@ public class JsonKStream {
 
     public Topology createTopology() {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
-        var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getRideSerdes()));
+        var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getSerde(Ride.class)));
         var puLocationCount = ridesStream.groupByKey().count().toStream();
         puLocationCount.to("rides-pulocation-count", Produced.with(Serdes.String(), Serdes.Long()));
         return streamsBuilder.build();
