@@ -1,0 +1,92 @@
+docker run -it \
+    -e POSTGRES_USER="felipe123" \
+    -e POSTGRES_PASSWORD="felipe123" \
+    -e POSTGRES_DB="ny_taxi_test" \
+    -v $(pwd)/teste2:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    postgres:13
+
+pgcli -h localhost -p 5432 -u felipe123 -d ny_taxi_test
+
+
+## pgadmin
+
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8080:80 \
+  dpage/pgadmin4
+
+Após isso precisamos criar um servidor, porém se colocarmos localhost
+nesse servidor ele estará tentando achar o postgres nesse container de cima.
+Desta forma precisamos conectar ao outro container com imagem do postgres
+e criar uma conexão entre dois containers.
+
+## network
+
+docker network create pg-network
+
+
+docker run -it \
+    -e POSTGRES_USER="felipe123" \
+    -e POSTGRES_PASSWORD="felipe123" \
+    -e POSTGRES_DB="ny_taxi_test" \
+    -v $(pwd)/ny_taxi_postgres_data_teste:/var/lib/postgresql/data \
+    -p 5432:5432 \
+    --network=pg-network \
+    --name pg-database \
+    postgres:13
+
+(pg-database é a forma como o pgadmin vai achar o postgres)
+
+docker run -it \
+  -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+  -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -p 8080:80 \
+  --network=pg-network \
+  --name pg-admin \
+  dpage/pgadmin4
+
+Entrar no site http://localhost:8080/browser/ e criar um servidor
+lembrar que o nome do hostname deve ser o nome do docker postgres (pg-database)
+username e password de acordo com o docker
+
+
+https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
+
+
+
+Ao invés de rodar vários terminais para cada container, vamos achar um modo de
+colocar tudo em um só. Antes disso, vamos achar um modo de criar um pipeline
+que puxa os dados, cria engine e um database, além de alimentar o mesmo.
+
+Uma forma de fazer com que o jupyter notebook vire um arquivo.py automaticamente
+é rodando jupyter nbconvert --to=script nome.do.arquivo.ipynb
+
+Vamos criar o arquivo igest_data.py, que é para criar o database
+
+Após isso deve-se criar o dockerfile com a imagem para rodar o ingest_data.py
+
+Dockefile:
+
+FROM python:latest
+RUN apt-get install wget
+RUN pip install pandas sqlalchemy pyarrow psycopg2
+COPY ingest_data.py ingest_data.py
+ENTRYPOINT [ "python","ingest_data.py" ]
+
+docker build -t sql_taxi:02 .
+
+docker run -it \
+  --network="host" \
+  sql_taxi:04 \
+   db_test \
+   010203 \
+   localhost \
+   5432 \
+   ny_taxi_test \
+   yellow_taxi_driver_2021
+
+Motivo de usar --network="host"
+https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach/24326540#24326540
