@@ -90,6 +90,7 @@ Also, if you find the commands too small to view in Kalise's videos, here's the 
 
 ### Homework 
 
+<<<<<<< HEAD
 To be linked here by Jan. 30
 =======
 
@@ -107,6 +108,9 @@ To be posted on Monday by 14:00 CET
 1. Run your code with a DockerContainer infrastructure block.
 1. _Bonus:_ Create a deployment with your flow code saved in GCS in a storage block.
 
+=======
+Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
+>>>>>>> 090e25e (update week 2 homework)
 
 
 ## Community notes
