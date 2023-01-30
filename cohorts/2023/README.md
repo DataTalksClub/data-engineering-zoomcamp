@@ -11,9 +11,11 @@
 
 * [Homework SQL](week_1_docker_sql/homework.md)
 * [Homework Terraform](week_1_terraform/homework.md)
+* [Office hours](https://www.youtube.com/watch?v=RVTryVvSyw4&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW)
 
+[**Week 2: Workflow Orchestration**](week_2_workflow_orchestration)
 
-Week 2: Workflow Orchestration
+* [Homework](week_2_workflow_orchestration/homework.md)
 
 
 Week 3: Data Warehouse
