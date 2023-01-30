@@ -1,5 +1,5 @@
 services:
-  pg-database:
+  pgdatabase:
     image: postgres:13
     environment:
       - POSTGRES_USER=root
@@ -7,7 +7,7 @@ services:
       - POSTGRES_DB=ny_taxi
     volumes:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
-    ports:
+    ports: 
       - "5432:5432"
   pgadmin:
     image: dpage/pgadmin4
@@ -16,4 +16,5 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "8080:80"
-    
+
+
