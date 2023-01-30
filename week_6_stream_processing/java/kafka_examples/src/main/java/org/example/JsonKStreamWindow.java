@@ -8,15 +8,19 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.Produced;
+import org.apache.kafka.streams.kstream.TimeWindows;
+import org.apache.kafka.streams.kstream.WindowedSerdes;
 import org.example.customserdes.CustomSerdes;
 import org.example.data.Ride;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Properties;
 
-public class JsonKStream {
+public class JsonKStreamWindow {
     private Properties props = new Properties();
 
-    public JsonKStream() {
+    public JsonKStreamWindow() {
         props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "pkc-75m1o.europe-west3.gcp.confluent.cloud:9092");
         props.put("security.protocol", "SASL_SSL");
         props.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username='"+Secrets.KAFKA_CLUSTER_KEY+"' password='"+Secrets.KAFKA_CLUSTER_SECRET+"';");
@@ -32,25 +36,25 @@ public class JsonKStream {
     public Topology createTopology() {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
         var ridesStream = streamsBuilder.stream("rides", Consumed.with(Serdes.String(), CustomSerdes.getSerde(Ride.class)));
-        var puLocationCount = ridesStream.groupByKey().count().toStream();
-        puLocationCount.to("rides-pulocation-count", Produced.with(Serdes.String(), Serdes.Long()));
+        var puLocationCount = ridesStream.groupByKey()
+                .windowedBy(TimeWindows.ofSizeAndGrace(Duration.ofSeconds(10), Duration.ofSeconds(5)))
+                .count().toStream();
+        var windowSerde = WindowedSerdes.timeWindowedSerdeFrom(String.class, 10*1000);
+
+        puLocationCount.to("rides-pulocation-window-count", Produced.with(windowSerde, Serdes.Long()));
         return streamsBuilder.build();
     }
 
-    public void countPLocation() throws InterruptedException {
+    public void countPLocationWindowed() {
         var topology = createTopology();
         var kStreams = new KafkaStreams(topology, props);
         kStreams.start();
-        while (kStreams.state() != KafkaStreams.State.RUNNING) {
-            System.out.println(kStreams.state());
-            Thread.sleep(1000);
-        }
-        System.out.println(kStreams.state());
+
         Runtime.getRuntime().addShutdownHook(new Thread(kStreams::close));
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        var object = new JsonKStream();
-        object.countPLocation();
+    public static void main(String[] args) {
+        var object = new JsonKStreamWindow();
+        object.countPLocationWindowed();
     }
 }
