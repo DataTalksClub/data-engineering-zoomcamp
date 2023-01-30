@@ -1,6 +1,7 @@
 FROM python:latest
 
-RUN pip install pandas
+RUN pip install pandas\
+  pip install datetime
 
 WORKDIR /the/workdir/path
 
