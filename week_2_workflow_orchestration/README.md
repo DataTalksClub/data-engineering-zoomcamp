@@ -89,29 +89,7 @@ Also, if you find the commands too small to view in Kalise's videos, here's the 
 [Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
 
 ### Homework 
-
-<<<<<<< HEAD
-To be linked here by Jan. 30
-=======
-
-### Homework 
-
-To be posted on Monday by 14:00 CET
-
-
-### Extra Practice
-
-1. Using Prefect flows and tasks with the *green* instead of *yellow* taxi dataset, ingest the data into your data lake in Google Cloud Storage, transform it, and put put it into BigQuery. 
-1. Create a deployment for the green taxi workflow(s) you created.
-1. Schedule the deployment to run every Sunday at 5pm UTC.
-1. Run a parameterized deployment for the green taxi dataset for the all the data in the year 2021. 
-1. Run your code with a DockerContainer infrastructure block.
-1. _Bonus:_ Create a deployment with your flow code saved in GCS in a storage block.
-
-=======
 Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
->>>>>>> 090e25e (update week 2 homework)
-
 
 ## Community notes
 
