@@ -30,8 +30,8 @@ docker network create pg-network
 docker run -it \
     -e POSTGRES_USER="felipe123" \
     -e POSTGRES_PASSWORD="felipe123" \
-    -e POSTGRES_DB="ny_taxi_test" \
-    -v $(pwd)/ny_taxi_postgres_data_teste:/var/lib/postgresql/data \
+    -e POSTGRES_DB="ny_taxi" \
+    -v $(pwd)/ny_taxi_postgres:/var/lib/postgresql/data \
     -p 5432:5432 \
     --network=pg-network \
     --name pg-database \
@@ -81,12 +81,59 @@ docker build -t sql_taxi:02 .
 docker run -it \
   --network="host" \
   sql_taxi:04 \
-   db_test \
-   010203 \
-   localhost \
-   5432 \
-   ny_taxi_test \
-   yellow_taxi_driver_2021
+   felipe123 \  user
+   felipe123 \  password
+   localhost \  localhost
+   5432 \       porta
+   ny_taxi \    db_name from postgres docker
+   yellow_taxi_driver_2021  name of the database on pgadmin
 
 Motivo de usar --network="host"
 https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach/24326540#24326540
+
+
+docker-compose
+
+Ao fazer docker-compose não é necessário criar uma network para conectá-los.
+Para criar um docker-compose:
+
+services:
+  name:
+    imagename:
+    enviroments:
+    volumes:
+    ports:
+  name2:
+    imagename:
+    enviroments:
+    volumes:
+    ports:
+
+
+Nesse caso seria:
+
+docker-compose up (-d para detached mode, ou seja, usa o terminal enquanto roda)
+
+services:
+  pgdatabase (nome do usuário durante o registro):
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=felipe123
+      - POSTGRES_PASSWORD=felipe123
+      - POSTGRES_DB=ny_taxi
+    volumes:
+      - "./ny_taxi_postgres:/var/lib/postgresql/data:rw"
+    ports:
+      - "5432:5432"
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports: [8080:80]
+
+"docker-compose down" para desligar o docker-compose
+O nome do network criado, que não é mostrado durante a criação ou citada durante o running do
+docker-compose é *nome.do.arquivo*_default
+
+Caso queira manter os dados de conexão, deve-se fazer um volume (missão achar como fazer isso)
