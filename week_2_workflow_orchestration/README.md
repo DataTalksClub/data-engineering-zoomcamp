@@ -3,6 +3,9 @@
 > If you're looking for Airflow videos from the 2022 edition,
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
 
+Python code from videos is linked [below](#code-repository).
+
+Also, if you find the commands too small to view in Kalise's videos, here's the [transcript with code for the second Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start) and the [fifth Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start).
 
 ### Data Lake (GCS)
 
@@ -86,9 +89,7 @@
 [Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
 
 ### Homework 
-
-To be linked here by Jan. 30
-
+Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
 
 ## Community notes
 
