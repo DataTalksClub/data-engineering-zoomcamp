@@ -99,6 +99,7 @@ Did you take notes? You can share them here.
 * [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week2)
 * [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week2.md)
 * [Notes by Candace Williams](https://github.com/teacherc/de_zoomcamp_candace2023/blob/main/week_2/week2_notes.md)
+* [Notes from Xia He-Bleinagel](https://xiahe-bleinagel.com/2023/02/week-2-data-engineering-zoomcamp-notes-prefect/)
 * Add your notes here (above this line)
 
 
