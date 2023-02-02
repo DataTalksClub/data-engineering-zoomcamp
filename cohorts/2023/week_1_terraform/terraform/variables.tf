@@ -1,5 +1,7 @@
 locals {
   data_lake_bucket = "dtc_data_lake"
+  bucket_name_value = var.bucket_name != "" ? var.bucket_name : local.data_lake_bucket
+  final_bucket_name_value= "${local.bucket_name_value}_${var.project}"
 }
 
 variable "project" {
