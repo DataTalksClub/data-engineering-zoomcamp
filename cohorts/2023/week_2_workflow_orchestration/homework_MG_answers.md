@@ -79,7 +79,7 @@ run etl_web_to_gcs.py script ( with fixes, since it didn't support passing param
 ```
 
 #### Answer 1 
-**A**
+**A** 447,770
 
 ## Question 2. Scheduling with Cron
 
@@ -91,11 +91,16 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 - `0 0 5 1 *`
 - `5 * 1 0 *`
 - `* * 5 1 0`
-
+use https://crontab.guru/ 
+- https://crontab.guru/#0_5_1_*_*
 ```bash
-prefect deployment build ./etl_web_to_gcs.py: -n "ETL web to gcs deployment" 
+prefect deployment build ./etl_web_to_gcs.py:etl_web_to_gcs -n "ETL web to gcs deployment" --cron "0 5 1 * *"
 
+prefect deployment apply etl_web_to_gcs-deployment.yaml
 ```
+
+#### Answer 2 
+**A** 0 5 1 * *
 
 ## Question 3. Loading data to BigQuery 
 

@@ -50,17 +50,12 @@ def write_gcs(path: Path) -> None:
 
 
 @flow()
-def etl_web_to_gcs(params) -> None:
+def etl_web_to_gcs(color: str = "yellow", year: int = 2021, month: int = 1,
+                   datetime_columns: str = "tpep_pickup_datetime,tpep_dropoff_datetime") -> None:
     """The main ETL function"""
-    #color = "yellow"
-    #year = 2021
-    #month = 1
-
-    color = params.color
-    year = params.year
-    month = params.month
-
-    datetime_columns = params.datetime_columns
+    # color = "yellow"
+    # year = 2021
+    # month = 1
 
     datetime_columns_splitted = [x for x in datetime_columns.split(",") if x]  # to filter out empty strings
 
@@ -78,10 +73,15 @@ if __name__ == "__main__":
 
     parser.add_argument('--color', required=False, help='color of the taxi dataset', default="yellow")
     parser.add_argument('--year', type=int, required=False, help='year of taxi data', default=2021)
-    parser.add_argument('--month',type=int, required=False, help='month of taxi data', default=1)
-    parser.add_argument('--datetime_columns',type=str, required=False, help='datetime columns to convert to datetime ',
+    parser.add_argument('--month', type=int, required=False, help='month of taxi data', default=1)
+    parser.add_argument('--datetime_columns', type=str, required=False, help='datetime columns to convert to datetime ',
                         default="tpep_pickup_datetime,tpep_dropoff_datetime")
 
     args = parser.parse_args()
 
-    etl_web_to_gcs(args)
+    color = args.color
+    year = args.year
+    month = args.month
+    datetime_columns = args.datetime_columns
+
+    etl_web_to_gcs(color, year, month, datetime_columns)
