@@ -64,6 +64,8 @@ How many rows does that dataset have?
 * 299,234
 * 822,132
 
+#### Answer ####  
+
 run etl_web_to_gcs.py script ( with fixes, since it didn't support passing params )
 
 ```bash
@@ -91,12 +93,19 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 - `0 0 5 1 *`
 - `5 * 1 0 *`
 - `* * 5 1 0`
-use https://crontab.guru/ 
-- https://crontab.guru/#0_5_1_*_*
-```bash
-prefect deployment build ./etl_web_to_gcs.py:etl_web_to_gcs -n "ETL web to gcs deployment" --cron "0 5 1 * *"
 
-prefect deployment apply etl_web_to_gcs-deployment.yaml
+#### Answer ####
+
+use https://crontab.guru/ 
+https://crontab.guru/#0_5_1_*_* 
+
+Modified etl_web_to_gcs to take parameters, added etl_parent_flow function
+[etl_web_to_gcs.py](code%2Fflows%2F02_gcp%2Fetl_web_to_gcs.py)
+
+```bash
+prefect deployment build ./etl_web_to_gcs.py:etl_parent_flow -n "ETL multi-month web to gcs deployment" --cron "0 5 1 * *"
+
+prefect deployment apply etl_parent_flow-deployment.yaml
 ```
 
 #### Answer 2 
@@ -121,7 +130,47 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 - 27,235,753
 - 11,338,483
 
+#### Answer ####  
 
+Modified etl_gcs_to_bq.py to take parameters, added etl_parent_flow function.
+
+[etl_gcs_to_bq.py](code%2Fflows%2F02_gcp%2Fetl_gcs_to_bq.py)
+
+Load the data to gcs for Yellow taxi data for Feb. 2019 and March 2019 loaded in GCS, using etl_parent_flow-deployment.yaml deployment ( from Q2 )
+Run it manually from orion . 
+
+Create deployment for etl_gcs_to_bq : 
+```bash
+prefect deployment build ./etl_gcs_to_bq.py:etl_parent_flow -n "ETL multi-month GCS to BQ deployment" 
+
+prefect deployment apply etl_parent_flow-deployment.yaml
+```
+
+Make a custom run for this deployment with  
+{ "months": [2, 3] , "year": 2019, "color": "yellow" } parameter.
+
+logs : 
+```
+Downloading flow code from storage at '/home/michal/Projects/data-engineering-zoomcamp/cohorts/2023/week_2_workflow_orchestration/code/flows/02_gcp'
+04:59:24 PM
+
+Created subflow run 'vengeful-turtle' for flow 'etl-gcs-to-bq'
+04:59:24 PM
+
+Created subflow run 'warm-grasshopper' for flow 'etl-gcs-to-bq'
+05:00:21 PM
+
+:Total rows processed: 14851920
+05:01:28 PM
+
+Finished in state Completed('All states completed.')
+```
+
+--> **:Total rows processed: 14851920
+05:01:28 PM**
+
+#### Answer 3 
+**A** 14851920
 
 ## Question 4. Github Storage Block
 

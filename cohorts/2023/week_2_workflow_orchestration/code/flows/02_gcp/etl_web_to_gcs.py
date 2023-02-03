@@ -35,7 +35,7 @@ def clean(df: pd.DataFrame, datetime_columns_splitted) -> pd.DataFrame:
 @task()
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write DataFrame out locally as parquet file"""
-    os.makedirs(f"data/{color}")
+    os.makedirs(f"data/{color}", exist_ok=True)
     path = Path(f"data/{color}/{dataset_file}.parquet")
     df.to_parquet(path, compression="gzip")
     return path
@@ -53,9 +53,6 @@ def write_gcs(path: Path) -> None:
 def etl_web_to_gcs(color: str = "yellow", year: int = 2021, month: int = 1,
                    datetime_columns: str = "tpep_pickup_datetime,tpep_dropoff_datetime") -> None:
     """The main ETL function"""
-    # color = "yellow"
-    # year = 2021
-    # month = 1
 
     datetime_columns_splitted = [x for x in datetime_columns.split(",") if x]  # to filter out empty strings
 
@@ -67,6 +64,12 @@ def etl_web_to_gcs(color: str = "yellow", year: int = 2021, month: int = 1,
     path = write_local(df_clean, color, dataset_file)
     write_gcs(path)
 
+@flow()
+def etl_parent_flow(
+    months: list[int] = [1, 2], year: int = 2021, color: str = "yellow", datetime_columns: str = "tpep_pickup_datetime,tpep_dropoff_datetime"
+):
+    for month in months:
+        etl_web_to_gcs(color, year, month, datetime_columns)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ingest CSV data to Postgres')
