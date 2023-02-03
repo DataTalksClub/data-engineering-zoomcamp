@@ -2,6 +2,56 @@
 
 The goal of this homework is to familiarise users with workflow orchestration and observation. 
 
+### Setup up GCP using terraform from week1
+Use terraform from week1
+
+```shell
+# Refresh service-account's auth-token for this session
+export GOOGLE_APPLICATION_CREDENTIALS="/home/michal/.gcloud/tokens/magnetic-energy-375219-c1c78ad83f33.json"
+gcloud auth application-default login
+
+# Initialize state file (.tfstate)
+terraform init
+
+# Check changes to new infra plan
+terraform plan -var="bucket_name=prefect-de-zoomcamp" -var="BQ_DATASET=dezoomcamp" 
+```
+
+```shell
+# Create new infra: bucket and 
+terraform apply -var="bucket_name=prefect-de-zoomcamp" -var="BQ_DATASET=dezoomcamp" 
+```
+
+```shell
+# Delete infra after your work, to avoid costs on any running services
+terraform destroy
+```
+
+with main.tf changes
+```terraform
+resource "google_storage_bucket" "data-lake-bucket" {
+  name = local.final_bucket_name_value
+  #...
+}
+```
+
+and variables.tf changes
+```terraform
+locals {
+  data_lake_bucket = "dtc_data_lake"
+  bucket_name_value = var.bucket_name != "" ? var.bucket_name : local.data_lake_bucket
+  final_bucket_name_value= "${local.bucket_name_value}_${var.project}"
+}
+
+variable "bucket_name" {
+  description = "The name of the Google Cloud Storage bucket. Must be globally unique."
+  default = ""
+}
+```
+
+create gcp blocks using **make_gcp_blocks.py** script : 
+
+```python make_gcp_blocks.py ```
 
 ## Question 1. Load January 2020 data
 
@@ -14,6 +64,22 @@ How many rows does that dataset have?
 * 299,234
 * 822,132
 
+run etl_web_to_gcs.py script ( with fixes, since it didn't support passing params )
+
+```bash
+ python etl_web_to_gcs.py --color green --year 2020 --month 1 --datetime_columns "lpep_pickup_datetime,lpep_dropoff_datetime"
+```
+```bash
+(data-engineering-zoomcamp) michal@pop-os:~/Projects/data-engineering-zoomcamp/cohorts/2023/week_2_workflow_orchestration/code/flows/02_gcp$  python etl_web_to_gcs.py --color green --year 2020 --month 1 --datetime_columns "lpep_pickup_datetime,lpep_dropoff_datetime"
+21:40:26.708 | INFO    | prefect.engine - Created flow run 'airborne-turtle' for flow 'etl-web-to-gcs'
+21:40:26.824 | INFO    | Flow run 'airborne-turtle' - Created task run 'fetch-b4598a4a-0' for task 'fetch'
+...
+21:40:29.737 | INFO    | Task run 'clean-b9fd7e03-0' - rows: 447770
+
+```
+
+#### Answer 1 
+**A**
 
 ## Question 2. Scheduling with Cron
 
@@ -26,6 +92,10 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 - `5 * 1 0 *`
 - `* * 5 1 0`
 
+```bash
+prefect deployment build ./etl_web_to_gcs.py: -n "ETL web to gcs deployment" 
+
+```
 
 ## Question 3. Loading data to BigQuery 
 

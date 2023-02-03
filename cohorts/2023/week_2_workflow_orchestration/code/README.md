@@ -27,11 +27,6 @@ Create another window and activate your conda environment. Start the Orion API s
 ```bash
 prefect orion start
 ```
-, to clean orion.db
-( home/michal/.prefect/orion.db) :
-```bash
- prefect orion database reset
-```
 )
 
 ## Set up GCP 
