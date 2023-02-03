@@ -101,4 +101,4 @@ Deadline: 30 January (Monday), 22:00 CET
 
 ## Solution
 
-We will publish the solution here
+See here: https://www.youtube.com/watch?v=KIh_9tZiroA
