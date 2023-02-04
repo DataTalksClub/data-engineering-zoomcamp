@@ -187,7 +187,52 @@ How many rows were processed by the script?
 - 88,605
 - 190,225
 
+#### Answer ####  
 
+Create github block:
+```bash
+python make_github_blocks.py
+```
+or
+
+```python
+from prefect.filesystems import GitHub
+
+github_block = GitHub(name="github-storage", repository="https://github.com/MichalGasiorowski/data-engineering-zoomcamp")
+github_block.save("github-storage", overwrite=True)
+```
+create deployment ( specify path to flow from main folder in the repository)
+```bash
+prefect deployment build -n etl_github -sb github/github-storage cohorts/2023/week_2_workflow_orchestration/code/flows/02_gcp/etl_web_to_gcs.py:etl_parent_flow
+
+prefect deployment apply etl_parent_flow-deployment.yaml
+```
+after that etl-parent-flow / etl_github deployment should be created. 
+
+Run the flow with { "months" = [11], "year": 2020, color: "green", "datetime_columns": "lpep_pickup_datetime,lpep_dropoff_datetime" } 
+
+```
+Created task run 'fetch-ba00c645-0' for task 'fetch'
+01:49:53 PM
+....
+
+columns: VendorID                        float64
+lpep_pickup_datetime     datetime64[ns]
+lpep_dropoff_datetime    datetime64[ns]
+...
+congestion_surcharge            float64
+dtype: object
+01:49:55 PM
+clean-2c6af9f6-0
+
+rows: 88605
+01:49:55 PM
+clean-2c6af9f6-0
+....
+```
+
+#### Answer 4 
+**C** 88605
 
 ## Question 5. Email or Slack notifications
 
