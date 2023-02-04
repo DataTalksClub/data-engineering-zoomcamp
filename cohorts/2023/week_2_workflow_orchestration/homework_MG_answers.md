@@ -270,8 +270,8 @@ How many rows were processed by the script?
 ```bash
 prefect cloud login 
 ```
-4) In prefect cloud Gui create automation for sending email notification when flow completes
-
+4) In prefect cloud Gui create automation for sending email notification when flow run completes
+   ( in the process, email notification block will have to be created )  
 5) Create blocks in prefect cloud : 
 ```bash
 python make_gcp_blocks.py
@@ -284,7 +284,7 @@ prefect deployment build -n etl_github -sb github/github-storage cohorts/2023/we
 prefect deployment apply etl_parent_flow-deployment.yaml
 
 ```
-7) Run default work queue on prefect cloud: 
+7) Run default work queue agent on prefect cloud: 
 ```bash
  prefect agent start --work-queue "default" 
 ```
