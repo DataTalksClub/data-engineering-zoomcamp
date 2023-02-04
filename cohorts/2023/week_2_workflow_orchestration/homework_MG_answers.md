@@ -262,6 +262,87 @@ How many rows were processed by the script?
 - `728,390`
 - `514,392`
 
+#### Answer ####  
+1) Go to https://app.prefect.cloud/ and log-in / create account.
+
+2) Create workspace
+3) Login into prefect cloud from terminal
+```bash
+prefect cloud login 
+```
+4) In prefect cloud Gui create automation for sending email notification when flow completes
+
+5) Create blocks in prefect cloud : 
+```bash
+python make_gcp_blocks.py
+python make_github_blocks.py 
+```
+
+6) Create deployment in prefect cloud from cli, the same as in Q4) :
+```bash
+prefect deployment build -n etl_github -sb github/github-storage cohorts/2023/week_2_workflow_orchestration/code/flows/02_gcp/etl_web_to_gcs.py:etl_parent_flow
+prefect deployment apply etl_parent_flow-deployment.yaml
+
+```
+7) Run default work queue on prefect cloud: 
+```bash
+ prefect agent start --work-queue "default" 
+```
+
+8) Finally, run the flow for the etl-parent-flow/etl_github deployment : 
+```bash
+ prefect deployment run etl-parent-flow/etl_github --params '{"months": [4], "year": 2019, "color": "green", "datetime_columns": "lpep_pickup_datetime,lpep_dropoff_datetime" }' 
+```
+
+The flow on prefect cloud run ok and logs processed rows:
+
+```bash
+Created task run 'fetch-ba00c645-0' for task 'fetch'
+02:30:34 PM
+
+Executing 'fetch-ba00c645-0' immediately...
+02:30:34 PM
+
+Finished in state Completed()
+02:30:38 PM
+fetch-ba00c645-0
+
+Created task run 'clean-2c6af9f6-0' for task 'clean'
+02:30:39 PM
+
+Executing 'clean-2c6af9f6-0' immediately...
+02:30:39 PM
+
+   VendorID lpep_pickup_datetime  ... trip_type congestion_surcharge
+0         2  2019-04-01 00:18:40  ...         1                 2.75
+1         2  2019-04-01 00:18:24  ...         1                 0.00
+
+[2 rows x 20 columns]
+02:30:39 PM
+clean-2c6af9f6-0
+
+columns: VendorID                          int64
+lpep_pickup_datetime     datetime64[ns]
+lpep_dropoff_datetime    datetime64[ns]
+store_and_fwd_flag               object
+...
+
+rows: 514392
+etc...
+```
+I receive email with message ( + another for the sublow ) :
+```
+Flow run etl-web-to-gcs/ubiquitous-agama entered state `Completed` at 2023-02-04T13:30:48.644464+00:00.
+Flow ID: cd466358-0a6c-4f79-b207-dbd738385073
+Flow run ID: 635ba8aa-d4bb-475b-b674-555fea09865e
+Flow run URL: https://app.prefect.cloud/account/aada2469-e2bf-4140-b346-731a9060826f/workspace/1b5d1da8-fb55-466a-b4c5-ec57ba7e2b86/flow-runs/flow-run/635ba8aa-d4bb-475b-b674-555fea09865e
+State message: All states completed.
+```
+so the notification indeed works!
+
+#### Answer 5 
+**D** 514392
+
 
 ## Question 6. Secrets
 
@@ -272,6 +353,23 @@ Prefect Secret blocks provide secure, encrypted storage in the database and obfu
 - 8
 - 10
 
+#### Answer ####  
+
+1) (Optional ) To use local orion server first logout from prefect cloud:
+```bash
+prefect cloud logout
+```
+2) Create secret block:
+![secret-block-screenshot.png](code%2Fimages%2Fsecret-block-screenshot.png)
+next screen, specify block name and password
+
+I used 'hunter2222' ;)
+
+![secret-block-ceated-screenshot.png](code%2Fimages%2Fsecret-block-ceated-screenshot.png)
+There are **8** '*' characters shown in this screen.
+
+#### Answer 6 
+**C** 8
 
 ## Submitting the solutions
 
