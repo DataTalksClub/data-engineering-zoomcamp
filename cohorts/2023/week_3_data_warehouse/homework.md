@@ -64,15 +64,7 @@ It is best practice in Big Query to always cluster your data:
 - False
 
 
-## Question 8:
-What is the count, estimated and actual data processed for a query which counts trips started between 2019/04/01 and 2019/05/31 for dispatching_base_num B00013, B00056, B00401?</br>
-Create a table with optimized clustering and partitioning, and run a count(*). Estimated data processed can be found in the top right corner and actual data processed can be found after the query is executed.
-- Count 6054, 54.25 MB Estimated, 10.41 MB Actual
-- Count 4183, 243.61 MB Estimated, 52.86 MB Actual
-- Count 2992, 32.14 MB Estimated, 29.23 MB Actual
-- Count 8152, 0 MB Estimated, 51.24 MB Actual
-
-## (Not required) Question 9:
+## (Not required) Question 8:
 A better format to store these files may be parquet. Create a data pipeline to download the gzip files and convert them into parquet. Upload the files to your GCP Bucket and create an External and Materialized Table. 
 
 
