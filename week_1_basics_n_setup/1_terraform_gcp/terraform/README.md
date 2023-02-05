@@ -23,5 +23,5 @@ terraform apply -var="project=dtc-de-375315"
 
 ```shell
 # Delete infra after your work, to avoid costs on any running services
-terraform destroy
+terraform destroy -var="project=dtc-de-375315"
 ```
