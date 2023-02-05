@@ -10,7 +10,7 @@ Create a materialized table using the fhv 2019 data (do not partition or cluster
 Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv </p>
 
 ## Question 1:
-What is the count for fhv vehicles records for year 2019?
+What is the count for fhv vehicle records for year 2019?
 - 65,623,481
 - 43,244,696
 - 22,978,333
