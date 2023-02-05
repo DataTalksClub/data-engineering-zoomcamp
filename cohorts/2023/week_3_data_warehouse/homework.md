@@ -3,9 +3,11 @@
 If you are using orchestration such as Airflow or Prefect do not load the data into Big Query using the orchestrator.</br> 
 Stop with loading the files into a bucket. </br></br>
 <u>NOTE:</u> You can use the CSV option for the GZ files when creating an External Table</br>
-Create an external table using the fhv 2019 data found here. <br>
-https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv </p>
-Create a materialized table using all of the fhv 2019 data (do not partition or cluster this table). 
+
+<b>SETUP:</b></br>
+Create an external table using the fhv 2019 data. </br>
+Create a materialized table using the fhv 2019 data (do not partition or cluster this table). </br>
+Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv </p>
 
 ## Question 1:
 What is the count for fhv vehicles records for year 2019?
@@ -63,7 +65,7 @@ It is best practice in Big Query to always cluster your data:
 
 
 ## Question 8:
-What is the count, estimated and actual data processed for query which counts trips started between 2019/04/01 and 2019/05/31 for dispatching_base_num B00013, B00056, B00401
+What is the count, estimated and actual data processed for a query which counts trips started between 2019/04/01 and 2019/05/31 for dispatching_base_num B00013, B00056, B00401?</br>
 Create a table with optimized clustering and partitioning, and run a count(*). Estimated data processed can be found in the top right corner and actual data processed can be found after the query is executed.
 - Count 6054, 54.25 MB Estimated, 10.41 MB Actual
 - Count 4183, 243.61 MB Estimated, 52.86 MB Actual
