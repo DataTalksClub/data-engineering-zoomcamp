@@ -150,3 +150,18 @@ docker run -it \
    5432 \
    ny_taxi \
    yellow_taxi_driver_2021
+
+Criar infraestrutura para data lake e data warehouse
+Para isso precisamos ir no projeto criado no GCP e dar permissões como de "Administrador de Storage" e "Admnistrador de Objetos"
+Um para o Backet e outro para objetos no backets
+Além disso precisamos da permissão de "Big Query".
+
+Precisams tambem habilitar as API, o cloud do local environment e o cloud não se comunicam diratemente
+mas sim por APIs.
+
+Para usar o Teraform precisamos de 3 files pelo menos: main.tf, variables.tf e .terraform-version
+
+Para melhor entendimento do terraform, visitar os seguintes links:
+https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md#gcp-initial-setup
+https://developer.hashicorp.com/terraform/tutorials/gcp-get-started
+https://www.youtube.com/watch?v=tE1WZg9ib8k&ab_channel=PagarmeTalks
