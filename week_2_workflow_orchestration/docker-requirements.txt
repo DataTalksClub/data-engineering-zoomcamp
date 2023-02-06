@@ -1,0 +1,4 @@
+pandas==1.5.2
+prefect-gcp[cloud_storage]==0.2.3
+protobuf==4.21.11
+pyarrow==10.0.1
