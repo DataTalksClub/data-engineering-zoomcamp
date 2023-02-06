@@ -1,0 +1,87 @@
+create ssh key in terminal using 
+ssh-keygen -t rsa -f [filename] -C [username] -b 2048
+
+first step is to go navigate to the ssh folder in terminal 
+cd .ssh/
+
+print the generate ssh key using 
+cat gcp.pub
+
+add the generated ssh key to your list of ssh keys in google cloud 
+
+go to instances and create an instance and copy the external Ip address when it's created
+
+head to terminal, in your home directory, 
+cd
+
+connect to the VM using your private key gcp
+ssh -i ~/.ssh/gcp [username]@[external ip address]
+
+
+when you restart the VM, you have to edit the ssh config
+nano .ssh/config
+
+
+Goal for the week is Orchestrate an ETL pipline using open source tools
+
+Orchestrations mean governing data flow in a means that respects orchestration rules and business rules, this allows you to turn any code into a work flow that i can sechule, run and observe, a good orchestraition system should scale and be highly available 
+-----
+
+
+We are going to create a postgres container and a pgadmin container, them we need to link the using a network 
+
+to create a docker network
+docker network create [Network_name]
+
+
+First start  the postgres database in docker then ingest the data to postgress using any python script 
+
+docker run -e postgres_user=root -e postgres_password=root -e postgres_db=ny_taxi \
+-v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data:rw -p 5432:5432 --network=pg-postgres \
+--name pg-database \
+postgres:13
+
+
+Then start up a container for PGadmin in docker using the code below
+docker run -it \
+>     -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+>     -e PGADMIN_DEFAULT_PASSWORD="root" \
+>     -p 8080:80 \
+      --network=pg-postgres \
+      --name pg-database \
+>     dpage/pgadmin4
+
+
+Created an  ETL workflows to extract, transform, and load my data.
+
+Used Postgres and GCP's Google Cloud Storage and BigQuery.
+
+Used Prefect to observe and orchestrate your dataflows.
+
+
+Create a conda environment using 
+conda create -n zoom python=3.9
+
+Activate the conda environment
+conda activate zoom 
+
+To clone a repo in the terminal
+git clone [HTTPS of the repo]
+
+
+
+since we have docker we don't need to install pgadmin, we can just pull
+we have a postgres container, and a docker container  so we have to link them up
+
+use to list all the known containers
+docker ps
+
+
+create the pgadmin container using 
+docker run -it \
+-e PGADMIN_DEFAULT_EMAIL= "admin@admin.com" \
+-e PGADMIN_DEFAULT_PASSWORD = "root" \
+-p 8080:80 \
+dpage/pgadmin4
+
+
