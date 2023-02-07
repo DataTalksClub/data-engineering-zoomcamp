@@ -220,5 +220,12 @@ Thanks to the course sponsors for making it possible to create this course
   </a>
 </p>
 
+<p align="center">
+  <a href="https://www.piperider.io/">
+    <img height="130" src="images/piperider.png">
+  </a>
+</p>
+
+
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
 
