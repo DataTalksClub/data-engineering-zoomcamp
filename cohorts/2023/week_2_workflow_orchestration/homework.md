@@ -109,7 +109,7 @@ Prefect Secret blocks provide secure, encrypted storage in the database and obfu
 * Form for submitting: https://forms.gle/PY8mBEGXJ1RvmTM97
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 6 February (Monday), 22:00 CET
+Deadline: 8 February (Wednesday), 22:00 CET
 
 
 ## Solution
