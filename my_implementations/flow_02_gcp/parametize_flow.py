@@ -2,8 +2,10 @@ import pandas as pd
 from pathlib import Path
 from prefect import flow, task
 from prefect_gcp.cloud_storage import GcsBucket
+from prefect.tasks import task_input_hash
+from datetime import timedelta
 
-@task(retries = 3)
+@task(retries = 3, )
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
      # simulating failure to test retries
@@ -39,7 +41,7 @@ def write_gcs(path: Path) -> None:
     return
 
 @flow()
-def etl_web_to_gcs() -> None:
+def etl_web_to_gcs(year:int, month:int, color:str ) -> None:
     """The main ETL function"""
     color = 'yellow'
     year = 2021
@@ -54,6 +56,15 @@ def etl_web_to_gcs() -> None:
     path = write_local(df_clean, color, dataset_file)
     write_gcs(path)
 
-if __name__ == '__main__':
-    etl_web_to_gcs()
 
+@flow()
+def etl_parent_flow(months: list[int] = [1, 2], year: int = 2021, color: str = 'yellow') -> None:
+    for month in months:
+        etl_web_to_gcs(year, month, color)
+
+
+if __name__ == '__main__':
+    color = "yellow"
+    months = [1,2,3]
+    year = 2021
+    etl_parent_flow(months, year, color)
