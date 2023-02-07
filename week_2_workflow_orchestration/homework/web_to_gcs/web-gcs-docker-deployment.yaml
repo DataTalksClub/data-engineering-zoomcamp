@@ -1,0 +1,69 @@
+###
+### A complete description of a Prefect Deployment for flow 'ETL Web to GCS'
+###
+name: homework_web_to_gcs
+description: ETL data from web to GCS. Main ETL function
+version: 3833b5d284af82560913a3c04a9b0fd0
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags: []
+parameters: {}
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: ETL Web to GCS
+manifest_path: null
+infrastructure:
+  type: docker-container
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  image: ixcheldelsol/web_to_gcs:homework
+  image_pull_policy: ALWAYS
+  image_registry: null
+  networks: []
+  network_mode: null
+  auto_remove: true
+  volumes: []
+  stream_output: true
+  _block_document_id: fdd40fa8-3182-49f1-8d2a-7ada254407ed
+  _block_document_name: web-to-gcs-homework
+  _is_anonymous: false
+  block_type_slug: docker-container
+  _block_type_slug: docker-container
+storage:
+  repository: https://github.com/ixcheldelsun/data-engineering-zoomcamp.git
+  reference: null
+  access_token: null
+  _block_document_id: 649840e0-b124-4e9a-ae7d-e176d9c67bf9
+  _block_document_name: ixcheldelsun-repo
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
+entrypoint: flows/etl_web_to_gcs.py:etl_web_to_gcs
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    color:
+      title: color
+      position: 0
+      type: string
+    year:
+      title: year
+      position: 1
+      type: integer
+    month:
+      title: month
+      position: 2
+      type: integer
+  required:
+  - color
+  - year
+  - month
+  definitions: null

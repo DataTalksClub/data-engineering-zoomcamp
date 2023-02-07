@@ -9,7 +9,7 @@ Using the `etl_web_to_gcs.py` flow that loads taxi data into GCS as a guide, cre
 
 How many rows does that dataset have?
 
-* 447,770
+* 447,770 X
 * 766,792
 * 299,234
 * 822,132
