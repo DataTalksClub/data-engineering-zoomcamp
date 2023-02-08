@@ -1,0 +1,68 @@
+Nesse capítulo iremos trabalhar com workflow orchestration
+
+O que é Data Lake?
+
+É um repositório com diversos dados, podendo ser estruturado, semi ou não estruturado.
+A ideia é armazenar o máximo possível de dado o mais rápido possível.
+
+Data Lake vs Data Warehouse
+
+São dados não estruturados para analistas de dados ou data scientiests.
+São dados alimentados todos os dias.
+
+Já o Data Warehouse são dados estruturados, sendo BI e tamanho dos dados é pequeno
+e o uso consiste em batch processamento e BI reports.
+
+
+A ideia é acessar os dados no data lake rapidamente, sendo useful para outras partes do
+time.
+
+ETL vs ELT
+
+ETL = Export, transform and load (small amount of data)
+ELT = Export, load and transform (used for large amounts of data)
+
+ETL é uma solução para data Warehouse
+ELT para é um data lake solution
+
+Data lake converte em um data swamp, isso ocorre pq não há versionamento,
+há schemas incompatíveis para o mesmo data sem versionamento
+Não é possível fazer joins no data lake
+Não há metadata associáveis
+
+
+---- AULA 2.2.1 workflow orchestration ----
+
+No fim dessa semana será possível fazer um ETL com orchestration open sources
+
+importar flow e task
+flow é o objeto mais basico do python
+
+@flow seria para chamar uma função principal e @tasks partes dela
+
+um exemplo:
+
+
+
+@task(log_prints=true) #log_prints=True vai mostrar todo o log_prints
+  def get_name():
+    name = str(input("Type your name: "))
+    return name
+
+@flow(name="flow1")
+def print_name(name):
+  name = get_name()
+  print(f'My name is {name}')
+
+if __name__ == "__main__":
+    print_name()
+
+Nesse caso o flow chama vários tasks.
+Podendo até ter subflows.
+
+
+Para ver os flows deve-se digitar: "prefect orion start"
+Entrar no site e checar todos os flows rodados.
+É possível fazer blocks, que seria como armazenar configurações e usá-las em qualquer
+outro código. Primeiro deve-se fazer o block no "prefect orion start" e chamá-lo
+de volta como se fosse um pip install.
