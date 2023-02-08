@@ -7,4 +7,5 @@ yellow_tripdata_2021-01/
 yellow_tripdata_2021-01./
 ny_taxi_postgres/
 ny_lastclass_postgres/
-docker_sql_test
+docker_sql_test/
+ny_taxi_postgres2/
