@@ -9,6 +9,91 @@ Create an external table using the fhv 2019 data. </br>
 Create a table in BQ using the fhv 2019 data (do not partition or cluster this table). </br>
 Data can be found here: https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv </p>
 
+Use tarraform from week1 to load data to GCS: 
+
+```bash
+# Refresh service-account's auth-token for this session
+export GOOGLE_APPLICATION_CREDENTIALS="/home/michal/.gcloud/tokens/magnetic-energy-375219-c1c78ad83f33.json"
+gcloud auth application-default login
+
+# Initialize state file (.tfstate)
+terraform init
+
+# Check changes to new infra plan
+terraform plan -var="bucket_name=prefect-de-zoomcamp" -var="BQ_DATASET=dezoomcamp" 
+```
+
+```shell
+# Create new infra: bucket and 
+terraform apply -var="bucket_name=prefect-de-zoomcamp" -var="BQ_DATASET=dezoomcamp" 
+```
+
+```shell
+# Delete infra after your work, to avoid costs on any running services
+terraform destroy
+```
+
+Then, using 
+[etl_web_to_gcs.py](..%2Fweek_2_workflow_orchestration%2Fcode%2Fflows%2F02_gcp%2Fetl_web_to_gcs.py) from week2, load 
+
+The script was changed to pass more parameters : 
+1) base_url ( since fhv data is downloaded from other place than before )
+2) encoding ( encoding for 2020-02 file is 'latin1' which caused problems with ```pd.read_csv()``` )
+3) months to accepts '*' as value - to fetch all the months in a year 
+4) changed datetime_columns to list[str] instead of cumbersome "col1,col2,..." and splitting it by hand
+
+Build the deployment, apply.
+```bash
+prefect deployment build ./etl_web_to_gcs.py:etl_parent_flow -n "ETL multi-month web to gcs deployment" 
+
+prefect deployment apply etl_parent_flow-deployment.yaml
+```
+
+Run the deployment flows:
+```bash
+ prefect deployment run "etl-parent-flow/ETL multi-month web to gcs deployment" --params '{
+  "months": "*",
+  "encoding": "latin1",
+  "year": 2019,
+  "color": "fhv",
+  "datetime_columns": [],
+  "base_url": "https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv",
+  "output_format": "csv"
+}'
+
+ prefect deployment run "etl-parent-flow/ETL multi-month web to gcs deployment" --params '{
+  "months": "*",
+  "encoding": "latin1",
+  "year": 2020,
+  "color": "fhv",
+  "datetime_columns": [],
+  "base_url": "https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv",
+  "output_format": "csv"
+}'
+
+```
+
+Create external table in BigQuery using 2019 fhv data saved in my gcs bucket:
+```bigquery
+-- Creating external table referring to gcs path
+
+CREATE OR REPLACE EXTERNAL TABLE `magnetic-energy-375219.dezoomcamp.external_fhv_tripdata`
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://prefect-de-zoomcamp_magnetic-energy-375219/data/fhv/fhv_tripdata_2019-*.csv']
+);
+```
+
+Create table in BigQuery using 2019 fhv data saved in my gcs bucket:
+```bigquery
+CREATE OR REPLACE TABLE dezoomcamp.fhv_tripdata
+AS SELECT * FROM dezoomcamp.external_fhv_tripdata;
+
+
+```
+
+we use csv format since it enables BigQuery to infer column types.
+
 ## Question 1:
 What is the count for fhv vehicle records for year 2019?
 - 65,623,481
