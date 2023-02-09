@@ -1,3 +1,4 @@
 ny_taxi_postgres/
 output.csv/
-output.parquet
+output.parquet/
+data
