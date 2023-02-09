@@ -101,6 +101,18 @@ What is the count for fhv vehicle records for year 2019?
 - 22,978,333
 - 13,942,414
 
+#### Answer ####  
+
+```bigquery
+SELECT COUNT(*) FROM `magnetic-energy-375219.dezoomcamp.fhv_tripdata`;
+```
+Query results:
+43244696
+
+#### Answer 1 
+**B** 43,244,696
+
+
 ## Question 2:
 Write a query to count the distinct number of affiliated_base_number for the entire dataset on both the tables.</br> 
 What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
