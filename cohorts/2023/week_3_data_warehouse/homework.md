@@ -1,7 +1,7 @@
 ## Week 3 Homework
 <b><u>Important Note:</b></u> <p>You can load the data however you would like, but keep the files in .GZ Format. 
 If you are using orchestration such as Airflow or Prefect do not load the data into Big Query using the orchestrator.</br> 
-Stop with loading the files into a bucket. </br></br>
+Start with loading the files into a bucket. </br></br>
 <u>NOTE:</u> You can use the CSV option for the GZ files when creating an External Table</br>
 
 <b>SETUP:</b></br>
