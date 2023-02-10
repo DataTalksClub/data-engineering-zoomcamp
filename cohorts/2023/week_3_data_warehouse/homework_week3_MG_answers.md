@@ -122,6 +122,23 @@ What is the estimated amount of data that will be read when this query is execut
 - 0 MB for the External Table and 0MB for the BQ Table
 - 0 MB for the External Table and 317.94MB for the BQ Table 
 
+#### Answer ####  
+```bigquery
+SELECT COUNT(distinct Affiliated_base_number) FROM `dezoomcamp.fhv_tripdata`;
+```
+has info : 
+"This query will process 317.94 MB when run."
+
+```bigquery
+SELECT COUNT(distinct Affiliated_base_number) FROM magnetic-energy-375219.dezoomcamp.external_fhv_tripdata;
+```
+has info:
+"This query will process 0 B when run." 
+
+both return the same reuslt : 3163
+
+#### Answer 2 
+**D** 0 MB for the External Table and 317.94MB for the BQ Table
 
 ## Question 3:
 How many records have both a blank (null) PUlocationID and DOlocationID in the entire dataset?
@@ -130,12 +147,35 @@ How many records have both a blank (null) PUlocationID and DOlocationID in the e
 - 5
 - 20,332
 
+#### Answer ####  
+
+```bigquery
+SELECT COUNT(*) FROM `dezoomcamp.fhv_tripdata`
+WHERE 
+      PUlocationID is null 
+  AND DOlocationID is null
+  ;
+```
+returns: 717748
+
+#### Answer 3 
+**A** 717,748
+
 ## Question 4:
 What is the best strategy to optimize the table if query always filter by pickup_datetime and order by affiliated_base_number?
 - Cluster on pickup_datetime Cluster on affiliated_base_number
 - Partition by pickup_datetime Cluster on affiliated_base_number
 - Partition by pickup_datetime Partition by affiliated_base_number
 - Partition by affiliated_base_number Cluster on pickup_datetime
+
+#### Answer ####  
+
+It's best to partition on column on which filtering always would be done - **pickup_datetime.**
+Clustering will help with order by clause -> **affiliated_base_number**
+
+#### Answer 4 
+**B** Partition by pickup_datetime Cluster on affiliated_base_number
+
 
 ## Question 5:
 Implement the optimized solution you chose for question 4. Write a query to retrieve the distinct affiliated_base_number between pickup_datetime 03/01/2019 and 03/31/2019 (inclusive).</br> 
@@ -144,6 +184,45 @@ Use the BQ table you created earlier in your from clause and note the estimated 
 - 647.87 MB for non-partitioned table and 23.06 MB for the partitioned table
 - 582.63 MB for non-partitioned table and 0 MB for the partitioned table
 - 646.25 MB for non-partitioned table and 646.25 MB for the partitioned table
+
+#### Answer ####
+Create partitioned and clustered table:
+```bigquery
+CREATE OR REPLACE TABLE dezoomcamp.fhv_tripdata_partitoned_clustered
+PARTITION BY DATE(pickup_datetime)
+CLUSTER BY Affiliated_base_number AS
+SELECT * FROM dezoomcamp.fhv_tripdata;
+```
+
+Both queries are the same:
+```bigquery
+SELECT COUNT(distinct Affiliated_base_number) FROM `dezoomcamp.fhv_tripdata_partitoned_clustered`
+WHERE pickup_datetime >= TIMESTAMP('2019-03-01')
+AND   pickup_datetime <= TIMESTAMP('2019-03-31'); 
+
+SELECT COUNT(distinct Affiliated_base_number) FROM `dezoomcamp.fhv_tripdata`
+WHERE pickup_datetime >= TIMESTAMP('2019-03-01')
+AND   pickup_datetime <= TIMESTAMP('2019-03-31');
+```
+which returns 722.
+
+The estimate for query on partitioned_and_clustered table:
+
+This query will process **23.05 MB** when run.
+
+The estimate for query on normal table:
+
+This query will process **647.87 MB** when run.
+
+The query on fhv_tripdata_partitoned_clustered table uses partitioned column when filtering and BigQuery engine knows it 
+before running the query, so the estimate is accurate.
+
+When run:
+fhv_tripdata :                      Bytes processed  647.87 MB
+fhv_tripdata_partitoned_clustered : Bytes processed 23.05 MB
+
+#### Answer 5 
+**B** 647.87 MB for non-partitioned table and 23.06 MB for the partitioned table
 
 
 ## Question 6: 
@@ -154,12 +233,31 @@ Where is the data stored in the External Table you created?
 - Container Registry
 - Big Table
 
+#### Answer ####
+The data is not stored in BigTable, BigQuery etc. The data remain in the same place for External Table: 
+ ```text
+ External Data Configuration
+
+Source URI(s)
+    gs://prefect-de-zoomcamp_magnetic-energy-375219/data/fhv/fhv_tripdata_2019-*.csv
+```
+
+#### Answer 6 
+**B** - GCP Bucket
 
 ## Question 7:
 It is best practice in Big Query to always cluster your data:
 - True
 - False
 
+#### Answer ####
+
+No - the easy case when it's not true is if new data is constantly added to the data and results in automatic reclustering which 
+can cause performance degradation.
+Too many clustering columns can result in performance degradation.  
+
+#### Answer 7 
+**B** False
 
 ## (Not required) Question 8:
 A better format to store these files may be parquet. Create a data pipeline to download the gzip files and convert them into parquet. Upload the files to your GCP Bucket and create an External and BQ Table. 
