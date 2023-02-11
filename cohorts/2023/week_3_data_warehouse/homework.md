@@ -41,7 +41,7 @@ What is the best strategy to optimize the table if query always filter by pickup
 - Partition by affiliated_base_number Cluster on pickup_datetime
 
 ## Question 5:
-Implement the optimized solution you chose for question 4. Write a query to retrieve the distinct affiliated_base_number between pickup_datetime 03/01/2019 and 03/31/2019 (inclusive).</br> 
+Implement the optimized solution you chose for question 4. Write a query to retrieve the distinct affiliated_base_number between pickup_datetime 2019/03/01 and 2019/03/31 (inclusive).</br> 
 Use the BQ table you created earlier in your from clause and note the estimated bytes. Now change the table in the from clause to the partitioned table you created for question 4 and note the estimated bytes processed. What are these values? Choose the answer which most closely matches.
 - 12.82 MB for non-partitioned table and 647.87 MB for the partitioned table
 - 647.87 MB for non-partitioned table and 23.06 MB for the partitioned table
