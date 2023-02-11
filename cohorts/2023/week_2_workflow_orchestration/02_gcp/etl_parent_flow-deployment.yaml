@@ -1,0 +1,59 @@
+###
+### A complete description of a Prefect Deployment for flow 'GCS to BQ Parent flow'
+###
+name: gcs-to-bq
+description: null
+version: 1b81934da439946edae40d406e1866dd
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: ply
+tags: []
+parameters: {}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: GCS to BQ Parent flow
+manifest_path: null
+storage: null
+path: /home/beb/p/Academic/data-engineering-zoomcamp/cohorts/2023/week_2_workflow_orchestration/02_gcp
+entrypoint: etl_gcs_to_bq.py:etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      default:
+        - 2
+        - 3
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      default: 2019
+      position: 1
+      type: integer
+    color:
+      title: color
+      default: yellow
+      position: 2
+      type: string
+  required: null
+  definitions: null
+timestamp: "2023-02-11T18:56:35.967969+00:00"
