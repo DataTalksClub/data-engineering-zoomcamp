@@ -8,3 +8,4 @@ RUN pip install -r docker-requirements.txt
 
 COPY *.py /opt/prefect/flows/
 COPY data /opt/prefect/data
+RUN mkdir -p opt/prefect/data/{yellow, green}

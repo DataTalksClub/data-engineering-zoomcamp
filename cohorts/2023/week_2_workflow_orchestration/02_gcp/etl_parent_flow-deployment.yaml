@@ -1,14 +1,14 @@
 ###
-### A complete description of a Prefect Deployment for flow 'etl-parent-flow'
+### A complete description of a Prefect Deployment for flow 'GCS to BQ Parent flow'
 ###
-name: Parameterize ETL
+name: gcs-to-bq
 description: null
-version: 4d6eb1a5331e3aa25e8559957de3ad84
+version: 1b81934da439946edae40d406e1866dd
 # The work queue that will handle this deployment's runs
 work_queue_name: default
-work_pool_name: null
+work_pool_name: ply
 tags: []
-parameters: { "color": "yellow", "months": [1, 2, 3], "year": 2021 }
+parameters: {}
 schedule: null
 is_schedule_active: null
 infra_overrides: {}
@@ -26,11 +26,11 @@ infrastructure:
 ###
 ### DO NOT EDIT BELOW THIS LINE
 ###
-flow_name: etl-parent-flow
+flow_name: GCS to BQ Parent flow
 manifest_path: null
 storage: null
 path: /home/beb/p/Academic/data-engineering-zoomcamp/cohorts/2023/week_2_workflow_orchestration/02_gcp
-entrypoint: parameterized_flow.py:etl_parent_flow
+entrypoint: etl_gcs_to_bq.py:etl_parent_flow
 parameter_openapi_schema:
   title: Parameters
   type: object
@@ -38,15 +38,15 @@ parameter_openapi_schema:
     months:
       title: months
       default:
-        - 1
         - 2
+        - 3
       position: 0
       type: array
       items:
         type: integer
     year:
       title: year
-      default: 2021
+      default: 2019
       position: 1
       type: integer
     color:
@@ -56,4 +56,4 @@ parameter_openapi_schema:
       type: string
   required: null
   definitions: null
-timestamp: "2023-02-09T20:19:00.944538+00:00"
+timestamp: "2023-02-11T18:56:35.967969+00:00"
