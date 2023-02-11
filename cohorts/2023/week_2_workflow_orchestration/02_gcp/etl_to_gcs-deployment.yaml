@@ -1,0 +1,50 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-to-gcs'
+###
+name: github-web2gcs
+description: The main ETL
+version: aec47a1cf1be7cbb9f57651cb56096a0
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: null
+tags:
+- dev
+parameters: {}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-to-gcs
+manifest_path: null
+storage:
+  repository: https://github.com/1beb/prefect-test
+  reference: null
+  access_token: null
+  include_git_objects: true
+  _block_document_id: 1a22966b-6449-46c0-8e44-453499cc2751
+  _block_document_name: prefect-test
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
+entrypoint: etl_web_to_gcs.py:etl_to_gcs
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties: {}
+  required: null
+  definitions: null
+timestamp: '2023-02-11T20:16:25.773875+00:00'

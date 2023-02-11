@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import pandas as pd
 from prefect import flow, task
 from prefect_gcp.cloud_storage import GcsBucket
@@ -33,9 +34,12 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-@task()
+@task(log_prints=True)
 def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     """Write dataframe out as local parquet file"""
+    print(os.getcwd())
+    os.mkdir("data")
+    os.mkdir(f"data/{color}")
 
     path = f"data/{color}/{dataset_file}.parquet"
     df.to_parquet(path, compression="gzip")
@@ -57,7 +61,7 @@ def etl_to_gcs():
 
     color = "green"
     year = 2020
-    month = 1
+    month = 11
     dataset_file = f"{color}_tripdata_{year}-{month:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
 
