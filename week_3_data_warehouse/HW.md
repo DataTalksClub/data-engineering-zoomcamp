@@ -46,5 +46,3 @@ Week 3 Homework
 7.	It is best practice in Big Query to always cluster your data:  
 	**Answer:** False  
 	**Code:** N/A  
-
-8.	A better format to store these files may be parquet. Create a data pipeline to download the gzip files and convert them into parquet. Upload the files to your GCP Bucket and create an External and BQ Table.  
