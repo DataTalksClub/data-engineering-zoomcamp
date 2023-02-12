@@ -4,7 +4,7 @@ Week 3 Homework
 
 1.	What is the count for fhv vehicle records for year 2019?   
     **Answer:** 43,244,696  
-    **Code:** 
+    **Code:**   
     ```SELECT COUNT(*) FROM tribal-incline-374717.dezoomcamp.external_fhv_tripdata;
     ```
 2.	Write a query to count the distinct number of affiliated_base_number for the entire dataset on both the tables.  What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?  
