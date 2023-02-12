@@ -53,4 +53,5 @@ Did you take notes? You can share them here.
 * [Isaac Kargar's blog post](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/30/data-engineering-w3.html)
 * [Marcos Torregrosa's blog post](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-3/) 
 * [Notes by Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week3)
+* [Bigger picture summary on Data Lakes, Data Warehouses, and tooling](https://medium.com/@verazabeida/zoomcamp-week-4-b8bde661bf98), by Vera
 * Add your notes here (above this line)
