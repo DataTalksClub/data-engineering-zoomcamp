@@ -255,7 +255,7 @@ It is best practice in Big Query to always cluster your data:
 No - the easy case when it's not true is if new data is constantly added to the data and results in automatic reclustering which 
 can cause performance degradation.
 Too many clustering columns can result in performance degradation.  
-
+Also it doesn't show much improvement for tables < 1GB size . 
 #### Answer 7 
 **B** False
 
