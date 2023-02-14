@@ -1,5 +1,11 @@
-build
 .gradle
 bin
 !src/main/resources/rides.csv
 
+build/classes
+build/generated
+build/libs
+build/reports
+build/resources
+build/test-results
+build/tmp
