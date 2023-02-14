@@ -6,7 +6,7 @@ Goal: Transforming the data loaded in DWH to Analytical Views developing a [dbt 
 We will build a project using dbt and a running data warehouse. 
 By this stage of the course you should have already: 
 - A running warehouse (BigQuery or postgres) 
-- A set of running pipelines ingesting the project dataset (week 3 completed): [Taxi Rides NY dataset](dataset.md)
+- A set of running pipelines ingesting the project dataset (week 3 completed): [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/)
     * Yellow taxi data - Years 2019 and 2020
     * Green taxi data - Years 2019 and 2020 
     * fhv data - Year 2019. 
