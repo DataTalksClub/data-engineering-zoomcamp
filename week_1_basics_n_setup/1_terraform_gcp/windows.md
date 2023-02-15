@@ -43,7 +43,7 @@ gsutil 5.5
 * Set `GOOGLE_APPLICATION_CREDENTIALS` to point to the file
 
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/ny-rides.json
+export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/de-zoomcamp-376518-4a9787bfa1d9.json
 ```
 
 Now authenticate: 
