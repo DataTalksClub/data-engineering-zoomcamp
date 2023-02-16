@@ -14,4 +14,6 @@
 serving_dir
 *.csv
 .ipynb_checkpoints/
+!week_4_analytics_engineering/taxi_rides_ny/data/taxi_zone_lookup.csv
 !week_6_stream_processing/avro_example/data/rides.csv
+!cohorts/2023/week_4_analytics_engineering/dbt-models/data/taxi_zone_lookup.csv
