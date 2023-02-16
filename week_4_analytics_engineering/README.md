@@ -116,6 +116,7 @@ Did you take notes? You can share them here.
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/4_analytics.md)
 * [Sandy's DE learning blog](https://learningdataengineering540969211.wordpress.com/2022/02/17/week-4-setting-up-dbt-cloud-with-bigquery/)
+* [Marcos Torregrosa's blog](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-4/)
 * Add your notes here (above this line)
 
 ## Useful links
