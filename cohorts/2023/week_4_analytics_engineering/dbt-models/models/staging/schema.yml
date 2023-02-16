@@ -4,10 +4,10 @@ version: 2
 sources:
     - name: staging
       #For bigquery:
-      #database: taxi-rides-ny-339813
+      database: magnetic-energy-375219
 
       # For postgres:
-      database: production
+      #database: production
 
       schema: dezoomcamp
 
