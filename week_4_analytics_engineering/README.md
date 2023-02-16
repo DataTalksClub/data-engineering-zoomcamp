@@ -6,7 +6,7 @@ Goal: Transforming the data loaded in DWH to Analytical Views developing a [dbt 
 We will build a project using dbt and a running data warehouse. 
 By this stage of the course you should have already: 
 - A running warehouse (BigQuery or postgres) 
-- A set of running pipelines ingesting the project dataset (week 3 completed): [Taxi Rides NY dataset](dataset.md)
+- A set of running pipelines ingesting the project dataset (week 3 completed): [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/)
     * Yellow taxi data - Years 2019 and 2020
     * Green taxi data - Years 2019 and 2020 
     * fhv data - Year 2019. 
@@ -104,9 +104,11 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
  * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
  * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
 
-## Homework 
 
-More information [here](homework.md)
+## Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
+
+To learn how to use PipeRider together with dbt for detecting changes in model and data, sign up for a workshop [here](https://www.eventbrite.com/e/maximizing-confidence-in-your-data-model-changes-with-dbt-and-piperider-tickets-535584366257)
+
 
 ## Community notes
 
