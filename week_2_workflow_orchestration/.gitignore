@@ -2,4 +2,5 @@ ny_taxi_postgres/
 output.csv/
 output.parquet/
 data/
-.prefectignore
+.prefectignore/
+data
