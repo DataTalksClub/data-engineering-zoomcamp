@@ -1,0 +1,54 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-parameters'
+###
+name: Parameters ETL
+description: null
+version: 65620d1ddcb27acbb5c30839a0d0a7eb
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+work_pool_name: null
+tags: []
+parameters: {"color": "yellow", "month":[1], "year": 2021}
+schedule: null
+is_schedule_active: null
+infra_overrides: {}
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  block_type_slug: process
+  _block_type_slug: process
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-parameters
+manifest_path: null
+storage: null
+path: /home/felipe/code/FelipeBuongermino/data-engineering-zoomcamp/week_2_workflow_orchestration
+entrypoint: parameterized_flow.py:etl_parameters
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    color:
+      title: color
+      default: yellow
+      position: 0
+    month:
+      title: month
+      default:
+      - 1
+      - 2
+      position: 1
+    year:
+      title: year
+      default: 2021
+      position: 2
+  required: null
+  definitions: null
+timestamp: '2023-02-16T00:48:44.006082+00:00'

@@ -66,3 +66,57 @@ Entrar no site e checar todos os flows rodados.
 É possível fazer blocks, que seria como armazenar configurações e usá-las em qualquer
 outro código. Primeiro deve-se fazer o block no "prefect orion start" e chamá-lo
 de volta como se fosse um pip install.
+
+
+----- Aula 2.2.3 ETL With Prefect and GCP ------
+
+A segunda aula resume-se a fazer outro ingest_data mas enviar para o GCS.
+
+Para isso vamos baixar um conteúdo na internet: https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
+
+Em primeiro momento criaremos um @flow para definir as variáveis "color" e "dataset_file"
+
+O primeiro task será para ler o arquivo .csv
+O segundo task será para limpar o arquivo (ETL)
+O terceiro task será para converter o arquivo em .parquet
+O quarto e último task será para enviar para o Google Cloud Storage (GCS).
+Para isso precisamos criar um block com as credenciais do GCS criado (final da semana 1) para acessar o GCS Bucket.
+Ao criar o block usamos a chave json criada anteriormente para criar o GCP Credentials.
+
+O código para enviar o arquivo localmente para o GCS é:
+
+def write_gcs(path):
+    gcs_block = GcsBucket.load("zoom-gcs")
+    gcs_block.upload_from_path(from_path=f"{path}",to_path=path)
+    return
+
+Mais informações: https://prefecthq.github.io/prefect-gcp/cloud_storage/#prefect_gcp.cloud_storage.GcsBucket.upload_from_path
+
+----- Aula 2.2.4 From Google Cloud Storage to Big Query -----
+
+----- Aula 2.2.5 Parametrizing Flow & Deployments with ETL into GCS flow -----
+
+Em primeiro momento apenas criamos um loop para rodar diversos files e mandar arquivos
+para o GCS.
+
+Após isso criamos um deployment:
+
+prefect deployment build ./parameterized_flow.py:etl_parameters -n "Parameters ETL"
+
+parameterized_flow.py = nome do arquivo
+etl_parameters = nome do flow principal
+"Parameters ETL" = nome do deployment
+
+Após mudar a chave {parameters} no arquivo .yaml, mandar o deployment para a API
+prefect deployment apply etl_parameters-deployment.yaml
+
+Arrumar os parametros no arquivo yaml e dar run na api ( prefect orion start)
+
+Depois disso rodar agente
+
+prefect agent start  --work-queue "default"
+ou
+prefect agent start --pool default-agent-pool --work-queue default
+
+
+----- Aula 2.2.6 Schedules & Docker Storage with Infrastructure -----
