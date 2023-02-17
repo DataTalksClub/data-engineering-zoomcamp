@@ -17,12 +17,18 @@ DEFAULT_BASE_URL = "https://github.com/DataTalksClub/nyc-tlc-data/releases/downl
 
 @task(log_prints=True)
 def enforce_schema(df: pd.DataFrame, color: str, dir='/home/michal/Projects/data-engineering-zoomcamp/cohorts/2023/week_2_workflow_orchestration/code/schemas/data_schemas.yaml') -> pd.DataFrame:
+    df.columns = df.columns.str.lower()
 
     with open(dir, 'rb') as f:
         color_schema = yaml.safe_load(f)[color]
+        color_schema_lower = {k.lower(): v for k, v in color_schema.items()}
+        color_schema_lower
+
+    print(f'columns present in dataframe before enforcing schema: {df.dtypes}')
     print(f'Working with schema for dataset {color}')
-    print(color_schema)
-    enforced_df = df.astype(color_schema)
+    print(color_schema_lower)
+
+    enforced_df = df.astype(color_schema_lower)
     if color == 'yellow':
         enforced_df = enforced_df.drop(columns=['airport_fee'], errors='ignore')
     return enforced_df
