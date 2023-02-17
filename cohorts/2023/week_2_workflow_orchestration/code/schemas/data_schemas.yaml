@@ -1,0 +1,51 @@
+
+yellow:
+  VendorID: Int64
+  tpep_pickup_datetime: datetime64[ns]
+  tpep_dropoff_datetime: datetime64[ns]
+  passenger_count: Int64
+  trip_distance: float64
+  PULocationID: Int64
+  DOLocationID: Int64
+  RatecodeID: Int64
+  store_and_fwd_flag: string
+  payment_type: Int64
+  fare_amount: float64
+  extra: float64
+  mta_tax: float64
+  improvement_surcharge: float64
+  tip_amount: float64
+  tolls_amount: float64
+  total_amount: float64
+  congestion_surcharge: float64
+
+green:
+  VendorID: Int64
+  lpep_pickup_datetime: datetime64[ns]
+  lpep_dropoff_datetime: datetime64[ns]
+  passenger_count: Int64
+  trip_distance: float64
+  PULocationID: Int64
+  DOLocationID: Int64
+  RatecodeID: Int64
+  store_and_fwd_flag: string
+  payment_type: Int64
+  fare_amount: float64
+  extra: float64
+  mta_tax: float64
+  improvement_surcharge: float64
+  tip_amount: float64
+  tolls_amount: float64
+  total_amount: float64
+  congestion_surcharge: float64
+  ehail_fee: float64
+  trip_type: Int64
+
+fhv:
+  dispatching_base_num: string
+  pickup_datetime: datetime64[ns]
+  dropOff_datetime: datetime64[ns]
+  PUlocationID: Int64
+  DOlocationID: Int64
+  SR_Flag: Int64
+  Affiliated_base_number: str

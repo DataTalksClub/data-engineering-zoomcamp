@@ -8,10 +8,30 @@ from random import randint
 
 from typing import Union
 import argparse
+import yaml
 
 from pygments.lexer import default
 
 DEFAULT_BASE_URL = "https://github.com/DataTalksClub/nyc-tlc-data/releases/download"
+
+
+@task(log_prints=True)
+def enforce_schema(df: pd.DataFrame, color: str, dir='/home/michal/Projects/data-engineering-zoomcamp/cohorts/2023/week_2_workflow_orchestration/code/schemas/data_schemas.yaml') -> pd.DataFrame:
+    df.columns = df.columns.str.lower()
+
+    with open(dir, 'rb') as f:
+        color_schema = yaml.safe_load(f)[color]
+        color_schema_lower = {k.lower(): v for k, v in color_schema.items()}
+        color_schema_lower
+
+    print(f'columns present in dataframe before enforcing schema: {df.dtypes}')
+    print(f'Working with schema for dataset {color}')
+    print(color_schema_lower)
+
+    enforced_df = df.astype(color_schema_lower)
+    if color == 'yellow':
+        enforced_df = enforced_df.drop(columns=['airport_fee'], errors='ignore')
+    return enforced_df
 
 @task(retries=3)
 def fetch(dataset_url: str, encoding='utf-8') -> pd.DataFrame:
@@ -44,9 +64,9 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str, output_format: 
     os.makedirs(f"data/{color}", exist_ok=True)
     path = Path(f"data/{color}/{dataset_file}.{output_format}")
     if output_format == 'csv':
-        df.to_csv(path, compression="gzip")
+        df.to_csv(path, compression="gzip", index=False)
     elif output_format == 'parquet':
-        df.to_parquet(path, compression="gzip")
+        df.to_parquet(path, compression="gzip", index=False)
     else:
         # should have been raised earlier
         raise ValueError(f"Format: {output_format} not supported.")
@@ -64,33 +84,33 @@ def write_gcs(path: Path) -> None:
 
 @flow(log_prints=True)
 def etl_web_to_gcs(base_url: str , encoding: str="utf-8", color: str = "yellow", year: int = 2021, month: int = 1,
-                   #datetime_columns: str = "tpep_pickup_datetime,tpep_dropoff_datetime") -> None:
-                   datetime_columns: list[str] = [], output_format: str ='csv') -> None:
+                   input_format: str ='csv.gz', output_format: str ='csv') -> None:
     """The main ETL function"""
 
-    print(f"datetime_columns: {datetime_columns}")
+    #print(f"datetime_columns: {datetime_columns}")
     #datetime_columns_splitted = [x for x in datetime_columns.split(",") if x]  # to filter out empty strings
     #print(f"datetime_columns_splitted: {datetime_columns_splitted}")
 
     dataset_file = f"{color}_tripdata_{year}-{month:02}"
-    dataset_url = f"{DEFAULT_BASE_URL}/{color}/{dataset_file}.csv.gz"
+    dataset_url = f"{DEFAULT_BASE_URL}/{color}/{dataset_file}.{input_format}"
 
     df = fetch(dataset_url, encoding=encoding)
-    df_clean = clean(df, datetime_columns)
-    path = write_local(df_clean, color, dataset_file, output_format)
+    enforced_df = enforce_schema(df, color)
+    # df_clean = clean(df, datetime_columns)
+    path = write_local(enforced_df, color, dataset_file, output_format)
     write_gcs(path)
 
-@flow()
+
+@flow(name="etl_parent_flow_web_to_gcs", log_prints=True)
 def etl_parent_flow(
     base_url: str = DEFAULT_BASE_URL,
     months: Union[list[int], str] = [1, 2], encoding: str = "utf-8", year: int = 2021, color: str = "yellow",
-    datetime_columns: list[str] = [],
-    output_format: str ='csv'
+    input_format: str ='csv.gz', output_format: str ='csv'
 ):
     if months == "*":
         months = list(range(1, 13))
     for month in months:
-        etl_web_to_gcs(base_url, encoding, color, year, month, datetime_columns, output_format)
+        etl_web_to_gcs(base_url, encoding, color, year, month, input_format, output_format)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ingest CSV data to Postgres')
@@ -103,8 +123,6 @@ if __name__ == "__main__":
     parser.add_argument('--color', required=False, help='color of the taxi dataset', default="yellow")
     parser.add_argument('--year', type=int, required=False, help='year of taxi data', default=2021)
     parser.add_argument('--month', type=int, required=False, help='month of taxi data', default=1)
-    parser.add_argument('--datetime_columns', type=list[str], required=False, help='datetime columns to convert to datetime ',
-                        default=[])
     parser.add_argument('--output_format', type=str, required=False, help='Output format to save data', default='csv')
 
     args = parser.parse_args()
@@ -114,7 +132,6 @@ if __name__ == "__main__":
     color = args.color
     year = args.year
     month = args.month
-    datetime_columns = args.datetime_columns
     output_format = args.output_format
 
-    etl_web_to_gcs(base_url, encoding, color, year, month, datetime_columns, output_format)
+    etl_web_to_gcs(base_url, encoding, color, year, month, output_format)
