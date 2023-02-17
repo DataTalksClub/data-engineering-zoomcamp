@@ -16,7 +16,7 @@ only if you want to.
 
 **What is the count of records in the model fact_trips after running all models with the test run variable disabled and filtering for 2019 and 2020 data only (pickup datetime)** 
 
-You'll need to have completed the "Build the first dbt models" video and have been able to run the models via the CLI. 
+You'll need to have completed the ["Build the first dbt models"](https://www.youtube.com/watch?v=UVI30Vxzd6c) video and have been able to run the models via the CLI. 
 You should find the views and models for querying in your DWH.
 
 - 61635151
@@ -29,7 +29,7 @@ You should find the views and models for querying in your DWH.
 
 **What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos**
 
-You will need to complete "Visualising the data" videos, either using data studio or metabase. 
+You will need to complete "Visualising the data" videos, either using [google data studio](https://www.youtube.com/watch?v=39nLTs74A3E) or [metabase](https://www.youtube.com/watch?v=BnLkrA7a6gM). 
 
 - 89.9/10.1
 - 94/6
