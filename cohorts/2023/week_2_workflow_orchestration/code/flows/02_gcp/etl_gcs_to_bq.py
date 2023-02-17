@@ -24,12 +24,14 @@ def transform(path: Path, input_format, input_encoding='utf-8') -> pd.DataFrame:
     """Data cleaning example"""
 
     if input_format == 'csv':
-        df = pd.read_csv(path, encoding=input_encoding)
+        df = pd.read_csv(path, encoding=input_encoding, compression='gzip')
     elif input_format == 'parquet':
         df = pd.read_parquet(path, encoding=input_encoding)
     else:
         # should have been raised earlier
         raise ValueError(f"Format: {input_format} not supported.")
+
+    print(f"columns: {df.dtypes}")
 
     #df = pd.read_parquet(path)
     print(f"pre: missing passenger count: {df['passenger_count'].isna().sum()}")
@@ -66,8 +68,8 @@ def etl_gcs_to_bq(year: int, month: int, color: str, dataset_schema: str = "dezo
     return df_len
 
 
-@flow(log_prints=True)
-def etl_gcs_to_bq_parent_flow(
+@flow(name="etl_parent_flow_gcs_to_bq", log_prints=True)
+def etl_parent_flow(
         months: Union[list[int], str] = [1, 2], year: int = 2021, color: str = "yellow",
         dataset_schema: str = "dezoomcamp", input_format: str = 'csv', input_encoding: str = "utf-8"
 ):
