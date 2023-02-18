@@ -83,7 +83,7 @@ Create a dashboard with some tiles that you find interesting to explore the data
 * Form for submitting: https://forms.gle/6A94GPutZJTuT5Y16
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 21 February (Tuesday), 22:00 CET
+Deadline: 25 February (Saturday), 22:00 CET
 
 
 ## Solution
