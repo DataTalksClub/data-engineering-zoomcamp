@@ -12,6 +12,8 @@ If you don't have access to GCP, you can do this locally using the ingested data
 instead. If you have access to GCP, you don't need to do it for local Postgres -
 only if you want to.
 
+> **Note**: if your answer doesn't match exactly, select the closest option 
+
 ### Question 1: 
 
 **What is the count of records in the model fact_trips after running all models with the test run variable disabled and filtering for 2019 and 2020 data only (pickup datetime)** 
