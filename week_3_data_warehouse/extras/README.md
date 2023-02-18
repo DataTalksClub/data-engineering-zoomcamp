@@ -2,3 +2,5 @@ Quick hack to load files directly to GCS, without Airflow. Downloads csv files f
 
 1. Install pre-reqs (more info in `web_to_gcs.py` script)
 2. Run: `python web_to_gcs.py`
+
+Another method is to use the web_to_gcs_on_colab.ipynb file on colab to upload using colab
