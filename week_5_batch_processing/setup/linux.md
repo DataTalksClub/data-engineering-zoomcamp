@@ -74,7 +74,7 @@ rm spark-3.3.0-bin-hadoop3.tgz
 Add it to `PATH`:
 
 ```bash
-export SPARK_HOME="${HOME}/spark/spark-3.3.0-bin-hadoop3"
+export SPARK_HOME="${HOME}/spark/spark-3.3.1-bin-hadoop3"
 export PATH="${SPARK_HOME}/bin:${PATH}"
 ```
 

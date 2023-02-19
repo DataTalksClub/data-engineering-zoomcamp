@@ -96,9 +96,9 @@ Note: it's not a typo, it's `tip` , not `trip`
 * Form for submitting: [form](https://forms.gle/EjphSkR1b3nsdojv7)
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 26 January (Thursday), 22:00 CET
+Deadline: 30 January (Monday), 22:00 CET
 
 
 ## Solution
 
-We will publish the solution here
+See here: https://www.youtube.com/watch?v=KIh_9tZiroA

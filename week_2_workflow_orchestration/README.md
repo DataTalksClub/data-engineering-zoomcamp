@@ -3,6 +3,9 @@
 > If you're looking for Airflow videos from the 2022 edition,
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
 
+Python code from videos is linked [below](#code-repository).
+
+Also, if you find the commands too small to view in Kalise's videos, here's the [transcript with code for the second Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start) and the [fifth Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start).
 
 ### Data Lake (GCS)
 
@@ -20,7 +23,7 @@
 * Core features of a workflow orchestration tool
 * Different types of workflow orchestration tools that currently exist 
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=8oLs6pzHp68&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=16)
+:movie_camera: [Video](https://www.youtube.com/watch?v=8oLs6pzHp68&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
 ### 2. Introduction to Prefect concepts
@@ -31,22 +34,22 @@
 * Creating an ETL
 * Prefect task
 * Blocks and collections
-* Orion UI 
+* Orion UI
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=jAwRCyGLKOY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17)
+:movie_camera: [Video](https://www.youtube.com/watch?v=cdtN6dhp708&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 3. ETL with GCP & Prefect
 
 * Flow 1: Putting data to Google Cloud Storage 
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=W-rMz_2GwqQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=18)
+:movie_camera: [Video](https://www.youtube.com/watch?v=W-rMz_2GwqQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
 ### 4. From Google Cloud Storage to Big Query
 
 * Flow 2: From GCS to BigQuery
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=Cx5jt-V5sgE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=19)
+:movie_camera: [Video](https://www.youtube.com/watch?v=Cx5jt-V5sgE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 5. Parametrizing Flow & Deployments 
 
@@ -57,7 +60,7 @@
 * Running the flow
 * Notifications
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=QrDxPjX10iw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=20)
+:movie_camera: [Video](https://www.youtube.com/watch?v=QrDxPjX10iw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 6. Schedules & Docker Storage with Infrastructure
 
@@ -65,7 +68,7 @@
 * Flow code storage
 * Running tasks in Docker
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=psNSzqTsi-s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=21)
+:movie_camera: [Video](https://www.youtube.com/watch?v=psNSzqTsi-s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 ### 7. Prefect Cloud and Additional Resources 
 
@@ -74,32 +77,31 @@
 * Workspaces
 * Running flows on GCP
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=22)
+:movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 * [Prefect docs](https://docs.prefect.io/)
 * [Pefect Discourse](https://discourse.prefect.io/)
 * [Prefect Cloud](https://app.prefect.cloud/)
 * [Prefect Slack](https://prefect-community.slack.com)
 
+### Code repository
+
+[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
+
 ### Homework 
-
-To be posted on Monday by 14:00 CET
-
-
-### Extra Practice
-
-1. Using Prefect flows and tasks with the *green* instead of *yellow* taxi dataset, ingest the data into your data lake in Google Cloud Storage, transform it, and put put it into BigQuery. 
-1. Create a deployment for the green taxi workflow(s) you created.
-1. Schedule the deployment to run every Sunday at 5pm UTC.
-1. Run a parameterized deployment for the green taxi dataset for the all the data in the year 2021. 
-1. Run your code with a DockerContainer infrastructure block.
-1. _Bonus:_ Create a deployment with your flow code saved in GCS in a storage block.
-
+Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
 
 ## Community notes
 
 Did you take notes? You can share them here.
 
+* [Blog by Marcos Torregrosa (Prefect)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-2/)
+* [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week2)
+* [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week2.md)
+* [Notes by Candace Williams](https://github.com/teacherc/de_zoomcamp_candace2023/blob/main/week_2/week2_notes.md)
+* [Notes from Xia He-Bleinagel](https://xiahe-bleinagel.com/2023/02/week-2-data-engineering-zoomcamp-notes-prefect/)
+* [Notes from froukje](https://github.com/froukje/de-zoomcamp/blob/main/week_2_workflow_orchestration/notes/notes_week_02.md)
+* [Notes from Balaji](https://github.com/Balajirvp/DE-Zoomcamp/blob/main/Week%202/Detailed%20Week%202%20Notes.ipynb)
 * Add your notes here (above this line)
 
 
@@ -112,4 +114,5 @@ Most of these notes are about Airflow, but you might find them useful.
 * [Notes from Abd](https://itnadigital.notion.site/Week-2-Data-Ingestion-ec2d0d36c0664bc4b8be6a554b2765fd)
 * [Blog post by Isaac Kargar](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/25/data-engineering-w2.html)
 * [Blog, notes, walkthroughs by Sandy Behrens](https://learningdataengineering540969211.wordpress.com/2022/01/30/week-2-de-zoomcamp-2-3-2-ingesting-data-to-gcp-with-airflow/)
-* Add your notes here (above this line)
+* [Notes from Vincenzo Galante](https://binchentso.notion.site/Data-Talks-Club-Data-Engineering-Zoomcamp-8699af8e7ff94ec49e6f9bdec8eb69fd)
+* More on [Pandas vs SQL, Prefect capabilities, and testing your data](https://medium.com/@verazabeida/zoomcamp-2023-week-3-7f27bb8c483f), by Vera

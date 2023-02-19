@@ -19,7 +19,7 @@ Homework solutions can be found under the "homework" folder of each week.
 Syllabus
 
 - [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
-- [Week 2: Data ingestion](#week-2-data-ingestion)
+- [Week 2: Workflow Orchestration](#week-2-workflow-orchestration)
 - [Week 3: Data Warehouse](#week-3-data-warehouse)
 - [Week 4: Analytics Engineering](#week-4-analytics-engineering)
 - [Week 5: Batch processing](#week-5-batch-processing)
@@ -33,6 +33,7 @@ Syllabus
 - **Start**: 16 January 2023 (Monday) at 18:00 CET
 - **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+- [Cohort folder](cohorts/2023/) with homeworks and deadlines
 
 ### Self-paced mode
 
@@ -204,6 +205,12 @@ Thanks to the course sponsors for making it possible to create this course
 <p align="center">
   <a href="https://www.prefect.io/">
     <img height="100" src="https://github.com/DataTalksClub/mlops-zoomcamp/raw/main/images/prefect.png">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.piperider.io/">
+    <img height="130" src="images/piperider.png">
   </a>
 </p>
 
