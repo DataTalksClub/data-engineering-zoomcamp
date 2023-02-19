@@ -23,7 +23,7 @@ You should find the views and models for querying in your DWH.
 
 - 41648442
 - 51648442
-- 61648442
+- 61635329
 - 71648442
 
 
@@ -48,7 +48,7 @@ Create a staging model for the fhv data for 2019 and do not add a deduplication 
 Filter records with pickup time in year 2019.
 
 - 33244696
-- 43244696
+- 42084899
 - 53244696
 - 63244696
 
@@ -62,7 +62,7 @@ Similar to what we've done in fact_trips, keep only records with known pickup an
 Run it via the CLI without limits (is_test_run: false) and filter records with pickup time in year 2019.
 
 - 12998722
-- 22998722
+- 22676253
 - 32998722
 - 42998722
 
