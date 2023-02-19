@@ -1,0 +1,1 @@
+docker stop zoomcamp_pg_admin
