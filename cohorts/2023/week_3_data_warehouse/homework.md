@@ -80,4 +80,4 @@ Deadline: 13 February (Monday), 22:00 CET
 
 ## Solution
 
-We will publish the solution here
+Solution: https://www.youtube.com/watch?v=j8r2OigKBWE

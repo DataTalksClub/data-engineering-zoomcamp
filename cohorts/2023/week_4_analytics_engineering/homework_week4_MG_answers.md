@@ -12,6 +12,25 @@ If you don't have access to GCP, you can do this locally using the ingested data
 instead. If you have access to GCP, you don't need to do it for local Postgres -
 only if you want to.
 
+Load the data fro green, yellow, fhv for 2019, 2020 years
+Updated the script to laod:  [etl_web_to_gcs.py](..%2Fweek_2_workflow_orchestration%2Fcode%2Fflows%2F02_gcp%2Fetl_web_to_gcs.py)
+to make it possible to enforce schemas, since they are different. There are differences in column names ( case !), encoding ( 'latin1' for fhv-2020 ).
+All the files are loaded to project gcs. The tables in BigQuery are created through BigQuery UI - it's faster this way.
+
+Setup dbt cloud, the data for fhv 2019 & 2020 is already there from week3. Copy project files to 
+```week_4_analytics_engineering/taxi_rides_ny```
+
+Run dbt cloud, setup, connect it to BigQuery, Github.
+Don't forget to set dataset region where it's supposed to be ( by default == US )
+Copy [taxi_zone_lookup.csv](..%2F..%2F..%2Fweek_4_analytics_engineering%2Ftaxi_rides_ny%2Fdata%2Ftaxi_zone_lookup.csv)
+    [seeds_properties.yml](..%2F..%2F..%2Fweek_4_analytics_engineering%2Ftaxi_rides_ny%2Fdata%2Fseeds_properties.yml)
+to .seeds folder under dbt-models
+Run dbt seed from dbt-console.
+It results in new table being created in BigQuery.
+
+run ```dbt build --var 'is_test_run: false' ```
+
+![dbt build](screenshots%2Fdbt_build_screenshotpng)
 ### Question 1: 
 
 **What is the count of records in the model fact_trips after running all models with the test run variable disabled and filtering for 2019 and 2020 data only (pickup datetime)** 
@@ -24,6 +43,19 @@ You should find the views and models for querying in your DWH.
 - 61666551
 - 41856543
 
+
+#### Answer ####  
+ 
+
+```bigquery
+SELECT count(*) FROM `magnetic-energy-375219.dbt_mgasiorowski.fact_trips` ;
+```
+returns 
+61644197
+
+
+#### Answer 1 
+**???** 61644197
 
 ### Question 2: 
 
