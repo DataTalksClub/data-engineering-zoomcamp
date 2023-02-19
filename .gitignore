@@ -15,3 +15,9 @@ serving_dir
 *.csv
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
+
+# Default .gitignore content added by dbt Cloud
+target/
+dbt_packages/
+logs/
+# end dbt Cloud content
