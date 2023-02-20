@@ -10,7 +10,10 @@ from typing import Union
 import argparse
 import yaml
 
+from google.cloud import storage
+
 from pygments.lexer import default
+BUCKET = os.environ.get("GCP_GCS_BUCKET", "prefect-de-zoomcamp_magnetic-energy-375219")
 
 DEFAULT_BASE_URL = "https://github.com/DataTalksClub/nyc-tlc-data/releases/download"
 
@@ -75,16 +78,33 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str, output_format: 
 
 
 @task()
-def write_gcs(path: Path) -> None:
+def write_gcs(path: Path, color: str) -> None:
     """Upload local parquet file to GCS"""
     gcs_block = GcsBucket.load("zoom-gcs")
     gcs_block.upload_from_path(from_path=path, to_path=path)
     return
 
 
+@task()
+def write_gcs_without_gcs_block(path: Path, color: str) -> None:
+    """Upload local parquet file to GCS"""
+    #object_name = f"{color}/{path}"
+    object_name = f"{path}"
+
+    storage.blob._MAX_MULTIPART_SIZE = 5 * 1024 * 1024  # 5 MB
+    storage.blob._DEFAULT_CHUNKSIZE = 5 * 1024 * 1024  # 5 MB
+
+    client = storage.Client()
+    bucket = client.bucket(BUCKET)
+    blob = bucket.blob(object_name)
+    blob.upload_from_filename(path)
+
+    return
+
+
 @flow(log_prints=True)
 def etl_web_to_gcs(base_url: str , encoding: str="utf-8", color: str = "yellow", year: int = 2021, month: int = 1,
-                   input_format: str ='csv.gz', output_format: str ='csv') -> None:
+                   input_format: str ='csv.gz', output_format: str ='csv', fast_upload: bool =True) -> None:
     """The main ETL function"""
 
     #print(f"datetime_columns: {datetime_columns}")
@@ -98,19 +118,22 @@ def etl_web_to_gcs(base_url: str , encoding: str="utf-8", color: str = "yellow",
     enforced_df = enforce_schema(df, color)
     # df_clean = clean(df, datetime_columns)
     path = write_local(enforced_df, color, dataset_file, output_format)
-    write_gcs(path)
+    if fast_upload:
+        write_gcs(path, color)
+    else:
+        write_gcs_without_gcs_block(path, color)
 
 
 @flow(name="etl_parent_flow_web_to_gcs", log_prints=True)
 def etl_parent_flow(
     base_url: str = DEFAULT_BASE_URL,
     months: Union[list[int], str] = [1, 2], encoding: str = "utf-8", year: int = 2021, color: str = "yellow",
-    input_format: str ='csv.gz', output_format: str ='csv'
+    input_format: str ='csv.gz', output_format: str ='csv', fast_upload: bool = True
 ):
     if months == "*":
         months = list(range(1, 13))
     for month in months:
-        etl_web_to_gcs(base_url, encoding, color, year, month, input_format, output_format)
+        etl_web_to_gcs(base_url, encoding, color, year, month, input_format, output_format, fast_upload)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Ingest CSV data to Postgres')
