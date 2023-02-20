@@ -23,3 +23,5 @@
 -- FROM de-zoomcamp-376518.de_zoomcamp.fhv_native
 -- WHERE DATE(pickup_datetime) BETWEEN '2019-03-01' AND '2019-03-31';
 
+----------------------------
+
