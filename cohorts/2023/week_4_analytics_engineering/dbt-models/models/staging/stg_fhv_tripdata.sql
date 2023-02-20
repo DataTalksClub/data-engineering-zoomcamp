@@ -15,7 +15,7 @@ select
     sr_flag
     
 
-from {{ source('staging','fhv_tripdata') }}
+from {{ source('staging','fhv_tripdata_partitoned') }}
 where dispatching_base_num is not null 
 
 {% if var('is_test_run', default=true) %}
