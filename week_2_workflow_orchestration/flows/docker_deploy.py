@@ -5,8 +5,9 @@ from prefect.infrastructure.docker import DockerContainer
 
 docker_block = DockerContainer.load("zoom")
 
-docker_dep = Deployment.build_from_flow(flow= etl_parameters,
-    name='docker01v',
+docker_dep = Deployment.build_from_flow(
+    flow= etl_parameters,
+    name='docker-flow',
     infrastructure=docker_block
     )
 
