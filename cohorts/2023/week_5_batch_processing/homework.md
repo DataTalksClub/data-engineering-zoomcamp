@@ -15,7 +15,7 @@ For this homework we will be using the FHVHV 2021-06 data found here. [FHVHV Dat
 - Execute spark.version.
 
 What's the output?
-- 3.3.1
+- 3.3.2
 - 2.1.4
 - 1.2.3
 - 5.4
@@ -34,7 +34,7 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 
 - 2MB
 - 24MB
-- 10MB
+- 100MB
 - 250MB
 </br></br>
 
