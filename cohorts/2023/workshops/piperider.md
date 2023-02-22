@@ -4,7 +4,7 @@
 To learn how to use PipeRider together with dbt for detecting changes in model and data, sign up for a workshop
 
 - Video: https://www.youtube.com/watch?v=O-tyUOQccSs
-
+- Repository: https://github.com/InfuseAI/taxi_rides_ny_duckdb
 
 
 ## Homework
