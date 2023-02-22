@@ -102,7 +102,7 @@ Using the zone lookup data and the fhvhv June 2021 data, what is the name of the
 * Form for submitting: https://forms.gle/EcSvDs6vp64gcGuD8
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: TBD
+Deadline: 06 March (Monday), 22:00 CET
 
 
 ## Solution
