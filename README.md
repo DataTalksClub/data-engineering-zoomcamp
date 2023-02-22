@@ -142,6 +142,11 @@ Putting everything we learned to practice
 [More details](week_7_project)
 
 
+### Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
+
+
+[More details](cohorts/2023/workshops/piperider.md)
+
 ## Overview
 
 ### Architecture diagram
