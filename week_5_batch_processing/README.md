@@ -51,7 +51,9 @@ Coming soon
 
 ### Homework
 
-See [here](homework.md) for more details
+
+* [Homework](../cohorts/2023/week_5_batch_processing/homework.md)
+
 
 ## Community notes
 
