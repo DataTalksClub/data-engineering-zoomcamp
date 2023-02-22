@@ -13,7 +13,7 @@ $ cd your/desired/repo/location
 $ git clone https://github.com/DataTalksClub/data-engineering-zoomcamp.git
 ```
 
-1. Download the `Dev Containers` extension from the VS Code marketplace
+1. Download the [`Dev Containers`](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension from the VS Code marketplace. Full docs on devcontainers [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 2. Press Cmd + Shift + P (Mac) or Ctrl + Shift + P (Windows) to open the Command Pallette. Type in `Dev Containers: Open Folder in Container` and select the repo directory
    
