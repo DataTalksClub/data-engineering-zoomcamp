@@ -22,7 +22,7 @@ export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12
 export PATH="$JAVA_HOME/bin/:$PATH"
 ```
 
-Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine.
+Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine. You can also run `brew info java` to check where java was installed on your machine.
 
 ### Installing Spark
 
