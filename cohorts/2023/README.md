@@ -21,16 +21,14 @@
 
 * [Homework](week_3_data_warehouse/homework.md)
 
-
 [**Week 4: Analytics Engineering**](week_4_analytics_engineering/)
 
 * [Homework](week_4_analytics_engineering/homework.md)
 
+[**Week 5: Batch processing**](week_5_batch_processing/)
 
-Week 5: Batch processing
-
+* [Homework](week_5_batch_processing/homework.md)
 
 Week 6: Streaming
-
 
 Week 7, 8 & 9: Project
