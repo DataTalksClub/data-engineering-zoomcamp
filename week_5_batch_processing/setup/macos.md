@@ -40,7 +40,7 @@ brew install apache-spark
 
 3. Add environment variables: 
 
-Add the following environment variables to your `.bash_profile` or `.zshrc`
+Add the following environment variables to your `.bash_profile` or `.zshrc`. Replace the path to `SPARK_HOME` to the path on your own host. Run `brew info apache-spark` to get this.
 
 ```bash
 export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec
