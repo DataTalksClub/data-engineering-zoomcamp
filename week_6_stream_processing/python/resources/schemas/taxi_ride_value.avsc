@@ -1,10 +1,10 @@
 {
   "namespace": "com.datatalksclub.taxi",
   "type": "record",
-  "name": "TaxiRide",
+  "name": "RideRecord",
   "fields": [
     {
-      "name": "vendorId",
+      "name": "vendor_id",
       "type": "int"
     },
     {
