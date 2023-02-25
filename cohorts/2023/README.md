@@ -23,7 +23,6 @@
 * [Homework](week_3_data_warehouse/homework.md)
 * [Office hours](https://www.youtube.com/watch?v=QXfmtJp3bXE&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW&index=9)
 
-
 [**Week 4: Analytics Engineering**](week_4_analytics_engineering/)
 
 * [Homework](week_4_analytics_engineering/homework.md)
@@ -35,6 +34,5 @@
 * [Homework](week_5_batch_processing/homework.md)
 
 Week 6: Streaming
-
 
 Week 7, 8 & 9: Project
