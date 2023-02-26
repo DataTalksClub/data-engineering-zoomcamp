@@ -8,7 +8,7 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          key_serializer=lambda x: dumps(x).encode('utf-8'),
                          value_serializer=lambda x: dumps(x).encode('utf-8'))
 
-file = open('../avro_example/data/rides.csv')
+file = open('../../resources/rides.csv')
 
 csvreader = csv.reader(file)
 header = next(csvreader)

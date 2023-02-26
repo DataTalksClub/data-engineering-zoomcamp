@@ -51,7 +51,9 @@ Coming soon
 
 ### Homework
 
-See [here](homework.md) for more details
+
+* [Homework](../cohorts/2023/week_5_batch_processing/homework.md)
+
 
 ## Community notes
 
@@ -59,5 +61,6 @@ Did you take notes? You can share them here.
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/5_batch_processing.md)
 * [Sandy's DE Learning Blog](https://learningdataengineering540969211.wordpress.com/2022/02/24/week-5-de-zoomcamp-5-2-1-installing-spark-on-linux/)
+* [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week5.md)
 * [Alternative : Using docker-compose to launch spark by rafik](https://gist.github.com/rafik-rahoui/f98df941c4ccced9c46e9ccbdef63a03) 
 * Add your notes here (above this line)
