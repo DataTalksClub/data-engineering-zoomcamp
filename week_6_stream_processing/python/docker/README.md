@@ -27,6 +27,8 @@ docker volume create --name=hadoop-distributed-file-system
 docker compose up -d
 ```
 
+Explanation of [Kafka Listeners](https://www.confluent.io/blog/kafka-listeners-explained/)
+
 ### 4. Stop Services on Docker
 ```bash
 # Stop Docker-Compose (within for kafka and spark folders)
