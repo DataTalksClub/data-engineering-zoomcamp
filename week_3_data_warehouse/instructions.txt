@@ -1,0 +1,125 @@
+partition by e clustering reduzem o consumo de dados e torna mais eficiente.
+Abaixo como eu fiz para fazer o partition by e clustering do dataset que está no
+google storage:
+
+CREATE OR REPLACE EXTERNAL TABLE `nytaxi-376623.dezoomcamp2.fhv_tripdata`
+OPTIONS (
+  format = 'parquet',
+  uris = ['gs://dtc_data_lake_nytaxi-376623/data/yellow/yellow_tripdata_2021-*.parquet']
+);
+
+CREATE OR REPLACE TABLE `nytaxi-376623.dezoomcamp2.NONPARTITIONEDfhv_tripdata`
+AS SELECT * FROM `nytaxi-376623.dezoomcamp2.fhv_tripdata`;
+
+CREATE OR REPLACE TABLE `nytaxi-376623.dezoomcamp2.PARTITIONEDfhv_tripdata`
+PARTITION BY DATE(tpep_dropoff_datetime) AS (
+  SELECT * FROM `nytaxi-376623.dezoomcamp2.fhv_tripdata`
+);
+
+CREATE TABLE `nytaxi-376623.dezoomcamp2.fhv_tripdata2`
+(
+  VendorID NUMERIC,
+  tpep_dropoff_datetime TIMESTAMP,
+  tpep_pickup_datetime	TIMESTAMP
+)
+AS (
+  SELECT CAST (VendorID AS NUMERIC), tpep_dropoff_datetime, tpep_pickup_datetime FROM `nytaxi-376623.dezoomcamp2.fhv_tripdata`
+);
+
+CREATE OR REPLACE TABLE `nytaxi-376623.dezoomcamp2.CLUSTPARTITIONEDfhv_tripdata2`
+PARTITION BY DATE(tpep_dropoff_datetime)
+CLUSTER BY VendorID AS
+(SELECT * FROM `nytaxi-376623.dezoomcamp2.fhv_tripdata2`);
+
+
+Por algum motivo para fazer o clustering é necessário criar uma tabela com tipo
+NUMERIC, para depois fazer o clustering.
+
+Partitioning ajuda pois a query não vai rodar todo o dataset, apenas nas partições
+requisitadas. O que melhora na eficiência e reduz o tempo / custo do query. A partição divide
+a tabela em subtabelas, pode ser particionada nas seguintes formas:
+
+  Time-unit column: tables are partitioned based on a TIMESTAMP, DATE, or DATETIME column in the table.
+  Ingestion time: tables are partitioned based on the timestamp when BigQuery ingests the data.
+  Integer range: tables are partitioned based on an integer column.
+
+Clustering também segue o mesmo modelo do partitioning, mas é usado com colunas de
+alta cardialidade (mais do que 4000 valores distintos). Lembrar que a ordem das
+colunas é importante. Só pode ser usado em até 4 colunas.
+
+Clustering
+
+Cost benefit unknown. BQ cannot estimate the reduction in cost before running a query.
+High granularity. Multiple criteria can be used to sort the table.
+Clusters are "fixed in place".
+Benefits from queries that commonly use filters or aggregation against multiple particular columns.
+Unlimited amount of clusters; useful when the cardinality of the number of values in a column or group of columns is large.
+
+Partitioning
+
+Cost known upfront. BQ can estimate the amount of data to be processed before running a query.
+Low granularity. Only a single column can be used to partition the table.
+Partitions can be added, deleted, modified or even moved between storage options.
+Benefits when you filter or aggregate on a single column.
+Limited to 4000 partitions; cannot be used in columns with larger cardinality.
+
+Dessa forma, considerando todo o dataset, poderiamos particionar pela coluna
+'tpep_dropoff_datetime' e cluster em colunas com mais de 4k de valores diferentes:
+fares & tips, PULocationID etc
+
+
+Here's a list of best practices for BigQuery:
+
+Cost reduction
+
+Avoid SELECT * . Reducing the amount of columns to display will drastically reduce the amount of processed data and lower costs.
+Price your queries before running them.
+Use clustered and/or partitioned tables if possible.
+Use streaming inserts with caution. They can easily increase cost.
+Materialize query results in different stages.
+
+Query performance
+
+Filter on partitioned columns.
+Denormalize data.
+Use nested or repeated columns.
+Use external data sources appropiately. Constantly reading data from a bucket may incur in additional costs and has worse performance.
+Reduce data before using a JOIN.
+Do not threat WITH clauses as prepared statements.
+Avoid oversharding tables.
+Avoid JavaScript user-defined functions.
+Use approximate aggregation functions rather than complete ones such as HyperLogLog++.
+Order statements should be the last part of the query.
+Optimize join patterns.
+Place the table with the largest number of rows first, followed by the table with the fewest rows, and then place the remaining tables by decreasing size.
+This is due to how BigQuery works internally: the first table will be distributed evenly and the second table will be broadcasted to all the nodes. Check the Internals section for more details.
+
+
+HOMEWORK
+
+Deve-se criar duas tabelas: uma externa e outra referente a externa
+
+CREATE OR REPLACE EXTERNAL TABLE `nytaxi-376623.fhv_tripdata_2019.fhv_tripdataALL`
+OPTIONS (
+  format = 'csv',
+  uris = ['gs://dtc_data_lake_nytaxi-376623/fhv_tripdata_2019/fhv_tripdata_2019-*.csv.gz']
+);
+
+CREATE TABLE `nytaxi-376623.fhv_tripdata_2019.fhv_tripdataALL2`
+as (SELECT * FROM `nytaxi-376623.fhv_tripdata_2019.fhv_tripdataALL`);
+
+A primeira nunca será possível saber o quanto irá processar de dados pois não está no BQ.
+Já a segunda é possível analisar quanto será processado de dados, pois a tabela está no BQ
+
+Para criar uma tabela com partição e clustering:
+
+CREATE OR REPLACE TABLE `nytaxi-376623.fhv_tripdata_2019.fhv_tripdataALL2_PART_CLUST`
+PARTITION BY DATE(pickup_datetime)
+CLUSTER BY affiliated_base_number AS
+(SELECT * FROM `nytaxi-376623.fhv_tripdata_2019.fhv_tripdataALL2`);
+
+Para checar as partições
+SELECT table_name, partition_id, total_rows
+FROM `fhv_tripdata_2019.INFORMATION_SCHEMA.PARTITIONS`
+WHERE table_name = 'fhv_tripdataALL2_PART_CLUST'
+ORDER BY partition_id DESC;
