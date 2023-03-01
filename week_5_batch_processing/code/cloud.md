@@ -27,6 +27,11 @@ Creating a stand-alone cluster ([docs](https://spark.apache.org/docs/latest/spar
 ./sbin/start-master.sh
 ```
 
+For creating stand-alone cluster on Windows.
+```
+bin/spark-class2.cmd org.apache.spark.deploy.master.Master
+```
+
 Creating a worker:
 
 ```bash
@@ -35,6 +40,10 @@ URL="spark://de-zoomcamp.europe-west1-b.c.de-zoomcamp-nytaxi.internal:7077"
 
 # for newer versions of spark use that:
 #./sbin/start-worker.sh ${URL}
+```
+For creating workers on Windows.
+```
+bin/spark-class2.cmd org.apache.spark.deploy.worker.Worker -c 1 -m 4G spark://YOUR_IP_ADDRESS:7077
 ```
 
 Turn the notebook into a script:
