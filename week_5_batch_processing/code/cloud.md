@@ -108,8 +108,8 @@ Write results to big query ([docs](https://cloud.google.com/dataproc/docs/tutori
 gcloud dataproc jobs submit pyspark \
     --cluster=de-zoomcamp-cluster \
     --region=europe-west6 \
-    --jars=gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar
     gs://dtc_data_lake_de-zoomcamp-nytaxi/code/06_spark_sql_big_query.py \
+    --jars=gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar \
     -- \
         --input_green=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/2020/*/ \
         --input_yellow=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/yellow/2020/*/ \
