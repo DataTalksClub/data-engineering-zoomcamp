@@ -36,9 +36,3 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
-
-seeds: 
-    taxi_rides_ny:
-        taxi_zone_lookup:
-            +column_types:
-                locationid: numeric
