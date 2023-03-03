@@ -6,7 +6,7 @@ Goal: Transforming the data loaded in DWH to Analytical Views developing a [dbt 
 We will build a project using dbt and a running data warehouse. 
 By this stage of the course you should have already: 
 - A running warehouse (BigQuery or postgres) 
-- A set of running pipelines ingesting the project dataset (week 3 completed): [Taxi Rides NY dataset](dataset.md)
+- A set of running pipelines ingesting the project dataset (week 3 completed): [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/)
     * Yellow taxi data - Years 2019 and 2020
     * Green taxi data - Years 2019 and 2020 
     * fhv data - Year 2019. 
@@ -104,9 +104,13 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
  * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
  * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
 
-## Homework 
 
-More information [here](homework.md)
+## Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
+
+To learn how to use PipeRider together with dbt for detecting changes in model and data, sign up for a workshop [here](https://www.eventbrite.com/e/maximizing-confidence-in-your-data-model-changes-with-dbt-and-piperider-tickets-535584366257)
+
+[More details](../cohorts/2023/workshops/piperider.md)
+
 
 ## Community notes
 
@@ -114,8 +118,18 @@ Did you take notes? You can share them here.
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/4_analytics.md)
 * [Sandy's DE learning blog](https://learningdataengineering540969211.wordpress.com/2022/02/17/week-4-setting-up-dbt-cloud-with-bigquery/)
+* [Notes by Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week4)
+* [Marcos Torregrosa's blog (spanish)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-4/)
+* [Notes by froukje](https://github.com/froukje/de-zoomcamp/blob/main/week_4_analytics_engineering/notes/notes_week_04.md)
+* [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week4.md)
+* [Setting up Prefect with dbt by Vera](https://medium.com/@verazabeida/zoomcamp-week-5-5b6a9d53a3a0)
+* [Blog by Xia He-Bleinagel](https://xiahe-bleinagel.com/2023/02/week-4-data-engineering-zoomcamp-notes-analytics-engineering-and-dbt/)
+* [Setting up DBT with BigQuery by Tofag](https://medium.com/@fagbuyit/setting-up-your-dbt-cloud-dej-9-d18e5b7c96ba)
+* [Blog post by Dewi Oktaviani](https://medium.com/@oktavianidewi/de-zoomcamp-2023-learning-week-4-analytics-engineering-with-dbt-53f781803d3e)
+* [Notes from Vincenzo Galante](https://binchentso.notion.site/Data-Talks-Club-Data-Engineering-Zoomcamp-8699af8e7ff94ec49e6f9bdec8eb69fd)
 * Add your notes here (above this line)
 
 ## Useful links
+
 - [Visualizing data with Metabase course](https://www.metabase.com/learn/visualization/)
-- 
+
