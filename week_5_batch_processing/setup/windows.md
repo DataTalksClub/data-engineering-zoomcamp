@@ -1,6 +1,6 @@
 ## Windows
 
-Here we'll show you how to install Spark 3.0.3 for Windows.
+Here we'll show you how to install Spark 3.3.2 for Windows.
 We tested it on Windows 10 and 11 Home edition, but it should work
 for other versions distros as well
 
@@ -65,24 +65,23 @@ export PATH="${HADOOP_HOME}/bin:${PATH}"
 
 ### Spark
 
-Now download Spark. Select version 3.0.3 (3.2.0 has problems with starting the shell on Windows)
+Now download Spark. Select version 3.3.2 
 
 ```bash
-wget https://dlcdn.apache.org/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz
+wget https://dlcdn.apache.org/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
 ```
 
-> You can find the closest mirrow to you using this [url](https://www.apache.org/dyn/closer.lua/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz).
 
 Unpack it in some location without spaces, e.g. `c:/tools/`: 
 
 ```bash
-tar xzfv spark-3.0.3-bin-hadoop3.2.tgz
+tar xzfv spark-3.3.2-bin-hadoop3.tgz
 ```
 
 Let's also add it to `PATH`:
 
 ```bash
-export SPARK_HOME="/c/tools/spark-3.0.3-bin-hadoop3.2"
+export SPARK_HOME="/c/tools/spark-3.3.2-bin-hadoop3"
 export PATH="${SPARK_HOME}/bin:${PATH}"
 ```
 
@@ -91,7 +90,7 @@ export PATH="${SPARK_HOME}/bin:${PATH}"
 Go to this directory
 
 ```bash
-cd spark-3.0.3-bin-hadoop3.2
+cd spark-3.3.2-bin-hadoop3
 ```
 
 And run spark-shell:
@@ -107,7 +106,7 @@ There could be some warnings (like this):
 
 ```
 WARNING: An illegal reflective access operation has occurred
-WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/C:/tools/spark-3.0.3-bin-hadoop3.2/jars/spark-unsafe_2.12-3.0.3.jar) to constructor java.nio.DirectByteBuffer(long,int)
+WARNING: Illegal reflective access by org.apache.spark.unsafe.Platform (file:/C:/tools/spark-3.3.2-bin-hadoop3/jars/spark-unsafe_2.12-3.3.2.jar) to constructor java.nio.DirectByteBuffer(long,int)
 WARNING: Please consider reporting this to the maintainers of org.apache.spark.unsafe.Platform
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
