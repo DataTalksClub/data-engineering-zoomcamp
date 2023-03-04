@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Week6: Introduction to Kafka
 
 ## Introduction to Stream Processing
@@ -51,10 +52,36 @@
 
 ### Starting cluster
 
+=======
+### Streaming with Python
+
+In this document, you will be finding information about stream processing 
+using different Python libraries (`kafka-python`,`confluent-kafka`,`pyspark`, `faust`).
+
+This Python module can be seperated in following modules.
+
+####  1. Docker
+Docker module includes, Dockerfiles and docker-compose definitions 
+to run Kafka and Spark in a docker container. Setting up required services is
+the prerequsite step for running following modules.
+
+#### 2. Kafka Producer - Consumer Examples
+- [Json Producer-Consumer Example](json_example) using `kafka-python` library
+- [Avro Producer-Consumer Example](avro_example) using `confluent-kafka` library
+
+Both of these examples require, up-and running Kafka services, therefore please ensure
+following steps under [docker-README](docker/README.md)
+
+To run the producer-consumer examples in the respective example folder, run following commands
+>>>>>>> 07cd331 (Updates readmes for week6-streaming)
 ```bash
-docker-compose up
+# Start producer script
+python3 producer.py
+# Start consumer script
+python3 consumer.py
 ```
 
+<<<<<<< HEAD
 ## Command line for Kafka
 
 ### Create topic
@@ -79,3 +106,12 @@ Did you take notes? You can share them here.
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/6_streaming.md )
 * Add your notes here (above this line)
+=======
+#### 3. Pyspark Structured Streaming Example
+Please follow the steps described under [pyspark-streaming-README](streams-example/pyspark/README.md)
+
+
+
+
+
+>>>>>>> 07cd331 (Updates readmes for week6-streaming)
