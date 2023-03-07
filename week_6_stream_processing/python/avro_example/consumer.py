@@ -1,5 +1,5 @@
 import os
-from typing import Dict
+from typing import Dict, List
 
 from confluent_kafka import Consumer
 from confluent_kafka.schema_registry import SchemaRegistryClient
@@ -31,7 +31,6 @@ class RideAvroConsumer:
                           'group.id': 'datatalkclubs.taxirides.avro.consumer.2',
                           'auto.offset.reset': "earliest"}
         self.consumer = Consumer(consumer_props)
-        self.consumer.subscribe(props['topics'])
 
     @staticmethod
     def load_schema(schema_path: str):
@@ -40,7 +39,8 @@ class RideAvroConsumer:
             schema_str = f.read()
         return schema_str
 
-    def consume_from_kafka(self):
+    def consume_from_kafka(self, topics: List[str]):
+        self.consumer.subscribe(topics=topics)
         while True:
             try:
                 # SIGINT can't be handled when polling, limit timeout to 1 second.
@@ -64,7 +64,6 @@ if __name__ == "__main__":
         'schema_registry.url': SCHEMA_REGISTRY_URL,
         'schema.key': RIDE_KEY_SCHEMA_PATH,
         'schema.value': RIDE_VALUE_SCHEMA_PATH,
-        'topics': [KAFKA_TOPIC]
     }
     avro_consumer = RideAvroConsumer(props=config)
-    avro_consumer.consume_from_kafka()
+    avro_consumer.consume_from_kafka(topics=[KAFKA_TOPIC])
