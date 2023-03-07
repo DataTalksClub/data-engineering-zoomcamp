@@ -1,14 +1,15 @@
 import os
-from confluent_kafka import Producer
 import csv
 from time import sleep
+from typing import Dict
 
+from confluent_kafka import Producer
 from confluent_kafka.schema_registry import SchemaRegistryClient
 from confluent_kafka.schema_registry.avro import AvroSerializer
 from confluent_kafka.serialization import SerializationContext, MessageField
+
 from ride_record_key import RideRecordKey, ride_record_key_to_dict
 from ride_record import RideRecord, ride_record_to_dict
-from typing import Dict
 from settings import RIDE_KEY_SCHEMA_PATH, RIDE_VALUE_SCHEMA_PATH, \
     SCHEMA_REGISTRY_URL, BOOTSTRAP_SERVERS, INPUT_DATA_PATH, KAFKA_TOPIC
 
@@ -34,7 +35,6 @@ class RideAvroProducer:
         # Producer Configuration
         producer_props = {'bootstrap.servers': props['bootstrap.servers']}
         self.producer = Producer(producer_props)
-        self.topic = KAFKA_TOPIC
 
     @staticmethod
     def load_schema(schema_path: str):
@@ -62,14 +62,14 @@ class RideAvroProducer:
                 ride_keys.append(RideRecordKey(vendor_id=int(row[0])))
         return zip(ride_keys, ride_records)
 
-    def publish(self, records: [RideRecordKey, RideRecord]):
+    def publish(self, topic: str, records: [RideRecordKey, RideRecord]):
         for key_value in records:
             key, value = key_value
             try:
-                self.producer.produce(topic=self.topic,
-                                      key=self.key_serializer(key, SerializationContext(topic=self.topic,
+                self.producer.produce(topic=topic,
+                                      key=self.key_serializer(key, SerializationContext(topic=topic,
                                                                                         field=MessageField.KEY)),
-                                      value=self.value_serializer(value, SerializationContext(topic=self.topic,
+                                      value=self.value_serializer(value, SerializationContext(topic=topic,
                                                                                               field=MessageField.VALUE)),
                                       on_delivery=delivery_report)
             except KeyboardInterrupt:
@@ -90,4 +90,4 @@ if __name__ == "__main__":
     }
     producer = RideAvroProducer(props=config)
     ride_records = producer.read_records(resource_path=INPUT_DATA_PATH)
-    producer.publish(records=ride_records)
+    producer.publish(topic=KAFKA_TOPIC, records=ride_records)
