@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: staging
+    database: nytaxi-376623
+    schema: fhv_tripdata_2019
+    
+    tables:
+      - name: green
+      - name: yellow
