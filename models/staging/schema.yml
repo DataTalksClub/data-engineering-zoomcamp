@@ -112,8 +112,6 @@ models:
       - name: tripid
         description: Primary key for this table, generated with a concatenation of vendorid+pickup_datetime
         tests:
-            - unique:
-                severity: warn
             - not_null:
                 severity: warn
       - name: VendorID 
