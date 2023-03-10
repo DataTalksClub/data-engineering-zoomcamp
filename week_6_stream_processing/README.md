@@ -85,5 +85,6 @@ Deadline: 13 March 2023, 22:00 CET
 Did you take notes? You can share them here.
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/6_streaming.md )
+* [Marcos Torregrosa's blog (spanish)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-6-stream-processing/)
 * Add your notes here (above this line)
 
