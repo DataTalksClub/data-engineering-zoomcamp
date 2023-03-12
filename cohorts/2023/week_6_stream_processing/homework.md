@@ -6,7 +6,8 @@ programming language (Python or Java).
 
 ### Question 1: 
 
-**Please select the statements that are correct **
+**Please select the statements that are correct**
+
 - Kafka Node is responsible to store topics
 - Zookeeper is removed from Kafka cluster starting from version 4.0
 - Retention configuration ensures the messages not get lost over specific period of time.
