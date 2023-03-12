@@ -1,3 +1,12 @@
+Table of Contents
+=================
+- [How to setup dbt cloud with bigquery](#how-to-setup-dbt-cloud-with-bigquery)
+  * [Create a BigQuery service account](#create-a-bigquery-service-account)
+  * [Create a dbt cloud project](#create-a-dbt-cloud-project)
+  * [Add GitHub repository](#add-github-repository)
+  * [Review your project settings](#review-your-project-settings)
+  * [(Optional) Link to your github account](#optional-link-to-your-github-account)
+
 # How to setup dbt cloud with bigquery
 [Official documentation](https://docs.getdbt.com/tutorial/setting-up)
 
@@ -73,7 +82,7 @@ At the end, if you go to your projects it should look some like this:
 ![image](https://user-images.githubusercontent.com/4315804/152606066-f4d70546-7a5e-414a-9df9-8efd090216f8.png)
 
 
-## [Optional] Link to your github account
+## (Optional) Link to your github account
 You could simplify the process of adding and creating repositories by linking your GH account. [Official documentation](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-installing-the-github-application)
 
 
