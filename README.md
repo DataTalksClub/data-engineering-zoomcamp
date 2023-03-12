@@ -136,6 +136,15 @@ Putting everything we learned to practice
 
 [More details](week_7_project)
 
+<<<<<<< HEAD
+=======
+
+### Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
+
+
+[More details](cohorts/2023/workshops/piperider.md)
+
+>>>>>>> main
 ## Overview
 
 ### Architecture diagram
@@ -165,12 +174,12 @@ Prior experience with data engineering is not required.
 
 ## Instructors
 
-- Ankush Khanna (https://linkedin.com/in/ankushkhanna2)
-- Sejal Vaidya (https://linkedin.com/in/vaidyasejal)
-- Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
-- Kalise Richmond (https://www.linkedin.com/in/kaliserichmond/)
-- Jeff Hale (https://www.linkedin.com/in/-jeffhale/)
-- Alexey Grigorev (https://linkedin.com/in/agrigorev)
+- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
+- [Sejal Vaidya](https://linkedin.com/in/vaidyasejal)
+- [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
+- [Kalise Richmond](https://www.linkedin.com/in/kaliserichmond/)
+- [Jeff Hale](https://www.linkedin.com/in/-jeffhale/)
+- [Alexey Grigorev](https://linkedin.com/in/agrigorev)
 
 ## Tools
 
@@ -183,6 +192,7 @@ For this course, you'll need to have the following software installed on your co
 
 See [Week 1](week_1_basics_n_setup) for more details about installing these tools
 
+<<<<<<< HEAD
 ## FAQ
 
 - **Q**: I registered, but haven't received a confirmation email. Is it normal?
@@ -197,6 +207,10 @@ See [Week 1](week_1_basics_n_setup) for more details about installing these tool
   **A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
 - **Q**: I'm stuck! I've got a technical question!
   **A**: Ask on Slack! And check out the [student FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing); many common issues have been answered already. If your issue is solved, please add how you solved it to the document. Thanks!
+=======
+
+
+>>>>>>> main
 
 ## Supporters and partners
 
