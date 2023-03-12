@@ -25,3 +25,5 @@ Here are some datasets that you could use for the project:
   * [part 2](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-2.html) (from healthcare to transportation)
 
 PRs with more datasets are welcome!
+
+It's not mandatory that you use a dataset from this list. You can use any dataset you want.
