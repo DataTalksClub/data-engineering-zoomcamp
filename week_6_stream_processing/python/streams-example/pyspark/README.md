@@ -3,7 +3,7 @@
 
 #### Prerequisite
 
-Ensure your Kafka and Spark services up and running by following the [docker setup readme](./../docker/README.md). 
+Ensure your Kafka and Spark services up and running by following the [docker setup readme](./../../docker/README.md). 
 It is important to create network and volume as described in the document. Therefore please ensure, your volume and network are created correctly
 
 ```bash
