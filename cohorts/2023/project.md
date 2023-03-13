@@ -5,14 +5,23 @@ in this course and build an end-to-end data pipeline.
 
 Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.
 
+You will have two attemps to submit your project. If you don't have 
+time to submit your project by the end of attemp #1 (you started the 
+course late, you have vacation plans, life/work got in the way, etc.)
+or you fail your first attempt, 
+then you will have a second change to submit your project as attempt
+#2. 
 
-### Submitting 
+There are only two attempts.
 
-#### Project Cohort #1
+
+### Submitting
+
+#### Project Attempt #1
 
 Project:
 
-* Form: TBA
+* Form: https://forms.gle/zTJiVYSmCgsENj6y8
 * Deadline: 6 April, 22:00 CET
 
 Peer reviewing:
@@ -37,3 +46,7 @@ Peer reviewing:
 * Deadline: 11 May, 22:00 CET
 
 Project feedback: TBA
+
+### Evaluation criteria
+
+See [here](../../week_7_project/README.md)
