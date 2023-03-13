@@ -38,4 +38,7 @@
 
 * [Homework](week_6_stream_processing/homework.md)
 
-Week 7, 8 & 9: Project
+
+[**Week 7, 8 & 9: Project**](project.md)
+
+More information [here](project.md)
