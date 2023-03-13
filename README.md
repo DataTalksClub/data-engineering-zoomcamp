@@ -136,15 +136,10 @@ Putting everything we learned to practice
 
 [More details](week_7_project)
 
-<<<<<<< HEAD
-=======
-
 ### Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
-
 
 [More details](cohorts/2023/workshops/piperider.md)
 
->>>>>>> main
 ## Overview
 
 ### Architecture diagram
@@ -191,26 +186,6 @@ For this course, you'll need to have the following software installed on your co
 - Terraform
 
 See [Week 1](week_1_basics_n_setup) for more details about installing these tools
-
-<<<<<<< HEAD
-## FAQ
-
-- **Q**: I registered, but haven't received a confirmation email. Is it normal?
-  **A**: Yes, it's normal. It's not automated. But you will receive an email eventually.
-- **Q**: At what time of the day will it happen?
-  **A**: Office hours will happen on Mondays at 17:00 CET. But everything will be recorded, so you can watch it whenever it's convenient for you.
-- **Q**: Will there be a certificate?
-  **A**: Yes, if you complete the project.
-- **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
-  **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace.
-- **Q**: Do you plan to run a ML engineering course as well?
-  **A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
-- **Q**: I'm stuck! I've got a technical question!
-  **A**: Ask on Slack! And check out the [student FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing); many common issues have been answered already. If your issue is solved, please add how you solved it to the document. Thanks!
-=======
-
-
->>>>>>> main
 
 ## Supporters and partners
 

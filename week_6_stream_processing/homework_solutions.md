@@ -21,3 +21,23 @@ Ack all configuration provides reliability but it does not provide availability 
 Topic replication supports scaling.
 Topic partitioning supports scaling.
 Consumer grop id supports scaling.
+
+## Question 4
+
+Good partitioning keys
+
+payment_type
+vendor_id
+tpep_pickup_datetime
+tpep_dropoff_datetime
+
+## Question 5
+
+Configurations for kafka consumers, not for producers
+
+Deserializer Configuration
+Topics Subscription
+Group-id
+Offset
+
+## Question 6
