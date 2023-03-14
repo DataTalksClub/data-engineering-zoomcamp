@@ -59,7 +59,7 @@ You will need to run PipeRider and check the report
 * Form for submitting: https://forms.gle/WyLQHBu1DNwNTfqe8
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline: 13 March, 22:00 CET
+Deadline: 20 March, 22:00 CET
 
 
 ## Solution
