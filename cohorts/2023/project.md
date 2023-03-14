@@ -3,13 +3,13 @@
 The goal of this project is to apply everything we learned
 in this course and build an end-to-end data pipeline.
 
-Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.
+Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered complete.
 
-You will have two attemps to submit your project. If you don't have 
-time to submit your project by the end of attemp #1 (you started the 
+You will have two attempts to submit your project. If you don't have 
+time to submit your project by the end of attempt #1 (you started the 
 course late, you have vacation plans, life/work got in the way, etc.)
 or you fail your first attempt, 
-then you will have a second change to submit your project as attempt
+then you will have a second chance to submit your project as attempt
 #2. 
 
 There are only two attempts.
@@ -32,7 +32,7 @@ Peer reviewing:
 
 Project feedback: TBA
 
-#### Project Cohort #2
+#### Project Attempt #2
 
 Project:
 
