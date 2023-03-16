@@ -16,23 +16,29 @@
 [**Week 2: Workflow Orchestration**](week_2_workflow_orchestration)
 
 * [Homework](week_2_workflow_orchestration/homework.md)
-* [Office hours part 1](https://www.youtube.com/watch?v=a_nmLHb8hzw&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW&index=5) and [part 2](https://www.youtube.com/watch?v=PK8yyMY54Vk&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW&index=7) 
+* [Office hours part 1](https://www.youtube.com/watch?v=a_nmLHb8hzw&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW) and [part 2](https://www.youtube.com/watch?v=PK8yyMY54Vk&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW&index=7) 
 
 [**Week 3: Data Warehouse**](week_3_data_warehouse)
 
 * [Homework](week_3_data_warehouse/homework.md)
-* [Office hours](https://www.youtube.com/watch?v=QXfmtJp3bXE&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW&index=9)
+* [Office hours](https://www.youtube.com/watch?v=QXfmtJp3bXE&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW)
 
 [**Week 4: Analytics Engineering**](week_4_analytics_engineering/)
 
 * [Homework](week_4_analytics_engineering/homework.md)
 * [PipeRider + dbt Workshop](workshops/piperider.md)
-* [Office hours](https://www.youtube.com/watch?v=ODYg_r72qaE&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW&index=11)
+* [Office hours](https://www.youtube.com/watch?v=ODYg_r72qaE&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW)
 
 [**Week 5: Batch processing**](week_5_batch_processing/)
 
 * [Homework](week_5_batch_processing/homework.md)
+* [Office hours](https://www.youtube.com/watch?v=5_69yL2PPYI&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW)
 
-Week 6: Streaming
+[**Week 6: Stream Processing**](week_6_stream_processing)
 
-Week 7, 8 & 9: Project
+* [Homework](week_6_stream_processing/homework.md)
+
+
+[**Week 7, 8 & 9: Project**](project.md)
+
+More information [here](project.md)
