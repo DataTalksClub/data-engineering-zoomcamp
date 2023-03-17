@@ -18,10 +18,10 @@ programming language (Python or Java).
 
 **Please select the Kafka concepts that support reliability and availability**
 
-- Topic Replication
-- Topic Paritioning
+- Topic Replication [x]
+- Topic Partioning
 - Consumer Group Id
-- Ack All
+- Ack All [x]
 
 
 
@@ -30,8 +30,8 @@ programming language (Python or Java).
 **Please select the Kafka concepts that support scaling**  
 
 - Topic Replication
-- Topic Paritioning
-- Consumer Group Id
+- Topic Paritioning [x]
+- Consumer Group Id [x]
 - Ack All
 
 
@@ -40,8 +40,8 @@ programming language (Python or Java).
 **Please select the attributes that are good candidates for partitioning key. 
 Consider cardinality of the field you have selected and scaling aspects of your application**  
 
-- payment_type
-- vendor_id
+- payment_type [x]
+- vendor_id [x]
 - passenger_count
 - total_amount
 - tpep_pickup_datetime
@@ -52,11 +52,11 @@ Consider cardinality of the field you have selected and scaling aspects of your 
 
 **Which configurations below should be provided for Kafka Consumer but not needed for Kafka Producer**
 
-- Deserializer Configuration
-- Topics Subscription
-- Bootstrap Server
-- Group-Id
-- Offset
+- Deserializer Configuration [x]
+- Topics Subscription [x]
+- Bootstrap Server 
+- Group-Id [x]
+- Offset [x]
 - Cluster Key and Cluster-Secret
 
 
@@ -85,4 +85,25 @@ Deadline: 13 March (Monday), 22:00 CET
 
 ## Solution
 
-We will publish the solution here after deadline
+We will publish the solution here after deadline#
+
+For Question 6 ensure, 
+
+1) Download fhv_tripdata_2019-01.csv and green_tripdata_2019-01.csv under resources/fhv_tripdata 
+and resources/green_tripdata resprctively. ps: You need to unzip the compressed files
+
+2) Update the client.properties settings using your Confluent Cloud api keys and cluster. 
+3) And create the topics(all_rides, fhv_taxi_rides, green_taxi_rides) in Confluent Cloud UI
+
+4) Run Producers for two datasets
+```
+python3 producer_confluent --type green
+python3 producer_confluent --type fhv
+```
+
+5) Run pyspark streaming
+```
+./spark-submit.sh streaming_confluent.py
+```
+
+
