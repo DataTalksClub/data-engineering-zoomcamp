@@ -30,7 +30,7 @@ You will need to run PipeRider and check the report
 
 ### Question 2:
 
-What is the composition if total amount (positive/zero/negative) filtering by years 2019 and 2020 data?
+What is the composition of total amount (positive/zero/negative) filtering by years 2019 and 2020 data?
 
 You will need to run PipeRider and check the report
 
