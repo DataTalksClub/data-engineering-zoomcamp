@@ -67,4 +67,5 @@ Did you take notes? You can share them here.
 * [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week5.md)
 * [Alternative : Using docker-compose to launch spark by rafik](https://gist.github.com/rafik-rahoui/f98df941c4ccced9c46e9ccbdef63a03) 
 * [Marcos Torregrosa's blog (spanish)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-5-batch-spark)
+* [Notes by Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week5)
 * Add your notes here (above this line)
