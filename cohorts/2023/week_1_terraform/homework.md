@@ -5,7 +5,7 @@ In this homework we'll prepare the environment by creating resources in AWS with
 In your EC2 instance on AWS install Terraform. Copy the files from the course repo
 [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/1_terraform_gcp/terraform) to your VM.
 
-Modify the files as necessary to create a S3 bucket and Redshift Dataset.
+Modify the files (`main.tf`, `variable.tf`, and `README.md` for documentation practice) as necessary to create a S3 bucket and Redshift Dataset.
 
 _Hint_ ssh to EC2?
 
