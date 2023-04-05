@@ -4,39 +4,39 @@
 
 Run the command to get information on Docker:
 
-\`\`\`
+```
 docker --help
-\`\`\`
+```
 
 Now, run the command to get help on the "docker build" command:
 
-\`\`\`
+```
 docker build --help
-\`\`\`
+```
 
 Which tag has the following text? - Write the image ID to the file
 
-- [ ] --imageid string
-- [x] --iidfile string
-- [ ] --idimage string
-- [ ] --idfile string
+- [ ] `--imageid string`
+- [x] `--iidfile string`
+- [ ] `--idimage string`
+- [ ] `--idfile string`
 
 ## Question 2: Understanding Docker first run
 
 Run Docker with the python:3.9 image in an interactive mode and the entrypoint of bash. Now, check the Python modules that are installed (use \`pip list\`). How many Python packages/modules are installed?
 
-\`\`\`
+```
 docker run -it --entrypoint bash python:3.9
-\`\`\`
+```
 
-\`\`\`
+```
 pip list
-\`\`\`
+```
 
-- [ ] 1
-- [ ] 6
-- [x] 3
-- [ ] 7
+- [ ] `1`
+- [ ] `6`
+- [x] `3`
+- [ ] `7`
 
 # Exercise: Prepare Postgres
 
