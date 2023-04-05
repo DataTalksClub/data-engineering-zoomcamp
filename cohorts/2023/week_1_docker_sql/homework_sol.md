@@ -25,11 +25,13 @@ Which tag has the following text? - Write the image ID to the file
 
 Run Docker with the python:3.9 image in an interactive mode and the entrypoint of bash. Now, check the Python modules that are installed (use \`pip list\`). How many Python packages/modules are installed?
 
-   ```bash
-   docker run -it --entrypoint bash python:3.9
+\`\`\`
+docker run -it --entrypoint bash python:3.9
+\`\`\`
 
-   ```sh
-   pip list
+\`\`\`
+pip list
+\`\`\`
 
 - [ ] 1
 - [ ] 6
