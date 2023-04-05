@@ -12,7 +12,7 @@ _Hint_ ssh to EC2?
 
 **Bonus** Try to do the exercise with CloudFormation instead of Terraform.
 
->**Warning** ![Click here](https://www.facebook.com/nixcraft/photos/a.431194973560553/5621615427851789/?type=3&locale=ms_MY)
+>**Warning** ![Click here](https://imgflip.com/memegenerator/415357322/Poor-by-AWS)
 
 ## Question 1. Creating Resources
 
