@@ -9,7 +9,7 @@ Modify the files as necessary to create a S3 bucket and Redshift Dataset.
 
 _Hint_ ssh to EC2?
 **Bonus** Try to do the exercise with CloudFormation instead of Terraform.
-
+>**Warning** ![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FPR0GRAMMERHUM0R%2Fstatus%2F1507220764155596800&psig=AOvVaw1TIi9S8ZqbU-8t68vbr4Eg&ust=1680799615573000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjF0dGYk_4CFQAAAAAdAAAAABAE)
 
 ## Question 1. Creating Resources
 
