@@ -8,8 +8,11 @@ In your EC2 instance on AWS install Terraform. Copy the files from the course re
 Modify the files as necessary to create a S3 bucket and Redshift Dataset.
 
 _Hint_ ssh to EC2?
+
+
 **Bonus** Try to do the exercise with CloudFormation instead of Terraform.
->**Warning** ![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FPR0GRAMMERHUM0R%2Fstatus%2F1507220764155596800&psig=AOvVaw1TIi9S8ZqbU-8t68vbr4Eg&ust=1680799615573000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjF0dGYk_4CFQAAAAAdAAAAABAE)
+
+>**Warning** ![Click here](https://www.facebook.com/nixcraft/photos/a.431194973560553/5621615427851789/?type=3&locale=ms_MY)
 
 ## Question 1. Creating Resources
 
