@@ -22,13 +22,13 @@ There are only two attempts.
 Project:
 
 * Form: https://forms.gle/zTJiVYSmCgsENj6y8
-* Deadline: 6 April, 22:00 CET
+* Deadline: 10 April, 22:00 CET
 
 Peer reviewing:
 
-* Peer review assignments: TBA
-* Form: TBA
-* Deadline: 13 April, 22:00 CET
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vRYQ0A9C7AkRK-YPSFhqaRMmuPR97QPfl2PjI8n11l5jntc6YMHIJXVVS0GQNqAYIGwzyevyManDB08/pubhtml?gid=0&single=true)
+* Form: https://forms.gle/1bxmgR8yPwV359zb7
+* Deadline: 17 April, 22:00 CET
 
 Project feedback: TBA
 
@@ -36,7 +36,7 @@ Project feedback: TBA
 
 Project:
 
-* Form: TBA
+* Form: https://forms.gle/gCXUSYBm1KgMKXVm8
 * Deadline: 27 April, 22:00 CET
 
 Peer reviewing:
