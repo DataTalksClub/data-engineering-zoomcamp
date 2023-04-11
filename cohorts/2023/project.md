@@ -56,3 +56,17 @@ Project feedback: TBA
 ### Evaluation criteria
 
 See [here](../../week_7_project/README.md)
+
+
+### Misc
+
+To get the hash for your project, use this function to hash your email:
+
+```python
+from hashlib import sha1
+
+def compute_hash(email):
+    return sha1(email.lower().encode('utf-8')).hexdigest()
+```
+
+Or use [this website](http://www.sha1-online.com/). 
