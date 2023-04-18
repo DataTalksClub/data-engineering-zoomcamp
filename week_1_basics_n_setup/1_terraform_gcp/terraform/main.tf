@@ -1,49 +1,55 @@
 terraform {
   required_version = ">= 1.0"
-  backend "local" {}  # Can change from "local" to "gcs" (for google) or "s3" (for aws), if you would like to preserve your tf-state online
+  backend "s3" {
+    bucket = "i-03f4d3675005133f5"
+    key    = "path/to/my/key"
+    region = "us-east-1"
+  }
+
   required_providers {
-    google = {
-      source  = "hashicorp/google"
+    aws = {
+      source = "hashicorp/aws"
     }
   }
 }
 
-provider "google" {
-  project = var.project
+provider "aws" {
   region = var.region
-  // credentials = file(var.credentials)  # Use this if you do not want to set env-var GOOGLE_APPLICATION_CREDENTIALS
 }
 
 # Data Lake Bucket
-# Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
-resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "${local.data_lake_bucket}_${var.project}" # Concatenating DL bucket & Project name for unique naming
-  location      = var.region
-
-  # Optional, but recommended settings:
-  storage_class = var.storage_class
-  uniform_bucket_level_access = true
-
-  versioning {
-    enabled     = true
-  }
-
-  lifecycle_rule {
-    action {
-      type = "Delete"
-    }
-    condition {
-      age = 30  // days
-    }
-  }
-
+resource "aws_s3_bucket" "data-lake-bucket" {
+  bucket = "${var.backend_bucket}-${var.project}"
   force_destroy = true
 }
 
-# DWH
-# Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
-resource "google_bigquery_dataset" "dataset" {
-  dataset_id = var.BQ_DATASET
-  project    = var.project
-  location   = var.region
+# Redshift
+resource "aws_redshift_cluster" "dwh" {
+  cluster_identifier = var.redshift_cluster_identifier
+  database_name      = var.redshift_database_name
+  master_username    = var.redshift_master_username
+  master_password    = var.redshift_master_password
+  node_type          = var.redshift_node_type
+  number_of_nodes    = var.redshift_number_of_nodes
+  vpc_security_group_ids = [aws_security_group.redshift_security_group.id]
+  cluster_subnet_group_name = aws_redshift_subnet_group.redshift_subnet_group.name
+}
+
+resource "aws_redshift_subnet_group" "redshift_subnet_group" {
+  name       = "redshift-subnet-group"
+  subnet_ids = var.subnet_ids
+}
+
+resource "aws_security_group" "redshift_security_group" {
+  name = "redshift-security-group"
+}
+
+resource "aws_security_group_rule" "redshift_ingress" {
+  security_group_id = aws_security_group.redshift_security_group.id
+
+  type        = "ingress"
+  from_port   = 5439
+  to_port     = 5439
+  protocol    = "tcp"
+  cidr_blocks = [var.redshift_ingress_cidr]
 }
