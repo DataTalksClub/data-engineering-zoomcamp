@@ -1,6 +1,6 @@
 variable "backend_bucket" {
   description = "The S3 bucket used to store the Terraform state file."
-  default     = "terraform_data_lake"
+  default     = "terraform-data-lake"
 }
 
 variable "backend_key" {

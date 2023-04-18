@@ -93,7 +93,7 @@ provider "aws" {
 
 # Data Lake Bucket
 resource "aws_s3_bucket" "data-lake-bucket" {
-  bucket = "${var.backend_bucket}_${var.project}"
+  bucket = "${var.backend_bucket}-${var.project}"
   force_destroy = true
 }
 
@@ -133,7 +133,7 @@ Save the `main.tf` then modify the `variables.tf` as follows:
 ```hcl
 variable "backend_bucket" {
   description = "The S3 bucket used to store the Terraform state file."
-  default     = "terraform_data_lake"
+  default     = "terraform-data-lake"
 }
 
 variable "backend_key" {

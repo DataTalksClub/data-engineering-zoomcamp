@@ -19,7 +19,7 @@ provider "aws" {
 
 # Data Lake Bucket
 resource "aws_s3_bucket" "data-lake-bucket" {
-  bucket = "${var.backend_bucket}_${var.project}"
+  bucket = "${var.backend_bucket}-${var.project}"
   force_destroy = true
 }
 
