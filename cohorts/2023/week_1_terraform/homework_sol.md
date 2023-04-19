@@ -212,7 +212,9 @@ variable "redshift_ingress_cidr" {
 }
 
 ```
-Save and close the file. Then, initialize Terraform:
+Local backend: With a local backend, the Terraform state file is stored on your local machine. This is the default backend configuration if you don't specify one. While the local backend is easy to set up and use, it has some limitations when working in a team or on shared infrastructure. For instance, local state files might create conflicts or become out-of-date when multiple team members work on the same project simultaneously.
+
+Remote backend: Remote backends store the Terraform state file in a remote location, like an S3 bucket for AWS. Alongside avoiding conflicts, this provide better security and state locking. In this project, we will use the S3 backend.
 ```bash
 terraform init
 ```

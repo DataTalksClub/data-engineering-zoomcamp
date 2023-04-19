@@ -1,11 +1,11 @@
 ## Week 2 Homework
 
-The goal of this homework is to familiarise users with workflow orchestration and observation. 
+The goal of this homework is to familiarize users with workflow orchestration and observation using AWS and Apache Airflow. 
 
 
 ## Question 1. Load January 2020 data
 
-Using the `etl_web_to_gcs.py` flow that loads taxi data into GCS as a guide, create a flow that loads the green taxi CSV dataset for January 2020 into GCS and run it. Look at the logs to find out how many rows the dataset has.
+Create a DAG that loads the green taxi CSV dataset for January 2020 into S3 and run it. Look at the logs to find out how many rows the dataset has. (refer this [video](https://youtu.be/W-rMz_2GwqQ?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&t=234))
 
 How many rows does that dataset have?
 
@@ -19,7 +19,7 @@ How many rows does that dataset have?
 
 Cron is a common scheduling specification for workflows. 
 
-Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first of every month at 5am UTC. What’s the cron schedule for that?
+Using the DAG in the Airflow, set the `schedule_interval` to run on the first of every month at 5am UTC. What’s the cron schedule for that? (refer this  [video](https://youtu.be/W-rMz_2GwqQ?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&t=234))
 
 - `0 5 1 * *`
 - `0 0 5 1 *`
@@ -27,19 +27,20 @@ Using the flow in `etl_web_to_gcs.py`, create a deployment to run on the first o
 - `* * 5 1 0`
 
 
-## Question 3. Loading data to BigQuery 
+## Question 3. Loading data to Amazon Redshift
 
-Using `etl_gcs_to_bq.py` as a starting point, modify the script for extracting data from GCS and loading it into BigQuery. This new script should not fill or remove rows with missing values. (The script is really just doing the E and L parts of ETL).
+Using the DAG that extracts data from S3 and loads it into Amazon Redshift. This new script should not fill or remove rows with missing values. (The script is really just doing the E and L parts of ETL). Refer [here](https://youtu.be/Cx5jt-V5sgE?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&t=53)
 
-The main flow should print the total number of rows processed by the script. Set the flow decorator to log the print statement.
 
-Parametrize the entrypoint flow to accept a list of months, a year, and a taxi color. 
+The main task should print the total number of rows processed by the script. Use the task logging to capture the print statement.
+
+Parametrize the entrypoint tasks to accept a list of months, a year, and a taxi color.
 
 Make any other necessary changes to the code for it to function as required.
 
-Create a deployment for this flow to run in a local subprocess with local flow code storage (the defaults).
+Create a DAG for this and run it using the Airflow executor and DAG folder
 
-Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and March 2019 loaded in GCS. Run your deployment to append this data to your BiqQuery table. How many rows did your flow code process?
+Make sure you have the CSV or parquet files (explain your decision) for Yellow taxi data for Feb. 2019 and March 2019 loaded in S3. Run your DAG to append this data to your Redshift table. How many rows did your DAG process?
 
 - 14,851,920
 - 12,282,990
@@ -48,13 +49,14 @@ Make sure you have the parquet data files for Yellow taxi data for Feb. 2019 and
 
 
 
-## Question 4. Github Storage Block
+## Question 4. Version control with Git
 
-Using the `web_to_gcs` script from the videos as a guide, you want to store your flow code in a GitHub repository for collaboration with your team. Prefect can look in the GitHub repo to find your flow code and read it. Create a GitHub storage block from the UI or in Python code and use that in your Deployment instead of storing your flow code locally or baking your flow code into a Docker image. 
+You want to store your DAG code in a GitHub repository for collaboration with your team. Push your code to GitHub.
 
-Note that you will have to push your code to GitHub, Prefect will not push it for you.
+Once you have pushed your code to GitHub, update the Airflow scheduler to read the DAGs from the GitHub repository instead of the local filesystem.
 
-Run your deployment in a local subprocess (the default if you don’t specify an infrastructure). Use the Green taxi data for the month of November 2020.
+
+Run your DAG in Airflow with the Green taxi data for the month of November 2020.
 
 How many rows were processed by the script?
 
@@ -69,18 +71,12 @@ How many rows were processed by the script?
 
 Q5. It’s often helpful to be notified when something with your dataflow doesn’t work as planned. Choose one of the options below for creating email or slack notifications.
 
-The hosted Prefect Cloud lets you avoid running your own server and has Automations that allow you to get notifications when certain events occur or don’t occur. 
+It’s often helpful to be notified when something with your dataflow doesn’t work as planned. Airflow allows you to send email notifications when certain events occur or don’t occur.
 
-Create a free forever Prefect Cloud account at app.prefect.cloud and connect your workspace to it following the steps in the UI when you sign up. 
+Update your DAG to send an email notification to yourself when a task fails.
 
-Set up an Automation that will send yourself an email when a flow run completes. Run the deployment used in Q4 for the Green taxi data for April 2019. Check your email to see the notification.
 
-Alternatively, use a Prefect Cloud Automation or a self-hosted Orion server Notification to get notifications in a Slack workspace via an incoming webhook. 
-
-Join my temporary Slack workspace with [this link](https://join.slack.com/t/temp-notify/shared_invite/zt-1odklt4wh-hH~b89HN8MjMrPGEaOlxIw). 400 people can use this link and it expires in 90 days. 
-
-In the Prefect Cloud UI create an [Automation](https://docs.prefect.io/ui/automations) or in the Prefect Orion UI create a [Notification](https://docs.prefect.io/ui/notifications/) to send a Slack message when a flow run enters a Completed state. Here is the Webhook URL to use: https://hooks.slack.com/services/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
-
+Run the DAG used in Q4 for the Green taxi data for April 2019. Make sure you receive an email notification if any of the tasks fail.
 Test the functionality.
 
 Alternatively, you can grab the webhook URL from your own Slack workspace and Slack App that you create. 
@@ -96,8 +92,10 @@ How many rows were processed by the script?
 
 ## Question 6. Secrets
 
-Prefect Secret blocks provide secure, encrypted storage in the database and obfuscation in the UI. Create a secret block in the UI that stores a fake 10-digit password to connect to a third-party service. Once you’ve created your block in the UI, how many characters are shown as asterisks (*) on the next page of the UI?
+Airflow Connections and Variables can be used to securely store sensitive information like credentials.
 
+Create an Airflow Connection in the UI that stores a fake 10-digit password to connect to a third-party service.
+Once you’ve created your Connection in the UI, how many characters are shown as asterisks (*) on the next page of the UI?
 - 5
 - 6
 - 8
