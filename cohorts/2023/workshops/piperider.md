@@ -64,4 +64,4 @@ Deadline: 20 March, 22:00 CET
 
 ## Solution
 
-We will publish the solution here
+Video: https://www.youtube.com/watch?v=inNrUys7W8U&list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW
