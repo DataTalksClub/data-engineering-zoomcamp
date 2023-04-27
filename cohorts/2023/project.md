@@ -43,7 +43,7 @@ Project feedback: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQuMt9m
 Project:
 
 * Form: https://forms.gle/gCXUSYBm1KgMKXVm8
-* Deadline: 27 April, 22:00 CET
+* Deadline: 4 May, 22:00 CET
 
 Peer reviewing:
 
