@@ -7,7 +7,12 @@ sources:
 
     tables:
       - name: us_accidents
+      - name: us_accidents_partitioned_clustered
 
 models:
     - name: us_accidents_model
       description: "US accidents data"
+
+    - name: us_accidents_model2
+      description: "US accidents data"
+
