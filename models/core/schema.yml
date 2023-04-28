@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: staging
+    database: data-engineer-project-384504
+    schema: de_project_dataset
+
+    tables:
+      - name: us_accidents
+
+models:
+    - name: us_accidents_model
+      description: "US accidents data"
