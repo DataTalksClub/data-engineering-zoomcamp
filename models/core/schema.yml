@@ -10,9 +10,57 @@ sources:
       - name: us_accidents_partitioned_clustered
 
 models:
-    - name: us_accidents_model
-      description: "US accidents data"
+  - name: first_us_accidents_model
+    description: "Model with raw us accidents data"
+    columns:
+      - name: ID
+        description: "This is a unique identifier of the accident record"
+        tests:
+          - unique
+          - not_null
+      - name: severity
+        description: "Shows the severity of the accident, a number between 1 (less) and 4(most)"
+        tests:
+          - accepted_values:
+              values: ['1', '2', '3', '4']
+      - name: start_time
+        description: "Shows start time of the accident in local time zone"
+        tests:
+          - not_null
+      - name: end_time
+        description: "Shows end time of the accident in local time zone"
+        tests:
+          - not_null
+      - name: description
+        description: "Shows a human provided description of the accident"
+        tests:
+          - not_null
+      - name: state 
+        description: "Shows the state in address field"
+        tests: 
+          - not_null
+      - name: weather_condition 
+        description: "Shows the weather condition (rain, snow, thunderstorm, fog, etc.)"
+        tests: 
+          - not_null
 
-    - name: us_accidents_model2
-      description: "US accidents data"
-
+  - name: second_us_accidents_model
+    description: "Model with partitioned and clustered us accidents data"
+    columns:
+      - name: severity
+        description: "Shows the severity of the accident, a number between 1 (less) and 4(most)"
+        tests:
+          - accepted_values:
+              values: ['1', '2', '3', '4']
+      - name: description
+        description: "Shows a human provided description of the accident"
+        tests:
+          - not_null
+      - name: state 
+        description: "Shows the state in address field"
+        tests: 
+          - not_null
+      - name: weather_condition 
+        description: "Shows the weather condition (rain, snow, thunderstorm, fog, etc.)"
+        tests: 
+          - not_null
