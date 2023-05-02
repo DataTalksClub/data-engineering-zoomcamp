@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT(State)) as state_count from {{ source("staging", "us_accidents") }}
