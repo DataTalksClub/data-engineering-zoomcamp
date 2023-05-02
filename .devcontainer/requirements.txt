@@ -15,7 +15,7 @@ dbt-postgres==1.4.5 #specify version
 pyspark==3.3.2 #specify version
 confluent-kafka==1.9.2
 #added the following packages for AWS integration
-apache-airflow==2.3.0
+apache-airflow==2.5.0
 apache-airflow-providers-amazon==7.3.0
 boto3==1.26.106
 dbt-redshift==1.4.0
