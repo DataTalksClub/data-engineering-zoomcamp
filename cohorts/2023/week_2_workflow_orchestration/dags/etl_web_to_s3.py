@@ -59,6 +59,8 @@ def etl_web_to_s3()->None:
             return pd.read_csv(dataset_url)
         else:
             raise Exception(f"Could not fetch data from {dataset_url}")
-    fetch_data
+    fetch_data_task = fetch_data(dataset_url)
+
+    return fetch_data_task
 
 dag = etl_web_to_s3()
