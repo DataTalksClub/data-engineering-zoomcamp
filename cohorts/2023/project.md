@@ -32,7 +32,7 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vRYQ0A9C7AkRK-YPSFhqaRMmuPR97QPfl2PjI8n11l5jntc6YMHIJXVVS0GQNqAYIGwzyevyManDB08/pubhtml?gid=0&single=true)
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vRYQ0A9C7AkRK-YPSFhqaRMmuPR97QPfl2PjI8n11l5jntc6YMHIJXVVS0GQNqAYIGwzyevyManDB08/pubhtml?gid=0&single=true) ("project-01" sheet)
 * Form: https://forms.gle/1bxmgR8yPwV359zb7
 * Deadline: 17 April, 22:00 CET
 
@@ -47,8 +47,8 @@ Project:
 
 Peer reviewing:
 
-* Peer review assignments: TBA
-* Form: TBA
+* Peer review assignments: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vRYQ0A9C7AkRK-YPSFhqaRMmuPR97QPfl2PjI8n11l5jntc6YMHIJXVVS0GQNqAYIGwzyevyManDB08/pubhtml?gid=303437788&single=true) ("project-02" sheet)
+* Form: https://forms.gle/2x5MT4xxczR8isy37
 * Deadline: 11 May, 22:00 CET
 
 Project feedback: TBA
