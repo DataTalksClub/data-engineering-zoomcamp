@@ -21,10 +21,10 @@ CLUSTER BY dispatching_base_num AS (
 );
 
 SELECT count(*) FROM  `taxi-rides-ny.nytaxi.fhv_nonpartitioned_tripdata`
-WHERE dropoff_datetime BETWEEN '2019-01-01' AND '2019-03-31'
+WHERE DATE(dropoff_datetime) BETWEEN '2019-01-01' AND '2019-03-31'
   AND dispatching_base_num IN ('B00987', 'B02279', 'B02060');
 
 
 SELECT count(*) FROM `taxi-rides-ny.nytaxi.fhv_partitioned_tripdata`
-WHERE dropoff_datetime BETWEEN '2019-01-01' AND '2019-03-31'
+WHERE DATE(dropoff_datetime) BETWEEN '2019-01-01' AND '2019-03-31'
   AND dispatching_base_num IN ('B00987', 'B02279', 'B02060');
