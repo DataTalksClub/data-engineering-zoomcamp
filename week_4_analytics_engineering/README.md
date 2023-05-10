@@ -105,6 +105,10 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
  * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
 
 
+### Homework 
+Homework can be found [here](../cohorts/2023/week_4_analytics_engineering/homework.md).
+
+
 ## Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
 
 To learn how to use PipeRider together with dbt for detecting changes in model and data, sign up for a workshop [here](https://www.eventbrite.com/e/maximizing-confidence-in-your-data-model-changes-with-dbt-and-piperider-tickets-535584366257)
