@@ -51,7 +51,7 @@ Peer reviewing:
 * Form: https://forms.gle/2x5MT4xxczR8isy37
 * Deadline: 11 May, 22:00 CET
 
-Project feedback: TBA
+Project feedback: [link](https://docs.google.com/spreadsheets/d/e/2PACX-1vQuMt9m1XlPrCACqnsFTXTV_KGiSnsl9UjL7kdTMsLJ8DLu3jNJlPzoUKG6baxc8APeEQ8RaSP1U2VX/pubhtml?gid=246029638&single=true)
 
 ### Evaluation criteria
 
