@@ -107,14 +107,11 @@
 	},
   
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+	// "forwardPorts": [3000],
   
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip3 install --user -r .devcontainer/requirements.txt --use-pep517",
   
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode",
-
-	// Specify the PATH by setting it to the current value of the PATH in the container.
-	"remoteEnv": {"PATH": "${containerEnv:PATH}:/home/vscode/.local/bin"}
+	"remoteUser": "vscode"
   }
