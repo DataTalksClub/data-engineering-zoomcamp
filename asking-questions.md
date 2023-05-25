@@ -7,7 +7,7 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
 
 * First, review How to troubleshoot issues listed below.
 * Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
-* Before asking a question review the Slack [Guidlines](#Slack)
+* Before asking a question review the Slack [Guidlines](#Ask-in-Slack)
 * You don't need to tag the instructors when you have a problem, it may discourage others from helping you.
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
@@ -25,7 +25,7 @@ The first step is to try to solve the issue on you own; get use to solving probl
 6. Post your question to Stackoverflow. Be sure to read the Stackoverflow guide on posting good questions.
     * [Stackoverflow How To Ask Guide](https://stackoverflow.com/help/how-to-ask).
     * This will be your real life ask an expert in the future (in addition to coworkers). 
-7. Ask in Slack <#slack>
+7. #### Ask in Slack
     * Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
     * DO NOT use screenshots, especially don’t take pictures from a phone.
     * DO NOT tag instructors, it may discourage others from helping you.
