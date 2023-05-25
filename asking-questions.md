@@ -7,7 +7,7 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
 
 * First, review How to troubleshoot issues listed below.
 * Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
-* Before asking a question review the Slack [Guidlines](#Ask-in-Slack).
+* Before asking a question review the [Slack Guidlines](#Ask-in-Slack).
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
   
@@ -28,11 +28,11 @@ The first step is to try to solve the issue on you own; get use to solving probl
     * Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
     * DO NOT use screenshots, especially don’t take pictures from a phone.
     * DO NOT tag instructors, it may discourage others from helping you.
-    * Copy and past error; if it’s long, just post it in a reply to your thread. 
+    * Copy and past errors; if it’s long, just post it in a reply to your thread. 
     * Use ``` for formatting your code.
     * Use the same thread for the conversation (that means reply to your own thread). 
         * DO NOT create multiple posts to discus the issue.
-        * You may create a new post if the issue reimerges down the road. Be sure to describe what has changed in the environment.
+        * You may create a new post if the issue reemerges down the road. Be sure to describe what has changed in the environment.
     * Provide addition information in the same thread of the steps you have taken for resolution.
 8. Take a break and come back to it later. You will be amazed at how often you figure out the solution after letting your brain rest. Get some fresh air, workout, play a video game, watch a tv show, whatever allows your brain to not think about it for a little while or even until the next day. 
 9. Remember technology issues in real life sometimes take days or even weeks to resolve.
