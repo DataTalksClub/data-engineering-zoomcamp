@@ -7,8 +7,7 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
 
 * First, review How to troubleshoot issues listed below.
 * Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
-* Before asking a question review the Slack [Guidlines](#Ask-in-Slack)
-* You don't need to tag the instructors when you have a problem, it may discourage others from helping you.
+* Before asking a question review the Slack [Guidlines](#Ask-in-Slack).
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
   
