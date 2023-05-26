@@ -1,3 +1,4 @@
+python=3.10.0
 pandas==1.5.2
 protobuf==4.22.1
 pyarrow==10.0.1
