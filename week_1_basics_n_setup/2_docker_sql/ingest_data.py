@@ -22,9 +22,9 @@ def main(params):
     # the backup files are gzipped, and it's important to keep the correct extension
     # for pandas to be able to open the file
     if url.endswith('.csv.gz'):
-        csv_name = 'output.csv.gz'
+        csv_name = url.split("/")[-1]
     else:
-        csv_name = 'output.csv'
+        csv_name = url.split("/")[-1]
 
     os.system(f"wget {url} -O {csv_name}")
 
