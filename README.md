@@ -79,10 +79,7 @@ Alternatively, you can access this course using the provided UI app, the app pro
 
 * Data Lake
 * Workflow orchestration
-* Introduction to Prefect
-* ETL with GCP & Prefect
-* Parametrizing workflows
-* Prefect Cloud and additional resources
+* Workflow orchestration with Mage
 * Homework
 
 [More details](week_2_workflow_orchestration/)
@@ -207,17 +204,7 @@ See [Week 1](week_1_basics_n_setup) for more details about installing these tool
 
 Thanks to the course sponsors for making it possible to create this course
 
-<p align="center">
-  <a href="https://www.prefect.io/">
-    <img height="100" src="https://github.com/DataTalksClub/mlops-zoomcamp/raw/main/images/prefect.png">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://www.piperider.io/">
-    <img height="130" src="images/piperider.png">
-  </a>
-</p>
+* Mage
 
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
