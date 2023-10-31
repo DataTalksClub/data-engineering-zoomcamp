@@ -15,74 +15,9 @@ Also, if you find the commands too small to view in Kalise's videos, here's the 
 * [Video](https://www.youtube.com/watch?v=W3Zm6rjOq70&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * [Slides](https://docs.google.com/presentation/d/1RkH-YhBz2apIjYZAxUz2Uks4Pt51-fVWVN9CcH9ckyY/edit?usp=sharing)
 
+### Workflow Orchestration
 
-### 1. Introduction to Workflow orchestration
-
-* What is orchestration?
-* Workflow orchestrators vs. other types of orchestrators
-* Core features of a workflow orchestration tool
-* Different types of workflow orchestration tools that currently exist 
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=8oLs6pzHp68&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-
-### 2. Introduction to Prefect concepts
-
-* What is Prefect?
-* Installing Prefect
-* Prefect flow
-* Creating an ETL
-* Prefect task
-* Blocks and collections
-* Orion UI
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=cdtN6dhp708&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-### 3. ETL with GCP & Prefect
-
-* Flow 1: Putting data to Google Cloud Storage 
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=W-rMz_2GwqQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-
-### 4. From Google Cloud Storage to Big Query
-
-* Flow 2: From GCS to BigQuery
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=Cx5jt-V5sgE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-### 5. Parametrizing Flow & Deployments 
-
-* Parametrizing the script from your flow
-* Parameter validation with Pydantic
-* Creating a deployment locally
-* Setting up Prefect Agent
-* Running the flow
-* Notifications
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=QrDxPjX10iw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-### 6. Schedules & Docker Storage with Infrastructure
-
-* Scheduling a deployment
-* Flow code storage
-* Running tasks in Docker
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=psNSzqTsi-s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-### 7. Prefect Cloud and Additional Resources 
-
-
-* Using Prefect Cloud instead of local Prefect
-* Workspaces
-* Running flows on GCP
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=gGC23ZK7lr8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-
-* [Prefect docs](https://docs.prefect.io/)
-* [Pefect Discourse](https://discourse.prefect.io/)
-* [Prefect Cloud](https://app.prefect.cloud/)
-* [Prefect Slack](https://prefect-community.slack.com)
+Mage videos coming soon
 
 ### Code repository
 
@@ -95,6 +30,10 @@ Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homew
 
 Did you take notes? You can share them here.
 
+* Add your notes here (above this line)
+
+### 2023 notes
+
 * [Blog by Marcos Torregrosa (Prefect)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-2/)
 * [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week2)
 * [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week2.md)
@@ -102,7 +41,6 @@ Did you take notes? You can share them here.
 * [Notes from Xia He-Bleinagel](https://xiahe-bleinagel.com/2023/02/week-2-data-engineering-zoomcamp-notes-prefect/)
 * [Notes from froukje](https://github.com/froukje/de-zoomcamp/blob/main/week_2_workflow_orchestration/notes/notes_week_02.md)
 * [Notes from Balaji](https://github.com/Balajirvp/DE-Zoomcamp/blob/main/Week%202/Detailed%20Week%202%20Notes.ipynb)
-* Add your notes here (above this line)
 
 
 ### 2022 notes 
