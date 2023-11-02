@@ -202,7 +202,7 @@ See [Week 1](week_1_basics_n_setup) for more details about installing these tool
 
 ## Supporters and partners
 
-Thanks to the course sponsors for making it possible to create this course
+Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
   <a href="https://mage.ai/">
