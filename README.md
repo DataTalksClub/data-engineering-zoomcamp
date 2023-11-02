@@ -40,22 +40,6 @@ can take the course at your own pace
 * Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
 
-### Asking for help in Slack
-
-The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel.
-
-To make discussions in Slack more organized:
-
-* Follow [these recommendations](asking-questions.md) when asking for help
-* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
-
-### Course UI
-
-Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
-
-* Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
-
-![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
 
 ## Syllabus
 
@@ -143,11 +127,22 @@ Putting everything we learned to practice
 
 [More details](week_7_project)
 
+### Course UI
 
-### Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
+Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
 
+* Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
 
-[More details](cohorts/2023/workshops/piperider.md)
+![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
+
+### Asking for help in Slack
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel.
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
 
 ## Overview
 
@@ -161,7 +156,7 @@ Putting everything we learned to practice
 * *Terraform*: Infrastructure-as-Code (IaC)
 * *Docker*: Containerization
 * *SQL*: Data Analysis & Exploration
-* *Prefect*: Workflow Orchestration
+* *Mage*: Workflow Orchestration
 * *dbt*: Data Transformation
 * *Spark*: Distributed Processing
 * *Kafka*: Streaming
@@ -180,10 +175,7 @@ Prior experience with data engineering is not required.
 ## Instructors
 
 - [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
-- [Sejal Vaidya](https://linkedin.com/in/vaidyasejal)
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
-- [Kalise Richmond](https://www.linkedin.com/in/kaliserichmond/)
-- [Jeff Hale](https://www.linkedin.com/in/-jeffhale/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
 
 ## Tools
