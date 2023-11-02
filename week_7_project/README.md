@@ -1,67 +1,65 @@
 ## Course Project
 
-The goal of this project is to apply everything we learned
-in this course and build an end-to-end data pipeline.
+### Objective
 
-Remember that to pass the project, you must evaluate 3 peers. If you don't do that, your project can't be considered compelete.
-
-* [2023 Projects](../cohorts/2023/project.md)
-* [2022 Projects](../cohorts/2022/project.md)
+The goal of this project is to apply everything we have learned
+in this course to build an end-to-end data pipeline.
 
 ### Problem statement
 
-For the project, we will ask you to build a dashboard with two tiles. 
+Develop a dashboard with two tiles by:
 
-For that, you will need:
-
-* Select a dataset that you're interested in (see [datasets.md](datasets.md))
-* Create a pipeline for processing this dataset and putting it to a datalake
-* Create a pipeline for moving the data from the lake to a data warehouse
-* Transform the data in the data warehouse: prepare it for the dashboard
-* Create a dashboard
-
+* Selecting a dataset of interest (see [Datasets](#datasets))
+* Creating a pipeline for processing this dataset and putting it to a datalake
+* Creating a pipeline for moving the data from the lake to a data warehouse
+* Transforming the data in the data warehouse: prepare it for the dashboard
+* Building a dashboard to visualize the data
 
 
 ## Data Pipeline 
 
-The pipeline could be stream or batch: this is the first thing you'll need to decide 
+The pipeline could be **stream** or **batch**: this is the first thing you'll need to decide 
 
-* If you want to consume data in real-time and put them to data lake - go with stream.
-* If you want to run things periodically (e.g. hourly/daily), go with batch
-
+* **Stream**: If you want to consume data in real-time and put them to data lake
+* **Batch**: If you want to run things periodically (e.g. hourly/daily)
 
 ## Technologies 
 
 You don't have to limit yourself to technologies covered in the course. You can use alternatives as well:
 
-* Cloud: AWS, GCP, Azure or others
-* Infrastructure as code (IaC): Terraform, Pulumi, Cloud Formation, ...
-* Workflow orchestration: Airflow, Prefect, Luigi, ...
-* Data Wareshouse: BigQuery, Snowflake, Redshift, ...
-* Batch processing: Spark, Flink, AWS Batch, ...
-* Stream processing: Kafka, Pulsar, Kinesis, ...
+* **Cloud**: AWS, GCP, Azure, ...
+* **Infrastructure as code (IaC)**: Terraform, Pulumi, Cloud Formation, ...
+* **Workflow orchestration**: Airflow, Prefect, Luigi, ...
+* **Data Warehouse**: BigQuery, Snowflake, Redshift, ...
+* **Batch processing**: Spark, Flink, AWS Batch, ...
+* **Stream processing**: Kafka, Pulsar, Kinesis, ...
 
-If you use something that wasn't covered in the course, 
-be sure to explain what the tool does.
+If you use a tool that wasn't covered in the course, be sure to explain what that tool does.
 
 If you're not certain about some tools, ask in Slack.
 
-
 ## Dashboard
 
-You can build a dashboard with any of the tools shown in the course (Data Studio or Metabase) or any other BI tool of your choice. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
+You can use any of the tools shown in the course (Data Studio or Metabase) or any other BI tool of your choice to build a dashboard. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
 
 Your dashboard should contain at least two tiles, we suggest you include:
 
 - 1 graph that shows the distribution of some categorical data 
 - 1 graph that shows the distribution of the data across a temporal line
 
-Make sure that your graph is clear to understand by adding references and titles. 
+Ensure that your graph is easy to understand by adding references and titles.
+ 
+Example dashboard: ![image](https://user-images.githubusercontent.com/4315804/159771458-b924d0c1-91d5-4a8a-8c34-f36c25c31a3c.png)
 
-Example of a dashboard: ![image](https://user-images.githubusercontent.com/4315804/159771458-b924d0c1-91d5-4a8a-8c34-f36c25c31a3c.png)
 
+## Peer reviewing
 
-## Peer review criteria
+> [!IMPORTANT]  
+> To evaluate the projects, we'll use peer reviewing. This is a great opportunity for you to learn from each other.
+> * To get points for your project, you need to evaluate 3 projects of your peers
+> * You get 3 extra points for each evaluation
+
+## Evaluation Criteria
 
 * Problem description
     * 0 points: Problem is not described
@@ -93,31 +91,54 @@ Example of a dashboard: ![image](https://user-images.githubusercontent.com/43158
     * 2 points: A dashboard with 1 tile
     * 4 points: A dashboard with 2 tiles
 * Reproducibility
-    * 0 points: No instructions how to run code at all
+    * 0 points: No instructions how to run the code at all
     * 2 points: Some instructions are there, but they are not complete
     * 4 points: Instructions are clear, it's easy to run the code, and the code works
 
 
-## Going the extra mile 
+> [!NOTE]
+> It's highly recommended to create a new repository for your project (not inside an existing repo) with a meaningful title, such as
+> "Quake Analytics Dashboard" or "Bike Data Insights" and include as many details as possible in the README file. ChatGPT can assist you with this. Doing so will not only make it easier to showcase your project for potential job opportunities but also have it featured on the [Projects Gallery App](#projects-gallery).
+> If you leave the README file empty or with minimal details, there may be point deductions as per the [Evaluation Criteria](#evaluation-criteria).
 
-If you finish the project and you want to improve it, here are a few things you can do:
+## Going the extra mile (Optional)
+
+> [!NOTE]
+> The following things are not covered in the course, are entirely optional and they will not be graded.
+
+However, implementing these could significantly enhance the quality of your project:
 
 * Add tests
 * Use make
-* Add CI/CD pipeline 
+* Add CI/CD pipeline
 
-This is not covered in the course and this is entirely optional.
+If you intend to include this project in your portfolio, adding these additional features will definitely help you to stand out from others.
 
-If you plan to use this project as your portfolio project, it'll 
-definitely help you to stand out from others.
+## Resources
 
-> **Note**: this part will not be graded. 
+### Datasets
 
+Refer to the provided [datasets](datasets.md) for possible selection.
 
-Some links to refer to:
+### Helpful Links
 
 * [Unit Tests + CI for Airflow](https://www.astronomer.io/events/recaps/testing-airflow-to-bulletproof-your-code/)
 * [CI/CD for Airflow (with Gitlab & GCP state file)](https://engineering.ripple.com/building-ci-cd-with-airflow-gitlab-and-terraform-in-gcp)
 * [CI/CD for Airflow (with GitHub and S3 state file)](https://programmaticponderings.com/2021/12/14/devops-for-dataops-building-a-ci-cd-pipeline-for-apache-airflow-dags/)
 * [CD for Terraform](https://towardsdatascience.com/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc)
 * [Spark + Airflow](https://medium.com/doubtnut/github-actions-airflow-for-automating-your-spark-pipeline-c9dff32686b)
+
+
+### Projects Gallery
+
+Explore a collection of projects completed by members of our community. The projects cover a wide range of topics and utilize different tools and techniques. Feel free to delve into any project and see how others have tackled real-world problems with data, structured their code, and presented their findings. It's a great resource to learn and get ideas for your own projects.
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://datatalksclub-projects.streamlit.app/)
+
+### DE Zoomcamp 2023
+
+* [2023 Projects](../cohorts/2023/project.md)
+
+### DE Zoomcamp 2022
+
+* [2022 Projects](../cohorts/2022/project.md)
