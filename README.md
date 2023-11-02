@@ -204,7 +204,11 @@ See [Week 1](week_1_basics_n_setup) for more details about installing these tool
 
 Thanks to the course sponsors for making it possible to create this course
 
-* Mage
+<p align="center">
+  <a href="https://mage.ai/">
+    <img height="130" src="images/mage.svg">
+  </a>
+</p>
 
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
