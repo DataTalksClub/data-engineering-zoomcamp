@@ -531,6 +531,12 @@ Links:
 > Thank you so much for the course. Learn so many thing from here.</details></td>
 </tr>
 <tr>
+<td>Muhammed Jimoh</td>
+<td><a href="https://github.com/Manny-97/DE-ZOOMCAMP-PROJECT">Project</a></td>
+<td> <a href="https://www.linkedin.com/in/%F0%9F%91%A8%F0%9F%8F%BE%E2%80%8D%F0%9F%92%BB-muhammed-jimoh-45120a14a/"><img src="https://user-images.githubusercontent.com/875246/192300614-2ce22ed5-bbc4-4684-8098-d8128d71aac5.png" height="16em" /></a> <a href="https://github.com/Manny-97"><img src="https://user-images.githubusercontent.com/875246/192300611-a606521b-cb76-4090-be8e-7cc21752b996.png" height="16em" /></a></td>
+<td></td>
+</tr>
+<tr>
 <td>Bartosz Skłodowski</td>
 <td><a href="https://github.com/bartoszsklodowski/de_zoomcamp_project">Project</a></td>
 <td> <a href="https://www.linkedin.com/in/bartosz-sk%C5%82odowski/?locale=en_US"><img src="https://user-images.githubusercontent.com/875246/192300614-2ce22ed5-bbc4-4684-8098-d8128d71aac5.png" height="16em" /></a> <a href="https://github.com/bartoszsklodowski"><img src="https://user-images.githubusercontent.com/875246/192300611-a606521b-cb76-4090-be8e-7cc21752b996.png" height="16em" /></a></td>
