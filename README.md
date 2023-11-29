@@ -13,13 +13,13 @@
 
 Syllabus
 
-* [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
-* [Week 2: Workflow Orchestration](#week-2-workflow-orchestration)
-* [Week 3: Data Warehouse](#week-3-data-warehouse)
-* [Week 4: Analytics Engineering](#week-4-analytics-engineering)
-* [Week 5: Batch processing](#week-5-batch-processing)
-* [Week 6: Streaming](#week-6-streaming)
-* [Week 7, 8 & 9: Project](#week-7-8--9-project)
+* [Module 1: Introduction & Prerequisites](#module-1-introduction--prerequisites)
+* [Module 2: Workflow Orchestration](#module-2-workflow-orchestration)
+* [Module 3: Data Warehouse](#module-3-data-warehouse)
+* [Module 4: Analytics Engineering](#module-4-analytics-engineering)
+* [Module 5: Batch processing](#module-5-batch-processing)
+* [Module 6: Streaming](#module-6-streaming)
+* [Module 7: Project](#module-7-project)
 
 ## Taking the course
 
@@ -46,7 +46,7 @@ can take the course at your own pace
 > **Note:** NYC TLC changed the format of the data we use to parquet. But you can still access
 > the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
-### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
+### [Module 1: Introduction & Prerequisites](week_1_basics_n_setup)
 
 * Course overview
 * Introduction to GCP
@@ -59,7 +59,7 @@ can take the course at your own pace
 [More details](week_1_basics_n_setup)
 
 
-### [Week 2: Workflow Orchestration](week_2_workflow_orchestration/)
+### [Module 2: Workflow Orchestration](week_2_workflow_orchestration/)
 
 * Data Lake
 * Workflow orchestration
@@ -69,7 +69,7 @@ can take the course at your own pace
 [More details](week_2_workflow_orchestration/)
 
 
-### [Week 3: Data Warehouse](week_3_data_warehouse)
+### [Module 3: Data Warehouse](week_3_data_warehouse)
 
 
 * Data Warehouse
@@ -83,7 +83,7 @@ can take the course at your own pace
 [More details](week_3_data_warehouse)
 
 
-### [Week 4: Analytics engineering](week_4_analytics_engineering/)
+### [Module 4: Analytics engineering](week_4_analytics_engineering/)
 
 * Basics of analytics engineering
 * dbt (data build tool)
@@ -98,7 +98,7 @@ can take the course at your own pace
 [More details](week_4_analytics_engineering)
 
 
-### [Week 5: Batch processing](week_5_batch_processing)
+### [Module 5: Batch processing](week_5_batch_processing)
 
 * Batch processing
 * What is Spark
@@ -108,7 +108,7 @@ can take the course at your own pace
 
 [More details](week_5_batch_processing)
 
-### [Week 6: Streaming](week_6_stream_processing)
+### [Module 6: Streaming](week_6_stream_processing)
 
 * Introduction to Kafka
 * Schemas (avro)
@@ -118,7 +118,7 @@ can take the course at your own pace
 [More details](week_6_stream_processing)
 
 
-### [Week 7, 8 & 9: Project](week_7_project)
+### [Module 7: Project](week_7_project)
 
 Putting everything we learned to practice
 
@@ -187,7 +187,7 @@ For this course, you'll need to have the following software installed on your co
 * Google Cloud SDK
 * Terraform
 
-See [Week 1](week_1_basics_n_setup) for more details about installing these tools
+See [Module 1](week_1_basics_n_setup) for more details about installing these tools
 
 
 
