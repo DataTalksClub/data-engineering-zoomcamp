@@ -10,7 +10,7 @@
 
 [**Module 1: Introduction & Prerequisites**](01_docker_sql/)
 
-* [Homework SQL](01_docker_sql/homework.md) and [solution](https://www.youtube.com/watch?v=KIh_9tZiroA)
+* [Homework SQL](01_docker_sql/homework.md)
 * [Homework Terraform](01_terraform/homework.md)
 
 [**Module 2: Workflow Orchestration**](02_workflow_orchestration)
