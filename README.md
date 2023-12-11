@@ -205,7 +205,7 @@ Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
   <a href="https://dlthub.com/">
-    <img height="130" src="images/dlthub.png">
+    <img height="100" src="images/dlthub.png">
   </a>
 </p>
 
