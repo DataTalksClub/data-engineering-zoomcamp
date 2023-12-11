@@ -14,3 +14,11 @@
 serving_dir
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
+
+# Prevent keys and dato uploads
+**.json
+**.csv
+**.csv.gz
+
+# pgadmin data
+**/pgadmin_data/*
