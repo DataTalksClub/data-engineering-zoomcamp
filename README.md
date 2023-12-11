@@ -203,5 +203,12 @@ Thanks to the course sponsors for making it possible to run this course
 </p>
 
 
+<p align="center">
+  <a href="https://dlthub.com/">
+    <img height="130" src="images/dlthub.png">
+  </a>
+</p>
+
+
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
 
