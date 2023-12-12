@@ -8,8 +8,6 @@
 
 Python code from videos is linked [below](#code-repository).
 
-Also, if you find the commands too small to view in Kalise's videos, here's the [transcript with code for the second Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start) and the [fifth Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/03_deployments).
-
 ### Data Lake (GCS)
 
 * What is a Data Lake
@@ -24,10 +22,10 @@ Mage videos coming soon
 
 ### Code repository
 
-[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
+To be posted after the mage videos
 
 ### Homework 
-Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
+To be posted after the mage videos
 
 ## Community notes
 
