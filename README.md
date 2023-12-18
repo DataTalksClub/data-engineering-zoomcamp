@@ -198,14 +198,14 @@ Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
   <a href="https://mage.ai/">
-    <img height="130" src="images/mage.svg">
+    <img height="150" src="images/mage.svg">
   </a>
 </p>
 
 
 <p align="center">
   <a href="https://dlthub.com/">
-    <img height="100" src="images/dlthub.png">
+    <img height="90" src="images/dlthub.png">
   </a>
 </p>
 
