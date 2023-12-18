@@ -2,10 +2,10 @@
 
 > If you're looking for Airflow videos from the 2022 edition,
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
+> If you're looking for Prefect videos from the 2023 edition,
+> check the [2023 cohort folder](../cohorts/2023/week_2_data_ingestion/).
 
 Python code from videos is linked [below](#code-repository).
-
-Also, if you find the commands too small to view in Kalise's videos, here's the [transcript with code for the second Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start) and the [fifth Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/03_deployments).
 
 ### Data Lake (GCS)
 
@@ -15,22 +15,82 @@ Also, if you find the commands too small to view in Kalise's videos, here's the 
 * [Video](https://www.youtube.com/watch?v=W3Zm6rjOq70&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * [Slides](https://docs.google.com/presentation/d/1RkH-YhBz2apIjYZAxUz2Uks4Pt51-fVWVN9CcH9ckyY/edit?usp=sharing)
 
-### Workflow Orchestration
+### Course Resources
 
-Mage videos coming soon
+#### 2.2.1 - Intro to Orchestration
 
-### Code repository
+Videos
+- What is Orchestration?
 
-[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
+Resources
+- [Slides](https://docs.google.com/presentation/d/17zSxG5Z-tidmgY-9l7Al1cPmz4Slh4VPK6o2sryFYvw/)
 
-### Homework 
-Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
+#### 2.2.2 - Intro to Mage
+
+Videos
+- What is Mage?
+- Configuring Mage
+- A Simple Pipeline
+
+Resources
+- [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp)
+- [Slides](https://docs.google.com/presentation/d/1y_5p3sxr6Xh1RqE6N8o2280gUzAdiic2hPhYUUD6l88/)
+
+#### 2.2.3 - ETL: API to Postgres
+
+Videos
+- Configuring Postgres
+- Writing an ETL Pipeline
+
+Resources
+- [Taxi Dataset](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
+- [Sample loading block](https://github.com/mage-ai/mage-zoomcamp/blob/solutions/magic-zoomcamp/data_loaders/load_nyc_taxi_data.py)
+
+#### 2.2.4 - ETL: API to GCS
+
+Videos
+- Configuring GCP
+- Writing an ETL Pipeline
+
+Resources
+- [DTC Zoomcamp GCP Setup](../week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
+
+#### 2.2.5 - ETL: GCS to BigQuery
+- Writing an ETL Pipeline
+
+#### 2.2.6 - Advanced Functionality
+
+Videos
+- Advanced Functionality
+
+Resources
+- [Dynamic Blocks](https://docs.mage.ai/design/blocks/dynamic-blocks)
+- [Conditional Blocks](https://docs.mage.ai/design/blocks/conditionals)
+- [Replica Blocks](https://docs.mage.ai/guides/blocks/replicate-blocks#why-is-replicating-blocks-useful)
+- [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
+- [Pipeline Variables](https://docs.mage.ai/development/variables/overview)
+
+#### Homework 
+
+Homework can be found [here](../cohorts/2024/week_2_workflow_orchestration/homework.md).
+
+If you're looking for the solutions _or_ completed examples from the course, you can take a look at the `solutions` [branch](https://github.com/mage-ai/mage-zoomcamp/blob/solutions) of the course repo.
+
+```bash
+git checkout solutions
+```
+
+Running `docker compose up` on the solutions branch will start the container with the solutions loaded. _Note: this will overwrite the files in your local repo. Be sure to commit your files to a separate branch if you'd like to save your work._
+
+Navigate to http://localhost:6789 in your browser to see the solutions. Optionally, use [tag sorting](http://localhost:6789/pipelines?group_by=tag) to group solutions by tag.
 
 ## Community notes
 
-Did you take notes? You can share them here.
+Did you take notes? You can share them here:
 
-* Add your notes here (above this line)
+### 2024 notes
+
+*
 
 ### 2023 notes
 
