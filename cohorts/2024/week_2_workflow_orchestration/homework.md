@@ -4,6 +4,8 @@ We'll be working with a _customers_ dataset. Use the following url to download t
 
 `https://github.com/datablist/sample-csv-files/raw/main/files/customers/customers-500000.zip?raw=True`
 
+### Assignment
+
 The following are steps to constructing an ETL pipeline using Mage that were covered in the course. 
 
 - Create a new pipeline, call it `customers_etl`
@@ -19,3 +21,14 @@ The following are steps to constructing an ETL pipeline using Mage that were cov
   - `BONUS`: Write your data as Parquet files to a bucket in GCP, partioned by `subscription_date`.
 - Schedule your pipeline to run daily at 5AM UTC.
 - Join the [Mage Slack](https://mage.ai/chat) channel and say hi 👋
+
+### Solution
+
+Want to check your project? Save your changes (in a branch using Git), then run
+
+```bash
+git checkout solutions
+&& docker compose up
+```
+
+Then navigate to `http://localhost:6789/pipelines/homework/edit?sideview=tree` to see the solution.
