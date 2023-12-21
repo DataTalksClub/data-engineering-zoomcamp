@@ -198,7 +198,7 @@ Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
   <a href="https://mage.ai/">
-    <img height="150" src="images/mage.svg">
+    <img height="120" src="images/mage.svg">
   </a>
 </p>
 
@@ -209,6 +209,11 @@ Thanks to the course sponsors for making it possible to run this course
   </a>
 </p>
 
+<p align="center">
+  <a href="https://risingwave.com/">
+    <img height="90" src="images/rising-wave.png">
+  </a>
+</p>
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
 
