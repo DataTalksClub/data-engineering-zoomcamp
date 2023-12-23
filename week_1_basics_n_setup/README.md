@@ -78,8 +78,9 @@ For the course you'll need:
 * Docker with docker-compose
 * Terraform
 
-If you have problems setting up the env, you can check this video:
+If you have problems setting up the env, you can check these videos
 
+* [Using GitHub Codespaces](https://www.youtube.com/watch?v=XOSUt8Ih3zA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * [Setting up the environment on cloud VM](https://www.youtube.com/watch?v=ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
   * Generating SSH keys
   * Creating a virtual machine on GCP
