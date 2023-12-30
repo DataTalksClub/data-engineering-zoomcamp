@@ -3,9 +3,10 @@
 > If you're looking for Airflow videos from the 2022 edition,
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
 
-Python code from videos is linked [below](#code-repository).
+> If you're looking for Prefect videos from the 2023 edition,
+> check the [2023 cohort folder](../cohorts/2023/week_2_workflow_orchestration/).
 
-Also, if you find the commands too small to view in Kalise's videos, here's the [transcript with code for the second Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/01_start) and the [fifth Prefect video](https://github.com/discdiver/prefect-zoomcamp/tree/main/flows/03_deployments).
+Python code from videos is linked [below](#code-repository).
 
 ### Data Lake (GCS)
 
@@ -21,10 +22,10 @@ Mage videos coming soon
 
 ### Code repository
 
-[Code from videos](https://github.com/discdiver/prefect-zoomcamp) (with a few minor enhancements)
+To be posted after the mage videos
 
 ### Homework 
-Homework can be found [here](../cohorts/2023/week_2_workflow_orchestration/homework.md).
+To be posted after the mage videos
 
 ## Community notes
 
