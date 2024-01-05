@@ -9,13 +9,7 @@ Welcome to Week 2 of the Data Engineering Zoomcamp! 🚀😤 This week, we'll be
 
 Mage is an open-source, hybrid framework for transforming and integrating data. ✨
 
-In this module, you'll learn how to use the Mage platform to author and share _magical_ data pipelines. This will all be covered in the course, but if you'd like to learn a bit more about Mage, check out our docs [here](https://docs.mage.ai/introduction/overview). 
-
-You can find this week's videos and resources in the [Course Resources](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#-course-resources) section below. 
-
-The first two videos are more conceptual and introductory. In the second, we'll dive into configuring Mage from our [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp).
-
-Course Outline:
+This week, you'll learn how to use the Mage platform to author and share _magical_ data pipelines. This will all be covered in the course, but if you'd like to learn a bit more about Mage, check out our docs [here](https://docs.mage.ai/introduction/overview). 
 
 * [2.2.1 - 📯 Intro to Orchestration](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#221----intro-to-orchestration)
 * [2.2.2 - 🧙‍♂️ Intro to Mage](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#222---%EF%B8%8F-intro-to-mage)
