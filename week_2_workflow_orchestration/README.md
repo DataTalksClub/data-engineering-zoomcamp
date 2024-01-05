@@ -101,6 +101,10 @@ Resources
 
 #### Additional Resources
 
+- [Mage Docs](https://docs.mage.ai/)
+- [Mage Guides](https://docs.mage.ai/guides)
+- [Mage Slack](https://www.mage.ai/chat)
+
 - [Dynamic Blocks](https://docs.mage.ai/design/blocks/dynamic-blocks)
 - [Conditional Blocks](https://docs.mage.ai/design/blocks/conditionals)
 - [Replica Blocks](https://docs.mage.ai/guides/blocks/replicate-blocks#why-is-replicating-blocks-useful)
