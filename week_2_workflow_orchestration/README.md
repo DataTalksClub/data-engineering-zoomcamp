@@ -17,15 +17,25 @@ The first two videos are more conceptual and introductory. In the second, we'll 
 
 ## Course Outline
 
+
 [2.2.1 - 📯 Intro to Orchestration](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#221----intro-to-orchestration)
+
 [2.2.2 - 🧙‍♂️ Intro to Mage](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#222---%EF%B8%8F-intro-to-mage)
+
 [2.2.3 - 🐘 ETL: API to Postgres](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#223----etl-api-to-postgres)
+
 [2.2.4 - 🤓 ETL: API to GCS](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#224----etl-api-to-gcs)
+
 [2.2.5 - 🔍 ETL: GCS to BigQuery](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#225----etl-gcs-to-bigquery)
+
 [2.2.6 - 👨‍💻 Parameterized Execution](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#226----parameterized-execution)
+
 [2.2.7 - 🤖 Deployment (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#227----deployment-optional)
+
 [2.2.8 - 🧱 Advanced Blocks (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#228----advanced-blocks-optional)
+
 [2.2.9 - 🗒️ Homework](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#229---%EF%B8%8F-homework)
+
 [2.2.10 - 👣 Next Steps](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#2210----next-steps)
 
 ## 🌊 Data Lake (GCS)
