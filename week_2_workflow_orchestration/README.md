@@ -17,11 +17,8 @@ The first two videos are more conceptual and introductory. In the second, we'll 
 
 Here's a rough course syllabus:
 
-2.2.1 - 📯 Intro to Orchestration
-* An overview of orchestration as a concept, and how it fits into the data engineering landscape.
-
-2.2.2 - 🧙‍♂️ Intro to Mage
-* An overview of Mage as a platform, and how it fits into the data engineering landscape.
+**2.2.1 - 📯 Intro to Orchestration**: An overview of orchestration as a concept, and how it fits into the data engineering landscape.
+2.2.2 - 🧙‍♂️ Intro to Mage: An overview of Mage as a platform, and how it fits into the data engineering landscape.
 
 2.2.3 - 🐘 ETL: API to Postgres
 * Writing an ETL pipeline to load data from an API into a Postgres database.
