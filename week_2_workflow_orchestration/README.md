@@ -15,7 +15,7 @@ You can find this week's videos and resources in the [Course Resources](https://
 
 The first two videos are more conceptual and introductory. In the second, we'll dive into configuring Mage from our [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp).
 
-## Course Outline
+Course Outline:
 
 * [2.2.1 - 📯 Intro to Orchestration](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#221----intro-to-orchestration)
 * [2.2.2 - 🧙‍♂️ Intro to Mage](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#222---%EF%B8%8F-intro-to-mage)
