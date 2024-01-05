@@ -19,22 +19,31 @@ Here's a rough course syllabus:
 
 2.2.1 - 📯 Intro to Orchestration
 * An overview of orchestration as a concept, and how it fits into the data engineering landscape.
+
 2.2.2 - 🧙‍♂️ Intro to Mage
 * An overview of Mage as a platform, and how it fits into the data engineering landscape.
+
 2.2.3 - 🐘 ETL: API to Postgres
 * Writing an ETL pipeline to load data from an API into a Postgres database.
+
 2.2.4 - 🤓 ETL: API to GCS
 * Writing an ETL pipeline to load data from an API into GCS.
+
 2.2.5 - 🔍 ETL: GCS to BigQuery
 * Writing an ETL pipeline to load data from GCS into BigQuery.
+
 2.2.6 - 👨‍💻 Parameterized Execution
 * Writing a parameterized pipeline to load data from an API into GCS.
+
 2.2.7 - 🤖 Deployment (Optional)
 * Deploying a pipeline to Google Cloud.
+
 2.2.8 - 🧱 Advanced Blocks (Optional)
 * An overview of advanced blocks, including dynamic blocks, conditional blocks, replica blocks, and callback blocks.
+
 2.2.9 - 🗒️ Homework 
 * Homework overview and instructions
+
 2.2.10 - 👣 Next Steps
 * wrap up
 
