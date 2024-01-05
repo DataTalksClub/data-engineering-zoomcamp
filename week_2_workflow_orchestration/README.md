@@ -6,8 +6,6 @@
 > If you're looking for Prefect videos from the 2023 edition,
 > check the [2023 cohort folder](../cohorts/2023/week_2_data_ingestion/).
 
-Python code from videos is linked [below](#code-repository).
-
 ## 🌊 Data Lake (GCS)
 
 * What is a Data Lake
