@@ -1,18 +1,30 @@
-# Week 2: Workflow Orchestration
-
 > If you're looking for Airflow videos from the 2022 edition,
-> check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
-
+> check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/). <br>
 > If you're looking for Prefect videos from the 2023 edition,
 > check the [2023 cohort folder](../cohorts/2023/week_2_data_ingestion/).
 
+# Week 2: Workflow Orchestration
+
+Welcome to Week 2 of the Data Engineering Zoomcamp! This week, we'll be covering workflow orchestration with Mage.
+
+Mage is an open-source, hybrid framework for transforming and integrating data. ✨
+
+In this module, you'll learn how to use the Mage platform to author and share _magical_ data pipelines. This will all be covered in the course, but if you'd like to learn a bit more about Mage, check out our docs [here](https://docs.mage.ai/introduction/overview). 
+
+You can find this week's videos and resources in the [Course Resources](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#-course-resources) section below. 
+
+The first two videos are more conceptual and introductory. In the second, we'll dive into configuring Mage from our [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp).
+
 ## 🌊 Data Lake (GCS)
 
-* What is a Data Lake
-* ELT vs. ETL
-* Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)
+This course uses Google Cloud Storage (GCS) as a data lake. If you're not familiar with the concept of a data lake, the following may be helpful:
 * [Video](https://www.youtube.com/watch?v=W3Zm6rjOq70&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * [Slides](https://docs.google.com/presentation/d/1RkH-YhBz2apIjYZAxUz2Uks4Pt51-fVWVN9CcH9ckyY/edit?usp=sharing)
+
+This video covers the basics of data lakes and data warehouses, including:
+* What is a Data Lake?
+* ELT vs. ETL?
+* Alternatives to components (S3/HDFS, Redshift, Snowflake etc.)git add .
 
 ## 📕 Course Resources
 
