@@ -1,4 +1,4 @@
-## Week 2: Workflow Orchestration
+# Week 2: Workflow Orchestration
 
 > If you're looking for Airflow videos from the 2022 edition,
 > check the [2022 cohort folder](../cohorts/2022/week_2_data_ingestion/).
@@ -7,7 +7,7 @@
 
 Python code from videos is linked [below](#code-repository).
 
-### Data Lake (GCS)
+## Data Lake (GCS)
 
 * What is a Data Lake
 * ELT vs. ETL
@@ -15,9 +15,9 @@ Python code from videos is linked [below](#code-repository).
 * [Video](https://www.youtube.com/watch?v=W3Zm6rjOq70&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * [Slides](https://docs.google.com/presentation/d/1RkH-YhBz2apIjYZAxUz2Uks4Pt51-fVWVN9CcH9ckyY/edit?usp=sharing)
 
-### Course Resources
+## Course Resources
 
-#### 2.2.1 - Intro to Orchestration
+### 2.2.1 - Intro to Orchestration
 
 Videos
 - What is Orchestration?
@@ -25,7 +25,7 @@ Videos
 Resources
 - [Slides](https://docs.google.com/presentation/d/17zSxG5Z-tidmgY-9l7Al1cPmz4Slh4VPK6o2sryFYvw/)
 
-#### 2.2.2 - Intro to Mage
+### 2.2.2 - Intro to Mage
 
 Videos
 - What is Mage?
@@ -36,7 +36,7 @@ Resources
 - [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp)
 - [Slides](https://docs.google.com/presentation/d/1y_5p3sxr6Xh1RqE6N8o2280gUzAdiic2hPhYUUD6l88/)
 
-#### 2.2.3 - ETL: API to Postgres
+### 2.2.3 - ETL: API to Postgres
 
 Videos
 - Configuring Postgres
@@ -46,7 +46,7 @@ Resources
 - [Taxi Dataset](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
 - [Sample loading block](https://github.com/mage-ai/mage-zoomcamp/blob/solutions/magic-zoomcamp/data_loaders/load_nyc_taxi_data.py)
 
-#### 2.2.4 - ETL: API to GCS
+### 2.2.4 - ETL: API to GCS
 
 Videos
 - Configuring GCP
@@ -55,12 +55,12 @@ Videos
 Resources
 - [DTC Zoomcamp GCP Setup](../week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
 
-#### 2.2.5 - ETL: GCS to BigQuery
+### 2.2.5 - ETL: GCS to BigQuery
 
 Videos
 - Writing an ETL Pipeline
 
-#### 2.2.6 - Parameterized Execution
+### 2.2.6 - Parameterized Execution
 Videos
 - Parameterized Execution
 
@@ -68,7 +68,7 @@ Resources
 - [Mage Variables Overview](https://docs.mage.ai/development/variables/overview)
 - [Mage Runtime Variables](https://docs.mage.ai/getting-started/runtime-variable)
 
-#### 2.2.7 - Deployment (Optional)
+### 2.2.7 - Deployment (Optional)
 Videos
 - Deployment Prerequisites
 - Google Cloud Permissions
@@ -83,7 +83,7 @@ Additional Mage Guides
 - [Terraform](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 - [Deploying to GCP with Terraform](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
 
-#### 2.2.8 - Advanced Blocks (Optional)
+### 2.2.8 - Advanced Blocks (Optional)
 Videos
 - Advanced Blocks
 
@@ -94,7 +94,7 @@ Resources
 - [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
 
 
-#### 2.2.8 - Homework 
+### 2.2.8 - Homework 
 
 Videos
 - Homework Overview
@@ -102,7 +102,7 @@ Videos
 Resources
 - [Homework](../cohorts/2024/week_2_workflow_orchestration/homework.md).
 
-#### 2.2.9 - Next Steps
+### 2.2.9 - Next Steps
 
 Videos
 - Next Steps
@@ -110,13 +110,13 @@ Videos
 Resources
 - [Slides](https://docs.google.com/presentation/d/1yN-e22VNwezmPfKrZkgXQVrX5owDb285I2HxHWgmAEQ/edit#slide=id.g262fb0d2905_0_12)
 
-#### Additional Resources
+### Additional Resources
 
 - [Mage Docs](https://docs.mage.ai/)
 - [Mage Guides](https://docs.mage.ai/guides)
 - [Mage Slack](https://www.mage.ai/chat)
 
-#### Solutions and Completed Examples
+### Solutions and Completed Examples
 
 If you're looking for the solutions _or_ completed examples from the course, you can take a look at the `solutions` [branch](https://github.com/mage-ai/mage-zoomcamp/blob/solutions) of the course repo.
 
@@ -128,15 +128,15 @@ Running `docker compose up` on the solutions branch will start the container wit
 
 Navigate to http://localhost:6789 in your browser to see the solutions. Optionally, use [tag sorting](http://localhost:6789/pipelines?group_by=tag) to group solutions by tag.
 
-## Community notes
+# Community notes
 
 Did you take notes? You can share them here:
 
-### 2024 notes
+## 2024 notes
 
 *
 
-### 2023 notes
+## 2023 notes
 
 * [Blog by Marcos Torregrosa (Prefect)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-2/)
 * [Notes from Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week2)
@@ -147,7 +147,7 @@ Did you take notes? You can share them here:
 * [Notes from Balaji](https://github.com/Balajirvp/DE-Zoomcamp/blob/main/Week%202/Detailed%20Week%202%20Notes.ipynb)
 
 
-### 2022 notes 
+## 2022 notes 
 
 Most of these notes are about Airflow, but you might find them useful.
 
