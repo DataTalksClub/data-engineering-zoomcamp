@@ -83,6 +83,17 @@ Additional Mage Guides
 - [Terraform](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 - [Deploying to GCP with Terraform](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
 
+#### 2.2.8 - Advanced Blocks (Optional)
+Videos
+- Advanced Blocks
+
+Resources
+- [Dynamic Blocks](https://docs.mage.ai/design/blocks/dynamic-blocks)
+- [Conditional Blocks](https://docs.mage.ai/design/blocks/conditionals)
+- [Replica Blocks](https://docs.mage.ai/guides/blocks/replicate-blocks#why-is-replicating-blocks-useful)
+- [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
+
+
 #### 2.2.8 - Homework 
 
 Videos
@@ -104,13 +115,6 @@ Resources
 - [Mage Docs](https://docs.mage.ai/)
 - [Mage Guides](https://docs.mage.ai/guides)
 - [Mage Slack](https://www.mage.ai/chat)
-
-- [Dynamic Blocks](https://docs.mage.ai/design/blocks/dynamic-blocks)
-- [Conditional Blocks](https://docs.mage.ai/design/blocks/conditionals)
-- [Replica Blocks](https://docs.mage.ai/guides/blocks/replicate-blocks#why-is-replicating-blocks-useful)
-- [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
-- [Pipeline Variables](https://docs.mage.ai/development/variables/overview)
-
 
 #### Solutions and Completed Examples
 
