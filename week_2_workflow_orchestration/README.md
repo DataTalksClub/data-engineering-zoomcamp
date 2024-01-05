@@ -5,7 +5,7 @@
 
 # Week 2: Workflow Orchestration
 
-Welcome to Week 2 of the Data Engineering Zoomcamp! This week, we'll be covering workflow orchestration with Mage.
+Welcome to Week 2 of the Data Engineering Zoomcamp! 🚀😤 This week, we'll be covering workflow orchestration with Mage.
 
 Mage is an open-source, hybrid framework for transforming and integrating data. ✨
 
@@ -14,6 +14,29 @@ In this module, you'll learn how to use the Mage platform to author and share _m
 You can find this week's videos and resources in the [Course Resources](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#-course-resources) section below. 
 
 The first two videos are more conceptual and introductory. In the second, we'll dive into configuring Mage from our [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp).
+
+Here's a rough course syllabus:
+
+2.2.1 - 📯 Intro to Orchestration
+* An overview of orchestration as a concept, and how it fits into the data engineering landscape.
+2.2.2 - 🧙‍♂️ Intro to Mage
+* An overview of Mage as a platform, and how it fits into the data engineering landscape.
+2.2.3 - 🐘 ETL: API to Postgres
+* Writing an ETL pipeline to load data from an API into a Postgres database.
+2.2.4 - 🤓 ETL: API to GCS
+* Writing an ETL pipeline to load data from an API into GCS.
+2.2.5 - 🔍 ETL: GCS to BigQuery
+* Writing an ETL pipeline to load data from GCS into BigQuery.
+2.2.6 - 👨‍💻 Parameterized Execution
+* Writing a parameterized pipeline to load data from an API into GCS.
+2.2.7 - 🤖 Deployment (Optional)
+* Deploying a pipeline to Google Cloud.
+2.2.8 - 🧱 Advanced Blocks (Optional)
+* An overview of advanced blocks, including dynamic blocks, conditional blocks, replica blocks, and callback blocks.
+2.2.9 - 🗒️ Homework 
+* Homework overview and instructions
+2.2.10 - 👣 Next Steps
+* wrap up
 
 ## 🌊 Data Lake (GCS)
 
@@ -105,7 +128,7 @@ Resources
 - [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
 
 
-### 2.2.8 - 🗒️ Homework 
+### 2.2.9 - 🗒️ Homework 
 
 Videos
 - Homework Overview
@@ -113,7 +136,7 @@ Videos
 Resources
 - [Homework](../cohorts/2024/week_2_workflow_orchestration/homework.md).
 
-### 2.2.9 - 👣 Next Steps
+### 2.2.10 - 👣 Next Steps
 
 Videos
 - Next Steps
