@@ -56,23 +56,59 @@ Resources
 - [DTC Zoomcamp GCP Setup](../week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
 
 #### 2.2.5 - ETL: GCS to BigQuery
-- Writing an ETL Pipeline
-
-#### 2.2.6 - Advanced Functionality
 
 Videos
-- Advanced Functionality
+- Writing an ETL Pipeline
+
+#### 2.2.6 - Parameterized Execution
+Videos
+- Parameterized Execution
 
 Resources
+- [Mage Variables Overview](https://docs.mage.ai/development/variables/overview)
+- [Mage Runtime Variables](https://docs.mage.ai/getting-started/runtime-variable)
+
+#### 2.2.7 - Deployment (Optional)
+Videos
+- Deployment Prerequisites
+- Google Cloud Permissions
+- Deploying to Google Cloud
+
+Resources
+- [Installing Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- [Installing `gcloud` CLI](https://cloud.google.com/sdk/docs/install)
+- [Mage Terraform Templates](https://github.com/mage-ai/mage-ai-terraform-templates)
+
+Additional Mage Guides
+- [Terraform](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
+- [Deploying to GCP with Terraform](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
+
+#### 2.2.8 - Homework 
+
+Videos
+- Homework Overview
+
+Resources
+- [Homework](../cohorts/2024/week_2_workflow_orchestration/homework.md).
+
+#### 2.2.9 - Next Steps
+
+Videos
+- Next Steps
+
+Resources
+- [Slides](https://docs.google.com/presentation/d/1yN-e22VNwezmPfKrZkgXQVrX5owDb285I2HxHWgmAEQ/edit#slide=id.g262fb0d2905_0_12)
+
+#### Additional Resources
+
 - [Dynamic Blocks](https://docs.mage.ai/design/blocks/dynamic-blocks)
 - [Conditional Blocks](https://docs.mage.ai/design/blocks/conditionals)
 - [Replica Blocks](https://docs.mage.ai/guides/blocks/replicate-blocks#why-is-replicating-blocks-useful)
 - [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
 - [Pipeline Variables](https://docs.mage.ai/development/variables/overview)
 
-#### Homework 
 
-Homework can be found [here](../cohorts/2024/week_2_workflow_orchestration/homework.md).
+#### Solutions and Completed Examples
 
 If you're looking for the solutions _or_ completed examples from the course, you can take a look at the `solutions` [branch](https://github.com/mage-ai/mage-zoomcamp/blob/solutions) of the course repo.
 
