@@ -11,16 +11,16 @@ Mage is an open-source, hybrid framework for transforming and integrating data. 
 
 This week, you'll learn how to use the Mage platform to author and share _magical_ data pipelines. This will all be covered in the course, but if you'd like to learn a bit more about Mage, check out our docs [here](https://docs.mage.ai/introduction/overview). 
 
-* [2.2.1 - 📯 Intro to Orchestration](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#221----intro-to-orchestration)
-* [2.2.2 - 🧙‍♂️ Intro to Mage](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#222---%EF%B8%8F-intro-to-mage)
-* [2.2.3 - 🐘 ETL: API to Postgres](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#223----etl-api-to-postgres)
-* [2.2.4 - 🤓 ETL: API to GCS](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#224----etl-api-to-gcs)
-* [2.2.5 - 🔍 ETL: GCS to BigQuery](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#225----etl-gcs-to-bigquery)
-* [2.2.6 - 👨‍💻 Parameterized Execution](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#226----parameterized-execution)
-* [2.2.7 - 🤖 Deployment (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#227----deployment-optional)
-* [2.2.8 - 🧱 Advanced Blocks (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#228----advanced-blocks-optional)
-* [2.2.9 - 🗒️ Homework](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#229---%EF%B8%8F-homework)
-* [2.2.10 - 👣 Next Steps](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#2210----next-steps)
+* [2.2.1 - 📯 Intro to Orchestration](#221----intro-to-orchestration)
+* [2.2.2 - 🧙‍♂️ Intro to Mage](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#222---%EF%B8%8F-intro-to-mage)
+* [2.2.3 - 🐘 ETL: API to Postgres](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#223----etl-api-to-postgres)
+* [2.2.4 - 🤓 ETL: API to GCS](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#224----etl-api-to-gcs)
+* [2.2.5 - 🔍 ETL: GCS to BigQuery](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#225----etl-gcs-to-bigquery)
+* [2.2.6 - 👨‍💻 Parameterized Execution](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#226----parameterized-execution)
+* [2.2.7 - 🤖 Deployment (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#227----deployment-optional)
+* [2.2.8 - 🧱 Advanced Blocks (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#228----advanced-blocks-optional)
+* [2.2.9 - 🗒️ Homework](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#229---%EF%B8%8F-homework)
+* [2.2.10 - 👣 Next Steps](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#2210----next-steps)
 
 ## 📕 Course Resources
 
@@ -124,13 +124,13 @@ Resources
 
 ### 2.2.9 - 🗒️ Homework 
 
-We've prepared a brief homework assignment to help you practice what you've learned. Give it a go and feel free to reach out to us on Slack if you have any questions! You can also find the solutions in the [solutions](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/week_2_workflow_orchestration#-solutions-and-examples) section.
+We've prepared a brief homework assignment to help you practice what you've learned. Give it a go and feel free to reach out to us on Slack if you have any questions! You can also find the solutions in the [solutions](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#-solutions-and-examples) section.
 
 Videos
 - Homework Overview
 
 Resources
-- [Homework](../cohorts/2024/week_2_workflow_orchestration/homework.md).
+- [Homework](../cohorts/2024/02-workflow-orchestration/homework.md).
 
 ### 2.2.10 - 👣 Next Steps
 
@@ -175,7 +175,7 @@ Did you take notes? You can share them here:
 * [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week2.md)
 * [Notes by Candace Williams](https://github.com/teacherc/de_zoomcamp_candace2023/blob/main/week_2/week2_notes.md)
 * [Notes from Xia He-Bleinagel](https://xiahe-bleinagel.com/2023/02/week-2-data-engineering-zoomcamp-notes-prefect/)
-* [Notes from froukje](https://github.com/froukje/de-zoomcamp/blob/main/week_2_workflow_orchestration/notes/notes_week_02.md)
+* [Notes from froukje](https://github.com/froukje/de-zoomcamp/blob/main/02-workflow-orchestration/notes/notes_week_02.md)
 * [Notes from Balaji](https://github.com/Balajirvp/DE-Zoomcamp/blob/main/Week%202/Detailed%20Week%202%20Notes.ipynb)
 
 
