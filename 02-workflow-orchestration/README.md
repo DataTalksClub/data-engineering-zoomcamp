@@ -12,15 +12,15 @@ Mage is an open-source, hybrid framework for transforming and integrating data. 
 This week, you'll learn how to use the Mage platform to author and share _magical_ data pipelines. This will all be covered in the course, but if you'd like to learn a bit more about Mage, check out our docs [here](https://docs.mage.ai/introduction/overview). 
 
 * [2.2.1 - 📯 Intro to Orchestration](#221----intro-to-orchestration)
-* [2.2.2 - 🧙‍♂️ Intro to Mage](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#222---%EF%B8%8F-intro-to-mage)
-* [2.2.3 - 🐘 ETL: API to Postgres](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#223----etl-api-to-postgres)
-* [2.2.4 - 🤓 ETL: API to GCS](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#224----etl-api-to-gcs)
-* [2.2.5 - 🔍 ETL: GCS to BigQuery](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#225----etl-gcs-to-bigquery)
-* [2.2.6 - 👨‍💻 Parameterized Execution](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#226----parameterized-execution)
-* [2.2.7 - 🤖 Deployment (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#227----deployment-optional)
-* [2.2.8 - 🧱 Advanced Blocks (Optional)](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#228----advanced-blocks-optional)
-* [2.2.9 - 🗒️ Homework](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#229---%EF%B8%8F-homework)
-* [2.2.10 - 👣 Next Steps](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#2210----next-steps)
+* [2.2.2 - 🧙‍♂️ Intro to Mage](#222---%EF%B8%8F-intro-to-mage)
+* [2.2.3 - 🐘 ETL: API to Postgres](#223----etl-api-to-postgres)
+* [2.2.4 - 🤓 ETL: API to GCS](#224----etl-api-to-gcs)
+* [2.2.5 - 🔍 ETL: GCS to BigQuery](#225----etl-gcs-to-bigquery)
+* [2.2.6 - 👨‍💻 Parameterized Execution](#226----parameterized-execution)
+* [2.2.7 - 🤖 Deployment (Optional)](#227----deployment-optional)
+* [2.2.8 - 🧱 Advanced Blocks (Optional)](#228----advanced-blocks-optional)
+* [2.2.9 - 🗒️ Homework](#229---%EF%B8%8F-homework)
+* [2.2.10 - 👣 Next Steps](#2210----next-steps)
 
 ## 📕 Course Resources
 
@@ -124,7 +124,7 @@ Resources
 
 ### 2.2.9 - 🗒️ Homework 
 
-We've prepared a brief homework assignment to help you practice what you've learned. Give it a go and feel free to reach out to us on Slack if you have any questions! You can also find the solutions in the [solutions](https://github.com/mattppal/data-engineering-zoomcamp/tree/matt/mage/02-workflow-orchestration#-solutions-and-examples) section.
+We've prepared a brief homework assignment to help you practice what you've learned. Give it a go and feel free to reach out to us on Slack if you have any questions! You can also find the solutions in the [solutions](#-solutions-and-examples) section.
 
 Videos
 - Homework Overview
