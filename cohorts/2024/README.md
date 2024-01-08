@@ -8,41 +8,42 @@
 * Course Playlist: Only 2024 Live videos & homeworks (TODO)
 
 
-[**Module 1: Introduction & Prerequisites**](01_docker_sql/)
+[**Module 1: Introduction & Prerequisites**](01-docker-terraform/)
 
-* [Homework SQL](01_docker_sql/homework.md)
-* [Homework Terraform](01_terraform/homework.md)
+* [Homework](01-docker-terraform/homework.md)
 
-[**Module 2: Workflow Orchestration**](02_workflow_orchestration)
 
-* [Homework](02_workflow_orchestration/homework.md)
+[**Module 2: Workflow Orchestration**](02-workflow-orchestration)
+
+* [Homework](02-workflow-orchestration/homework.md)
 * Office hours
 
-[**Workshop: Data Loading**]
+[**Workshop 1: Data Ingestion**](workshops/dlt.md)
 
-Workshop with dlt (TBA)
-
-
-[**Module 3: Data Warehouse**](03_data_warehouse)
-
-* [Homework](03_data_warehouse/homework.md)
+* Workshop with dlt
+* [Homework](workshops/dlt.md)
 
 
-[**Module 4: Analytics Engineering**](04_analytics_engineering/)
+[**Module 3: Data Warehouse**](03-data-warehouse)
 
-* [Homework](04_analytics_engineering/homework.md)
-
-
-[**Module 5: Batch processing**](05_batch_processing/)
-
-* [Homework](05_batch_processing/homework.md)
+* [Homework](03-data-warehouse/homework.md)
 
 
-[**Module 6: Stream Processing**](06_stream_processing)
+[**Module 4: Analytics Engineering**](04-analytics-engineering/)
 
-* [Homework](06_stream_processing/homework.md)
+* [Homework](04-analytics-engineering/homework.md)
 
 
-[**Module 7, 8 & 9: Project**](project.md)
+[**Module 5: Batch processing**](05-batch/)
+
+* [Homework](05-batch/homework.md)
+
+
+[**Module 6: Stream Processing**](06-streaming)
+
+* [Homework](06-streaming/homework.md)
+
+
+[**Project**](project.md)
 
 More information [here](project.md)
