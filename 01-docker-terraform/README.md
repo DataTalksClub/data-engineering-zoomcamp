@@ -51,7 +51,7 @@ if you have troubles setting up the environment and following along with the vid
 * Note: The UI for PgAdmin 4 has changed, please follow the below steps for creating a server: -
   * After login to PgAdmin, right click Servers in the left sidebar.
   * Click on Register.
-  * Click on Server
+  * Click on Server.
   * The remaining steps to create a server are the same as in the videos.
 
 
