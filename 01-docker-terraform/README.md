@@ -48,6 +48,11 @@ if you have troubles setting up the environment and following along with the vid
   * Communicating between containers in the network
   * `.dockerignore` file
 * Optional: If you are willing to do the steps from "Ingesting NY Taxi Data to Postgres" till "Running Postgres and pgAdmin with Docker-Compose" with Windows Subsystem Linux please check [Docker Module Walk-Through on WSL](https://www.youtube.com/watch?v=Mv4zFm2AwzQ)
+* Note: The UI for PgAdmin 4 has changed, please follow the below steps for creating a server: -
+  * After login to PgAdmin, right click Servers in the left sidebar.
+  * Click on Register.
+  * Click on Server
+  * The remaining steps to create a server are the same as in the videos.
 
 
 ### GCP + Terraform
