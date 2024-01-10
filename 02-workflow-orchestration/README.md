@@ -59,7 +59,7 @@ Resources
 - [Taxi Dataset](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
 - [Sample loading block](https://github.com/mage-ai/mage-zoomcamp/blob/solutions/magic-zoomcamp/data_loaders/load_nyc_taxi_data.py)
 
-### 2.2.4 - 🤓 ETL: API to GCS
+### 2.2.4 - 🤓 ETL: API to GCS & GCS to BigQuery
 
 Ok, so we've written data _locally_ to a database, but what about the cloud? In this tutorial, we'll walk through the process of using Mage to extract, transform, and load data from an API to Google Cloud Storage (GCS). 
 
@@ -81,10 +81,11 @@ Videos
 
 ### 2.2.6 - 👨‍💻 Parameterized Execution
 
-By now you're familiar with building pipelines, but what about adding parameters? In this video, we'll discuss some built-in runtime variables that exist in Mage and show you how to define your own! We'll also cover how to use these variables to parameterize your pipelines. 
+By now you're familiar with building pipelines, but what about adding parameters? In this video, we'll discuss some built-in runtime variables that exist in Mage and show you how to define your own! We'll also cover how to use these variables to parameterize your pipelines. Finally, we'll talk about what it means to *backfill* a pipeline and how to do it in Mage.
 
 Videos
 - Parameterized Execution
+- Backfills
 
 Resources
 - [Mage Variables Overview](https://docs.mage.ai/development/variables/overview)
@@ -108,21 +109,7 @@ Additional Mage Guides
 - [Terraform](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 - [Deploying to GCP with Terraform](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
 
-### 2.2.8 - 🧱 Advanced Blocks (Optional)
-
-Our final learning section is also optional— on using advanced block methods. We'll cover dynamic blocks, conditional blocks, replica blocks, and callback blocks. These are all advanced topics, but they're also very powerful and can help take your pipelines to the next level. 
-
-Videos
-- Advanced Blocks
-
-Resources
-- [Dynamic Blocks](https://docs.mage.ai/design/blocks/dynamic-blocks)
-- [Conditional Blocks](https://docs.mage.ai/design/blocks/conditionals)
-- [Replica Blocks](https://docs.mage.ai/guides/blocks/replicate-blocks#why-is-replicating-blocks-useful)
-- [Callback Blocks](https://docs.mage.ai/design/blocks/callbacks)
-
-
-### 2.2.9 - 🗒️ Homework 
+### 2.2.8 - 🗒️ Homework 
 
 We've prepared a brief homework assignment to help you practice what you've learned. Give it a go and feel free to reach out to us on Slack if you have any questions! You can also find the solutions in the [solutions](#-solutions-and-examples) section.
 
@@ -132,7 +119,7 @@ Videos
 Resources
 - [Homework](../cohorts/2024/02-workflow-orchestration/homework.md).
 
-### 2.2.10 - 👣 Next Steps
+### 2.2.9 - 👣 Next Steps
 
 Congratulations! You've completed Week 2 of the Data Engineering Zoomcamp. We hope you've enjoyed learning about Mage and that you're excited to use it in your final project. If you have any questions, feel free to reach out to us on Slack. Be sure to check out our "Next Steps" video for some inspiration for the rest of your journey 😄.
 
