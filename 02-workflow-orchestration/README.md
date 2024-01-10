@@ -130,7 +130,7 @@ Videos
 - Homework Overview
 
 Resources
-- [Homework](../cohorts/2024/02-workflow-orchestration
+- [Homework](../cohorts/2024/02-workflow-orchestration/2024/02-workflow-orchestration
 /homework.md).
 
 ### 2.2.10 - 👣 Next Steps
