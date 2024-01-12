@@ -4,6 +4,8 @@ For the homework, we'll be working with the _green_ taxi dataset located here:
 
 `https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green`
 
+You can find the Homework overview video [here](https://youtu.be/_Fey4fTTZ5g).
+
 ### Assignment
 
 The following are steps to constructing an ETL pipeline using Mage that were covered in the course. 
