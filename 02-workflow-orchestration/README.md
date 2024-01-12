@@ -29,7 +29,7 @@ This week, you'll learn how to use the Mage platform to author and share _magica
 In this section, we'll cover the basics of workflow orchestration. We'll discuss what it is, why it's important, and how it can be used to build data pipelines.
 
 Videos
-- What is Orchestration?
+- [What is Orchestration?](https://youtu.be/Li8-MWHhTbo)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/17zSxG5Z-tidmgY-9l7Al1cPmz4Slh4VPK6o2sryFYvw/)
@@ -39,9 +39,9 @@ Resources
 In this section, we'll introduce the Mage platform. We'll cover what makes Mage different from other orchestrators, the fundamental concepts behind Mage, and how to get started. To cap it off, we'll spin Mage up via Docker 🐳 and run a simple pipeline.
 
 Videos
-- What is Mage?
-- Configuring Mage
-- A Simple Pipeline
+- 2.2.2a - [What is Mage?](https://youtu.be/AicKRcK3pa4)
+- 2.2.2b - [Configuring Mage](https://youtu.be/2SV-av3L3-k)
+- 2.2.2c - [A Simple Pipeline](https://youtu.be/stI-gg4QBnI)
 
 Resources
 - [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp)
@@ -52,8 +52,8 @@ Resources
 Hooray! Mage is up and running. Now, let's build a _real_ pipeline. In this section, we'll build a simple ETL pipeline that loads data from an API into a Postgres database. Our database will be built using Docker— it will be running locally, but it's the same as if it were running in the cloud.
 
 Videos
-- Configuring Postgres
-- Writing an ETL Pipeline
+- 2.2.3a - [Configuring Postgres](https://youtu.be/pmhI-ezd3BE)
+- 2.2.3b - [Writing an ETL Pipeline](https://youtu.be/Maidfe7oKLs)
 
 Resources
 - [Taxi Dataset](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
@@ -66,8 +66,8 @@ Ok, so we've written data _locally_ to a database, but what about the cloud? In 
 We'll cover both writing _partitioned_ and _unpartitioned_ data to GCS and discuss _why_ you might want to do one over the other. Many data teams start with extracting data from a source and writing it to a data lake _before_ loading it to a structured data source, like a database.
 
 Videos
-- Configuring GCP
-- Writing an ETL Pipeline
+- 2.2.4a - [Configuring GCP](https://youtu.be/00LP360iYvE)
+- 2.2.4b - [Writing an ETL Pipeline](https://youtu.be/w0XmcASRUnc)
 
 Resources
 - [DTC Zoomcamp GCP Setup](../week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
@@ -77,15 +77,15 @@ Resources
 Now that we've written data to GCS, let's load it into BigQuery. In this section, we'll walk through the process of using Mage to load our data from GCS to BigQuery. This closely mirrors a very common data engineering workflow: loading data from a data lake into a data warehouse.
 
 Videos
-- Writing an ETL Pipeline
+- 2.2.5a - [Writing an ETL Pipeline](https://youtu.be/JKp_uzM-XsM)
 
 ### 2.2.6 - 👨‍💻 Parameterized Execution
 
 By now you're familiar with building pipelines, but what about adding parameters? In this video, we'll discuss some built-in runtime variables that exist in Mage and show you how to define your own! We'll also cover how to use these variables to parameterize your pipelines. Finally, we'll talk about what it means to *backfill* a pipeline and how to do it in Mage.
 
 Videos
-- Parameterized Execution
-- Backfills
+- 2.2.6a - [Parameterized Execution](https://youtu.be/H0hWjWxB-rg)
+- 2.2.6b - [Backfills](https://youtu.be/ZoeC6Ag5gQc)
 
 Resources
 - [Mage Variables Overview](https://docs.mage.ai/development/variables/overview)
@@ -96,9 +96,9 @@ Resources
 In this section, we'll cover deploying Mage using Terraform and Google Cloud. This section is optional— it's not *necessary* to learn Mage, but it might be helpful if you're interested in creating a fully deployed project. If you're using Mage in your final project, you'll need to deploy it to the cloud.
 
 Videos
-- Deployment Prerequisites
-- Google Cloud Permissions
-- Deploying to Google Cloud
+- 2.2.7a - [Deployment Prerequisites](https://youtu.be/zAwAX5sxqsg)
+- 2.2.7b - [Google Cloud Permissions](https://youtu.be/O_H7DCmq2rA)
+- 2.2.7c - [Deploying to Google Cloud](https://youtu.be/9A872B5hb_0)
 
 Resources
 - [Installing Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -114,7 +114,7 @@ Additional Mage Guides
 We've prepared a brief homework assignment to help you practice what you've learned. Give it a go and feel free to reach out to us on Slack if you have any questions! You can also find the solutions in the [solutions](#-solutions-and-examples) section.
 
 Videos
-- Homework Overview
+- 2.2.8a - [Homework Overview](https://youtu.be/_Fey4fTTZ5g)
 
 Resources
 - [Homework](../cohorts/2024/02-workflow-orchestration/homework.md).
@@ -124,7 +124,7 @@ Resources
 Congratulations! You've completed Week 2 of the Data Engineering Zoomcamp. We hope you've enjoyed learning about Mage and that you're excited to use it in your final project. If you have any questions, feel free to reach out to us on Slack. Be sure to check out our "Next Steps" video for some inspiration for the rest of your journey 😄.
 
 Videos
-- Next Steps
+- 2.2.9a - [Next Steps](https://youtu.be/uUtj7N0TleQ)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/1yN-e22VNwezmPfKrZkgXQVrX5owDb285I2HxHWgmAEQ/edit#slide=id.g262fb0d2905_0_12)
