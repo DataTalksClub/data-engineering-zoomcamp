@@ -6,9 +6,7 @@ For the homework, we'll be working with the _green_ taxi dataset located here:
 
 ### Assignment
 
-The goal will be to construct an ETL pipeline that loads the data, performs some transformations, and writes the data to a database.
-
-The following are steps to constructing an ETL pipeline using Mage that were covered in the course. 
+The goal will be to construct an ETL pipeline that loads the data, performs some transformations, and writes the data to a database (and Google Cloud!).
 
 - Create a new pipeline, call it `green_taxi_etl`
 - Add a data loader block and use Pandas to read data for the final quarter of 2020 (months `10`, `11`, `12`).
@@ -73,7 +71,6 @@ How many columns need to be renamed to snake case?
 * 2
 * 4
 
-
 ## Question 6. Data Exporting
 
 Once exported, how many partitions (folders) are present in Google Cloud?
@@ -92,4 +89,3 @@ Deadline: TBA
 ## Solution
 
 Will be added after the due date
-
