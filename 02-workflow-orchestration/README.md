@@ -29,7 +29,7 @@ This week, you'll learn how to use the Mage platform to author and share _magica
 In this section, we'll cover the basics of workflow orchestration. We'll discuss what it is, why it's important, and how it can be used to build data pipelines.
 
 Videos
-- [What is Orchestration?](https://youtu.be/Li8-MWHhTbo)
+- 2.2.1a - [What is Orchestration?](https://youtu.be/Li8-MWHhTbo)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/17zSxG5Z-tidmgY-9l7Al1cPmz4Slh4VPK6o2sryFYvw/)
@@ -98,7 +98,8 @@ In this section, we'll cover deploying Mage using Terraform and Google Cloud. Th
 Videos
 - 2.2.7a - [Deployment Prerequisites](https://youtu.be/zAwAX5sxqsg)
 - 2.2.7b - [Google Cloud Permissions](https://youtu.be/O_H7DCmq2rA)
-- 2.2.7c - [Deploying to Google Cloud](https://youtu.be/9A872B5hb_0)
+- 2.2.7c - [Deploying to Google Cloud - Part 1](https://youtu.be/9A872B5hb_0)
+- 2.2.7d - [Deploying to Google Cloud - Part 2](https://youtu.be/0YExsb2HgLI)
 
 Resources
 - [Installing Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
