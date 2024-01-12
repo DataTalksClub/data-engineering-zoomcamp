@@ -59,7 +59,8 @@ Resources
 - [Taxi Dataset](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
 - [Sample loading block](https://github.com/mage-ai/mage-zoomcamp/blob/solutions/magic-zoomcamp/data_loaders/load_nyc_taxi_data.py)
 
-### 2.2.4 - 🤓 ETL: API to GCS & GCS to BigQuery
+
+### 2.2.4 - 🤓 ETL: API to GCS
 
 Ok, so we've written data _locally_ to a database, but what about the cloud? In this tutorial, we'll walk through the process of using Mage to extract, transform, and load data from an API to Google Cloud Storage (GCS). 
 
