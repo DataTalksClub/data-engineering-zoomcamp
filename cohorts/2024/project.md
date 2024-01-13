@@ -58,7 +58,7 @@ Project feedback: TBA ("project-02" sheet)
 
 ### Evaluation criteria
 
-See [here](../../week_7_project/README.md)
+See [here](../../projects/README.md)
 
 
 ### Misc
