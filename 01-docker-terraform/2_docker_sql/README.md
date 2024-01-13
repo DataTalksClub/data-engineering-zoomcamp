@@ -114,7 +114,7 @@ $ aws s3 ls s3://nyc-tlc
 ```
 
 You can refer the `data-loading-parquet.ipynb` and `data-loading-parquet.py` for code to handle both csv and paraquet files. (The lookup zones table which is needed later in this course is a csv file)
-> Note: You will need to install the `pyarrow` library to your Dockerfile.
+> Note: You will need to install the `pyarrow` library. (add it to your Dockerfile)
 
 
 ### pgAdmin
