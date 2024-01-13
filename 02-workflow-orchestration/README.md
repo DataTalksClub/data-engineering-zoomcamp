@@ -113,7 +113,7 @@ Additional Mage Guides
 
 ### 2.2.8 - 🗒️ Homework 
 
-- [Homework](../cohorts/2024/02-workflow-orchestration/homework.md)
+We've prepared a short exercise to test you on what you've learned this week. You can find the homework [here](../cohorts/2024/02-workflow-orchestration/homework.md). This follows closely from the contents of the course and shouldn't take more than an hour or two to complete. 😄
 
 ### 2.2.9 - 👣 Next Steps
 
