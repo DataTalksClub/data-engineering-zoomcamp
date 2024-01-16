@@ -1,0 +1,13 @@
+# Micromamba environment file
+# https://marketplace.visualstudio.com/items?itemName=corker.vscode-micromamba
+
+name: dezoomcamp
+channels:
+  - conda-forge
+dependencies:
+  - python >=3.9,<3.10
+  - pandas
+  - sqlalchemy
+  - pgcli
+  - psycopg2-binary 
+  - pip
