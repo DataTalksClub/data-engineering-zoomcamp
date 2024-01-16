@@ -65,14 +65,10 @@ COPY Microsoft.PowerShell_profile.ps1 /home/${USERNAME}/.config/powershell/Micro
 
 # Deploy oh-my-posh prompt to Fish:
 COPY config.fish /home/${USERNAME}/.config/fish/config.fish
-# Copy ssh private key to container, public key is set on github.com
-COPY id_ed25519 /home/${USERNAME}/.ssh/id_ed25519
-COPY .gitconfig /home/${USERNAME}/.gitconfig
 
 # Everything runs as root during build time, so we want
 # to make sure the vscode user can edit these paths too:
 RUN chmod 777 -R /home/${USERNAME}/.config
-RUN chmod 600 /home/${USERNAME}/.ssh/id_ed25519
 
 # Override vscode's own Bash prompt with oh-my-posh:
 RUN sed -i 's/^__bash_prompt$/#&/' /home/${USERNAME}/.bashrc && \
@@ -89,10 +85,6 @@ RUN ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime
 RUN apt update && apt -y install software-properties-common gcc
 RUN git clone https://github.com/edenhill/librdkafka
 RUN cd librdkafka && ./configure && make && make install && ldconfig
-# Persist git config
-# RUN git config --global user.email "ellacharmed@gmail.com"
-# RUN git config --global user.name "ellacharmed"
-# RUN git config --global core.safedirectory "/workspaces/data-engineering-zoomcamp"
 
 # [Optional] Uncomment the next line to use go get to install anything else you need
 # RUN go get -x github.com/JanDeDobbeleer/battery

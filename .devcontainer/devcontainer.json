@@ -26,7 +26,9 @@
 	"runArgs": [
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
-		"seccomp=unconfined"
+		"seccomp=unconfined",
+		"-v",
+		"${env:HOME}/.ssh:/home/ellabelle/.ssh:ro"
 	],
 	
 
@@ -75,13 +77,13 @@
 				}
 			},
 			"terminal.integrated.defaultProfile.linux": "bash",
-			"terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+			"terminal.integrated.defaultProfile.windows": "pwsh",
 			"terminal.integrated.defaultProfile.osx": "pwsh",
 			"tasks.statusbar.default.hide": true,
 			"terminal.integrated.tabs.defaultIcon": "terminal-powershell",
-			"terminal.integrated.tabs.defaultColor": "terminal.ansiBlue"
-			// "workbench.colorTheme": "GitHub Dark Dimmed",
-			// "workbench.iconTheme": "material-icon-theme"
+			"terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
+			"workbench.colorTheme": "GitHub Dark Dimmed",
+			"workbench.iconTheme": "material-icon-theme"
 			},
 
 			// Add the IDs of extensions you want installed when the container is created.
@@ -116,4 +118,3 @@
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
   }
-  
