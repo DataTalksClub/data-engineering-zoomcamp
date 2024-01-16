@@ -162,8 +162,14 @@ Prior experience with data engineering is not required.
 - [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
+- [Matt Palmer](https://www.linkedin.com/in/matt-palmer/)
+- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
+- [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
 
+Past instructors:
 
+- [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
+- [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
 
 ## Course UI
 
