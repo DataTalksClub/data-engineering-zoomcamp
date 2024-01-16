@@ -40,7 +40,7 @@ In this section, we'll introduce the Mage platform. We'll cover what makes Mage 
 
 Videos
 - 2.2.2a - [What is Mage?](https://youtu.be/AicKRcK3pa4)
-- 2.2.2b - [Configuring Mage](https://youtu.be/2SV-av3L3-k)
+- 2.2.2b - [Configuring Mage](https://youtu.be/tNiV7Wp08XE)
 - 2.2.2c - [A Simple Pipeline](https://youtu.be/stI-gg4QBnI)
 
 Resources
