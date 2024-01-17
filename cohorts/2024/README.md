@@ -1,7 +1,7 @@
 ## Data Engineering Zoomcamp 2024 Cohort
 
-* [Data Engineering Zoomcamp 2024 - Pre-Launch Q&A Stream](https://www.youtube.com/watch?v=91b8u9GmqB4)
-* [Data Engineering Zoomcamp 2024 (Launch)](https://www.youtube.com/watch?v=AtRhA-NfS24)
+* [Pre-Launch Q&A Stream](https://www.youtube.com/watch?v=91b8u9GmqB4)
+* [Launch Stream with Course Overview](https://www.youtube.com/watch?v=AtRhA-NfS24)
 * [Deadline calendar](https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml)
 * [Course Google calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 * [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
