@@ -1,6 +1,7 @@
 ### Introduction
 
 * [Video: "Data Engineering Zoomcamp 2023"](https://www.youtube.com/watch?v=-zpVha7bw5A)
+* [Video: "Data Engineering Zoomcamp 2024"](https://www.youtube.com/watch?v=AtRhA-NfS24)
 * [Slides](https://www.slideshare.net/AlexeyGrigorev/data-engineering-zoomcamp-introduction)
 * Overview of [Architecture & Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 

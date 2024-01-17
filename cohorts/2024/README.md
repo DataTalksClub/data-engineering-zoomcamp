@@ -1,11 +1,11 @@
 ## Data Engineering Zoomcamp 2024 Cohort
 
 * [Data Engineering Zoomcamp 2024 - Pre-Launch Q&A Stream](https://www.youtube.com/watch?v=91b8u9GmqB4)
-* Launch stream with course overview (TODO)
+* [Data Engineering Zoomcamp 2024 (Launch)](https://www.youtube.com/watch?v=AtRhA-NfS24)
 * [Deadline calendar](https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml)
 * [Course Google calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 * [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
-* Course Playlist: Only 2024 Live videos & homeworks (TODO)
+* [Course Playlist: Only 2024 Live videos & homeworks](https://youtube.com/playlist?list=PL3MmuxUbc_hKihpnNQ9qtTmWYy26bPrSb&si=BYTPgbZfubh9Pmw7)
 
 
 [**Module 1: Introduction & Prerequisites**](01-docker-terraform/)
