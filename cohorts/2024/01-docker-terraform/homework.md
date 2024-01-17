@@ -130,4 +130,4 @@ Paste the output of this command into the homework submission form.
 * Form for submitting: 
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline:
+Deadline: 29 January, 23:00 CET
