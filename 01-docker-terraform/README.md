@@ -1,6 +1,6 @@
 ### Introduction
 
-* [Video](https://www.youtube.com/watch?v=-zpVha7bw5A)
+* [Video: "Data Engineering Zoomcamp 2023"](https://www.youtube.com/watch?v=-zpVha7bw5A)
 * [Slides](https://www.slideshare.net/AlexeyGrigorev/data-engineering-zoomcamp-introduction)
 * Overview of [Architecture & Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
@@ -61,15 +61,16 @@ if you have troubles setting up the environment and following along with the vid
 
 * Introduction to GCP (Google Cloud Platform)
   * [Video](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+  * [Companion Notes](1_terraform_gcp/2_gcp_overview.md)
 * Introduction to Terraform Concepts - Overview
   * [Video](https://youtu.be/s2bOYDCKl_M)
-  * [Companion Notes](1_terraform_gcp)
-* Terraform Basice - Simple one file Terraform Deployment
+  * [Companion Notes](1_terraform_gcp/1_terraform_overview.md)
+* Terraform Basics - Simple one file Terraform Deployment
   * [Video](https://youtu.be/Y2ux7gq3Z0o)
   * [Companion Notes](1_terraform_gcp)
 * Terraform Continued - Terraform Deployment with a Variables File
   * [Video](https://youtu.be/PBi0hHjLftk)
-  * [Companion Notes](1_terraform_gcp)    
+  * [Companion Notes](1_terraform_gcp/terraform/terraform_with_variables/)    
 * Configuring terraform and GCP SDK on Windows
   * [Instructions](1_terraform_gcp/windows.md)
 
