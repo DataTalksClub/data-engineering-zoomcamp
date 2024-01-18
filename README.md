@@ -85,7 +85,6 @@ can take the course at your own pace
 * Partitioning and clustering
 * BigQuery best practices
 * Internals of BigQuery
-* Integrating BigQuery with Airflow
 * BigQuery Machine Learning
 
 [More details](03-data-warehouse/)
