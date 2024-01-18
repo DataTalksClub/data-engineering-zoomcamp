@@ -1,12 +1,12 @@
-## Week 5: Batch Processing
+# Week 5: Batch Processing
 
-### 5.1 Introduction
+## 5.1 Introduction
 
 * :movie_camera: 5.1.1 [Introduction to Batch Processing](https://youtu.be/dcHe5Fl3MF8?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * :movie_camera: 5.1.2 [Introduction to Spark](https://youtu.be/FhaqbEOuQ8U?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
-### 5.2 Installation
+## 5.2 Installation
 
 Follow [these intructions](setup/) to install Spark:
 
@@ -19,7 +19,7 @@ And follow [this](setup/pyspark.md) to run PySpark in Jupyter
 * :movie_camera: 5.2.1 [(Optional) Installing Spark (Linux)](https://youtu.be/hqUbB9c8sKg?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
-### 5.3 Spark SQL and DataFrames
+## 5.3 Spark SQL and DataFrames
 
 * :movie_camera: 5.3.1 [First Look at Spark/PySpark](https://youtu.be/r_Sf6fCB40c?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) 
 * :movie_camera: 5.3.2 [Spark Dataframes](https://youtu.be/ti3aC1m3rE8?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
@@ -32,19 +32,19 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 * :movie_camera: 5.3.4 [SQL with Spark](https://www.youtube.com/watch?v=uAlp2VuZZPY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
-### 5.4 Spark Internals
+## 5.4 Spark Internals
 
 * :movie_camera: 5.4.1 [Anatomy of a Spark Cluster](https://youtu.be/68CipcZt7ZA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * :movie_camera: 5.4.2 [GroupBy in Spark](https://youtu.be/9qrDsY_2COo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * :movie_camera: 5.4.3 [Joins in Spark](https://youtu.be/lu7TrqAWuH4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-### 5.5 (Optional) Resilient Distributed Datasets
+## 5.5 (Optional) Resilient Distributed Datasets
 
 * :movie_camera: 5.5.1 [Operations on Spark RDDs](https://youtu.be/Bdu-xIrF3OM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * :movie_camera: 5.5.2 [Spark RDD mapPartition](https://youtu.be/k3uB2K99roI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
-### 5.6 Running Spark in the Cloud
+## 5.6 Running Spark in the Cloud
 
 * :movie_camera: 5.6.1 [Connecting to Google Cloud Storage ](https://youtu.be/Yyz293hBVcQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 * :movie_camera: 5.6.2 [Creating a Local Spark Cluster](https://youtu.be/HXBwSlXo5IA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
@@ -52,13 +52,13 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 * :movie_camera: 5.6.4 [Connecting Spark to Big Query](https://youtu.be/HIm2BOj8C0Q&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 
-### Homework
+# Homework
 
 
-* [Homework](../cohorts/2023/week_5_batch_processing/homework.md)
+* [2024 Homework](../cohorts/2024)
 
 
-## Community notes
+# Community notes
 
 Did you take notes? You can share them here.
 
