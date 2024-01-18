@@ -9,7 +9,7 @@ ARG NODE_VERSION="none"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
 # Install powershell
-ARG PS_VERSION="7.2.1"
+ARG PS_VERSION="7.4.1.0"
 # powershell-7.3.0-linux-x64.tar.gz
 # powershell-7.3.0-linux-arm64.tar.gz
 RUN ARCH="$(dpkg --print-architecture)"; \
@@ -56,6 +56,7 @@ RUN pwsh -Command Install-Module posh-git -Scope AllUsers -Force; \
 
 # add the oh-my-posh path to the PATH variable
 ENV PATH "$PATH:/home/${USERNAME}/bin"
+ENV PATH "$PATH:/home/${USERNAME}/.local/bin"
 
 # Can be used to override the devcontainer prompt default theme:
 ENV POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/clean-detailed.omp.json"
@@ -65,6 +66,8 @@ COPY Microsoft.PowerShell_profile.ps1 /home/${USERNAME}/.config/powershell/Micro
 
 # Deploy oh-my-posh prompt to Fish:
 COPY config.fish /home/${USERNAME}/.config/fish/config.fish
+# Copy git config
+COPY .gitconfig /home/${USERNAME}/.gitconfig
 
 # Everything runs as root during build time, so we want
 # to make sure the vscode user can edit these paths too:
