@@ -1,21 +1,25 @@
+#  by folder name
+**logs/
+**__pycache__/
+**/ny_taxi_postgres_data/*
+.ipynb_checkpoints/
 
+
+# by file extension
+.history
 .DS_Store
 .idea
 id_*
 *.tfstate
 *.tfstate.*
+**.env
 **.terraform
 **.terraform.lock.*
+**.gz
+**.csv
+**.pdf
+**.parquet
 **google_credentials.json
-**logs/
-**.env
-**__pycache__/
-.history
-**/ny_taxi_postgres_data/*
-serving_dir
-.ipynb_checkpoints/
-!week_6_stream_processing/avro_example/data/rides.csv
-*.gz
-*.csv
-*.pdf
-*.parquet
+
+# exclusions
+!06-streaming/avro_example/data/rides.csv
