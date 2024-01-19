@@ -41,10 +41,8 @@ def main(params):
 
     df.to_sql(name=table_name, con=engine, if_exists='append')
 
-
-    while True: 
-
-        try:
+    try:
+        while True: 
             t_start = time()
             
             df = next(df_iter)
@@ -57,10 +55,8 @@ def main(params):
             t_end = time()
 
             print('inserted another chunk, took %.3f second' % (t_end - t_start))
-
-        except StopIteration:
-            print("Finished ingesting data into the postgres database")
-            break
+    except StopIteration:
+        print("Finished ingesting data into the postgres database")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Ingest CSV data to Postgres')
