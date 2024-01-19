@@ -109,7 +109,7 @@ In this section homework we'll prepare the environment by creating resources in 
 
 In your VM on GCP/Laptop/GitHub Codespace install Terraform. 
 Copy the files from the course repo
-[here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
+[here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
 
 Modify the files as necessary to create a GCP Bucket and Big Query Dataset.
 
