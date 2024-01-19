@@ -9,11 +9,49 @@ services:
       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
       - "5432:5432"
+    networks:
+      - pg-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready --quiet --dbname=$${POSTGRES_DB} --username=$${POSTGRES_USER} || exit 1"]
+      interval: 10s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
   pgadmin:
+    depends_on:
+      pgdatabase:
+        condition: service_healthy
     image: dpage/pgadmin4
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "8080:80"
-    
+    networks:
+      - pg-network
+    healthcheck:
+      test: ["CMD", "wget", "-O", "-", "http://localhost:80/misc/ping"]
+      interval: 10s
+      timeout: 10s
+      start_period: 160s
+      retries: 3
+  ingest-data:
+    depends_on:
+      pgadmin:
+        condition: service_healthy
+    image: taxi_ingest:1.0
+    networks:
+      - pg-network
+    command:
+      - "--user=root" 
+      - "--password=root" 
+      - "--host=pgdatabase"
+      - "--port=5432"
+      - "--db=ny_taxi"
+      - "--table_name=yellow_taxi_trips"
+      - "--url=${URL}"
+
+# Incase if want to use existing custom network with configs
+networks:
+  pg-network:
+    external: true
