@@ -6,7 +6,11 @@ Sharing this as others are also trying to make postgres DB persistent so we need
 
 ![docker-extension-vs-code](https://github.com/ellacharmed/data-engineering-zoomcamp/assets/6437860/325db6e0-74ea-4090-8647-c9aa491e4238)
 
-![it-works!](https://github.com/ellacharmed/data-engineering-zoomcamp/assets/6437860/84b0d91d-7345-46ed-bdf4-382b230de63c)
+
+
+https://github.com/ellacharmed/data-engineering-zoomcamp/assets/6437860/eddb19e7-e00b-4273-b492-68b9c3389ea4
+
+
 
 ## Question: persist data in pgadmin
 
