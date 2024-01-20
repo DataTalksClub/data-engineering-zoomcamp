@@ -2,6 +2,8 @@
 
 Sharing this as others are also trying to make postgres DB persistent so we need not reingest or reinput login data once we have the `docker-compose.yaml` file in a good state.
 
+The result of this experiment is the working [docker-compose.yaml](docker-compose.yaml)
+
 [Chat link from slack](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1705755581859469)
 
 ![docker-extension-vs-code](https://github.com/ellacharmed/data-engineering-zoomcamp/assets/6437860/325db6e0-74ea-4090-8647-c9aa491e4238)
