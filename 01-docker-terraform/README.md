@@ -4,12 +4,10 @@
 * [Slides](https://www.slideshare.net/AlexeyGrigorev/data-engineering-zoomcamp-introduction)
 * Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
-
 We suggest watching videos in the same order as in this document.
 
-The last video (setting up the environment) is optional, but you can check it earlier 
+The last video (setting up the environment) is optional, but you can check it earlier
 if you have troubles setting up the environment and following along with the videos.
-
 
 ### Docker + Postgres
 
@@ -54,7 +52,6 @@ if you have troubles setting up the environment and following along with the vid
   * Click on Server.
   * The remaining steps to create a server are the same as in the videos.
 
-
 ### GCP + Terraform
 
 [Code](1_terraform_gcp)
@@ -69,12 +66,11 @@ if you have troubles setting up the environment and following along with the vid
   * [Companion Notes](1_terraform_gcp)
 * Terraform Continued - Terraform Deployment with a Variables File
   * [Video](https://youtu.be/PBi0hHjLftk)
-  * [Companion Notes](1_terraform_gcp)    
+  * [Companion Notes](1_terraform_gcp)
 * Configuring terraform and GCP SDK on Windows
   * [Instructions](1_terraform_gcp/windows.md)
 
-
-### Environment setup 
+### Environment setup
 
 For the course you'll need:
 
@@ -105,7 +101,6 @@ If you have problems setting up the env, you can check these videos
 
 * [Homework](../cohorts/2023/week_1_docker_sql/homework.md)
 * [Homework-PartB](../cohorts/2023/week_1_terraform/homework.md)
-
 
 ## Community notes
 

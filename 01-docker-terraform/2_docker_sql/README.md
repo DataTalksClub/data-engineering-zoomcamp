@@ -2,8 +2,7 @@
 
 Notes I used for preparing the videos: [link](https://docs.google.com/document/d/e/2PACX-1vRJUuGfzgIdbkalPgg2nQ884CnZkCg314T_OBq-_hfcowPxNIA0-z5OtMTDzuzute9VBHMjNYZFTCc1/pub)
 
-
-## Commands 
+## Commands
 
 All the commands from the video
 
@@ -54,7 +53,6 @@ Change the mounting path. Replace it with the following:
 
 #### Linux and MacOS
 
-
 ```bash
 docker run -it \
   -e POSTGRES_USER="root" \
@@ -70,7 +68,6 @@ the container, try these:
 
 * Deleting the folder and running Docker again (Docker will re-create the folder)
 * Adjust the permissions of the folder by running `sudo chmod a+rwx ny_taxi_postgres_data`
-
 
 ### CLI for Postgres
 
@@ -93,7 +90,6 @@ Using `pgcli` to connect to Postgres
 pgcli -h localhost -p 5432 -u root -d ny_taxi
 ```
 
-
 ### NY Trips Dataset
 
 Dataset:
@@ -106,6 +102,7 @@ Dataset:
 > The website has provided a useful [link](https://www1.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf) with sample steps to read ```.parquet``` file and convert it to Pandas data frame.
 >
 > You can use the csv backup located here, https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz, to follow along with the video.
+
 ```
 $ aws s3 ls s3://nyc-tlc
                            PRE csv_backup/
@@ -159,7 +156,6 @@ docker run -it \
   dpage/pgadmin4
 ```
 
-
 ### Data ingestion
 
 Running locally
@@ -195,9 +191,7 @@ You can solve it with `.dockerignore`:
 * Move `ny_taxi_postgres_data` to `data` (you might need to use `sudo` for that)
 * Map `-v $(pwd)/data/ny_taxi_postgres_data:/var/lib/postgresql/data`
 * Create a file `.dockerignore` and add `data` there
-* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details 
-
-
+* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details
 
 Run the script with Docker
 
@@ -216,7 +210,23 @@ docker run -it \
     --url=${URL}
 ```
 
-### Docker-Compose 
+Run in Mac
+```
+URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+
+docker run -it \
+  --network=pg-network \
+  taxi_ingest:v001 \
+    --user=root \
+    --password=root \
+    --host=$( ipconfig getifaddr en0 ) \
+    --port=5432 \
+    --db=ny_taxi \
+    --table_name=yellow_taxi_trips \
+    --url=${URL}
+```
+
+### Docker-Compose
 
 Run it:
 
@@ -253,7 +263,6 @@ services:
     ...
 ```
 
-
-### SQL 
+### SQL
 
 Coming soon!
