@@ -170,5 +170,5 @@ Did you take notes? You can share them here
 * [Setting up the development environment on Google Virtual Machine](https://itsadityagupta.hashnode.dev/setting-up-the-development-environment-on-google-virtual-machine), blog post by Aditya Gupta
 * [Notes from Zharko Cekovski](https://www.zharconsulting.com/contents/data/data-engineering-bootcamp-2024/week-1-postgres-docker-and-ingestion-scripts/)
 * [2024 Module Walkthough video by ellacharmed on youtube](https://youtu.be/VUZshlVAnk4)
-* [2024 Companion Module Walkthough slides by ellacharmed](https://github.com/ellacharmed/data-engineering-zoomcamp/blob/ella2024/cohorts/2024/01-docker-terraform/walkthrough-01.pdf)
+* [2024 Companion Module Walkthough slides by ellacharmed]()
 * Add your notes here

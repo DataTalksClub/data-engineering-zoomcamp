@@ -23,3 +23,4 @@ id_*
 
 # exclusions
 !06-streaming/avro_example/data/rides.csv
+!**/walkthrough*.pdf
