@@ -10,6 +10,7 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
 * Before asking a question review the [Slack Guidlines](#Ask-in-Slack).
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
+* Zed Shaw (of the Learn the Hard Way series) has [a great post on how to help others help you](https://learncodethehardway.com/blog/03-how-to-ask-for-help/).
   
 ### How to troubleshoot issues
 The first step is to try to solve the issue on you own; get use to solving problems. This will be a real life skill you need when employeed. 
