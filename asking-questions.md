@@ -10,9 +10,11 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
 * Before asking a question review the [Slack Guidlines](#Ask-in-Slack).
 * If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
   It'll help other students.
-* Zed Shaw (of the Learn the Hard Way series) has [a great post on how to help others help you](https://learncodethehardway.com/blog/03-how-to-ask-for-help/).
+* Zed Shaw (of the Learn the Hard Way series) has [a great post on how to help others help you](https://learncodethehardway.com/blog/03-how-to-ask-for-help/)
+* Check [Stackoverflow guide on asking](https://stackoverflow.com/help/how-to-ask)
   
 ### How to troubleshoot issues
+
 The first step is to try to solve the issue on you own; get use to solving problems. This will be a real life skill you need when employeed. 
 
 1. What does the error say? There will often be a description of the error or instructions on what is needed, I have even seen a link to the solution. Does it reference a specific line of your code?
@@ -22,21 +24,21 @@ The first step is to try to solve the issue on you own; get use to solving probl
 4. Check the tech’s documentation. Use its search if available or use the browsers search function. 
 5. Try uninstall (this may remove the bad actor) and reinstall of application or reimplementation of action. Don’t forget to restart the server/pc for reinstalls.
     * Sometimes reinstalling fails to resolve the issue but works if you uninstall first.
-6. Post your question to Stackoverflow. Be sure to read the Stackoverflow guide on posting good questions.
-    * [Stackoverflow How To Ask Guide](https://stackoverflow.com/help/how-to-ask).
-    * This will be your real life ask an expert in the future (in addition to coworkers). 
-7. ##### Ask in Slack
-    * Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
-    * DO NOT use screenshots, especially don’t take pictures from a phone.
-    * DO NOT tag instructors, it may discourage others from helping you.
-    * Copy and past errors; if it’s long, just post it in a reply to your thread. 
-    * Use ``` for formatting your code.
-    * Use the same thread for the conversation (that means reply to your own thread). 
-        * DO NOT create multiple posts to discus the issue.
-        * You may create a new post if the issue reemerges down the road. Be sure to describe what has changed in the environment.
-    * Provide addition information in the same thread of the steps you have taken for resolution.
-8. Take a break and come back to it later. You will be amazed at how often you figure out the solution after letting your brain rest. Get some fresh air, workout, play a video game, watch a tv show, whatever allows your brain to not think about it for a little while or even until the next day. 
-9. Remember technology issues in real life sometimes take days or even weeks to resolve.
+6. Ask in Slack
+7. Take a break and come back to it later. You will be amazed at how often you figure out the solution after letting your brain rest. Get some fresh air, workout, play a video game, watch a tv show, whatever allows your brain to not think about it for a little while or even until the next day. 
+8. Remember technology issues in real life sometimes take days or even weeks to resolve
 
+### Asking in Slack
+
+* Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
+* DO NOT use screenshots, especially don’t take pictures from a phone.
+* DO NOT tag instructors, it may discourage others from helping you.
+* Copy and past errors; if it’s long, just post it in a reply to your thread. 
+* Use ``` for formatting your code.
+* Use the same thread for the conversation (that means reply to your own thread). 
+* DO NOT create multiple posts to discus the issue.
+* You may create a new post if the issue reemerges down the road. Be sure to describe what has changed in the environment.
+* Provide addition information in the same thread of the steps you have taken for resolution.
+  
 
 
