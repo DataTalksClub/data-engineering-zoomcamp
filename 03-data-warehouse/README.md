@@ -1,51 +1,54 @@
-## Data Warehouse and BigQuery
+# Data Warehouse and BigQuery
 
 - [Slides](https://docs.google.com/presentation/d/1a3ZoBAXFk8-EhUsd7rAZd-5p_HpltkzSeujjRGB2TAI/edit?usp=sharing)  
 - [Big Query basic SQL](big_query.sql)
 
+# Videos
 
-### Data Warehouse
+## Data Warehouse
 
-- [Data Warehouse and BigQuery](https://youtu.be/jrHljAoD6nM)
+- [Data Warehouse and BigQuery](https://www.youtube.com/watch?v=jrHljAoD6nM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-### Partitoning and clustering
+## :movie_camera: Partitoning and clustering
 
-- [Partioning and Clustering](https://youtu.be/jrHljAoD6nM?t=726)  
-- [Partioning vs Clustering](https://youtu.be/-CqXf7vhhDs)  
+- [Partioning and Clustering](https://www.youtube.com/watch?v=jrHljAoD6nM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)  
+- [Partioning vs Clustering](https://www.youtube.com/watch?v=-CqXf7vhhDs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-### Best practices
+## :movie_camera: Best practices
 
-- [BigQuery Best Practices](https://youtu.be/k81mLJVX08w)  
+- [BigQuery Best Practices](https://www.youtube.com/watch?v=k81mLJVX08w&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-### Internals of BigQuery
+## :movie_camera: Internals of BigQuery
 
-- [Internals of Big Query](https://youtu.be/eduHi1inM4s)  
+- [Internals of Big Query](https://www.youtube.com/watch?v=eduHi1inM4s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
-### Advanced
+## Advanced topics
 
-#### ML
-[BigQuery Machine Learning](https://youtu.be/B-WtpB0PuG4)  
-[SQL for ML in BigQuery](big_query_ml.sql)
+### :movie_camera: Machine Learning in Big Query
+
+* [BigQuery Machine Learning](https://www.youtube.com/watch?v=B-WtpB0PuG4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+* [SQL for ML in BigQuery](big_query_ml.sql)
 
 **Important links**
+
 - [BigQuery ML Tutorials](https://cloud.google.com/bigquery-ml/docs/tutorials)
 - [BigQuery ML Reference Parameter](https://cloud.google.com/bigquery-ml/docs/analytics-reference-patterns)
 - [Hyper Parameter tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create-glm)
 - [Feature preprocessing](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-preprocess-overview)
 
-##### Deploying ML model
+### :movie_camera: Deploying ML model
 
-- [BigQuery Machine Learning Deployment](https://youtu.be/BjARzEWaznU)  
+- [BigQuery Machine Learning Deployment](https://www.youtube.com/watch?v=BjARzEWaznU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 - [Steps to extract and deploy model with docker](extract_model.md)  
 
 
 
-### Homework
+# Homework
 
-* [Homework](../cohorts/2023/week_3_data_warehouse/homework.md)
+* [2024 Homework](../cohorts/2024/03-data-warehouse/homework.md)
 
 
-## Community notes
+# Community notes
 
 Did you take notes? You can share them here.
 
