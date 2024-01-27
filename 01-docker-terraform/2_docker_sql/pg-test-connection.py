@@ -33,8 +33,9 @@ WHERE schemaname != 'pg_catalog' AND
 pd.read_sql(query, con=engine)
 
 # %%
-df = pd.read_parquet("green_tripdata_2019-09.parquet")
-zones = pd.read_csv("zone_lookup.csv")
+df = pd.read_parquet("data/green_tripdata_2019-09.parquet")
+zones = pd.read_csv("data/zone_lookup.csv")
+df.columns = [col.lower() for col in df.columns]
 zones.columns = [col.lower() for col in zones.columns]
 
 # %%
@@ -46,7 +47,8 @@ df.lpep_dropoff_datetime = pd.to_datetime(df.lpep_dropoff_datetime)
 pd.io.sql.get_schema(df, name="green_taxi_data")
 
 # %%
-zones.to_sql(name="zones_lookup", con=engine, index=False)
+df.to_sql(name="green_taxi_trips_sept_2019", con=engine, index=False)
+zones.to_sql(name="zones", con=engine, index=False)
 
 # %%
 
