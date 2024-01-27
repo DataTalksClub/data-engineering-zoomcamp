@@ -29,7 +29,8 @@ Syllabus
 
 * **Start**: 15 January 2024 (Monday) at 17:00 CET
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Cohort folder](cohorts/2024/) with homeworks and deadlines 
+* [Cohort folder](cohorts/2024/) with homeworks and deadlines
+* [Launch stream with course overview](https://www.youtube.com/live/AtRhA-NfS24?si=5JzA_E8BmJjiLi8l)
 
 
 ### Self-paced mode
