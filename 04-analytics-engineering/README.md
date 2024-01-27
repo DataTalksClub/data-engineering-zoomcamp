@@ -1,10 +1,7 @@
 # Week 4: Analytics Engineering 
-Goal: Transforming the data loaded in DWH to Analytical Views developing a [dbt project](taxi_rides_ny/README.md).
+Goal: Transforming the data loaded in DWH into Analytical Views developing a [dbt project](taxi_rides_ny/README.md).
 
-# Prerequisites
-
-We will build a project using dbt and a running data warehouse. 
-
+### Prerequisites
 By this stage of the course you should have already: 
 
 - A running warehouse (BigQuery or postgres) 
@@ -18,10 +15,10 @@ Note:
 * A quick hack has been shared to load that data quicker, check instructions in [week3/extras](../03-data-warehouse/extras)
 * If you recieve an error stating "Permission denied while globbing file pattern." when attemting to run fact_trips.sql this [Video](https://www.youtube.com/watch?v=kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) may be helpful in resolving the issue
 
+## Setting up your environment 
+  
 
-# Setting up your environment 
-
-## Setting up dbt for using BigQuery (Alternative A - preferred)
+### Setting up dbt for using BigQuery (Alternative A - preferred)
 
 1. Open a free developer dbt cloud account following[this link](https://www.getdbt.com/signup/)
 2. [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)). More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)
@@ -34,10 +31,11 @@ As an alternative to the cloud, that require to have a cloud database, you will 
 You can follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/dbt-cli/installation)) or use a docker image from oficial [dbt repo](https://github.com/dbt-labs/dbt/). You will need to install the latest version with the postgres adapter (dbt-postgres).
 After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/docs/core/connect-data-platform/postgres-setup)
 
+</details>
 
-# Content
+## Content
 
-## :movie_camera: Introduction to analytics engineering
+### Introduction to analytics engineering
 
 * What is analytics engineering?
 * ETL vs ELT 
@@ -45,7 +43,7 @@ After local installation you will have to set up the connection to PG in the `pr
 
  :movie_camera: [Video](https://www.youtube.com/watch?v=uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=32)
 
-## :movie_camera: What is dbt? 
+### What is dbt? 
 
 * Intro to dbt 
 
@@ -53,14 +51,14 @@ After local installation you will have to set up the connection to PG in the `pr
 
 ## Starting a dbt project
 
-### :movie_camera: Alternative A: Using BigQuery + dbt cloud
+### Alternative A: Using BigQuery + dbt cloud
 * Starting a new project with dbt init (dbt cloud and core)
 * dbt cloud setup
 * project.yml
 
  :movie_camera: [Video](https://www.youtube.com/watch?v=iMxh6s_wL4Q&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
  
-### :movie_camera: Alternative B: Using Postgres + dbt core (locally)
+### Alternative B: Using Postgres + dbt core (locally)
 * Starting a new project with dbt init (dbt cloud and core)
 * dbt core local setup
 * profiles.yml
@@ -68,7 +66,7 @@ After local installation you will have to set up the connection to PG in the `pr
 
 :movie_camera: [Video](https://www.youtube.com/watch?v=1HmL63e-vRs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
 
-## :movie_camera: dbt models
+### dbt models
 
 * Anatomy of a dbt model: written code vs compiled Sources
 * Materialisations: table, view, incremental, ephemeral  
@@ -81,7 +79,7 @@ After local installation you will have to set up the connection to PG in the `pr
 
 _Note: This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice_
 
-## :movie_camera: Testing and documenting dbt models
+### Testing and documenting dbt models
 * Tests  
 * Documentation 
 
@@ -91,24 +89,20 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
 
 ## Deployment
 
-### :movie_camera: Alternative A: Using BigQuery + dbt cloud
+### Alternative A: Using BigQuery + dbt cloud
 * Deployment: development environment vs production 
 * dbt cloud: scheduler, sources and hosted documentation
 
 :movie_camera: [Video](https://www.youtube.com/watch?v=rjf6yZNGX8I&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=38)
 
-### :movie_camera: Alternative B: Using Postgres + dbt core (locally)
+### Alternative B: Using Postgres + dbt core (locally)
 * Deployment: development environment vs production 
 * dbt cloud: scheduler, sources and hosted documentation
 
 :movie_camera: [Video](https://www.youtube.com/watch?v=Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=39)
 
-## :movie_camera: Visualising the transformed data
-* Google data studio 
-* [Metabase (local installation)](https://www.metabase.com/)
-
+## Visualising the transformed data
 :movie_camera: [Google data studio Video](https://www.youtube.com/watch?v=39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=42) 
- 
 :movie_camera: [Metabase Video](https://www.youtube.com/watch?v=BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) 
 
  
@@ -123,7 +117,7 @@ _Note: This video is shown entirely on dbt cloud IDE but the same steps can be f
  * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
 
 
-# Community notes
+## Community notes
 
 Did you take notes? You can share them here.
 
