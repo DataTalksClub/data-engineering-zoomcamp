@@ -5,9 +5,9 @@
 *.tfstate.*
 **.terraform
 **.terraform.lock.*
-**google_credentials.json
+google_credentials.json
 **logs/
-**.env
+.venv
 **__pycache__/
 .history
 **/ny_taxi_postgres_data/*

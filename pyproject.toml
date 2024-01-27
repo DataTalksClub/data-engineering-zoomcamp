@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "data-engineering-zoomcamp"
+version = "0.1.0"
+description = ""
+authors = ["Marc Soler <msolerjosa@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~3.9"
+pandas = "^2.2.0"
+pgcli = "^4.0.1"
+psycopg2-binary = "^2.9.9"
+sqlalchemy = "^2.0.25"
+ipykernel = "^6.29.0"
+pyarrow = "^15.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

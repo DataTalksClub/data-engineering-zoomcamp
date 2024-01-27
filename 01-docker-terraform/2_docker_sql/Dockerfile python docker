@@ -1,0 +1,10 @@
+FROM python:3.9.1
+
+RUN apt-get install wget
+RUN pip install pandas sqlalchemy psycopg2
+
+WORKDIR /app
+COPY simple_pipeline_test.py simple_pipeline_test.py 
+
+# ENTRYPOINT ["bash"]
+ENTRYPOINT [ "python", "simple_pipeline_test.py" ]
