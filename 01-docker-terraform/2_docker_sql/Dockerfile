@@ -1,9 +1,15 @@
-FROM python:3.9.1
+# Use the official PostgreSQL image as the base
+FROM python:alpine
 
-RUN apt-get install wget
-RUN pip install pandas sqlalchemy psycopg2
+RUN pip install pgcli
 
-WORKDIR /app
-COPY ingest_data.py ingest_data.py 
+# Set the environment variables for PostgreSQL
+ENV POSTGRES_USER=root \
+    POSTGRES_PASSWORD=root \
+    POSTGRES_DB=ny_taxi
 
-ENTRYPOINT [ "python", "ingest_data.py" ]
+# Expose the PostgreSQL port
+EXPOSE 5432
+
+# Start PostgreSQL when the container starts
+CMD ["postgres:13"]
