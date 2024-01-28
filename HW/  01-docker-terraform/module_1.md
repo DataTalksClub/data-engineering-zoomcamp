@@ -56,9 +56,9 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 - 15612
 
 ```
- select count(*) from green_taxi_trips
- where date(lpep_dropoff_datetime) = '2019-09-18'
- and date(lpep_pickup_datetime) = '2019-09-18';
+SELECT COUNT(*) FROM green_taxi_data
+WHERE DATE(lpep_pickup_datetime) = '2019-09-18'
+AND DATE(lpep_dropoff_datetime) = '2019-09-18';
 ```
 
 ## Question 4. Largest trip for each day
@@ -71,13 +71,14 @@ Use the pick up time for your calculations.
 ```
 SELECT
      DATE(lpep_pickup_datetime) AS pickup_day,
-     SUM(trip_distance) AS total_distance
+     MAX(trip_distance) AS total_distance
  FROM
-     green_taxi_trips
+     green_taxi_data
  GROUP BY
      DATE(lpep_pickup_datetime)
  ORDER BY
      total_distance DESC
+ LIMIT 1;
 ```
 ## Question 5. Three biggest pick up Boroughs
 
@@ -88,23 +89,19 @@ Which were the 3 pick up Boroughs that had a sum of total_amount superior to 500
 - "Brooklyn" "Manhattan" "Queens" 
 
 ```
-SELECT
-     ll."Borough",
-     SUM(r.total_amount) AS total_revenue
- FROM
-     green_taxi_trips r
- JOIN
-     green_taxi_zone_lookup ll ON r."PULocationID" = ll."LocationID"
- WHERE
-     DATE(r.lpep_pickup_datetime) = '2019-09-18'
-     AND ll."Borough" != 'Unknown'
- GROUP BY
-     ll."Borough"
- HAVING
-     SUM(r.total_amount) > 50000
- ORDER BY
-     total_revenue DESC
- LIMIT 3;
+SELECT 
+	zpu."Borough",
+	SUM(t.total_amount)
+FROM 
+	green_taxi_data t JOIN zones zpu 
+		ON t."PULocationID"= zpu."LocationID"
+WHERE 
+	CAST(lpep_pickup_datetime AS DATE)='2019-09-18' AND
+	zpu."Borough"!='Unknown'
+GROUP BY
+	zpu."Borough"
+HAVING
+	SUM(t.total_amount)>50000
 ```
 
 ## Question 6. Largest tip
@@ -121,7 +118,7 @@ SELECT
 	ll."Zone",
 	MAX(r.tip_amount)
 FROM 
-	green_taxi_trips t JOIN zones zpu 
+	green_taxi_data t JOIN zones zpu 
 		ON t."PULocationID"= zpu."LocationID"
 	JOIN zones ll ON t."DOLocationID"= ll."LocationID"
 WHERE 
