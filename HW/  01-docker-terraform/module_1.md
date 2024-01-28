@@ -114,28 +114,25 @@ We want the name of the zone, not the id.
 
 Note: it's not a typo, it's `tip` , not `trip`
 
-- Central Park
-- Jamaica
 - JFK Airport
-- Long Island City/Queens Plaza
 
 ```
-SELECT
-     ll_dropoff."Zone" AS dropoff_zone,
-     MAX(r.tip_amount) AS max_tip
- FROM
-     green_taxi_trips r
- JOIN
-     green_taxi_zone_lookup ll_pickup ON r."PULocationID" = ll_pickup."LocationID"
- JOIN
-     green_taxi_zone_lookup ll_dropoff ON r."DOLocationID" = ll_dropoff."LocationID"
- WHERE
-     ll_pickup."Zone" = 'Astoria'
- GROUP BY
-     ll_dropoff."Zone"
- ORDER BY
-     max_tip DESC
- LIMIT 1;
+SELECT 
+	ll."Zone",
+	MAX(r.tip_amount)
+FROM 
+	green_taxi_trips t JOIN zones zpu 
+		ON t."PULocationID"= zpu."LocationID"
+	JOIN zones ll ON t."DOLocationID"= ll."LocationID"
+WHERE 
+     DATE(r.lpep_pickup_datetime) = '2019-09-18'
+     AND ll."Borough" != 'Unknown'
+     AND zpu."Zone"='Astoria'
+GROUP BY
+	ll."Zone"
+ORDER BY 
+	MAX(r.tip_amount) DESC
+LIMIT 3;
 ```
 
 
