@@ -25,6 +25,9 @@ Which tag has the following text? - *Automatically remove the container when it 
 - `--rmc`
 - `--rm`
 
+**A:** docker run --help
+--rm                             Automatically remove the container when it exits
+
 
 ## Question 2. Understanding docker first run 
 
@@ -37,6 +40,9 @@ What is version of the package *wheel* ?
 - 1.0.0
 - 23.0.1
 - 58.1.0
+
+**A:** 
+wheel      0.42.0
 
 
 # Prepare Postgres
@@ -66,6 +72,10 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 - 15859
 - 89009
 
+**A:**
+15612
+sql: SELECT COUNT(*) FROM green_taxi_trip WHERE lpep_pickup_datetime >= '2019-09-18' AND lpep_dropoff_datetime < '2019-09-19';
+
 ## Question 4. Largest trip for each day
 
 Which was the pick up day with the largest trip distance
@@ -75,6 +85,15 @@ Use the pick up time for your calculations.
 - 2019-09-16
 - 2019-09-26
 - 2019-09-21
+
+**A:**
+2019-09-26
+
+sql: 
+```sql
+SELECT CAST(lpep_pickup_datetime AS DATE) as date, SUM(trip_distance) as trip_sum FROM green_taxi_trip GROUP BY date ORDER BY trip_sum DESC;
+```
+This will sum the trip distance by date and list the largest trip distance date at the top
 
 
 ## Question 5. Three biggest pick up Boroughs
@@ -87,6 +106,19 @@ Which were the 3 pick up Boroughs that had a sum of total_amount superior to 500
 - "Bronx" "Brooklyn" "Manhattan"
 - "Bronx" "Manhattan" "Queens" 
 - "Brooklyn" "Queens" "Staten Island"
+
+**A:**
+- "Brooklyn" "Manhattan" "Queens"
+
+sql: 
+```sql
+SELECT "Borough", SUM(total_amount) as total FROM 
+( 
+	SELECT gtt."PULocationID", tzl."Borough", gtt.total_amount FROM green_taxi_trip gtt
+	LEFT JOIN taxi_zone_lookup tzl ON gtt."PULocationID" = tzl."LocationID" WHERE gtt.lpep_pickup_datetime >= '2019-09-18' AND gtt.lpep_pickup_datetime < '2019-09-19'
+) AS tb
+GROUP BY "Borough" ORDER BY total DESC;
+```
 
 
 ## Question 6. Largest tip
@@ -101,6 +133,20 @@ Note: it's not a typo, it's `tip` , not `trip`
 - JFK Airport
 - Long Island City/Queens Plaza
 
+**A:**
+- Long Island City/Queens Plaza
+
+sql: 
+```sql
+SELECT SUM(tip_amount) AS total_tip,  d_zone FROM
+(
+	SELECT gtt.tip_amount, pz."Zone" as p_zone, gtt."DOLocationID", dz."Zone" as d_zone FROM green_taxi_trip gtt
+	LEFT JOIN taxi_zone_lookup pz ON gtt."PULocationID" = pz."LocationID" 
+	LEFT JOIN taxi_zone_lookup dz ON gtt."DOLocationID" = dz."LocationID"
+	WHERE gtt.lpep_pickup_datetime >= '2019-09-01' AND gtt.lpep_pickup_datetime < '2019-10-01' AND pz."Zone"='Astoria' AND dz."Zone" in ('Central Park','Jamaica', 'JFK Airport', 'Long Island City/Queens Plaza')
+) as tb
+GROUP BY d_zone ORDER BY total_tip DESC;
+```
 
 
 ## Terraform
@@ -123,6 +169,61 @@ terraform apply
 ```
 
 Paste the output of this command into the homework submission form.
+
+```bash
+google_bigquery_dataset.demo_dataset: Refreshing state... [id=projects/datatalk-de/datasets/demo_dataset]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_storage_bucket.demo-bucket will be created
+  + resource "google_storage_bucket" "demo-bucket" {
+      + effective_labels            = (known after apply)
+      + force_destroy               = true
+      + id                          = (known after apply)
+      + location                    = "US"
+      + name                        = "terraform-demo-terra-bucket"
+      + project                     = (known after apply)
+      + public_access_prevention    = (known after apply)
+      + self_link                   = (known after apply)
+      + storage_class               = "STANDARD"
+      + terraform_labels            = (known after apply)
+      + uniform_bucket_level_access = (known after apply)
+      + url                         = (known after apply)
+
+      + lifecycle_rule {
+          + action {
+              + type = "AbortIncompleteMultipartUpload"
+            }
+          + condition {
+              + age                   = 1
+              + matches_prefix        = []
+              + matches_storage_class = []
+              + matches_suffix        = []
+              + with_state            = (known after apply)
+            }
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+google_storage_bucket.demo-bucket: Creating...
+╷
+│ Error: googleapi: Error 409: The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again., conflict
+│ 
+│   with google_storage_bucket.demo-bucket,
+│   on main.tf line 17, in resource "google_storage_bucket" "demo-bucket":
+│   17: resource "google_storage_bucket" "demo-bucket" {
+│ 
+```
 
 
 ## Submitting the solutions
