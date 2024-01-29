@@ -138,7 +138,7 @@ Resources
 Did you take notes? You can share them here:
 
 ## 2024 notes
-
+[2024 Videos transcripts week 2](https://drive.google.com/drive/folders/1yxT0uMMYKa6YOxanh91wGqmQUMS7yYW7?usp=sharing) by Maria Fisher
 * Add your notes above this line
 
 ## 2023 notes
