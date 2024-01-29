@@ -29,6 +29,7 @@ id_*
 # exclusions
 !06-streaming/avro_example/data/rides.csv
 !**/walkthrough*.pdf
+<<<<<<< HEAD
 
 
 # Local .terraform directories
@@ -66,3 +67,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 **.terraform.lock.*
+=======
+>>>>>>> module-01
