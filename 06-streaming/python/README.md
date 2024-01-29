@@ -3,7 +3,7 @@
 In this document, you will be finding information about stream processing 
 using different Python libraries (`kafka-python`,`confluent-kafka`,`pyspark`, `faust`).
 
-This Python module can be seperated in following modules.
+This Python module can be separated in following modules.
 
 ####  1. Docker
 Docker module includes, Dockerfiles and docker-compose definitions 
