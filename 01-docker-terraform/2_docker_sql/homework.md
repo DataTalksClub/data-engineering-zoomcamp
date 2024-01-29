@@ -137,7 +137,21 @@ Note: it's not a typo, it's `tip` , not `trip`
 - JFK Airport
 - Long Island City/Queens Plaza
 
-
+``` sql
+SELECT 
+    zdo."Zone" AS dropoff_zone,
+    MAX(tip_amount) AS max_tip_amount
+FROM green_taxi_trips AS t
+JOIN zones AS zpu ON t."PULocationID" = zpu."LocationID"
+JOIN zones AS zdo ON t."DOLocationID" = zdo."LocationID"
+WHERE 
+    zpu."Zone" = 'Astoria' AND
+    DATE(lpep_pickup_datetime) BETWEEN '2019-09-01' AND '2019-09-30'
+GROUP BY dropoff_zone
+ORDER BY max_tip_amount DESC
+LIMIT 1;
+```
+***- JFK Airport***
 
 ## Terraform
 
