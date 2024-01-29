@@ -10,6 +10,8 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 
+
+
 def main(params):
     user = params.user
     password = params.password
@@ -21,52 +23,32 @@ def main(params):
     
     # the backup files are gzipped, and it's important to keep the correct extension
     # for pandas to be able to open the file
-    """
     if url.endswith('.csv.gz'):
         csv_name = 'output.csv.gz'
     else:
         csv_name = 'output.csv'
-    """
-
-    
-    
-    engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
-
-def main(params):
-    user = params.user
-    password = params.password
-    host = params.host 
-    port = params.port 
-    db = params.db
-    table_name = params.table_name
-    url = params.url
-    
-    # the backup files are gzipped, and it's important to keep the correct extension
-    # for pandas to be able to open the file
-    if url.endswith('.parquet'):
-        csv_name = 'output.parquet'
-    else:
-        csv_name = 'output.parquet'
 
     os.system(f"wget {url} -O {csv_name}")
 
-    df = pd.read_parquet(csv_name,)
+    #df = pd.read_parquet(csv_name,)
+
+    df_iter = pd.read_csv(csv_name, iterator=True, chunksize=100000)
+
+    df = next(df_iter)
 
     print("lenght df:", len(df))
 
-    df.to_csv('output.csv')
+    #df.to_csv('output.csv')
 
 
     print('read, parquet file ')
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
 
-    df_iter = pd.read_csv('output.csv', iterator=True, chunksize=100000)
-
-    df = next(df_iter)
-
-    df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-    df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+    #df_iter = pd.read_csv('output.csv', iterator=True, chunksize=100000)
+    #df = next(df_iter)
+    #df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+    #df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
 
     df.head(n=0).to_sql(name=table_name, con=engine, if_exists='replace')
 
@@ -79,8 +61,8 @@ def main(params):
             
             df = next(df_iter)
 
-            df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
-            df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
+            #df.tpep_pickup_datetime = pd.to_datetime(df.tpep_pickup_datetime)
+            #df.tpep_dropoff_datetime = pd.to_datetime(df.tpep_dropoff_datetime)
 
             df.to_sql(name=table_name, con=engine, if_exists='append')
 
