@@ -16,11 +16,10 @@ If you don't follow the course and only want to attend the workshop, sign up her
 --- 
 # Resources
 
-* Website and community: Visit our [docs](https://dlthub.com/docs/intro), discuss on our slack (Link at top of docs)
+- Website and community: Visit our [docs](https://dlthub.com/docs/intro), discuss on our slack (Link at top of docs).
+- Course colab: [https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true](https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true).
+- dlthub community slack. Join it by following the link on top of dlt docs.
 
-* Course colab: https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true
-
-* dlthub community slack: 
 ---
 
 # Teacher
@@ -55,10 +54,8 @@ In many data science teams, data magically appears - because the engineer loads 
 - Sometimes the format is weakly typed and without explicit schema, such as csv, json
     - in which case some extra normalisation or cleaning might be needed before usage
 
-<aside>
-💡 What is a schema? The schema specifies the expected format and structure of data within a document or data store, defining the allowed keys, their data types, and any constraints or relationships.
+> 💡 **What is a schema?** The schema specifies the expected format and structure of data within a document or data store, defining the allowed keys, their data types, and any constraints or relationships.
 
-</aside>
 
 ### Be the magician! 😎
 
@@ -193,10 +190,8 @@ If we wanted to get all the values at once from a generator instead of one by on
 
 ### Example 1: Grabbing data from an api
 
-<aside>
-💡 This is the bread and butter of data engineers pulling data, so follow along in the colab or in your local setup.
+> 💡 This is the bread and butter of data engineers pulling data, so follow along in the colab or in your local setup.
 
-</aside>
 
 For these purposes we created an api that can serve the data you are already familiar with, the NYC taxi dataset.
 
@@ -262,10 +257,9 @@ if __name__ == '__main__':
 
 ### Example 2: Grabbing the same data from file - simple download
 
-<aside>
-💡 This part is demonstrative, so you do not need to follow along; just pay attention.
 
-</aside>
+> 💡 This part is demonstrative, so you do not need to follow along; just pay attention.
+
 
 - Why am I showing you this? so when you do this in the future, you will remember there is a best practice you can apply for scalability.
 
@@ -303,10 +297,8 @@ if downloaded_data:
 
 ### Example 3: Same file, streaming download
 
-<aside>
-💡 This is the bread and butter of data engineers pulling data, so follow along in the colab
 
-</aside>
+> 💡 This is the bread and butter of data engineers pulling data, so follow along in the colab
 
 Ok, downloading files is simple, but what if we want to do a stream download?
 
@@ -378,10 +370,8 @@ Usually we have 2 parts:
 
 ### Practical example
 
-<aside>
-💡 This is the bread and butter of data engineers pulling data, so follow along in the colab notebook.
 
-</aside>
+> 💡 This is the bread and butter of data engineers pulling data, so follow along in the colab notebook.
 
 In the case of the NY taxi rides data, the dataset is quite clean - so let’s instead use a small example of more complex data. Let’s assume we know some information about passengers and stops.
 
@@ -389,27 +379,27 @@ For this example we modified the dataset as follows
 
 - We added nested dictionaries
     
-    ```python
-            "coordinates": {
+    ```json
+    "coordinates": {
                 "start": {
                     "lon": -73.787442,
                     "lat": 40.641525
-                },
+                    },
     ```
     
 - We added nested lists
     
-    ```python
-            "passengers": [
+    ```json
+    "passengers": [
                 {"name": "John", "rating": 4.9},
                 {"name": "Jack", "rating": 3.9}
-            ],
+                  ],
     ```
     
 - We added a record hash that gives us an unique id for the record, for easy identification
     
-    ```python
-    				"record_hash": "b00361a396177a9cb410ff61f20015ad",
+    ```json
+    "record_hash": "b00361a396177a9cb410ff61f20015ad",
     ```
     
 
@@ -423,7 +413,7 @@ We want to load this data to a database. How do we want to clean the data?
 data = [
     {
         "vendor_name": "VTS",
-				"record_hash": "b00361a396177a9cb410ff61f20015ad",
+		"record_hash": "b00361a396177a9cb410ff61f20015ad",
         "time": {
             "pickup": "2009-06-14 23:23:00",
             "dropoff": "2009-06-14 23:48:00"
@@ -448,7 +438,7 @@ data = [
             "mta_tax": None,
             "tip": 9,
             "tolls": 4.15,
-						"status": "booked"
+			"status": "booked"
         },
         "Passenger_Count": 2,
         "passengers": [
@@ -460,7 +450,6 @@ data = [
             {"lon": -73.5, "lat": 40.5}
         ]
     },
-    # Add more data entries as needed
 ]
 ```
 
@@ -505,11 +494,13 @@ Next, grab your data from above and run this snippet
 # define the connection to load to. 
 # We now use duckdb, but you can switch to Bigquery later
 pipeline = dlt.pipeline(pipeline_name="taxi_data",
-												destination='duckdb', 
-												dataset_name='taxi_rides')
+						destination='duckdb', 
+						dataset_name='taxi_rides')
 
 # run the pipeline with default settings, and capture the outcome
-info = pipeline.run(data, table_name="users", write_disposition="replace")
+info = pipeline.run(data, 
+                    table_name="users", 
+                    write_disposition="replace")
 
 # show the outcome
 print(info)
@@ -545,16 +536,15 @@ By loading incrementally, our pipelines run faster and cheaper.
 
 Here is how you can think about which method to use:
 
-![* If you want to keep track of when changes occur in stateful data (slowly changing dimension) then you will need to append the data](https://prod-files-secure.s3.us-west-2.amazonaws.com/775f89b5-30e8-42e6-a412-d1736f9fb013/d11e5036-b72f-4ea2-9522-f7e8a2d85e7d/Untitled.png)
+![Incremental Loading](./dlt_resources/incremental_loading.png)
 
 * If you want to keep track of when changes occur in stateful data (slowly changing dimension) then you will need to append the data
 
 ### Let’s do a merge example together:
 
-<aside>
-💡 This is the bread and butter of data engineers pulling data, so follow along.
 
-</aside>
+> 💡 This is the bread and butter of data engineers pulling data, so follow along.
+
 
 - In our previous example, the payment status changed from "booked" to “cancelled”. Perhaps Jack likes to fraud taxis and that explains his low rating. Besides the ride status change, he also got his rating lowered further.
 - The merge operation replaces an old record with a new one based on a key. The key could consist of multiple fields or a single unique id. We will use record hash that we created for simplicity. If you do not have a unique key, you could create one deterministically out of several fields, such as by concatenating the data and hashing it.
@@ -566,7 +556,7 @@ In this example, the score of the 2 drivers got lowered and we need to update th
 data = [
     {
         "vendor_name": "VTS",
-				"record_hash": "b00361a396177a9cb410ff61f20015ad"
+		"record_hash": "b00361a396177a9cb410ff61f20015ad",
         "time": {
             "pickup": "2009-06-14 23:23:00",
             "dropoff": "2009-06-14 23:48:00"
@@ -590,8 +580,8 @@ data = [
             "surcharge": 0,
             "mta_tax": None,
             "tip": 9,
-            "tolls": 4.15
-						"status": "cancelled"
+            "tolls": 4.15,
+			"status": "cancelled"
         },
         "Passenger_Count": 2,
         "passengers": [
