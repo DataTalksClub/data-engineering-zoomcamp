@@ -18,7 +18,7 @@ If you don't follow the course and only want to attend the workshop, sign up her
 
 - Website and community: Visit our [docs](https://dlthub.com/docs/intro), discuss on our slack (Link at top of docs).
 - Course colab: [https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true](https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true).
-- dlthub community slack. Join it by following the link on top of dlt docs.
+- dlthub [community Slack](https://dlthub.com/community).
 
 ---
 
@@ -620,7 +620,7 @@ or See the colab bonus section.
 - You can deep dive into building more complex pipelines by following the guides:
     - https://dlthub.com/docs/walkthroughs
     - https://dlthub.com/docs/build-a-pipeline-tutorial
-
+- You can join our [Slack community](https://dlthub.com/community) and engage with us there.
 ## Homework
 
 The linked colab offers a few exercises to practice what you learned today.
@@ -631,4 +631,4 @@ https://colab.research.google.com/drive/10bceCZuwPwCll7ji0vsw7GT0Ju7dxKPt#scroll
 
 However, pipelines and data does not exist in isolation; So we strongly encourage you to build a project including dlt. 
 
-We are be happy to share your submissions on our blog. Join our slack community and engage with us there if you wish to contribute.
+We are be happy to share your submissions on our blog. Join our [Slack community](https://dlthub.com/community) and engage with us there if you wish to contribute.
