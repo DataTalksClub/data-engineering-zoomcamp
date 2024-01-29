@@ -40,7 +40,6 @@ $ git clone https://github.com/DataTalksClub/data-engineering-zoomcamp.git
   - `PySpark`
   - `PyArrow`
   - `Polars`
-  - `Prefect 2.7.7` and all required Python dependencies
   - `confluent-kafka`
 * `Google Cloud SDK`
 * `dbt-core`
@@ -55,4 +54,5 @@ $ git clone https://github.com/DataTalksClub/data-engineering-zoomcamp.git
 * Popular VS Code themes (GitHub, Atom One, Material Icons etc.)
 
 ## Customization
+
 Feel free to modify the `Dockerfile`, `devcontainer.json` or `requirements.txt` file to include any other tools or packages that you need for your development environment. In the Dockerfile, you can customize the `POSH_THEME` environment variable with a theme of your choosing from [here](https://ohmyposh.dev/docs/themes)

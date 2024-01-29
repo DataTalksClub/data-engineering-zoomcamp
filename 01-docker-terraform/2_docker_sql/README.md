@@ -26,7 +26,7 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v "/mnt/c/users/ellabelle/github/data-engineering-zoomcamp/01-docker-terraform/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data" \
   -p 5432:5432 \
   postgres:13
 ```
@@ -54,13 +54,16 @@ Change the mounting path. Replace it with the following:
 
 #### Linux and MacOS
 
+[From FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit#heading=h.okhwu85s6cwk)
 
 ```bash
+docker volume create --name dtc_postgres_volume_local -d local
+
 docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v dtc_postgres_volume_local:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:13
 ```
