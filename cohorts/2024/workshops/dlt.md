@@ -630,4 +630,5 @@ You can self check your answers (solutions included at the bottom of the colab).
 https://colab.research.google.com/drive/10bceCZuwPwCll7ji0vsw7GT0Ju7dxKPt#scrollTo=wLF4iXf-NR7t&forceEdit=true&sandboxMode=true
 
 However, pipelines and data does not exist in isolation; So we strongly encourage you to build a project including dlt. 
-We are be happy to share your submissions on our blog.
+
+We are be happy to share your submissions on our blog. Join our slack community and engage with us there if you wish to contribute.
