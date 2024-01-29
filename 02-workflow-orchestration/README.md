@@ -138,7 +138,7 @@ Resources
 Did you take notes? You can share them here:
 
 ## 2024 notes
-
+[Notes from Jonah Oliver](https://www.jonahboliver.com/blog/de-zc-w2)
 * Add your notes above this line
 
 ## 2023 notes
