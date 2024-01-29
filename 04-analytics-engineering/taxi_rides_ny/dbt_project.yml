@@ -15,7 +15,7 @@ profile: 'pg-dbt-workshop'
 model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
+seed-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -40,7 +40,7 @@ models:
       core:
           materialized: table
 vars:
-  payment_type_values: [1, 2, 3, 4, 5, 6]
+  rateID_values: [ 1,2,3,4,5,6]
 
 seeds: 
     taxi_rides_ny:
