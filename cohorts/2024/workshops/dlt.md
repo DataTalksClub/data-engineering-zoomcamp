@@ -40,11 +40,11 @@ Welcome to the data talks club data engineering zoomcamp, the data ingestion wor
 
 --- 
 # Course
-You can find the course file [here](./data_ingestion_workshop.md)
+You can find the course file [here](./dlt_resources/data_ingestion_workshop.md)
 The course has 3 parts
-[Extraction Section](./data_ingestion_workshop.md#extracting-data): In this section we will learn about scalable extraction
-[Normalisation Section](./data_ingestion_workshop.md#normalisation): In this section we will learn to prepare data for loading
-[Loading Section](./data_ingestion_workshop.md#incremental-loading)): Here we will learn about incremental loading modes
+[Extraction Section](./dlt_resources/data_ingestion_workshop.md#extracting-data): In this section we will learn about scalable extraction
+[Normalisation Section](./dlt_resources/data_ingestion_workshop.md#normalisation): In this section we will learn to prepare data for loading
+[Loading Section](./dlt_resources/data_ingestion_workshop.md#incremental-loading)): Here we will learn about incremental loading modes
 
 ---
 # Homework
