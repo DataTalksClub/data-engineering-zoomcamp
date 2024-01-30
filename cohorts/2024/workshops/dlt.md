@@ -1,11 +1,11 @@
-## Data ingestion with dlt
+# Data ingestion with dlt
 
 ​In this hands-on workshop, we’ll learn how to build data ingestion pipelines.
 
 ​We’ll cover the following steps:
 
 * ​Extracting data from APIs, or files.
-* Normalizing and loading data
+* ​Normalizing and loading data
 * ​Incremental loading
 
 ​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
@@ -14,6 +14,7 @@ If you don't follow the course and only want to attend the workshop, sign up her
 
 
 --- 
+
 # Resources
 
 - Website and community: Visit our [docs](https://dlthub.com/docs/intro), discuss on our slack (Link at top of docs).
@@ -39,6 +40,7 @@ Welcome to the data talks club data engineering zoomcamp, the data ingestion wor
         - and generally develop pipelines like a senior, commercial data engineer.
 
 --- 
+
 # Course
 You can find the course file [here](./dlt_resources/data_ingestion_workshop.md)
 The course has 3 parts
@@ -47,6 +49,7 @@ The course has 3 parts
 - [Loading Section](./dlt_resources/data_ingestion_workshop.md#incremental-loading)): Here we will learn about incremental loading modes
 
 ---
+
 # Homework
 
 The [linked colab notebook](https://colab.research.google.com/drive/1Te-AT0lfh0GpChg1Rbd0ByEKOHYtWXfm#scrollTo=wLF4iXf-NR7t&forceEdit=true&sandboxMode=true) offers a few exercises to practice what you learned today.
@@ -115,3 +118,4 @@ If you create a personal project, consider submitting it to our blog - we will b
 **And don't forget, if you like dlt**
 - **Give us a [GitHub Star!](https://github.com/dlt-hub/dlt)**
 - **Join our [Slack community](https://dlthub.com/community)**
+
