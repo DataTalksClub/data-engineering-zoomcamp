@@ -17,7 +17,7 @@ If you don't follow the course and only want to attend the workshop, sign up her
 # Resources
 
 - Website and community: Visit our [docs](https://dlthub.com/docs/intro), discuss on our slack (Link at top of docs).
-- Course colab: [https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true](https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true).
+- Course colab: [Notebook](https://colab.research.google.com/drive/1kLyD3AL-tYf_HqCXYnA3ZLwHGpzbLmoj#scrollTo=5aPjk0O3S_Ag&forceEdit=true&sandboxMode=true).
 - dlthub [community Slack](https://dlthub.com/community).
 
 ---
@@ -42,9 +42,9 @@ Welcome to the data talks club data engineering zoomcamp, the data ingestion wor
 # Course
 You can find the course file [here](./dlt_resources/data_ingestion_workshop.md)
 The course has 3 parts
-[Extraction Section](./dlt_resources/data_ingestion_workshop.md#extracting-data): In this section we will learn about scalable extraction
-[Normalisation Section](./dlt_resources/data_ingestion_workshop.md#normalisation): In this section we will learn to prepare data for loading
-[Loading Section](./dlt_resources/data_ingestion_workshop.md#incremental-loading)): Here we will learn about incremental loading modes
+- [Extraction Section](./dlt_resources/data_ingestion_workshop.md#extracting-data): In this section we will learn about scalable extraction
+- [Normalisation Section](./dlt_resources/data_ingestion_workshop.md#normalisation): In this section we will learn to prepare data for loading
+- [Loading Section](./dlt_resources/data_ingestion_workshop.md#incremental-loading)): Here we will learn about incremental loading modes
 
 ---
 # Homework
