@@ -10,7 +10,7 @@ for other MacOS versions as well
 Ensure Brew and Java installed in your system:
 
 ```bash
-xcode-select –install
+xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew install java
 ```
