@@ -2,7 +2,7 @@
 
 This repository encompasses a wide array of tools and resources focused on Containerization, Infrastructure as Code (IaC), Workflow Orchestration, Data Ingestion, Data Warehousing, Analytics Engineering, Batch Processing, Streaming and Stream Processing with SQL
 
-<img src="https://github.com/agcdtmr/potential-pancake/blob/dev-anj-data-engineer-zoomcamp/00-project-complete/hello-world.png" />
+<img src="https://github.com/agcdtmr/potential-pancake/blob/an-data-engineer-project/images/architecture/arch_v3_workshops.jpg" />
 
 ## Done
 - [x] Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
