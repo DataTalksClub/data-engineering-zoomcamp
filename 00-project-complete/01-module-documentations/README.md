@@ -1,5 +1,10 @@
 # Module 1: Containerization and Infrastructure as Code
 
+[1st Step: Environment setup ]()
+[2nd Step: Introduction to Docker]()
+[3rd Step: Running Postgres locally with Docker]()
+
+
 ## 1st Step: Environment setup 
 
 ### Browser setup
