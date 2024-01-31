@@ -3,6 +3,10 @@
 - [1st Step: Environment setup ]()
 - [2nd Step: Introduction to Docker]()
 - [3rd Step: Running Postgres locally with Docker]()
+- [4th Step: Using pgcli for connecting to the database]()
+- [5th Step: How to re-run the existing Postgres container/server in Docker of this project]()
+- [6th Step: Running pgAdmin]()
+- [7th Step: Running Postgres and pgAdmin with Docker-Compose]()
 
 
 ## 1st Step: Environment setup 
