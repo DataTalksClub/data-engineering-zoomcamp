@@ -12,7 +12,7 @@ This repository encompasses a wide array of tools and resources focused on Conta
 - [x] Watch [Launch](https://www.youtube.com/watch?v=AtRhA-NfS24)
 
 ## In Progress
-- [ ] [Module 1: Containerization and Infrastructure as Code](https://github.com/agcdtmr/potential-pancake/tree/dev-anj-data-engineer-zoomcamp/00-project-complete/00-01-docker-terraform)
+- [ ] [Module 1: Containerization and Infrastructure as Code](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/01-module-documentations)
 
 ## Backlog
 - [ ] [Module 2: Workflow Orchestration]()
