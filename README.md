@@ -150,8 +150,7 @@ Putting everything we learned to practice
 ## Overview
 
 
-<img src="images/architecture/untitled_diagram.drawio__10_.png" />
-
+<img src="images/architecture/arch_v3_workshops.jpg" / >
 
 ### Prerequisites
 
