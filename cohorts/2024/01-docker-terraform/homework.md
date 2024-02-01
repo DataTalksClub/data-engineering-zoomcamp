@@ -1,5 +1,7 @@
 ## Module 1 Homework
 
+ATTENTION: At the very end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format (such as SQL queries or shell commands), please include these directly in the README file of your repository.
+
 ## Docker & SQL
 
 In this homework we'll prepare the environment 
