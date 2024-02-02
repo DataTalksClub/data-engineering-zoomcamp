@@ -18,9 +18,9 @@ This week, you'll learn how to use the Mage platform to author and share _magica
 * [2.2.5 - 🔍 ETL: GCS to BigQuery](#225----etl-gcs-to-bigquery)
 * [2.2.6 - 👨‍💻 Parameterized Execution](#226----parameterized-execution)
 * [2.2.7 - 🤖 Deployment (Optional)](#227----deployment-optional)
-* [2.2.8 - 🧱 Advanced Blocks (Optional)](#228----advanced-blocks-optional)
-* [2.2.9 - 🗒️ Homework](#229---%EF%B8%8F-homework)
-* [2.2.10 - 👣 Next Steps](#2210----next-steps)
+* [2.2.8 - 🗒️ Homework](#229---%EF%B8%8F-homework)
+* [2.2.9 - 👣 Next Steps](#2210----next-steps)
+
 
 ## 📕 Course Resources
 
@@ -29,7 +29,9 @@ This week, you'll learn how to use the Mage platform to author and share _magica
 In this section, we'll cover the basics of workflow orchestration. We'll discuss what it is, why it's important, and how it can be used to build data pipelines.
 
 Videos
-- 2.2.1a - [What is Orchestration?](https://www.youtube.com/watch?v=Li8-MWHhTbo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- 2.2.1a - What is Orchestration?
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/Li8-MWHhTbo)](https://youtu.be/Li8-MWHhTbo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/17zSxG5Z-tidmgY-9l7Al1cPmz4Slh4VPK6o2sryFYvw/)
@@ -39,10 +41,17 @@ Resources
 In this section, we'll introduce the Mage platform. We'll cover what makes Mage different from other orchestrators, the fundamental concepts behind Mage, and how to get started. To cap it off, we'll spin Mage up via Docker 🐳 and run a simple pipeline.
 
 Videos
-- 2.2.2a - [What is Mage?](https://www.youtube.com/watch?v=AicKRcK3pa4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 
-- 2.2.2b - [Configuring Mage](https://www.youtube.com/watch?v=tNiV7Wp08XE?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.2c - [A Simple Pipeline](https://www.youtube.com/watch?v=stI-gg4QBnI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- 2.2.2a - What is Mage?
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/AicKRcK3pa4)](https://youtu.be/AicKRcK3pa4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+- 2.2.2b - Configuring Mage
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/tNiV7Wp08XE)](https://youtu.be/tNiV7Wp08XE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+- 2.2.2c - A Simple Pipeline
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/stI-gg4QBnI)](https://youtu.be/stI-gg4QBnI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
 
 Resources
 - [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp)
@@ -102,8 +111,14 @@ Then, create a new key as a JSON file to authenticate ourselves so that our code
 Hooray! Mage is up and running. Now, let's build a _real_ pipeline. In this section, we'll build a simple ETL pipeline that loads data from an API into a Postgres database. Our database will be built using Docker— it will be running locally, but it's the same as if it were running in the cloud.
 
 Videos
-- 2.2.3a - [Configuring Postgres](https://www.youtube.com/watch?v=pmhI-ezd3BE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.3b - [Writing an ETL Pipeline](https://www.youtube.com/watch?v=Maidfe7oKLs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- 2.2.3a - Configuring Postgres
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/pmhI-ezd3BE)](https://youtu.be/pmhI-ezd3BE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+- 2.2.3b - ETL: API to Postgres
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/Maidfe7oKLs)](https://youtu.be/Maidfe7oKLs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
 
 Resources
 - [Taxi Dataset](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz)
@@ -136,8 +151,15 @@ Ok, so we've written data _locally_ to a database, but what about the cloud? In 
 We'll cover both writing _partitioned_ and _unpartitioned_ data to GCS and discuss _why_ you might want to do one over the other. Many data teams start with extracting data from a source and writing it to a data lake _before_ loading it to a structured data source, like a database.
 
 Videos
-- 2.2.4a - [Configuring GCP](https://www.youtube.com/watch?v=00LP360iYvE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.4b - [Writing an ETL Pipeline](https://www.youtube.com/watch?v=w0XmcASRUnc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- 2.2.4a - Configuring GCP
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/00LP360iYvE)](https://youtu.be/00LP360iYvE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
+- 2.2.4b - ETL: API to GCS
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/w0XmcASRUnc)](https://youtu.be/w0XmcASRUnc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
 
 Resources
 - [DTC Zoomcamp GCP Setup](../01-docker-terraform/1_terraform_gcp/2_gcp_overview.md)
@@ -153,7 +175,11 @@ Can always verify in terminal of `localhost:6789` of the exact path of the key.j
 Now that we've written data to GCS, let's load it into BigQuery. In this section, we'll walk through the process of using Mage to load our data from GCS to BigQuery. This closely mirrors a very common data engineering workflow: loading data from a data lake into a data warehouse.
 
 Videos
-- 2.2.5a - [Writing an ETL Pipeline](https://www.youtube.com/watch?v=JKp_uzM-XsM)
+- 2.2.5 - ETL: GCS to BigQuery
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/JKp_uzM-XsM)](https://youtu.be/JKp_uzM-XsM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
 
 ### --- EllaNotes ---
 
@@ -181,8 +207,16 @@ Scheduling `pipelines` is done from the `Triggers` tab. If there are dependencie
 By now you're familiar with building pipelines, but what about adding parameters? In this video, we'll discuss some built-in runtime variables that exist in Mage and show you how to define your own! We'll also cover how to use these variables to parameterize your pipelines. Finally, we'll talk about what it means to *backfill* a pipeline and how to do it in Mage.
 
 Videos
-- 2.2.6a - [Parameterized Execution](https://www.youtube.com/watch?v=H0hWjWxB-rg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.6b - [Backfills](https://www.youtube.com/watch?v=ZoeC6Ag5gQc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- 2.2.6a - Parameterized Execution
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/H0hWjWxB-rg)](https://youtu.be/H0hWjWxB-rg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
+- 2.2.6b - Backfills
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/ZoeC6Ag5gQc)](https://youtu.be/ZoeC6Ag5gQc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
 
 Resources
 - [Mage Variables Overview](https://docs.mage.ai/development/variables/overview)
@@ -197,10 +231,26 @@ Partial loading of dataset is called `[parameterized]`
 In this section, we'll cover deploying Mage using Terraform and Google Cloud. This section is optional— it's not *necessary* to learn Mage, but it might be helpful if you're interested in creating a fully deployed project. If you're using Mage in your final project, you'll need to deploy it to the cloud.
 
 Videos
-- 2.2.7a - [Deployment Prerequisites](https://www.youtube.com/watch?v=zAwAX5sxqsg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.7b - [Google Cloud Permissions](https://www.youtube.com/watch?v=O_H7DCmq2rA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.7c - [Deploying to Google Cloud - Part 1](https://www.youtube.com/watch?v=9A872B5hb_0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- 2.2.7d - [Deploying to Google Cloud - Part 2](https://www.youtube.com/watch?v=0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- 2.2.7a - Deployment Prerequisites
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/zAwAX5sxqsg)](https://youtu.be/zAwAX5sxqsg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
+- 2.2.7b - Google Cloud Permissions
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/O_H7DCmq2rA)](https://youtu.be/O_H7DCmq2rA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
+- 2.2.7c - Deploying to Google Cloud - Part 1
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/9A872B5hb_0)](https://youtu.be/9A872B5hb_0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
+- 2.2.7d - Deploying to Google Cloud - Part 2
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/0YExsb2HgLI)](https://youtu.be/0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+
 
 Resources
 - [Installing Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -220,7 +270,9 @@ We've prepared a short exercise to test you on what you've learned this week. Yo
 Congratulations! You've completed Week 2 of the Data Engineering Zoomcamp. We hope you've enjoyed learning about Mage and that you're excited to use it in your final project. If you have any questions, feel free to reach out to us on Slack. Be sure to check out our "Next Steps" video for some inspiration for the rest of your journey 😄.
 
 Videos
-- 2.2.9a - [Next Steps](https://www.youtube.com/watch?v=uUtj7N0TleQ)
+- 2.2.9a - Next Steps
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/uUtj7N0TleQ)](https://youtu.be/uUtj7N0TleQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/1yN-e22VNwezmPfKrZkgXQVrX5owDb285I2HxHWgmAEQ/edit#slide=id.g262fb0d2905_0_12)
@@ -248,3 +300,7 @@ See [here](../cohorts/2023/week_2_workflow_orchestration#community-notes)
 ## 2022 notes
 
 See [here](../cohorts/2022/week_2_data_ingestion#community-notes)
+
+## Credits
+
+Youtube embed open source API made by [Jørgen Kalsnes Hagen](https://markdown-videos-api.jorgenkh.no/docs#/)
