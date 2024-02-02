@@ -149,9 +149,7 @@ Putting everything we learned to practice
 
 ## Overview
 
-
-<img src="images/architecture/photo1700757552.jpeg" />
-
+<img src="images/architecture/arch_v3_workshops.jpg" />
 
 ### Prerequisites
 
