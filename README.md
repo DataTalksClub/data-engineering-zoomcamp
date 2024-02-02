@@ -75,6 +75,12 @@ can take the course at your own pace
 
 ### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md)
 
+* Reading from apis
+* Building scalable pipelines
+* Normalising data
+* Incremental loading
+* Homework
+
 
 [More details](cohorts/2024/workshops/dlt.md)
 
@@ -143,9 +149,7 @@ Putting everything we learned to practice
 
 ## Overview
 
-
-<img src="images/architecture/photo1700757552.jpeg" />
-
+<img src="images/architecture/arch_v3_workshops.jpg" />
 
 ### Prerequisites
 

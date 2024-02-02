@@ -39,7 +39,7 @@ Once the dataset is loaded, what's the shape of the data?
 
 ## Question 2. Data Transformation
 
-Upon filtering the dataset where the passenger count is equal to 0 _or_ the trip distance is equal to zero, how many rows are left?
+Upon filtering the dataset where the passenger count is greater than 0 _and_ the trip distance is greater than zero, how many rows are left?
 
 * 544,897 rows
 * 266,855 rows
@@ -50,10 +50,10 @@ Upon filtering the dataset where the passenger count is equal to 0 _or_ the trip
 
 Which of the following creates a new column `lpep_pickup_date` by converting `lpep_pickup_datetime` to a date?
 
-* data = data['lpep_pickup_datetime'].date
-* data('lpep_pickup_date') = data['lpep_pickup_datetime'].date
-* data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
-* data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt().date()
+* `data = data['lpep_pickup_datetime'].date`
+* `data('lpep_pickup_date') = data['lpep_pickup_datetime'].date`
+* `data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date`
+* `data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt().date()`
 
 ## Question 4. Data Transformation
 
@@ -84,10 +84,9 @@ Once exported, how many partitions (folders) are present in Google Cloud?
 
 ## Submitting the solutions
 
-* Form for submitting: TBA 
-
-Deadline: TBA
-
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2
+* Check the link above to see the due date
+  
 ## Solution
 
 Will be added after the due date
