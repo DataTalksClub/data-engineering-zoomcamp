@@ -4,10 +4,10 @@ version: 2
 sources:
     - name: staging
       #For bigquery:
-      #database: taxi-rides-ny-339813
+      database: taxi-rides-ny-339813-412521
 
       # For postgres:
-      database: production
+      #database: production
 
       schema: trips_data_all
 
@@ -75,7 +75,7 @@ models:
               memory before sending to the vendor, aka “store and forward,”
               because the vehicle did not have a connection to the server.
                 Y= store and forward trip
-                N= not a store and forward trip
+                N = not a store and forward trip
           - name: Dropoff_longitude 
             description: Longitude where the meter was disengaged.
           - name: Dropoff_latitude 
@@ -83,11 +83,6 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
-            tests: 
-              - accepted_values:
-                  values: "{{ var('payment_type_values') }}"
-                  severity: warn
-                  quote: false
           - name: payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 
@@ -175,11 +170,6 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
-            tests: 
-              - accepted_values:
-                  values: "{{ var('payment_type_values') }}"
-                  severity: warn
-                  quote: false
           - name: payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 
