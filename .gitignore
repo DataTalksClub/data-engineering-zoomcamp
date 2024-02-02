@@ -11,6 +11,7 @@ ipython_config.py
 **__pycache__/
 **/ny_taxi_postgres_data/*
 **/ignore
+/keys
 
 
 # by file extension
@@ -29,7 +30,6 @@ id_*
 # exclusions
 !06-streaming/avro_example/data/rides.csv
 !**/walkthrough*.pdf
-<<<<<<< HEAD
 
 
 # Local .terraform directories
@@ -67,5 +67,3 @@ override.tf.json
 .terraformrc
 terraform.rc
 **.terraform.lock.*
-=======
->>>>>>> module-01
