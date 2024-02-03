@@ -34,3 +34,6 @@ WHERE NOT IN (
 - How to let terraform know where the gcp credentials are:
     - In the provider section, add "credentials" with the path
     - export GOOGLE_CREDENTIALS='path'
+
+## DE concepts
+- parametrised execution
