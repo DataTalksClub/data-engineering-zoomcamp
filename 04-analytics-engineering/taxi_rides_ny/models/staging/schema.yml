@@ -3,6 +3,8 @@ version: 2
 sources:
   - name: staging
     database: taxi-rides-ny-339813-412521
+     # For postgres:
+      #database: production
     schema: trips_data_all
 
       # loaded_at_field: record_loaded_at
