@@ -141,6 +141,7 @@ Did you take notes? You can share them here:
 
 * [2024 Videos transcripts week 2](https://drive.google.com/drive/folders/1yxT0uMMYKa6YOxanh91wGqmQUMS7yYW7?usp=sharing) by Maria Fisher
 * [Notes from Jonah Oliver](https://www.jonahboliver.com/blog/de-zc-w2)
+* [Notes from Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/2-workflow-orchestration/readme.md)
 * Add your notes above this line
 
 ## 2023 notes
