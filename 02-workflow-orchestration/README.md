@@ -61,7 +61,7 @@ Resources
 
 In this demo, Matt showed how to connect to Mage and see the default `example-pipeline`. Make sure you have setup the GCP service accounts and project in GCP.
 
-Also see [README-mage](README-mage.md) for guides from Matt Palmer.
+Also see [README-mage](README-mage.md) for guides from Matt Palmer. [Original repo](https://github.com/mage-ai/mage-zoomcamp) has a `solution` branch. Handy to copy over the code if we forgot to rename pipelines or data blocks.
 
 > [!INFO]
 >
@@ -224,7 +224,9 @@ Resources
 
 ### --- EllaNotes ---
 
-Partial loading of dataset is called `[parameterized]`
+Partial loading of dataset is called `[parameterized]`, for example to partioned into daily subfolders or by location. Try on time_series!
+
+Backfill means to rerun pipeline on newly acquired data for eg missing dates or other data, not loaded/transformed/exported in previous runs. Needs more reading up.
 
 ### 2.2.7 - 🤖 Deployment (Optional)
 
@@ -261,9 +263,19 @@ Additional Mage Guides
 - [Terraform](https://docs.mage.ai/production/deploying-to-cloud/using-terraform)
 - [Deploying to GCP with Terraform](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
 
+### --- EllaNotes ---
+
+Not done yet...need a longer study session as need to stand-up and tear-down infra.
+
+
 ### 2.2.8 - 🗒️ Homework 
 
 We've prepared a short exercise to test you on what you've learned this week. You can find the homework [here](../cohorts/2024/02-workflow-orchestration/homework.md). This follows closely from the contents of the course and shouldn't take more than an hour or two to complete. 😄
+
+### --- EllaNotes ---
+
+Done on Sun, setup Trigger to schedule daily run at 5am UTC. Missed it by 2 hours 3pm SGT / 7am UTC, so have to check back in next day.
+
 
 ### 2.2.9 - 👣 Next Steps
 
@@ -283,6 +295,9 @@ Resources
 - [Mage Guides](https://docs.mage.ai/guides)
 - [Mage Slack](https://www.mage.ai/chat)
 
+### --- EllaNotes ---
+
+- [Convo with BingAI on "DLT with Mage-AI"](https://sl.bing.net/iZxzJuaAdTE) KIV! Also check on Bard's and ChatGPT's answers
 
 # Community notes
 

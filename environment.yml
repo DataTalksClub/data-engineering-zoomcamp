@@ -16,4 +16,6 @@ dependencies:
   - pip
   # module2
   - mage-ai
+  - google-cloud-bigquery
+  
 

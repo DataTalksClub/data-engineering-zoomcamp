@@ -20,7 +20,6 @@ services:
       - 6789:6789
     volumes:
       - ./:/home/src/
-      - ../keys/nyc-rides-ella-42fa7d409434.json:/home/src/keys/nyc-rides-ella-42fa7d409434.json
     restart: on-failure:5
   postgres:
     image: postgres:14

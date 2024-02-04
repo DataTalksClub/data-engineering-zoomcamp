@@ -67,3 +67,14 @@ override.tf.json
 .terraformrc
 terraform.rc
 **.terraform.lock.*
+
+# Scratch files
+scratch*
+*secrets*.json
+*.json
+
+# mage stuff
+~/.mage_data
+mage_ai/server/data/files/**
+/mage_data*
+.ssh_*

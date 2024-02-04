@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea
+__init__.*
 # C extensions
 *.so
 
@@ -130,10 +131,9 @@ dmypy.json
 .pyre/
 
 # data files
-mage_ai/server/data/files/**
 default_repo
 instance_metadata.json
-~/.mage_data
+
 
 # test notebook
 test.ipynb
@@ -167,8 +167,11 @@ node_modules
 
 # Scratch files
 scratch*
-/mage_data*
 *secrets*.json
-magic-zoomcamp
 *.json
 
+# mage stuff
+~/.mage_data
+mage_ai/server/data/files/**
+/mage_data*
+.ssh_*
