@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 select 
     locationid, 
     borough, 
