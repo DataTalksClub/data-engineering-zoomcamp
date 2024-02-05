@@ -15,6 +15,12 @@ If you don't follow the course and only want to attend the workshop, sign up her
 
 --- 
 
+# Navigation
+
+* [Workshop content](dlt_resources/data_ingestion_workshop.md)
+* [Workshop notebook](dlt_resources/workshop.ipynb)
+* [Homework starter notebook](dlt_resources/homework_starter.ipynb)
+
 # Resources
 
 - Website and community: Visit our [docs](https://dlthub.com/docs/intro), discuss on our slack (Link at top of docs).
