@@ -1,5 +1,7 @@
 ## Module 1 Homework
 
+Homework by [agcdtmr](https://github.com/agcdtmr)
+
 ## Docker & SQL
 
 In this homework we'll prepare the environment 
