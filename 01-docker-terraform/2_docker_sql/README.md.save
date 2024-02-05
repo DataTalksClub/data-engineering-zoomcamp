@@ -1,3 +1,4 @@
+
 ## Docker and SQL
 
 Notes I used for preparing the videos: [link](https://docs.google.com/document/d/e/2PACX-1vRJUuGfzgIdbkalPgg2nQ884CnZkCg314T_OBq-_hfcowPxNIA0-z5OtMTDzuzute9VBHMjNYZFTCc1/pub)
@@ -140,7 +141,7 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v ~/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   --network=pg-network \
   --name pg-database \
@@ -169,7 +170,7 @@ URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yell
 
 python ingest_data.py \
   --user=root \
-  --pwd=root \
+  --password=root \
   --host=localhost \
   --port=5432 \
   --db=ny_taxi \
@@ -205,11 +206,11 @@ Run the script with Docker
 URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
 
 docker run -it \
-  --network=2_docker_sql_default \
-  taxi_ingest:v003 \
+  --network=pg-network \
+  taxi_ingest:v001 \
     --user=root \
-    --pwd=root \
-    --host=2_docker_sql-pgdatabase-1 \
+    --password=root \
+    --host=pg-database \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \

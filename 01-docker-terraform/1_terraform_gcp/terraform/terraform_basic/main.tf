@@ -8,32 +8,33 @@ terraform {
 }
 
 provider "google" {
-# Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
-#  credentials = 
-  project = "<Your Project ID>"
-  region  = "us-central1"
+  # Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
+  # export GOOGLE_CREDENTIALS
+  #  credentials = 
+  project = "dezoomcamp-ks"
+  region  = "europe-west1"
 }
 
 
 
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "<Your Unique Bucket Name>"
-  location      = "US"
+  name     = "dezoomcamp-ks-bucket"
+  location = "EU"
 
   # Optional, but recommended settings:
-  storage_class = "STANDARD"
+  storage_class               = "STANDARD"
   uniform_bucket_level_access = true
 
   versioning {
-    enabled     = true
+    enabled = true
   }
 
   lifecycle_rule {
     action {
-      type = "Delete"
+      type = "AbortIncompleteMultipartUpload"
     }
     condition {
-      age = 30  // days
+      age = 1 // days
     }
   }
 
@@ -42,7 +43,7 @@ resource "google_storage_bucket" "data-lake-bucket" {
 
 
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
-  location   = "US"
+  dataset_id = "dezoomcamp_demo_dataset"
+  project    = "dezoomcamp-ks"
+  location   = "EU"
 }
