@@ -125,3 +125,7 @@ If you create a personal project, consider submitting it to our blog - we will b
 - **Give us a [GitHub Star!](https://github.com/dlt-hub/dlt)**
 - **Join our [Slack community](https://dlthub.com/community)**
 
+
+# Notes
+
+* Add your notes here
