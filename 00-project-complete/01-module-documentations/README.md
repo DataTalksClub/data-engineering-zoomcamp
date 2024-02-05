@@ -7,7 +7,7 @@
 - [x]  [5th Step: How to re-run the existing Postgres container/server in Docker of this project](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/01-module-documentations#5th-step-how-to-re-run-the-existing-postgres-containerserver-in-docker-of-this-project)
 - [x]  [6th Step: Running pgAdmin](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/01-module-documentations#6th-step-running-pgadmin)
 - [x]  [7th Step: Running Postgres and pgAdmin with Docker-Compose](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/01-module-documentations#7th-step-running-postgres-and-pgadmin-with-docker-compose)
-- [x]  Setting up infrastructure on GCP with Terraform
+- [x]  Setting up infrastructure on [GCP with Terraform](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/terraform)
 - [x]  [Module 1 Homework](https://github.com/agcdtmr/potential-pancake/blob/an-data-engineer-project/00-project-complete/01-module-documentations/homework-module1-agcdtmr.md)
 
 
