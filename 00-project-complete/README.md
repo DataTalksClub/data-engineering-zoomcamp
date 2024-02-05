@@ -10,12 +10,12 @@ This repository encompasses a wide array of tools and resources focused on Conta
 - [x] **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 - [ ] Watch [Pre-launch Q&A stream](https://www.youtube.com/watch?v=91b8u9GmqB4)
 - [x] Watch [Launch](https://www.youtube.com/watch?v=AtRhA-NfS24)
+- [x] [Module 1: Containerization and Infrastructure as Code](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/01-module-documentations)
 
 ## In Progress
-- [ ] [Module 1: Containerization and Infrastructure as Code](https://github.com/agcdtmr/potential-pancake/tree/an-data-engineer-project/00-project-complete/01-module-documentations)
+- [ ] [Module 2: Workflow Orchestration]()
 
 ## Backlog
-- [ ] [Module 2: Workflow Orchestration]()
 - [ ] [Workshop 1: Data Ingestion]()
 - [ ] [Module 3: Data Warehouse]()
 - [ ] [Module 4: Analytics Engineering]()
