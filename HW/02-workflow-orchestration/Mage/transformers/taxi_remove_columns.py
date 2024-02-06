@@ -14,8 +14,7 @@ def transformer(df: DataFrame, *args, **kwargs) ->DataFrame:
     """
     print("Preprocessing: rows with zero passengers",
     df['passenger_count'].isin([0]).sum())
-    # df['tpep_pickup_date'] = df['tpep_pickup_datetime'].dt.date
-    # df['tpep_dropoff_date'] = df['tpep_dropoff_datetime'].dt.date
+    
     return df[df['passenger_count'] > 0]
 
 
