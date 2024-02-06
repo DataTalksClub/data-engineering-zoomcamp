@@ -72,7 +72,7 @@ Videos
 - 2.2.4b - [Writing an ETL Pipeline](https://www.youtube.com/watch?v=w0XmcASRUnc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
 Resources
-- [DTC Zoomcamp GCP Setup](../week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
+- [DTC Zoomcamp GCP Setup](../01-docker-terraform/1_terraform_gcp/2_gcp_overview.md)
 
 ### 2.2.5 - 🔍 ETL: GCS to BigQuery
 
