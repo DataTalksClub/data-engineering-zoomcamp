@@ -1,0 +1,36 @@
+# --- cohorts/module##/hmwk-02 --- #
+.DS_Store
+.file_versions
+.gitkeep
+.log
+.logs/
+.mage_temp_profiles
+.preferences.yaml
+.variables/
+__pycache__/
+docker-compose.override.yml
+logs/
+mage-ai.db
+mage_data/
+secrets/
+.md
+.ipynb
+
+*/__init__.py
+data_exporters/__init__.py
+data_loaders/__init__.py
+transformers/__init__.py
+pipelines/__init__.py
+
+# exceptions
+!**/devcontainer.json
+!**/pipelines/**/*.yaml
+!**/data_exporters/*.py
+!**/data_exporters/*.sql
+!**/data_loaders/*.py
+!**/data_loaders/*.sql
+!**/transformers/*.py
+!**/transformers/*.sql
+
+
+# --- cohorts/module##/hmwk-02 --- #
