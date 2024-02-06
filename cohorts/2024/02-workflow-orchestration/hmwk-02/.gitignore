@@ -25,10 +25,13 @@ pipelines/__init__.py
 # exceptions
 !**/devcontainer.json
 !**/pipelines/**/*.yaml
+
 !**/data_exporters/*.py
 !**/data_exporters/*.sql
+
 !**/data_loaders/*.py
 !**/data_loaders/*.sql
+
 !**/transformers/*.py
 !**/transformers/*.sql
 
