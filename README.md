@@ -1,6 +1,5 @@
 # Data Engineering Zoomcamp
 
-
 <p align="center">
   <a href="https://airtable.com/shr6oVXeQvSI5HuWD"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
 </p>
@@ -29,8 +28,7 @@ Syllabus
 
 * **Start**: 15 January 2024 (Monday) at 17:00 CET
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Cohort folder](cohorts/2024/) with homeworks and deadlines 
-
+* [Cohort folder](cohorts/2024/) with homeworks and deadlines
 
 ### Self-paced mode
 
@@ -42,12 +40,10 @@ can take the course at your own pace
 * Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
 
-
 ## Syllabus
 
 > **Note:** NYC TLC changed the format of the data we use to parquet.
 > In the course we still use the CSV files accessible [here](https://github.com/DataTalksClub/nyc-tlc-data).
-
 
 ### [Module 1: Containerization and Infrastructure as Code](01-docker-terraform/)
 
@@ -61,7 +57,6 @@ can take the course at your own pace
 
 [More details](01-docker-terraform/)
 
-
 ### [Module 2: Workflow Orchestration](02-workflow-orchestration/)
 
 * Data Lake
@@ -71,12 +66,9 @@ can take the course at your own pace
 
 [More details](02-workflow-orchestration/)
 
-
 ### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md)
 
-
 [More details](cohorts/2024/workshops/dlt.md)
-
 
 ### [Module 3: Data Warehouse](03-data-warehouse/)
 
@@ -90,7 +82,6 @@ can take the course at your own pace
 
 [More details](03-data-warehouse/)
 
-
 ### [Module 4: Analytics engineering](04-analytics-engineering/)
 
 * Basics of analytics engineering
@@ -102,9 +93,7 @@ can take the course at your own pace
 * Deployment to the cloud and locally
 * Visualizing the data with google data studio and metabase
 
-
 [More details](04-analytics-engineering/)
-
 
 ### [Module 5: Batch processing](05-batch/)
 
@@ -125,12 +114,9 @@ can take the course at your own pace
 
 [More details](06-streaming/)
 
-
 ### [Workshop 2: Stream Processing with SQL](cohorts/2024/workshops/rising-wave.md)
 
-
 [More details](cohorts/2024/workshops/rising-wave.md)
-
 
 ### [Project](projects)
 
@@ -143,9 +129,7 @@ Putting everything we learned to practice
 
 ## Overview
 
-
 <img src="images/architecture/photo1700757552.jpeg" />
-
 
 ### Prerequisites
 
@@ -154,8 +138,6 @@ and know the basics of SQL. Prior experience with Python will be helpful, but yo
 Python relatively fast if you have experience with other programming languages.
 
 Prior experience with data engineering is not required.
-
-
 
 ## Instructors
 
@@ -173,12 +155,11 @@ Past instructors:
 
 ## Course UI
 
-Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
+Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material.
 
 * Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
 
 ![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
-
 
 ## Asking for help in Slack
 
@@ -189,8 +170,6 @@ To make discussions in Slack more organized:
 * Follow [these recommendations](asking-questions.md) when asking for help
 * Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
 
-
-
 ## Supporters and partners
 
 Thanks to the course sponsors for making it possible to run this course
@@ -200,7 +179,6 @@ Thanks to the course sponsors for making it possible to run this course
     <img height="120" src="images/mage.svg">
   </a>
 </p>
-
 
 <p align="center">
   <a href="https://dlthub.com/">
@@ -215,4 +193,3 @@ Thanks to the course sponsors for making it possible to run this course
 </p>
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
-
