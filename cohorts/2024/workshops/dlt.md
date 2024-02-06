@@ -85,6 +85,8 @@ The [linked colab notebook](https://colab.research.google.com/drive/1Te-AT0lfh0G
 - **C**: 221
 - **D**: 230
 
+Submit the solution here: https://courses.datatalks.club/de-zoomcamp-2024/homework/workshop1
+
 --- 
 # Next steps
 
@@ -125,3 +127,7 @@ If you create a personal project, consider submitting it to our blog - we will b
 - **Give us a [GitHub Star!](https://github.com/dlt-hub/dlt)**
 - **Join our [Slack community](https://dlthub.com/community)**
 
+
+# Notes
+
+* Add your notes here
