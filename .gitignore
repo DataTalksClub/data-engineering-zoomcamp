@@ -78,3 +78,9 @@ scratch*
 mage_ai/server/data/files/**
 /mage_data*
 .ssh_*
+
+# exceptions
+!**/data_exporters/*.py
+!**/data_loaders/*.py
+!**/pipelines/**/*.yaml
+!**/transformers/*.py
