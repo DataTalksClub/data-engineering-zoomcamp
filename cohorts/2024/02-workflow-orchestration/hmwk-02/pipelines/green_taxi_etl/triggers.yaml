@@ -1,0 +1,14 @@
+triggers:
+- envs: []
+  last_enabled_at: 2024-02-04 07:10:35.459944
+  name: daily_green_etl
+  pipeline_uuid: green_taxi_etl
+  schedule_interval: '@daily'
+  schedule_type: time
+  settings:
+    landing_time_enabled: true
+    skip_if_previous_running: true
+  sla: null
+  start_time: 2023-06-03 05:00:00
+  status: active
+  variables: {}

@@ -1,0 +1,125 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_api_green_data.py
+  downstream_blocks:
+  - transform_green_taxi_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_api_green_data
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_api_green_data
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    file_source:
+      path: transformers/transform_taxi_data.py
+  downstream_blocks:
+  - green_taxi_to_gcs_parquet
+  - green_taxi_to_gcs_partitioned_parquet
+  - write_taxi_to_bigquery
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_green_taxi_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_api_green_data
+  uuid: transform_green_taxi_data
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: green_taxi_to_gcs_parquet
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_green_taxi_data
+  uuid: green_taxi_to_gcs_parquet
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: green_taxi_to_gcs_partitioned_parquet
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_green_taxi_data
+  uuid: green_taxi_to_gcs_partitioned_parquet
+- all_upstream_blocks_executed: false
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_profile: default
+    data_provider_schema: mage
+    data_provider_table: green_taxi
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: replace
+    file_source:
+      path: data_exporters/write_taxi_to_bigquery.sql
+    limit: 0
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: write_taxi_to_bigquery
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_green_taxi_data
+  uuid: write_taxi_to_bigquery
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-02-02 12:25:13.207093+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: green_taxi_etl
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers:
+    save_in_code_automatically: true
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-02-05 19:15:12'
+uuid: green_taxi_etl
+variables_dir: /home/src/mage_data/hmwk-02
+widgets: []
