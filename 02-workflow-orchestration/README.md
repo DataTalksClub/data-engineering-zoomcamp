@@ -321,4 +321,5 @@ See [here](../cohorts/2022/week_2_data_ingestion#community-notes)
 
 ## Credits
 
-Youtube embed open source API made by [Jørgen Kalsnes Hagen](https://markdown-videos-api.jorgenkh.no/docs#/)
+- Youtube embed open source API made by [Jørgen Kalsnes Hagen](https://markdown-videos-api.jorgenkh.no/docs#/)
+- [blockquote highlights](https://github.com/orgs/community/discussions/16925)

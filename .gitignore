@@ -59,6 +59,11 @@ __init__.py
 .ssh_tunnel
 *.pyc
 
+# super specific, as wildcards didn't work..need more troubleshootin
+cohorts/2024/02-workflow-orchestration/hmwk-02/data_exporters/__init__.py
+cohorts/2024/02-workflow-orchestration/hmwk-02/data_loaders/__init__.py
+cohorts/2024/02-workflow-orchestration/hmwk-02/transformers/__init__.py
+
 # exceptions for SQL, Python files and YAML files with these paths
 !**/devcontainer.json
 !**/pipelines/**/*.yaml
@@ -68,5 +73,7 @@ __init__.py
 !**/data_loaders/*.sql
 !**/transformers/*.py
 !**/transformers/*.sql
+
+
 
 # --- root folder --- #

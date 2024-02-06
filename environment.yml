@@ -17,5 +17,9 @@ dependencies:
   # module2
   - mage-ai
   - google-cloud-bigquery
+  # workshop 1
+  - 'dlt[duckdb]'
+  - 'dlt[parquet]'
+  - parquet
+  - dlt[bigquery]
   
-
