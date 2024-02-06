@@ -1,0 +1,238 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for load_taxi
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_load_taxi
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - summary_overview_for_load_taxi
+  - transform_taxi
+  - bar_chart_for_load_taxi_1707162256877
+  - histogram_for_load_taxi_1707162268317
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_taxi
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_taxi
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - export_taxi_to_postgres
+  - unique_values_for_transform_taxi
+  - export_taxi_to_gcs_parquet
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_taxi
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_taxi
+  uuid: transform_taxi
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_taxi_to_postgres
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_taxi
+  uuid: export_taxi_to_postgres
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: postgres
+    data_provider_profile: dev
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    limit: 1000
+    use_raw_sql: true
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: test_export_green_taxi_to_postgres
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: test_export_green_taxi_to_postgres
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: postgres
+    data_provider_profile: dev
+    export_write_policy: append
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_taxi_to_gcs_parquet
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - transform_taxi
+  uuid: export_taxi_to_gcs_parquet
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_parquet_from_gcs
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_parquet_from_gcs
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-02-05 19:05:45.891487+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: taxi_pipeline
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-02-06 15:40:26'
+uuid: taxi_pipeline
+variables_dir: /home/src/mage_data/magic-zoomcamp
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_type: table
+    group_by:
+    - passenger_count
+    - payment_type
+    - VendorID
+    height: 3000
+    index: stats
+    limit: '10'
+    x: headers
+    y: rows
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: summary overview for load_taxi
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_taxi
+  uuid: summary_overview_for_load_taxi
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: vertical
+    chart_type: bar chart
+    x: x
+    y: y
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: bar chart for load_taxi 1707162256877
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_taxi
+  uuid: bar_chart_for_load_taxi_1707162256877
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    buckets: 10
+    chart_type: histogram
+    x: x
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: histogram for load_taxi 1707162268317
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_taxi
+  uuid: histogram_for_load_taxi_1707162268317
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: horizontal
+    chart_type: bar chart
+    group_by: []
+    x: columns
+    y: number_of_unique_values
+    y_sort_order: descending
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: unique values for transform_taxi
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - transform_taxi
+  uuid: unique_values_for_transform_taxi

@@ -1,0 +1,179 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for example_pipeline
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_example_pipeline
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for load_titanic
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_load_titanic
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - fill_in_missing_values
+  - bar_chart_for_load_titanic_1707147618089
+  executor_config: null
+  executor_type: local_python
+  has_callback: null
+  language: python
+  name: load_titanic
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_titanic
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for fill_in_missing_values
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_fill_in_missing_values
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - export_titanic_clean
+  executor_config: null
+  executor_type: local_python
+  has_callback: null
+  language: python
+  name: fill_in_missing_values
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_titanic
+  uuid: fill_in_missing_values
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: markdown
+  name: Documentation for export_titanic_clean
+  retry_config: null
+  status: updated
+  timeout: null
+  type: markdown
+  upstream_blocks: []
+  uuid: documentation_for_export_titanic_clean
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: null
+  language: python
+  name: export_titanic_clean
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - fill_in_missing_values
+  uuid: export_titanic_clean
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: null
+data_integration: null
+description: 'the user and can be used to export data to various file formats such
+  as CSV, JSON, or Excel.
+
+
+  ## Parameters
+
+  The function takes in a Pandas DataFrame as its first argument and any additional
+  keyword arguments as specified by the user. This allows for flexibility in exporting
+  data to different file formats and data sources.
+
+
+  ## Exporting Data
+
+  The function uses the `to_file` method from the Mage AI library to export the DataFrame
+  to a specific file format. The file format is specified by the user through the
+  keyword arguments. The function also includes error handling to ensure that the
+  data is exported successfully and any errors are caught and displayed to the user.
+
+
+  ## Conclusion
+
+  In summary, this python script serves as a template for exporting data to a specific
+  data source using the Mage AI library. It can be used as a starting point for creating
+  custom data exporters and can be modified to suit the specific needs of the user.'
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: example_pipeline
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-02-05 19:05:40'
+uuid: example_pipeline
+variables_dir: /home/src/mage_data/magic-zoomcamp
+widgets:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    chart_style: vertical
+    chart_type: bar chart
+    x: x
+    y: y
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: bar chart for load_titanic 1707147618089
+  retry_config: null
+  status: executed
+  timeout: null
+  type: chart
+  upstream_blocks:
+  - load_titanic
+  uuid: bar_chart_for_load_titanic_1707147618089

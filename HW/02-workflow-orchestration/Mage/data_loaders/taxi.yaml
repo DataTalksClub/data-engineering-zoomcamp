@@ -1,0 +1,8 @@
+catalog: {}
+config:
+  access_token: abcdefghijklmnopqrstuvwxyz1234567890ABCD
+  repository: mage-ai/mage-ai
+  start_date: 2021-01-01T00:00:00Z
+  request_timeout: 300
+  base_url: https://api.github.com
+source: github

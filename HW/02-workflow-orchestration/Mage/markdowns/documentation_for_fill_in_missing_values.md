@@ -1,0 +1,7 @@
+The python script is used to transform data from one format into a different format. It is designed to take in a DataFrame as input and return a transformed DataFrame as output. The script uses the pandas library to work with DataFrames and the math library to perform calculations.
+
+The first function, select_number_columns, is used to select specific columns from the input DataFrame. In this case, the columns selected are 'Age', 'Fare', 'Parch', 'Pclass', 'SibSp', and 'Survived'. This function is used to filter out any unnecessary columns and only keep the ones that are needed for the transformation.
+
+The next function, fill_missing_values_with_median, is used to fill in any missing values in the DataFrame with the median value for that column. This is done by first sorting the values in each column and then finding the median value. The median value is then used to fill in any missing values in that column. This ensures that the data is complete and can be used for further analysis.
+
+The main function, transform_df, is where the customized business logic is implemented. This function is decorated with the @transformer decorator, which is used to indicate that this function is a transformer block. The function takes in a DataFrame as input and returns
