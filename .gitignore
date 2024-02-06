@@ -81,8 +81,8 @@ mage_ai/server/data/files/**
 **/hmwk*/*
 
 # exceptions
+!**/.gitignore
 !**/data_exporters/*.py
 !**/data_loaders/*.py
 !**/pipelines/**/*.yaml
 !**/transformers/*.py
-!**/.gitignore

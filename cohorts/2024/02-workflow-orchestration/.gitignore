@@ -184,7 +184,7 @@ walkthrough*
 **/hmwk-02
 
 # exceptions
-!**/.gitignore
+!hmwk-02/.gitignore
 !hmwk-02/data_exporters/*.py
 !hmwk-02/data_loaders/*.py
 !hmwk-02/pipelines/*.py
