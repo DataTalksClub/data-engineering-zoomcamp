@@ -10,7 +10,6 @@
 
 ​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
 
-If you don't follow the course and only want to attend the workshop, sign up here: https://lu.ma/wupfy6dd
 
 
 --- 
@@ -117,6 +116,7 @@ Here are some example projects that others did with dlt:
 [Read emails and send sumamry to slack with AI and Kestra](https://dlthub.com/docs/blog/dlt-kestra-demo-blog),
 [Mode +dlt capabilities](https://dlthub.com/docs/blog/dlt-mode-blog),
 [dbt on cloud functions](https://dlthub.com/docs/blog/dlt-dbt-runner-on-cloud-functions)
+- If you want to use dlt in your project, [check this list of public APIs](https://dlthub.com/docs/blog/practice-api-sources)
 
 
 If you create a personal project, consider submitting it to our blog - we will be happy to showcase it. Just drop us a line in the dlt slack.
