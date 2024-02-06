@@ -86,7 +86,7 @@ Videos
 [![](https://markdown-videos-api.jorgenkh.no/youtube/w0XmcASRUnc)](https://youtu.be/w0XmcASRUnc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=24)
 
 Resources
-- [DTC Zoomcamp GCP Setup](../week_1_basics_n_setup/1_terraform_gcp/2_gcp_overview.md)
+- [DTC Zoomcamp GCP Setup](../01-docker-terraform/1_terraform_gcp/2_gcp_overview.md)
 
 ### 2.2.5 - 🔍 ETL: GCS to BigQuery
 
