@@ -11,27 +11,31 @@ By this stage of the course you should have already:
   * Green taxi data - Years 2019 and 2020 
   * fhv data - Year 2019. 
 
-Note:
-* A quick hack has been shared to load that data quicker, check instructions in [week3/extras](../03-data-warehouse/extras)
-* If you recieve an error stating "Permission denied while globbing file pattern." when attemting to run fact_trips.sql this [Video](https://www.youtube.com/watch?v=kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) may be helpful in resolving the issue
+> [!NOTE]  
+> * A quick hack has been shared to load that data quicker, check instructions in [week3/extras](../03-data-warehouse/extras)
+
+> [!TIP] 
+>* If you recieve an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
+>
+>[![](https://markdown-videos-api.jorgenkh.no/youtube/kL3ZVNL9Y4A)](https://youtu.be/kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
+
 
 ## Setting up your environment 
   
+> [!NOTE]  
+>  the *cloud* setup is the preferred option.
+>
+> the *local* setup does not require a cloud database.
 
-### Setting up dbt for using BigQuery (Alternative A - preferred)
+| Alternative A | Alternative B |
+---|---|
+| Setting up dbt for using BigQuery (cloud) | Setting up dbt for using Postgres locally  |
+|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)<br><br> |
+| - [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)) | - follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/docs/core/installation-overview)) or <br>- follow the [dbt core with BigQuery on Docker](docker_setup/README.md) guide to setup dbt locally on docker or <br>- use a docker image from oficial [Install with Docker](https://docs.getdbt.com/docs/core/docker-install). |
+|- More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)  | - You will need to install the latest version with the BigQuery adapter (dbt-bigquery).|
+| | - You will need to install the latest version with the postgres adapter (dbt-postgres).|
+| | After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/docs/core/connect-data-platform/postgres-setup) |
 
-1. Open a free developer dbt cloud account following[this link](https://www.getdbt.com/signup/)
-2. [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)). More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)
-
-_Optional_: If you feel more comfortable developing locally you could use a local installation of dbt core. You can follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/docs/core/installation-overview)) or follow the [dbt core with BigQuery on Docker](docker_setup/README.md) guide to setup dbt locally on docker. You will need to install the latest version with the BigQuery adapter (dbt-bigquery). 
-
-### Setting up dbt for using Postgres locally (Alternative B)
-
-As an alternative to the cloud, that require to have a cloud database, you will be able to run the project installing dbt locally.
-You can follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/dbt-cli/installation)) or use a docker image from oficial [dbt repo](https://github.com/dbt-labs/dbt/). You will need to install the latest version with the postgres adapter (dbt-postgres).
-After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/docs/core/connect-data-platform/postgres-setup)
-
-</details>
 
 ## Content
 
@@ -41,30 +45,21 @@ After local installation you will have to set up the connection to PG in the `pr
 * ETL vs ELT 
 * Data modeling concepts (fact and dim tables)
 
- :movie_camera: [Video](https://www.youtube.com/watch?v=uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=32)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://youtu.be/uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
 
 ### What is dbt? 
 
-* Intro to dbt 
+* Introduction to dbt 
 
- :movie_camera: [Video](https://www.youtube.com/watch?v=4eCouvVOJUw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=33)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://youtu.be/4eCouvVOJUw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=41)
 
 ## Starting a dbt project
 
-### Alternative A: Using BigQuery + dbt cloud
-* Starting a new project with dbt init (dbt cloud and core)
-* dbt cloud setup
-* project.yml
-
- :movie_camera: [Video](https://www.youtube.com/watch?v=iMxh6s_wL4Q&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
- 
-### Alternative B: Using Postgres + dbt core (locally)
-* Starting a new project with dbt init (dbt cloud and core)
-* dbt core local setup
-* profiles.yml
-* project.yml
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=1HmL63e-vRs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
+| Alternative A  | Alternative B   |
+|-----------------------------|--------------------------------|
+| Using BigQuery + dbt cloud | Using Postgres + dbt core (locally) |
+| - Starting a new project with dbt init (dbt cloud and core)<br>- dbt cloud setup<br>- project.yml<br><br> | - Starting a new project with dbt init (dbt cloud and core)<br>- dbt core local setup<br>- profiles.yml<br>- project.yml                                  |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/iMxh6s_wL4Q)](https://youtu.be/iMxh6s_wL4Q&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=42) | [![](https://markdown-videos-api.jorgenkh.no/youtube/1HmL63e-vRs)](https://youtu.be/1HmL63e-vRs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) |
 
 ### dbt models
 
@@ -75,35 +70,37 @@ After local installation you will have to set up the connection to PG in the `pr
 * Packages 
 * Variables
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=UVI30Vxzd6c&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=36)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/UVI30Vxzd6c)](https://youtu.be/UVI30Vxzd6c&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=44)
 
-_Note: This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice_
+> [!NOTE]  
+> *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
 
 ### Testing and documenting dbt models
 * Tests  
 * Documentation 
 
-:movie_camera: [Video](https://www.youtube.com/watch?v=UishFmq1hLM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=37)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/UishFmq1hLM)](https://youtu.be/UishFmq1hLM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=45)
 
-_Note: This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice_
+>[!NOTE]  
+> *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
 
 ## Deployment
 
-### Alternative A: Using BigQuery + dbt cloud
-* Deployment: development environment vs production 
-* dbt cloud: scheduler, sources and hosted documentation
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=rjf6yZNGX8I&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=38)
-
-### Alternative B: Using Postgres + dbt core (locally)
-* Deployment: development environment vs production 
-* dbt cloud: scheduler, sources and hosted documentation
-
-:movie_camera: [Video](https://www.youtube.com/watch?v=Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=39)
+| Alternative A  | Alternative B   |
+|-----------------------------|--------------------------------|
+| Using BigQuery + dbt cloud | Using Postgres + dbt core (locally) |
+| - Deployment: development environment vs production<br>- dbt cloud: scheduler, sources and hosted documentation  | - Deployment: development environment vs production<br>-  dbt cloud: scheduler, sources and hosted documentation |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/rjf6yZNGX8I)](https://youtu.be/rjf6yZNGX8I&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=46) | [![](https://markdown-videos-api.jorgenkh.no/youtube/Cs9Od1pcrzM)](https://youtu.be/Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=47) |
 
 ## Visualising the transformed data
-:movie_camera: [Google data studio Video](https://www.youtube.com/watch?v=39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=42) 
-:movie_camera: [Metabase Video](https://www.youtube.com/watch?v=BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) 
+
+:movie_camera: Google data studio Video
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/39nLTs74A3E)](https://youtu.be/39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=48)
+
+:movie_camera: Metabase Video
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/BnLkrA7a6gM)](https://youtu.be/BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=49)
 
  
 ## Advanced concepts
