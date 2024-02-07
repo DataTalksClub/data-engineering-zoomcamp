@@ -20,13 +20,17 @@
           "type": "os"
         },
         {
-          "background": "#FEF5ED",
-          "foreground": "#011627",
+          "background": "#FFDE57",
+          "foreground": "#2a2727",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "template": "\uf489 {{ .Name }}",
-          "trailing_diamond": "<transparent,#FEF5ED>\ue0b2</>",
-          "type": "shell"
+          "properties": {
+            "display_mode": "files",
+            "fetch_virtual_env": true
+          },
+          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+          "trailing_diamond": "<transparent,#FFDE57>\ue0b2</>",
+          "type": "python"
         },
         {
           "background": "#516BEB",
@@ -38,30 +42,18 @@
           "type": "sysinfo"
         },
         {
-          "background": "#575656",
-          "foreground": "#d6deeb",
-          "leading_diamond": "\ue0b2",
-          "properties": {
-            "style": "roundrock",
-            "threshold": 0
-          },
-          "style": "diamond",
-          "template": " {{ .FormattedMs }} ",
-          "trailing_diamond": "<transparent,#516BEB>\ue0b2</>",
-          "type": "executiontime"
-        },
-		{
-          "background": "#FFDE57",
-          "foreground": "#111111",
-          "leading_diamond": "\ue0b2",
-          "properties": {
-            "display_mode": "files",
-            "fetch_virtual_env": true
-          },
-          "style": "powerline",
-          "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
-          "type": "python"
-        }
+            "background": "#575656",
+            "foreground": "#d6deeb",
+            "leading_diamond": "\ue0b2",
+            "properties": {
+              "style": "roundrock",
+              "threshold": 0
+            },
+            "style": "diamond",
+            "template": " {{ .FormattedMs }} ",
+            "trailing_diamond": "\ue0b0",
+            "type": "executiontime"
+          }
       ],
       "type": "prompt"
     },
