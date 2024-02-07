@@ -184,7 +184,7 @@ Videos
 
 ### --- EllaNotes ---
 
-If you never of the terms `oltp` versus `olap`, I suggest you go research that before completing this lesson. What does it mean for a database to be *relational* or *unstructured*?
+If you never heard of the terms `oltp` versus `olap`, I suggest you go research that before completing this lesson. What does it mean for a database to be *relational* or *unstructured*?
 
 Other terms mentioned are `data lake` and `data warehouse`.
 
@@ -261,6 +261,7 @@ Additional Mage Guides
 
 ### --- EllaNotes ---
 
+
 All the above chapters 1-6 were done locally.
 Chapter 7 for deployment, I'm trying in a GCP VM.
 
@@ -307,24 +308,22 @@ The steps:
     ```bash
     gs://mage-zoomcamp-ellacharmed/
     ```
-1. clone the [Mage Terraform Templates](https://github.com/mage-ai/mage-ai-terraform-templates), and copy these 2 files to your `cohorts/2024/02-workflow-orchestration/` homework folder. 
-   - main.tf
-   - variables.tf
+1. clone the [Mage Terraform Templates](https://github.com/mage-ai/mage-ai-terraform-templates), and copy the 5 *.tf files to your `cohorts/2024/02-workflow-orchestration/` homework folder. You may want to create a `terraform` subfolder.
 1. edit `variables.tf` to have your GCP `project-id`, which in my case is still `nyc-rides-ella`
 1. verify the region, zones and location are in same locations, unless multi-regions was selected. Still need to be in same geographical area, though.
-1. on GCP web page, search for `Cloud Filestore API` and click on the blue `Enable` button. So now we have been introduced to 3 types of storages: **Buckets**, **BigQuery**, **Filestore**.
+1. on GCP web page, search for `Cloud Filestore API` and click on the blue `Enable` button. So now we have been introduced to 3 types of storages: **Buckets**, **BigQuery**, **Filestore**. TODO research the diff.
 1. Go to [API Library](https://console.cloud.google.com/apis/library?project=nyc-rides-ella), replace URL `project=` with your `project-id` of course. search for these services and make sure these APIs are enabled
    - `sqladmin`
    - `vpcaccess`
    - `cloud run`
-1. run `terraform init` and then `terraform plan` to verify no errors or typos in our `main.tf` and `variables.tf`
+1. run `terraform fmt` (optional), `terraform init` and then `terraform plan` to verify no errors or typos in our `main.tf` and `variables.tf`
    - database password is `postgres` from our `.env` file
 1. if no errors from above, then proceed with `terraform apply`
    - database password is `postgres` from our `.env` file
    - and `yes` to approve
    - process would take about 8-15 mins or so, depending on your connection (when I used the default "US" location)
      - `google_sql_database_instance.instance` took about 11mins (US) / 9mins (SG) for me
-     - `google_cloud_run_service.run_service` took about 3mins (US) / mins (SG)
+     - `google_cloud_run_service.run_service` took about 3mins (US) / 2mins (SG)
      - ``
 1. encountered below error
     ```bash
@@ -340,13 +339,13 @@ The steps:
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
         "https://iam.googleapis.com/v1/projects/nyc-rides-ella/serviceAccounts"
     ```
-1. changed region= "asia-southeast1", zone= "asia-southeast1-a" and location = "Singapore", and `apply` appears to run so much faster but still getting errors.
+1. changed region= "asia-southeast1", zone= "asia-southeast1-a" and location = "Singapore", and `apply` appears to run a tad faster but still getting errors.
     ```bash
     google_compute_region_network_endpoint_group.cloudrun_neg: Destroying... [id=projects/nyc-rides-ella/regions/us-west2/networkEndpointGroups/mage-data-prep-neg]
     ╷
     │ Error: Error when reading or editing RegionNetworkEndpointGroup: googleapi: Error 400: The network_endpoint_group resource 'projects/nyc-rides-ella/regions/us-west2/networkEndpointGroups/mage-data-prep-neg' is already being used by 'projects/nyc-rides-ella/global/backendServices/mage-data-prep-urlmap-backend-default', resourceInUseByAnotherResource
-1. remove .tfstate and .plan files and started over from `terraform init`. new error encountered.
     ```
+1. remove .tfstate and .plan files and started over from `terraform init`. new error encountered.
     ```bash
     │ Error: Error waiting to create Connector: Error waiting for Creating Connector: Error code 3, message: Operation failed: Invalid IP CIDR range was provided. It conflicts with an existing subnetwork. Please delete the connector manually.
     │ 
@@ -368,8 +367,26 @@ output:
     ```bash
     │ Error: Error, failed to deleteuser mageuser in instance mage-data-vm-db-instance: googleapi: Error 400: Invalid request: failed to delete user mageuser: . role "mageuser" cannot be dropped because some objects depend on it Details: 43 objects in database mage-data-vm-db., invalid
     ```
-from @konrad: In my case, the deletion of a PostgreSQL database requires manual intervention. `terraform destroy` is not able to delete it
+1. received notice that destory not succcessful, as per @konrad: 
+> In my case, the deletion of a PostgreSQL database requires manual intervention. `terraform destroy` is not able to delete it
+run below to manually remove the db-instance
 > gcloud sql instances delete mage-data-vm-db-instance
+
+
+New session, new IP on VM. Hopefully no lingering bad resources.
+
+1. created a separate service `mage-data-vm` with the principal of the nyc-rides-ella service account, following [this guide](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
+1. also uncommented the section on `"run_all_users"` 
+1. success! But not started via docker-compose, so no .env and json files. Also it is a brand new Mage `default_repo`. Did a quick down&dirty copy+paste from `hmwk-02` folder from WSL instance
+1. TODO without the json file, need to look into using SECRETS to have access to SQL and BigQuery
+
+> [!NOTE]
+> Results: can provision VM and deploy mage via Terraform. But pipeline fails, at Data Exporter blocks, bacause the contents are not from docker-compose.yaml. 
+
+```bash
+root@localhost:/home/src# ls -la
+total 0
+```
 
 ### 2.2.8 - 🗒️ Homework 
 
@@ -379,7 +396,7 @@ We've prepared a short exercise to test you on what you've learned this week. Yo
 
 Done on Sun, setup Trigger to schedule daily run at 5am UTC. Missed it by 2 hours 3pm SGT / 7am UTC, so have to check back in next day.
 
-Trigger won't run unless containers are `up`?
+Triggers need to have the containers up.
 
 
 ### 2.2.9 - 👣 Next Steps
