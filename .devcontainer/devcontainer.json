@@ -11,7 +11,9 @@
 		"VARIANT": "1.19-bullseye",
 		// Options:
   
-		"POSH_THEME": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/clean-detailed.omp.json",
+		// "POSH_THEME": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/clean-detailed.omp.json",
+		// modified with python segments
+		"POSH_THEME": "~/data-engineering-zoomcamp/.devcontainer/ella-clean-detailed.omp.json",
   
 		// Override me with your own timezone:
 		"SG": "Asia/Singapore",
@@ -104,7 +106,8 @@
 				"ms-vscode-remote.remote-containers",
 				"PKief.material-icon-theme",
 				"GitHub.github-vscode-theme",
-				"mhutchie.git-graph"
+				"mhutchie.git-graph",
+				"gruntfuggly.todo-tree"
 			]
 		}
 	},

@@ -261,8 +261,115 @@ Additional Mage Guides
 
 ### --- EllaNotes ---
 
-Not done yet...need a longer study session as need to stand-up and tear-down infra.
+All the above chapters 1-6 were done locally.
+Chapter 7 for deployment, I'm trying in a GCP VM.
 
+What it means? Using Terraform to *programmatically* create resources that Mage needs to run, as Matt puts it *in one fell swoop*:
+- Google Cloud Run
+- backend database as persistent storage
+  - which means that when we stop our containers or VMs, we can resume our work as the data is still there ie mage pipelines and the database we create
+- benefits: the setup configuration is version-controlled
+
+What it needs? The pre-requisites are: 
+- Terraform installed on local (from module#01)
+- gcloud cli installed on local (from module#01)
+- gcloud permissions 
+  - project --> IAM --> Edit Principal
+  - add these Roles:
+    - Artifact Registry Reader
+    - Artifact Registry Writer
+    - Cloud Run Developer
+    - Cloud Run Service Agent
+    - Cloud SQL Admin
+    - Service Account Token Creator
+    - Serverless VPC Access Admin
+  - remove the Owner Role entry
+  - Save
+- [mage terraform templates](https://github.com/mage-ai/mage-ai-terraform-templates)
+
+> [!TIP]
+> Use lowercase for any variable entries in the  *.tf files for things like project-id and bucket-name, etc.
+
+The steps:
+
+1. first verify `gcloud` is recognized, `gcloud auth list`. This would list the authenticated IDs. 
+   output:
+   ```bash
+                      Credentialed Accounts
+    ACTIVE  ACCOUNT
+    *       152484696885-compute@developer.gserviceaccount.com
+
+    To set the active account, run:
+    $ gcloud config set account `ACCOUNT`
+   ```
+1. also verify buckets `gcloud storage ls`
+   output:
+    ```bash
+    gs://mage-zoomcamp-ellacharmed/
+    ```
+1. clone the [Mage Terraform Templates](https://github.com/mage-ai/mage-ai-terraform-templates), and copy these 2 files to your `cohorts/2024/02-workflow-orchestration/` homework folder. 
+   - main.tf
+   - variables.tf
+1. edit `variables.tf` to have your GCP `project-id`, which in my case is still `nyc-rides-ella`
+1. verify the region, zones and location are in same locations, unless multi-regions was selected. Still need to be in same geographical area, though.
+1. on GCP web page, search for `Cloud Filestore API` and click on the blue `Enable` button. So now we have been introduced to 3 types of storages: **Buckets**, **BigQuery**, **Filestore**.
+1. Go to [API Library](https://console.cloud.google.com/apis/library?project=nyc-rides-ella), replace URL `project=` with your `project-id` of course. search for these services and make sure these APIs are enabled
+   - `sqladmin`
+   - `vpcaccess`
+   - `cloud run`
+1. run `terraform init` and then `terraform plan` to verify no errors or typos in our `main.tf` and `variables.tf`
+   - database password is `postgres` from our `.env` file
+1. if no errors from above, then proceed with `terraform apply`
+   - database password is `postgres` from our `.env` file
+   - and `yes` to approve
+   - process would take about 8-15 mins or so, depending on your connection (when I used the default "US" location)
+     - `google_sql_database_instance.instance` took about 11mins (US) / 9mins (SG) for me
+     - `google_cloud_run_service.run_service` took about 3mins (US) / mins (SG)
+     - ``
+1. encountered below error
+    ```bash
+    │ Error: Error applying IAM policy for cloudrun service "v1/projects/nyc-rides-ella/locations/us-west2/services/mage-data-prep": Error setting IAM policy for cloudrun service "v1/projects/nyc-rides-ella/locations/us-west2/services/mage-data-prep": googleapi: Error 403: Permission 'run.services.setIamPolicy' denied on resource 'projects/nyc-rides-ella/locations/us-west2/services/mage-data-prep' (or resource may not exist).
+    │ 
+    │   with google_cloud_run_service_iam_member.run_all_users,
+    │   on main.tf line 158, in resource "google_cloud_run_service_iam_member" "run_all_users":
+    │  158: resource "google_cloud_run_service_iam_member" "run_all_users" {
+    ```
+1. Used [secrets manager](https://cloud.google.com/secret-manager/docs/authentication). remember to change the project-id `nyc-rides-ella` to your own.
+    ```bash
+    curl -X GET \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        "https://iam.googleapis.com/v1/projects/nyc-rides-ella/serviceAccounts"
+    ```
+1. changed region= "asia-southeast1", zone= "asia-southeast1-a" and location = "Singapore", and `apply` appears to run so much faster but still getting errors.
+    ```bash
+    google_compute_region_network_endpoint_group.cloudrun_neg: Destroying... [id=projects/nyc-rides-ella/regions/us-west2/networkEndpointGroups/mage-data-prep-neg]
+    ╷
+    │ Error: Error when reading or editing RegionNetworkEndpointGroup: googleapi: Error 400: The network_endpoint_group resource 'projects/nyc-rides-ella/regions/us-west2/networkEndpointGroups/mage-data-prep-neg' is already being used by 'projects/nyc-rides-ella/global/backendServices/mage-data-prep-urlmap-backend-default', resourceInUseByAnotherResource
+1. remove .tfstate and .plan files and started over from `terraform init`. new error encountered.
+    ```
+    ```bash
+    │ Error: Error waiting to create Connector: Error waiting for Creating Connector: Error code 3, message: Operation failed: Invalid IP CIDR range was provided. It conflicts with an existing subnetwork. Please delete the connector manually.
+    │ 
+    │   with google_vpc_access_connector.connector,
+    │   on fs.tf line 19, in resource "google_vpc_access_connector" "connector":
+    │   19: resource "google_vpc_access_connector" "connector" {
+    ```
+1. search for `vpc connector` on GCP and remove all
+1. commented `resource "google_cloud_run_service_iam_member" "run_all_users"` in main.tf and finally successful
+output:
+    ```bash
+    Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+    Outputs:
+
+    service_ip = "34.149.15.172"
+    ```
+1. on GCP web page, go to `Cloud Run`. Cannot access Mage. Shall `terraform destroy`, shut down VM and try again, on clean slate.
+    ```bash
+    │ Error: Error, failed to deleteuser mageuser in instance mage-data-vm-db-instance: googleapi: Error 400: Invalid request: failed to delete user mageuser: . role "mageuser" cannot be dropped because some objects depend on it Details: 43 objects in database mage-data-vm-db., invalid
+    ```
+from @konrad: In my case, the deletion of a PostgreSQL database requires manual intervention. `terraform destroy` is not able to delete it
+> gcloud sql instances delete mage-data-vm-db-instance
 
 ### 2.2.8 - 🗒️ Homework 
 
@@ -271,6 +378,8 @@ We've prepared a short exercise to test you on what you've learned this week. Yo
 ### --- EllaNotes ---
 
 Done on Sun, setup Trigger to schedule daily run at 5am UTC. Missed it by 2 hours 3pm SGT / 7am UTC, so have to check back in next day.
+
+Trigger won't run unless containers are `up`?
 
 
 ### 2.2.9 - 👣 Next Steps
