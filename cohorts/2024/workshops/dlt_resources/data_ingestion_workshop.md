@@ -450,16 +450,18 @@ Next, grab your data from above and run this snippet
 - and we run the pipeline, printing the outcome
 
 ```python
-# define the connection to load to. 
+# define the connection to load to.
 # We now use duckdb, but you can switch to Bigquery later
-pipeline = dlt.pipeline(pipeline_name="taxi_data",
-						destination='duckdb', 
-						dataset_name='taxi_rides')
+pipeline = dlt.pipeline(destination='duckdb', dataset_name='taxi_rides')
 
-# run the pipeline with default settings, and capture the outcome
-info = pipeline.run(data, 
-                    table_name="users", 
-                    write_disposition="replace")
+# run with merge write disposition.
+# This is so scaffolding is created for the next example,
+# where we look at merging data
+
+info = pipeline.run(data,
+					table_name="rides",
+					write_disposition="merge",
+                    primary_key="record_hash")
 
 # show the outcome
 print(info)
@@ -554,15 +556,15 @@ data = [
     },
 ]
 
-# define the connection to load to. 
+# define the connection to load to.
 # We now use duckdb, but you can switch to Bigquery later
 pipeline = dlt.pipeline(destination='duckdb', dataset_name='taxi_rides')
 
 # run the pipeline with default settings, and capture the outcome
-info = pipeline.run(data, 
-					table_name="users", 
-					write_disposition="merge", 
-					merge_key="record_hash")
+info = pipeline.run(data,
+					table_name="rides",
+					write_disposition="replace",
+                    primary_key='record_hash')
 
 # show the outcome
 print(info)
