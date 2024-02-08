@@ -1,0 +1,30 @@
+blocks:
+- all_upstream_blocks_executed: true
+  downstream_blocks:
+  - fill_in_missing_values
+  name: load_titanic
+  status: not_executed
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_titanic
+- all_upstream_blocks_executed: true
+  downstream_blocks:
+  - export_titanic_clean
+  name: fill_in_missing_values
+  status: not_executed
+  type: transformer
+  upstream_blocks:
+  - load_titanic
+  uuid: fill_in_missing_values
+- all_upstream_blocks_executed: true
+  downstream_blocks: []
+  name: export_titanic_clean
+  status: not_executed
+  type: data_exporter
+  upstream_blocks:
+  - fill_in_missing_values
+  uuid: export_titanic_clean
+name: example_pipeline
+type: python
+uuid: example_pipeline
+widgets: []

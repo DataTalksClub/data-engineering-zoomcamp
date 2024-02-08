@@ -1,0 +1,55 @@
+project_type: standalone
+
+variables_dir: ~/.mage_data
+# remote_variables_dir: s3://bucket/path_prefix
+
+variables_retention_period: '90d'
+
+emr_config:
+  # You can customize the EMR cluster instance size with the two parameters
+  master_instance_type: 'r5.4xlarge'
+  slave_instance_type: 'r5.4xlarge'
+
+  # Configure security groups for EMR cluster instances.
+  # The default managed security groups are ElasticMapReduce-master and ElasticMapReduce-slave
+  # master_security_group: 'sg-xxxxxxxxxxxx'
+  # slave_security_group: 'sg-yyyyyyyyyyyy'
+
+  # If you want to ssh tunnel into EMR cluster, ec2_key_name must be configured.
+  # You can create a key pair in page https://console.aws.amazon.com/ec2#KeyPairs and download the key file.
+  # ec2_key_name: '[ec2_key_pair_name]'
+
+spark_config:
+  # Application name
+  app_name: 'my spark app'
+  # Master URL to connect to
+  # e.g., spark_master: 'spark://host:port', or spark_master: 'yarn'
+  spark_master: 'local'
+  # Executor environment variables
+  # e.g., executor_env: {'PYTHONPATH': '/home/path'}
+  executor_env: {}
+  # Jar files to be uploaded to the cluster and added to the classpath
+  # e.g., spark_jars: ['/home/path/example1.jar']
+  spark_jars: []
+  # Path where Spark is installed on worker nodes
+  # e.g. spark_home: '/usr/lib/spark'
+  spark_home:
+  # List of key-value pairs to be set in SparkConf
+  # e.g., others: {'spark.executor.memory': '4g', 'spark.executor.cores': '2'}
+  others: {}
+  # Whether to create custom SparkSession via code and set in kwargs['context']
+  use_custom_session: false
+  # The variable name to set in kwargs['context'],
+  # e.g. kwargs['context']['spark'] = spark_session
+  custom_session_var_name: 'spark'
+
+notification_config:
+  alert_on:
+  - trigger_failure
+  - trigger_passed_sla
+  slack_config:
+    webhook_url: "{{ env_var('MAGE_SLACK_WEBHOOK_URL') }}"
+  teams_config:
+    webhook_url: "{{ env_var('MAGE_TEAMS_WEBHOOK_URL') }}"
+project_uuid: 1c45c7aafaff4206a5fc43ca7a83a57b
+help_improve_mage: true

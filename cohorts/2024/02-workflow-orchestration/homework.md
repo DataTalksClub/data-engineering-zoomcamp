@@ -35,6 +35,9 @@ Once the dataset is loaded, what's the shape of the data?
 * 544,898 rows x 20 columns
 * 133,744 rows x 20 columns
 
+**A**
+266,855 rows x 20 columns
+
 ## Question 2. Data Transformation
 
 Upon filtering the dataset where the passenger count is equal to 0 _or_ the trip distance is equal to zero, how many rows are left?
@@ -43,6 +46,9 @@ Upon filtering the dataset where the passenger count is equal to 0 _or_ the trip
 * 266,855 rows
 * 139,370 rows
 * 266,856 rows
+
+**A**
+139,370 rows
 
 ## Question 3. Data Transformation
 
@@ -53,6 +59,10 @@ Which of the following creates a new column `lpep_pickup_date` by converting `lp
 * data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
 * data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt().date()
 
+**A**
+* data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
+
+
 ## Question 4. Data Transformation
 
 What are the existing values of `VendorID` in the dataset?
@@ -61,6 +71,9 @@ What are the existing values of `VendorID` in the dataset?
 * 1 or 2
 * 1, 2, 3, 4
 * 1
+
+**A**
+* 1 or 2
 
 ## Question 5. Data Transformation
 
@@ -71,6 +84,9 @@ How many columns need to be renamed to snake case?
 * 2
 * 4
 
+**A**
+* 4
+
 ## Question 6. Data Exporting
 
 Once exported, how many partitions (folders) are present in Google Cloud?
@@ -79,6 +95,10 @@ Once exported, how many partitions (folders) are present in Google Cloud?
 * 56
 * 67
 * 108
+
+**A**
+* 96
+
 
 ## Submitting the solutions
 
