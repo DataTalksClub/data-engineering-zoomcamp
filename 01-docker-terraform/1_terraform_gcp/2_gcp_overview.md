@@ -1,7 +1,9 @@
 ## GCP Overview
 
-[Video](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/18jIzE41fJ4)](https://youtu.be/18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
 
+
+<!-- [![GCP Overview](https://img.youtube.com/vi/18jIzE41fJ4/0.jpg)](https://youtu.be/18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2) -->
 
 ### Project infrastructure modules in GCP:
 * Google Cloud Storage (GCS): Data Lake
@@ -45,4 +47,4 @@ For this course, we'll use a free version (upto EUR 300 credits).
    ```
  
 ### Terraform Workshop to create GCP Infra
-Continue [here](./terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
+Continue [here](./terraform): `01-docker-terraform/1_terraform_gcp/terraform`

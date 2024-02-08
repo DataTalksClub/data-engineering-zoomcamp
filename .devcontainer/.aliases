@@ -1,0 +1,6 @@
+alias ll='ls -al'
+alias cls='clear'
+alias mb="micromamba"
+alias mba="micromamba activate"
+alias md="micromamba deactivate"
+alias mel="micromamba env list"

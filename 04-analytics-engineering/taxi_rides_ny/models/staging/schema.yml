@@ -1,20 +1,16 @@
-
 version: 2
 
 sources:
-    - name: staging
-      #For bigquery:
-      database: taxi-rides-ny-339813-412521
-
-      # For postgres:
+  - name: staging
+    database: taxi-rides-ny-339813-412521
+     # For postgres:
       #database: production
-
-      schema: trips_data_all
+    schema: trips_data_all
 
       # loaded_at_field: record_loaded_at
-      tables:
-        - name: green_tripdata
-        - name: yellow_tripdata
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
          # freshness:
            # error_after: {count: 6, period: hour}
 
@@ -83,6 +79,11 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
+            tests: 
+              - accepted_values:
+                  values: "{{ var('payment_type_values') }}"
+                  severity: warn
+                  quote: false
           - name: payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 
@@ -170,6 +171,11 @@ models:
           - name: Payment_type 
             description: >
               A numeric code signifying how the passenger paid for the trip.
+            tests: 
+              - accepted_values:
+                  values: "{{ var('payment_type_values') }}"
+                  severity: warn
+                  quote: false
           - name: payment_type_description
             description: Description of the payment_type code
           - name: Fare_amount 

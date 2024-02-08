@@ -17,7 +17,7 @@ Create an account in Google Cloud and create a project.
 
 ## Question 2. Terraform 
 
-Now install terraform and go to the terraform directory (`week_1_basics_n_setup/1_terraform_gcp/terraform`)
+Now install terraform and go to the terraform directory (`01-docker-terraform/1_terraform_gcp/terraform`)
 
 After that, run
 

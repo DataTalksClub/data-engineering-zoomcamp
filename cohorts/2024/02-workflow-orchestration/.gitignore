@@ -1,0 +1,5 @@
+# my stuff
+*.md
+*.ipynb
+walkthrough*
+/images

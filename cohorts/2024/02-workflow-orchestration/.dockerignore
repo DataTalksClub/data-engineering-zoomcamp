@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Allow files and directories
+!.env
+!nyc-rides-ella-2ed4c1a72f73.json
+!requirements.txt
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/*~
+**/*.log
+**/.DS_Store
+**/Thumbs.db

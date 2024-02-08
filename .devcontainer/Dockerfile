@@ -59,7 +59,7 @@ ENV PATH "$PATH:/home/${USERNAME}/bin"
 ENV PATH "$PATH:/home/${USERNAME}/.local/bin"
 
 # Can be used to override the devcontainer prompt default theme:
-ENV POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/clean-detailed.omp.json"
+ENV POSH_THEME="~/data-engineering-zoomcamp/.devcontainer/ella-clean-detailed.omp.json"
 
 # Deploy oh-my-posh prompt to Powershell:
 COPY Microsoft.PowerShell_profile.ps1 /home/${USERNAME}/.config/powershell/Microsoft.PowerShell_profile.ps1
@@ -68,6 +68,7 @@ COPY Microsoft.PowerShell_profile.ps1 /home/${USERNAME}/.config/powershell/Micro
 COPY config.fish /home/${USERNAME}/.config/fish/config.fish
 # Copy git config
 COPY .gitconfig /home/${USERNAME}/.gitconfig
+COPY ./cohorts/2024/02-workflow-orchestration/.env /home/${USERNAME}/data-engineering-zoomcamp/cohorts/2024/02-workflow-orchestration/.env
 
 # Everything runs as root during build time, so we want
 # to make sure the vscode user can edit these paths too:

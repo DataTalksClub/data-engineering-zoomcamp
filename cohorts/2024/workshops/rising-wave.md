@@ -1,3 +1,54 @@
+<p align="center">
+  <picture>
+    <source srcset="https://github.com/risingwavelabs/risingwave/blob/main/.github/RisingWave-logo-dark.svg" width="500px" media="(prefers-color-scheme: dark)">
+    <img src="https://github.com/risingwavelabs/risingwave/blob/main/.github/RisingWave-logo-light.svg" width="500px">
+  </picture>
+</p>
+
+
+</div>
+
+<p align="center">
+  <a
+    href="https://docs.risingwave.com/"
+    target="_blank"
+  ><b>Documentation</b></a>&nbsp;&nbsp;&nbsp;📑&nbsp;&nbsp;&nbsp;
+  <a
+    href="https://tutorials.risingwave.com/"
+    target="_blank"
+  ><b>Hands-on Tutorials</b></a>&nbsp;&nbsp;&nbsp;🎯&nbsp;&nbsp;&nbsp;
+  <a
+    href="https://cloud.risingwave.com/"
+    target="_blank"
+  ><b>RisingWave Cloud</b></a>&nbsp;&nbsp;&nbsp;🚀&nbsp;&nbsp;&nbsp;
+  <a
+    href="https://risingwave.com/slack"
+    target="_blank"
+  >
+    <b>Get Instant Help</b>
+  </a>
+</p>
+<div align="center">
+  <a
+    href="https://risingwave.com/slack"
+    target="_blank"
+  >
+    <img alt="Slack" src="https://badgen.net/badge/Slack/Join%20RisingWave/0abd59?icon=slack" />
+  </a>
+  <a
+    href="https://twitter.com/risingwavelabs"
+    target="_blank"
+  >
+    <img alt="X" src="https://img.shields.io/twitter/follow/risingwavelabs" />
+  </a>
+  <a
+    href="https://www.youtube.com/@risingwave-labs"
+    target="_blank"
+  >
+    <img alt="YouTube" src="https://img.shields.io/youtube/channel/views/UCsHwdyBRxBpmkA5RRd0YNEA" />
+  </a>
+</div>
+
 ## Stream processing with RisingWave
 
 In this hands-on workshop, we’ll learn how to process real-time streaming data using SQL in RisingWave. The system we’ll use is [RisingWave](https://github.com/risingwavelabs/risingwave), an open-source SQL database for processing and managing streaming data. You may not feel unfamiliar with RisingWave’s user experience, as it’s fully wire compatible with PostgreSQL.
