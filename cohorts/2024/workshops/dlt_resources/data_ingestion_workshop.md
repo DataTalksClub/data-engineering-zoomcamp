@@ -563,7 +563,7 @@ pipeline = dlt.pipeline(destination='duckdb', dataset_name='taxi_rides')
 # run the pipeline with default settings, and capture the outcome
 info = pipeline.run(data,
 					table_name="rides",
-					write_disposition="replace",
+					write_disposition="merge",
                     primary_key='record_hash')
 
 # show the outcome
