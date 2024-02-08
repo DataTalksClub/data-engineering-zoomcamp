@@ -69,7 +69,7 @@ def load_data_from_api(*args, **kwargs):
 
             # Append DataFrame to the list
             dataframes.append(df)
-            print(f"Downloaded {filename} appended successfully! df created")
+            print(f"Downloaded {filename} successfully!")
         
         else:
             print(f"Failed to download {filename}. Status code: {response.status_code}")

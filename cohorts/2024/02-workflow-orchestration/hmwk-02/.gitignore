@@ -16,11 +16,6 @@ secrets/
 .md
 .ipynb
 
-*/__init__.py
-data_exporters/__init__.py
-data_loaders/__init__.py
-transformers/__init__.py
-pipelines/__init__.py
 
 # exceptions
 !**/devcontainer.json

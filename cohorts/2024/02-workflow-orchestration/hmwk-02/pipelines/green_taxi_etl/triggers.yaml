@@ -1,6 +1,6 @@
 triggers:
 - envs: []
-  last_enabled_at: 2024-02-04 07:10:35.459944
+  last_enabled_at: 2024-02-08 06:10:13.318903
   name: daily_green_etl
   pipeline_uuid: green_taxi_etl
   schedule_interval: '@daily'

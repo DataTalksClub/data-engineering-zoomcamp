@@ -12,12 +12,12 @@ blocks:
   language: python
   name: load_api_green_data
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
   uuid: load_api_green_data
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
@@ -38,7 +38,7 @@ blocks:
   upstream_blocks:
   - load_api_green_data
   uuid: transform_green_taxi_data
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -54,7 +54,7 @@ blocks:
   upstream_blocks:
   - transform_green_taxi_data
   uuid: green_taxi_to_gcs_parquet
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -70,7 +70,7 @@ blocks:
   upstream_blocks:
   - transform_green_taxi_data
   uuid: green_taxi_to_gcs_partitioned_parquet
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration:
     data_provider: bigquery
@@ -119,7 +119,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-05 19:15:12'
+updated_at: '2024-02-08 05:47:02'
 uuid: green_taxi_etl
 variables_dir: /home/src/mage_data/hmwk-02
 widgets: []

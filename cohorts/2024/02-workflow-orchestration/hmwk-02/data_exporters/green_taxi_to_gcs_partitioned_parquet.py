@@ -5,11 +5,11 @@ import os
 if 'data_exporter' not in globals():
     from mage_ai.data_preparation.decorators import data_exporter
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/src/nyc-rides-ella-85c8b8d18b10.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/src/nyc-rides-ella-2ed4c1a72f73.json"
 
 bucket_name = 'mage-zoomcamp-ellacharmed'
 project_id = 'nyc-rides-ella'
-table_name = 'green_taxi'
+table_name = 'nyc_taxi_data'
 
 root_path = f'{bucket_name}/{table_name}'
 

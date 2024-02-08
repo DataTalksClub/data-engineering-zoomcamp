@@ -369,19 +369,19 @@ output:
     ```
 1. received notice that destory not succcessful, as per @konrad: 
 > In my case, the deletion of a PostgreSQL database requires manual intervention. `terraform destroy` is not able to delete it
-run below to manually remove the db-instance
+run below to manually remove the db-instance, yours might be using the default `mage-data-prep-db-instance`
 > gcloud sql instances delete mage-data-vm-db-instance
 
 
 New session, new IP on VM. Hopefully no lingering bad resources.
 
 1. created a separate service `mage-data-vm` with the principal of the nyc-rides-ella service account, following [this guide](https://docs.mage.ai/production/deploying-to-cloud/gcp/setup)
-1. also uncommented the section on `"run_all_users"` 
-1. success! But not started via docker-compose, so no .env and json files. Also it is a brand new Mage `default_repo`. Did a quick down&dirty copy+paste from `hmwk-02` folder from WSL instance
-1. TODO without the json file, need to look into using SECRETS to have access to SQL and BigQuery
+2. also uncommented the section on `"run_all_users"` 
+3. success! But not started via docker-compose, so no .env and json files. Also it is a brand new Mage `default_repo`. Did a quick down&dirty copy+paste from `hmwk-02` folder from WSL instance
+4. TODO without the json file, need to look into using SECRETS to have access to SQL and BigQuery
 
 > [!NOTE]
-> Results: can provision VM and deploy mage via Terraform. But pipeline fails, at Data Exporter blocks, bacause the contents are not from docker-compose.yaml. 
+> ***Results***: can provision VM and deploy mage via Terraform. But pipeline fails, at Data Exporter blocks, bacause the contents are not from docker-compose.yaml i.e missing the json credentials in io_config.yaml from completing hmwk-02 tasks, and new json need to be FTP'd anyway to VM due to using new service `mage-data-vm` instead of `mage-zoomcamp`. 
 
 ```bash
 root@localhost:/home/src# ls -la
@@ -396,8 +396,7 @@ We've prepared a short exercise to test you on what you've learned this week. Yo
 
 Done on Sun, setup Trigger to schedule daily run at 5am UTC. Missed it by 2 hours 3pm SGT / 7am UTC, so have to check back in next day.
 
-Triggers need to have the containers up.
-
+Triggers need to have the containers up to run.
 
 ### 2.2.9 - 👣 Next Steps
 

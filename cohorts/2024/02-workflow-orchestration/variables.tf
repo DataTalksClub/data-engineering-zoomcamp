@@ -1,7 +1,7 @@
 variable "app_name" {
   type        = string
   description = "Application Name"
-  default     = "mage-data-vm"
+  default     = "hmwk-02-gcs"
 }
 
 variable "container_cpu" {
@@ -35,19 +35,25 @@ variable "zone" {
 variable "location" {
   description = "Project Location"
   #Update the below to your desired location
-  default     = "Singapore"
+  default = "Singapore"
 }
 
 variable "repository" {
   type        = string
   description = "The name of the Artifact Registry repository to be created"
-  default     = "mage-data-vm"
+  default     = "hmwk-02"
+}
+
+variable "file_share_name" {
+  type        = string
+  description = "The name of the File Share to be created"
+  default     = "hmwk-02-file_share"
 }
 
 variable "database_user" {
   type        = string
   description = "The username of the Postgres database."
-  default     = "mageuser"
+  default     = "postgres"
 }
 
 variable "database_password" {

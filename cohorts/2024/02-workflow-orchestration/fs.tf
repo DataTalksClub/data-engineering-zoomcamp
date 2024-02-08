@@ -1,9 +1,9 @@
 # fs.tf | File System Configuration
 
 resource "google_filestore_instance" "instance" {
-  name = "${var.app_name}"
+  name     = var.app_name
   location = var.zone
-  tier = "BASIC_HDD"
+  tier     = "BASIC_HDD"
 
   file_shares {
     capacity_gb = 1024

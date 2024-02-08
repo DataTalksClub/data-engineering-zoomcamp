@@ -20,7 +20,7 @@ def export_green_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
     config_profile = 'default'
 
     bucket_name = 'mage-zoomcamp-ellacharmed'
-    object_key = 'green_taxi_data.parquet'
+    object_key = 'nyc_taxi_data.parquet'
 
     GoogleCloudStorage.with_config(ConfigFileLoader(config_path, config_profile)).export(
         df,

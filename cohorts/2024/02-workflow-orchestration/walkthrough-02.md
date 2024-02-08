@@ -6,7 +6,7 @@
 - [answer by ardalis.com](https://ardalis.com/how-to-embed-youtube-video-in-github-readme-markdown/)
 - https://vscode-sqltools.mteixeira.dev/en/home
 - https://startlearningcode.com/2020/01/08/visual-studio-code-sqltools-extension/
-
+- [stackoverflow on .dockerignore](https://stackoverflow.com/questions/28097064/dockerignore-ignore-everything-except-a-file-and-the-dockerfile)
 
 ## hierarchical gitignore
 

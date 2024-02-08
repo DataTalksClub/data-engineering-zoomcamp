@@ -48,7 +48,7 @@ blocks:
   language: python
   name: green_taxi_to_gcs_parquet
   retry_config: null
-  status: updated
+  status: failed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -114,7 +114,7 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-02-03 03:41:45'
+updated_at: '2024-02-08 05:38:02'
 uuid: green_taxi_etl
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []
