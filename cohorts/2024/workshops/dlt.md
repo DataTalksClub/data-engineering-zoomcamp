@@ -10,7 +10,7 @@
 
 ​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
 
-
+Video: https://www.youtube.com/live/oLXhBM7nf2Q
 
 --- 
 
