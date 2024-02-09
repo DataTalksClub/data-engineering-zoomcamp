@@ -29,7 +29,8 @@ Syllabus
 
 * **Start**: 15 January 2024 (Monday) at 17:00 CET
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Cohort folder](cohorts/2024/) with homeworks and deadlines 
+* [Cohort folder](cohorts/2024/) with homeworks and deadlines
+* [Launch stream with course overview](https://www.youtube.com/live/AtRhA-NfS24?si=5JzA_E8BmJjiLi8l)
 
 
 ### Self-paced mode
@@ -73,6 +74,12 @@ can take the course at your own pace
 
 
 ### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md)
+
+* Reading from apis
+* Building scalable pipelines
+* Normalising data
+* Incremental loading
+* Homework
 
 
 [More details](cohorts/2024/workshops/dlt.md)
@@ -142,9 +149,7 @@ Putting everything we learned to practice
 
 ## Overview
 
-
-<img src="images/architecture/photo1700757552.jpeg" />
-
+<img src="images/architecture/arch_v3_workshops.jpg" />
 
 ### Prerequisites
 
@@ -169,14 +174,6 @@ Past instructors:
 
 - [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
 - [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
-
-## Course UI
-
-Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
-
-* Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
-
-![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
 
 
 ## Asking for help in Slack

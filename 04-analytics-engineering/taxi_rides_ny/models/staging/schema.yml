@@ -1,20 +1,16 @@
-
 version: 2
 
 sources:
-    - name: staging
-      #For bigquery:
-      #database: taxi-rides-ny-339813
-
-      # For postgres:
-      database: production
-
-      schema: trips_data_all
+  - name: staging
+    database: taxi-rides-ny-339813-412521
+     # For postgres:
+      #database: production
+    schema: trips_data_all
 
       # loaded_at_field: record_loaded_at
-      tables:
-        - name: green_tripdata
-        - name: yellow_tripdata
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
          # freshness:
            # error_after: {count: 6, period: hour}
 
@@ -75,7 +71,7 @@ models:
               memory before sending to the vendor, aka “store and forward,”
               because the vehicle did not have a connection to the server.
                 Y= store and forward trip
-                N= not a store and forward trip
+                N = not a store and forward trip
           - name: Dropoff_longitude 
             description: Longitude where the meter was disengaged.
           - name: Dropoff_latitude 
