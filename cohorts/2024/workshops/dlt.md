@@ -127,6 +127,16 @@ If you create a personal project, consider submitting it to our blog - we will b
 - **Give us a [GitHub Star!](https://github.com/dlt-hub/dlt)**
 - **Join our [Slack community](https://dlthub.com/community)**
 
+## --- EllaNotes ---
+
+- Open-Source Spotlight - dlt - Alena Astrakhantseva
+
+  [![](https://markdown-videos-api.jorgenkh.no/youtube/eMbhyOECpcE)](https://youtu.be/eMbhyOECpcE)
+
+
+- The Entrepreneurship Journey: From Freelancing to Starting a Company - Adrian Brudar
+
+  [![](https://markdown-videos-api.jorgenkh.no/youtube/vOpEQiCsaLw)](https://youtu.be/vOpEQiCsaLw)
 
 # Notes
 
