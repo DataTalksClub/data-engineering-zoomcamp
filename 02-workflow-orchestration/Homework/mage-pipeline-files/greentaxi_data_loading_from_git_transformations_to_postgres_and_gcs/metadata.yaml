@@ -1,0 +1,117 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - letter_02_transform_green_taxi_data
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: 01_green_taxi_data_from_git
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: letter_01_green_taxi_data_from_git
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - letter_03_export_greentaxi_data_to_pgsql
+  - letter_04_load_greentaxi_data_to_gcs
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: 02_transform_green_taxi_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - letter_01_green_taxi_data_from_git
+  uuid: letter_02_transform_green_taxi_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: 03_export_greenTaxi_data_to_PGSQL
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - letter_02_transform_green_taxi_data
+  uuid: letter_03_export_greentaxi_data_to_pgsql
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: postgres
+    data_provider_profile: dev
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: append
+    limit: 1000
+    use_raw_sql: true
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: test_greenTaxi_data_load
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: test_greentaxi_data_load
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: postgres
+    data_provider_profile: dev
+    export_write_policy: append
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: 04_load_greentaxi_data_to_GCS
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - letter_02_transform_green_taxi_data
+  uuid: letter_04_load_greentaxi_data_to_gcs
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-02-10 17:31:00.938696+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: GreenTaxi_Data_loading_from_git_transformations_to_Postgres_and_GCS
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-02-10T20:32:45+00:00'
+uuid: greentaxi_data_loading_from_git_transformations_to_postgres_and_gcs
+variables_dir: /home/src/mage_data/magic-zoomcamp
+widgets: []
