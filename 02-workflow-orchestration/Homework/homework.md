@@ -92,31 +92,31 @@ Once exported, how many partitions (folders) are present in Google Cloud?
 
 ## Solution
 
-# all source files are also avilable in the mage-pipeline-files where you can find the source code also.
+* all source files are also avilable in the mage-pipeline-files where you can find the source code also.
 
-## Question 1. Data Loading
-# 266 855 rows x 20 columns
-
-
-## Question 2. Data Transformation
-# 139 370 rows
+# Question 1. Data Loading
+* 266 855 rows x 20 columns
 
 
-## Question 2. Data Transformation
-# 139 370 rows
+# Question 2. Data Transformation
+* 139 370 rows
 
 
-## Question 3. Data Transformation
-# data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
+# Question 2. Data Transformation
+* 139 370 rows
 
 
-## Question 4. Data Transformation
-# 1 or 2
+# Question 3. Data Transformation
+* data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date
 
 
-## Question 5. Data Transformation
-# 4
+# Question 4. Data Transformation
+* 1 or 2
 
 
-## Question 6. Data Exporting
-# 96
+# Question 5. Data Transformation
+* 4
+
+
+# Question 6. Data Exporting
+* 96
