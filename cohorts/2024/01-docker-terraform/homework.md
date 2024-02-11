@@ -73,7 +73,7 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 - 89009
 
 **A:**
-15612
+- 15612
 sql: SELECT COUNT(*) FROM green_taxi_trip WHERE lpep_pickup_datetime >= '2019-09-18' AND lpep_dropoff_datetime < '2019-09-19';
 
 ## Question 4. Largest trip for each day

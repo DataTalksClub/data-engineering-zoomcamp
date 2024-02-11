@@ -50,3 +50,5 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+cohorts/2024/01-docker-terraform/terraform/terraform_basic/darwin_arm64/terraform-provider-google_v4.51.0_x5
+.vscode/launch.json
