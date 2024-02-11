@@ -238,13 +238,3 @@ Once exported, how many partitions (folders) are present in Google Cloud?
 
 Will be added after the due date
 
-
-
-```python 
-SELECT COUNT(*) 
-FROM public.green_taxi_trips
-WHERE 
-    DATE(lpep_pickup_datetime) = '2019-09-18' 
-    AND DATE(lpep_dropoff_datetime) = '2019-09-18';
-```
-
