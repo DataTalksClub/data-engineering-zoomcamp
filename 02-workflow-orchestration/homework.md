@@ -238,3 +238,7 @@ Once exported, how many partitions (folders) are present in Google Cloud?
 
 Will be added after the due date
 
+
+
+
+

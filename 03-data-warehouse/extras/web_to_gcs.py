@@ -15,7 +15,7 @@ Pre-reqs:
 init_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/'
 # switch out the bucketname
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc-data-lake-bucketname")
-
+print('BUCKET', BUCKET)
 
 def upload_to_gcs(bucket, object_name, local_file):
     """
@@ -59,7 +59,7 @@ def web_to_gcs(year, service):
         print(f"GCS: {service}/{file_name}")
 
 
-web_to_gcs('2019', 'green')
+#web_to_gcs('2019', 'green')
 web_to_gcs('2020', 'green')
 # web_to_gcs('2019', 'yellow')
 # web_to_gcs('2020', 'yellow')

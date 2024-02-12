@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "mythical-geode-413902",
+  "private_key_id": "a671c4735ccbe317d04435f8acf9ddc3d49a132d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCmrf8reqIl0H2Z\n9Hz0PDg0kFaYAJdn3s7HPQDww3UUuVK7be8rVI5ApP8rCxI7ZvL+2xGcjhEgBfN9\nKZQMTNSlzlbJTCxbnRPMA03EBD0xCzfgVWOoFIWF9QV7T9corn+ACwQKglerGHvI\nJnlrPkDMLhgolWnV58/xQ4Exmx+vjaXJq6e5ppB47yUcN8QbOSBFLwuGqj+33D10\nASRwO3wt1APtq9K+OE0oQZ1QQCMKKky/+0OFTNjGfJFLgsyYJIZfwj39QENGL4Bg\na1IByNuf6kDKAIA+BjuWPEoXQ/Cb+lVx0jD5C7FEwW0BTsJmE6jA/Wsy0iQVV1rO\nYS1v83P1AgMBAAECggEAImBbcs+xloP4C6MZjFPJMcodGe9xSppw4jWqNn3RbWtF\nbWOggrrHNfzxpaJ8aaTzc+2hpbzFOmoPzF4hayIDb4jtbEnaEjEEzrxVsxo+tpk+\nNnXV/mnxGe4tab/PO9Q1dqaO+E3mn+KGUQLiYuRtf87365LZR6UuRW+rOxxnvhBu\ngV4KnybARUG2ZL8I8vi2aFs6HbNl2cktllEvOX/y9iOV/yFsgg3n5YcS4MfuaiIF\nj2X9DgJR71exfdQfPYP6C3nJ5T/O15ZfP5uuuynAoHWjrqqbl1KiXRRmanSTkyDz\n17toxb8hoObJfctVOlFKYjS/Nx7h2l67H3m0qxbjkQKBgQDnb5pkLn3lnnj1nB5V\n6y/coykiPDW3lr1igohPGuDJHgVhg222G98ggRfSm42OjtXM09myqlcxI+RmCOiv\nUNlvGDQj6aWDUIO+IqdHNzhebzvSZbjl9haLVE6GRyvrXuq9u18gcyoyUxHPSVBJ\nCThFbqx2swXe8Crs2Nmkb2G5HQKBgQC4XuMA6OAestcDM3EZYAH3FhpIFgK2Q2aq\n/0iQfkBkjfbhBDchQYK9IIyQkqW8MBfGZiGJz0uHbMZFierwUBFceh46ELGBGbMq\n1jayhnKbIUc8JefIAMZvHpUDVIywbBGqxamv13wfdVkEDItxVFMCDmLYYEe9P0yn\n34ZNJZYGuQKBgA2UAaXhCGfhXU1jpG/8BWnXdMFacPhdcq0F5YNmm0uRZFVtRZGK\nnxOkH0au86YqgSasQzh1P/pVFcBaw3QNtUQMUnrM6XYD0kbkd5X5CmiX9BWK/EcZ\nogb4okbEhDIh9nm9NX6M4yvircfQkFJIpTGFpb6tECodQxd0PYilNEGNAoGAGKko\nd/CuOaz2MYlp8Vj0KlacgVPgXPy6+NhYnmsktc5/XS2xKhOXJzD5XEUhQgC0zWbP\nyZ0enyifhKGj+SzchaAX9vBQrdIAMxSgEFUHc1SKMLNpQ0lHQYm3qNBgWSC7ZDo4\nLjsGcTbDB1WeOTRsPfQqqIKIVfnniPTPA/apEJECgYBa8UA0zgcgE8/FMozlfMxD\nyGa+258+EtpRvx3Y83h1fuIUht1PEkbWMcdOxBMvlux+xdlqO0toAWEUxViyPanH\nyuVwedbg4GgfcQFfwlZ4UOOTzXvzUXy5wGc5vxJPu2cEKhJJK5FlOjRvOakJbOlG\nO46lWM10wm63U/Z7pwPfRg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "mage-zoomcapm@mythical-geode-413902.iam.gserviceaccount.com",
+  "client_id": "113231578081841652195",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mage-zoomcapm%40mythical-geode-413902.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
