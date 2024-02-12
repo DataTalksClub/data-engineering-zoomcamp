@@ -175,14 +175,6 @@ Past instructors:
 - [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
 - [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
 
-## Course UI
-
-Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
-
-* Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
-
-![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
-
 
 ## Asking for help in Slack
 
