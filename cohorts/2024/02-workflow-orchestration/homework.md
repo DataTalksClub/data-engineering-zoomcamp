@@ -8,7 +8,7 @@ For the homework, we'll be working with the _green_ taxi dataset located here:
 
 `https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/green/download`
 
-You may need to reference the link below to download via Python in Mage:
+To get a `wget`-able link, use this prefix (note that the link itself gives 404):
 
 `https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/`
 
