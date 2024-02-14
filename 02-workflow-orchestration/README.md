@@ -418,6 +418,23 @@ Resources
 
 ### --- EllaNotes ---
 
+- Mage AI Pipeline - API to BigQuery by Data Slinger (aka Michael Shoemaker)
+
+  [![](https://markdown-videos-api.jorgenkh.no/youtube/C0fNc8ZOpSI)](https://youtu.be/C0fNc8ZOpSI)
+
+- Simple Mage-ai Pipeline from API to Google Cloud Storage by Data Slinger (aka Michael Shoemaker)
+
+  [![](https://markdown-videos-api.jorgenkh.no/youtube/c3ZppKdSG5A)](https://youtu.be/c3ZppKdSG5A)
+
+- Data Plumbing without the 💩 - Tommy Dang (aka DANGerous on Slack)
+
+  [![](https://markdown-videos-api.jorgenkh.no/youtube/nUfAqM2Sguc)](https://youtu.be/nUfAqM2Sguc)
+
+
+- Setting up a VM (Compute Instance) and Big Query Dataset on GCP with Terraform by Data Slinger (aka Michael Shoemaker)
+
+  [![](https://markdown-videos-api.jorgenkh.no/youtube/vw-j8Tm3OmM)](https://youtu.be/vw-j8Tm3OmM)
+
 - [Convo with BingAI on "DLT with Mage-AI"](https://sl.bing.net/iZxzJuaAdTE) KIV! Also check on Bard's and ChatGPT's answers
 
 # Community notes
