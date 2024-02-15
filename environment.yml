@@ -26,3 +26,5 @@ dependencies:
   # module3 dwh
   - pandas-gbq
   - fastparquet 
+  - nodejs>=20,<21
+  - mystmd
