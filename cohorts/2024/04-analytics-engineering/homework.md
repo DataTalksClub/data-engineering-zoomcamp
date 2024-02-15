@@ -66,8 +66,7 @@ Create a dashboard with some tiles that you find interesting to explore the data
 
 ## Submitting the solutions
 
-* Form for submitting: [TO DO]
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw4
 
 Deadline: 22 February (Thursday), 22:00 CET
 
@@ -80,4 +79,3 @@ Deadline: 22 February (Thursday), 22:00 CET
   * Question 2: 
   * Question 3: 
   * Question 4: 
-  * Question 5: 
