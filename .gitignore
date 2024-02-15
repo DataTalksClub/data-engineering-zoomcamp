@@ -29,6 +29,11 @@ venv.bak/
 *.csv
 *.csv.gz
 *.parquet
+*.duckdb
+# dlt guides
+**/mydata
+**/pokemon
+
 
 # DB files
 *.db
@@ -43,6 +48,7 @@ venv.bak/
 
 # Ignore everything
 # **/hmwk-02/
+/secrets/
 **/mage_data/
 *.json
 *.env
@@ -51,18 +57,11 @@ venv.bak/
 
 # mage
 */__pycache__
-*/__init__.py
 __pycache__
-__init__.py
-
 .file_versions
 .ssh_tunnel
 *.pyc
 
-# super specific, as wildcards didn't work..need more troubleshootin
-cohorts/2024/02-workflow-orchestration/hmwk-02/data_exporters/__init__.py
-cohorts/2024/02-workflow-orchestration/hmwk-02/data_loaders/__init__.py
-cohorts/2024/02-workflow-orchestration/hmwk-02/transformers/__init__.py
 
 # exceptions for SQL, Python files and YAML files with these paths
 !**/devcontainer.json
