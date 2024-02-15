@@ -53,6 +53,21 @@ By this stage of the course you should have already:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://youtu.be/4eCouvVOJUw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=41)
 
+### --- EllaNotes ---
+
+#### Definitions
+
+ddl
+: data definition language
+  sql statements that manage objects - tables, views
+
+dml
+: data manipulation language
+  the CRUD sql statements to SELECT, INSERT DELETE & UPDATE
+
+- master data (like zone-lookup table) are called `seed files`
+- 
+
 ## Starting a dbt project
 
 | Alternative A  | Alternative B   |
