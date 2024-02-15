@@ -29,13 +29,12 @@ You'll need to have completed the ["Build the first dbt models"](https://www.you
 
 ### Question 2: 
 
-**What is the code that our CI job will run?**  
+**What additional functionality dbt_cloud provides for CI?**
 
-- The code that has been merged into the main branch
-- The code that is behind the object on the dbt_cloud_pr_ schema
-- The code from any development branch that has been opened based on main
-- The code from a development branch requesting a merge to main
-
+- Automated Post-Merge Testing: Automatically tests merged code in the main branch to ensure quality.
+- Isolated Testing for PRs: Utilizes dedicated schemas (e.g., dbt_cloud_pr_ schema) for safe, isolated testing of pull requests.
+- Development Branch Testing: Supports continuous integration by testing all development branches based on the main branch.
+- Pre-Merge Validation: Automatically validates development branches before they are merged into the main branch, ensuring code quality.
 
 ### Question 3: 
 
