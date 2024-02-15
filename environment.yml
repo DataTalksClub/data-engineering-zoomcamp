@@ -5,21 +5,26 @@ name: dezoomcamp
 channels:
   - conda-forge
 dependencies:
-  - python >=3.9,<3.10
+  - python>=3.11,<3.12
   - ipykernel
   - jupyter
-  - pandas
+  - pandas>=2.2
   - pyarrow
-  - sqlalchemy
+  - sqlalchemy>=2.0
   - pgcli
   - psycopg2-binary 
   - pip
-  # module2
-  - mage-ai
+  # module2 mage
   - google-cloud-bigquery
-  # workshop 1
-  - 'dlt[duckdb]'
-  - 'dlt[parquet]'
-  - parquet
-  - dlt[bigquery]
-  
+  # workshop 1 dlthub
+  - streamlit
+  - pip:
+    - dlt
+    - 'dlt[duckdb]'
+    - 'dlt[parquet]'
+    - 'dlt[bigquery]'
+  # module3 dwh
+  - pandas-gbq
+  - fastparquet 
+  - nodejs>=20,<21
+  - mystmd

@@ -156,7 +156,7 @@ For these purposes we created an api that can serve the data you are already fam
 
 The api documentation is as follows:
 
-- There are a limited nr of records behind the api
+- There are a limited number of records behind the api
 - The data can be requested page by page, each page containing 1000 records
 - If we request a page with no data, we will get a successful response with no data
 - so this means that when we get an empty page, we know there is no more data and we can stop requesting pages - this is a common way to paginate but not the only one - each api may be different.
@@ -294,7 +294,7 @@ for row in download_and_yield_rows(url):
 
 In the colab notebook you can also find a code snippet to load the data - but we will load some data later in the course and you can explore the colab on your own after the course. 
 
-What is worth keeping in mind at this point is that our loader library that we will use later, `dlt`or data load tool, will respect the streaming concept of the generator and will process it in an efficient way keeping memory usage low and using parallelism where possible.
+What is worth keeping in mind at this point is that our loader library that we will use later, `dlt` or data load tool, will respect the streaming concept of the generator and will process it in an efficient way keeping memory usage low and using parallelism where possible.
 
 Let’s move over to the Colab notebook and run examples 2 and 3, compare them, and finally load examples 1 and 3 to DuckDB
 
