@@ -4,7 +4,7 @@ version: 2
 sources:
     - name: staging
       #For bigquery:
-      database: taxi-rides-ny-339813-412521
+      database: custom-temple-411521
 
       # For postgres:
       #database: production
