@@ -1,4 +1,5 @@
-## Week 3 Homework
+## Module 3 Homework
+
 ATTENTION: At the end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format (such as SQL queries or shell commands), please include these directly in the README file of your repository.
 
 <b><u>Important Note:</b></u> <p> For this homework we will be using the 2022 Green Taxi Trip Record Parquet Files from the New York
@@ -73,14 +74,11 @@ It is best practice in Big Query to always cluster your data:
 
 
 ## (Bonus: Not worth points) Question 8:
-No Points: Write a SELECT count(*) query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
+No Points: Write a `SELECT count(*)` query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
 
  
 ## Submitting the solutions
 
-* Form for submitting: TBD
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
-
-Deadline: TBD
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw3
 
 

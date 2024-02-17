@@ -1,0 +1,79 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/load_api_from_nyc_gov.py
+  downstream_blocks:
+  - taxi_to_gcs_parquet
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_api_from_nyc_gov
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_api_from_nyc_gov
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: transformers/transform_green_taxi_data.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_green_taxi_data
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks: []
+  uuid: transform_green_taxi_data
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_exporters/taxi_to_gcs_parquet.py
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: taxi_to_gcs_parquet
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_api_from_nyc_gov
+  uuid: taxi_to_gcs_parquet
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-02-10 10:55:58.646882+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: nyc_api_gcs
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers:
+    save_in_code_automatically: true
+spark_config: {}
+tags: []
+type: python
+uuid: nyc_api_gcs
+variables_dir: /home/src/mage_data/magic_zoomcamp
+widgets: []

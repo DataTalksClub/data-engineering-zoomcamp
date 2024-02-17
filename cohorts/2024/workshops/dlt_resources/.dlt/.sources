@@ -1,0 +1,20 @@
+engine_version: 1
+sources:
+  pokemon:
+    is_dirty: false
+    last_commit_sha: eaa1f4df65bc33e8f5e207ecaddddc5f7fc0966e
+    last_commit_timestamp: '2024-02-05T14:49:44+01:00'
+    files:
+      pokemon/helpers.py:
+        commit_sha: eaa1f4df65bc33e8f5e207ecaddddc5f7fc0966e
+        git_sha: 2c86483e9c354013c27f8025d945f6b961c6540f
+        sha3_256: 47b81f94f79b6f757773e53027ccf746def7b5ced53c595c9dac7167d2abd9e0
+      pokemon/__init__.py:
+        commit_sha: eaa1f4df65bc33e8f5e207ecaddddc5f7fc0966e
+        git_sha: da18a77354ddf12f6f8c3e90be49761ebfbf5a99
+        sha3_256: 1cbff69fad33f6fdc36ecaa191e5d08bb569e6fbfcbfb85334b1ce1bb0937151
+      pokemon/settings.py:
+        commit_sha: eaa1f4df65bc33e8f5e207ecaddddc5f7fc0966e
+        git_sha: d3a844b69d69b14ae7979c0c66d1510c736433b7
+        sha3_256: 3d4321251f4969ce3938a09452e7757587423234f3f7152474c9b6114cec6f0e
+    dlt_version_constraint: '>=0.3.5'
