@@ -178,6 +178,7 @@ Did you take notes? You can share them here:
 * [Notes from Jonah Oliver](https://www.jonahboliver.com/blog/de-zc-w2)
 * [Notes from Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/2-workflow-orchestration/readme.md)
 * [Notes from Kirill](https://github.com/kirill505/data-engineering-zoomcamp/blob/main/02-workflow-orchestration/README.md)
+* [Notes from Zharko](https://www.zharconsulting.com/contents/data/data-engineering-bootcamp-2024/week-2-ingesting-data-with-mage/)
 * Add your notes above this line
 
 ## 2023 notes
