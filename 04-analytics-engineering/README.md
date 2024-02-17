@@ -273,6 +273,25 @@ dbt build --select +fact_trips+ --vars '{'is_test_run': 'false'}'
 | - Deployment: development environment vs production<br>- dbt cloud: scheduler, sources and hosted documentation  | - Deployment: development environment vs production<br>-  dbt cloud: scheduler, sources and hosted documentation |
 | [![](https://markdown-videos-api.jorgenkh.no/youtube/rjf6yZNGX8I)](https://www.youtube.com/watch?v=V2m5C0n8Gro&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=6) | [![](https://markdown-videos-api.jorgenkh.no/youtube/Cs9Od1pcrzM)](https://youtu.be/Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=47) |
 
+### --- EllaNotes ---
+
+1. set `PROD` to look at `ella2024` branch instead of default `main`
+2. initial issue was the `seeds/*.csv` is in .gitignore and edited to add exclusion from [drux's thread](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1708002206775409)
+3. create a PR from `module-04` to merge to `ella2024`, Nightly job now picks up the commitId `bb7d29e` but hit the sasme error. turns out the exclusion is still in `module-04` and not `dbt-deploy`
+```
+------------------------------------------------------------
+  Invoke dbt Command
+------------------------------------------------------------
+dbt build
+
+17:03:59  Running with dbt=1.7.7
+17:04:01  Registered adapter: bigquery=1.7.4
+17:04:01  Unable to do partial parsing because saved manifest not found. Starting full parse.
+17:04:02  Encountered an error:
+Compilation Error
+  Model 'model.taxi_rides_ny.dim_zones' (models/core/dim_zones.sql) depends on a node named 'taxi_zone_lookup' which was not found
+```
+
 ## Visualising the transformed data
 
 :movie_camera: Google data studio Video (Now renamed to Looker studio)
