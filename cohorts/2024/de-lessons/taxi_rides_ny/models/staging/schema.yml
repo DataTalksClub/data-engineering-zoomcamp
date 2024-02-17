@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: staging
+    database: nyc-rides-ella
+     # For postgres:
+      #database: production
+    schema: trips_data_all
+
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
+         # freshness:
+           # error_after: {count: 6, period: hour}
+
+models:
+    - name: stg_green_tripdata
+      description: >
+        Trip made by green taxis, also known as boro taxis and street-hail liveries.
+        Green taxis may respond to street hails,but only in the areas indicated in green on the
+        map (i.e. above W 110 St/E 96th St in Manhattan and in the boroughs).
+        The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
+        technology service providers. 
+
+    - name: stg_yellow_tripdata
+      description: > 
+        Trips made by New York City's iconic yellow taxis. 
+        Yellow taxis are the only vehicles permitted to respond to a street hail from a passenger in all five
+        boroughs. They may also be hailed using an e-hail app like Curb or Arro.
+        The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
+        technology service providers. 
