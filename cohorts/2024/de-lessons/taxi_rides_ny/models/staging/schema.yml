@@ -9,12 +9,39 @@ sources:
 
       # loaded_at_field: record_loaded_at
     tables:
+      - name: fhv_tripdata
       - name: green_tripdata
       - name: yellow_tripdata
          # freshness:
            # error_after: {count: 6, period: hour}
 
 models:
+    - name: stg_fhv_tripdata
+      description: > 
+        FHV data includes trip data from high-volume for-hire vehicle bases (bases for companies 
+        dispatching 10,000+ trip per day, meaning Uber, Lyft, Via, and Juno), community livery bases, 
+        luxury limousine bases, and black car bases. 
+      columns:
+          - name: dispatching_base_num 
+            description: > 
+                The TLC Base License Number of the base that dispatched the trip.
+          - name: affiliated_base_number
+            description: no idea what this indicates and how it is related to dispatching_base_num
+          - name: pickup_datetime 
+            description: The date and time when the meter was engaged.
+          - name: dropoff_datetime 
+            description: The date and time when the meter was disengaged.
+          - name: pickup_locationid
+            description: TLC Taxi Zone in which the trip began.
+          - name: dropoff_locationid 
+            description: TLC Taxi Zone in which the trip ended.    
+          - name: sr_flag
+            description: >
+                Indicates if the trip was a part of a shared ride chain.
+                1 = shared rides
+                null = non-shared rides
+
+
     - name: stg_green_tripdata
       description: >
         Trip made by green taxis, also known as boro taxis and street-hail liveries.
