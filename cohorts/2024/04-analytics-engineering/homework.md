@@ -37,7 +37,7 @@ You'll need to have completed the ["Build the first dbt models"](https://www.you
 - The code from a development branch requesting a merge to main
 
 
-### Question 3: 
+### Question 3 (2 points)
 
 **What is the count of records in the model fact_fhv_trips after running all dependencies with the test run variable disabled (:false)?**  
 Create a staging model for the fhv data, similar to the ones made for yellow and green data. Add an additional filter for keeping only records with pickup time in year 2019.
@@ -52,7 +52,7 @@ Run the dbt model without limits (is_test_run: false).
 - 32998722
 - 42998722
 
-### Question 4: 
+### Question 4 (2 points)
 
 **What is the service that had the most rides during the month of July 2019 month with the biggest amount of rides after building a tile for the fact_fhv_trips table?**
 
@@ -66,8 +66,7 @@ Create a dashboard with some tiles that you find interesting to explore the data
 
 ## Submitting the solutions
 
-* Form for submitting: [TO DO]
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw4
 
 Deadline: 22 February (Thursday), 22:00 CET
 
@@ -80,4 +79,3 @@ Deadline: 22 February (Thursday), 22:00 CET
   * Question 2: 
   * Question 3: 
   * Question 4: 
-  * Question 5: 
