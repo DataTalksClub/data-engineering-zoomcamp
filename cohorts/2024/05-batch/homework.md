@@ -18,7 +18,8 @@ What's the output?
 - 3.5.0
 - 1.3.2
 - 5.4.6
-</br></br>
+
+
 
 ### Question 2: 
 
@@ -32,7 +33,8 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 - 6MB
 - 25MB
 - 87MB
-</br></br>
+
+
 
 ### Question 3: 
 
@@ -45,7 +47,8 @@ Consider only trips that started on the 15th of October.</br>
 - 12,856
 - 452,470
 - 62,610
-</br></br>
+
+
 
 ### Question 4: 
 
@@ -57,7 +60,8 @@ What is the length of the longest trip in the dataset in hours?</br>
 - 243.44 Hours
 - 7.68 Hours
 - 3.32 Hours
-</br></br>
+
+
 
 ### Question 5: 
 
@@ -69,7 +73,8 @@ Spark’s User Interface which shows the application's dashboard runs on which l
 - 443
 - 4040
 - 8080
-</br></br>
+
+
 
 ### Question 6: 
 
@@ -84,6 +89,9 @@ Using the zone lookup data and the FHV October 2019 data, what is the name of th
 - Jamaica Bay
 - Union Sq
 - Crown Heights North
-</br></br>
 
-Deadline: TBD
+
+## Submitting the solutions
+
+- Form for submitting: TBA
+- Deadline: See the course app
