@@ -22,6 +22,15 @@ models:
         dispatching 10,000+ trip per day, meaning Uber, Lyft, Via, and Juno), community livery bases, 
         luxury limousine bases, and black car bases. 
       columns:
+          - name: tripid
+            description: >
+                Primary key for this table, generated with a concatenation of 
+                dispatching_base_num+pickup_datetime
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
           - name: dispatching_base_num 
             description: > 
                 The TLC Base License Number of the base that dispatched the trip.
