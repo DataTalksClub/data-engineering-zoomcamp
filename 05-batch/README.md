@@ -110,4 +110,5 @@ Did you take notes? You can share them here.
 * [Marcos Torregrosa's blog (spanish)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-5-batch-spark)
 * [Notes by Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week5)
 * [Notes by Oscar Garcia](https://github.com/ozkary/Data-Engineering-Bootcamp/tree/main/Step5-Batch-Processing)
+* [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/tree/main/5-batch)
 * Add your notes here (above this line)
