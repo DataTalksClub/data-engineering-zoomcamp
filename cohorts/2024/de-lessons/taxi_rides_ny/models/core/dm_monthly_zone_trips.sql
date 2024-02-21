@@ -37,6 +37,7 @@ with trips_data as (
 )
 select 
     pickup_datetime, 
+    {{ dbt.date_trunc("month", "pickup_datetime") }} as trips_month, 
     service_type, 
     pickup_zone, 
     dropoff_datetime
