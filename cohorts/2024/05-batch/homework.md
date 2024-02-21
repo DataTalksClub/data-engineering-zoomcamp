@@ -14,11 +14,6 @@ For this homework we will be using the FHV 2019-10 data found here. [FHV Data](h
 - Execute spark.version.
 
 What's the output?
-- 8.3.2
-- 3.5.0
-- 1.3.2
-- 5.4.6
-
 
 
 ### Question 2: 
@@ -48,7 +43,8 @@ Consider only trips that started on the 15th of October.</br>
 - 452,470
 - 62,610
 
-
+> [!IMPORTANT]
+> Be aware of columns order when defining schema
 
 ### Question 4: 
 
