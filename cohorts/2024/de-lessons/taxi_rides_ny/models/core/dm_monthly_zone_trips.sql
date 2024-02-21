@@ -26,7 +26,6 @@ with trips_data as (
 select 
     service_type, 
     pickup_zone,  
-
     pickup_datetime, 
     dropoff_datetime
     pickup_borough, 
@@ -37,4 +36,3 @@ select
     count(tripid) as total_monthly_trips,
 
     from trips_data
-
