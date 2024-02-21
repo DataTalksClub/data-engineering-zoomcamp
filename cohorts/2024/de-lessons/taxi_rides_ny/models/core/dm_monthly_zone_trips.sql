@@ -12,32 +12,40 @@ with trips_data as (
     select 
         tripid, 
         pickup_datetime, 
+        service_type, 
         dropoff_datetime, 
         pickup_locationid, 
         dropoff_locationid, 
         pickup_zone,
-        service_type
+        pickup_borough,
+        dropoff_zone, 
+        dropoff_borough
     from {{ ref('fact_trips') }}
     union all
     select 
         tripid, 
         pickup_datetime, 
+        service_type, 
         dropoff_datetime, 
         pickup_locationid, 
         dropoff_locationid, 
         pickup_zone,
-        service_type 
+        pickup_borough,
+        dropoff_zone, 
+        dropoff_borough
     from {{ ref('fact_fhv_trips') }}
 )
-    select 
-    -- revenue grouping 
-    pickup_zone as trips_zone,
-    {{ dbt.date_trunc("month", "pickup_datetime") }} as trips_month, 
-
+select 
+    pickup_datetime, 
     service_type, 
+    pickup_zone, 
+    dropoff_datetime
+    pickup_borough, 
+    dropoff_zone, 
+    dropoff_borough, 
 
     -- Additional calculations
-    count(tripid) as total_monthly_trips,
+    -- count(tripid) as total_monthly_trips,
 
-    from trips_data
-    group by 1,2,3
+from trips_data
+group by 1,2,3
