@@ -3,11 +3,9 @@
 with trips_data as (
     select 
         tripid, 
-        pickup_datetime, 
         service_type, 
+        pickup_datetime, 
         dropoff_datetime, 
-        pickup_locationid, 
-        dropoff_locationid, 
         pickup_zone,
         pickup_borough,
         dropoff_zone, 
@@ -16,11 +14,9 @@ with trips_data as (
     union all
     select 
         tripid, 
-        pickup_datetime, 
         service_type, 
+        pickup_datetime, 
         dropoff_datetime, 
-        pickup_locationid, 
-        dropoff_locationid, 
         pickup_zone,
         pickup_borough,
         dropoff_zone, 
@@ -41,4 +37,4 @@ select
     count(tripid) as total_monthly_trips,
 
     from trips_data
-    group by 1,2
+
