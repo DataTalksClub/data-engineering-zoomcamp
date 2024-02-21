@@ -1,12 +1,4 @@
-{{ config(
-    materialized='table',
-    partition_by={
-      "field": "trips_month",
-      "data_type": "timestamp",
-      "granularity": "month"
-    },
-    cluster_by = "service_type"
-)}}
+{{ config(materialized='table')}}
 
 with trips_data as (
     select 
@@ -36,9 +28,9 @@ with trips_data as (
     from {{ ref('fact_fhv_trips') }}
 )
 select 
-    pickup_zone,  
-    service_type, 
     {{ dbt.date_trunc("month", "pickup_datetime") }} as trips_month,
+    service_type, 
+    pickup_zone,  
 
     pickup_datetime, 
     dropoff_datetime
@@ -49,5 +41,5 @@ select
     -- Additional calculations
     count(tripid) as total_monthly_trips,
 
-from trips_data
-group by 1,2
+    from trips_data
+    group by 1,2,3
