@@ -43,7 +43,8 @@ Consider only trips that started on the 15th of October.</br>
 - 452,470
 - 62,610
 
-
+> [!IMPORTANT]
+> Be aware of columns order when defining schema
 
 ### Question 4: 
 
