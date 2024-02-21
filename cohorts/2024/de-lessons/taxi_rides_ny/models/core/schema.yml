@@ -17,7 +17,65 @@ models:
         tests:
             - not_null:
                 severity: error
-      
+  
+  - name: fact_fhv_trips
+    description: >
+      For-Hire Vehicle (“FHV”) trip records include fields capturing the dispatching base license 
+      number and the pick-up date, time, and taxi zone location ID (shape file below). 
+      These records are generated from the FHV Trip Record submissions made by bases. 
+    columns:
+      - name: tripid
+        data_type: string
+        description: "unique identifier conformed by the combination of dispatching_base_num and pickup time"
+
+      - name: dispatching_base_num
+        data_type: string
+        description: ""
+
+      - name: service_type
+        data_type: string
+        description: ""
+
+      - name: pickup_locationid
+        data_type: int64
+        description: ""
+
+      - name: pickup_borough
+        data_type: string
+        description: ""
+
+      - name: pickup_zone
+        data_type: string
+        description: ""
+
+      - name: dropoff_locationid
+        data_type: int64
+        description: ""
+
+      - name: dropoff_borough
+        data_type: string
+        description: ""
+
+      - name: dropoff_zone
+        data_type: string
+        description: ""
+
+      - name: pickup_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: dropoff_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: sr_flag
+        data_type: string
+        description: ""
+
+      - name: affiliated_base_number
+        data_type: string
+        description: ""
+
   - name: fact_trips
     description: >
       Taxi trips corresponding to both service zones (Green and yellow).
@@ -26,7 +84,7 @@ models:
     columns:
       - name: tripid
         data_type: string
-        description: "unique identifier conformed by the combination of vendorid and pickyp time"
+        description: "unique identifier conformed by the combination of vendorid and pickup time"
 
       - name: vendorid
         data_type: int64
