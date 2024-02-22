@@ -5,7 +5,9 @@ with tripdata as
   select *,
     row_number() over(partition by vendorid, tpep_pickup_datetime) as rn
   from {{ source('staging','yellow_tripdata') }}
-  where vendorid is not null 
+  where tpep_pickup_datetime
+    BETWEEN CAST("2019-01-01" AS TIMESTAMP) AND CAST("2020-12-31" AS TIMESTAMP)
+      AND vendorid is not null
 )
 select
    -- identifiers
