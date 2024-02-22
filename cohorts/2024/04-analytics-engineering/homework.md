@@ -29,12 +29,12 @@ You'll need to have completed the ["Build the first dbt models"](https://www.you
 
 ### Question 2: 
 
-**What is the code that our CI job will run?**  
+**What is the code that our CI job will run? Where is this code coming from?**  
 
 - The code that has been merged into the main branch
-- The code that is behind the object on the dbt_cloud_pr_ schema
+- The code that is behind the creation object on the dbt_cloud_pr_ schema
 - The code from any development branch that has been opened based on main
-- The code from a development branch requesting a merge to main
+- The code from the development branch we are requesting to merge to main
 
 
 ### Question 3 (2 points)
