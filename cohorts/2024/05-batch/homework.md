@@ -15,6 +15,8 @@ For this homework we will be using the FHV 2019-10 data found here. [FHV Data](h
 
 What's the output?
 
+> [!NOTE]
+> To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/05-batch/setup/pyspark.md)
 
 ### Question 2: 
 
