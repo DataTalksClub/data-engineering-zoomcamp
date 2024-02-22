@@ -3,6 +3,11 @@
         materialized='table'
         -- materialized='incremental',
         -- unique_key='tripid'
+        partition_by={
+            "field": "pickup_datetime",
+            "data_type": "timestamp",
+            "granularity": "month"
+        }
     )
 }}
 
