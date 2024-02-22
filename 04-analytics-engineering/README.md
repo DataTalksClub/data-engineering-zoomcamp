@@ -13,6 +13,8 @@ By this stage of the course you should have already:
 
 > [!NOTE]  
 > * We have two quick hack to load that data quicker, follow [this video](https://www.youtube.com/watch?v=Mork172sK_c&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs) for option 1 or check instructions in [week3/extras](../03-data-warehouse/extras) for option 2
+> * option 1 being ingesting from GCP BigQuery public datasets of nyc taxi data
+> * option 2 is the `web_to_gcs` script - see notes below on my preferences
 
 ## Setting up your environment 
   
@@ -32,7 +34,7 @@ By this stage of the course you should have already:
 
 ### --- EllaNotes ---
 
-#### From BigQuery public dataset
+#### Ingestion from BigQuery public dataset
 
 * BQ has 
   * fhv data from 2015-2017
@@ -55,9 +57,9 @@ By this stage of the course you should have already:
   SELECT FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2020`;
   ```
 * Need to do cleanup with Vic's `hack-load-data.sql` from [this page](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/taxi_rides_ny/analyses/hack-load-data.sql), because the BigQuery's schema and our DTC source's schema is different. Follow DTC's schema.
-* fhv data has to be loaded from elsewhere since BQ's public dataset do not have it
+* fhv data has to be loaded from elsewhere since BQ's public dataset do not have it, I used the [`web_to_gcs`](/cohorts/2024/de-lessons/web_to_gcs.py) script with entrypoint `web_to_gcs('2019', 'fhv')` in `main` (comment out the others).
 
-#### From DTC `nyc-tlc-data` repo
+#### Ingestion from DTC `nyc-tlc-data` repo
 
 * https://github.com/DataTalksClub/nyc-tlc-data/tree/main
 * using tweaked `web_to_gcs.py`
@@ -65,13 +67,25 @@ By this stage of the course you should have already:
   * BAD! not DRY-compliant
 * disadvantages:
   * slow
-  * `.csv.gz` files are downloaded to local filesystem
+  * `.csv.gz` files are downloaded to local filesystem #do-not-want
   * '.parquet' files created in local filesystem and then uploaded to GCS Buckets
 
-#### TODO Via Mage
+#### Ingestion via Mage
+
+- FIXME verify row counts, I think my looping is double loading. need to verify loops again after utilising `chunksize` in read_csv()
+- might also be why yellow is failing  
+  - too much RAM required to process and load too much data because of the double counting
+  - CPU load reach 100% at times (of writing?) and RAM reaches almost 12GB (out of 32GB); more RAM utilised when .csv.gz files are bigger in size.
+- green and fhv runs to completion successfully
+  - have to make all columns of `str` as there is a lot of data with `nulls`, INTs and FLOATs fail as we're not imputing with 0s and 0.0 so the write to `combined_df` fails?
+- yellow endlessly running after year 2019 is done and getting combined. traceback error from docker logs but no UI/UX feedback on Mage if the kernel is dead. There's been an update to `0.9.64`
+- testing with 2 years and just 2 months reveal the concat issue with the `nulls` and my wrong looping
+- To try again after homework submission
+- TODO ask in Mage Slack? (about the no UI/UX indication of the traceback and endlessly circling wheel failures; will need to spend some time there to read if it has been reported)
+- TODO can also try if polars + duckdb is not better in handling millions of rows
 
 
-#### TODO Via dlt
+#### TODO Ingestion via dlt
 
 ## Content
 
@@ -143,8 +157,20 @@ Setting up your new project on dbt cloud's IDE.
     - Vic's is 'analytics-engineering-workshop'
     - mine is 'a company'
 3.  setup your project like so
+
    ![](../images/dbt-project-settings.png)
     - explicitly specify the path if want to create the dbt-project in a subfolder like shown here and not in the root of `data-engineering-zoomcamp`
+
+4.  assuming we're in the parent folder to `taxi_rides_ny` path, once we create a branch, the `Initialize dbt poject` green button 
+5.  once we init, the contents of the dbt project is generated
+6.  edit `dbt_project.yml` with our BQ `project-name` in the `name` field
+```yaml
+name: 'taxi_rides_ny'
+version: '1.0.0'
+config-version: 2
+
+
+```
 
 
 
@@ -212,7 +238,7 @@ Setting up your new project on dbt cloud's IDE.
     - if it does not gets triggered, you can manually kick off the process by doing a `dpt deps` in the CLI
     - you'll see the packages imported once it is done and new `dbt_packages` folder appear in your File Explorer tree
     - find the usage guide in the docs or gh repo
-    - for our case, we want to declare a new primary key `tripid` that combines these 2 columns `vendorid` + `lpep_pickup_datetime`, because one cab can only have a unique trip at a particular time
+    - for our case, we want to declare a new primary key `tripid` that combines these 2 columns `vendorid` + `lpep_pickup_datetime`, because one cab can only have a unique trip at a particular timestamp
     - at the beginning of our SELECT statement in the `stg_green_tripdata.sql` file, add this:
     ```sql
     {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
@@ -256,9 +282,9 @@ Setting up your new project on dbt cloud's IDE.
 
 <code>12:42:22 BigQuery adapter: Retry attempt 1 of 1 after error: BadRequest('CREATE VIEW has columns with duplicate name ehail_fee at [7:1]; reason: invalidQuery, location: query, message: CREATE VIEW has columns with duplicate name ehail_fee at [7:1]')</code>
 
-7.  make sure to do a final `dbt build` with below flags for homework, because otherwise the data is limited to first 100 records
+8.  make sure to do a final `dbt build` with below flags for homework, because otherwise the data is limited to first 100 records
 ```sql
-dbt build --select +fact_trips+ --vars '{'is_test_run': 'false'}'
+dbt build --vars '{'is_test_run': 'false'}'
 ```  
 
 ---
@@ -287,10 +313,14 @@ dbt build --select +fact_trips+ --vars '{'is_test_run': 'false'}'
     ![](../images/dbt-test-dim-monthly.png)
     -  the `dbt.date_trunc` is referred to 'cross database macros'
 1.  another package we had used unconsciously is the `Generate model` command when we created our tables
-1.  we're using the [generate_model_yaml-source](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source) code generator. 
+1.  we're using the [generate_model_yaml-source](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source) code generator.
+    -  in order for the generator to generate documentation yaml code, the schema.yml must contain the column names, description and tests being done   
     -  paste this block into a new file (it's temporary), we want the code it generates, so this code need not be saved
     -  what this does is to generate the boilerplate code to have docstrings and our models' data types
     -  we can then add some test blocks to ensure our code meet the standards of the basics test above
+1. can also look at `dbt_expectations` package for more tests   
+1. can generate docs to be hosted on the project website to show docstrings for the project, tables or columns
+1. create a `schema.yml` for tables under `staging` and `core` by `compile selection` on below code block, select and compile separately
 
 ```sql
 {% set models_to_generate = codegen.get_models(directory='staging', prefix='stg') %}
@@ -301,12 +331,9 @@ dbt build --select +fact_trips+ --vars '{'is_test_run': 'false'}'
 {{ codegen.generate_model_yaml(
     model_names = models_to_generate) }}
 ```
-
-1. can also look at `dbt_expectations` package for more tests   
-2. can generate docs to be hosted on the project website to show docstrings for the project, tables or columns
-3. create a `schema.yml` for tables under `core` by `compile selection` on below code block
-4. then in cloud CLI, run `dbt docs generate` 
+9. then in cloud CLI, run `dbt docs generate` 
    - if locally run `dbt docs serve`
+
 
 
 ## Deployment
@@ -326,7 +353,7 @@ dbt build --select +fact_trips+ --vars '{'is_test_run': 'false'}'
 3. edited `.gitignore` to add exclusion 
 4. solution from [drux's slack thread](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1708002206775409)
   
-> [!CAUTION]
+> [!WARNING]
 > ---
 >  Invoke dbt Command
 > ---
@@ -342,7 +369,9 @@ dbt build --select +fact_trips+ --vars '{'is_test_run': 'false'}'
 1. create a PR from `module-04` (subsequently `dbt-deploy`) to merge to `ella2024`, Nightly job now picks up the commitId `bb7d29e` but hit the same error. turns out the exclusion is still in `module-04` and not `dbt-deploy`
 2. `CI checks` demo for CI jobs is not possible? Also see [slack chat on Trial acct and CI jobs](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707972535660619)
   ![](../images/dbt-trial-ci-jobs-restricted.png)
-
+3. Solution is to unlink from the current `Git Clone` and re-link using `Github`
+  ![](../images/git-clone-vs-github.png)
+  TODO check back after the `Team` Trial period expires (sometime during module-05), if we can still perform `CI checks` job under Free `Developer` account.
 
 
 ## Visualising the transformed data
@@ -397,9 +426,16 @@ Did you take notes? You can share them here.
 * [Notes from Balaji](https://github.com/Balajirvp/DE-Zoomcamp/blob/main/Week%204/Data%20Engineering%20Zoomcamp%20Week%204.ipynb)
 * [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/4-analytics-engineering/readme.md)
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
+* resources shared by [Luis in Slack](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707217006946489)  
+  - [3 Reasons Why Working With Data Build Tool (dbt) Is Not “Just Doing SQL”](https://medium.com/@lgsoliveira/3-reasons-why-working-with-data-build-tool-dbt-is-not-just-doing-sql-5b8d9c40a591)
+  - [5 Strong Reasons Why Data Build Tool (dbt) Got So Much Hype](https://medium.com/gitconnected/5-strong-reasons-why-data-build-tool-dbt-got-so-much-hype-9030dda48b74) 
+  - [Analytics Engineer Roadmap 2023 With Free Resources](https://medium.com/gitconnected/analytics-engineer-roadmap-2023-with-free-resources-873195184ebd?sk=312e752dc1bbbbd4c5f5ba05b142b7d8)
 * Add your notes here (above this line)
 
+
 ## Useful links
+
 - [Slides used in the videos](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
 - [Visualizing data with Metabase course](https://www.metabase.com/learn/visualization/)
 - [dbt free courses](https://courses.getdbt.com/collections)
+- https://startlearningcode.com/2020/01/08/visual-studio-code-sqltools-extension/
