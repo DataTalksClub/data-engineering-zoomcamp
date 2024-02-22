@@ -1,4 +1,10 @@
-{{ config(materialized='view') }}
+{{ 
+  config(
+    materialized='view'
+    -- materialized='incremental',
+    -- unique_key='tripid'
+  ) 
+}}
  
 with tripdata as 
 (
@@ -41,6 +47,12 @@ select
     {{ get_payment_type_description('payment_type') }} as payment_type_description
 from tripdata
 where rn = 1
+
+-- for fully fresh build run:
+-- dbt build --select <model.sql> --vars '{'is_test_run: false}' --full-refresh
+{% if is_incremental() %}
+AND pickup_datetime > (select max(pickup_datetime) from {{ this }})
+{% endif %}
 
 -- dbt build --select <model.sql> --vars '{'is_test_run: false}'
 {% if var('is_test_run', default=true) %}

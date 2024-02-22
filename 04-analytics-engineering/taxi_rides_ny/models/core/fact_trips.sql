@@ -1,6 +1,8 @@
 {{
     config(
         materialized='table'
+        -- materialized='incremental',
+        -- unique_key='tripid'
     )
 }}
 
@@ -54,3 +56,9 @@ inner join dim_zones as pickup_zone
 on trips_unioned.pickup_locationid = pickup_zone.locationid
 inner join dim_zones as dropoff_zone
 on trips_unioned.dropoff_locationid = dropoff_zone.locationid
+
+-- for fully fresh build run:
+-- dbt build --select <model.sql> --vars '{'is_test_run: false}' --full-refresh
+{% if is_incremental() %}
+WHERE pickup_datetime > (select max(pickup_datetime) from {{ this }})
+{% endif %}

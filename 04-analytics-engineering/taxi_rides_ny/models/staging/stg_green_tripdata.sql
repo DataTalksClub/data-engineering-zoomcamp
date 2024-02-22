@@ -1,6 +1,8 @@
 {{
     config(
         materialized='view'
+        -- materialized='incremental',
+        -- unique_key='tripid'
     )
 }}
 
@@ -13,6 +15,7 @@ with tripdata as
     BETWEEN CAST("2019-01-01" AS TIMESTAMP) AND CAST("2020-12-31" AS TIMESTAMP)
       AND vendorid is not null
 )
+
 select
     -- identifiers
     {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
@@ -45,6 +48,11 @@ select
 from tripdata
 where rn = 1
 
+-- for fully fresh build run:
+-- dbt build --select <model.sql> --vars '{'is_test_run: false}' --full-refresh
+{% if is_incremental() %}
+AND pickup_datetime > (select max(pickup_datetime) from {{ this }})
+{% endif %}
 
 -- dbt build --select <model_name> --vars '{'is_test_run': 'false'}'
 {% if var('is_test_run', default=true) %}
