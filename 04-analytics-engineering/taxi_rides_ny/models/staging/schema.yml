@@ -16,6 +16,10 @@ sources:
           yellow_tripdata
           # freshness:
           # error_after: {count: 6, period: hour}
+      - name:
+          fhv_tripdata
+          # freshness:
+          # error_after: {count: 6, period: hour}
 
 models:
   - name: stg_green_tripdata
@@ -200,3 +204,44 @@ models:
         description: Total amount of all tolls paid in trip.
       - name: Total_amount
         description: The total amount charged to passengers. Does not include cash tips.
+
+
+
+
+  - name: stg_fhv_tripdata
+    description: >
+      Trips made by New York City's iconic fhv taxis. 
+      The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
+      technology service providers.
+    columns:
+      - name: tripid
+        description: Primary key for this table, generated with a concatenation of dispatching_base_num+pickup_datetime
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: dispatching_base_num
+        description: Description of the payment_type code
+      - name: Pickup_locationid
+        description: locationid where the meter was engaged.
+        tests:
+          - relationships:
+              to: ref('taxi_zone_lookup')
+              field: locationid
+              severity: warn
+      - name: dropoff_locationid
+        description: locationid where the meter was engaged.
+        tests:
+          - relationships:
+              to: ref('taxi_zone_lookup')
+              field: locationid
+              severity: warn
+      - name: pickup_datetime
+        description: The date and time when the meter was engaged.
+      - name: dropoff_datetime
+        description: The date and time when the meter was disengaged.
+      - name: affiliated_base_number
+        description: Description of the affiliated_base_number 
+      
+      
