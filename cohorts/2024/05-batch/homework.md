@@ -22,9 +22,11 @@ What's the output?
 
 **FHV October 2019**
 
-Read the October 2019 FHV into a Spark Dataframe with a schema as we did in the lessons.</br> 
-Repartition the Dataframe to 6 partitions and save it to parquet.</br>
-What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)? Select the answer which most closely matches.</br>
+Read the October 2019 FHV into a Spark Dataframe with a schema as we did in the lessons.
+
+Repartition the Dataframe to 6 partitions and save it to parquet.
+
+What is the average size of the Parquet (ending with .parquet extension) Files that were created (in MB)? Select the answer which most closely matches.
 
 - 1MB
 - 6MB
@@ -37,8 +39,9 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 
 **Count records** 
 
-How many taxi trips were there on the 15th of October?</br></br>
-Consider only trips that started on the 15th of October.</br>
+How many taxi trips were there on the 15th of October?
+
+Consider only trips that started on the 15th of October.
 
 - 108,164
 - 12,856
@@ -52,7 +55,7 @@ Consider only trips that started on the 15th of October.</br>
 
 **Longest trip for each day** 
 
-What is the length of the longest trip in the dataset in hours?</br>
+What is the length of the longest trip in the dataset in hours?
 
 - 631,152.50 Hours
 - 243.44 Hours
@@ -65,7 +68,7 @@ What is the length of the longest trip in the dataset in hours?</br>
 
 **User Interface**
 
-Spark’s User Interface which shows the application's dashboard runs on which local port?</br>
+Spark’s User Interface which shows the application's dashboard runs on which local port?
 
 - 80
 - 443
@@ -79,7 +82,7 @@ Spark’s User Interface which shows the application's dashboard runs on which l
 **Least frequent pickup location zone**
 
 Load the zone lookup data into a temp view in Spark</br>
-[Zone Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv)</br>
+[Zone Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv)
 
 Using the zone lookup data and the FHV October 2019 data, what is the name of the LEAST frequent pickup location Zone?</br>
 
@@ -91,5 +94,5 @@ Using the zone lookup data and the FHV October 2019 data, what is the name of th
 
 ## Submitting the solutions
 
-- Form for submitting: TBA
-- Deadline: See the course app
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw5
+- Deadline: See the website
