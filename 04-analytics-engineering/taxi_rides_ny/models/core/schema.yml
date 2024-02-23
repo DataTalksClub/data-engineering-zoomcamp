@@ -127,3 +127,59 @@ models:
       - name: payment_type_description
         data_type: string
         description: ""
+
+
+  - name: fact_fhv_trips
+    description: >
+      Taxi trips corresponding to both service zones (fhv).
+      The table contains records where both pickup and dropoff locations are valid and known zones. 
+      Each record corresponds to a trip uniquely identified by tripid. 
+    columns:
+      - name: tripid
+        data_type: string
+        description: "unique identifier conformed by the combination of vendorid and pickyp time"
+
+      - name: dispatching_base_num
+        data_type: string
+        description: ""
+
+      - name: service_type
+        data_type: string
+        description: ""
+
+
+      - name: pickup_locationid
+        data_type: int64
+        description: ""
+
+      - name: pickup_borough
+        data_type: string
+        description: ""
+
+      - name: pickup_zone
+        data_type: string
+        description: ""
+
+      - name: dropoff_locationid
+        data_type: int64
+        description: ""
+
+      - name: dropoff_borough
+        data_type: string
+        description: ""
+
+      - name: dropoff_zone
+        data_type: string
+        description: ""
+
+      - name: pickup_datetime
+        data_type: timestamp
+        description: ""
+
+      - name: dropoff_datetime
+        data_type: timestamp
+        description: ""
+      
+      - name: affiliated_base_number
+        data_type: string
+        description: ""
