@@ -8,6 +8,7 @@ with fhv_tripdata as (
     select *, 
         'fhv' as service_type
     from {{ ref('stg_fhv_tripdata') }}
+    WHERE pickup_datetime BETWEEN '01/01/2019' AND '01/01/2020'
 ), 
 
 trips_unioned as (
