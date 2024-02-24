@@ -13,8 +13,11 @@ By this stage of the course you should have already:
 
 > [!NOTE]  
 > * We have two quick hack to load that data quicker, follow [this video](https://www.youtube.com/watch?v=Mork172sK_c&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs) for option 1 or check instructions in [week3/extras](../03-data-warehouse/extras) for option 2
-> * option 1 being ingesting from GCP BigQuery public datasets of nyc taxi data
-> * option 2 is the `web_to_gcs` script - see notes below on my preferences
+
+| option 1    | option 2    |
+| --- | --- | 
+| ingesting from GCP BigQuery public datasets of nyc taxi data   | the `web_to_gcs` script - see notes below on my preferences  |
+
 
 ## Setting up your environment 
   
@@ -40,7 +43,7 @@ By this stage of the course you should have already:
   * fhv data from 2015-2017
   * green data from 2014-2023
   * yellow data from 2011-2023
-* project-id: `nyc-rides-ella`
+* (my) project-id: `nyc-rides-ella`
 * dataset schema: `trips_data_all`
   * multi region (US)
 * table names: `yellow_tripdata`, `green_tripdata`, `fhv_tripdata`
@@ -57,18 +60,19 @@ By this stage of the course you should have already:
   SELECT FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2020`;
   ```
 * Need to do cleanup with Vic's `hack-load-data.sql` from [this page](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/taxi_rides_ny/analyses/hack-load-data.sql), because the BigQuery's schema and our DTC source's schema is different. Follow DTC's schema.
-* fhv data has to be loaded from elsewhere since BQ's public dataset do not have it, I used the [`web_to_gcs`](/cohorts/2024/de-lessons/web_to_gcs.py) script with entrypoint `web_to_gcs('2019', 'fhv')` in `main` (comment out the others).
+* `fhv` data has to be loaded from elsewhere since BQ's public dataset do not have it, I used my version of [`web_to_gcs`](/cohorts/2024/de-lessons/web_to_gcs.py) script with entrypoint `web_to_gcs('2019', 'fhv')` in `main` (comment out the others).
 
 #### Ingestion from DTC `nyc-tlc-data` repo
 
-* https://github.com/DataTalksClub/nyc-tlc-data/tree/main
-* using tweaked `web_to_gcs.py`
-* brute force TIMESTAMP conversion, and lots of repeats of CASE and others
-  * BAD! not DRY-compliant
-* disadvantages:
-  * slow
-  * `.csv.gz` files are downloaded to local filesystem #do-not-want
-  * '.parquet' files created in local filesystem and then uploaded to GCS Buckets
+- https://github.com/DataTalksClub/nyc-tlc-data/tree/main
+- using tweaked `web_to_gcs.py`
+- brute force TIMESTAMP conversion, and lots of repeats of CASE and others
+  - BAD! not DRY-compliant
+- disadvantages:
+  - slow
+  - `.csv.gz` files are downloaded to local filesystem *#do-not-want*
+  - '.parquet' files created in local filesystem and then uploaded to GCS Buckets also *#do-not-want*
+  - TODO unless we create a line to `rm -rf` all files after upload is a success
 
 #### Ingestion via Mage
 
@@ -81,6 +85,10 @@ By this stage of the course you should have already:
 - yellow endlessly running after year 2019 is done and getting combined. traceback error from docker logs but no UI/UX feedback on Mage if the kernel is dead. There's been an update to `0.9.64`
 - testing with 2 years and just 2 months reveal the concat issue with the `nulls` and my wrong looping
 - To try again after homework submission
+- the kernel crashed message below is from [yellow_trips.ipynb](../cohorts/2024/de-lessons/yellow_trips.ipynb) running in local, not in mage
+
+![](../images/local-python-chunking-kernel-crashed.png)
+
 - TODO ask in Mage Slack? (about the no UI/UX indication of the traceback and endlessly circling wheel failures; will need to spend some time there to read if it has been reported)
 - TODO can also try if polars + duckdb is not better in handling millions of rows
 
@@ -111,20 +119,22 @@ By this stage of the course you should have already:
 
 ddl
 : data definition language
-  sql statements that manage objects - tables, views
+
+  - sql statements that manage objects - tables, views
 
 dml
 : data manipulation language
-  the CRUD sql statements to SELECT, INSERT, DELETE & UPDATE
+
+  - the CRUD sql statements to SELECT, INSERT, DELETE & UPDATE
 
 ---
 
 - master data (like zone-lookup table) are called `seed files`
-- dbt is a transformational workflow, ie manage sql and allow for code versioning of sql, testing and documentation and deploy via CI/CD
+- dbt is a transformational workflow, ie manage sql and allow for code versioning of sql, testing and documentation and deployment via CI/CD
 - orchestrate code from dev to deployment
 - record data sources details like schema and their lineage
 - follows best practices in SWE workflow
-  - modularity, DRY, testable and documented code and tests
+  - modularity, DRY, testable and documented code and unit + integration tests
 - 2 main ways: 
   - cloud (web IDE/CLI, SaaS, depends on core, requires (free) Dev account on getdbt.com) and 
   - core (local, open source)
@@ -152,26 +162,29 @@ dml
 
 Setting up your new project on dbt cloud's IDE.
 
-1.  `model` in dbt refers to SQL queries in dbt code yml format
-2. sign up on dbt website for a free developer account, the company name is the Team-name (limited to 1 per dev account); cannot be changed after profile created. Not explained!
-    - Vic's is 'analytics-engineering-workshop'
-    - mine is 'a company'
-3.  setup your project like so
-
-   ![](../images/dbt-project-settings.png)
-
+1.  `model` in dbt refers to SQL queries in dbt code schema.yml format and the corresponding *.sql files
+2.  the are differentiated into `/core` and `/staging` folders
+3.  after you've followed the setup of account creation in previous section, we setup a project
+4.  setup your project like so
     - explicitly specify the path if want to create the dbt-project in a subfolder like shown here and not in the root of `data-engineering-zoomcamp`
+  
+  ![](../images/dbt-projects-subfolder-path.png)
 
-4.  assuming we're in the parent folder to `taxi_rides_ny` path, once we create a branch, the `Initialize dbt poject` green button 
-5.  once we init, the contents of the dbt project is generated
-6.  edit `dbt_project.yml` with our BQ `project-name` in the `name` field
+    - and the matching file-explorer view
+  
+  ![](../images/dbt-file-explorer-path.png)
+
+5.  assuming we're in the parent folder to `taxi_rides_ny` path, once we create a branch, the `Initialize dbt poject` green button would appear, this is the `dbt init` equivalent for a local setup 
+6.  once we init, the contents of the dbt project is generated
+7.  edit `dbt_project.yml` with our BQ `project-name` in the `name` field
+
 ```yaml
 name: 'taxi_rides_ny'
 version: '1.0.0'
 config-version: 2
 ```
 
-
+---
 
 ### dbt models
 
@@ -197,7 +210,7 @@ config-version: 2
 
 
 1.  master data aka seeds aka lookups ie our zones data
-2.  fact tables (), dimensional tables (sources: trip data)
+2.  staging tables (load from Buckets), fact tables (select from `stg_*`, can combine multiple staging tables to form one `fct_` table), dimensional tables (sources: zones data)
 3.  sql scripts are called `models` in dbt
 4.  dbt generates the ddl and dml for us when we `compile` our model code with `dbt build`, and `dbt run` then uses this compiled code
 5.  materialization types: ephemeral, view, table, incremental (drop & re-create, or insert new data in same table)
@@ -208,34 +221,40 @@ config-version: 2
 
 8.  and then create `schema.yml` in this folder
    
-   ![](../images/dbt-start-schema-file.png)
+  ![](../images/dbt-start-schema-file.png)
 
-    - change the `database` entry to the `dataset` value from your BigQuery instance and mine is `nyc-rides-ella`, which for me I've set it to be the same as my `project-id` (maybe I shouldn't have done this? well hindsight 20/20 and all that)
-    - input `tables` names of `green_tripdata` and `yellow_tripdata`
-    - once you typed in the tables names, dbt would prompt you to `generate model`, click on this and new tab pops open with model `stg_staging__green_tripdata.sql` in another `staging` subfolder
-9.  `Save` this yml file and move it one level up, we don't want it nested `/model/staging/staging` but just `model/staging`
-10. also remove the folder after you've moved the yml file
-11. and finally rename the yml file to remove that extra `staging` so final filename is `taxi_rides_ny/models/staging/stg_green_tripdata.sql`
-12. test `dbt build` in the console CLI and it should fail as it is starting from the `example` models subfolder, and due to this failed step, all the subsequent steps are skipped because these are dependencies
-13. we're going to remove these `example` models and tests, simply by removing the folder under `models` and continue 
+  - change the `database` entry to the `dataset` value from your BigQuery instance and mine is `nyc-rides-ella`, which for me I've set it to be the same as my `project-id` (maybe I shouldn't have done this? well hindsight 20/20 and all that)
+  - input `tables` names of `green_tripdata` and `yellow_tripdata`
+  - once you typed in the tables names, dbt would prompt you to `generate model`, click on this and new tab pops open with model `stg_staging__green_tripdata.sql` in another `staging` subfolder
+  
+  ![](../images/dbt-generate-model.png)
+
+9.  `Save` this yml file and move it one level up, we don't want it nested under `/model/staging/staging` but just `model/staging`
+10.  also remove the folder after you've moved the yml file
+11.  and finally rename the yml file to remove that extra `staging` so final filename is `taxi_rides_ny/models/staging/stg_green_tripdata.sql`
+12.  test `dbt build` in the console CLI and it should fail as it is starting from the `example` models subfolder, and due to this failed step, all the subsequent steps are skipped because these are dependencies
+13.  we're going to remove these `example` models and tests, simply by removing the folder under `models`, click the `Build` button and continue (ensure you get a `dbt success`) 
 
 ![](../images/dbt-git-worktree.png)
 
 ---
 
-1. `macros`: uses templating language `jinja`
+1. `macros`: uses templating language `jinja` recognizable by the double braces `{{ }}`
     - is applicable project-wide
     - akin to utilities/helper functions & .env/config code in Python
     - it's common code that can be used repeatedly in all our models throughout the project
     - create `get_payment_type_description.sql` under the `macros` folder
+  
     ![](../images/dbt-add-macros-get-payment-type-desc.png)
+
     - copy contents from [dtc repo](../04-analytics-engineering/taxi_rides_ny/macros/get_payment_type_description.sql)
-    - add this `{{ get_payment_type_description('payment_type') }}`
-  in line#30 in `/models/staging/stg_green_tripdata.sql as payment_type_descripted`
+    - add this `{{ get_payment_type_description("payment_type") }} as payment_type_description`
+  before the line that says `from tripdata` in `/models/staging/stg_green_tripdata.sql`
     - just like Python's UDF, macros can also be packaged and reused in other projects
     - and similarly just like [*PyPi.org*](https://pypi.org) hosting packages others have made, dbt also has a *[dbt package hub](https://hub.getdbt.com/)* and we declare the import statements in a `packages.yml` file
     - the syntax is similar to how we add images in a `docker-compose.yml` file for Docker containers
-1. create `packages.yml` file in your root dbt project folder, ie in the same path as the `dbt_project.yml` file
+  
+1. We're now going to utilise one of the macros from `dbt_utils` package. Create `packages.yml` file in your root dbt project folder, ie in the same path as the `dbt_project.yml` file
    
     ![](../images/dbt-add-packages.png)
 
@@ -249,14 +268,16 @@ config-version: 2
     ```sql
     {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
     ```
-    - we should be able to verify the output in our `nyc-rides-ella.dbt_ellacharmed` dataset in BigQuery    
+    - we should be able to verify the output in our `nyc-rides-ella.dbt_ellacharmed` dataset in BigQuery after we trigger a `dbt build` 
+  
+  ![](../images/dbt-gcp-bq-status.png)
   
 > [!TIP] 
-> if you get `dbt build failed` check for commas in the 2 lines we added
+> if you get `dbt build failed` check for commas in the 2 lines we added from the macros
 
 ---
 
-1. after the above thorough walkthrough, we can now just copy+paste the model code from DTC repository and learn what else Vic has added for the final output
+1. after the above thorough walkthrough, we can now just copy+paste the rest of model code from DTC repository and learn what else Vic has added for the final output
 2. we can explicitly use the `__config` shortcut to declare the config to materialize all this as a `view`, but it is the default anyway. It could be best practice if you want to be very clear of which model would materialize a `view` or a `table` or something else
 3. the model code now checks for
     -  duplicated rows, we only bring in row data that has `rn`=1 ie 1 count of each row, no duplication
@@ -267,7 +288,16 @@ config-version: 2
 ---
 
 1. `variables` can also be defined at the project level in dbt
-   - we used this var `dbt build --vars '{'is_test_run': 'true'}'` in our code for this project to `limit 100` when we're just testing our code builds, by declaring ``
+   - we used this var `dbt build --vars '{'is_test_run': 'true'}'` in our code for this project to `limit 100` results, when we're just testing our code builds, by declaring an if-block:
+  
+```yaml
+{% if var('is_test_run', default=true) %}
+
+  limit 100
+
+{% endif %}
+```
+
    - so we're performing faster and cheaper queries in BQ while in dev mode
 2. at this time, our lineage graph looks like this
    
@@ -279,8 +309,10 @@ config-version: 2
    ![](../images/dbt-add-core-dim-zones.png)
 
 5. copy+paste the contents of the lookup table in the raw data file from [DTC repo taxi_zone_lookup.csv](04-analytics-engineering/taxi_rides_ny/seeds/taxi_zone_lookup.csv) and save it into the path `/taxi_rides_ny/seeds/taxi_zone_lookup.csv`
+    - this is the simplest and quickest way as our csv file is pretty small (only 265 records)
     -  perform a `Build` while in the csv tab, and you should be able to refresh your dataset in BQ and the seed lookup file would appear there
     -  need to edit and add exclusion `!seeds/taxi_zone_lookup.csv` to the `.gitignore` file so this .csv file would be tracked by version control, else the Nightly scheduled runs would fail
+  
 6. we next create the `fact_trips.sql` under `core` folder, contents is at [DTC repo fact_trips.sql](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/taxi_rides_ny/models/core/fact_trips.sql)
    
     ![](../images/dbt-add-core-fact-trips.png)
@@ -290,7 +322,8 @@ config-version: 2
     ![](../images/dbt-lineage-after-fct.png) 
 
     - we also exclude any records from green and yellow trips if the zones are `Unknown`
-7.  due to `ehail_fee` issues below, dropped all tables (previously uploaded by `web_to_gcs.py` script) and regenerate bucket storage using Vic's [hack-load-data.sql](../04-analytics-engineering/taxi_rides_ny/analyses/hack-load-data.sql). `ehail_fee` does not occur with this method
+7.  due to `ehail_fee` issues below, dropped all tables (previously uploaded by `web_to_gcs.py` script) and regenerate bucket storage using Vic's [hack-load-data.sql](../04-analytics-engineering/taxi_rides_ny/analyses/hack-load-data.sql). `ehail_fee` errors does not occur with this method. 
+    - If you don't want to drop tables and re-ingest data, there's a snippet in slack to rewrite the BQ schemas by [@Aqib](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1708369790938659?thread_ts=1707169877.688879&cid=C01FABYF2RG) that you can adapt to your other `stg_*` code, if necessary.
 
 <code>Error on building fact_trips.sql: Parquet column 'ehail_fee' has type DOUBLE which does not match the target cpp_type INT64. File: "gs://{gcs bucket}/{table}green_taxi_2019-07.parquet"</code>
 
@@ -298,6 +331,7 @@ config-version: 2
 <code>12:42:22 BigQuery adapter: Retry attempt 1 of 1 after error: BadRequest('CREATE VIEW has columns with duplicate name ehail_fee at [7:1]; reason: invalidQuery, location: query, message: CREATE VIEW has columns with duplicate name ehail_fee at [7:1]')</code>
 
 8.  make sure to do a final `dbt build` with below flags for homework, because otherwise the data is limited to first 100 records
+
 ```sql
 dbt build --vars '{'is_test_run': 'false'}'
 ```  
@@ -329,16 +363,14 @@ dbt build --vars '{'is_test_run': 'false'}'
    
     ![](../images/dbt-test-dim-monthly.png)
 
-    -  the `dbt.date_trunc` is referred to 'cross database macros'
+    -  the `dbt.date_trunc` is referred to as `'cross database macros'`
 4.  another package we had used unconsciously is the `Generate model` command when we created our tables
-5.  we're using the [generate_model_yaml-source](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source) code generator.
-    -  in order for the generator to generate documentation yaml code, the schema.yml must contain the column names, description and tests being done   
+5.  we're gonna use the [generate_model_yaml-source](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source) code generator.
+    -  in order for the generator to generate documentation yaml code, the schema.yml must contain the column names, description and tests required  
     -  paste this block into a new file (it's temporary), we want the code it generates, so this code need not be saved
     -  what this does is to generate the boilerplate code to have docstrings and our models' data types
     -  we can then add some test blocks to ensure our code meet the standards of the basics test above
-6. can also look at `dbt_expectations` package for more tests   
-7. can generate docs to be hosted on the project website to show docstrings for the project, tables or columns
-8. create a `schema.yml` for tables under `staging` and `core` by `compile selection` on below code block, select and compile separately
+6. create a `schema.yml` for tables under `staging` and `core` by `compile selection` on below code block, select and compile separately
 
 ```sql
 {% set models_to_generate = codegen.get_models(directory='staging', prefix='stg') %}
@@ -349,8 +381,15 @@ dbt build --vars '{'is_test_run': 'false'}'
 {{ codegen.generate_model_yaml(
     model_names = models_to_generate) }}
 ```
-9. then in cloud CLI, run `dbt docs generate` 
+
+7. can also look at `dbt_expectations` package for more tests   
+8. can generate documentation to be hosted on the project website to show docstrings for the project, tables or columns
+9. after we've done the `compile` above, in cloud CLI, run `dbt docs generate` 
    - if locally run `dbt docs serve`
+   - docs is accessible via the book icon on the git branch bar from the cloud IDE 
+   - docs for Production is in different location
+  
+  ![](../images/dbt-docs-icon.png)
 
 
 
@@ -390,6 +429,9 @@ dbt build --vars '{'is_test_run': 'false'}'
 3. Solution is to unlink from the current `Git Clone` and re-link using `Github`
   ![](../images/git-clone-vs-github.png)
   TODO check back after the `Team` Trial period expires (sometime during module-05), if we can still perform `CI checks` job under Free `Developer` account.
+4. lineage graph before homework looks like this
+
+![](../images/dbt-lineage-after-dm-mthly.png)
 
 
 ## Visualising the transformed data
@@ -405,6 +447,9 @@ dbt build --vars '{'is_test_run': 'false'}'
 ### --- EllaNotes ---
 
 - Google data studio is now renamed to [Looker Studio](https://lookerstudio.google.com/); works like the ususal Google shareable apps such as G-Docs and G-Sheets
+
+![](../images/dbt-vis.png)
+
 - Metabase Docker image `docker run -d -p 3000:3000 --name metabase metabase/metabase`
 - TODO test with Power BI to BQ in free tier?
 - TODO test with Tableau to BQ in free tier?
