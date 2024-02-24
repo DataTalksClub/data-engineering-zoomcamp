@@ -27,6 +27,10 @@ You'll need to have completed the ["Build the first dbt models"](https://www.you
 - It applies a _limit 100_ only to our staging models
 - Nothing
 
+Answer 1:
+- It applies a _limit 100_ to all of our models
+
+
 ### Question 2: 
 
 **What is the code that our CI job will run? Where is this code coming from?**  
@@ -36,6 +40,8 @@ You'll need to have completed the ["Build the first dbt models"](https://www.you
 - The code from any development branch that has been opened based on main
 - The code from the development branch we are requesting to merge to main
 
+Answer 2:
+- The code that is behind the creation object on the dbt_cloud_pr_ schema
 
 ### Question 3 (2 points)
 
@@ -52,6 +58,9 @@ Run the dbt model without limits (is_test_run: false).
 - 32998722
 - 42998722
 
+Answer 3:
+- 22998722
+
 ### Question 4 (2 points)
 
 **What is the service that had the most rides during the month of July 2019 month with the biggest amount of rides after building a tile for the fact_fhv_trips table?**
@@ -62,6 +71,9 @@ Create a dashboard with some tiles that you find interesting to explore the data
 - Green
 - Yellow
 - FHV and Green
+
+Answer 4:
+- Yellow
 
 
 ## Submitting the solutions
