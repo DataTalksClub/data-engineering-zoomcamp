@@ -13,7 +13,7 @@ This is a quick guide on how to setup dbt with BigQuery on Docker.
   cd <dir-name>
   ```
 - Copy this [Dockerfile](Dockerfile) in your directory borrowed from the official dbt git [here](https://github.com/dbt-labs/dbt-core/blob/main/docker/Dockerfile)
-- Create `docker-compose.yaml` [file](../dbt_analytics/docker-compose.yaml).
+- Create `docker-compose.yaml` [file](../../HW/04-analytics-engineeringe/dbt_analytics/docker-compose.yaml).
   ```yaml
   version: '3'
     services:
