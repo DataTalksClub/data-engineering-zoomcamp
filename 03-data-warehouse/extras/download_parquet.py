@@ -44,4 +44,5 @@ def download_parquet_locally(year, service, target_folder):
 # Ejecuta el script con el argumento `--target_folder`
 
 target_folder = "./parquet/"  # Replace with your desired folder path
-download_parquet_locally('2022', 'green', target_folder)
+download_parquet_locally('2019', 'fhv', target_folder)
+
