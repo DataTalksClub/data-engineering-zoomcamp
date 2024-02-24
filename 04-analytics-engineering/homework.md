@@ -68,6 +68,8 @@ Run the dbt model without limits (is_test_run: false).
 - 32998722
 - 42998722
 
+
+***- 12998722***
 ### Question 4 (2 points)
 
 **What is the service that had the most rides during the month of July 2019 month with the biggest amount of rides after building a tile for the fact_fhv_trips table?**
@@ -79,7 +81,7 @@ Create a dashboard with some tiles that you find interesting to explore the data
 - Yellow
 - FHV and Green
 
-
+***- Yellow***
 ## Submitting the solutions
 
 * Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw4
