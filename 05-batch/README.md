@@ -96,8 +96,7 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 
 # Homework
 
-
-* [2024 Homework](../cohorts/2024)
+* [2024 Homework](../cohorts/2024/05-batch/homework.md)
 
 
 # Community notes
