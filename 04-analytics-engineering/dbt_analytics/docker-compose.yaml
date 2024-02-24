@@ -2,7 +2,7 @@ version: '3'
 services:
   dbt-bq-dtc:
     build:
-      context: .
+      context: ../docker_setup
       target: dbt-bigquery
     image: dbt/bigquery
     volumes:
