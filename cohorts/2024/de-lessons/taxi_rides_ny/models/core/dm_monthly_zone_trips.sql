@@ -24,15 +24,14 @@ with trips_data as (
     from {{ ref('fact_fhv_trips') }}
 )
 select 
+    pickup_zone,
+    {{ dbt.date_trunc("month", "pickup_datetime") }} as trip_pickup_month, 
+    {{ dbt.date_trunc("month", "dropoff_datetime") }} as trip_dropoff_month, 
     service_type, 
-    pickup_zone,  
-    pickup_datetime, 
-    dropoff_datetime
-    pickup_borough, 
     dropoff_zone, 
-    dropoff_borough, 
 
     -- Additional calculations
     count(tripid) as total_monthly_trips,
 
     from trips_data
+    group by 1,2,3,4,5
