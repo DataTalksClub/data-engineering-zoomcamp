@@ -159,6 +159,7 @@ Setting up your new project on dbt cloud's IDE.
 3.  setup your project like so
 
    ![](../images/dbt-project-settings.png)
+
     - explicitly specify the path if want to create the dbt-project in a subfolder like shown here and not in the root of `data-engineering-zoomcamp`
 
 4.  assuming we're in the parent folder to `taxi_rides_ny` path, once we create a branch, the `Initialize dbt poject` green button 
@@ -168,8 +169,6 @@ Setting up your new project on dbt cloud's IDE.
 name: 'taxi_rides_ny'
 version: '1.0.0'
 config-version: 2
-
-
 ```
 
 
@@ -204,9 +203,13 @@ config-version: 2
 5.  materialization types: ephemeral, view, table, incremental (drop & re-create, or insert new data in same table)
 6.  dependencies coded into the model and follows from dev to staging to production, and also in version control
 7.  to start our dbt project, first create a `staging` folder under `model` folder
+   
    ![](../images/dbt-start-define-source.png)
+
 8.  and then create `schema.yml` in this folder
+   
    ![](../images/dbt-start-schema-file.png)
+
     - change the `database` entry to the `dataset` value from your BigQuery instance and mine is `nyc-rides-ella`, which for me I've set it to be the same as my `project-id` (maybe I shouldn't have done this? well hindsight 20/20 and all that)
     - input `tables` names of `green_tripdata` and `yellow_tripdata`
     - once you typed in the tables names, dbt would prompt you to `generate model`, click on this and new tab pops open with model `stg_staging__green_tripdata.sql` in another `staging` subfolder
@@ -233,17 +236,21 @@ config-version: 2
     - and similarly just like [*PyPi.org*](https://pypi.org) hosting packages others have made, dbt also has a *[dbt package hub](https://hub.getdbt.com/)* and we declare the import statements in a `packages.yml` file
     - the syntax is similar to how we add images in a `docker-compose.yml` file for Docker containers
 1. create `packages.yml` file in your root dbt project folder, ie in the same path as the `dbt_project.yml` file
+   
     ![](../images/dbt-add-packages.png)
+
     - once file is saved, it would trigger the install and you'll see in the command line that it's doing just that and then building 
     - if it does not gets triggered, you can manually kick off the process by doing a `dpt deps` in the CLI
     - you'll see the packages imported once it is done and new `dbt_packages` folder appear in your File Explorer tree
     - find the usage guide in the docs or gh repo
     - for our case, we want to declare a new primary key `tripid` that combines these 2 columns `vendorid` + `lpep_pickup_datetime`, because one cab can only have a unique trip at a particular timestamp
     - at the beginning of our SELECT statement in the `stg_green_tripdata.sql` file, add this:
+  
     ```sql
     {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
     ```
     - we should be able to verify the output in our `nyc-rides-ella.dbt_ellacharmed` dataset in BigQuery    
+  
 > [!TIP] 
 > if you get `dbt build failed` check for commas in the 2 lines we added
 
@@ -263,17 +270,25 @@ config-version: 2
    - we used this var `dbt build --vars '{'is_test_run': 'true'}'` in our code for this project to `limit 100` when we're just testing our code builds, by declaring ``
    - so we're performing faster and cheaper queries in BQ while in dev mode
 2. at this time, our lineage graph looks like this
+   
    ![](../images/dbt-lineage-after-stg.png) 
+
 3. now, we're going to add our zones data. Create a new folder under `/models`, call it `core`
 4. in this folder, create a new model called `dim_zones.sql` so our zones master data lives in the path `/models/core/dim_zones.sql`
+   
    ![](../images/dbt-add-core-dim-zones.png)
+
 5. copy+paste the contents of the lookup table in the raw data file from [DTC repo taxi_zone_lookup.csv](04-analytics-engineering/taxi_rides_ny/seeds/taxi_zone_lookup.csv) and save it into the path `/taxi_rides_ny/seeds/taxi_zone_lookup.csv`
     -  perform a `Build` while in the csv tab, and you should be able to refresh your dataset in BQ and the seed lookup file would appear there
     -  need to edit and add exclusion `!seeds/taxi_zone_lookup.csv` to the `.gitignore` file so this .csv file would be tracked by version control, else the Nightly scheduled runs would fail
 6. we next create the `fact_trips.sql` under `core` folder, contents is at [DTC repo fact_trips.sql](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/taxi_rides_ny/models/core/fact_trips.sql)
+   
     ![](../images/dbt-add-core-fact-trips.png)
+
     - at this point of time, our lineage graph now looks like this
+  
     ![](../images/dbt-lineage-after-fct.png) 
+
     - we also exclude any records from green and yellow trips if the zones are `Unknown`
 7.  due to `ehail_fee` issues below, dropped all tables (previously uploaded by `web_to_gcs.py` script) and regenerate bucket storage using Vic's [hack-load-data.sql](../04-analytics-engineering/taxi_rides_ny/analyses/hack-load-data.sql). `ehail_fee` does not occur with this method
 
@@ -304,23 +319,26 @@ dbt build --vars '{'is_test_run': 'false'}'
 ### --- EllaNotes ---
 
 1.  video: 4.3.2 - Testing and Documenting the Project
-1.  basic tests includes
+   
+2.  basic tests includes
     -  unique values
     -  not null values
     -  accepted values
     -  foreign key to other tables
-1.  create `dm_monthly_zone_revenue.sql` from [dtc repo](../04-analytics-engineering/taxi_rides_ny/models/core/dm_monthly_zone_revenue.sql) under `/models/core/`
+3.  create `dm_monthly_zone_revenue.sql` from [dtc repo](../04-analytics-engineering/taxi_rides_ny/models/core/dm_monthly_zone_revenue.sql) under `/models/core/`
+   
     ![](../images/dbt-test-dim-monthly.png)
+
     -  the `dbt.date_trunc` is referred to 'cross database macros'
-1.  another package we had used unconsciously is the `Generate model` command when we created our tables
-1.  we're using the [generate_model_yaml-source](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source) code generator.
+4.  another package we had used unconsciously is the `Generate model` command when we created our tables
+5.  we're using the [generate_model_yaml-source](https://github.com/dbt-labs/dbt-codegen/tree/0.12.1/?tab=readme-ov-file#generate_model_yaml-source) code generator.
     -  in order for the generator to generate documentation yaml code, the schema.yml must contain the column names, description and tests being done   
     -  paste this block into a new file (it's temporary), we want the code it generates, so this code need not be saved
     -  what this does is to generate the boilerplate code to have docstrings and our models' data types
     -  we can then add some test blocks to ensure our code meet the standards of the basics test above
-1. can also look at `dbt_expectations` package for more tests   
-1. can generate docs to be hosted on the project website to show docstrings for the project, tables or columns
-1. create a `schema.yml` for tables under `staging` and `core` by `compile selection` on below code block, select and compile separately
+6. can also look at `dbt_expectations` package for more tests   
+7. can generate docs to be hosted on the project website to show docstrings for the project, tables or columns
+8. create a `schema.yml` for tables under `staging` and `core` by `compile selection` on below code block, select and compile separately
 
 ```sql
 {% set models_to_generate = codegen.get_models(directory='staging', prefix='stg') %}
@@ -388,8 +406,8 @@ dbt build --vars '{'is_test_run': 'false'}'
 
 - Google data studio is now renamed to [Looker Studio](https://lookerstudio.google.com/); works like the ususal Google shareable apps such as G-Docs and G-Sheets
 - Metabase Docker image `docker run -d -p 3000:3000 --name metabase metabase/metabase`
-- TODO test with Power BI to BQ
-- TODO test with Tableau to BQ
+- TODO test with Power BI to BQ in free tier?
+- TODO test with Tableau to BQ in free tier?
 - free and open-source alternatives to Power BI and Tableau that can connect to private BigQuery datasets according to BingCoPilot
   - Apache Superset
   - PopSQL
