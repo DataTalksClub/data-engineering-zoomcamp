@@ -25,13 +25,13 @@ with trips_data as (
 )
 select 
     pickup_zone,
+    service_type,
     {{ dbt.date_trunc("month", "pickup_datetime") }} as trip_pickup_month, 
     {{ dbt.date_trunc("month", "dropoff_datetime") }} as trip_dropoff_month, 
-    service_type, 
     dropoff_zone, 
 
     -- Additional calculations
     count(tripid) as total_monthly_trips,
 
     from trips_data
-    group by 1,2,3,4,5
+    group by pickup_zone,service_type,3,4,5
