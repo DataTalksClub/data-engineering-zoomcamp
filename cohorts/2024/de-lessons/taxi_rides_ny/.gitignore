@@ -4,4 +4,5 @@ target/
 dbt_packages/
 logs/
 
+# exclude .csv to add taxi_zone_lookup.csv into our repo
 !seeds/*.csv

@@ -15,8 +15,19 @@ models:
       - name: revenue_monthly_total_amount
         description: Monthly sum of the the total_amount of the fare charged for the trip per pickup zone, month and service.
         tests:
-          - not_null:
-              severity: error
+            - not_null:
+                severity: error
+
+  - name: dm_monthly_zone_trips.sql
+    description: >
+      Aggregated table of all taxi trips corresponding to all 3 service zones (fhv, green and yellow) 
+      per pickup zone, month and service.
+    columns:
+      - name: total_monthly_trips
+        description: Monthly total count for number of trips per pickup zone, month and service.
+        tests:
+            - not_null:
+                severity: error
 
 
   - name: fact_fhv_trips
