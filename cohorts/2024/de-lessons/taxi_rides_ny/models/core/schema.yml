@@ -10,31 +10,20 @@ models:
     description: >
       Aggregated table of all taxi trips corresponding to both service zones (Green and yellow) per pickup zone, month and service.
       The table contains monthly sums of the fare elements used to calculate the monthly revenue. 
-      The table contains also monthly indicators like number of trips, and average trip distance. 
+      The table contains also monthly indicators like number of trips, and average trip distance.
     columns:
       - name: revenue_monthly_total_amount
         description: Monthly sum of the the total_amount of the fare charged for the trip per pickup zone, month and service.
         tests:
-            - not_null:
-                severity: error
-
-  - name: dm_monthly_zone_trips.sql
-    description: >
-      Aggregated table of all taxi trips corresponding to all 3 service zones (fhv, green and yellow) 
-      per pickup zone, month and service.
-    columns:
-      - name: total_monthly_trips
-        description: Monthly total count for number of trips per pickup zone, month and service.
-        tests:
-            - not_null:
-                severity: error
+          - not_null:
+              severity: error
 
 
   - name: fact_fhv_trips
     description: >
       For-Hire Vehicle (“FHV”) trip records include fields capturing the dispatching base license 
       number and the pick-up date, time, and taxi zone location ID (shape file below). 
-      These records are generated from the FHV Trip Record submissions made by bases. 
+      These records are generated from the FHV Trip Record submissions made by bases.
     columns:
       - name: tripid
         data_type: string
@@ -92,7 +81,7 @@ models:
     description: >
       Taxi trips corresponding to both service zones (Green and yellow).
       The table contains records where both pickup and dropoff locations are valid and known zones. 
-      Each record corresponds to a trip uniquely identified by tripid. 
+      Each record corresponds to a trip uniquely identified by tripid.
     columns:
       - name: tripid
         data_type: string
