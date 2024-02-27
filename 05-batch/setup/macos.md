@@ -24,6 +24,9 @@ export PATH="$JAVA_HOME/bin/:$PATH"
 
 Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine. You can also run `brew info java` to check where java was installed on your machine.
 
+### Anaconda-based spark set up
+For this with anaconda setup, they can skip the spark installation below set up pyspark package and follow the process using [this](https://github.com/amohan601/dataengineering-zoomcamp2024/tree/main/week_5_batch_processing#spark)
+
 ### Installing Spark
 
 1. Install Scala
@@ -62,5 +65,6 @@ distData.filter(_ < 10).collect()
 ### PySpark
 
 It's the same for all platforms. Go to [pyspark.md](pyspark.md). 
+
 
 
