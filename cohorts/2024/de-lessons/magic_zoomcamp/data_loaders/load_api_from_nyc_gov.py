@@ -4,8 +4,8 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import requests
 import fsspec
-import dlt
-import duckdb
+# import dlt
+# import duckdb
 
 if 'utils' not in globals():
     from magic_zoomcamp.utils.shared import camel_to_snake

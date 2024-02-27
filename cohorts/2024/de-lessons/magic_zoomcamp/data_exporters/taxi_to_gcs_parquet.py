@@ -24,8 +24,8 @@ def export_green_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
     config_profile = 'default'
 
     bucket_name = 'mage-zoomcamp-ellacharmed'
-    object_key = 'nyc_taxi_data.parquet'
-    where = f'{bucket_name}/{object_key}'
+    object_key = 'green_trips_data.parquet'
+    # where = f'{bucket_name}/{object_key}'
 
     # gcs = pa.fs.GcsFileSystem()
     print(df.shape)

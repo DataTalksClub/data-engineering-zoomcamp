@@ -2,3 +2,4 @@ dlt
 dlt[duckdb]
 dlt[parquet]
 dlt[bigquery]
+tqdm
