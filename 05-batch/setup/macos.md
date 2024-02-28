@@ -25,8 +25,30 @@ export PATH="$JAVA_HOME/bin/:$PATH"
 Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine. You can also run `brew info java` to check where java was installed on your machine.
 
 ### Anaconda-based spark set up
-For this with anaconda setup, they can skip the spark installation below set up pyspark package and follow the process using [this](https://github.com/amohan601/dataengineering-zoomcamp2024/tree/main/week_5_batch_processing#spark)
+if you are having anaconda setup, you can skip the spark installation and instead Pyspark package to run the spark.
+With Anaconda and Mac we can spark set by first installing pyspark and then for environment variable set up findspark
 
+Open Anaconda Activate the environment where you want to apply these changes
+
+Run pyspark and install it as a package in this environment <br>
+Run findspark and install it as a package in this environment
+
+Ensure that open JDK is already set up. This allows us to not have to install Spark separately and manually set up the environment Also with this we may have to use Jupyter Lab (instead of Jupyter Notebook) to open a Jupyter notebook for running the programs. 
+Once the Spark is set up start the conda environment and open Jupyter Lab. 
+Run the program below in notebook to check everything is running fine.
+```
+import pyspark
+from pyspark.sql import SparkSession
+
+!spark-shell --version
+
+# Create SparkSession
+spark = SparkSession.builder.master("local[1]") \
+                    .appName('test-spark') \
+                    .getOrCreate()
+
+print(f'The PySpark {spark.version} version is running...')
+```
 ### Installing Spark
 
 1. Install Scala
