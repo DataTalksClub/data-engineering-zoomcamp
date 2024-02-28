@@ -3,29 +3,27 @@ blocks:
   color: null
   configuration:
     file_source:
-      path: data_loaders/load_api_data.py
+      path: data_loaders/load_api_from_nyc_gov.py
   downstream_blocks:
   - transform_green_taxi_data
-  - green_taxi_to_gcs_parquet
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: load_api_green_data
+  name: load_api_from_nyc_gov
   retry_config: null
   status: executed
   timeout: null
   type: data_loader
   upstream_blocks: []
-  uuid: load_api_green_data
+  uuid: load_api_from_nyc_gov
 - all_upstream_blocks_executed: true
   color: null
   configuration:
     file_source:
       path: transformers/transform_taxi_data.py
   downstream_blocks:
-  - green_taxi_to_gcs_parquet
-  - green_taxi_to_gcs_partitioned_parquet
+  - taxi_to_gcs_parquet
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -36,63 +34,26 @@ blocks:
   timeout: null
   type: transformer
   upstream_blocks:
-  - load_api_green_data
+  - load_api_from_nyc_gov
   uuid: transform_green_taxi_data
 - all_upstream_blocks_executed: true
   color: null
-  configuration: {}
-  downstream_blocks: []
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: green_taxi_to_gcs_parquet
-  retry_config: null
-  status: failed
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - transform_green_taxi_data
-  uuid: green_taxi_to_gcs_parquet
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - green_taxi_gcs
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: green_taxi_to_gcs_partitioned_parquet
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_exporter
-  upstream_blocks:
-  - transform_green_taxi_data
-  uuid: green_taxi_to_gcs_partitioned_parquet
-- all_upstream_blocks_executed: false
-  color: null
   configuration:
-    data_provider: postgres
-    dbt: {}
-    disable_query_preprocessing: false
-    export_write_policy: replace
-    limit: 1000
-    use_raw_sql: false
+    file_source:
+      path: data_exporters/taxi_to_gcs_parquet.py
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
-  language: sql
-  name: green_taxi_gcs
+  language: python
+  name: taxi_to_gcs_parquet
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - green_taxi_to_gcs_partitioned_parquet
-  uuid: green_taxi_gcs
+  - transform_green_taxi_data
+  uuid: taxi_to_gcs_parquet
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
