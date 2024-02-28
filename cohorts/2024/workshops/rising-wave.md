@@ -132,26 +132,20 @@ Options:
 
 ### Question 3
 
-From the latest pickup time to 17 hours before, what are the top 10 busiest zones in terms of number of pickups?
+From the latest pickup time to 17 hours before, what are the top 3 busiest zones in terms of number of pickups?
 For example if the latest pickup time is 2020-01-01 12:00:00,
-then the query should return the top 10 busiest zones from 2020-01-01 11:00:00 to 2020-01-01 12:00:00.
+then the query should return the top 3 busiest zones from 2020-01-01 11:00:00 to 2020-01-01 12:00:00.
 
 HINT: You can use [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/)
 to create a filter condition based on the latest pickup time.
 
 NOTE: For this question `17 hours` was picked to ensure we have enough data to work with.
 
-Fill in the top 10:
-1. `__________`
-2. `__________`
-3. `__________`
-4. `__________`
-5. `__________`
-6. `__________`
-7. `__________`
-8. `__________`
-9. `__________`
-10. `__________`
+Options:
+1. Clinton East, Upper East Side North, Penn Station
+2. LaGuardia Airport, Lincoln Square East, JFK Airport
+3. Midtown Center, Upper East Side South, Upper East Side North
+4. LaGuardia Airport, Midtown Center, Upper East Side North
 
 
 ## Submitting the solutions
