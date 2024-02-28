@@ -489,10 +489,7 @@ Did you take notes? You can share them here.
 * [Notes from Balaji](https://github.com/Balajirvp/DE-Zoomcamp/blob/main/Week%204/Data%20Engineering%20Zoomcamp%20Week%204.ipynb)
 * [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/4-analytics-engineering/readme.md)
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
-* resources shared by [Luis in Slack](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1707217006946489)  
-  - [3 Reasons Why Working With Data Build Tool (dbt) Is Not “Just Doing SQL”](https://medium.com/@lgsoliveira/3-reasons-why-working-with-data-build-tool-dbt-is-not-just-doing-sql-5b8d9c40a591)
-  - [5 Strong Reasons Why Data Build Tool (dbt) Got So Much Hype](https://medium.com/gitconnected/5-strong-reasons-why-data-build-tool-dbt-got-so-much-hype-9030dda48b74) 
-  - [Analytics Engineer Roadmap 2023 With Free Resources](https://medium.com/gitconnected/analytics-engineer-roadmap-2023-with-free-resources-873195184ebd?sk=312e752dc1bbbbd4c5f5ba05b142b7d8)
+* [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
 * Add your notes here (above this line)
 
 
