@@ -25,6 +25,13 @@ And follow [this](setup/pyspark.md) to run PySpark in Jupyter
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/hqUbB9c8sKg)](https://youtu.be/hqUbB9c8sKg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=53)
 
+Alternatively, if the setups above don't work, you can run Spark in Google Colab.
+> [!NOTE]  
+> It's advisable to invest some time in setting things up locally rather than immediately jumping into this solution
+
+* [Google Colab Instructions](https://medium.com/gitconnected/launch-spark-on-google-colab-and-connect-to-sparkui-342cad19b304)
+* [Google Colab Starter Notebook](https://github.com/aaalexlit/medium_articles/blob/main/Spark_in_Colab.ipynb)
+
 
 ## 5.3 Spark SQL and DataFrames
 
