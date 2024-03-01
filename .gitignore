@@ -16,3 +16,8 @@ serving_dir
 !week_6_stream_processing/avro_example/data/rides.csv
 *.parquet
 *.json
+*.csv.gz
+*.snappy.parquet
+*.csv
+*.parquet
+*..snappy.parquet.crc
