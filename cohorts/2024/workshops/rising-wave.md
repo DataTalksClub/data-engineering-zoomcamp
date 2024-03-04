@@ -154,6 +154,18 @@ Options:
 - You can submit your homework multiple times. In this case, only the
 last submission will be used.
 
+## Rewards 🥳
+
+Everyone who completes the homework will get a pen and a sticker, and 5 lucky winners will receive a Tshirt and other secret surprises!
+We encourage you to share your achievements with this workshop on your socials and look forward to your submissions 😁
+
+- Follow us on **LinkedIn**: https://www.linkedin.com/company/risingwave
+- Follow us on **GitHub**: https://github.com/risingwavelabs/risingwave
+- Join us on **Slack**: https://risingwave-labs.com/slack
+
+See you around!
+
+
 Deadline: TBA
 
 ## Solution
