@@ -118,4 +118,5 @@ Did you take notes? You can share them here.
 * [Notes by Victor Padilha](https://github.com/padilha/de-zoomcamp/tree/master/week5)
 * [Notes by Oscar Garcia](https://github.com/ozkary/Data-Engineering-Bootcamp/tree/main/Step5-Batch-Processing)
 * [Notes by HongWei](https://github.com/hwchua0209/data-engineering-zoomcamp-submission/blob/main/05-batch-processing/README.md)
+* [2024 videos transcript](https://drive.google.com/drive/folders/1XMmP4H5AMm1qCfMFxc_hqaPGw31KIVcb?usp=drive_link) by Maria Fisher 
 * Add your notes here (above this line)
