@@ -150,9 +150,8 @@ Options:
 
 ## Submitting the solutions
 
-- Form for submitting: TBA
-- You can submit your homework multiple times. In this case, only the
-last submission will be used.
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/workshop2
+- Deadline: 11 March (Monday), 23:00 CET 
 
 ## Rewards 🥳
 
@@ -165,7 +164,5 @@ We encourage you to share your achievements with this workshop on your socials a
 
 See you around!
 
-
-Deadline: TBA
 
 ## Solution
