@@ -35,10 +35,8 @@ dependencies:
   # conda-forge does not carry matching pyspark version
   # module6 kafka
   - kafka-python
-  - confluent_kafka
   - requests
   - avro
-  - faust
   - fastavro
   - pip:
     # workshop 1 dlthub
@@ -49,3 +47,6 @@ dependencies:
     - 'dlt[bigquery]'
     # module5 spark
     - pyspark==3.5.1
+    # module6 kafka
+    - confluent_kafka
+    - faust-streaming
