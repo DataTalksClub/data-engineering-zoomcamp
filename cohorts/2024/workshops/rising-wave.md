@@ -76,7 +76,7 @@ https://tutorials.risingwave.com/docs/intro
 
 _This question is just a warm-up to introduce dynamic filter, please attempt it before viewing its solution._
 
-What are the pick up taxi zones at the latest dropoff times?
+What are the dropoff taxi zones at the latest dropoff times?
 
 For this part, we will use the [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/).
 
