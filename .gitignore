@@ -1,4 +1,5 @@
-
+.dbt
+.google
 .DS_Store
 .idea
 *.tfstate

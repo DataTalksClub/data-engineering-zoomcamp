@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jupyter:
+    image: "jupyter/pyspark-notebook:x86_64-hadoop-3"
+    ports:
+      - "8888:8888"
+    volumes:
+      - "/home/jovyan/work:/work"
+    environment:
+      - GRANT_SUDO=yes
+      - JUPYTER_PORT=8888
+    restart: always
+
+volumes:
+  work:

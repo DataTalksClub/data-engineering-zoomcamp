@@ -12,55 +12,56 @@
 -- 2. In BigQuery, create a `trips_data_all` dataset in the US Multiregion.
 --
 -- 3. Create the green_trip_data and yellow_trip_data tables with data from 2019:
-CREATE TABLE `demo_dataset.green_trip_data` AS
+CREATE TABLE `nyc_trip_dataset.green_trip_data` AS
 SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2019` ;
-INSERT INTO  `demo_dataset.green_trip_data`
+INSERT INTO  `nyc_trip_dataset.green_trip_data`
 SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2020` ;
 --
 -- Fixes green table schema
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN vendor_id TO VendorID;
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN pickup_datetime TO lpep_pickup_datetime;
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN dropoff_datetime TO lpep_dropoff_datetime;
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN rate_code TO RatecodeID;
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN imp_surcharge TO improvement_surcharge;
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN pickup_location_id TO PULocationID;
-ALTER TABLE `demo_dataset.green_trip_data`
+ALTER TABLE `nyc_trip_dataset.green_trip_data`
   RENAME COLUMN dropoff_location_id TO DOLocationID;
 --
-CREATE TABLE `demo_dataset.yellow_trip_data` AS
+CREATE TABLE `nyc_trip_dataset.yellow_trip_data` AS
 SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2019`;
-INSERT INTO  `demo_dataset.yellow_trip_data`
+INSERT INTO  `nyc_trip_dataset.yellow_trip_data`
 SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2020`;
 --
 -- Fixes yellow table schema
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN vendor_id TO VendorID;
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN pickup_datetime TO tpep_pickup_datetime;
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN dropoff_datetime TO tpep_dropoff_datetime;
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN rate_code TO RatecodeID;
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN imp_surcharge TO improvement_surcharge;
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN pickup_location_id TO PULocationID;
-ALTER TABLE `demo_dataset.yellow_trip_data`
+ALTER TABLE `nyc_trip_dataset.yellow_trip_data`
   RENAME COLUMN dropoff_location_id TO DOLocationID;
 --
-SELECT DISTINCT (Payment_type) FROM `demo_dataset.green_trip_data`;
-SELECT DISTINCT (Payment_type) FROM `demo_dataset.yellow_trip_data`;
+SELECT DISTINCT (Payment_type) FROM `nyc_trip_dataset.green_trip_data`;
+SELECT DISTINCT (Payment_type) FROM `nyc_trip_dataset.yellow_trip_data`;
+--
 -- fhv trip data
-CREATE OR REPLACE EXTERNAL TABLE `demo_dataset.fhv_trip_data_2019`
+CREATE OR REPLACE EXTERNAL TABLE `nyc_trip_dataset.fhv_trip_data_2019`
 OPTIONS (format = 'PARQUET', uris = ['gs://week3-data-ware-house/fhv/fhv_tripdata_2019-*.parquet']);
 --
-CREATE OR REPLACE EXTERNAL TABLE `demo_dataset.fhv_trip_data` (
+CREATE OR REPLACE EXTERNAL TABLE `nyc_trip_dataset.fhv_trip_data` (
 dispatching_base_num STRING,
 pickup_datetime DATETIME,
 dropoff_datetime DATETIME,
@@ -71,13 +72,13 @@ Affiliated_base_number STRING
 )
 OPTIONS (format = 'PARQUET', uris = ['gs://week3-data-ware-house/fhv/fhv_tripdata_2019-*.parquet']);
 --
-SELECT COUNT(1) FROM `demo_dataset.fhv_trip_data`;
+SELECT COUNT(1) FROM `nyc_trip_dataset.fhv_trip_data`;
 --
-SELECT * FROM `demo_dataset.fhv_trip_data` LIMIT 500;
+SELECT * FROM `nyc_trip_dataset.fhv_trip_data` LIMIT 500;
 --
 SELECT * REPLACE (
   CAST(0 AS FLOAT64) AS SR_Flag
-) FROM `demo_dataset.fhv_trip_data` LIMIT 500;
+) FROM `nyc_trip_dataset.fhv_trip_data` LIMIT 500;
 --
 SELECT COUNT(1) FROM `dbt_dj_production.fact_trips`;
 SELECT COUNT(1) FROM `dbt_dj_production.taxi_zone_lookup`;
