@@ -54,7 +54,7 @@ Run the dbt model without limits (is_test_run: false).
 
 ### Question 4 (2 points)
 
-**What is the service that had the most rides during the month of July 2019 month with the biggest amount of rides after building a tile for the fact_fhv_trips table?**
+**What is the service that had the most rides during the month of July 2019 month with the biggest amount of rides after building a tile for the fact_fhv_trips table and the fact_trips tile as seen in the videos?**
 
 Create a dashboard with some tiles that you find interesting to explore the data. One tile should show the amount of trips per month, as done in the videos for fact_trips, including the fact_fhv_trips data.
 
@@ -73,9 +73,9 @@ Deadline: 22 February (Thursday), 22:00 CET
 
 ## Solution (To be published after deadline)
 
-* Video: 
+* Video: https://youtu.be/3OPggh5Rca8
 * Answers:
-  * Question 1: 
-  * Question 2: 
-  * Question 3: 
-  * Question 4: 
+  * Question 1: It applies a _limit 100_ only to our staging models
+  * Question 2: The code from the development branch we are requesting to merge to main
+  * Question 3: 22998722
+  * Question 4: Yellow

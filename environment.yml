@@ -13,18 +13,39 @@ dependencies:
   - sqlalchemy>=2.0
   - pgcli
   - psycopg2-binary 
+  - connectorx
+  - polars
+  - diagrams
   - pip
   # module2 mage
   - google-cloud-bigquery
   # workshop 1 dlthub
   - streamlit
-  - pip:
-    - dlt
-    - 'dlt[duckdb]'
-    - 'dlt[parquet]'
-    - 'dlt[bigquery]'
   # module3 dwh
   - pandas-gbq
   - fastparquet 
   - nodejs>=20,<21
   - mystmd
+  # module4 dbt
+  - dbt-core
+  - dbt-bigquery
+  - dbt-postgres
+  - dbt-duckdb
+  # module5 spark
+  # conda-forge does not carry matching pyspark version
+  # module6 kafka
+  - kafka-python
+  - confluent_kafka
+  - requests
+  - avro
+  - faust
+  - fastavro
+  - pip:
+    # workshop 1 dlthub
+    - bigquery
+    - dlt
+    - 'dlt[duckdb]'
+    - 'dlt[parquet]'
+    - 'dlt[bigquery]'
+    # module5 spark
+    - pyspark==3.5.1
