@@ -26,6 +26,7 @@ env.bak/
 venv.bak/
 
 # Data files
+*.pdf
 *.csv
 *.csv.gz
 *.parquet
@@ -33,6 +34,7 @@ venv.bak/
 # dlt guides
 **/mydata
 **/pokemon
+/data/
 
 
 # DB files
