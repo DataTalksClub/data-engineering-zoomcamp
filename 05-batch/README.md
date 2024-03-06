@@ -2,9 +2,7 @@
 
 ## 5.1 Introduction
 
-### 5.1.1 Introduction to Batch Processing
-
-* :movie_camera: 5.1.1 Introduction to Batch Processing
+### :movie_camera: 5.1.1 Introduction to Batch Processing
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/dcHe5Fl3MF8)](https://youtu.be/dcHe5Fl3MF8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=51)
 
@@ -38,7 +36,7 @@ graph LR;
     00:00 - 23:59)-->c[(df)]
 ```
 
-  - Stream: processing data on the fly (covered in next module), covers rest of 20% od data jobs.
+  - Stream: processing data on the fly (covered in next module), covers rest of 20% of data jobs.
 
 ```mermaid
 graph LR;
@@ -55,9 +53,9 @@ graph LR;
    - 3 times per hour
    - every 5 minutes
 
-1. Techonoly types of batch jobs:
+1. Techonology types of batch jobs:
    - SQL
-   - Python scripts: in kubernetes, aws-batch, airflow as orchestrator 
+   - Python scripts: in kubernetes, aws-batch, airflow, mage as orchestrator 
    - Spark
    - Flink
   
@@ -75,20 +73,17 @@ graph LR;
   - Advantages: easy to manage, retries, easier to scale (get bigger Compute, more clusters)
   - Disadvantages: delay, not real-time if hourly need to await next hour to get past hour's data
   -  most times, stakeholders/users don't need up to the minute fresh data unless it is time-sensitive like severe weather or stocks trading
-  -  
-
-* :movie_camera: 5.1.2 Introduction to Spark
-
-### 5.1.2 Introduction to Spark
+  
+### :movie_camera: 5.1.2 Introduction to Spark
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/FhaqbEOuQ8U)](https://youtu.be/FhaqbEOuQ8U&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=52)
 
 #### --- EllaNotes ---
 
 1. Apache Spark
-- large scale data-processing
-- distributed in clusters
-- multilanguage: java, scala (native), python (pyspark), R, etc
+   - large scale data-processing
+   - distributed in clusters
+   - multilanguage: java, scala (native), python (pyspark), R, etc
 
 
 ```mermaid
@@ -100,7 +95,6 @@ graph LR;
 
 2. When to use it?
    - data is in a data lake (S3, GCS), most usually in .parquet
-   - 
 
 
 ## 5.2 Installation
@@ -113,15 +107,14 @@ Follow [these intructions](setup/) to install Spark:
 
 And follow [this](setup/pyspark.md) to run PySpark in Jupyter
 
-### 5.2.1 (Optional) Installing Spark (Linux)
-* :movie_camera: 5.2.1 (Optional) Installing Spark (Linux)
+### :movie_camera: 5.2.1 (Optional) Installing Spark (Linux)
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/hqUbB9c8sKg)](https://youtu.be/hqUbB9c8sKg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=53)
 
 #### --- EllaNotes ---
 
 lecture outline:
-- 
+- install packages and setup environment
 - notebook: 03_test.ipynb
 
 #### Install in windows 11 + WSL2
@@ -130,7 +123,7 @@ lecture outline:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/WxhPDK4ffq4)](https://youtu.be/WxhPDK4ffq4)
 
-1. Download and install Spark in WSL2. 
+2. Download and install Spark in WSL2. 
    - [Slack Arben's thread](https://datatalks-club.slack.com/archives/C01FABYF2RG/p1708691129314739) showed he used the combo of:
      - jdk-11.0.2
      - Python: 3.8.0
@@ -140,29 +133,44 @@ lecture outline:
    - If there are issues with my Python 3.11.x install, I'll try the older version. 
    - It is essential to go to the download page so `apache.org` will recommend the closest CDN for you to download the 300MB++ file. 
    - I'd initially use the `wget` link from the [setup folder](../05-batch/setup/linux.md) and it projected to take 6-8 hours to download the 300MB++ file!
-   - Using these link(s) took about 10sec
-   - [spark-3.4.2 (Nov 30 2023)](https://dlcdn.apache.org/spark/spark-3.4.2/spark-3.4.2-bin-hadoop3.tgz)
-   - [spark-3.5.1 (Feb 23 2024)](https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz) 
+   - Using these link(s) took about 10sec, select just one.
+     - [spark-3.4.2 (Nov 30 2023)](https://dlcdn.apache.org/spark/spark-3.4.2/spark-3.4.2-bin-hadoop3.tgz)
+     - [spark-3.5.1 (Feb 23 2024)](https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz) 
    
 ```bash
 wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
 ```
-1. unpack with `tar xzfv spark-3.5.1-bin-hadoop3.tgz`
-1. Add it to `PATH`:
+
+3. unpack with `tar xzfv spark-3.5.1-bin-hadoop3.tgz`
+4. Add it to `PATH`:
+   
 ```bash
 export SPARK_HOME="${HOME}/spark/tar xzfv spark-3.5.1-bin-hadoop3.tgz"
 export PATH="${SPARK_HOME}/bin:${PATH}"
 ```
-1. Close wsl2 Ubuntu terminal or re-execute bash/zsh with `source ~/.zshrc`
-1.  remove installer files
+5. To run PySpark, we first need to get the version of `py4j` from the path shown, so do a `ls ${SPARK_HOME}/python/lib/` and get the output: 
+   
+```bash
+PY4J_LICENSE.txt  py4j-0.10.9.7-src.zip  pyspark.zip`
+```
+
+6. add the version shown exactly `py4j-[version-here]-src.zip` to `PYTHONPATH`:
+
+```bash
+export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-[version-here]-src.zip:$PYTHONPATH"
+```
+
+7. Close wsl2 Ubuntu terminal or re-execute bash/zsh with `source ~/.zshrc`
+6.  remove installer files
 ```bash
 rm spark-3.5.1-bin-hadoop3.tgz
 ```
-1. `pyspark` installed in `dezoomcamp` venv in WSL2 using `pip install pyspark==3.5.1`
+7. `pyspark` installed in `dezoomcamp` venv in WSL2 using `pip install pyspark==3.5.1`
    - as of this editing, `conda-forge` channel does not have pyspark==3.5.1, 
      - last available version via `conda-forge` channel is `pyspark==3.5.0`
-     - - last available version via `pyspark` channel is `pyspark==3.4.1`
-1. Environment variables, in Windows:
+     - last available version via `pyspark` channel is `pyspark==3.4.1`
+8. Environment variables, in Windows:
 
 ```
 HADOOP_HOME C:\Utilities\hadoop
@@ -171,13 +179,14 @@ JAVA_PATH C:\Utilities\jre-8\bin
 PATH C:\Utilities\jre-8\bin
 ```
 
-1. Confirm installation by `spark-shell --version` and `pip show pyspark` below. What we want to see is the spark version matches the tgz file we used.
-1. `03_test` & `04_pyspark` notebooks run without issues. Other than the [warnings about resolution which can be ignored](https://unix.stackexchange.com/questions/259529/your-screen-size-is-bogus-expect-trouble) that has something to do with `ps` and `*tty` [not playing nice together](https://unix.stackexchange.com/questions/284375/tilda-complains-of-bogus-screen-size-at-startup), and I'm not gonna be messing with any settings as long as the package works with `df.show()`
+9. Confirm installation by `spark-shell --version` and `pip show pyspark` below. What we want to see is the spark version matches the tgz file we used.
+10. `03_test` & `04_pyspark` notebooks run without issues. Other than the [warnings about resolution which can be ignored](https://unix.stackexchange.com/questions/259529/your-screen-size-is-bogus-expect-trouble) that has something to do with `ps` and `*tty` [not playing nice together](https://unix.stackexchange.com/questions/284375/tilda-complains-of-bogus-screen-size-at-startup), and I'm not gonna be messing with any settings as long as the package works with `df.show()`
    
-   ```bash
-   your 131072x1 screen size is bogus. expect trouble
-   ```
-1. expected outputs
+```bash
+your 131072x1 screen size is bogus. expect trouble
+```
+
+11. expected outputs
 
 ```bash
 Welcome to
@@ -205,64 +214,21 @@ Requires: py4j
 Required-by: 
 ```
 
+12. My settings, a sumamry:
+    - python 3.11.8, installed in venv,
+    - pyspark version 3.5.1, installed in venv via pip,
+    - spark version 3.5.1 in ~/spark in WSL2 instance,
+    - Using Scala version 2.12.18, OpenJDK 64-Bit Server VM, 11.0.22,
+    - Java openjdk 11.0.22 2024-01-16,
+
 #### Install in GCP VM, Ubuntu 22.04
 
-1. install into `~/spark`, so first `mkdir spark`
-2. verify java is not installed `java --version` 
-3. `wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz`
-4. unpack with `tar xzfv openjdk-11.0.2_linux-x64_bin.tar.gz`
-5. define `JAVA_HOME` and add it to `PATH`:
-
-```bash
-export JAVA_HOME="${HOME}/spark/jdk-11.0.2"
-export PATH="${JAVA_HOME}/bin:${PATH}"
-```
-6. verify installation `java --version`
-   - output:
-
-```bash
-openjdk 11.0.2 2019-01-15
-OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
-OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
-``` 
-
-```
-1.  Execute `spark-shell` 
-    - output:
-```bash
-Setting default log level to "WARN".
-To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
-24/02/28 12:57:10 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-Spark context Web UI available at http://vm-dezoomcamp.us-west1-b.c.nyc-rides-ella.internal:4040
-Spark context available as 'sc' (master = local[*], app id = local-1709125031715).
-Spark session available as 'spark'.
-Welcome to
-      ____              __
-     / __/__  ___ _____/ /__
-    _\ \/ _ \/ _ `/ __/  '_/
-   /___/ .__/\_,_/_/ /_/\_\   version 3.4.0
-      /_/
-
-Using Scala version 2.12.17 (OpenJDK 64-Bit Server VM, Java 11.0.2)
-Type in expressions to have them evaluated.
-Type :help for more information.
-
-scala>
-```
-12. and run the following `scala` code:
-
-```scala
-val data = 1 to 10000
-val distData = sc.parallelize(data)
-distData.filter(_ < 10).collect()
-```
+1. same steps apply, I find no need to deviate from anything as outlined in WSL steps above.
 
 
 ## 5.3 Spark SQL and DataFrames
 
-### 5.3.1 First Look at Spark/PySpark
-
-* :movie_camera: 5.3.1 First Look at Spark/PySpark
+### :movie_camera: 5.3.1 First Look at Spark/PySpark
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/r_Sf6fCB40c)](https://youtu.be/r_Sf6fCB40c&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=54)
 
@@ -285,9 +251,7 @@ lecture outline:
    - show()
 3. partitions so more executors can work concurrently instea od
 
-### 5.3.2 Spark Dataframes
-
-* :movie_camera: 5.3.2 Spark Dataframes
+### :movie_camera: 5.3.2 Spark Dataframes
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/ti3aC1m3rE8)](https://youtu.be/ti3aC1m3rE8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=55)
 
@@ -298,9 +262,7 @@ lecture outline:
 - partitions
 - functions and UDFs
 
-### 5.3.3 (Optional) Preparing Yellow and Green Taxi Data
-
-* :movie_camera: 5.3.3 (Optional) Preparing Yellow and Green Taxi Data
+### :movie_camera: 5.3.3 (Optional) Preparing Yellow and Green Taxi Data
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/CI3P4tAtru4)](https://youtu.be/CI3P4tAtru4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=56)
 
@@ -331,9 +293,7 @@ lecture outline:
 
 ## 5.4 Spark Internals
 
-### 5.4.1 Anatomy of a Spark Cluster
-
-* :movie_camera: 5.4.1 Anatomy of a Spark Cluster
+### :movie_camera: 5.4.1 Anatomy of a Spark Cluster
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/68CipcZt7ZA)](https://youtu.be/68CipcZt7ZA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=58)
 
@@ -348,9 +308,7 @@ lecture outline:
   - spark + S3/GCS *push* code (@ 10mb) to executor instead of pulling partition data (@ 100mb) per partition seems to be more efficient
 - notebook: --; just theory
 
-### 5.4.2 GroupBy in Spark
-
-* :movie_camera: 5.4.2 GroupBy in Spark
+### :movie_camera: 5.4.2 GroupBy in Spark
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/9qrDsY_2COo)](https://youtu.be/9qrDsY_2COo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=59)
 
@@ -372,9 +330,7 @@ lecture outline:
 - typically we want the reshuffling to be for as small number as possible (the Shuffle Read/Write in Stages tab)
 - notebook: 07_groupby_join.ipynb
 
-### 5.4.3 Joins in Spark
-
-* :movie_camera: 5.4.3 Joins in Spark
+### :movie_camera: 5.4.3 Joins in Spark
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/lu7TrqAWuH4)](https://youtu.be/lu7TrqAWuH4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=60)
 
@@ -390,9 +346,7 @@ lecture outline:
 
 ## 5.5 (Optional) Resilient Distributed Datasets
 
-### 5.5.1 Operations on Spark RDDs
-
-* :movie_camera: 5.5.1 Operations on Spark RDDs
+### :movie_camera: 5.5.1 Operations on Spark RDDs
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/Bdu-xIrF3OM)](https://youtu.be/Bdu-xIrF3OM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=61)
 
@@ -409,9 +363,7 @@ lecture outline:
 - From RDD to dataframe
 - notebook: 08_rdds.ipynb
 
-### 5.5.2 Spark RDD mapPartition
-
-* :movie_camera: 5.5.2 Spark RDD mapPartition
+### :movie_camera: 5.5.2 Spark RDD mapPartition
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/k3uB2K99roI)](https://youtu.be/k3uB2K99roI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=62)
 
@@ -442,9 +394,7 @@ spark.executor.memory            10g
 
 ## 5.6 Running Spark in the Cloud
 
-### 5.6.1 Connecting to Google Cloud Storage
-
-* :movie_camera: 5.6.1 Connecting to Google Cloud Storage
+### :movie_camera: 5.6.1 Connecting to Google Cloud Storage
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/Yyz293hBVcQ)](https://youtu.be/Yyz293hBVcQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=63)
 
@@ -464,9 +414,7 @@ gsutil -m cp -r pq/ gs://dezoomcamp-spark-ellacharmed/pq
 - download [jar file](https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-hadoop3-latest.jar) `gcs-connector-hadoop3-latest.jar` to this path
 - notebook: 09_spark_gcs.ipynb
 
-### 5.6.2 Creating a Local Spark Cluster
-
-* :movie_camera: 5.6.2 Creating a Local Spark Cluster
+### :movie_camera: 5.6.2 Creating a Local Spark Cluster
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/HXBwSlXo5IA)](https://youtu.be/HXBwSlXo5IA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=64)
 
@@ -498,9 +446,7 @@ python 09_spark_sql.py \
 ```
 - script file: 09_spark_sql.py
 
-### 5.6.3 Setting up a Dataproc Cluster
-
-* :movie_camera: 5.6.3 Setting up a Dataproc Cluster
+### :movie_camera: 5.6.3 Setting up a Dataproc Cluster
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/osAiAYahvh8)](https://youtu.be/osAiAYahvh8&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=65)
 
@@ -536,6 +482,17 @@ lecture outline:
   - second is via gcloud SDK
   - and third is [REST API docs](https://cloud.google.com/dataproc/docs/guides/submit-job#dataproc-submit-job-gcloud)
 - using spark-submit for submitting spark jobs
+```bash
+URL="spark://de-zoomcamp.us-central1-c.de-zoomcamp-nytaxi.internal:7077"
+
+spark-submit \
+    --master="${URL}" \
+    09_spark_sql.py \
+        --input_green=data/pq/green/2021/*/ \
+        --input_yellow=data/pq/yellow/2021/*/ \
+        --output=data/report-2021
+```
+
 - using gcloud REST API, take the input from `EQUIVALENT REST` link after the successful Job run
 ```bash
 gcloud dataproc jobs submit pyspark \
@@ -555,9 +512,7 @@ Waiting for job output...
 ```
 - script file: 09_spark_sql.py
 
-### 5.6.4 Connecting Spark to Big Query
-
-* :movie_camera: 5.6.4 Connecting Spark to Big Query
+### :movie_camera: 5.6.4 Connecting Spark to Big Query
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/HIm2BOj8C0Q)](https://youtu.be/HIm2BOj8C0Q&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=66)
 
@@ -574,9 +529,6 @@ spark.conf.set('temporaryGcsBucket', bucket)
 ```
 - edit the write statement, at the end, from using `output` to bigquery, taking the `--output` args
 - upload this code `10_spark_sql_bigquery.py` to bucket `dezoomcamp-spark-ellacharmed/code` using `gsutil`
-```bash
-
-```
 - edit the submit command to include the `--jars` args and change out the `--output` args to our BigQuery dataset `trips_data_all` we used for module-04
 ```bash
 gcloud dataproc jobs submit pyspark \

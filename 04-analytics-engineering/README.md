@@ -129,7 +129,7 @@ dml
 
 ---
 
-- master data (like zone-lookup table) are called `seed files`
+- master data (like zone-lookup table aka reference data) are called `seed files`; they remain generally unchanged like zipcodes, annual public holidays, unit of measurements, longitude & latitude coordinates, etc
 - dbt is a transformational workflow, ie manage sql and allow for code versioning of sql, testing and documentation and deployment via CI/CD
 - orchestrate code from dev to deployment
 - record data sources details like schema and their lineage

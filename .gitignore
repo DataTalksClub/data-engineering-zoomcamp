@@ -26,17 +26,20 @@ env.bak/
 venv.bak/
 
 # Data files
+**data/
 *.csv
 *.csv.gz
-*.parquet
+*parquet*
 *.duckdb
+**fhvhv/
+**zones/
 # dlt guides
 **/mydata
 **/pokemon
-
-
 # DB files
 *.db
+# project samples
+projects/
 
 # Terraform files
 **/.terraform*
@@ -72,7 +75,11 @@ __pycache__
 !**/data_loaders/*.sql
 !**/transformers/*.py
 !**/transformers/*.sql
+# exceptions from upstream in projects/
+!projects/datasets.md
+!projects/README.md
 
-
+# pyspark jar
+lib/
 
 # --- root folder --- #
