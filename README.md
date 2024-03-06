@@ -1,4 +1,4 @@
-# Data Engineering Zoomcamp
+# Data Engineering Zoomcamp <!-- markmap: foldAll -->
 
 
 <p align="center">
@@ -13,17 +13,28 @@
 
 Syllabus
 
-* [Module 1: Containerization and Infrastructure as Code](#module-1-containerization-and-infrastructure-as-code)
-* [Module 2: Workflow Orchestration](#module-2-workflow-orchestration)
-* [Workshop 1: Data Ingestion](#workshop-1-data-ingestion)
-* [Module 3: Data Warehouse](#module-3-data-warehouse)
-* [Module 4: Analytics Engineering](#module-4-analytics-engineering)
-* [Module 5: Batch processing](#module-5-batch-processing)
-* [Module 6: Streaming](#module-6-streaming)
-* [Workshop 2: Stream Processing with SQL](#workshop-2-stream-processing-with-sql)
-* [Project](#project)
+- [Data Engineering Zoomcamp ](#data-engineering-zoomcamp-)
+  - [Taking the course ](#taking-the-course-)
+    - [2024 Cohort](#2024-cohort)
+    - [Self-paced mode ](#self-paced-mode-)
+  - [Syllabus ](#syllabus-)
+    - [Module 1: Containerization and Infrastructure as Code ](#module-1-containerization-and-infrastructure-as-code-)
+    - [Module 2: Workflow Orchestration ](#module-2-workflow-orchestration-)
+    - [Workshop 1: Data Ingestion ](#workshop-1-data-ingestion-)
+    - [Module 3: Data Warehouse ](#module-3-data-warehouse-)
+    - [Module 4: Analytics engineering ](#module-4-analytics-engineering-)
+    - [Module 5: Batch processing ](#module-5-batch-processing-)
+    - [Module 6: Streaming ](#module-6-streaming-)
+    - [Workshop 2: Stream Processing with SQL ](#workshop-2-stream-processing-with-sql-)
+    - [Project](#project)
+  - [Overview](#overview)
+    - [Prerequisites](#prerequisites)
+  - [Instructors](#instructors)
+  - [Asking for help in Slack](#asking-for-help-in-slack)
+  - [Supporters and partners](#supporters-and-partners)
+  - [Star History](#star-history)
 
-## Taking the course
+## Taking the course <!-- markmap: foldAll -->
 
 ### 2024 Cohort
 
@@ -33,7 +44,7 @@ Syllabus
 * [Launch stream with course overview](https://www.youtube.com/live/AtRhA-NfS24?si=5JzA_E8BmJjiLi8l)
 
 
-### Self-paced mode
+### Self-paced mode <!-- markmap: foldAll -->
 
 All the materials of the course are freely available, so that you
 can take the course at your own pace
@@ -44,13 +55,13 @@ can take the course at your own pace
 * If you can't find a solution to your problem in FAQ, ask for help in Slack
 
 
-## Syllabus
+## Syllabus <!-- markmap: fold -->
 
 > **Note:** NYC TLC changed the format of the data we use to parquet.
 > In the course we still use the CSV files accessible [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
 
-### [Module 1: Containerization and Infrastructure as Code](01-docker-terraform/)
+### [Module 1: Containerization and Infrastructure as Code](01-docker-terraform/) <!-- markmap: fold -->
 
 * Course overview
 * Introduction to GCP
@@ -63,7 +74,7 @@ can take the course at your own pace
 [More details](01-docker-terraform/)
 
 
-### [Module 2: Workflow Orchestration](02-workflow-orchestration/)
+### [Module 2: Workflow Orchestration](02-workflow-orchestration/) <!-- markmap: fold -->
 
 * Data Lake
 * Workflow orchestration
@@ -73,7 +84,7 @@ can take the course at your own pace
 [More details](02-workflow-orchestration/)
 
 
-### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md)
+### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md) <!-- markmap: fold -->
 
 * Reading from apis
 * Building scalable pipelines
@@ -85,7 +96,7 @@ can take the course at your own pace
 [More details](cohorts/2024/workshops/dlt.md)
 
 
-### [Module 3: Data Warehouse](03-data-warehouse/)
+### [Module 3: Data Warehouse](03-data-warehouse/) <!-- markmap: fold -->
 
 * Data Warehouse
 * BigQuery
@@ -97,7 +108,7 @@ can take the course at your own pace
 [More details](03-data-warehouse/)
 
 
-### [Module 4: Analytics engineering](04-analytics-engineering/)
+### [Module 4: Analytics engineering](04-analytics-engineering/) <!-- markmap: fold -->
 
 * Basics of analytics engineering
 * dbt (data build tool)
@@ -112,7 +123,7 @@ can take the course at your own pace
 [More details](04-analytics-engineering/)
 
 
-### [Module 5: Batch processing](05-batch/)
+### [Module 5: Batch processing](05-batch/) <!-- markmap: fold -->
 
 * Batch processing
 * What is Spark
@@ -122,7 +133,7 @@ can take the course at your own pace
 
 [More details](05-batch/)
 
-### [Module 6: Streaming](06-streaming/)
+### [Module 6: Streaming](06-streaming/) <!-- markmap: fold -->
 
 * Introduction to Kafka
 * Schemas (avro)
@@ -132,7 +143,7 @@ can take the course at your own pace
 [More details](06-streaming/)
 
 
-### [Workshop 2: Stream Processing with SQL](cohorts/2024/workshops/rising-wave.md)
+### [Workshop 2: Stream Processing with SQL](cohorts/2024/workshops/rising-wave.md) <!-- markmap: fold -->
 
 
 [More details](cohorts/2024/workshops/rising-wave.md)
