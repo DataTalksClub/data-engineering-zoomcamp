@@ -82,7 +82,7 @@ Please follow the steps described under [pyspark-streaming](python/streams-examp
 
 - :movie_camera: 6.13 Kafka Streaming with Python
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/Y76Ez_fIvtk)](https://youtu.be/Y76Ez_fIvtk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=79)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/BgAlVknDFlQ)](https://youtu.be/BgAlVknDFlQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=79)
 
 - :movie_camera: 6.14 Pyspark Structured Streaming
 
