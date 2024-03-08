@@ -12,6 +12,3 @@ services:
       - GRANT_SUDO=yes
       - JUPYTER_PORT=8888
     restart: always
-
-volumes:
-  work:
