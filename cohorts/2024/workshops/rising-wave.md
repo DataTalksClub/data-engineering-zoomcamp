@@ -55,6 +55,8 @@ In this hands-on workshop, we’ll learn how to process real-time streaming data
 
 ![RisingWave](https://raw.githubusercontent.com/risingwavelabs/risingwave-docs/main/docs/images/new_archi_grey.png)
 
+
+
 We’ll cover the following topics in this Workshop: 
 
 - Why Stream Processing?
@@ -64,6 +66,12 @@ We’ll cover the following topics in this Workshop:
 
 RisingWave in 10 Minutes:
 https://tutorials.risingwave.com/docs/intro
+
+Workshop video:
+
+<a href="https://youtube.com/live/L2BHFnZ6XjE">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/L2BHFnZ6XjE" />
+</a>
 
 [Project Repository](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04)
 
