@@ -55,6 +55,8 @@ In this hands-on workshop, we’ll learn how to process real-time streaming data
 
 ![RisingWave](https://raw.githubusercontent.com/risingwavelabs/risingwave-docs/main/docs/images/new_archi_grey.png)
 
+
+
 We’ll cover the following topics in this Workshop: 
 
 - Why Stream Processing?
@@ -64,6 +66,12 @@ We’ll cover the following topics in this Workshop:
 
 RisingWave in 10 Minutes:
 https://tutorials.risingwave.com/docs/intro
+
+Workshop video:
+
+<a href="https://youtube.com/live/L2BHFnZ6XjE">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/L2BHFnZ6XjE" />
+</a>
 
 [Project Repository](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04)
 
@@ -76,7 +84,7 @@ https://tutorials.risingwave.com/docs/intro
 
 _This question is just a warm-up to introduce dynamic filter, please attempt it before viewing its solution._
 
-What are the pick up taxi zones at the latest dropoff times?
+What are the dropoff taxi zones at the latest dropoff times?
 
 For this part, we will use the [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/).
 
@@ -132,34 +140,37 @@ Options:
 
 ### Question 3
 
-From the latest pickup time to 17 hours before, what are the top 10 busiest zones in terms of number of pickups?
+From the latest pickup time to 17 hours before, what are the top 3 busiest zones in terms of number of pickups?
 For example if the latest pickup time is 2020-01-01 12:00:00,
-then the query should return the top 10 busiest zones from 2020-01-01 11:00:00 to 2020-01-01 12:00:00.
+then the query should return the top 3 busiest zones from 2020-01-01 11:00:00 to 2020-01-01 12:00:00.
 
 HINT: You can use [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/)
 to create a filter condition based on the latest pickup time.
 
 NOTE: For this question `17 hours` was picked to ensure we have enough data to work with.
 
-Fill in the top 10:
-1. `__________`
-2. `__________`
-3. `__________`
-4. `__________`
-5. `__________`
-6. `__________`
-7. `__________`
-8. `__________`
-9. `__________`
-10. `__________`
+Options:
+1. Clinton East, Upper East Side North, Penn Station
+2. LaGuardia Airport, Lincoln Square East, JFK Airport
+3. Midtown Center, Upper East Side South, Upper East Side North
+4. LaGuardia Airport, Midtown Center, Upper East Side North
 
 
 ## Submitting the solutions
 
-- Form for submitting: TBA
-- You can submit your homework multiple times. In this case, only the
-last submission will be used.
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/workshop2
+- Deadline: 11 March (Monday), 23:00 CET 
 
-Deadline: TBA
+## Rewards 🥳
+
+Everyone who completes the homework will get a pen and a sticker, and 5 lucky winners will receive a Tshirt and other secret surprises!
+We encourage you to share your achievements with this workshop on your socials and look forward to your submissions 😁
+
+- Follow us on **LinkedIn**: https://www.linkedin.com/company/risingwave
+- Follow us on **GitHub**: https://github.com/risingwavelabs/risingwave
+- Join us on **Slack**: https://risingwave-labs.com/slack
+
+See you around!
+
 
 ## Solution
