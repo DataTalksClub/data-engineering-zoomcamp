@@ -214,7 +214,7 @@ Requires: py4j
 Required-by: 
 ```
 
-12. My settings, a sumamry:
+12. My settings, a summary:
     - python 3.11.8, installed in venv,
     - pyspark version 3.5.1, installed in venv via pip,
     - spark version 3.5.1 in ~/spark in WSL2 instance,
@@ -223,7 +223,7 @@ Required-by:
 
 #### Install in GCP VM, Ubuntu 22.04
 
-1. same steps apply, I find no need to deviate from anything as outlined in WSL steps above.
+1. TODO same steps apply ... ? have not run in VM to the end of this series, ie with dataproc on gcs.
 
 
 ## 5.3 Spark SQL and DataFrames
