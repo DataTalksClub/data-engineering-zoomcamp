@@ -1,8 +1,8 @@
 # -- Software Stack Version
 
-SPARK_VERSION="3.3.1"
+SPARK_VERSION="3.5.1"
 HADOOP_VERSION="3"
-JUPYTERLAB_VERSION="3.6.1"
+JUPYTERLAB_VERSION="4.1.3"
 
 # -- Building the Images
 

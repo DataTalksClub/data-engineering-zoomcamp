@@ -3,6 +3,7 @@ import csv
 from time import sleep
 from typing import Dict
 
+# changed from from kafka import KafkaProducer in json_example
 from confluent_kafka import Producer
 from confluent_kafka.schema_registry import SchemaRegistryClient
 from confluent_kafka.schema_registry.avro import AvroSerializer
@@ -49,6 +50,8 @@ class RideAvroProducer:
             print("Delivery failed for record {}: {}".format(msg.key(), err))
             return
         print('Record {} successfully produced to {} [{}] at offset {}'.format(
+            # binary key: b'\x00\x00\x00\x00\x01\x02 returned means
+            # confirmed that message is delivered
             msg.key(), msg.topic(), msg.partition(), msg.offset()))
 
     @staticmethod

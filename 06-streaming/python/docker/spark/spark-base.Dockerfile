@@ -2,12 +2,12 @@ FROM cluster-base
 
 # -- Layer: Apache Spark
 
-ARG spark_version=3.3.1
+ARG spark_version=3.5.1
 ARG hadoop_version=3
 
 RUN apt-get update -y && \
     apt-get install -y curl && \
-    curl https://archive.apache.org/dist/spark/spark-${spark_version}/spark-${spark_version}-bin-hadoop${hadoop_version}.tgz -o spark.tgz && \
+    curl https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz -o spark.tgz && \
     tar -xf spark.tgz && \
     mv spark-${spark_version}-bin-hadoop${hadoop_version} /usr/bin/ && \
     mkdir /usr/bin/spark-${spark_version}-bin-hadoop${hadoop_version}/logs && \

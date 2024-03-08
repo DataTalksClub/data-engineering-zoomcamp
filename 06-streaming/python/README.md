@@ -6,9 +6,7 @@ using different Python libraries (`kafka-python`,`confluent-kafka`,`pyspark`, `f
 This Python module can be separated in following modules.
 
 ####  1. Docker
-Docker module includes, Dockerfiles and docker-compose definitions 
-to run Kafka and Spark in a docker container. Setting up required services is
-the prerequsite step for running following modules.
+Docker module includes, Dockerfiles and docker-compose definitions to run Kafka and Spark in a docker container. Setting up required services is the prerequsite step for running following modules.
 
 #### 2. Kafka Producer - Consumer Examples
 - [Json Producer-Consumer Example](json_example) using `kafka-python` library

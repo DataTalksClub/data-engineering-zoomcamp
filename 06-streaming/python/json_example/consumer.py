@@ -41,3 +41,7 @@ if __name__ == '__main__':
 
     json_consumer = JsonConsumer(props=config)
     json_consumer.consume_from_kafka(topics=[KAFKA_TOPIC])
+
+
+# There's no schema in JSON format, so if the schema changes and one column is removed or new one added or the data types is changed, the Ride class would still work and produce-consume messages would still run without a hitch.
+# But the issue is in the downstream Analytics as the dataset would no longer have that column and the dashboards would thus fail. Therefore, the trust in our data and processes would erodes.

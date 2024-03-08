@@ -33,6 +33,7 @@ class JsonProducer(KafkaProducer):
 
 if __name__ == '__main__':
     # Config Should match with the KafkaProducer expectation
+    # kafka expects binary format for the key-value pair
     config = {
         'bootstrap_servers': BOOTSTRAP_SERVERS,
         'key_serializer': lambda key: str(key).encode(),

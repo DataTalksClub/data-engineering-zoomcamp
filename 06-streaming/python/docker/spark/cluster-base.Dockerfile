@@ -1,6 +1,6 @@
 # Reference from offical Apache Spark repository Dockerfile for Kubernetes
 # https://github.com/apache/spark/blob/master/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/Dockerfile
-ARG java_image_tag=17-jre
+ARG java_image_tag=11-jre
 FROM eclipse-temurin:${java_image_tag}
 
 # -- Layer: OS + Python

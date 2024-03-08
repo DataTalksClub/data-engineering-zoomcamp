@@ -2,8 +2,8 @@ FROM cluster-base
 
 # -- Layer: JupyterLab
 
-ARG spark_version=3.3.1
-ARG jupyterlab_version=3.6.1
+ARG spark_version=3.5.1
+ARG jupyterlab_version=4.1.3
 
 RUN apt-get update -y && \
     apt-get install -y python3-pip && \
