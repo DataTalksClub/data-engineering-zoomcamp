@@ -178,7 +178,10 @@ Did you take notes? You can share them here.
 
 ## More resources
 
+* Redpanda in a Nutshell by Redpanda Data
+[![](https://markdown-videos-api.jorgenkh.no/youtube/hd9F1NqzVkY)](https://youtu.be/hd9F1NqzVkY)
 * [kafka-101 youtube playlist by confluent](https://www.youtube.com/playlist?list=PLa7VYi0yPIH0KbnJQcMv5N9iW8HkZHztH)
 * [irem.ertuerk's part 1 blog post](https://medium.com/@irem.ertuerk/stream-processing-with-python-part-1-the-simplest-kafka-producer-consumer-b554ce7f9b71)
   * She's the presenter for the 2 python kafka videos on DTC DE playlist
+  * https://github.com/IremErturk/streaming-with-python
 * 
