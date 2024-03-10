@@ -1,4 +1,12 @@
 version: '3.7'
+volumes:
+  shared-workspace:
+    name: "hadoop-distributed-file-system"
+    driver: local
+networks:
+  default:
+    name: kafka-spark-network
+    external: true
 services:
   # Redpanda cluster
   redpanda-1:
@@ -33,38 +41,42 @@ services:
       - 9644:9644
       - 28082:28082
       - 29092:29092
+    volumes:
+      - shared-workspace:/opt/workspace
 
   # Want a two node Redpanda cluster? Uncomment this block :)
-  # redpanda-2:
-  #   image: docker.redpanda.com/redpandadata/redpanda:v23.1.1
-  #   container_name: redpanda-2
-  #   command:
-  #     - redpanda
-  #     - start
-  #     - --smp
-  #     - '1'
-  #     - --reserve-memory
-  #     - 0M
-  #     - --overprovisioned
-  #     - --node-id
-  #     - '2'
-  #     - --seeds
-  #     - redpanda-1:33145
-  #     - --kafka-addr
-  #     - PLAINTEXT://0.0.0.0:29093,OUTSIDE://0.0.0.0:9093
-  #     - --advertise-kafka-addr
-  #     - PLAINTEXT://redpanda-2:29093,OUTSIDE://localhost:9093
-  #     - --pandaproxy-addr
-  #     - PLAINTEXT://0.0.0.0:28083,OUTSIDE://0.0.0.0:8083
-  #     - --advertise-pandaproxy-addr
-  #     - PLAINTEXT://redpanda-2:28083,OUTSIDE://localhost:8083
-  #     - --rpc-addr
-  #     - 0.0.0.0:33146
-  #     - --advertise-rpc-addr
-  #     - redpanda-2:33146
-  #   ports:
-  #     - 8083:8083
-  #     - 9093:9093
+  redpanda-2:
+    image: docker.redpanda.com/redpandadata/redpanda:v23.1.1
+    container_name: redpanda-2
+    command:
+      - redpanda
+      - start
+      - --smp
+      - '1'
+      - --reserve-memory
+      - 0M
+      - --overprovisioned
+      - --node-id
+      - '2'
+      - --seeds
+      - redpanda-1:33145
+      - --kafka-addr
+      - PLAINTEXT://0.0.0.0:29093,OUTSIDE://0.0.0.0:9093
+      - --advertise-kafka-addr
+      - PLAINTEXT://redpanda-2:29093,OUTSIDE://localhost:9093
+      - --pandaproxy-addr
+      - PLAINTEXT://0.0.0.0:28083,OUTSIDE://0.0.0.0:8083
+      - --advertise-pandaproxy-addr
+      - PLAINTEXT://redpanda-2:28083,OUTSIDE://localhost:8083
+      - --rpc-addr
+      - 0.0.0.0:33146
+      - --advertise-rpc-addr
+      - redpanda-2:33146
+    ports:
+      - 8083:8083
+      - 9093:9093
+    volumes:
+      - shared-workspace:/opt/workspace
 
   redpanda-console:
     image: docker.redpanda.com/redpandadata/console:v2.2.2
@@ -88,3 +100,5 @@ services:
       - 8080:8080
     depends_on:
       - redpanda-1
+    volumes:
+      - shared-workspace:/opt/workspace
