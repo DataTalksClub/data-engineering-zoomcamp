@@ -86,7 +86,7 @@ Please follow the steps described under [pyspark-streaming](python/streams-examp
 
 - :movie_camera: 6.14 Pyspark Structured Streaming
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/5hRJ8-6Fpyk)](https://youtu.be/5hRJ8-6Fpyk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=80)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/VIVr7KwRQmE)](https://youtu.be/VIVr7KwRQmE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=80)
 
 ## Kafka Streams with JVM library
 
