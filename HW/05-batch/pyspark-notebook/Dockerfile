@@ -6,14 +6,12 @@ USER root
 COPY ipython_kernel_config.py "/etc/ipython/"
 RUN fix-permissions "/etc/ipython/"
 
-# Уточнить версии при необходимости!
-RUN pip install 'pyspark==3.2.2'
-
 # Переключиться на обычного пользователя перед дальнейшими действиями
 USER ${NB_UID}
 
 # Лучше попробовать установку с mamba:
 RUN mamba install --yes \
+    'pyspark==3.2.2' \
     'grpcio-status' \
     'grpcio' \
     'pandas=2.0.3' \

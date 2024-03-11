@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  jupyter:
+    build:
+      context: ./pyspark-notebook # Папка, где находится Dockerfile, из которого будет создан контейнер
+    volumes:
+      - ./code/:/home/work # Проброс файлов проекта в контейнер
+    image: "jupyter/pyspark-notebook:x86_64-hadoop-3"
+    ports:
+      - "8888:8888"
+      - "4040:4040"
+    environment:
+      - GRANT_SUDO=yes
+      - JUPYTER_PORT=8888
+    restart: always
