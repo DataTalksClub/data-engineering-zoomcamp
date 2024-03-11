@@ -55,133 +55,122 @@ In this hands-on workshop, we’ll learn how to process real-time streaming data
 
 ![RisingWave](https://raw.githubusercontent.com/risingwavelabs/risingwave-docs/main/docs/images/new_archi_grey.png)
 
+
+
 We’ll cover the following topics in this Workshop: 
 
 - Why Stream Processing?
 - Stateless computation (Filters, Projections)
 - Stateful Computation (Aggregations, Joins)
-- Time windowing
-- Watermark
 - Data Ingestion and Delivery
 
 RisingWave in 10 Minutes:
 https://tutorials.risingwave.com/docs/intro
 
+Workshop video:
+
+<a href="https://youtube.com/live/L2BHFnZ6XjE">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/L2BHFnZ6XjE" />
+</a>
+
+[Project Repository](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04)
+
 ## Homework
 
-The contents below will be covered during the workshop.
+**Please setup the environment in [Getting Started](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04?tab=readme-ov-file#getting-started) and for the [Homework](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04/blob/main/homework.md#setting-up) first.**
+
+
+## Question 0
+
+_This question is just a warm-up to introduce dynamic filter, please attempt it before viewing its solution._
+
+What are the dropoff taxi zones at the latest dropoff times?
+
+For this part, we will use the [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/).
+
+<details>
+<summary>Solution</summary>
+
+```sql
+CREATE MATERIALIZED VIEW latest_dropoff_time AS
+    WITH t AS (
+        SELECT MAX(tpep_dropoff_datetime) AS latest_dropoff_time
+        FROM trip_data
+    )
+    SELECT taxi_zone.Zone as taxi_zone, latest_dropoff_time
+    FROM t,
+            trip_data
+    JOIN taxi_zone
+        ON trip_data.DOLocationID = taxi_zone.location_id
+    WHERE trip_data.tpep_dropoff_datetime = t.latest_dropoff_time;
+
+--    taxi_zone    | latest_dropoff_time
+-- ----------------+---------------------
+--  Midtown Center | 2022-01-03 17:24:54
+-- (1 row)
+```
+
+</details>
 
 ### Question 1
 
-What is RisingWave meant to be used for? 
+Create a materialized view to compute the average, min and max trip time between each taxi zone.
 
-1. OLTP workloads. 
-2. Adhoc
-OLAP Workloads. 
-3. Stream Processing.
+From this MV, find the pair of taxi zones with the highest average trip time.
+You may need to use the [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/) for this.
+
+Bonus (no marks): Create an MV which can identify anomalies in the data. For example, if the average trip time between two zones is 1 minute,
+but the max trip time is 10 minutes and 20 minutes respectively.
+
+Options:
+1. Yorkville East, Steinway
+2. Murray Hill, Midwood
+3. East Flatbush/Farragut, East Harlem North
+4. Midtown Center, University Heights/Morris Heights
 
 ### Question 2
 
-What is the interface which RisingWave supports? 
+Recreate the MV(s) in question 1, to also find the number of trips for the pair of taxi zones with the highest average trip time.
 
-1. Java SDK. 
-2. PostgreSQL like interface. 
-3. Rust SDK. 
-4. Python SDK.
+Options:
+1. 5
+2. 3
+3. 10
+4. 1
 
 ### Question 3
 
-What if I want to run a custom function which RisingWave does not
-support? 
+From the latest pickup time to 17 hours before, what are the top 3 busiest zones in terms of number of pickups?
+For example if the latest pickup time is 2020-01-01 12:00:00,
+then the query should return the top 3 busiest zones from 2020-01-01 11:00:00 to 2020-01-01 12:00:00.
 
-1. Sink the data out, run the function, and sink it back in. 
-2. Write a Python / Java / WASM / JS UDF. 
+HINT: You can use [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/)
+to create a filter condition based on the latest pickup time.
 
-### Question 4
+NOTE: For this question `17 hours` was picked to ensure we have enough data to work with.
 
-Is this statement True or False?
-> I cannot create materialized views
-on top of other materialized views. 
+Options:
+1. Clinton East, Upper East Side North, Penn Station
+2. LaGuardia Airport, Lincoln Square East, JFK Airport
+3. Midtown Center, Upper East Side South, Upper East Side North
+4. LaGuardia Airport, Midtown Center, Upper East Side North
 
-1. True 
-
-2. False
-
-### Question 5
-
-How does RisingWave process ingested data? 
-
-1. Incrementally, only on
-checkpoints. 
-2. In batch, each time a user queries a materialized view.
-3. In batch, at fixed intervals.
-4. Incrementally, as new records are
-ingested.
-
-### Question 6
-
-Is the following Statement True or False: 
-
-RisingWave is only for Stream Processing, it cannot serve any select requests from applications. 
-
-1. True 
-2. False
-
-### Question 7
-
-Why can’t we use cross joins in RisingWave Materialized Views?
-
-1. Because they are not supported by the SQL standard.
-2. Because they are not supported by the Incremental View Maintenance algorithm.
-3. Because they are not supported by the PostgreSQL planner.
-4. Because they are too expensive, so it is banned in RisingWave’s stream engine.
-
-### Question 8
-
-What is the recommended way to view the progress of long-running SQL
-statements like `CREATE MATERIALIZED VIEW` in RisingWave? 
-
-1. Using the
-EXPLAIN ANALYZE statement. 
-2. Querying the `rw_catalog.rw_ddl_progress` table. 
-3. Checking the RisingWave logs. 
-4. It is not possible to view the progress of such statements.
-
-### Question 9
-
-How do I view the execution plan of my SQL query?
-
-1. `SHOW <query>` 
-2. `EXPLAIN <query>` 
-3. `DROP <query>` 
-4. `VIEW <query>`
-
-### Question 10
-
-Which is used to ingest data from external systems? 
-
-1.`CREATE SOURCE <...>` 
-
-2.`CREATE SINK <...>`
-
-### Question 11
-
-What is the purpose of a watermark? 
-
-1. To specify the time at which a
-record was ingested. 
-2. To specify the time at which a record was
-updated. 
-3. To specify the time at which a record was deleted. 
-4. To specify the time at which a record is considered stale, and can be
-deleted.
 
 ## Submitting the solutions
 
-- Form for submitting: TBA
-- You can submit your homework multiple times. In this case, only the
-last submission will be used.
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/workshop2
+- Deadline: 11 March (Monday), 23:00 CET 
 
-Deadline: TBA
+## Rewards 🥳
+
+Everyone who completes the homework will get a pen and a sticker, and 5 lucky winners will receive a Tshirt and other secret surprises!
+We encourage you to share your achievements with this workshop on your socials and look forward to your submissions 😁
+
+- Follow us on **LinkedIn**: https://www.linkedin.com/company/risingwave
+- Follow us on **GitHub**: https://github.com/risingwavelabs/risingwave
+- Join us on **Slack**: https://risingwave-labs.com/slack
+
+See you around!
+
 
 ## Solution
