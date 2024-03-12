@@ -16,7 +16,7 @@ For this homework we will be using the files from Module 5 Homework,
 
 ## Pre-setup
 
-1. Extract and place the csv files in the paths under `resources` subfolder
+1. Extract and place the csv files in the `data` folder
 
 
 ## Spin up the containers
