@@ -10,18 +10,19 @@ Ensure you have the following set up (if you had done the previous homework and 
 - Docker (see [module 1](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform))
 - PySpark (see [module 5](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/05-batch/setup))
 
-For this homework we will be using the files from Module 5 Homework,
+For this homework we will be using the files from Module 5 homework:
 
--  FHV 2019-10 data found here: [FHV Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhv/fhv_tripdata_2019-10.csv.gz), and
-- Green 2019-10 data found here: [Green Data](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz)
+- Green 2019-10 data from [here](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz)
 
 
 
 ## Start Red Panda
 
-Let's start redpanda in a docker container (the `docker-compose.yml` file is taken from [here](https://github.com/redpanda-data-blog/2023-python-gsg/blob/main/docker-compose.yml))
+Let's start redpanda in a docker container. 
 
-Run 
+There's a `docker-compose.yml` file in the homework folder (taken from [here](https://github.com/redpanda-data-blog/2023-python-gsg/blob/main/docker-compose.yml))
+
+Copy this file to your homework directory and run
 
 ```bash
 docker-compose up
@@ -34,7 +35,7 @@ docker-compose up
 
 Now let's find out the version of redpandas. 
 
-For that, check the output of the command `rpk help` _inside the container_. The name of the container is `red-panda-1`.
+For that, check the output of the command `rpk help` _inside the container_. The name of the container is `redpanda-1`.
 
 Find out what you need to execute based on the `help` output.
 
@@ -114,7 +115,7 @@ t1 = time.time()
 print(f'took {(t1 - t0):.2f} seconds')
 ```
 
-How much time did it take? Where it spent most of the time?
+How much time did it take? Where did it spend most of the time?
 
 * Sending the messages
 * Flushing
