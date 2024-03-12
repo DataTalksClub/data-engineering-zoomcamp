@@ -178,7 +178,7 @@ to `iterrows`
 Now let's read the data with PySpark. 
 
 Spark needs a library (jar) to be able to connect to Kafka, 
-so we need to tell PySpark that it needs to use it (adjust the version to match yours):
+so we need to tell PySpark that it needs to use it:
 
 ```python
 import pyspark
