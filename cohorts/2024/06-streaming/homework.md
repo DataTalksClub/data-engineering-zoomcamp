@@ -308,7 +308,7 @@ Write the most popular destanation. (You will need to re-send the data for this 
 
 ## Submitting the solutions
 
-* Form for submitting: TBA
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw6
 
 
 ## Solution
