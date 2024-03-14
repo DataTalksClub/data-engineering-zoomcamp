@@ -79,8 +79,7 @@ Workshop video:
 
 **Please setup the environment in [Getting Started](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04?tab=readme-ov-file#getting-started) and for the [Homework](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04/blob/main/homework.md#setting-up) first.**
 
-
-## Question 0
+### Question 0
 
 _This question is just a warm-up to introduce dynamic filter, please attempt it before viewing its solution._
 
@@ -114,7 +113,14 @@ CREATE MATERIALIZED VIEW latest_dropoff_time AS
 
 ### Question 1
 
-Create a materialized view to compute the average, min and max trip time between each taxi zone.
+Create a materialized view to compute the average, min and max trip time **between each taxi zone**.
+
+Note that we consider the do not consider `a->b` and `b->a` as the same trip pair.
+So as an example, you would consider the following trip pairs as different pairs:
+```plaintext
+Yorkville East -> Steinway
+Steinway -> Yorkville East
+```
 
 From this MV, find the pair of taxi zones with the highest average trip time.
 You may need to use the [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/) for this.
@@ -128,9 +134,11 @@ Options:
 3. East Flatbush/Farragut, East Harlem North
 4. Midtown Center, University Heights/Morris Heights
 
+p.s. The trip time between taxi zones does not take symmetricity into account, i.e. `A -> B` and `B -> A` are considered different trips. This applies to subsequent questions as well.
+
 ### Question 2
 
-Recreate the MV(s) in question 1, to also find the number of trips for the pair of taxi zones with the highest average trip time.
+Recreate the MV(s) in question 1, to also find the **number of trips** for the pair of taxi zones with the highest average trip time.
 
 Options:
 1. 5
@@ -141,8 +149,8 @@ Options:
 ### Question 3
 
 From the latest pickup time to 17 hours before, what are the top 3 busiest zones in terms of number of pickups?
-For example if the latest pickup time is 2020-01-01 12:00:00,
-then the query should return the top 3 busiest zones from 2020-01-01 11:00:00 to 2020-01-01 12:00:00.
+For example if the latest pickup time is 2020-01-01 17:00:00,
+then the query should return the top 3 busiest zones from 2020-01-01 00:00:00 to 2020-01-01 17:00:00.
 
 HINT: You can use [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/)
 to create a filter condition based on the latest pickup time.
