@@ -51,7 +51,7 @@ redpandas.
 
 Read the output of `help` and based on it, create a topic with name `test-topic` 
 
-What's the output of the command for creating a topic?
+What's the output of the command for creating a topic? Include the entire output in your answer.
 
 
 ## Question 3. Connecting to the Kafka server
@@ -243,7 +243,7 @@ query.stop()
 
 The data is JSON, but currently it's in binary format. We need
 to parse it and turn it into a streaming dataframe with proper
-columns
+columns.
 
 Similarly to PySpark, we define the schema
 
@@ -270,7 +270,7 @@ green_stream = green_stream \
   .select("data.*")
 ```
 
-How does the record look after parsing? Copy the output 
+How does the record look after parsing? Copy the output. 
 
 
 ### Question 7: Most popular destination
@@ -303,7 +303,7 @@ query = popular_destinations \
 query.awaitTermination()
 ```
 
-Write the most popular destanation. (You will need to re-send the data for this to work)
+Write the most popular destination, your answer should be *either* the zone ID or the zone name of this destination. (You will need to re-send the data for this to work)
 
 
 ## Submitting the solutions
