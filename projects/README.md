@@ -114,6 +114,17 @@ However, implementing these could significantly enhance the quality of your proj
 
 If you intend to include this project in your portfolio, adding these additional features will definitely help you to stand out from others.
 
+## Cheating and plagiarism
+
+Plagiarism in any form is not allowed. Examples of plagiarism:
+
+* Taking somebody's else notebooks and projects (in full or partly) and using it for the capstone project
+* Re-using your own projects (in full or partly) from other courses and bootcamps
+* Re-using your midterm project from ML Zoomcamp in capstone
+* Re-using your ML Zoomcamp from previous iterations of the course
+
+Violating any of this will result in 0 points for this project.
+
 ## Resources
 
 ### Datasets
