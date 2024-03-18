@@ -25,51 +25,16 @@ so in total, you will make three submissions.
 
 #### Project Attempt #1
 
-Project:
+* Project: TBA
+* Review: TBA
 
-* Form: TBA
-* Deadline: TBA
+#### Project Attempt #2
 
-Peer reviewing:
-
-* Peer review assignments: TBA ("project-01" sheet)
-* Form: TBA
-* Deadline: TBA
-
-Project feedback: TBA ("project-01" sheet)
-
-
-#### Project Attempt #1
-
-Project:
-
-* Form: TBA
-* Deadline: TBA
-
-Peer reviewing:
-
-* Peer review assignments: TBA ("project-02" sheet)
-* Form: TBA
-* Deadline: TBA
-
-Project feedback: TBA ("project-02" sheet)
-
-
+* Project: TBA
+* Review: TBA
 
 ### Evaluation criteria
 
-See [here](../../projects/README.md)
+See [here](../../week_7_project/README.md)
 
 
-### Misc
-
-To get the hash for your project, use this function to hash your email:
-
-```python
-from hashlib import sha1
-
-def compute_hash(email):
-    return sha1(email.lower().encode('utf-8')).hexdigest()
-```
-
-Or use [this website](http://www.sha1-online.com/). 
