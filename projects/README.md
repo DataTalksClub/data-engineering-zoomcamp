@@ -63,8 +63,8 @@ Example dashboard: ![image](https://user-images.githubusercontent.com/4315804/15
 
 * Problem description
     * 0 points: Problem is not described
-    * 1 point: Problem is described but shortly or not clearly 
-    * 2 points: Problem is well described and it's clear what the problem the project solves
+    * 2 points: Problem is described but shortly or not clearly 
+    * 4 points: Problem is well described and it's clear what the problem the project solves
 * Cloud
     * 0 points: Cloud is not used, things run only locally
     * 2 points: The project is developed in the cloud
