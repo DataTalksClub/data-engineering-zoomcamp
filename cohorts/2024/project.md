@@ -25,7 +25,7 @@ so in total, you will make three submissions.
 
 #### Project Attempt #1
 
-* Project: TBA
+* Project: https://courses.datatalks.club/de-zoomcamp-2024/project/project1
 * Review: TBA
 
 #### Project Attempt #2
