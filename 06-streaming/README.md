@@ -126,5 +126,6 @@ Did you take notes? You can share them here.
 * [Marcos Torregrosa's blog (spanish)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-6-stream-processing/)
 * [Notes by Oscar Garcia](https://github.com/ozkary/Data-Engineering-Bootcamp/tree/main/Step6-Streaming)
 * [2024 videos transcript](https://drive.google.com/drive/folders/1UngeL5FM-GcDLM7QYaDTKb3jIS6CQC14?usp=drive_link) by Maria Fisher 
+* [Notes by Shayan Shafiee Moghadam](https://github.com/shayansm2/eng-notebook/blob/main/kafka/readme.md)
 * Add your notes here (above this line)
 
