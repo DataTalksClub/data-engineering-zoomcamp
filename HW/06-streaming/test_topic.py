@@ -49,21 +49,3 @@ t1 = time.time()
 print(f'took {(t1 - times[0]):.2f} seconds')
 print(f'Send time: {send_time:.2f} seconds')
 print(f'Flush time: {flush_time:.2f} seconds')
-#
-# if send_time > flush_time:
-#     print('More time was spent sending messages')
-# else:
-#     print('More time was spent flushing messages')
-#
-#
-# # Преобразование значений массива times в понятное время
-#
-# def to_time(timestamp):
-#     return datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc).time()
-#
-#
-# formatted_times = [to_time(timestamp) for timestamp in times]
-#
-# # Print results
-# for time in formatted_times:
-#     print(time)

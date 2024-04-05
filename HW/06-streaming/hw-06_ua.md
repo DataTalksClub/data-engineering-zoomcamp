@@ -274,7 +274,17 @@ green_stream = green_stream \
 ```
 
 Як виглядає запис після парсингу? Скопіюйте результат.
-
+```bash
+root
+ |-- lpep_pickup_datetime: string (nullable = true)
+ |-- lpep_dropoff_datetime: string (nullable = true)
+ |-- PULocationID: integer (nullable = true)
+ |-- DOLocationID: integer (nullable = true)
+ |-- passenger_count: double (nullable = true)
+ |-- trip_distance: double (nullable = true)
+ |-- tip_amount: double (nullable = true)
+ |-- timestamp: timestamp (nullable = false)
+```
 ### Запитання 7. Найпопулярніший пункт призначення
 
 Тепер нарешті зробимо потокову аналітику. Подивимося,
@@ -304,7 +314,7 @@ query.awaitTermination()
 ```
 Використовуйте цей код обачно.
 
-Напишіть найпопулярніший пункт призначення. (Вам потрібно буде повторно надіслати дані, щоб це спрацювало).
+[Напишіть найпопулярніший пункт призначення.](./img/question7.png) (Вам потрібно буде повторно надіслати дані, щоб це спрацювало).
 
 ## Надсилання рішень
 
