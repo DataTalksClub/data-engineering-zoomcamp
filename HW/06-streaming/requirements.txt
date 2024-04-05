@@ -1,0 +1,4 @@
+kafka-python==2.0.2
+jupyterlab==4.1.5
+pandas==2.2.1
+pyspark==3.5.1
