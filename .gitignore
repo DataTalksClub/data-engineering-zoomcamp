@@ -16,3 +16,4 @@ serving_dir
 .ipynb_checkpoints/
 .venv/*
 !/HW/06-streaming/venv/
+/HW/06-streaming/venv/
