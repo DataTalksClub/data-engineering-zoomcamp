@@ -55,7 +55,9 @@ for FILE in ${FILES}; do
   wget "${PREFIX}/${FILE}"
 done
 ```
-Or
+
+If you don't have wget, you can use curl:
+
 ```bash
 HADOOP_VERSION="3.2.0"
 PREFIX="https://raw.githubusercontent.com/cdarlint/winutils/master/hadoop-${HADOOP_VERSION}/bin/"
