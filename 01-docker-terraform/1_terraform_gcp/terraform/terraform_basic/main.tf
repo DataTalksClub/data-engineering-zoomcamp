@@ -9,16 +9,17 @@ terraform {
 
 provider "google" {
 # Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
-#  credentials = 
-  project = "<Your Project ID>"
+  credentials = "E:/HCL_Technical_Lead/SIE_OSIV_HCL_TRAINING/PYTHON_DS_DE/Pgadmin_datatalks_sql_DATAPIPELINE/01-docker-terraform/1_terraform_gcp/terraform/keys/mycred.json"
+  project = "linen-airway-420415"
   region  = "us-central1"
 }
 
 
 
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "<Your Unique Bucket Name>"
+  name          = "terraform-demo-s100rab-16022024"
   location      = "US"
+
 
   # Optional, but recommended settings:
   storage_class = "STANDARD"
@@ -33,7 +34,7 @@ resource "google_storage_bucket" "data-lake-bucket" {
       type = "Delete"
     }
     condition {
-      age = 30  // days
+      age = 3  // days
     }
   }
 
@@ -41,8 +42,8 @@ resource "google_storage_bucket" "data-lake-bucket" {
 }
 
 
-resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
-  location   = "US"
-}
+# resource "google_bigquery_dataset" "dataset" {
+#   dataset_id = "<The Dataset Name You Want to Use>"
+#   project    = "<Your Project ID>"
+#   location   = "US"
+# }
