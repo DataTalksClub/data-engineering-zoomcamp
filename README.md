@@ -46,6 +46,8 @@ can take the course at your own pace
 
 ## Syllabus
 
+We encourage [Learning in Public](learning-in-public.md)
+
 > **Note:** NYC TLC changed the format of the data we use to parquet.
 > In the course we still use the CSV files accessible [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
