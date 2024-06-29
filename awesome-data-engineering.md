@@ -19,7 +19,7 @@ Have you found any cool resources about data engineering? Put them here
 * [Fundamentals of Data Engineering: Plan and Build Robust Data Systems by Joe Reis, Matt Housley](https://www.amazon.com/Fundamentals-Data-Engineering-Robust-Systems/dp/1098108302)
 
 
-### Introduction to Data Engineering Termsengineering terms
+### Introduction to Data Engineering Terms
 
 * [https://datatalks.club/podcast/s05e02-data-engineering-acronyms.html](https://datatalks.club/podcast/s05e02-data-engineering-acronyms.html) 
 
