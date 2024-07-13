@@ -38,3 +38,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   taxi_rides_ny:
 
+vars:
+  payment_type_values: ['"Credit card"', '"Cash"', '"No charge"', '"Dispute"', '"Unknown"', '"Voided trip"']
+
