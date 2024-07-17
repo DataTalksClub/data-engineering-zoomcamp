@@ -54,7 +54,7 @@ print(f'The PySpark {spark.version} version is running...')
 1. Install Scala
 
 ```bash
-brew install scala@2.11
+brew install scala@2.13
 ```
 
 2. Install Apache Spark
