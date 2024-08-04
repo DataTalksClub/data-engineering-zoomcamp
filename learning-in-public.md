@@ -29,5 +29,9 @@ You can watch this video to see how your learning in public posts may look like:
     <img src="./images/learning-in-public.png" height="240" />
 </a>
 
+## Daily Documentation
+
+- **Post Daily Diaries**: Document what you learn each day, including the challenges faced and the methods used to overcome them.
+- **Create Quick Videos**: Make short videos showcasing your work and upload them to GitHub.
 
 Send a PR if you want to suggest improvements for this document
