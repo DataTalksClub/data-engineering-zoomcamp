@@ -209,4 +209,5 @@ Did you take notes? You can share them here
 * [Docker Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/1a-docker_sql/readme.md) • [Terraform Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/1b-terraform_gcp/readme.md)
 * [Notes from Hammad Tariq](https://github.com/hamad-tariq/HammadTariq-ZoomCamp2024/blob/9c8b4908416eb8cade3d7ec220e7664c003e9b11/week_1_basics_n_setup/README.md)
 * [Hung's Notes](https://hung.bearblog.dev/docker/) & [Docker Cheatsheet](https://github.com/HangenYuu/docker-cheatsheet)
+* [Kemal's Notes](https://github.com/kemaldahha/data-engineering-course/blob/main/week_1_notes.md)
 * Add your notes above this line
