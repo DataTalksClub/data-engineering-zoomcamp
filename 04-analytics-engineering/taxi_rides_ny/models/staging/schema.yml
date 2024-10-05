@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: staging
+    database: furgoproject
+    schema: demo_dataset
+
+    tables:
+      - name: green_trips
+      - name: yellow_trips
+      
