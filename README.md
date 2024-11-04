@@ -27,7 +27,7 @@ Syllabus
 
 ### 2025 Cohort 
 
-* **Start**: January 2025
+* **Start**: 13 January 2025
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
 
 
