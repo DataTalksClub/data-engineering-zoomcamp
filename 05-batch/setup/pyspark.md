@@ -34,7 +34,7 @@ Now you can run Jupyter or IPython to test if things work. Go to some other dire
 Download a CSV file that we'll use for testing:
 
 ```bash
-wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
+wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
 ```
 
 Now let's run `ipython` (or `jupyter notebook`) and execute:
