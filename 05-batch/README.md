@@ -1,4 +1,4 @@
-# Week 5: Batch Processing
+# Module 5: Batch Processing
 
 ## 5.1 Introduction
 
