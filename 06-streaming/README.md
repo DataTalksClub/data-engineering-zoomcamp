@@ -1,4 +1,4 @@
-# Week 6: Stream Processing
+# Module 6: Stream Processing
 
 # Code structure
 * [Java examples](java)

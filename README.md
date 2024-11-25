@@ -20,7 +20,6 @@ Syllabus
 * [Module 4: Analytics Engineering](#module-4-analytics-engineering)
 * [Module 5: Batch processing](#module-5-batch-processing)
 * [Module 6: Streaming](#module-6-streaming)
-* [Workshop 2: Stream Processing with SQL](#workshop-2-stream-processing-with-sql)
 * [Project](#project)
 
 ## Taking the course
@@ -29,7 +28,7 @@ Syllabus
 
 * **Start**: 13 January 2025
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-
+* Materials specific to the cohort: [cohorts/2025/](cohorts/2025/)
 
 ### Self-paced mode
 
@@ -73,7 +72,7 @@ We encourage [Learning in Public](learning-in-public.md)
 [More details](02-workflow-orchestration/)
 
 
-### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md)
+### [Workshop 1: Data Ingestion](cohorts/2025/workshops/dlt.md)
 
 * Reading from apis
 * Building scalable pipelines
@@ -82,7 +81,7 @@ We encourage [Learning in Public](learning-in-public.md)
 * Homework
 
 
-[More details](cohorts/2024/workshops/dlt.md)
+[More details](cohorts/2025/workshops/dlt.md)
 
 
 ### [Module 3: Data Warehouse](03-data-warehouse/)
@@ -132,11 +131,6 @@ We encourage [Learning in Public](learning-in-public.md)
 [More details](06-streaming/)
 
 
-### [Workshop 2: Stream Processing with SQL](cohorts/2024/workshops/rising-wave.md)
-
-
-[More details](cohorts/2024/workshops/rising-wave.md)
-
 
 ### [Project](projects)
 
@@ -149,7 +143,7 @@ Putting everything we learned to practice
 
 ## Overview
 
-<img src="images/architecture/arch_v3_workshops.jpg" />
+<img src="images/architecture/arch_v4_workshops.jpg" />
 
 ### Prerequisites
 
@@ -166,7 +160,6 @@ Prior experience with data engineering is not required.
 - [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
-- [Matt Palmer](https://www.linkedin.com/in/matt-palmer/)
 - [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 - [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
 
@@ -192,8 +185,8 @@ To make discussions in Slack more organized:
 Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
-  <a href="https://mage.ai/">
-    <img height="120" src="images/mage.svg">
+  <a href="https://kestra.io/">
+    <img height="120" src="images/kestra.svg">
   </a>
 </p>
 
@@ -204,14 +197,5 @@ Thanks to the course sponsors for making it possible to run this course
   </a>
 </p>
 
-<p align="center">
-  <a href="https://risingwave.com/">
-    <img height="90" src="images/rising-wave.png">
-  </a>
-</p>
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=DataTalksClub/data-engineering-zoomcamp&type=Date)](https://star-history.com/#DataTalksClub/data-engineering-zoomcamp&Date)
