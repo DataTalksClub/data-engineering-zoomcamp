@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: staging
-    database: taxi-rides-ny-339813-412521
+    database: virtual-dogfish-440701-s0
      # For postgres:
       #database: production
     schema: trips_data_all
