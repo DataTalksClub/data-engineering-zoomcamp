@@ -36,7 +36,7 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 ## 2. Hands-On Coding Project: Build Data Pipelines with Kestra
 
-This week’s coding project revolves around building ETL pipelines for Yellow and Green Taxi data from NYC’s Taxi and Limousine Commission (TLC). You will:
+This week, we're gonna build ETL pipelines for Yellow and Green Taxi data from NYC’s Taxi and Limousine Commission (TLC). You will:
 1. Extract data from [CSV files](https://github.com/DataTalksClub/nyc-tlc-data/releases).
 2. Load it into Postgres or Google Cloud (GCS + BigQuery).
 3. Explore scheduling and backfilling workflows.
@@ -63,7 +63,7 @@ The project is organized as follows:
 We'll set up Kestra using Docker Compose containing one container for the Kestra server and another for the Postgres database:
 
 ```bash
-cd cohorts/2025/02-workflow-orchestration
+cd 02-workflow-orchestration/
 docker-compose up -d
 ```
 
