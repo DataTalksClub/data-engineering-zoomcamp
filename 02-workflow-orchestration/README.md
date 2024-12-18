@@ -2,8 +2,6 @@
 
 Welcome to Week 2 of the Data Engineering Zoomcamp! This week, we'll cover workflow orchestration with [Kestra](https://go.kestra.io/de-zoomcamp/github).
 
-![zoomcamp.jpeg](02-workflow-orchestration/zoomcamp.jpeg)
-
 Kestra is an open-source, event-driven orchestration platform that makes both scheduled and event-driven workflows easy. By bringing Infrastructure as Code best practices to data, process, and microservice orchestration, you can build reliable workflows [directly from the UI](https://go.kestra.io/de-zoomcamp/quickstart) in just a few lines of YAML.
 
 The course will cover the basics of workflow orchestration, why it's important, and how it can be used to build data engineering pipelines. 
