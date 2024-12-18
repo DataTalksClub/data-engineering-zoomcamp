@@ -226,7 +226,7 @@ The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
 ### Assignment
 
-So far in the course, we processed data for the year 2019 and 2020. Your task is to extend the existing flow to include data for the year 2021.
+So far in the course, we processed data for the year 2019 and 2020. Your task is to extend the existing flows to include data for the year 2021.
 
 ![img.png](images/img.png)
 
@@ -238,7 +238,7 @@ As a hint, Kestra makes that process really easy:
 
 ### Quiz Questions
 
-Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to test your understanding of workflow orchestration, kestra and ETL pipelines for data lakes and warehouses.
+Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to test your understanding of workflow orchestration, Kestra and ETL pipelines for data lakes and warehouses.
 
 1) Within the execution for `Yellow` Taxi data for the year `2020` and month `12`: what is the uncompressed file size (i.e. the output file `yellow_tripdata_2020-12.csv` of the `extract` task)?
 - 128.3 MB
