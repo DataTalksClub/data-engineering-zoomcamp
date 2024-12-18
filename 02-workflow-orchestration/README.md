@@ -97,13 +97,13 @@ graph LR
   Transform --> Query[Query Data with DuckDB]
 ```
 
-The workflow code: [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_data_pipeline.yaml). Add this flow from the UI if you haven't already and run it to see the results. Inspect the Gantt and Logs tabs to understand the flow execution.
+Add the flow [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_data_pipeline.yaml) from the UI if you haven't already and execute it to see the results. Inspect the Gantt and Logs tabs to understand the flow execution.
 
 ### Local DB: Load Taxi Data to Postgres
 
 Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. To keep things simple, we'll use the same database as the one we set up for Kestra in Docker Compose.
 
-The flow will extract CSV data partitioned by year and month, create final and monthly tables, load data to the monthly table, and finally merge the data to the final destination table.
+The flow will extract CSV data partitioned by year and month, create tables, load data to the monthly table, and finally merge the data to the final destination table.
 
 ```mermaid
 graph LR
@@ -161,17 +161,16 @@ Now that you've learned how to build ETL pipelines locally using Postgres, we ar
 
 Before we start loading data to GCP, we need to set up the Google Cloud Platform. 
 
-First, adjust the following flow to include your GCP project ID, service account, BigQuery dataset and GCS bucket name as KV Store values:
+First, adjust the following flow [`04_gcp_kv.yaml`](flows/04_gcp_kv.yaml) to include your service account, GCP project ID, BigQuery dataset and GCS bucket name (_along with their location_) as KV Store values:
 - GCP_CREDS
 - GCP_PROJECT_ID
 - GCP_LOCATION
 - GCP_BUCKET_NAME
-- GCP_DATASET
+- GCP_DATASET.
 
-The flow code: [`04_gcp_kv.yaml`](flows/04_gcp_kv.yaml).
 
 > [!WARNING]  
-> The `GCP_CREDS` service account contains sensitive information. Ensure you keep it secure and do not commit it to Git version control. Keep it as secure as your passwords.
+> The `GCP_CREDS` service account contains sensitive information. Ensure you keep it secure and do not commit it to Git. Keep it as secure as your passwords.
 
 ### Create GCP Resources
 
