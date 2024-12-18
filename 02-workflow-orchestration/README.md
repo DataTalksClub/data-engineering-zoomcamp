@@ -64,7 +64,7 @@ We'll set up Kestra using Docker Compose containing one container for the Kestra
 
 ```bash
 cd 02-workflow-orchestration/
-docker-compose up -d
+docker compose up -d
 ```
 
 Once the container starts, you can access the Kestra UI at [http://localhost:8080](http://localhost:8080).

@@ -1,4 +1,4 @@
-id: dbt
+id: 03_postgres_dbt
 namespace: zoomcamp
 inputs:
   - id: dbt_command
