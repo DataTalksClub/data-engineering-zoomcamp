@@ -175,7 +175,7 @@ tasks:
       UPDATE {{render(vars.table)}}
       SET 
         unique_row_id = md5(
-          VendorID || 
+          COALESCE(CAST(VendorID AS text), '') ||
           COALESCE(CAST(tpep_pickup_datetime AS text), '') || 
           COALESCE(CAST(tpep_dropoff_datetime AS text), '') || 
           COALESCE(PULocationID, '') || 
@@ -196,7 +196,7 @@ tasks:
       UPDATE {{render(vars.table)}}
       SET 
         unique_row_id = md5(
-          VendorID || 
+          COALESCE(CAST(VendorID AS text), '') ||
           COALESCE(CAST(lpep_pickup_datetime AS text), '') || 
           COALESCE(CAST(lpep_dropoff_datetime AS text), '') || 
           COALESCE(PULocationID, '') || 

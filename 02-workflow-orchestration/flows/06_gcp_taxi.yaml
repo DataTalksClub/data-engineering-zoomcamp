@@ -123,11 +123,11 @@ tasks:
       AS
       SELECT
         MD5(CONCAT(
-          CAST(VendorID AS STRING),
-          CAST(lpep_pickup_datetime AS STRING),
-          CAST(lpep_dropoff_datetime AS STRING),
-          CAST(PULocationID AS STRING),
-          CAST(DOLocationID AS STRING)
+          COALESCE(CAST(VendorID AS STRING), ""),
+          COALESCE(CAST(lpep_pickup_datetime AS STRING), ""),
+          COALESCE(CAST(lpep_dropoff_datetime AS STRING), ""),
+          COALESCE(CAST(PULocationID AS STRING), ""),
+          COALESCE(CAST(DOLocationID AS STRING), "")
         )) AS unique_row_id,
         "{{render(vars.file)}}" AS filename,
         *
@@ -214,11 +214,11 @@ tasks:
       AS
       SELECT
         MD5(CONCAT(
-          CAST(VendorID AS STRING),
-          CAST(tpep_pickup_datetime AS STRING),
-          CAST(tpep_dropoff_datetime AS STRING),
-          CAST(PULocationID AS STRING),
-          CAST(DOLocationID AS STRING)
+          COALESCE(CAST(VendorID AS STRING), ""),
+          COALESCE(CAST(tpep_pickup_datetime AS STRING), ""),
+          COALESCE(CAST(tpep_dropoff_datetime AS STRING), ""),
+          COALESCE(CAST(PULocationID AS STRING), ""),
+          COALESCE(CAST(DOLocationID AS STRING), "")
         )) AS unique_row_id,
         "{{render(vars.file)}}" AS filename,
         *
