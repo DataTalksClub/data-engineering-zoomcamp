@@ -65,8 +65,8 @@ We encourage [Learning in Public](learning-in-public.md)
 ### [Module 2: Workflow Orchestration](02-workflow-orchestration/)
 
 * Data Lake
-* Workflow orchestration
-* Workflow orchestration with Mage
+* Workflow orchestration: key concepts
+* Workflow orchestration with Kestra
 * Homework
 
 [More details](02-workflow-orchestration/)

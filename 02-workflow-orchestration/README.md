@@ -13,4 +13,5 @@ TBA
 
 * [Airflow videos from 2022](../cohorts/2022/week_2_data_ingestion/) and [commmunity notes](../cohorts/2024/02-workflow-orchestration/#community-notes)
 * [Prefect videos from 2023](../cohorts/2023/week_2_data_ingestion/) and [community notes](../cohorts/2023/week_2_workflow_orchestration#community-notes)
-* [Mage videos from 2024](../cohorts/2024/02-workflow-orchestration/) and [community notes](../cohorts/2022/week_2_data_ingestion#community-notes)
+* [Mage videos from 2024](../cohorts/2024/02-workflow-orchestration/) and [community notes](../cohorts/2024/02-workflow-orchestration#community-notes)
+* [Kestra videos from 2025](../cohorts/2025/02-workflow-orchestration/) and [community notes](../cohorts/2025/02-workflow-orchestration#community-notes)
