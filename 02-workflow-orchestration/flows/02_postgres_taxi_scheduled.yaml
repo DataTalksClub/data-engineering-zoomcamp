@@ -248,6 +248,10 @@ tasks:
           S.improvement_surcharge, S.total_amount, S.payment_type, S.trip_type, S.congestion_surcharge
         );
 
+  - id: purge_files
+    type: io.kestra.plugin.core.storage.PurgeCurrentExecutionFiles
+    description: To avoid cluttering your storage, we will remove the downloaded files
+
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:

@@ -11,12 +11,12 @@ inputs:
 tasks:
   - id: sync
     type: io.kestra.plugin.git.SyncNamespaceFiles
-    url: https://github.com/DataTalksClub/data-engineering-zoomcamp
+    url: https://github.com/anna-geller/data-engineering-zoomcamp
     branch: main
     namespace: "{{ flow.namespace }}"
     gitDirectory: 04-analytics-engineering/taxi_rides_ny
     dryRun: false
-    disabled: true # TODO enable it only when running it the first time, then disable it again
+    # disabled: true # this Git Sync is needed only when running it the first time, afterwards the task can be disabled
 
   - id: dbt-build
     type: io.kestra.plugin.dbt.cli.DbtCLI
