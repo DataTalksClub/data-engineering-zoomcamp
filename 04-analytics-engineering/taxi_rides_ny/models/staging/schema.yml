@@ -2,11 +2,8 @@ version: 2
 
 sources:
   - name: staging
-    database: taxi-rides-ny-339813-412521
-     # For postgres:
-      #database: production
-    schema: trips_data_all
-
+    database: "{{ env_var('DBT_DATABASE', 'taxi-rides-ny-339813-412521') }}"
+    schema: "{{ env_var('DBT_SCHEMA', 'trips_data_all') }}"
       # loaded_at_field: record_loaded_at
     tables:
       - name: green_tripdata
