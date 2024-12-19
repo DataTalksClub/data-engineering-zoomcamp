@@ -50,7 +50,7 @@ spark = SparkSession.builder \
 
 df = spark.read \
     .option("header", "true") \
-    .csv('taxi+_zone_lookup.csv')
+    .csv('taxi_zone_lookup.csv')
 
 df.show()
 ```
