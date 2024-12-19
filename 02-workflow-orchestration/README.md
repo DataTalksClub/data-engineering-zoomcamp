@@ -254,26 +254,13 @@ It means that the CSV file you're trying to load into BigQuery has a mismatch in
 
 Did you take notes? You can share them by creating a PR to this file! 
 
-## 2024 notes
-
-See [here](../../2024/02-workflow-orchestration#community-notes)
-
-## 2023 notes
-
-See [here](../../2023/week_2_workflow_orchestration#community-notes)
-
-
-## 2022 notes
-
-See [here](../../2022/week_2_data_ingestion#community-notes)
+* Add a link to your notes above this line!
 
 ---
 
 # Previous Cohorts
 
-> [!NOTE]  
->If you're looking for Airflow videos from the 2022 edition, check the [2022 cohort folder](../../2022/week_2_data_ingestion/). 
->
->If you're looking for Prefect videos from the 2023 edition, check the [2023 cohort folder](../../2023/week_2_workflow_orchestration/).
->
->If you're looking for Mage videos from the 2024 edition, check the [2024 cohort folder](../../2024/02-workflow-orchestration/).
+* 2022: [notes](../../2022/week_2_data_ingestion#community-notes) and [videos](../../2022/week_2_data_ingestion/)
+* 2023: [notes](../../2023/week_2_workflow_orchestration#community-notes) and [videos](../../2023/week_2_workflow_orchestration/)
+* 2024: [notes](../../2024/02-workflow-orchestration#community-notes) and [videos](../../2024/02-workflow-orchestration/)
+
