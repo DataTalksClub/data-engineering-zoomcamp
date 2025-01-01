@@ -254,7 +254,8 @@ It means that the CSV file you're trying to load into BigQuery has a mismatch in
 
 Did you take notes? You can share them by creating a PR to this file! 
 
-* Add a link to your notes above this line!
+* [Notes from Manuel Guerra)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/2_Workflow-Orchestration-(Kestra)/README.md)
+* Add your notes above this line
 
 ---
 
