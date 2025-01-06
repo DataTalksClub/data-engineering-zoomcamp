@@ -1,3 +1,5 @@
-# Data ingestion with dlt (DRAFT)
+# Data ingestion with dlt
 
-TBA
+Sign up here: https://lu.ma/quyfn4q8 (optional)
+
+Details TBA
