@@ -87,6 +87,16 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_g
 
 This introductory flow is added just to demonstrate a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB.
 
+### Videos
+
+- **2.2.3 - Create an ETL Pipeline with Postgres in Kestra**   
+  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
+- **2.2.4 - Manage Scheduling and Backfills using Postgres in Kestra**  
+  [![Manage Scheduling and Backfills using Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F_-li_z97zog%3Fsi%3DG6jZbkfJb3GAyqrd)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
+- **2.2.5 - Transform Data with dbt and Postgres in Kestra**  
+  [![Transform Data with dbt and Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZLp2N6p2JjE%3Fsi%3DtWhcvq5w4lO8v1_p)](https://youtu.be/ZLp2N6p2JjE?si=tWhcvq5w4lO8v1_p)
+
+
 ```mermaid
 graph LR
   Extract[Extract Data via HTTP REST API] --> Transform[Transform Data in Python]
@@ -144,15 +154,6 @@ graph LR
 
 The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
-### Videos
-
-- **2.2.3 - Create an ETL Pipeline with Postgres in Kestra**   
-  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
-- **2.2.4 - Manage Scheduling and Backfills using Postgres in Kestra**  
-  [![Manage Scheduling and Backfills using Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F_-li_z97zog%3Fsi%3DG6jZbkfJb3GAyqrd)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
-- **2.2.5 - Transform Data with dbt and Postgres in Kestra**  
-  [![Transform Data with dbt and Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZLp2N6p2JjE%3Fsi%3DtWhcvq5w4lO8v1_p)](https://youtu.be/ZLp2N6p2JjE?si=tWhcvq5w4lO8v1_p)
-
 ---
 
 ## 4. ETL Pipelines in Kestra: Google Cloud Platform
@@ -161,6 +162,14 @@ Now that you've learned how to build ETL pipelines locally using Postgres, we ar
 1. Google Cloud Storage (GCS) as a data lake  
 2. BigQuery as a data warehouse.
 
+### Videos
+
+- **2.2.6 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
+  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+- **2.2.7 - Manage Scheduling and Backfills using BigQuery in Kestra**   
+  [![Manage Scheduling and Backfills using BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FDoaZ5JWEkH0)](https://youtu.be/DoaZ5JWEkH0)
+- **2.2.8 - Transform Data with dbt and BigQuery in Kestra**   
+  [![Transform Data with dbt and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FeF_EdV4A1Wk)](https://youtu.be/eF_EdV4A1Wk)
 
 ### Setup Google Cloud Platform (GCP)
 
@@ -224,15 +233,6 @@ graph LR
 ```
 
 The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
-
-### Videos
-
-- **2.2.6 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
-- **2.2.7 - Manage Scheduling and Backfills using BigQuery in Kestra**   
-  [![Manage Scheduling and Backfills using BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FDoaZ5JWEkH0)](https://youtu.be/DoaZ5JWEkH0)
-- **2.2.8 - Transform Data with dbt and BigQuery in Kestra**   
-  [![Transform Data with dbt and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FeF_EdV4A1Wk)](https://youtu.be/eF_EdV4A1Wk)
 
 ---
 
