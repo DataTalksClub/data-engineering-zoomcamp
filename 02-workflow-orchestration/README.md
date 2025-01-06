@@ -17,7 +17,7 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 ### Videos
 - **2.2.1 - Introduction to Workflow Orchestration**  
-  [![Introduction to Workflow Orchestration](https://markdown-videos-api.jorgenkh.no/youtube/ZV6CPZDiJFA)](https://youtu.be/ZV6CPZDiJFA?si=nd3mW_VydPByu4D4)
+  [![2.2.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 - **2.2.2 - Learn the Concepts of Kestra**  
   [![Learn Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fo79n-EVpics)](https://youtu.be/o79n-EVpics)
