@@ -124,12 +124,6 @@ The flow code: [`02_postgres_taxi.yaml`](flows/02_postgres_taxi.yaml).
 > [!NOTE]  
 > The NYC Taxi and Limousine Commission (TLC) Trip Record Data provided on the [nyc.gov](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) website is currently available only in a Parquet format, but this is NOT the dataset we're going to use in this course. For the purpose of this course, we'll use the **CSV files** available [here on GitHub](https://github.com/DataTalksClub/nyc-tlc-data/releases). This is because the Parquet format can be challenging to understand by newcomers, and we want to make the course as accessible as possible — the CSV format can be easily introspected using tools like Excel or Google Sheets, or even a simple text editor.
 
-#### Videos
-
-- **2.2.3 - Create an ETL Pipeline with Postgres in Kestra**   
-  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
-
-
 ### Local DB: Learn Scheduling and Backfills
 
 We can now schedule the same pipeline shown above to run daily at 9 AM UTC. We'll also demonstrate how to backfill the data pipeline to run on historical data.
@@ -137,11 +131,6 @@ We can now schedule the same pipeline shown above to run daily at 9 AM UTC. We'l
 Note: given the large dataset, we'll backfill only data for the green taxi dataset for the year 2019.
 
 The flow code: [`02_postgres_taxi_scheduled.yaml`](flows/02_postgres_taxi_scheduled.yaml).
-
-#### Videos
-
-- **2.2.4 - Manage Scheduling and Backfills using Postgres in Kestra**  
-  [![Manage Scheduling and Backfills using Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F_-li_z97zog%3Fsi%3DG6jZbkfJb3GAyqrd)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
 
 ### Local DB: Orchestrate dbt Models
 
@@ -155,8 +144,12 @@ graph LR
 
 The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
-#### Videos
+### Videos
 
+- **2.2.3 - Create an ETL Pipeline with Postgres in Kestra**   
+  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
+- **2.2.4 - Manage Scheduling and Backfills using Postgres in Kestra**  
+  [![Manage Scheduling and Backfills using Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F_-li_z97zog%3Fsi%3DG6jZbkfJb3GAyqrd)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
 - **2.2.5 - Transform Data with dbt and Postgres in Kestra**  
   [![Transform Data with dbt and Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZLp2N6p2JjE%3Fsi%3DtWhcvq5w4lO8v1_p)](https://youtu.be/ZLp2N6p2JjE?si=tWhcvq5w4lO8v1_p)
 
@@ -212,12 +205,6 @@ graph LR
 
 The flow code: [`06_gcp_taxi.yaml`](flows/06_gcp_taxi.yaml).
 
-#### Videos
-
-- **2.2.6 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
-
-
 ### GCP Workflow: Schedule and Backfill Full Dataset
 
 We can now schedule the same pipeline shown above to run daily at 9 AM UTC for the green dataset and at 10 AM UTC for the yellow dataset. You can backfill historical data directly from the Kestra UI.
@@ -225,11 +212,6 @@ We can now schedule the same pipeline shown above to run daily at 9 AM UTC for t
 Since we now process data in a cloud environment with infinitely scalable storage and compute, we can backfill the entire dataset for both the yellow and green taxi data without the risk of running out of resources on our local machine.
 
 The flow code: [`06_gcp_taxi_scheduled.yaml`](flows/06_gcp_taxi_scheduled.yaml).
-
-#### Videos
-
-- **2.2.7 - Manage Scheduling and Backfills using BigQuery in Kestra**   
-  [![Manage Scheduling and Backfills using BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FDoaZ5JWEkH0)](https://youtu.be/DoaZ5JWEkH0)
 
 ### GCP Workflow: Orchestrate dbt Models
 
@@ -243,6 +225,12 @@ graph LR
 
 The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
+### Videos
+
+- **2.2.6 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
+  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+- **2.2.7 - Manage Scheduling and Backfills using BigQuery in Kestra**   
+  [![Manage Scheduling and Backfills using BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FDoaZ5JWEkH0)](https://youtu.be/DoaZ5JWEkH0)
 - **2.2.8 - Transform Data with dbt and BigQuery in Kestra**   
   [![Transform Data with dbt and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FeF_EdV4A1Wk)](https://youtu.be/eF_EdV4A1Wk)
 
