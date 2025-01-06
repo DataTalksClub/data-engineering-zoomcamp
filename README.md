@@ -157,16 +157,18 @@ Prior experience with data engineering is not required.
 
 ## Instructors
 
-- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
-- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 - [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
+- [Zach Wilson](https://www.linkedin.com/in/eczachly)
+ 
 
 Past instructors:
 
+- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
 - [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
+- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 
 
 ## Asking for help in Slack
