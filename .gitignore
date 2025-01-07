@@ -18,3 +18,4 @@ serving_dir
 # Chapter 1
 **/keys/
 *.json
+data/
