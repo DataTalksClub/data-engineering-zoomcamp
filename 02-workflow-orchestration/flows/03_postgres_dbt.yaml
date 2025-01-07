@@ -11,7 +11,7 @@ inputs:
 tasks:
   - id: sync
     type: io.kestra.plugin.git.SyncNamespaceFiles
-    url: https://github.com/anna-geller/data-engineering-zoomcamp
+    url: https://github.com/DataTalksClub/data-engineering-zoomcamp
     branch: main
     namespace: "{{ flow.namespace }}"
     gitDirectory: 04-analytics-engineering/taxi_rides_ny
@@ -21,7 +21,7 @@ tasks:
   - id: dbt-build
     type: io.kestra.plugin.dbt.cli.DbtCLI
     env:
-      DBT_DATABASE: kestra
+      DBT_DATABASE: postgres-zoomcamp
       DBT_SCHEMA: public
     namespaceFiles:
       enabled: true
@@ -43,7 +43,7 @@ tasks:
             user: kestra
             password: k3str4
             port: 5432
-            dbname: kestra
+            dbname: postgres-zoomcamp
             schema: public
             threads: 8
             connect_timeout: 10
@@ -54,6 +54,6 @@ description: |
   ```yaml
   sources:
     - name: staging
-      database: kestra
+      database: postgres-zoomcamp
       schema: public
   ```
