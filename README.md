@@ -66,7 +66,7 @@ We encourage [Learning in Public](learning-in-public.md)
 
 * Data Lake
 * Workflow orchestration
-* Workflow orchestration with Mage
+* Workflow orchestration with Kestra
 * Homework
 
 [More details](02-workflow-orchestration/)
