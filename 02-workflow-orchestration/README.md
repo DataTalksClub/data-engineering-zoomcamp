@@ -243,7 +243,7 @@ Now that we've got our ETL pipeline working both locally and in the cloud, we ca
 ### Videos
 
 - **2.2.9 - Deploy Workflows to the Cloud with Git**   
-  [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Do79n-EVpics)](https://www.youtube.com/watch?v=o79n-EVpics)
+  [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl-wC71tI3co)](https://youtu.be/l-wC71tI3co)
 
 Resources
 
