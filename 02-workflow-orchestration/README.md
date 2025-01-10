@@ -158,6 +158,10 @@ graph LR
 
 The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
+### Resources
+- [pgAdmin Download](https://www.pgadmin.org/download/)
+- [Postgres DB Docker Compose](postgres/docker-compose.yml)
+
 ---
 
 ## 4. ETL Pipelines in Kestra: Google Cloud Platform
