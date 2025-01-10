@@ -107,7 +107,11 @@ Add the flow [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_
 
 ### Local DB: Load Taxi Data to Postgres
 
-Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. To keep things simple, we'll use the same database as the one we set up for Kestra in Docker Compose.
+Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](postgres/docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
+
+```bash
+docker compose up -d
+```
 
 The flow will extract CSV data partitioned by year and month, create tables, load data to the monthly table, and finally merge the data to the final destination table.
 
