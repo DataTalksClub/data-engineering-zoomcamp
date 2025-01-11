@@ -285,6 +285,7 @@ It means that the CSV file you're trying to load into BigQuery has a mismatch in
 Did you take notes? You can share them by creating a PR to this file! 
 
 * [Notes from Manuel Guerra)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/2_Workflow-Orchestration-(Kestra)/README.md)
+* [Notes from Horeb Seidou](https://www.notion.so/Week-2-Workflow-Orchestration-17129780dc4a80148debf61e6453fffe?pvs=4)
 * Add your notes above this line
 
 ---
