@@ -92,11 +92,11 @@ you want to use Jupyter or a python script.
 ## Question 3. Segment Count Trips Segmentation
 
 During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusive), how many trips, **respectively**, happened:
-- Up to 1 mile
-- In between 1 (exclusive) and 3 miles (inclusive),
-- In between 3 (exclusive) and 7 miles (inclusive),
-- In between 7 (exclusive) and 10 miles (inclusive),
-- Over 10 miles 
+1. Up to 1 mile
+2. In between 1 (exclusive) and 3 miles (inclusive),
+3. In between 3 (exclusive) and 7 miles (inclusive),
+4. In between 7 (exclusive) and 10 miles (inclusive),
+5. Over 10 miles 
 
 Answers:
 
@@ -122,7 +122,7 @@ Tip: For every day, we only care about one single trip with the longest distance
 
 ## Question 5. Three biggest pickup zones
 
-Which where the top pickup locations with over 13,000 in
+Which were the top pickup locations with over 13,000 in
 `total_amount` (across all trips) for 2019-10-18?
 
 Consider only `lpep_pickup_datetime` when filtering by date.
@@ -178,4 +178,3 @@ Answers:
 ## Submitting the solutions
 
 * Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw01
-
