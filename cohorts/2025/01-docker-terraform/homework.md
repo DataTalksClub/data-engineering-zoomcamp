@@ -89,7 +89,7 @@ Download this data and put it into Postgres.
 You can use the code from the course. It's up to you whether
 you want to use Jupyter or a python script.
 
-## Question 3. Count Trips histogram
+## Question 3. Segment Count Trips Segmentation
 
 During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusive), how many trips, **respectively**, happened:
 - Up to 1 mile
@@ -160,15 +160,19 @@ Copy the files from the course repo
 Modify the files as necessary to create a GCP Bucket and Big Query Dataset.
 
 
-## Question 7. Creating Resources
+## Question 7. Terraform Workflow
 
-After updating the `main.tf` and `variable.tf` files run:
+Which of the following sequences, **respectively**, describes the workflow for: 
+1. Downloading the provider plugins and setting up backend,
+2. Generating proposed changes and auto-executing the plan
+3. Remove all resources managed by terraform`
 
-```bash
-terraform apply
-```
-
-Paste the output of this command into the homework submission form.
+Answers:
+- terraform import, terraform apply -y, terraform destroy
+- teraform init, terraform plan -auto-apply, terraform rm
+- terraform init, terraform run -auto-aprove, terraform destroy
+- terraform init, terraform apply -auto-aprove, terraform destroy
+- terraform import, terraform apply -y, terraform rm
 
 
 ## Submitting the solutions
