@@ -1,110 +1,131 @@
-## Module 1 Homework (DRAFT)
+# Module 1 Homework: Docker & SQL
 
-ATTENTION: At the very end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format (such as SQL queries or shell commands), please include these directly in the README file of your repository.
+In this homework we'll prepare the environment and practice
+Docker and SQL
 
-## Docker & SQL
+When submitting your homework, you will also need to include
+a link to your GitHub repository or other public code-hosting
+site.
 
-In this homework we'll prepare the environment 
-and practice with Docker and SQL
+This repository should contain the code for solving the homework. 
+
+When your solution has SQL or shell commands and not code
+(e.g. python files) file formad, include them directly in
+the README file of your repository.
 
 
 ## Question 1. Knowing docker tags
 
-Run the command to get information on Docker 
+If you don't remember docker commands, you can always use
+`--help`:
 
-```docker --help```
+```bash
+docker --help
+```
 
-Now run the command to get help on the "docker build" command:
+You can do that for each subcommand like `build` and `run`:
 
-```docker build --help```
+```bash
+docker build --help
+```
 
-Do the same for "docker run".
+Do the same for `docker run`.
 
-Which tag has the following text? - *Automatically remove the container when it exits* 
+Which subcommand does this?
 
-- `--delete`
-- `--rc`
-- `--rmc`
-- `--rm`
+*Remove one or more images*
+
+- `delete`
+- `rc`
+- `rmi`
+- `rm`
 
 
 ## Question 2. Understanding docker first run 
 
-Run docker with the python:3.9 image in an interactive mode and the entrypoint of bash.
-Now check the python modules that are installed ( use ```pip list``` ). 
+Run docker with the `python:3.12.8` image in an interactive mode, use the entrypoint `bash`.
 
-What is version of the package *wheel* ?
+What's the version of `pip` in the image?
 
-- 0.42.0
-- 1.0.0
-- 23.0.1
-- 58.1.0
+- 24.3.1
+- 24.2.1
+- 23.3.1
+- 23.2.1
 
 
-# Prepare Postgres
+##  Prepare Postgres
 
 Run Postgres and load data as shown in the videos
-We'll use the green taxi trips from September 2019:
+We'll use the green taxi trips from October 2019:
 
-```wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-09.csv.gz```
+```bash
+wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz
+```
 
 You will also need the dataset with zones:
 
-```wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv```
+```bash
+wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv
+```
 
-Download this data and put it into Postgres (with jupyter notebooks or with a pipeline)
+Download this data and put it into Postgres.
+
+You can use the code from the course. It's up to you whether
+you want to use Jupyter or a python script.
 
 
 ## Question 3. Count records 
 
-How many taxi trips were totally made on September 18th 2019?
+How many taxi trips were made on October 18th, 2019?
 
-Tip: started and finished on 2019-09-18. 
+(Trips that started and finished on that day) 
 
-Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in the format timestamp (date and hour+min+sec) and not in date.
+- 13417
+- 15417
+- 17417
+- 19417
 
-- 15767
-- 15612
-- 15859
-- 89009
 
 ## Question 4. Longest trip for each day
 
 Which was the pick up day with the longest trip distance?
 Use the pick up time for your calculations.
 
-Tip: For every trip on a single day, we only care about the trip with the longest distance. 
+Tip: For every day, we only care about one single trip with the longest distance. 
 
-- 2019-09-18
-- 2019-09-16
-- 2019-09-26
-- 2019-09-21
+- 2019-10-11
+- 2019-10-24
+- 2019-10-26
+- 2019-10-31
 
 
-## Question 5. Three biggest pick up Boroughs
+## Question 5. Three biggest pickup zones
 
-Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
+Which where the top pickup locations with over 13,000 in
+`total_amount` (across all trips) for 2019-10-18?
 
-Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
+Consider only `lpep_pickup_datetime` when filtering by date.
  
-- "Brooklyn" "Manhattan" "Queens"
-- "Bronx" "Brooklyn" "Manhattan"
-- "Bronx" "Manhattan" "Queens" 
-- "Brooklyn" "Queens" "Staten Island"
+- East Harlem North, East Harlem South, Morningside Heights
+- East Harlem North, Morningside Heights
+- Morningside Heights, Astoria Park, East Harlem South
+- Bedford, East Harlem North, Astoria Park
 
 
 ## Question 6. Largest tip
 
-For the passengers picked up in September 2019 in the zone name Astoria which was the drop off zone that had the largest tip?
-We want the name of the zone, not the id.
+For the passengers picked up in Ocrober 2019 in the zone
+name "East Harlem North" which was the drop off zone that had
+the largest tip?
 
-Note: it's not a typo, it's `tip` , not `trip`
+Note: it's `tip` , not `trip`
 
-- Central Park
-- Jamaica
+We need the name of the zone, not the ID.
+
+- Yorkville West
 - JFK Airport
-- Long Island City/Queens Plaza
-
+- East Harlem North
+- East Harlem South
 
 
 ## Terraform
@@ -113,16 +134,16 @@ In this section homework we'll prepare the environment by creating resources in 
 
 In your VM on GCP/Laptop/GitHub Codespace install Terraform. 
 Copy the files from the course repo
-[here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
+[here](../../../01-docker-terraform/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
 
 Modify the files as necessary to create a GCP Bucket and Big Query Dataset.
 
 
 ## Question 7. Creating Resources
 
-After updating the main.tf and variable.tf files run:
+After updating the `main.tf` and `variable.tf` files run:
 
-```
+```bash
 terraform apply
 ```
 
@@ -131,7 +152,5 @@ Paste the output of this command into the homework submission form.
 
 ## Submitting the solutions
 
-* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw01
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw01
 
-Deadline: 29 January, 23:00 CET
