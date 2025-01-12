@@ -161,6 +161,9 @@ Prior experience with data engineering is not required.
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
 - [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
 - [Zach Wilson](https://www.linkedin.com/in/eczachly)
+- [Will Russell](https://www.linkedin.com/in/wrussell1999/)
+- [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
+
  
 
 Past instructors:
