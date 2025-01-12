@@ -89,7 +89,7 @@ Download this data and put it into Postgres.
 You can use the code from the course. It's up to you whether
 you want to use Jupyter or a python script.
 
-## Question 3. Segment Count Trips Segmentation
+## Question 3. Trip Segmentation Count
 
 During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusive), how many trips, **respectively**, happened:
 1. Up to 1 mile
@@ -178,3 +178,15 @@ Answers:
 ## Submitting the solutions
 
 * Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw01
+
+```
+docker run -it \
+    -e POSTGRES_USER="postgres" \ 
+    -e POSTGRES_PASSWORD="postres" \ 
+    -e POSTGRES_DB="ny_taxi" \ 
+    -v dtc_postgres_volume_local:/var/lib/postgresql/data \ 
+    -p 5432:5432 \ 
+    —network=pg-network \ 
+    —name pg-database \ 
+    postgres:17
+```
