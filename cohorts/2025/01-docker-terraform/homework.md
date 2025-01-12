@@ -54,8 +54,6 @@ services:
       - "8080:80"
     volumes:
       - vol-pgadmin_data:/var/lib/pgadmin  
-    depends_on:
-      - db
 
 volumes:
   vol-pgdata:
@@ -91,17 +89,22 @@ Download this data and put it into Postgres.
 You can use the code from the course. It's up to you whether
 you want to use Jupyter or a python script.
 
+## Question 3. Count Trips histogram
 
-## Question 3. Count records 
+During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusive), how many trips, **respectively**, happened:
+- Up to 1 mile
+- In between 1 (exclusive) and 3 miles (inclusive),
+- In between 3 (exclusive) and 7 miles (inclusive),
+- In between 7 (exclusive) and 10 miles (inclusive),
+- Over 10 miles 
 
-How many taxi trips were made on October 18th, 2019?
+Answers:
 
-(Trips that started and finished on that day) 
-
-- 13417
-- 15417
-- 17417
-- 19417
+- 104,793;  197,670;  110,612;  27,831;  35,281
+- 104,793;  198,924;  109,603;  27,678;  35,189
+- 101,056;  201,407;  110,612;  27,831;  35,281
+- 101,056;  202,661;  109,603;  27,678;  35,189
+- 104,838;  199,013;  109,645;  27,688;  35,202
 
 
 ## Question 4. Longest trip for each day
