@@ -21,12 +21,12 @@ Here's a more compresensive reading on why you want to do it: https://github.com
 When you submit your homework or project, you can also submit
 learning in public posts:
 
-<img src="./images/learning-in-public-links.png" />
+<img src="https://github.com/DataTalksClub/mlops-zoomcamp/raw/main/images/learning-in-public-links.png" />
 
 You can watch this video to see how your learning in public posts may look like:
 
 <a href="https://www.loom.com/share/710e3297487b409d94df0e8da1c984ce" target="_blank">
-    <img src="./images/learning-in-public.png" height="240" />
+    <img src="https://github.com/DataTalksClub/mlops-zoomcamp/raw/main/images/learning-in-public.png" height="240" />
 </a>
 
 ## Daily Documentation
