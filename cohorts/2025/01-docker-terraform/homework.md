@@ -152,5 +152,5 @@ Paste the output of this command into the homework submission form.
 
 ## Submitting the solutions
 
-* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw01
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw1
 
