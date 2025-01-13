@@ -211,5 +211,5 @@ Did you take notes? You can share them here
 * [Hung's Notes](https://hung.bearblog.dev/docker/) & [Docker Cheatsheet](https://github.com/HangenYuu/docker-cheatsheet)
 * [Kemal's Notes](https://github.com/kemaldahha/data-engineering-course/blob/main/week_1_notes.md)
 * [Notes from Manuel Guerra (Windows+WSL2 Environment)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/1_Containerization-and-Infrastructure-as-Code/README.md)
-* [Notes from Horeb SEIDOU](https://www.notion.so/Week-1-Containerization-and-Infrastructure-as-Code-15729780dc4a80a08288e497ba937a37?pvs=4)
+* [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-1-Containerization-and-Infrastructure-as-Code-15729780dc4a80a08288e497ba937a37)
 * Add your notes above this line
