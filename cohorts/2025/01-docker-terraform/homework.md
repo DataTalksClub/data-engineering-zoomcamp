@@ -100,10 +100,10 @@ During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusi
 
 Answers:
 
-- 104,793;  197,670;  110,612;  27,831;  35,281
-- 104,793;  198,924;  109,603;  27,678;  35,189
-- 101,056;  201,407;  110,612;  27,831;  35,281
-- 101,056;  202,661;  109,603;  27,678;  35,189
+- 104,802;  197,670;  110,612;  27,831;  35,281
+- 104,802;  198,924;  109,603;  27,678;  35,189
+- 104,793;  201,407;  110,612;  27,831;  35,281
+- 104,793;  202,661;  109,603;  27,678;  35,189
 - 104,838;  199,013;  109,645;  27,688;  35,202
 
 
@@ -178,15 +178,3 @@ Answers:
 ## Submitting the solutions
 
 * Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw1
-
-```
-docker run -it \
-    -e POSTGRES_USER="postgres" \ 
-    -e POSTGRES_PASSWORD="postres" \ 
-    -e POSTGRES_DB="ny_taxi" \ 
-    -v dtc_postgres_volume_local:/var/lib/postgresql/data \ 
-    -p 5432:5432 \ 
-    —network=pg-network \ 
-    —name pg-database \ 
-    postgres:17
-```
