@@ -65,7 +65,7 @@ volumes:
 - postgres:5433
 - localhost:5432
 - db:5433
-- postgres:5432
+- host.docker.internal:5433
 - db:5432
 
 
