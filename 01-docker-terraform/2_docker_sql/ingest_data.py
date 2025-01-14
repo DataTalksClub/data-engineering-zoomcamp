@@ -19,6 +19,8 @@ def main(params):
     table_name = params.table_name
     url = params.url
     
+    
+    # download the csv 
     # the backup files are gzipped, and it's important to keep the correct extension
     # for pandas to be able to open the file
     if url.endswith('.csv.gz'):
@@ -57,7 +59,7 @@ def main(params):
             t_end = time()
 
             print('inserted another chunk, took %.3f second' % (t_end - t_start))
-
+ 
         except StopIteration:
             print("Finished ingesting data into the postgres database")
             break
@@ -73,6 +75,14 @@ if __name__ == '__main__':
     parser.add_argument('--table_name', required=True, help='name of the table where we will write the results to')
     parser.add_argument('--url', required=True, help='url of the csv file')
 
+
     args = parser.parse_args()
 
+
     main(args)
+
+
+# Run this to ingest this script 
+# URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+# python ingest_data.py --user=Postgres --password=root --host=localhost --port=5431 --db=ny_taxi --table_name=yellow_taxi_data --url=${URL}
+
