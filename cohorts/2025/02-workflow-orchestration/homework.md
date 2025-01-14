@@ -1,98 +1,57 @@
-## Module 2 Homework (DRAFT)
-
-ATTENTION: At the end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format, please include these directly in the README file of your repository.
-
-> In case you don't get one option exactly, select the closest one 
-
-For the homework, we'll be working with the _green_ taxi dataset located here:
-
-`https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/green/download`
-
-To get a `wget`-able link, use this prefix (note that the link itself gives 404):
-
-`https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/`
+## Module 2 Homework
 
 ### Assignment
 
-The goal will be to construct an ETL pipeline that loads the data, performs some transformations, and writes the data to a database (and Google Cloud!).
+So far in the course, we processed data for the year 2019 and 2020. Your task is to extend the existing flows to include data for the year 2021.
 
-- Create a new pipeline, call it `green_taxi_etl`
-- Add a data loader block and use Pandas to read data for the final quarter of 2020 (months `10`, `11`, `12`).
-  - You can use the same datatypes and date parsing methods shown in the course.
-  - `BONUS`: load the final three months using a for loop and `pd.concat`
-- Add a transformer block and perform the following:
-  - Remove rows where the passenger count is equal to 0 _and_ the trip distance is equal to zero.
-  - Create a new column `lpep_pickup_date` by converting `lpep_pickup_datetime` to a date.
-  - Rename columns in Camel Case to Snake Case, e.g. `VendorID` to `vendor_id`.
-  - Add three assertions:
-    - `vendor_id` is one of the existing values in the column (currently)
-    - `passenger_count` is greater than 0
-    - `trip_distance` is greater than 0
-- Using a Postgres data exporter (SQL or Python), write the dataset to a table called `green_taxi` in a schema `mage`. Replace the table if it already exists.
-- Write your data as Parquet files to a bucket in GCP, partioned by `lpep_pickup_date`. Use the `pyarrow` library!
-- Schedule your pipeline to run daily at 5AM UTC.
+![homework datasets](../../../02-workflow-orchestration/images/homework.png)
 
-### Questions
+As a hint, Kestra makes that process really easy:
+1. You can leverage the backfill functionality in the [scheduled flow](../../../02-workflow-orchestration/flows/07_gcp_taxi_scheduled.yaml) to backfill the data for the year 2021. Just make sure to select the time period for which data exists i.e. from `2021-01-01` to `2021-07-31`. Also, make sure to do the same for both `yellow` and `green` taxi data (select the right service in the `taxi` input).
+2. Alternatively, run the flow manually for each of the seven months of 2021 for both `yellow` and `green` taxi data. Challenge for you: find out how to loop over the combination of Year-Month and `taxi`-type using `ForEach` task which triggers the flow for each combination using a `Subflow` task.
 
-## Question 1. Data Loading
+### Quiz Questions
 
-Once the dataset is loaded, what's the shape of the data?
+Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to test your understanding of workflow orchestration, Kestra and ETL pipelines for data lakes and warehouses.
 
-* 266,855 rows x 20 columns
-* 544,898 rows x 18 columns
-* 544,898 rows x 20 columns
-* 133,744 rows x 20 columns
+1) Within the execution for `Yellow` Taxi data for the year `2020` and month `12`: what is the uncompressed file size (i.e. the output file `yellow_tripdata_2020-12.csv` of the `extract` task)?
+- 128.3 MB
+- 134.5 MB
+- 364.7 MB
+- 692.6 MB
 
-## Question 2. Data Transformation
+2) What is the value of the variable `file` when the inputs `taxi` is set to `green`, `year` is set to `2020`, and `month` is set to `04` during execution?
+- `{{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.month}}.csv` 
+- `green_tripdata_2020-04.csv`
+- `green_tripdata_04_2020.csv`
+- `green_tripdata_2020.csv`
 
-Upon filtering the dataset where the passenger count is greater than 0 _and_ the trip distance is greater than zero, how many rows are left?
+3) How many rows are there for the `Yellow` Taxi data for the year 2020?
+- 13,537.299
+- 24,648,499
+- 18,324,219
+- 29,430,127
 
-* 544,897 rows
-* 266,855 rows
-* 139,370 rows
-* 266,856 rows
+4) How many rows are there for the `Green` Taxi data for the year 2020?
+- 5,327,301
+- 936,199
+- 1,734,051
+- 1,342,034
 
-## Question 3. Data Transformation
+5) Using dbt on the `Green` and `Yellow` Taxi data for the year 2020, how many rows are there in the `fact_trips` table?
+- 198
+- 165
+- 151
+- 203
 
-Which of the following creates a new column `lpep_pickup_date` by converting `lpep_pickup_datetime` to a date?
+6) How would you configure the timezone to New York in a Schedule trigger?
+- Add a `timezone` property set to `EST` in the `Schedule` trigger configuration  
+- Add a `timezone` property set to `America/New_York` in the `Schedule` trigger configuration
+- Add a `timezone` property set to `UTC-5` in the `Schedule` trigger configuration
+- Add a `location` property set to `New_York` in the `Schedule` trigger configuration  
 
-* `data = data['lpep_pickup_datetime'].date`
-* `data('lpep_pickup_date') = data['lpep_pickup_datetime'].date`
-* `data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt.date`
-* `data['lpep_pickup_date'] = data['lpep_pickup_datetime'].dt().date()`
-
-## Question 4. Data Transformation
-
-What are the existing values of `VendorID` in the dataset?
-
-* 1, 2, or 3
-* 1 or 2
-* 1, 2, 3, 4
-* 1
-
-## Question 5. Data Transformation
-
-How many columns need to be renamed to snake case?
-
-* 3
-* 6
-* 2
-* 4
-
-## Question 6. Data Exporting
-
-Once exported, how many partitions (folders) are present in Google Cloud?
-
-* 96
-* 56
-* 67
-* 108
 
 ## Submitting the solutions
 
-* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw2
 * Check the link above to see the due date
-  
-## Solution
-
-Will be added after the due date
