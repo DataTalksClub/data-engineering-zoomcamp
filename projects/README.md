@@ -63,8 +63,8 @@ Example dashboard: ![image](https://user-images.githubusercontent.com/4315804/15
 
 * Problem description
     * 0 points: Problem is not described
-    * 1 point: Problem is described but shortly or not clearly 
-    * 2 points: Problem is well described and it's clear what the problem the project solves
+    * 2 points: Problem is described but shortly or not clearly 
+    * 4 points: Problem is well described and it's clear what the problem the project solves
 * Cloud
     * 0 points: Cloud is not used, things run only locally
     * 2 points: The project is developed in the cloud
@@ -113,6 +113,17 @@ However, implementing these could significantly enhance the quality of your proj
 * Add CI/CD pipeline
 
 If you intend to include this project in your portfolio, adding these additional features will definitely help you to stand out from others.
+
+## Cheating and plagiarism
+
+Plagiarism in any form is not allowed. Examples of plagiarism:
+
+* Taking somebody's else notebooks and projects (in full or partly) and using it for the capstone project
+* Re-using your own projects (in full or partly) from other courses and bootcamps
+* Re-using your midterm project from ML Zoomcamp in capstone
+* Re-using your ML Zoomcamp from previous iterations of the course
+
+Violating any of this will result in 0 points for this project.
 
 ## Resources
 

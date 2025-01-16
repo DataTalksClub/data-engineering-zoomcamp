@@ -1,0 +1,22 @@
+
+
+## DE Zoomcamp 1.4.1 - Setting up the Environment on Google Cloud (Cloud VM + SSH access) 
+
+00:00 Introduction
+01:05 Generate ssh keys
+03:41 Upload public key to GCP
+04:39 Create VM
+09:24 ssh into VM
+11:41 Configure VM and setup local ~/.ssh/config
+17:53 ssh with VS Code
+19:23 Configure VM (cont.)
+32:17 Setup port forwarding to local machine
+35:26 Run Jupyter to run upload-data notebook
+38:56 Install Terraform
+40:35 sftp Google credentials to VM
+42:14 Configure gcloud
+43:38 Run Terraform commands
+45:34 Shut down VM
+47:34 Start VM back up and update ~/.ssh/config
+49:07 Delete VM
+49:32 Explanation of GCP charges 

@@ -56,6 +56,19 @@ for FILE in ${FILES}; do
 done
 ```
 
+If you don't have wget, you can use curl:
+
+```bash
+HADOOP_VERSION="3.2.0"
+PREFIX="https://raw.githubusercontent.com/cdarlint/winutils/master/hadoop-${HADOOP_VERSION}/bin/"
+
+FILES="hadoop.dll hadoop.exp hadoop.lib hadoop.pdb libwinutils.lib winutils.exe winutils.pdb"
+
+for FILE in ${FILES}; do
+  curl -o "${FILE}" "${PREFIX}/${FILE}";
+done
+```
+
 Add it to `PATH`:
 
 ```bash
@@ -68,7 +81,7 @@ export PATH="${HADOOP_HOME}/bin:${PATH}"
 Now download Spark. Select version 3.3.2 
 
 ```bash
-wget https://dlcdn.apache.org/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
+wget https://archive.apache.org/dist/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
 ```
 
 

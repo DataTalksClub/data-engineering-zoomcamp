@@ -20,17 +20,15 @@ Syllabus
 * [Module 4: Analytics Engineering](#module-4-analytics-engineering)
 * [Module 5: Batch processing](#module-5-batch-processing)
 * [Module 6: Streaming](#module-6-streaming)
-* [Workshop 2: Stream Processing with SQL](#workshop-2-stream-processing-with-sql)
 * [Project](#project)
 
 ## Taking the course
 
-### 2024 Cohort
+### 2025 Cohort 
 
-* **Start**: 15 January 2024 (Monday) at 17:00 CET
+* **Start**: 13 January 2025
 * **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Cohort folder](cohorts/2024/) with homeworks and deadlines 
-
+* Materials specific to the cohort: [cohorts/2025/](cohorts/2025/)
 
 ### Self-paced mode
 
@@ -44,6 +42,8 @@ can take the course at your own pace
 
 
 ## Syllabus
+
+We encourage [Learning in Public](learning-in-public.md)
 
 > **Note:** NYC TLC changed the format of the data we use to parquet.
 > In the course we still use the CSV files accessible [here](https://github.com/DataTalksClub/nyc-tlc-data).
@@ -66,16 +66,22 @@ can take the course at your own pace
 
 * Data Lake
 * Workflow orchestration
-* Workflow orchestration with Mage
+* Workflow orchestration with Kestra
 * Homework
 
 [More details](02-workflow-orchestration/)
 
 
-### [Workshop 1: Data Ingestion](cohorts/2024/workshops/dlt.md)
+### [Workshop 1: Data Ingestion](cohorts/2025/workshops/dlt.md)
+
+* Reading from apis
+* Building scalable pipelines
+* Normalising data
+* Incremental loading
+* Homework
 
 
-[More details](cohorts/2024/workshops/dlt.md)
+[More details](cohorts/2025/workshops/dlt.md)
 
 
 ### [Module 3: Data Warehouse](03-data-warehouse/)
@@ -85,7 +91,6 @@ can take the course at your own pace
 * Partitioning and clustering
 * BigQuery best practices
 * Internals of BigQuery
-* Integrating BigQuery with Airflow
 * BigQuery Machine Learning
 
 [More details](03-data-warehouse/)
@@ -126,11 +131,6 @@ can take the course at your own pace
 [More details](06-streaming/)
 
 
-### [Workshop 2: Stream Processing with SQL](cohorts/2024/workshops/rising-wave.md)
-
-
-[More details](cohorts/2024/workshops/rising-wave.md)
-
 
 ### [Project](projects)
 
@@ -143,9 +143,7 @@ Putting everything we learned to practice
 
 ## Overview
 
-
-<img src="images/architecture/photo1700757552.jpeg" />
-
+<img src="images/architecture/arch_v4_workshops.jpg" />
 
 ### Prerequisites
 
@@ -159,25 +157,21 @@ Prior experience with data engineering is not required.
 
 ## Instructors
 
-- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
-- [Matt Palmer](https://www.linkedin.com/in/matt-palmer/)
-- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 - [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
+- [Zach Wilson](https://www.linkedin.com/in/eczachly)
+- [Will Russell](https://www.linkedin.com/in/wrussell1999/)
+- [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
+
+ 
 
 Past instructors:
 
+- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
 - [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
-
-## Course UI
-
-Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
-
-* Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
-
-![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
+- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 
 
 ## Asking for help in Slack
@@ -196,8 +190,8 @@ To make discussions in Slack more organized:
 Thanks to the course sponsors for making it possible to run this course
 
 <p align="center">
-  <a href="https://mage.ai/">
-    <img height="120" src="images/mage.svg">
+  <a href="https://kestra.io/">
+    <img height="120" src="images/kestra.svg">
   </a>
 </p>
 
@@ -208,11 +202,5 @@ Thanks to the course sponsors for making it possible to run this course
   </a>
 </p>
 
-<p align="center">
-  <a href="https://risingwave.com/">
-    <img height="90" src="images/rising-wave.png">
-  </a>
-</p>
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
-

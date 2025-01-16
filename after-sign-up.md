@@ -1,6 +1,6 @@
 ## Thank you!
 
-Thanks for signining up for the course.
+Thanks for signing up for the course.
 
 The process of adding you to the mailing list is not automated yet, 
 but you will hear from us closer to the course start. 

@@ -20,13 +20,21 @@ For example, if the file under `${SPARK_HOME}/python/lib/` is `py4j-0.10.9.3-src
 export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.3-src.zip:$PYTHONPATH"
 ```
 
+On Windows, you may have to do path conversion from unix-style to windowns-style:
+
+```bash
+SPARK_WIN=`cygpath -w ${SPARK_HOME}`
+
+export PYTHONPATH="${SPARK_WIN}\\python\\"
+export PYTHONPATH="${SPARK_WIN}\\python\\lib\\py4j-0.10.9-src.zip;$PYTHONPATH"
+```
 
 Now you can run Jupyter or IPython to test if things work. Go to some other directory, e.g. `~/tmp`.
 
 Download a CSV file that we'll use for testing:
 
 ```bash
-wget https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
+wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
 ```
 
 Now let's run `ipython` (or `jupyter notebook`) and execute:
@@ -42,7 +50,7 @@ spark = SparkSession.builder \
 
 df = spark.read \
     .option("header", "true") \
-    .csv('taxi+_zone_lookup.csv')
+    .csv('taxi_zone_lookup.csv')
 
 df.show()
 ```

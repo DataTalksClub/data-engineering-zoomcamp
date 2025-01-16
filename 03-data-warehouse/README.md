@@ -1,51 +1,63 @@
-## Data Warehouse and BigQuery
+# Data Warehouse and BigQuery
 
 - [Slides](https://docs.google.com/presentation/d/1a3ZoBAXFk8-EhUsd7rAZd-5p_HpltkzSeujjRGB2TAI/edit?usp=sharing)  
 - [Big Query basic SQL](big_query.sql)
 
+# Videos
 
-### Data Warehouse
+## Data Warehouse
 
-- [Data Warehouse and BigQuery](https://youtu.be/jrHljAoD6nM)
+- Data Warehouse and BigQuery
 
-### Partitoning and clustering
+[![](https://markdown-videos-api.jorgenkh.no/youtube/jrHljAoD6nM)](https://youtu.be/jrHljAoD6nM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
 
-- [Partioning and Clustering](https://youtu.be/jrHljAoD6nM?t=726)  
-- [Partioning vs Clustering](https://youtu.be/-CqXf7vhhDs)  
+## :movie_camera: Partitoning and clustering
 
-### Best practices
+- Partioning and Clustering
 
-- [BigQuery Best Practices](https://youtu.be/k81mLJVX08w)  
+[![](https://markdown-videos-api.jorgenkh.no/youtube/-CqXf7vhhDs)](https://youtu.be/-CqXf7vhhDs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
 
-### Internals of BigQuery
+- Partioning vs Clustering
 
-- [Internals of Big Query](https://youtu.be/eduHi1inM4s)  
+[![](https://markdown-videos-api.jorgenkh.no/youtube/-CqXf7vhhDs)](https://youtu.be/-CqXf7vhhDs?si=p1sYQCAs8dAa7jIm&t=193&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
 
-### Advanced
+## :movie_camera: Best practices
 
-#### ML
-[BigQuery Machine Learning](https://youtu.be/B-WtpB0PuG4)  
-[SQL for ML in BigQuery](big_query_ml.sql)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/k81mLJVX08w)](https://youtu.be/k81mLJVX08w&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=36)
+
+## :movie_camera: Internals of BigQuery
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/eduHi1inM4s)](https://youtu.be/eduHi1inM4s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=37)
+
+## Advanced topics
+
+### :movie_camera: Machine Learning in Big Query
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/B-WtpB0PuG4)](https://youtu.be/B-WtpB0PuG4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
+
+* [SQL for ML in BigQuery](big_query_ml.sql)
 
 **Important links**
+
 - [BigQuery ML Tutorials](https://cloud.google.com/bigquery-ml/docs/tutorials)
 - [BigQuery ML Reference Parameter](https://cloud.google.com/bigquery-ml/docs/analytics-reference-patterns)
 - [Hyper Parameter tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create-glm)
 - [Feature preprocessing](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-preprocess-overview)
 
-##### Deploying ML model
+### :movie_camera: Deploying Machine Learning model from BigQuery
 
-- [BigQuery Machine Learning Deployment](https://youtu.be/BjARzEWaznU)  
+[![](https://markdown-videos-api.jorgenkh.no/youtube/BjARzEWaznU)](https://youtu.be/BjARzEWaznU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=39)
+
 - [Steps to extract and deploy model with docker](extract_model.md)  
 
 
 
-### Homework
+# Homework
 
-* [Homework](../cohorts/2023/week_3_data_warehouse/homework.md)
+* [2024 Homework](../cohorts/2024/03-data-warehouse/homework.md)
 
 
-## Community notes
+# Community notes
 
 Did you take notes? You can share them here.
 
@@ -58,4 +70,12 @@ Did you take notes? You can share them here.
 * [Notes by froukje](https://github.com/froukje/de-zoomcamp/blob/main/week_3_data_warehouse/notes/notes_week_03.md)
 * [Notes by Alain Boisvert](https://github.com/boisalai/de-zoomcamp-2023/blob/main/week3.md)
 * [Notes from Vincenzo Galante](https://binchentso.notion.site/Data-Talks-Club-Data-Engineering-Zoomcamp-8699af8e7ff94ec49e6f9bdec8eb69fd)
+* [2024 videos transcript week3](https://drive.google.com/drive/folders/1quIiwWO-tJCruqvtlqe_Olw8nvYSmmDJ?usp=sharing) by Maria Fisher 
+* [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/3a-data-warehouse/readme.md)
+* [Jonah Oliver's blog post](https://www.jonahboliver.com/blog/de-zc-w3)
+* [2024 - steps to send data from Mage to GCS + creating external table](https://drive.google.com/file/d/1GIi6xnS4070a8MUlIg-ozITt485_-ePB/view?usp=drive_link) by Maria Fisher
+* [2024 - mage dataloader script to load the parquet files from a remote URL and push it to Google bucket as parquet file](https://github.com/amohan601/dataengineering-zoomcamp2024/blob/main/week_3_data_warehouse/mage_scripts/green_taxi_2022_v2.py) by Anju Mohan
+* [2024 - steps to send data from Mage to GCS + creating external table](https://drive.google.com/file/d/1GIi6xnS4070a8MUlIg-ozITt485_-ePB/view?usp=drive_link) by Maria Fisher 
+* [Notes by HongWei](https://github.com/hwchua0209/data-engineering-zoomcamp-submission/blob/main/03-data-warehouse/README.md)
+* [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/3_Data-Warehouse/README.md)
 * Add your notes here (above this line)

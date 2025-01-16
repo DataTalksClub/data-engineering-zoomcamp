@@ -1,5 +1,7 @@
 ## Module 1 Homework
 
+ATTENTION: At the very end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format (such as SQL queries or shell commands), please include these directly in the README file of your repository.
+
 ## Docker & SQL
 
 In this homework we'll prepare the environment 
@@ -66,10 +68,12 @@ Remember that `lpep_pickup_datetime` and `lpep_dropoff_datetime` columns are in 
 - 15859
 - 89009
 
-## Question 4. Largest trip for each day
+## Question 4. Longest trip for each day
 
-Which was the pick up day with the largest trip distance
+Which was the pick up day with the longest trip distance?
 Use the pick up time for your calculations.
+
+Tip: For every trip on a single day, we only care about the trip with the longest distance. 
 
 - 2019-09-18
 - 2019-09-16
@@ -77,7 +81,7 @@ Use the pick up time for your calculations.
 - 2019-09-21
 
 
-## Question 5. The number of passengers
+## Question 5. Three biggest pick up Boroughs
 
 Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
 
@@ -109,7 +113,7 @@ In this section homework we'll prepare the environment by creating resources in 
 
 In your VM on GCP/Laptop/GitHub Codespace install Terraform. 
 Copy the files from the course repo
-[here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_1_basics_n_setup/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
+[here](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
 
 Modify the files as necessary to create a GCP Bucket and Big Query Dataset.
 
@@ -127,7 +131,7 @@ Paste the output of this command into the homework submission form.
 
 ## Submitting the solutions
 
-* Form for submitting: 
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2024/homework/hw01
 * You can submit your homework multiple times. In this case, only the last submission will be used. 
 
-Deadline:
+Deadline: 29 January, 23:00 CET
