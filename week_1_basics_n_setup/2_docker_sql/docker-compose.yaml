@@ -14,6 +14,7 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
+      - PGADMIN_SERVER="name=Docker localhost, host=pgdatabase, port=5432, username=root, password=root, database=ny_taxi"
     ports:
       - "8080:80"
     
