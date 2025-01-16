@@ -121,6 +121,7 @@ Running pgAdmin
 docker run -it \
   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
   -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -e PGADMIN_SERVER="name=Docker Localhost, host=pgdatabase, port=5432, username=root, password=root, database=ny_taxi" \
   -p 8080:80 \
   dpage/pgadmin4
 ```
@@ -153,6 +154,7 @@ Run pgAdmin
 docker run -it \
   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
   -e PGADMIN_DEFAULT_PASSWORD="root" \
+  -e PGADMIN_SERVER="name=Docker Localhost, host=pgdatabase, port=5432, username=root, password=root, database=ny_taxi" \
   -p 8080:80 \
   --network=pg-network \
   --name pgadmin-2 \
