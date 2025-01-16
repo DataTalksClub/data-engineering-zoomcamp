@@ -1,6 +1,5 @@
 ### Concepts
 * [Terraform_overview](../1_terraform_overview.md)
-* [Audio](https://drive.google.com/file/d/1IqMRDwJV-m0v9_le_i2HA_UbM_sIWgWx/view?usp=sharing)
 
 ### Execution
 
