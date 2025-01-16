@@ -10,7 +10,7 @@ site.
 This repository should contain the code for solving the homework. 
 
 When your solution has SQL or shell commands and not code
-(e.g. python files) file formad, include them directly in
+(e.g. python files) file format, include them directly in
 the README file of your repository.
 
 
