@@ -285,6 +285,12 @@ File: gs://anna-geller/yellow_tripdata_2020-01.csv}
 
 It means that the CSV file you're trying to load into BigQuery has a mismatch in the number of columns between the external source table (i.e. file in GCS) and the destination table in BigQuery. This can happen when for due to network/transfer issues, the file is not fully downloaded from GitHub or not correctly uploaded to GCS. The error suggests schema issues but that's not the case. Simply rerun the entire execution including redownloading the CSV file and reuploading it to GCS. This should resolve the issue.
 
+---
+
+## Homework 
+
+See the [2025 cohort folder](../cohorts/2025/02-workflow-orchestration/homework.md)
+
 
 ---
 
