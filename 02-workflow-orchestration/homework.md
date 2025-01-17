@@ -38,11 +38,11 @@ Complete the Quiz shown below. It’s a set of 6 multiple-choice questions to te
 - 1,734,051
 - 1,342,034
 
-5) Using dbt on the `Green` and `Yellow` Taxi data for the year 2020, how many rows are there in the `fact_trips` table?
-- 198
-- 165
-- 151
-- 203
+5) How many rows are there for the `Yellow` Taxi data for March 2021?
+- 1,428,092
+- 706,911
+- 1,925,152
+- 2,561,031
 
 6) How would you configure the timezone to New York in a Schedule trigger?
 - Add a `timezone` property set to `EST` in the `Schedule` trigger configuration  
