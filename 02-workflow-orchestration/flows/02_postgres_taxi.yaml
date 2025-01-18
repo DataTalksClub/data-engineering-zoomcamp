@@ -19,7 +19,8 @@ inputs:
   - id: month
     type: SELECT
     displayName: Select month
-    values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    values:
+      ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
     defaults: "01"
 
 variables:
@@ -111,7 +112,27 @@ tasks:
         from: "{{render(vars.data)}}"
         table: "{{render(vars.staging_table)}}"
         header: true
-        columns: [VendorID,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,RatecodeID,store_and_fwd_flag,PULocationID,DOLocationID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,congestion_surcharge]
+        columns:
+          [
+            VendorID,
+            tpep_pickup_datetime,
+            tpep_dropoff_datetime,
+            passenger_count,
+            trip_distance,
+            RatecodeID,
+            store_and_fwd_flag,
+            PULocationID,
+            DOLocationID,
+            payment_type,
+            fare_amount,
+            extra,
+            mta_tax,
+            tip_amount,
+            tolls_amount,
+            improvement_surcharge,
+            total_amount,
+            congestion_surcharge,
+          ]
 
       - id: yellow_add_unique_id_and_filename
         type: io.kestra.plugin.jdbc.postgresql.Queries
@@ -220,7 +241,29 @@ tasks:
         from: "{{render(vars.data)}}"
         table: "{{render(vars.staging_table)}}"
         header: true
-        columns: [VendorID,lpep_pickup_datetime,lpep_dropoff_datetime,store_and_fwd_flag,RatecodeID,PULocationID,DOLocationID,passenger_count,trip_distance,fare_amount,extra,mta_tax,tip_amount,tolls_amount,ehail_fee,improvement_surcharge,total_amount,payment_type,trip_type,congestion_surcharge]
+        columns:
+          [
+            VendorID,
+            lpep_pickup_datetime,
+            lpep_dropoff_datetime,
+            store_and_fwd_flag,
+            RatecodeID,
+            PULocationID,
+            DOLocationID,
+            passenger_count,
+            trip_distance,
+            fare_amount,
+            extra,
+            mta_tax,
+            tip_amount,
+            tolls_amount,
+            ehail_fee,
+            improvement_surcharge,
+            total_amount,
+            payment_type,
+            trip_type,
+            congestion_surcharge,
+          ]
 
       - id: green_add_unique_id_and_filename
         type: io.kestra.plugin.jdbc.postgresql.Queries
@@ -257,7 +300,7 @@ tasks:
               S.trip_distance, S.fare_amount, S.extra, S.mta_tax, S.tip_amount, S.tolls_amount, S.ehail_fee,
               S.improvement_surcharge, S.total_amount, S.payment_type, S.trip_type, S.congestion_surcharge
             );
-  
+
   - id: purge_files
     type: io.kestra.plugin.core.storage.PurgeCurrentExecutionFiles
     description: This will remove output files. If you'd like to explore Kestra outputs, disable it.
@@ -265,6 +308,6 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:
-      url: jdbc:postgresql://host.docker.internal:5432/postgres-zoomcamp
-      username: kestra
-      password: k3str4
+      url: jdbc:postgresql://host.docker.internal:5431/ny_taxi
+      username: Postgres
+      password: root
