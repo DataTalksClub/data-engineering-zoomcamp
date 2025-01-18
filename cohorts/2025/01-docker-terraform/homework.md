@@ -68,6 +68,7 @@ volumes:
 - postgres:5432
 - db:5432
 
+If there are more than one answers, select only one of them
 
 ##  Prepare Postgres
 
