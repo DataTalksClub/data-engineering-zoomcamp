@@ -10,7 +10,7 @@ site.
 This repository should contain the code for solving the homework. 
 
 When your solution has SQL or shell commands and not code
-(e.g. python files) file formad, include them directly in
+(e.g. python files) file format, include them directly in
 the README file of your repository.
 
 
@@ -68,6 +68,7 @@ volumes:
 - postgres:5432
 - db:5432
 
+If there are more than one answers, select only one of them
 
 ##  Prepare Postgres
 
@@ -135,7 +136,7 @@ Consider only `lpep_pickup_datetime` when filtering by date.
 
 ## Question 6. Largest tip
 
-For the passengers picked up in Ocrober 2019 in the zone
+For the passengers picked up in October 2019 in the zone
 name "East Harlem North" which was the drop off zone that had
 the largest tip?
 
@@ -170,8 +171,8 @@ Which of the following sequences, **respectively**, describes the workflow for:
 Answers:
 - terraform import, terraform apply -y, terraform destroy
 - teraform init, terraform plan -auto-apply, terraform rm
-- terraform init, terraform run -auto-aprove, terraform destroy
-- terraform init, terraform apply -auto-aprove, terraform destroy
+- terraform init, terraform run -auto-approve, terraform destroy
+- terraform init, terraform apply -auto-approve, terraform destroy
 - terraform import, terraform apply -y, terraform rm
 
 
