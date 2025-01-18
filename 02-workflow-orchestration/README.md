@@ -1,6 +1,6 @@
-# Week 2: Workflow Orchestration
+# Workflow Orchestration
 
-Welcome to Week 2 of the Data Engineering Zoomcamp! This week, we’ll dive into workflow orchestration using [Kestra](https://go.kestra.io/de-zoomcamp/github). 
+Welcome to Module 2 of the Data Engineering Zoomcamp! This week, we’ll dive into workflow orchestration using [Kestra](https://go.kestra.io/de-zoomcamp/github). 
 
 Kestra is an open-source, event-driven orchestration platform that simplifies building both scheduled and event-driven workflows. By adopting Infrastructure as Code practices for data and process orchestration, Kestra enables you to build reliable workflows with just a few lines of YAML.
 
@@ -107,7 +107,11 @@ Add the flow [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_
 
 ### Local DB: Load Taxi Data to Postgres
 
-Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. To keep things simple, we'll use the same database as the one we set up for Kestra in Docker Compose.
+Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](postgres/docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
+
+```bash
+docker compose up -d
+```
 
 The flow will extract CSV data partitioned by year and month, create tables, load data to the monthly table, and finally merge the data to the final destination table.
 
@@ -153,6 +157,10 @@ graph LR
 ```
 
 The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
+
+### Resources
+- [pgAdmin Download](https://www.pgadmin.org/download/)
+- [Postgres DB Docker Compose](postgres/docker-compose.yml)
 
 ---
 
@@ -243,7 +251,7 @@ Now that we've got our ETL pipeline working both locally and in the cloud, we ca
 ### Videos
 
 - **2.2.9 - Deploy Workflows to the Cloud with Git**   
-  [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Do79n-EVpics)](https://www.youtube.com/watch?v=o79n-EVpics)
+  [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl-wC71tI3co)](https://youtu.be/l-wC71tI3co)
 
 Resources
 
@@ -277,6 +285,12 @@ File: gs://anna-geller/yellow_tripdata_2020-01.csv}
 
 It means that the CSV file you're trying to load into BigQuery has a mismatch in the number of columns between the external source table (i.e. file in GCS) and the destination table in BigQuery. This can happen when for due to network/transfer issues, the file is not fully downloaded from GitHub or not correctly uploaded to GCS. The error suggests schema issues but that's not the case. Simply rerun the entire execution including redownloading the CSV file and reuploading it to GCS. This should resolve the issue.
 
+---
+
+## Homework 
+
+See the [2025 cohort folder](../cohorts/2025/02-workflow-orchestration/homework.md)
+
 
 ---
 
@@ -285,6 +299,7 @@ It means that the CSV file you're trying to load into BigQuery has a mismatch in
 Did you take notes? You can share them by creating a PR to this file! 
 
 * [Notes from Manuel Guerra)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/2_Workflow-Orchestration-(Kestra)/README.md)
+* [Notes from Horeb Seidou](https://spotted-hardhat-eea.notion.site/Week-2-Workflow-Orchestration-17129780dc4a80148debf61e6453fffe)
 * Add your notes above this line
 
 ---
