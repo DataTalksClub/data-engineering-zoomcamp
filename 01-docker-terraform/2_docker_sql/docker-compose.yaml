@@ -1,6 +1,6 @@
 services:
   pgdatabase:
-    image: postgres:13
+    image: postgres
     environment:
       - POSTGRES_USER=Postgres
       - POSTGRES_PASSWORD=root

@@ -37,6 +37,11 @@ This week, we're gonna build ETL pipelines for Yellow and Green Taxi data from N
 2. Load it into Postgres or Google Cloud (GCS + BigQuery).
 3. Explore scheduling and backfilling workflows.
 
+> 
+>[!NOTE] 
+If you’re using the PostgreSQL and PgAdmin setup from Module 1 for this week’s Kestra Workflow Orchestration exercise, ensure your PostgreSQL image version is 15 or later (preferably the latest). The MERGE statement, introduced in PostgreSQL 15, won’t work on earlier versions, most likely leading to a syntax error:
+`syntax error at or near "MERGE" Position: 1` .
+
 ### File Structure
 
 The project is organized as follows:
