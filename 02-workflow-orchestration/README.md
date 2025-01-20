@@ -37,6 +37,9 @@ This week, we're gonna build ETL pipelines for Yellow and Green Taxi data from N
 2. Load it into Postgres or Google Cloud (GCS + BigQuery).
 3. Explore scheduling and backfilling workflows.
 
+>[!NOTE] 
+If you’re using the PostgreSQL and PgAdmin docker setup from Module 1 for this week’s Kestra Workflow Orchestration exercise, ensure your PostgreSQL image version is 15 or later (preferably the latest). The MERGE statement, introduced in PostgreSQL 15, won’t work on earlier versions and will likely cause syntax errors in your kestra flows.
+
 ### File Structure
 
 The project is organized as follows:
@@ -85,7 +88,9 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_g
 
 ### Getting Started Pipeline
 
-This introductory flow is added just to demonstrate a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB.
+This introductory flow is added just to demonstrate a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB. For this stage, a new separate Postgres database is created for the exercises. 
+
+**Note:** Check that `pgAdmin` isn't running on the same ports as Kestra. If so, check out the [FAQ](#troubleshooting-tips) at the bottom of the README.
 
 ### Videos
 
@@ -272,8 +277,17 @@ Resources
 
 ### Troubleshooting tips
 
-If you encounter similar errors to:
+If you face any issues with Kestra flows in Module 2, make sure to use the following Docker images/ports:
+- `kestra/kestra:latest` is correct = latest stable release, while `kestra/kestra:develop` is incorrect as this is a bleeding-edge development version that might contain bugs
+- `postgres:latest` — make sure to use Postgres image, which uses **PostgreSQL 15** or higher
+- If you run `pgAdmin` or something else on port 8080, you can adjust Kestra docker-compose to use a different port, e.g. change port mapping to 18080 instead of 8080, and then access Kestra UI in your browser from http://localhost:18080/ instead of from http://localhost:8080/
 
+If you are still facing any issues, stop and remove your existing Kestra + Postgres containers and start them again using `docker-compose up -d`. If this doesn't help, post your question on the DataTalksClub Slack or on Kestra's Slack http://kestra.io/slack.
+
+- **DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin**   
+  [![DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FywAPYNYFaB4%3Fsi%3D5X9AD0nFAT2WLWgS)](https://youtu.be/ywAPYNYFaB4?si=5X9AD0nFAT2WLWgS)
+
+If you encounter similar errors to:
 ```
 BigQueryError{reason=invalid, location=null, 
 message=Error while reading table: kestra-sandbox.zooomcamp.yellow_tripdata_2020_01, 
