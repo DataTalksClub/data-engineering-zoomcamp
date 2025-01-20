@@ -137,7 +137,7 @@ Consider only `lpep_pickup_datetime` when filtering by date.
 ## Question 6. Largest tip
 
 For the passengers picked up in October 2019 in the zone
-name "East Harlem North" which was the drop off zone that had
+named "East Harlem North" which was the drop off zone that had
 the largest tip?
 
 Note: it's `tip` , not `trip`
