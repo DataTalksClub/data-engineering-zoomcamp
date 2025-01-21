@@ -176,7 +176,7 @@ For the course you'll need:
 
 # Homework
 
-* [Homework](../cohorts/2024/01-docker-terraform/homework.md)
+* [Homework](../cohorts/2025/01-docker-terraform/homework.md)
 
 
 # Community notes
