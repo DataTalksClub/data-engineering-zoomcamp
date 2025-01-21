@@ -161,6 +161,8 @@ graph LR
   Sync --> DbtBuild[Run dbt CLI]
 ```
 
+This gives you a quick showcase of dbt inside of Kestra so the homework tasks do not depend on it. The course will go into more detail of dbt in [Week 4](../04-analytics-engineering).
+
 The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
 ### Resources
@@ -244,6 +246,8 @@ graph LR
   Start[Select dbt command] --> Sync[Sync Namespace Files]
   Sync --> Build[Run dbt Build Command]
 ```
+
+This gives you a quick showcase of dbt inside of Kestra so the homework tasks do not depend on it. The course will go into more detail of dbt in [Week 4](../04-analytics-engineering).
 
 The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
