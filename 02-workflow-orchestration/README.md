@@ -1,6 +1,6 @@
-# Week 2: Workflow Orchestration
+# Workflow Orchestration
 
-Welcome to Week 2 of the Data Engineering Zoomcamp! This week, we’ll dive into workflow orchestration using [Kestra](https://go.kestra.io/de-zoomcamp/github). 
+Welcome to Module 2 of the Data Engineering Zoomcamp! This week, we’ll dive into workflow orchestration using [Kestra](https://go.kestra.io/de-zoomcamp/github). 
 
 Kestra is an open-source, event-driven orchestration platform that simplifies building both scheduled and event-driven workflows. By adopting Infrastructure as Code practices for data and process orchestration, Kestra enables you to build reliable workflows with just a few lines of YAML.
 
@@ -36,6 +36,9 @@ This week, we're gonna build ETL pipelines for Yellow and Green Taxi data from N
 1. Extract data from [CSV files](https://github.com/DataTalksClub/nyc-tlc-data/releases).
 2. Load it into Postgres or Google Cloud (GCS + BigQuery).
 3. Explore scheduling and backfilling workflows.
+
+>[!NOTE] 
+If you’re using the PostgreSQL and PgAdmin docker setup from Module 1 for this week’s Kestra Workflow Orchestration exercise, ensure your PostgreSQL image version is 15 or later (preferably the latest). The MERGE statement, introduced in PostgreSQL 15, won’t work on earlier versions and will likely cause syntax errors in your kestra flows.
 
 ### File Structure
 
@@ -85,7 +88,9 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_g
 
 ### Getting Started Pipeline
 
-This introductory flow is added just to demonstrate a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB.
+This introductory flow is added just to demonstrate a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB. For this stage, a new separate Postgres database is created for the exercises. 
+
+**Note:** Check that `pgAdmin` isn't running on the same ports as Kestra. If so, check out the [FAQ](#troubleshooting-tips) at the bottom of the README.
 
 ### Videos
 
@@ -155,6 +160,8 @@ graph LR
   Start[Select dbt command] --> Sync[Sync Namespace Files]
   Sync --> DbtBuild[Run dbt CLI]
 ```
+
+This gives you a quick showcase of dbt inside of Kestra so the homework tasks do not depend on it. The course will go into more detail of dbt in [Week 4](../04-analytics-engineering).
 
 The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
@@ -240,6 +247,8 @@ graph LR
   Sync --> Build[Run dbt Build Command]
 ```
 
+This gives you a quick showcase of dbt inside of Kestra so the homework tasks do not depend on it. The course will go into more detail of dbt in [Week 4](../04-analytics-engineering).
+
 The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
 ---
@@ -272,8 +281,19 @@ Resources
 
 ### Troubleshooting tips
 
-If you encounter similar errors to:
+If you face any issues with Kestra flows in Module 2, make sure to use the following Docker images/ports:
+- `kestra/kestra:latest` is correct = latest stable release, while `kestra/kestra:develop` is incorrect as this is a bleeding-edge development version that might contain bugs
+- `postgres:latest` — make sure to use Postgres image, which uses **PostgreSQL 15** or higher
+- If you run `pgAdmin` or something else on port 8080, you can adjust Kestra docker-compose to use a different port, e.g. change port mapping to 18080 instead of 8080, and then access Kestra UI in your browser from http://localhost:18080/ instead of from http://localhost:8080/
 
+If you are still facing any issues, stop and remove your existing Kestra + Postgres containers and start them again using `docker-compose up -d`. If this doesn't help, post your question on the DataTalksClub Slack or on Kestra's Slack http://kestra.io/slack.
+
+- **DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin**   
+  [![DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FywAPYNYFaB4%3Fsi%3D5X9AD0nFAT2WLWgS)](https://youtu.be/ywAPYNYFaB4?si=5X9AD0nFAT2WLWgS)
+- **DE Zoomcamp FAQ - Docker Setup**  
+  [![DE Zoomcamp FAQ - Docker Setup](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl2M2mW76RIU%3Fsi%3DoqyZ7KUaI27vi90V)](https://youtu.be/l2M2mW76RIU?si=oqyZ7KUaI27vi90V)
+
+If you encounter similar errors to:
 ```
 BigQueryError{reason=invalid, location=null, 
 message=Error while reading table: kestra-sandbox.zooomcamp.yellow_tripdata_2020_01, 
@@ -285,6 +305,12 @@ File: gs://anna-geller/yellow_tripdata_2020-01.csv}
 
 It means that the CSV file you're trying to load into BigQuery has a mismatch in the number of columns between the external source table (i.e. file in GCS) and the destination table in BigQuery. This can happen when for due to network/transfer issues, the file is not fully downloaded from GitHub or not correctly uploaded to GCS. The error suggests schema issues but that's not the case. Simply rerun the entire execution including redownloading the CSV file and reuploading it to GCS. This should resolve the issue.
 
+---
+
+## Homework 
+
+See the [2025 cohort folder](../cohorts/2025/02-workflow-orchestration/homework.md)
+
 
 ---
 
@@ -293,7 +319,7 @@ It means that the CSV file you're trying to load into BigQuery has a mismatch in
 Did you take notes? You can share them by creating a PR to this file! 
 
 * [Notes from Manuel Guerra)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/2_Workflow-Orchestration-(Kestra)/README.md)
-* [Notes from Horeb Seidou](https://www.notion.so/Week-2-Workflow-Orchestration-17129780dc4a80148debf61e6453fffe?pvs=4)
+* [Notes from Horeb Seidou](https://spotted-hardhat-eea.notion.site/Week-2-Workflow-Orchestration-17129780dc4a80148debf61e6453fffe)
 * Add your notes above this line
 
 ---

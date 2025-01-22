@@ -23,6 +23,7 @@ Here are some datasets that you could use for the project:
 * Collection Of Data Repositories
   * [part 1](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-1.html) (from agriculture and finance to government)
   * [part 2](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-2.html) (from healthcare to transportation)
+* [Data For Good by Meta](https://dataforgood.facebook.com/dfg/tools)
 
 PRs with more datasets are welcome!
 
