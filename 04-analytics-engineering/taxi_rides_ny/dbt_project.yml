@@ -35,5 +35,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+vars:
+  payment_type_values: [1, 2, 3, 4, 5, 6]
+
 models:
   taxi_rides_ny:
