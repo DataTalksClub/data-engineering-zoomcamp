@@ -1,0 +1,13 @@
+[project]
+name = "module-one-data-ingestion"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.2.3",
+    "psycopg2-binary>=2.9.10",
+    "pydantic-settings>=2.7.1",
+    "requests>=2.32.3",
+    "sqlalchemy>=2.0.37",
+]
