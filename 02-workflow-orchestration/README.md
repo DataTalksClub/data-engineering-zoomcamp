@@ -290,6 +290,8 @@ If you are still facing any issues, stop and remove your existing Kestra + Postg
 
 - **DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin**   
   [![DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FywAPYNYFaB4%3Fsi%3D5X9AD0nFAT2WLWgS)](https://youtu.be/ywAPYNYFaB4?si=5X9AD0nFAT2WLWgS)
+- **DE Zoomcamp FAQ - Docker Setup**  
+  [![DE Zoomcamp FAQ - Docker Setup](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl2M2mW76RIU%3Fsi%3DoqyZ7KUaI27vi90V)](https://youtu.be/l2M2mW76RIU?si=oqyZ7KUaI27vi90V)
 
 If you encounter similar errors to:
 ```
@@ -324,7 +326,7 @@ Did you take notes? You can share them by creating a PR to this file!
 
 # Previous Cohorts
 
-* 2022: [notes](../../2022/week_2_data_ingestion#community-notes) and [videos](../../2022/week_2_data_ingestion/)
-* 2023: [notes](../../2023/week_2_workflow_orchestration#community-notes) and [videos](../../2023/week_2_workflow_orchestration/)
-* 2024: [notes](../../2024/02-workflow-orchestration#community-notes) and [videos](../../2024/02-workflow-orchestration/)
+* 2022: [notes](../cohorts/2022/week_2_data_ingestion#community-notes) and [videos](../cohorts/2022/week_2_data_ingestion)
+* 2023: [notes](../cohorts/2023/week_2_workflow_orchestration#community-notes) and [videos](../cohorts/2023/week_2_workflow_orchestration)
+* 2024: [notes](../cohorts/2024/02-workflow-orchestration#community-notes) and [videos](../cohorts/2024/02-workflow-orchestration)
 
