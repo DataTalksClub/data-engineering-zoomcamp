@@ -132,6 +132,7 @@ Did you take notes? You can share them here.
 * [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/4-analytics-engineering/readme.md)
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
 * [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
+* [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-3-Data-Warehouse-and-BigQuery-17c29780dc4a80c8a226f372543ae388)
 * Add your notes here (above this line)
 
 ## Useful links
