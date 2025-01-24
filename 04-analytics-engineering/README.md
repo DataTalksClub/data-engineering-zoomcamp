@@ -65,6 +65,8 @@ By this stage of the course you should have already:
 * Variables
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/UVI30Vxzd6c)](https://www.youtube.com/watch?v=ueVy2N54lyc&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=3)
+> [!NOTE]
+> *If you're new to dbt and find the video above a bit overwhelming, we highly recommend completing the **dbt Fundamentals** course before rewatching it. It provides a solid foundation for all the key concepts you'll need in this module. [dbt Fundamentals](https://www.getdbt.com/dbt-fundamentals/)*
 
 > [!NOTE]  
 > *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
