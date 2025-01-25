@@ -261,3 +261,7 @@ services:
 ### SQL 
 
 Coming soon!
+
+
+Notes from Nadeen
+https://www.linkedin.com/posts/activity-7285017083665408001-7dAy?utm_source=social_share_sheet&utm_medium=member_desktop_web
