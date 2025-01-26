@@ -182,6 +182,19 @@ docker run -it \
   dpage/pgadmin4
 ```
 
+### Register New Server in Postgre Admin Portal
+<ol>
+<li>Enter the Pgadmin portal, the port shall be 8080. http://127.0.0.1:8080/browser/</li> 
+<li>use credentials of above pgadmin email and password to login. </li>
+<li>Right click Servers -> register -> Server. </li>
+<ul>
+<li> General: Fill in New Server Name. </li>
+<li>Connection: Host name/address: pg-database; port: 5432; usernmae: root; password: root</li>
+</ul>
+    
+<li>ny_taxi database shows under the new Server.</li>
+
+</ol>
 
 ### Data ingestion
 
