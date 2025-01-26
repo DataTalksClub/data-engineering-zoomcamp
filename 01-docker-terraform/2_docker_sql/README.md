@@ -238,7 +238,6 @@ You can solve it with `.dockerignore`:
 Run the script with Docker
 
 ```bash
-URL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
 
 docker run -it \
   --network=pg-network \
@@ -257,7 +256,8 @@ docker run -it \
 Run it:
 
 ```bash
-docker-compose up
+docker-compose upURL="https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+
 ```
 
 Run in detached mode:
