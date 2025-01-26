@@ -257,7 +257,7 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:
-      url: jdbc:postgresql://host.docker.internal:5432/postgres-zoomcamp
+      url: jdbc:postgresql://host.docker.internal:5432/kestra
       username: kestra
       password: k3str4
 
