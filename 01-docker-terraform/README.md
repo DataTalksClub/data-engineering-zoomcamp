@@ -177,10 +177,6 @@ For the course you'll need:
 # Homework
 
 * [Homework](../cohorts/2025/01-docker-terraform/homework.md)
-<<<<<<< HEAD
-=======
-
->>>>>>> 1cb9c7f05e1510e2a882ce01d1b95889e7f30083
 
 # Community notes
 
