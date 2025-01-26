@@ -1,11 +1,7 @@
-id: 02_postgres_taxi_scheduled
+id: 02_postgres_taxi
 namespace: zoomcamp
 description: |
-  Best to add a label `backfill:true` from the UI to track executions created via a backfill.
-  CSV data used here comes from: https://github.com/DataTalksClub/nyc-tlc-data/releases
-
-concurrency:
-  limit: 1
+  The CSV Data used in the course: https://github.com/DataTalksClub/nyc-tlc-data/releases
 
 inputs:
   - id: taxi
@@ -14,11 +10,23 @@ inputs:
     values: [yellow, green]
     defaults: yellow
 
+  - id: year
+    type: SELECT
+    displayName: Select year
+    values: ["2019", "2020"]
+    defaults: "2019"
+
+  - id: month
+    type: SELECT
+    displayName: Select month
+    values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    defaults: "01"
+
 variables:
-  file: "{{inputs.taxi}}_tripdata_{{trigger.date | date('yyyy-MM')}}.csv"
+  file: "{{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.month}}.csv"
   staging_table: "public.{{inputs.taxi}}_tripdata_staging"
   table: "public.{{inputs.taxi}}_tripdata"
-  data: "{{outputs.extract.outputFiles[inputs.taxi ~ '_tripdata_' ~ (trigger.date | date('yyyy-MM')) ~ '.csv']}}"
+  data: "{{outputs.extract.outputFiles[inputs.taxi ~ '_tripdata_' ~ inputs.year ~ '-' ~ inputs.month ~ '.csv']}}"
 
 tasks:
   - id: set_label
@@ -252,24 +260,11 @@ tasks:
   
   - id: purge_files
     type: io.kestra.plugin.core.storage.PurgeCurrentExecutionFiles
-    description: To avoid cluttering your storage, we will remove the downloaded files
+    description: This will remove output files. If you'd like to explore Kestra outputs, disable it.
 
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:
-      url: jdbc:postgresql://host.docker.internal:5432/kestra
+      url: jdbc:postgresql://host.docker.internal:5432/postgres-zoomcamp
       username: kestra
       password: k3str4
-
-triggers:
-  - id: green_schedule
-    type: io.kestra.plugin.core.trigger.Schedule
-    cron: "0 9 1 * *"
-    inputs:
-      taxi: green
-
-  - id: yellow_schedule
-    type: io.kestra.plugin.core.trigger.Schedule
-    cron: "0 10 1 * *"
-    inputs:
-      taxi: yellow
