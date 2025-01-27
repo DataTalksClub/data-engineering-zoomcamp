@@ -263,7 +263,14 @@ services:
 Pre-Requisites: If you followed the course through with the given order,
 Docker Compose should be already running with pgdatabase and pgAdmin.
 
-You can run the following code using Jupyter Notebook to ingest the data for Taxi Zones:
+#### For the Taxi Zones table ingestion you have **2 options**
+
+1. **Run [ingest_zone.py](./ingest_zone.py) script for the sake of simplicity.**
+
+   * `python ingest_zone.py` - It saves the `.csv` file into the current folder and then loads the data into the Postgres database.
+   * `python ingest_zone.py <folder_path>` - It saves the `.csv` file into the provided `<folder_path>` and then loads the data into the Postgres database.
+
+2. **You can run the following code using Jupyter Notebook to ingest the data for Taxi Zones:**
 
 ```python
 import pandas as pd
@@ -278,7 +285,7 @@ df_zones = pd.read_csv("taxi_zone_lookup.csv")
 df_zones.to_sql(name='zones', con=engine, if_exists='replace')
 ```
 
-Once done, you can go to http://localhost:8080/browser/ to access pgAdmin.
+Either way, once done, you can go to http://localhost:8080/browser/ to access pgAdmin.
 Don't forget to Right Click on the server or database to refresh it in case you don't see the new table.
 
 Now start querying!
