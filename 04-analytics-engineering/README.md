@@ -140,6 +140,7 @@ Did you take notes? You can share them here.
 * [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/4-analytics-engineering/readme.md)
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
 * [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
+* [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/4_Analytics-Engineering/README.md)
 * Add your notes here (above this line)
 
 ## Useful links
