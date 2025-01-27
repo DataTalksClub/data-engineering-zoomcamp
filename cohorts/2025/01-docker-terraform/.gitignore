@@ -1,2 +1,3 @@
 output.csv.gz
 green_tripdata_2019-10.csv.gz
+taxi_zone_lookup.csv
