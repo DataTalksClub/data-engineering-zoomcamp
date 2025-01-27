@@ -1,47 +1,69 @@
-# Data Engineering Zoomcamp
-
-
 <p align="center">
-  <a href="https://airtable.com/shr6oVXeQvSI5HuWD"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+  <img width="100%" src="images/architecture/arch_v4_workshops.jpg" alt="Data Engineering Zoomcamp Overview">
 </p>
 
-- Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
-- Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-- Join the [course Telegram channel with announcements](https://t.me/dezoomcamp)
-- The videos are published on [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- [Frequently asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
+<h1 align="center">
+    <strong>Data Engineering Zoomcamp — a free nine-week course covering fundamentals of data engineering</strong>
+</h1>
 
-Syllabus
+<p align="center">
+Learn and practice each part of the data engineering process and apply your acquired knowledge and skills to develop an end-to-end data pipeline from the ground up.
+</p>
 
-* [Module 1: Containerization and Infrastructure as Code](#module-1-containerization-and-infrastructure-as-code)
-* [Module 2: Workflow Orchestration](#module-2-workflow-orchestration)
-* [Workshop 1: Data Ingestion](#workshop-1-data-ingestion)
-* [Module 3: Data Warehouse](#module-3-data-warehouse)
-* [Module 4: Analytics Engineering](#module-4-analytics-engineering)
-* [Module 5: Batch processing](#module-5-batch-processing)
-* [Module 6: Streaming](#module-6-streaming)
-* [Project](#project)
+<p align="center">
+<a href="https://airtable.com/shr6oVXeQvSI5HuWD"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+</p>
 
-## Taking the course
+<p align="center">
+<a href="https://datatalks.club/slack.html">Register on Slack</a> • 
+<a href="https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG">Join the #course-data-engineering Slack channel</a> • 
+<a href="https://t.me/dezoomcamp">Telegram Announcements Channel</a> • 
+<a href="https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb">Course Playlist</a> • 
+<a href="https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing">Frequently Asked Questions (FAQ)</a>
+</p>
 
-### 2025 Cohort 
+## How to Take Data Engineering Zoomcamp Course
 
-* **Start**: 13 January 2025
-* **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* Materials specific to the cohort: [cohorts/2025/](cohorts/2025/)
+### 2025 Cohort
 
-### Self-paced mode
+- **Start Date**: 13 January 2025
+- **Registration Link**: [Sign up here](https://airtable.com/shr6oVXeQvSI5HuWD)
+- **Materials**: [Cohort-specific materials](cohorts/2025/)
 
-All the materials of the course are freely available, so that you
-can take the course at your own pace
+### Self-Paced Mode
 
-* Follow the suggested syllabus (see below) week by week
-* You don't need to fill in the registration form. Just start watching the videos and join Slack
-* Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
-* If you can't find a solution to your problem in FAQ, ask for help in Slack
+The course materials are open for self-paced learning. Simply follow the suggested syllabus week by week:
 
+1. Start watching the videos.
+2. Join the [Slack community](https://datatalks.club/slack.html).
+3. Refer to the [FAQ document](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) for common issues.
 
 ## Syllabus
+
+### Overview
+
+This course consists of modules, workshops, and a project that helps you apply the concepts and tools learned during the course. The syllabus is structured to guide you step-by-step through the world of data engineering.
+
+### Table of Contents
+
+- [Module 1: Containerization and Infrastructure as Code](#module-1-containerization-and-infrastructure-as-code)
+- [Module 2: Workflow Orchestration](#module-2-workflow-orchestration)
+- [Workshop 1: Data Ingestion](#workshop-1-data-ingestion)
+- [Module 3: Data Warehouse](#module-3-data-warehouse)
+- [Module 4: Analytics Engineering](#module-4-analytics-engineering)
+- [Module 5: Batch Processing](#module-5-batch-processing)
+- [Module 6: Streaming](#module-6-streaming)
+- [Project](#project)
+
+### Prerequisites
+
+To get the most out of this course, you should feel comfortable with coding and the command line
+and know the basics of SQL. Prior experience with Python will be helpful, but you can pick
+Python is relatively fast if you have experience with other programming languages.
+
+Prior experience with data engineering is not required.
+
+## Detailed Syllabus
 
 We encourage [Learning in Public](learning-in-public.md)
 
@@ -130,8 +152,6 @@ We encourage [Learning in Public](learning-in-public.md)
 
 [More details](06-streaming/)
 
-
-
 ### [Project](projects)
 
 Putting everything we learned to practice
@@ -141,20 +161,6 @@ Putting everything we learned to practice
 
 [More details](projects)
 
-## Overview
-
-<img src="images/architecture/arch_v4_workshops.jpg" />
-
-### Prerequisites
-
-To get the most out of this course, you should feel comfortable with coding and command line
-and know the basics of SQL. Prior experience with Python will be helpful, but you can pick
-Python relatively fast if you have experience with other programming languages.
-
-Prior experience with data engineering is not required.
-
-
-
 ## Instructors
 
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
@@ -163,8 +169,6 @@ Prior experience with data engineering is not required.
 - [Zach Wilson](https://www.linkedin.com/in/eczachly)
 - [Will Russell](https://www.linkedin.com/in/wrussell1999/)
 - [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
-
- 
 
 Past instructors:
 
@@ -182,8 +186,6 @@ To make discussions in Slack more organized:
 
 * Follow [these recommendations](asking-questions.md) when asking for help
 * Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
-
-
 
 ## Supporters and partners
 
