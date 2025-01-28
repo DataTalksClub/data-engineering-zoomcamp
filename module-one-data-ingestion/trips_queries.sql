@@ -8,6 +8,20 @@ FROM public.trips
 where CAST(lpep_pickup_datetime AS DATE) >= '2019-10-01'::date and CAST(lpep_dropoff_datetime AS DATE) < '2019-11-01'::date
 GROUP BY Distance
 
+--------------------------------------
+
+SELECT DISTINCT
+    MAX(trip_distance) AS MaxTripDistance,
+    lpep_pickup_datetime::date
+FROM
+    trips
+GROUP BY
+    lpep_pickup_datetime
+ORDER BY
+    MaxTripDistance DESC
+LIMIT 1;
+
+---------------------------------------------
 
 SELECT
     zl."Zone" as pickup_zone,
@@ -18,6 +32,8 @@ WHERE DATE(lpep_pickup_datetime) = '2019-10-18'
 GROUP BY zl."Zone"
 HAVING SUM(total_amount) > 13000
 ORDER BY total_amount DESC;
+
+-------------------------------------------------------------------
 
 SELECT
    zl_dropoff."Zone" as dropoff_zone,
