@@ -16,7 +16,7 @@ pip --version
 Output:
 
 ```plaintext
-24.3.1
+pip 24.3.1 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
 
