@@ -1,0 +1,76 @@
+id: zoomcamp_homework
+namespace: zoomcamp
+description: |
+  This flow downloads the 2022 Green Taxi Trip Record Parquet Files from the New York City Taxi Data found here:https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page merges them before uploading to google cloud storage as the dataset for your bigquery external table
+
+variables:
+  file: "merged_nyc_taxi.parquet"
+  gcs_bucket: "gs://{{kv('GCP_BUCKET_NAME')}}"
+  gcs_file: "{{vars.gcs_bucket}}/{{vars.file}}"
+  data: "{{ outputs.merge_parquet.outputFiles['merged_nyc_taxi.parquet']}}"
+
+tasks:
+  - id: merge_parquet
+    type: io.kestra.plugin.scripts.python.Script
+    outputFiles:
+      - "merged_nyc_taxi.parquet"
+    description: Merge parquet files using Python
+    containerImage: nifesimifrank/kestra-python-pandas:latest # Use Python container with pandas installed
+
+    script: |
+      import pandas as pd
+      import glob
+      import os
+      import requests  # Use requests for downloading files
+
+      URL_PREFIX = 'https://d37ci6vzurychx.cloudfront.net/trip-data'
+      YEAR = 2022
+      TAXI_TYPE = 'green'
+
+      for month in range(1, 13):
+          fmonth = f'{month:02d}'
+          dir_path = f"data2/pq/{TAXI_TYPE}/{YEAR}/{fmonth}"
+          
+          # Create directory if it doesn't exist
+          os.makedirs(dir_path, exist_ok=True)
+          
+          # Download the file using requests
+          url = f'{URL_PREFIX}/{TAXI_TYPE}_tripdata_{YEAR}-{fmonth}.parquet'
+          file_path = os.path.join(dir_path, os.path.basename(url))
+          
+          # Download the file
+          response = requests.get(url)
+          if response.status_code == 200:
+              with open(file_path, 'wb') as f:
+                  f.write(response.content)
+              print(f"Downloaded: {url}")
+          else:
+              print(f"Failed to download: {url}")
+
+      # List of all parquet files
+      files = glob.glob(f"{dir_path}/*.parquet")
+
+      # Read and merge
+      dfs = [pd.read_parquet(f) for f in files]
+      merged_df = pd.concat(dfs)
+
+      # Save as one parquet
+      merged_df.to_parquet("merged_nyc_taxi.parquet")
+
+  - id: upload-to-gcs
+    type: io.kestra.plugin.gcp.gcs.Upload
+    description: Upload the merged Parquet file to GCS
+    from: "{{render(vars.data)}}"
+    to: "{{render(vars.gcs_file)}}"
+
+  - id: purge_files
+    type: io.kestra.plugin.core.storage.PurgeCurrentExecutionFiles
+    description: To avoid cluttering your storage, we will remove the downloaded files
+
+pluginDefaults:
+  - type: io.kestra.plugin.gcp
+    values:
+      serviceAccount: "{{kv('GCP_CREDS')}}"
+      projectId: "{{kv('GCP_PROJECT_ID')}}"
+      location: "{{kv('GCP_LOCATION')}}"
+      bucket: "{{kv('GCP_BUCKET_NAME')}}"

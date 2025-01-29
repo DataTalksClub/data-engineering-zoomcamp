@@ -1,0 +1,10 @@
+--upgrade pip setuptools wheel
+
+# Core dependencies
+pandas==2.0.3
+numpy==1.24.3
+pyarrow==12.0.0 --no-binary :all:
+requests==2.31.0
+
+# Additional dependencies
+kestra==0.10.0

@@ -16,7 +16,7 @@ tasks:
 
   - id: transform
     type: io.kestra.plugin.scripts.python.Script
-    containerImage: python:3.11-alpine
+    containerImage: python:3.11-alpine kestra-python-pandas 
     inputFiles:
       data.json: "{{outputs.extract.uri}}"
     outputFiles:
