@@ -22,10 +22,28 @@ Run docker with the `python:3.12.8` image in an interactive mode, use the entryp
 
 What's the version of `pip` in the image?
 
-- 24.3.1
+- 24.3.1 -- YES
 - 24.2.1
 - 23.3.1
 - 23.2.1
+
+1. See Dockerfile in the same folder for the details
+2. 
+```bash 
+docker build -t my_python_bash .
+```
+3. 
+```bash
+docker run -it my_python_bash
+```
+4. (docker is running) 
+```bash 
+python --version
+```
+5. (docker is running) 
+```bash 
+pip --version
+```
 
 
 ## Question 2. Understanding Docker networking and docker-compose
@@ -65,7 +83,7 @@ volumes:
 ```
 
 - postgres:5433
-- localhost:5432
+- localhost:5432 -- YES
 - db:5433
 - postgres:5432
 - db:5432
@@ -104,10 +122,24 @@ During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusi
 Answers:
 
 - 104,802;  197,670;  110,612;  27,831;  35,281
-- 104,802;  198,924;  109,603;  27,678;  35,189
+- 104,802;  198,924;  109,603;  27,678;  35,189 --YES
 - 104,793;  201,407;  110,612;  27,831;  35,281
 - 104,793;  202,661;  109,603;  27,678;  35,189
 - 104,838;  199,013;  109,645;  27,688;  35,202
+
+```SQL
+SELECT CASE 
+WHEN trip_distance <= 1 THEN '1 - up to 1 mile'
+WHEN trip_distance > 1 AND trip_distance <= 3 THEN '2 - between 1 and 3 miles'
+WHEN trip_distance > 3 AND trip_distance <= 7 THEN '3 - between 3 and 7 miles' 
+WHEN trip_distance > 7 AND trip_distance <= 10 THEN '4 - between 7 and 10 miles'
+WHEN trip_distance > 10 THEN '5 - over 10 miles' 
+ELSE '6 - trip distance not valid' END AS trip_distance_category, 
+COUNT(*) AS trip_count
+FROM green_taxi_data
+WHERE lpep_pickup_datetime >= '2019-10-01' and lpep_dropoff_datetime < '2019-11-01'
+GROUP BY 1;
+```
 
 
 ## Question 4. Longest trip for each day
@@ -120,7 +152,13 @@ Tip: For every day, we only care about one single trip with the longest distance
 - 2019-10-11
 - 2019-10-24
 - 2019-10-26
-- 2019-10-31
+- 2019-10-31 --YES
+
+```SQL
+SELECT DATE(lpep_pickup_datetime)
+FROM green_taxi_data
+WHERE trip_distance = (SELECT MAX(trip_distance) FROM green_taxi_data);
+```
 
 
 ## Question 5. Three biggest pickup zones
@@ -130,10 +168,20 @@ Which were the top pickup locations with over 13,000 in
 
 Consider only `lpep_pickup_datetime` when filtering by date.
  
-- East Harlem North, East Harlem South, Morningside Heights
+- East Harlem North, East Harlem South, Morningside Heights --YES
 - East Harlem North, Morningside Heights
 - Morningside Heights, Astoria Park, East Harlem South
 - Bedford, East Harlem North, Astoria Park
+
+```SQL
+SELECT "Zone", SUM(total_amount) AS total_amount 
+FROM green_taxi_data T JOIN zones Z
+ON T."PULocationID" = Z."LocationID"
+WHERE DATE(T.lpep_pickup_datetime) = '2019-10-18'
+GROUP BY 1 
+HAVING SUM(total_amount) > 13000
+ORDER BY 2 DESC;
+```
 
 
 ## Question 6. Largest tip
@@ -147,9 +195,21 @@ Note: it's `tip` , not `trip`
 We need the name of the zone, not the ID.
 
 - Yorkville West
-- JFK Airport
+- JFK Airport --YES
 - East Harlem North
 - East Harlem South
+
+```SQL
+SELECT zdo."Zone"
+FROM green_taxi_data t JOIN Zones zpu 
+ON t."PULocationID" = zpu."LocationID"
+JOIN Zones zdo
+ON t."DOLocationID" = zdo."LocationID"
+WHERE lpep_pickup_datetime BETWEEN '2019-10-01' AND '2019-10-31'
+AND zpu."Zone" = 'East Harlem North'
+ORDER BY t.tip_amount DESC
+LIMIT 1;
+```
 
 
 ## Terraform
@@ -174,7 +234,7 @@ Answers:
 - terraform import, terraform apply -y, terraform destroy
 - teraform init, terraform plan -auto-apply, terraform rm
 - terraform init, terraform run -auto-approve, terraform destroy
-- terraform init, terraform apply -auto-approve, terraform destroy
+- terraform init, terraform apply -auto-approve, terraform destroy --YES
 - terraform import, terraform apply -y, terraform rm
 
 

@@ -40,8 +40,8 @@ resource "google_storage_bucket" "data-lake-bucket" {
 }
 
 
-# resource "google_bigquery_dataset" "dataset" {
-#   dataset_id = "<The Dataset Name You Want to Use>"
-#   project    = "<Your Project ID>"
-#   location   = "US"
-# }
+resource "google_bigquery_dataset" "dataset" {
+  dataset_id = "example_dataset"
+  project    = "robotic-incline-449301-g8"
+  location   = "US"
+}
