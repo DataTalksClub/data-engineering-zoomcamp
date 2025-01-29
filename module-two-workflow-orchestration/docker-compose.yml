@@ -60,3 +60,14 @@ services:
     depends_on:
       postgres:
         condition: service_started
+
+  pgadmin:
+      image: dpage/pgadmin4
+      environment:
+        - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+        - PGADMIN_DEFAULT_PASSWORD=root
+      ports:
+        - "8085:80"
+      depends_on:
+        postgres:
+          condition: service_started
