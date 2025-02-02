@@ -449,3 +449,6 @@ Did you take notes? You can share them by creating a PR to this file!
 * 2023: [notes](../cohorts/2023/week_2_workflow_orchestration#community-notes) and [videos](../cohorts/2023/week_2_workflow_orchestration)
 * 2024: [notes](../cohorts/2024/02-workflow-orchestration#community-notes) and [videos](../cohorts/2024/02-workflow-orchestration)
 
+# My Notes
+https://docs.google.com/document/d/1nt6EI4vAFB0omT1zXZ2qbeCy1vzWJ_EiqT3kjBOoRPs/edit?tab=t.0
+
