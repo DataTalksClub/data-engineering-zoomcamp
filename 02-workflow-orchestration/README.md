@@ -151,7 +151,7 @@ Note: given the large dataset, we'll backfill only data for the green taxi datas
 
 The flow code: [`02_postgres_taxi_scheduled.yaml`](flows/02_postgres_taxi_scheduled.yaml).
 
-### Local DB: Orchestrate dbt Models
+### Local DB: Orchestrate dbt Models (Optional)
 
 Now that we have raw data ingested into a local Postgres database, we can use dbt to transform the data into meaningful insights. The flow will sync the dbt models from Git to Kestra and run the `dbt build` command to build the models.
 
@@ -237,7 +237,7 @@ Since we now process data in a cloud environment with infinitely scalable storag
 
 The flow code: [`06_gcp_taxi_scheduled.yaml`](flows/06_gcp_taxi_scheduled.yaml).
 
-### GCP Workflow: Orchestrate dbt Models
+### GCP Workflow: Orchestrate dbt Models (Optional)
 
 Now that we have raw data ingested into BigQuery, we can use dbt to transform that data. The flow will sync the dbt models from Git to Kestra and run the `dbt build` command to build the models:
 
@@ -253,9 +253,11 @@ The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
 ---
 
-## 5. Bonus: Deploy to the Cloud
+## 5. Bonus: Deploy to the Cloud (Optional)
 
 Now that we've got our ETL pipeline working both locally and in the cloud, we can deploy Kestra to the cloud so it can continue to orchestrate our ETL pipelines monthly with our configured schedules, We'll cover how you can install Kestra on Google Cloud in Production, and automatically sync and deploy your workflows from a Git repository.
+
+Note: When commiting your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
 
 ### Videos
 
