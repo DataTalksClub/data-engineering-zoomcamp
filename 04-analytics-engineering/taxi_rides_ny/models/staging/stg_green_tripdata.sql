@@ -33,7 +33,7 @@ select
     cast(fare_amount as numeric) as fare_amount,
     cast(extra as numeric) as extra,
     cast(mta_tax as numeric) as mta_tax,
-    cast(tip_amount as numeric) as tip_amount,
+    cast(trip_amount as numeric) as trip_amount,
     cast(tolls_amount as numeric) as tolls_amount,
     cast(ehail_fee as numeric) as ehail_fee,
     cast(improvement_surcharge as numeric) as improvement_surcharge,
