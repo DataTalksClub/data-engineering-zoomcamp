@@ -100,7 +100,7 @@ models:
         data_type: numeric
         description: ""
 
-      - name: tip_amount
+      - name: trip_amount
         data_type: numeric
         description: ""
 
