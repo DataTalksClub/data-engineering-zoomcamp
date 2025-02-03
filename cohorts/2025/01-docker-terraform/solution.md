@@ -166,7 +166,7 @@ Answer: `JFK Airflow`
 
 > Generating proposed changes and auto-executing the plan: 
 
-- `terraform plan -auto-apply`
+- `terraform apply -auto-apply`
 
 > Remove all resources managed by terraform`
 
