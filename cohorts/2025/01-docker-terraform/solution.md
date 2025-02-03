@@ -4,7 +4,6 @@
 root@ad53d4d6e8eb:/# pip --version
 ```
 or 
-
 ```shell
 docker run python:3.12.8 pip --version
 ```
@@ -33,7 +32,7 @@ PING postgres (172.22.0.2): 56 data bytes
 ```
 
 Both the service name (`db`) and the container name (`postgres`) can be used.
-You should be aware that the port being used is the one exposed by the container (5432), not the port is set as port-forwarding (5432)
+You should be aware that the port being used is the one exposed by the container (5432), not the port is set as port-forwarding (5433)
 
 Answer: `postgres:5432` or `db:5432`
 
@@ -155,7 +154,7 @@ limit 1
 | East Harlem North | JFK Airport         | 87.3       |
 ```
 
-Answer: `JFK Airflow`
+Answer: `JFK Airport`
 
 
 ## Question 7. Terraform Workflow
@@ -166,7 +165,7 @@ Answer: `JFK Airflow`
 
 > Generating proposed changes and auto-executing the plan: 
 
-- `terraform plan -auto-apply`
+- `terraform apply -auto-approve`
 
 > Remove all resources managed by terraform`
 
