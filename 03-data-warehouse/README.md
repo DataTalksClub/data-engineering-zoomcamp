@@ -50,7 +50,7 @@
 
 # Homework
 
-* [2024 Homework](../cohorts/2024/03-data-warehouse/homework.md)
+* [2024 Homework](../cohorts/2025/03-data-warehouse/homework.md)
 
 
 # Community notes
