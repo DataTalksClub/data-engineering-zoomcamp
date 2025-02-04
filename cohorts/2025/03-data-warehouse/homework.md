@@ -55,15 +55,15 @@ How many records have a fare_amount of 0?
 - 8,333
 
 ## Question 5:
-What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_timedate and order the results by VendorID (Create a new table with this strategy)
-- Partition by tpep_dropoff_timedate and Cluster on VendorID
-- Cluster on by tpep_dropoff_timedate and Cluster on VendorID
-- Cluster on tpep_dropoff_timedate Partition by VendorID
-- Partition by tpep_dropoff_timedate and Partition by VendorID
+What is the best strategy to make an optimized table in Big Query if your query will always filter based on tpep_dropoff_datetime and order the results by VendorID (Create a new table with this strategy)
+- Partition by tpep_dropoff_datetime and Cluster on VendorID
+- Cluster on by tpep_dropoff_datetime and Cluster on VendorID
+- Cluster on tpep_dropoff_datetime Partition by VendorID
+- Partition by tpep_dropoff_datetime and Partition by VendorID
 
 
 ## Question 6:
-Write a query to retrieve the distinct VendorIDs between tpep_dropoff_timedate
+Write a query to retrieve the distinct VendorIDs between tpep_dropoff_datetime
 03/01/2024 and 03/15/2024 (inclusive)</br>
 
 Use the materialized table you created earlier in your from clause and note the estimated bytes. Now change the table in the from clause to the partitioned table you created for question 4 and note the estimated bytes processed. What are these values? </br>
