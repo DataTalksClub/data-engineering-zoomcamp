@@ -1,7 +1,7 @@
 ## Module 2 Homework Scripts and Answers
 
 ### Assignment 
-Data Load for 2021 using for loop: hoemwork_load_taxi_data_forloop.yaml
+Data Load for 2021 using for loop: homework_load_taxi_data_forloop.yaml
 
 ### Quiz
 1. 128.3 MB
