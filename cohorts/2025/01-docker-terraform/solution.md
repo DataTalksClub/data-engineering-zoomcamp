@@ -15,20 +15,13 @@ Answer: `24.3.1`
 
 - Spin that docker-compose.yml with `docker compose up -d`
 - Log into pgadmin container with: `docker exec -it pgadmin bash`
-- Test connectivity with `ping`
+- Test connectivity with `nc`
 
 ```shell
-554604249e08:/pgadmin4$ ping db
-PING db (172.22.0.2): 56 data bytes
-64 bytes from 172.22.0.2: seq=0 ttl=42 time=0.191 ms
-64 bytes from 172.22.0.2: seq=1 ttl=42 time=0.370 ms
-64 bytes from 172.22.0.2: seq=2 ttl=42 time=0.140 ms
-
-554604249e08:/pgadmin4$ ping postgres
-PING postgres (172.22.0.2): 56 data bytes
-64 bytes from 172.22.0.2: seq=0 ttl=42 time=0.277 ms
-64 bytes from 172.22.0.2: seq=1 ttl=42 time=0.408 ms
-64 bytes from 172.22.0.2: seq=2 ttl=42 time=0.193 ms
+a9f4522e9e0b:/pgadmin4$ nc -zv db 5432
+db (172.18.0.3:5432) open
+a9f4522e9e0b:/pgadmin4$ nc -zv postgres 5432
+postgres (172.18.0.3:5432) open
 ```
 
 Both the service name (`db`) and the container name (`postgres`) can be used.
