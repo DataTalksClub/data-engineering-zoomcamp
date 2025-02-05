@@ -151,7 +151,7 @@ Note: given the large dataset, we'll backfill only data for the green taxi datas
 
 The flow code: [`02_postgres_taxi_scheduled.yaml`](flows/02_postgres_taxi_scheduled.yaml).
 
-### Local DB: Orchestrate dbt Models
+### Local DB: Orchestrate dbt Models (Optional)
 
 Now that we have raw data ingested into a local Postgres database, we can use dbt to transform the data into meaningful insights. The flow will sync the dbt models from Git to Kestra and run the `dbt build` command to build the models.
 
@@ -237,7 +237,7 @@ Since we now process data in a cloud environment with infinitely scalable storag
 
 The flow code: [`06_gcp_taxi_scheduled.yaml`](flows/06_gcp_taxi_scheduled.yaml).
 
-### GCP Workflow: Orchestrate dbt Models
+### GCP Workflow: Orchestrate dbt Models (Optional)
 
 Now that we have raw data ingested into BigQuery, we can use dbt to transform that data. The flow will sync the dbt models from Git to Kestra and run the `dbt build` command to build the models:
 
@@ -253,9 +253,11 @@ The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
 ---
 
-## 5. Bonus: Deploy to the Cloud
+## 5. Bonus: Deploy to the Cloud (Optional)
 
 Now that we've got our ETL pipeline working both locally and in the cloud, we can deploy Kestra to the cloud so it can continue to orchestrate our ETL pipelines monthly with our configured schedules, We'll cover how you can install Kestra on Google Cloud in Production, and automatically sync and deploy your workflows from a Git repository.
+
+Note: When commiting your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
 
 ### Videos
 
@@ -434,6 +436,8 @@ Did you take notes? You can share them by creating a PR to this file!
 
 * [Notes from Manuel Guerra)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/2_Workflow-Orchestration-(Kestra)/README.md)
 * [Notes from Horeb Seidou](https://spotted-hardhat-eea.notion.site/Week-2-Workflow-Orchestration-17129780dc4a80148debf61e6453fffe)
+* [Notes from Livia](https://docs.google.com/document/d/1Y_QMonvEtFPbXIzmdpCSVsKNC1BWAHFBA1mpK9qaZko/edit?usp=sharing)
+* [2025 Gitbook Notes from Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/module-2/introduction-to-module-2)
 * Add your notes above this line
 
 ---

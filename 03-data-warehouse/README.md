@@ -50,7 +50,7 @@
 
 # Homework
 
-* [2024 Homework](../cohorts/2024/03-data-warehouse/homework.md)
+* [2025 Homework](../cohorts/2025/03-data-warehouse/homework.md)
 
 
 # Community notes
@@ -75,4 +75,5 @@ Did you take notes? You can share them here.
 * [Notes by HongWei](https://github.com/hwchua0209/data-engineering-zoomcamp-submission/blob/main/03-data-warehouse/README.md)
 * [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/3_Data-Warehouse/README.md)
 * [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-3-Data-Warehouse-and-BigQuery-17c29780dc4a80c8a226f372543ae388)
+* [2025 - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/03_data_warehouse/00_notes.md)
 * Add your notes here (above this line)
