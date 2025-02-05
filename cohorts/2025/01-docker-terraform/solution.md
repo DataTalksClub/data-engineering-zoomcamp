@@ -20,6 +20,7 @@ Answer: `24.3.1`
 ```shell
 a9f4522e9e0b:/pgadmin4$ nc -zv db 5432
 db (172.18.0.3:5432) open
+
 a9f4522e9e0b:/pgadmin4$ nc -zv postgres 5432
 postgres (172.18.0.3:5432) open
 ```
