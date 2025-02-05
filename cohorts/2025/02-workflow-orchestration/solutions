@@ -1,0 +1,44 @@
+Q3
+
+SELECT case when trip_distance <=1 then '<=1'
+			when trip_distance <=3 then '1-3'
+			when trip_distance <=7 then '3-7'
+			when trip_distance <=10 then '7-10'
+			when trip_distance >10 then 'over 10'
+			else null end as cat, count(*) as total
+
+FROM public.green_trip_data
+where (lpep_pickup_datetime::date between '2019-10-01' and '2019-11-01')
+or (lpep_dropoff_datetime::date between '2019-10-01' and '2019-11-01')
+ group by 1;
+
+
+Q4
+
+select lpep_pickup_datetime::date
+from green_trip_data
+where trip_distance = (select max(trip_distance) from green_trip_data) ;
+
+
+Q5
+
+select z."LocationID", z."Zone", sum(total_amount) as total_amount
+from green_trip_data g
+left join taxi_zone z on g."PULocationID"=z."LocationID"
+where lpep_pickup_datetime::date='2019-10-18'
+group by z."LocationID", z."Zone"
+having sum(total_amount)>=13000
+order by total_amount desc
+limit 3;
+
+
+Q6
+select  z."Zone", max(g.tip_amount) as total_tip
+from
+green_trip_data g
+left join taxi_zone z on g."DOLocationID"=z."LocationID"
+where "PULocationID"=74 and
+lpep_pickup_datetime::date between '2019-10-01' and '2019-10-30'
+group by g."DOLocationID",  z."Zone"
+order by 2 desc;
+
