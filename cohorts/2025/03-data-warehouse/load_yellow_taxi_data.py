@@ -6,11 +6,11 @@ import time
 
 
 #Change this to your bucket name
-BUCKET_NAME = "dezoomcamp_hw3_2025"  
+BUCKET_NAME = "dezoomcamp_hw3_202502"  
 
 #If you authenticated through the GCP SDK you can comment out these two lines
-CREDENTIALS_FILE = "gcs.json"  
-client = storage.Client.from_service_account_json(CREDENTIALS_FILE)
+# CREDENTIALS_FILE = "gcs.json"  
+# client = storage.Client.from_service_account_json(CREDENTIALS_FILE)
 
 
 BASE_URL = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-"
@@ -21,6 +21,7 @@ CHUNK_SIZE = 8 * 1024 * 1024
 
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
+client = storage.Client()
 bucket = client.bucket(BUCKET_NAME)
 
 

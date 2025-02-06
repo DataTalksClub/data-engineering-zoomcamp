@@ -8,6 +8,7 @@ from google.cloud import storage
 Pre-reqs: 
 1. `pip install pandas pyarrow google-cloud-storage`
 2. Set GOOGLE_APPLICATION_CREDENTIALS to your project/service-account key
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/huilingqiao/Documents/Files/robotic-incline-449301-g8-3d033c97c02d.json"
 3. Set GCP_GCS_BUCKET as your bucket or change default value of BUCKET
 """
 
