@@ -105,7 +105,7 @@ By this stage of the course you should have already:
 
 
 > [!NOTE]
-> If find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://www.getdbt.com/dbt-fundamentals/) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
+> If find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
 
 
  
