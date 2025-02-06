@@ -18,11 +18,9 @@ services:
       interval: 30s
       timeout: 10s
       retries: 10
-    ports:
-      - "5432:5432"
 
   kestra:
-    image: kestra/kestra:develop
+    image: kestra/kestra:latest
     pull_policy: always
     user: "root"
     command: server standalone

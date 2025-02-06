@@ -1,188 +1,119 @@
-# Data Engineering Zoomcamp
-
-
 <p align="center">
-  <a href="https://airtable.com/shr6oVXeQvSI5HuWD"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+  <img width="100%" src="images/architecture/arch_v4_workshops.jpg" alt="Data Engineering Zoomcamp Overview">
 </p>
 
-- Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
-- Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-- Join the [course Telegram channel with announcements](https://t.me/dezoomcamp)
-- The videos are published on [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- [Frequently asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
+<h1 align="center">
+    <strong>Data Engineering Zoomcamp: A Free 9-Week Course on Data Engineering Fundamentals</strong>
+</h1>
 
-Syllabus
+<p align="center">
+Master the fundamentals of data engineering by building an end-to-end data pipeline from scratch. Gain hands-on experience with industry-standard tools and best practices.
+</p>
 
-* [Module 1: Containerization and Infrastructure as Code](#module-1-containerization-and-infrastructure-as-code)
-* [Module 2: Workflow Orchestration](#module-2-workflow-orchestration)
-* [Workshop 1: Data Ingestion](#workshop-1-data-ingestion)
-* [Module 3: Data Warehouse](#module-3-data-warehouse)
-* [Module 4: Analytics Engineering](#module-4-analytics-engineering)
-* [Module 5: Batch processing](#module-5-batch-processing)
-* [Module 6: Streaming](#module-6-streaming)
-* [Project](#project)
+<p align="center">
+<a href="https://airtable.com/shr6oVXeQvSI5HuWD"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+</p>
 
-## Taking the course
+<p align="center">
+<a href="https://datatalks.club/slack.html">Join Slack</a> •
+<a href="https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG">#course-data-engineering Channel</a> •
+<a href="https://t.me/dezoomcamp">Telegram Announcements</a> •
+<a href="https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb">Course Playlist</a> •
+<a href="https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing">FAQ</a>
+</p>
 
-### 2025 Cohort 
+## How to Enroll
 
-* **Start**: 13 January 2025
-* **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* Materials specific to the cohort: [cohorts/2025/](cohorts/2025/)
+### 2025 Cohort
+- **Start Date**: January 13, 2025
+- **Register Here**: [Sign up](https://airtable.com/shr6oVXeQvSI5HuWD)
+- **Access Cohort Materials**: [2025 Cohort Folder](cohorts/2025/)
 
-### Self-paced mode
+### Self-Paced Learning
+All course materials are freely available for independent study. Follow these steps:
+1. Watch the course videos.
+2. Join the [Slack community](https://datatalks.club/slack.html).
+3. Refer to the [FAQ document](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) for guidance.
 
-All the materials of the course are freely available, so that you
-can take the course at your own pace
+## Syllabus Overview
+The course consists of structured modules, hands-on workshops, and a final project to reinforce your learning.
 
-* Follow the suggested syllabus (see below) week by week
-* You don't need to fill in the registration form. Just start watching the videos and join Slack
-* Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
-* If you can't find a solution to your problem in FAQ, ask for help in Slack
+### **Prerequisites**
+To get the most out of this course, you should have:
+- Basic coding experience
+- Familiarity with SQL
+- Experience with Python (helpful but not required)
 
+No prior data engineering experience is necessary.
 
-## Syllabus
+### **Modules**
 
-We encourage [Learning in Public](learning-in-public.md)
+#### [Module 1: Containerization and Infrastructure as Code](01-docker-terraform/)
+- Introduction to GCP
+- Docker and Docker Compose
+- Running PostgreSQL with Docker
+- Infrastructure setup with Terraform
+- Homework
 
-> **Note:** NYC TLC changed the format of the data we use to parquet.
-> In the course we still use the CSV files accessible [here](https://github.com/DataTalksClub/nyc-tlc-data).
+#### [Module 2: Workflow Orchestration](02-workflow-orchestration/)
+- Data Lakes and Workflow Orchestration
+- Workflow orchestration with Kestra
+- Homework
 
+#### [Workshop 1: Data Ingestion](cohorts/2025/workshops/dlt.md)
+- API reading and pipeline scalability
+- Data normalization and incremental loading
+- Homework
 
-### [Module 1: Containerization and Infrastructure as Code](01-docker-terraform/)
+#### [Module 3: Data Warehousing](03-data-warehouse/)
+- Introduction to BigQuery
+- Partitioning, clustering, and best practices
+- Machine learning in BigQuery
 
-* Course overview
-* Introduction to GCP
-* Docker and docker-compose
-* Running Postgres locally with Docker
-* Setting up infrastructure on GCP with Terraform
-* Preparing the environment for the course
-* Homework
+#### [Module 4: Analytics Engineering](04-analytics-engineering/)
+- dbt (data build tool) with PostgreSQL & BigQuery
+- Testing, documentation, and deployment
+- Data visualization with Metabase
 
-[More details](01-docker-terraform/)
+#### [Module 5: Batch Processing](05-batch/)
+- Introduction to Apache Spark
+- DataFrames and SQL
+- Internals of GroupBy and Joins
 
+#### [Module 6: Streaming](06-streaming/)
+- Introduction to Kafka
+- Kafka Streams and KSQL
+- Schema management with Avro
 
-### [Module 2: Workflow Orchestration](02-workflow-orchestration/)
+#### [Final Project](projects/)
+- Apply all concepts learned in a real-world scenario
+- Peer review and feedback process
 
-* Data Lake
-* Workflow orchestration
-* Workflow orchestration with Mage
-* Homework
+## Community & Support
 
-[More details](02-workflow-orchestration/)
+### **Getting Help on Slack**
+Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel on [DataTalks.Club Slack](https://datatalks.club/slack.html) for discussions, troubleshooting, and networking.
 
+To keep discussions organized:
+- Follow [our guidelines](asking-questions.md) when posting questions.
+- Review the [community guidelines](https://datatalks.club/slack/guidelines.html).
 
-### [Workshop 1: Data Ingestion](cohorts/2025/workshops/dlt.md)
-
-* Reading from apis
-* Building scalable pipelines
-* Normalising data
-* Incremental loading
-* Homework
-
-
-[More details](cohorts/2025/workshops/dlt.md)
-
-
-### [Module 3: Data Warehouse](03-data-warehouse/)
-
-* Data Warehouse
-* BigQuery
-* Partitioning and clustering
-* BigQuery best practices
-* Internals of BigQuery
-* BigQuery Machine Learning
-
-[More details](03-data-warehouse/)
-
-
-### [Module 4: Analytics engineering](04-analytics-engineering/)
-
-* Basics of analytics engineering
-* dbt (data build tool)
-* BigQuery and dbt
-* Postgres and dbt
-* dbt models
-* Testing and documenting
-* Deployment to the cloud and locally
-* Visualizing the data with google data studio and metabase
-
-
-[More details](04-analytics-engineering/)
-
-
-### [Module 5: Batch processing](05-batch/)
-
-* Batch processing
-* What is Spark
-* Spark Dataframes
-* Spark SQL
-* Internals: GroupBy and joins
-
-[More details](05-batch/)
-
-### [Module 6: Streaming](06-streaming/)
-
-* Introduction to Kafka
-* Schemas (avro)
-* Kafka Streams
-* Kafka Connect and KSQL
-
-[More details](06-streaming/)
-
-
-
-### [Project](projects)
-
-Putting everything we learned to practice
-
-* Week 1 and 2: working on your project
-* Week 3: reviewing your peers
-
-[More details](projects)
-
-## Overview
-
-<img src="images/architecture/arch_v4_workshops.jpg" />
-
-### Prerequisites
-
-To get the most out of this course, you should feel comfortable with coding and command line
-and know the basics of SQL. Prior experience with Python will be helpful, but you can pick
-Python relatively fast if you have experience with other programming languages.
-
-Prior experience with data engineering is not required.
-
-
-
-## Instructors
-
-- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
+## Meet the Instructors
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
-- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 - [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
+- [Zach Wilson](https://www.linkedin.com/in/eczachly)
+- [Will Russell](https://www.linkedin.com/in/wrussell1999/)
+- [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
 
 Past instructors:
-
+- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
 - [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
+- [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 
-
-## Asking for help in Slack
-
-The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel.
-
-To make discussions in Slack more organized:
-
-* Follow [these recommendations](asking-questions.md) when asking for help
-* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
-
-
-
-## Supporters and partners
-
-Thanks to the course sponsors for making it possible to run this course
+## Sponsors & Supporters
+A special thanks to our course sponsors for making this initiative possible!
 
 <p align="center">
   <a href="https://kestra.io/">
@@ -190,12 +121,37 @@ Thanks to the course sponsors for making it possible to run this course
   </a>
 </p>
 
-
 <p align="center">
   <a href="https://dlthub.com/">
     <img height="90" src="images/dlthub.png">
   </a>
 </p>
 
+Interested in supporting our community? Reach out to [alexey@datatalks.club](mailto:alexey@datatalks.club).
 
-Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
+## About DataTalks.Club
+
+<p align="center">
+  <img width="40%" src="https://github.com/user-attachments/assets/1243a44a-84c8-458d-9439-aaf6f3a32d89" alt="DataTalks.Club">
+</p>
+
+<p align="center">
+<a href="https://datatalks.club/">DataTalks.Club</a> is a global online community of data enthusiasts. It's a place to discuss data, learn, share knowledge, ask and answer questions, and support each other.
+</p>
+
+<p align="center">
+<a href="https://datatalks.club/">Website</a> •
+<a href="https://datatalks.club/slack.html">Join Slack Community</a> •
+<a href="https://us19.campaign-archive.com/home/?u=0d7822ab98152f5afc118c176&id=97178021aa">Newsletter</a> •
+<a href="http://lu.ma/dtc-events">Upcoming Events</a> •
+<a href="https://calendar.google.com/calendar/?cid=ZjhxaWRqbnEwamhzY3A4ODA5azFlZ2hzNjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Google Calendar</a> •
+<a href="https://www.youtube.com/@DataTalksClub/featured">YouTube</a> •
+<a href="https://github.com/DataTalksClub">GitHub</a> •
+<a href="https://www.linkedin.com/company/datatalks-club/">LinkedIn</a> •
+<a href="https://twitter.com/DataTalksClub">Twitter</a>
+</p>
+
+All the activity at DataTalks.Club mainly happens on [Slack](https://datatalks.club/slack.html). We post updates there and discuss different aspects of data, career questions, and more.
+
+At DataTalksClub, we organize online events, community activities, and free courses. You can learn more about what we do at [DataTalksClub Community Navigation](https://www.notion.so/DataTalksClub-Community-Navigation-bf070ad27ba44bf6bbc9222082f0e5a8?pvs=21).
+

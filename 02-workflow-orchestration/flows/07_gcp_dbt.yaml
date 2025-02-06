@@ -12,7 +12,7 @@ inputs:
 tasks:
   - id: sync
     type: io.kestra.plugin.git.SyncNamespaceFiles
-    url: https://github.com/anna-geller/data-engineering-zoomcamp
+    url: https://github.com/DataTalksClub/data-engineering-zoomcamp
     branch: main
     namespace: "{{flow.namespace}}"
     gitDirectory: 04-analytics-engineering/taxi_rides_ny

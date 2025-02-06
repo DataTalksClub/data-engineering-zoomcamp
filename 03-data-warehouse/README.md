@@ -11,13 +11,9 @@
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/jrHljAoD6nM)](https://youtu.be/jrHljAoD6nM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
 
-## :movie_camera: Partitoning and clustering
+## :movie_camera: Partitioning and clustering
 
-- Partioning and Clustering
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/-CqXf7vhhDs)](https://youtu.be/-CqXf7vhhDs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
-
-- Partioning vs Clustering
+- Partitioning vs Clustering
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/-CqXf7vhhDs)](https://youtu.be/-CqXf7vhhDs?si=p1sYQCAs8dAa7jIm&t=193&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
 
@@ -54,7 +50,7 @@
 
 # Homework
 
-* [2024 Homework](../cohorts/2024/03-data-warehouse/homework.md)
+* [2025 Homework](../cohorts/2025/03-data-warehouse/homework.md)
 
 
 # Community notes
@@ -77,4 +73,7 @@ Did you take notes? You can share them here.
 * [2024 - mage dataloader script to load the parquet files from a remote URL and push it to Google bucket as parquet file](https://github.com/amohan601/dataengineering-zoomcamp2024/blob/main/week_3_data_warehouse/mage_scripts/green_taxi_2022_v2.py) by Anju Mohan
 * [2024 - steps to send data from Mage to GCS + creating external table](https://drive.google.com/file/d/1GIi6xnS4070a8MUlIg-ozITt485_-ePB/view?usp=drive_link) by Maria Fisher 
 * [Notes by HongWei](https://github.com/hwchua0209/data-engineering-zoomcamp-submission/blob/main/03-data-warehouse/README.md)
+* [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/3_Data-Warehouse/README.md)
+* [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-3-Data-Warehouse-and-BigQuery-17c29780dc4a80c8a226f372543ae388)
+* [2025 - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/03_data_warehouse/00_notes.md)
 * Add your notes here (above this line)

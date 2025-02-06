@@ -101,6 +101,13 @@ By this stage of the course you should have already:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/BnLkrA7a6gM)](https://youtu.be/BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=49)
 
+## Extra resourses
+
+
+> [!NOTE]
+> If find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://www.getdbt.com/dbt-fundamentals/) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
+
+
  
 ## Advanced concepts
 
@@ -111,6 +118,7 @@ By this stage of the course you should have already:
  * [Snapshots](https://docs.getdbt.com/docs/building-a-dbt-project/snapshots)
  * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
  * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
+
 
 
 ## Community notes
@@ -132,6 +140,7 @@ Did you take notes? You can share them here.
 * [Notes by Linda](https://github.com/inner-outer-space/de-zoomcamp-2024/blob/main/4-analytics-engineering/readme.md)
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
 * [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
+* [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/4_Analytics-Engineering/README.md)
 * Add your notes here (above this line)
 
 ## Useful links

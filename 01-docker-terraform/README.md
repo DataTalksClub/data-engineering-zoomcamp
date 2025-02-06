@@ -176,7 +176,7 @@ For the course you'll need:
 
 # Homework
 
-* [Homework](../cohorts/2024/01-docker-terraform/homework.md)
+* [Homework](../cohorts/2025/01-docker-terraform/homework.md)
 
 
 # Community notes
@@ -210,4 +210,8 @@ Did you take notes? You can share them here
 * [Notes from Hammad Tariq](https://github.com/hamad-tariq/HammadTariq-ZoomCamp2024/blob/9c8b4908416eb8cade3d7ec220e7664c003e9b11/week_1_basics_n_setup/README.md)
 * [Hung's Notes](https://hung.bearblog.dev/docker/) & [Docker Cheatsheet](https://github.com/HangenYuu/docker-cheatsheet)
 * [Kemal's Notes](https://github.com/kemaldahha/data-engineering-course/blob/main/week_1_notes.md)
+* [Notes from Manuel Guerra (Windows+WSL2 Environment)](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/1_Containerization-and-Infrastructure-as-Code/README.md)
+* [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-1-Containerization-and-Infrastructure-as-Code-15729780dc4a80a08288e497ba937a37)
+* [2025 Gitbook Notes from Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/introduction/introduction-and-set-up)
+* [Alex's Docker Notes](https://github.com/alexg9010/2025_data_engineering_zoomcamp/blob/master/01_docker/README.md) | [Alex's Terraform Notes](https://github.com/alexg9010/2025_data_engineering_zoomcamp/blob/master/01_3_terraform/README.md)
 * Add your notes above this line
