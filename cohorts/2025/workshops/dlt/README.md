@@ -20,10 +20,10 @@ By the end of this workshop, you'll be able to build data pipelines like a senio
 ## 📂 Navigation & Resources
 
 - Workshop:
-  - [Workshop content](dlt_resources/data_ingestion_workshop.md).
+  - [Workshop content](data_ingestion_workshop.md).
   - [Workshop Colab Notebook](https://colab.research.google.com/drive/1FiAHNFenM8RyptyTPtDTfqPCi5W6KX_V?usp=sharing).
 - Homework:
-  - [Homework Markdown](dlt_resources/homework.md).
+  - [Homework Markdown](homework.md).
   - [Homework Colab Notebook](https://colab.research.google.com/drive/1plqdl33K_HkVx0E0nGJrrkEUssStQsW7).
 - 🌐 [Official dlt Documentation](https://dlthub.com/docs/intro).
 - 💬 Join our [Slack Community](https://dlthub.com/community).
@@ -33,11 +33,11 @@ By the end of this workshop, you'll be able to build data pipelines like a senio
 ## 📖 Course overview
 This workshop is structured into three key parts:
 
-1️⃣ **[Extracting Data](dlt_resources/data_ingestion_workshop.md#extracting-data)** – Learn scalable data extraction techniques.  
-2️⃣ **[Normalizing Data](dlt_resources/data_ingestion_workshop.md#normalizing-data)** – Clean and structure data before loading.  
-3️⃣ **[Loading & Incremental Updates](dlt_resources/data_ingestion_workshop.md#loading-data)** – Efficiently load and update data.  
+1️⃣ **[Extracting Data](data_ingestion_workshop.md#extracting-data)** – Learn scalable data extraction techniques.  
+2️⃣ **[Normalizing Data](data_ingestion_workshop.md#normalizing-data)** – Clean and structure data before loading.  
+3️⃣ **[Loading & Incremental Updates](data_ingestion_workshop.md#loading-data)** – Efficiently load and update data.  
 
-📌 **Find the full course file here**: [Course File](dlt_resources/data_ingestion_workshop.md)  
+📌 **Find the full course file here**: [Course File](data_ingestion_workshop.md)  
 
 ---
 
@@ -58,7 +58,7 @@ I'm Violetta Mishechkina, Solutions Engineer at dltHub. 👋
 
 ## Homework
 
-- [Homework Markdown](dlt_resources/homework.md).
+- [Homework Markdown](homework.md).
 - [Homework Colab Notebook](https://colab.research.google.com/drive/1plqdl33K_HkVx0E0nGJrrkEUssStQsW7).
 
 --- 
