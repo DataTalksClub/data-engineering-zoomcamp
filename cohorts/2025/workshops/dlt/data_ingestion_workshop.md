@@ -177,6 +177,7 @@ while True:
     if page_number > 2:
       break
 ```
+What happens here:
 - Starts at page 1 and makes a GET request to the API.
 - Retrieves JSON data and checks if the page contains records.
 - If data exists, prints it and moves to the next page.
@@ -248,7 +249,6 @@ def paginated_getter():
 
 for page_data in paginated_getter():
     print(page_data)
-    break
 ```
 
 In this approach to grabbing data from APIs, there are both pros and cons:  
@@ -261,15 +261,13 @@ To simplify data extraction, use specialized tools that follow best practices li
 
 ### **Extracting data with dlt**
 
-![dlt](img/dlt.png)
-
 Extracting data from APIs manually requires handling
 - **pagination**,
 - **rate limits**,
 - **authentication**,
 - **errors**.
 
-Instead of writing custom scripts, **[dlt](https://www.google.com/url?q=https%3A%2F%2Fdlthub.com)** simplifies the process with a built-in **[REST API source](https://dlthub.com/docs/dlt-ecosystem/verified-sources/rest_api/basic)**, making extraction **efficient, scalable, and reliable**.  
+Instead of writing custom scripts, **[dlt](https://dlthub.com/)** simplifies the process with a built-in **[REST API Client](https://dlthub.com/docs/general-usage/http/rest-client)**, making extraction **efficient, scalable, and reliable**.  
 
 ---
 
@@ -279,7 +277,9 @@ Instead of writing custom scripts, **[dlt](https://www.google.com/url?q=https%3A
 ✅ **Automatic pagination handling** – No need to loop through pages manually.  
 ✅ **Manages Rate Limits & Retries** – Prevents exceeding API limits and handles failures.  
 ✅ **Streaming support** – Extracts and processes data without loading everything into memory.  
-✅ **Seamless integration** – Works with **normalization and loading** in a single pipeline.
+✅ **Seamless integration** – Works with **normalization and loading** in a single pipeline.  
+
+![dlt](img/dlt.png)
 
 ### **Install dlt**
 
@@ -291,37 +291,28 @@ pip install dlt[duckdb]
 
 ### **Example of extracting data with dlt**  
 
-Instead of manually writing pagination logic, let’s use **dlt’s `rest_api` source** to extract NYC taxi ride data: 
+Instead of manually writing pagination logic, let’s use **dlt’s [`RESTClient` helper](https://dlthub.com/docs/general-usage/http/rest-client)** to extract NYC taxi ride data:  
 ```py
 import dlt
-from dlt.sources.rest_api import rest_api_source
+from dlt.sources.helpers.rest_client import RESTClient
+from dlt.sources.helpers.rest_client.paginators import PageNumberPaginator
 
-# Define the API source for NYC taxi data
-source = rest_api_source({
-    "client": {
-        "base_url": "https://us-central1-dlthub-analytics.cloudfunctions.net/",
+
+def paginated_getter():
+    client = RESTClient(
+        base_url="https://us-central1-dlthub-analytics.cloudfunctions.net",
         # Define pagination strategy - page-based pagination
-        "paginator": {
-            "type": "page_number",  # <--- Pages are numbered (1, 2, 3, ...)
-            "base_page": 1,         # <--- Start from page 1
-            "total_path": None,     # <--- No total count of pages provided by API, pagination should stop when a page contains no result items
-        },
-    },
-    # Define the resource(s) to be extracted from the API
-    "resources": [
-        {
-            "name": "rides",   # <--- The name of the resource (will be used as the table name)
-            "endpoint": {
-                "path":  "data_engineering_zoomcamp_api",   # <--- API endpoint for retrieving taxi ride data
-            }
-        }
-    ],
-})
+        paginator=PageNumberPaginator(   # <--- Pages are numbered (1, 2, 3, ...)
+            base_page=1,   # <--- Start from page 1
+            total_path=None    # <--- No total count of pages provided by API, pagination should stop when a page contains no result items
+        )
+    )
 
-# Iterate through the items and print the first sample of data
-for item in source:
-    print(item)
-    break
+    for page in client.paginate("data_engineering_zoomcamp_api"):    # <--- API endpoint for retrieving taxi ride data
+        yield page   # remember about memory management and yield data
+
+for page_data in paginated_getter():
+    print(page_data)
 ```
 
 **How dlt simplifies API extraction:**  
@@ -380,6 +371,7 @@ JSON is great for **data exchange** but **not for direct analytical use**. To ma
 To understand what we’re working with, let’s look at a sample record from our API:
 
 ```py
+item = page_data[0]
 item
 ```
 Output:
@@ -442,7 +434,8 @@ Before reaching this format, the raw data likely contained **nested structures**
      ```
    - Since lists **cannot be stored directly in a database table**, they were likely **moved to a separate table**.
 
-💡 **However, real-world data is rarely this clean!** We often receive raw, nested, and inconsistent data. This is why the **normalization process** is so important—it **prepares** the data for efficient storage and analysis.  **[dlt (data load tool)](https://dlthub.com/docs/intro)** simplifies the **normalization process**, automatically transforming raw data into a **structured, clean format** that is ready for storage and analysis.
+💡 **However, real-world data is rarely this clean!** We often receive raw, nested, and inconsistent data. This is why the **normalization process** is so important—it **prepares** the data for efficient storage and analysis.  
+**[dlt (data load tool)](https://dlthub.com/docs/intro)** simplifies the **normalization process**, automatically transforming raw data into a **structured, clean format** that is ready for storage and analysis.
 
 ---
 
@@ -571,7 +564,6 @@ A basic pipeline requires:
 4. Writing queries to insert/update data.
 
 ```py
-import json
 import duckdb
 
 # 1. Create a connection to an in-memory DuckDB database
@@ -651,9 +643,7 @@ Problems without dlt:
 
 ### **How dlt handles the load step automatically**  
 
-With dlt, loading data **requires just a few lines of code** — schema inference, error handling, and incremental updates are all handled automatically!  
-
-![dlt](img/dlt.png)
+With dlt, loading data **requires just a few lines of code** — schema inference, error handling, and incremental updates are all handled automatically!
 
 ### **Why use dlt for loading?**  
 
@@ -663,22 +653,43 @@ With dlt, loading data **requires just a few lines of code** — schema inferenc
 ✅ **Incremental loading** – Avoids unnecessary reloading by **only inserting new or updated records**.  
 ✅ **Resilience & retries** – Automatically handles failures, ensuring data is loaded **without missing records**.
 
+![dlt](img/dlt.png)
+
 ### **Example: Loading data into database with dlt**
+
+
+
+To use all the power of dlt is better to wrap our API Client in the `@dlt.resource` decorator which denotes a logical grouping of data within a data source, typically holding data of similar structure and origin:
+
 ```py
 import dlt
+from dlt.sources.helpers.rest_client import RESTClient
+from dlt.sources.helpers.rest_client.paginators import PageNumberPaginator
 
-# Define a dlt pipeline with automatic normalization
-pipeline = dlt.pipeline(
-    pipeline_name="ny_taxi_data",
-    destination="duckdb",
-    dataset_name="taxi_rides",
-)
 
-# Run the pipeline with raw nested data
-info = pipeline.run(data, table_name="rides", write_disposition="replace")
+# Define the API resource for NYC taxi data
+@dlt.resource(name="rides")   # <--- The name of the resource (will be used as the table name)
+def ny_taxi():
+    client = RESTClient(
+        base_url="https://us-central1-dlthub-analytics.cloudfunctions.net",
+        paginator=PageNumberPaginator(
+            base_page=1,
+            total_path=None
+        )
+    )
 
-# Print the load summary
-print(info)
+    for page in client.paginate("data_engineering_zoomcamp_api"):    # <--- API endpoint for retrieving taxi ride data
+        yield page   # <--- yield data to manage memory
+
+
+# define new dlt pipeline
+pipeline = dlt.pipeline(destination="duckdb")
+
+# run the pipeline with the new resource
+load_info = pipeline.run(ny_taxi, write_disposition="replace")
+print(load_info)
+
+# explore loaded data
 pipeline.dataset(dataset_type="default").rides.df()
 ```
 
@@ -741,8 +752,92 @@ dlt provides two ways to load data incrementally:
 | Keeping full change history       | ✅ Yes         | ❌ No        |
 
 
+### **Example: Incremental loading with dlt**
 
-💡 **With dlt, incremental loading is simple, scalable, and automatic!** 
+**The goal**: download only trips made after June 15, 2009, skipping the old ones.
+
+Using `dlt`, we set up an [incremental filter](https://dlthub.com/docs/general-usage/incremental-loading%23incremental-loading-with-a-cursor-field) to only fetch trips made after a certain date:
+
+```python
+cursor_date = dlt.sources.incremental("Trip_Dropoff_DateTime", initial_value="2009-06-15")
+```
+
+This tells `dlt`:
+- **Start date**: June 15, 2009 (`initial_value`).
+- **Field to track**: `Trip_Dropoff_DateTime` (our timestamp).
+
+As you run the pipeline repeatedly, `dlt` will keep track of the latest `Trip_Dropoff_DateTime` value processed. It will skip records older than this date in future runs.
+
+Let's make the data resource incremental using `dlt.sources.incremental`:
+
+```py
+import dlt
+from dlt.sources.helpers.rest_client import RESTClient
+from dlt.sources.helpers.rest_client.paginators import PageNumberPaginator
+
+
+@dlt.resource(name="rides", write_disposition="append")
+def ny_taxi(
+    cursor_date=dlt.sources.incremental(
+        "Trip_Dropoff_DateTime",   # <--- field to track, our timestamp
+        initial_value="2009-06-15",   # <--- start date June 15, 2009
+        )
+    ):
+    client = RESTClient(
+        base_url="https://us-central1-dlthub-analytics.cloudfunctions.net",
+        paginator=PageNumberPaginator(
+            base_page=1,
+            total_path=None
+        )
+    )
+
+    for page in client.paginate("data_engineering_zoomcamp_api"):
+        yield page
+```
+
+Finally, we run our pipeline and load the fresh taxi rides data:
+
+```py
+# define new dlt pipeline
+pipeline = dlt.pipeline(pipeline_name="ny_taxi", destination="duckdb", dataset_name="ny_taxi_data")
+
+# run the pipeline with the new resource
+load_info = pipeline.run(ny_taxi)
+print(pipeline.last_trace)
+```
+
+
+Only 5325 rows were flitered out and loaded into the `duckdb` destination. Let's take a look at the earliest date in the loaded data:
+
+```py
+with pipeline.sql_client() as client:
+    res = client.execute_sql(
+            """
+            SELECT
+            MIN(trip_dropoff_date_time)
+            FROM rides;
+            """
+        )
+    print(res)
+```
+
+Run the same pipeline again.
+
+```py
+# define new dlt pipeline
+pipeline = dlt.pipeline(pipeline_name="ny_taxi", destination="duckdb", dataset_name="ny_taxi_data")
+
+
+# run the pipeline with the new resource
+load_info = pipeline.run(ny_taxi)
+print(pipeline.last_trace)
+```
+
+The pipeline will detect that there are **no new records** based on the `Trip_Dropoff_DateTime` field and the incremental cursor. As a result, **no new data will be loaded** into the destination:
+>0 load package(s) were loaded
+
+
+💡 **With dlt, incremental loading is simple, scalable, and automatic!**
 
 ---
 
@@ -757,35 +852,28 @@ Let's use our NY Taxi API and load data from the source into destination.
 
 ```py
 import dlt
-from dlt.sources.rest_api import rest_api_source
+from dlt.sources.helpers.rest_client import RESTClient
+from dlt.sources.helpers.rest_client.paginators import PageNumberPaginator
 
-# Define the API source for NYC taxi data
-source = rest_api_source({
-    "client": {
-        "base_url": "https://us-central1-dlthub-analytics.cloudfunctions.net/",
-        # Define pagination strategy - page-based pagination
-        "paginator": {
-            "type": "page_number",  # <--- Pages are numbered (1, 2, 3, ...)
-            "base_page": 1,         # <--- Start from page 1
-            "total_path": None,     # <--- No total count of pages provided by API, pagination should stop when a page contains no result items
-        },
-    },
-    # Define the resource(s) to be extracted from the API
-    "resources": [
-        {
-            "name": "rides",   # <--- The name of the resource (will be used as the table name)
-            "endpoint": {
-                "path":  "data_engineering_zoomcamp_api",   # <--- API endpoint for retrieving taxi ride data
-            }
-        }
-    ],
-})
+
+@dlt.resource(name="rides", write_disposition="replace")
+def ny_taxi():
+    client = RESTClient(
+        base_url="https://us-central1-dlthub-analytics.cloudfunctions.net",
+        paginator=PageNumberPaginator(
+            base_page=1,
+            total_path=None
+        )
+    )
+
+    for page in client.paginate("data_engineering_zoomcamp_api"):
+        yield page
 ```
 
 
 **Choosing a destination**
 
-Switching between destinations in dlt is incredibly straightforward — simply modify the `destination` parameter in your pipeline configuration. 
+Switching between  **data warehouses (BigQuery, Snowflake, Redshift)** or **data lakes (S3, Google Cloud Storage, Parquet files)**  in dlt is incredibly straightforward — simply modify the `destination` parameter in your pipeline configuration. 
 
 For example:
 
@@ -805,17 +893,29 @@ pipeline = dlt.pipeline(
 
 This flexibility allows you to easily transition from local development to production-grade environments.
 
-**No need to rewrite your pipeline—dlt adapts automatically!**
+> 💡 No need to rewrite your pipeline — dlt adapts automatically!
+
+**Set Credentials**  
+
+The next logical step is to [set credentials](https://dlthub.com/docs/general-usage/credentials/) using **dlt's TOML providers** or **environment variables (ENVs)**.
+
+```py
+import os
+from google.colab import userdata
+
+os.environ["DESTINATION__BIGQUERY__CREDENTIALS"] = userdata.get('BIGQUERY_CREDENTIALS')
+```
 
 Run the pipeline:
 ```py
 pipeline = dlt.pipeline(
     pipeline_name="taxi_data",
     destination="bigquery",
-    dataset_name="taxi_rides"
+    dataset_name="taxi_rides",
+    dev_mode=True,
 )
 
-info = pipeline.run(source, table_name="rides", write_disposition="replace")
+info = pipeline.run(ny_taxi)
 print(info)
 ```
 
@@ -851,7 +951,6 @@ os.environ["BUCKET_URL"] = "/content"
 
 ```py
 import dlt
-from dlt.sources.sql_database import sql_database
 
 
 pipeline = dlt.pipeline(
@@ -860,7 +959,7 @@ pipeline = dlt.pipeline(
     dataset_name='fs_data',
 )
 
-load_info = pipeline.run(source, loader_file_format="parquet") # <--- choose a file format: parquet, csv or jsonl
+load_info = pipeline.run(ny_taxi, loader_file_format="parquet") # <--- choose a file format: parquet, csv or jsonl
 print(load_info)
 ```
 
@@ -890,8 +989,14 @@ dlt uses the `deltalake` and `pyiceberg` libraries to write Delta and Iceberg ta
 ```
 
 ```py
+pipeline = dlt.pipeline(
+    pipeline_name='fs_pipeline',
+    destination='filesystem', # <--- change destination to 'filesystem'
+    dataset_name='fs_iceberg_data',
+)
+
 load_info = pipeline.run(
-    source,
+    ny_taxi,
     loader_file_format="parquet",
     table_format="iceberg",  # <--- choose a table format: delta or iceberg
 )
@@ -909,12 +1014,10 @@ Open source version of dlt supports basic functionality for **iceberg**, but the
 
 ## **What’s Next?**  
 
-- **Try loading data into different destinations** – Test Postgres, Snowflake, or Parquet.  
-- **Experiment with incremental loading** – Load only new records for better efficiency.  
-- **Explore dlt’s schema evolution** – Automatically adjust to data structure changes.  
-- Join our [Slack community](https://dlthub.com/community) to share your progress!  
+- **Try loading data into different [destinations](https://dlthub.com/docs/dlt-ecosystem/destinations/)** – Test Postgres, Snowflake, or Parquet.  
+- **Experiment with [incremental loading](https://dlthub.com/docs/general-usage/incremental-loading)** – Load only new records for better efficiency.  
+- **Explore dlt’s [schema evolution](https://dlthub.com/docs/general-usage/schema-evolution)** – Automatically adjust to data structure changes.  
+- **Join our [Slack community](https://dlthub.com/community)** to share your progress!  
 
 
 With **dlt’s automated load step**, you get **effortless, scalable, and resilient data loading**—so you can focus on insights instead of pipeline maintenance. 🚀
-
-
