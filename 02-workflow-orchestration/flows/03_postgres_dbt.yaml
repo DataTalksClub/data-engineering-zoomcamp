@@ -28,6 +28,7 @@ tasks:
     containerImage: ghcr.io/kestra-io/dbt-postgres:latest
     taskRunner:
       type: io.kestra.plugin.scripts.runner.docker.Docker
+      networkMode: host
     commands:
       - dbt deps
       - "{{ inputs.dbt_command }}"
