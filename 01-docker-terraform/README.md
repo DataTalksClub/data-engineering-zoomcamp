@@ -214,4 +214,6 @@ Did you take notes? You can share them here
 * [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-1-Containerization-and-Infrastructure-as-Code-15729780dc4a80a08288e497ba937a37)
 * [2025 Gitbook Notes from Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/introduction/introduction-and-set-up)
 * [Alex's Docker Notes](https://github.com/alexg9010/2025_data_engineering_zoomcamp/blob/master/01_docker/README.md) | [Alex's Terraform Notes](https://github.com/alexg9010/2025_data_engineering_zoomcamp/blob/master/01_3_terraform/README.md)
+* [2025 SQL Refresher - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/0_sql_refresh.ipynb)
+* [2025 Setting up the Environment - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/_setting_up.md)
 * Add your notes above this line
