@@ -100,3 +100,23 @@ ORDER BY max_distance DESC
 LIMIT 1
  ```
 
+## Question 5. Three biggest pickup zones
+
+Answer: `East Harlem North, East Harlem South, Morningside Heights`
+
+Code:
+
+ ```sql
+ SELECT
+	z."Zone" AS zone,
+	SUM(g.total_amount) AS total_amount
+FROM 
+	green_taxi_trips g
+	INNER JOIN taxi_zone_lookup z
+		ON z."LocationID" = g."PULocationID"
+WHERE CAST(g.lpep_pickup_datetime AS date)= '2019-10-18'
+GROUP BY z."Zone"
+ORDER BY 2 DESC
+LIMIT 3
+```
+
