@@ -29,7 +29,7 @@ _Note: if you decide to use specific roles instead of BQ Admin, some users repor
 </tr></table>
 
 
-3. Now that the service account has been created we need to add and download a JSON key, go to the keys section, select "create new key". Select key type JSON and once you click on create it will get inmediately downloaded for you to use. 
+3. Now that the service account has been created we need to add and download a JSON key, go to the keys section, select "create new key". Select key type JSON and once you click on create it will get immediately downloaded for you to use. 
 
 <table><tr>
 <td> <img src="https://user-images.githubusercontent.com/4315804/152146423-769bdfee-3846-4296-8dee-d6843081c9b1.png" style="width: 450px;"/> </td>
@@ -70,7 +70,7 @@ _Note: The dataset you'll see under the development credentials is the one you'l
 <td> <img src="https://user-images.githubusercontent.com/4315804/152147547-44ab9d6d-5f3d-41a8-8f73-2d03a568e7aa.png" style="width: 550px;"/> </td>
 </tr></table>
 
-2. You will get a deploy key, head to your GH repo and go to the settings tab. Under security you'll find the menu *deploy keys*. Click on add key and paste the deploy key provided by dbt cloud. Make sure to tikce on "write access"
+2. You will get a deploy key, head to your GH repo and go to the settings tab. Under security you'll find the menu *deploy keys*. Click on add key and paste the deploy key provided by dbt cloud. Make sure to tick on "write access"
 
  <table><tr>
 <td> <img src="https://user-images.githubusercontent.com/4315804/152147783-264f9da8-ec55-4d07-a9ec-4a8591006ea8.png" style="width: 550px;"/> </td>
