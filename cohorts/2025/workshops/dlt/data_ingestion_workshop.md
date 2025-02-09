@@ -1,8 +1,10 @@
 # Data ingestion with dlt
 
+* Sign up: https://lu.ma/quyfn4q8 (optional) 
+* Homework: [dlt_homework.md](dlt_homework.md)
 
 ## **What is data ingestion?**  
-Data ingestion is the process of **extracting** data from a source, transporting it to a suitable environment, and preparing it for use. This often includes **normalizing**, **cleaning**, and **adding metadata**.  
+Data ingestion is the process of **extracting** data from a source, transporting it to a suitable environment, and preparing it for use. This often includes **normalizing**, **cleaning**, and **adding metadata**.
 
 ---
 
