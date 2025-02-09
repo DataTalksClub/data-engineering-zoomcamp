@@ -1,5 +1,8 @@
 # Data ingestion with dlt
-🔗 Sign up here (optional): https://lu.ma/quyfn4q8 
+
+* 🔗 Sign up here (optional): https://lu.ma/quyfn4q8 
+* Homework: [dlt_homework.md](dlt_homework.md)
+
 
 Welcome to this hands-on workshop, where you'll learn to build efficient and scalable data ingestion pipelines.
 
