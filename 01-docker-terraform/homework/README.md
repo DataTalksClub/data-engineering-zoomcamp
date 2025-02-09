@@ -120,3 +120,26 @@ ORDER BY 2 DESC
 LIMIT 3
 ```
 
+## Question 6. Largest tip
+
+Answer: `JFK Airport`
+
+Code:
+
+```sql
+SELECT
+	zd."Zone" AS DropOffZone,
+	max(g.tip_amount) AS MaxTip
+FROM 
+	green_taxi_trips g
+	INNER JOIN taxi_zone_lookup zd
+		ON zd."LocationID" = g."DOLocationID"
+	INNER JOIN taxi_zone_lookup zp
+		ON zp."LocationID" = g."PULocationID"
+WHERE
+	zp."Zone" = 'East Harlem North'
+	AND EXTRACT(MONTH FROM CAST(g.lpep_pickup_datetime AS date)) = 10
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 1
+```
