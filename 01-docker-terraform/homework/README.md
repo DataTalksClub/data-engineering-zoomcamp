@@ -74,5 +74,29 @@ WHERE
 GROUP BY Category
 ORDER BY 1
 ```
+## Question 4. Longest trip for each day
 
+Answer:`2019-10-31`
+
+Code:
+
+```sql
+SELECT lpep_pickup_datetime
+FROM green_taxi_trips
+WHERE trip_distance =
+	(SELECT 
+		MAX(trip_distance)
+	FROM green_taxi_trips)
+```
+ or
+
+ ```sql
+ SELECT
+	lpep_pickup_datetime,
+	MAX(trip_distance) as max_distance
+FROM green_taxi_trips
+GROUP BY lpep_pickup_datetime
+ORDER BY max_distance DESC
+LIMIT 1
+ ```
 
