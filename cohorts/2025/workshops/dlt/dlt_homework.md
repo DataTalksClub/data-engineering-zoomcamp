@@ -98,6 +98,11 @@ conn.sql("DESCRIBE").df()
 **Answer:**
 * How many tables were created?
 
+* 2
+* 4
+* 6
+* 8
+
 ## **Question 3: Explore the loaded data**
 
 Inspect the table `ride`:
@@ -109,6 +114,11 @@ df
 
 **Answer:**
 * What is the total number of records extracted?
+
+* 2500
+* 5000
+* 7500
+* 10000
 
 ## **Question 4: Trip Duration Analysis**
 
@@ -132,9 +142,14 @@ with pipeline.sql_client() as client:
 **Answer:**
 * What is the average trip duration?
 
+* 12.3049
+* 22.3049
+* 32.3049
+* 42.3049
+
 ## **Submitting the solutions**
 
-* Form for submitting: TBA
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/workshop1
 
 ## **Solution**
 
