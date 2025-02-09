@@ -143,3 +143,7 @@ GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 1
 ```
+
+## Question 7. Terraform Workflow
+
+Answer: `terraform init, terraform apply -auto-approve, terraform destroy`
