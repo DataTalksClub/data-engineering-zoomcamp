@@ -11,7 +11,7 @@ The version of `pip` in the image is: `24.3.1`
 
 Given the following `docker-compose.yaml`, **pgadmin** should use the following to connect to the postgres database:
 - hostname: db
-    - use the **service name** for hostname
+    - use the `service name` for hostname
 - port: 5432 
     - the ports mapping (5433:5432) only affects connections from **outside Docker** (e.g., from your host machine). Inside the Docker network, pgAdmin connects to Postgres on port 5432.
 
@@ -47,3 +47,5 @@ volumes:
   vol-pgadmin_data:
     name: vol-pgadmin_data
 ```
+
+
