@@ -26,7 +26,7 @@ models:
     columns:
       - name: tripid
         data_type: string
-        description: "unique identifier conformed by the combination of vendorid and pickyp time"
+        description: "unique identifier conformed by the combination of vendorid and pickup time"
 
       - name: vendorid
         data_type: int64

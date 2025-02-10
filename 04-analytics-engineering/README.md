@@ -25,7 +25,7 @@ By this stage of the course you should have already:
 ---|---|
 | Setting up dbt for using BigQuery (cloud) | Setting up dbt for using Postgres locally  |
 |- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)<br><br> |
-| - [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)) | - follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/docs/core/installation-overview)) or <br>- follow the [dbt core with BigQuery on Docker](docker_setup/README.md) guide to setup dbt locally on docker or <br>- use a docker image from oficial [Install with Docker](https://docs.getdbt.com/docs/core/docker-install). |
+| - [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)) | - follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/docs/core/installation-overview)) or <br>- follow the [dbt core with BigQuery on Docker](docker_setup/README.md) guide to setup dbt locally on docker or <br>- use a docker image from official [Install with Docker](https://docs.getdbt.com/docs/core/docker-install). |
 |- More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)  | - You will need to install the latest version with the BigQuery adapter (dbt-bigquery).|
 | | - You will need to install the latest version with the postgres adapter (dbt-postgres).|
 | | After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/docs/core/connect-data-platform/postgres-setup) |
@@ -58,7 +58,7 @@ By this stage of the course you should have already:
 ### dbt models
 
 * Anatomy of a dbt model: written code vs compiled Sources
-* Materialisations: table, view, incremental, ephemeral  
+* materializations: table, view, incremental, ephemeral  
 * Seeds, sources and ref  
 * Jinja and Macros 
 * Packages 
@@ -70,7 +70,7 @@ By this stage of the course you should have already:
 > *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
 
 > [!TIP] 
->* If you recieve an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
+>* If you receive an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
 >
 >[![](https://markdown-videos-api.jorgenkh.no/youtube/kL3ZVNL9Y4A)](https://youtu.be/kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
 
@@ -91,7 +91,7 @@ By this stage of the course you should have already:
 | - Deployment: development environment vs production<br>- dbt cloud: scheduler, sources and hosted documentation  | - Deployment: development environment vs production<br>-  dbt cloud: scheduler, sources and hosted documentation |
 | [![](https://markdown-videos-api.jorgenkh.no/youtube/rjf6yZNGX8I)](https://www.youtube.com/watch?v=V2m5C0n8Gro&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=6) | [![](https://markdown-videos-api.jorgenkh.no/youtube/Cs9Od1pcrzM)](https://youtu.be/Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=47) |
 
-## Visualising the transformed data
+## visualizing the transformed data
 
 :movie_camera: Google data studio Video (Now renamed to Looker studio)
 
@@ -101,7 +101,7 @@ By this stage of the course you should have already:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/BnLkrA7a6gM)](https://youtu.be/BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=49)
 
-## Extra resourses
+## Extra resources
 
 
 > [!NOTE]
