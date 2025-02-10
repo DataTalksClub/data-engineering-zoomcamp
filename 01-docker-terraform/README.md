@@ -60,7 +60,7 @@ if you have troubles setting up the environment and following along with the vid
 [![](https://markdown-videos-api.jorgenkh.no/youtube/B1WwATwf-vY)](https://youtu.be/B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=8)
 
 * Converting the Jupyter notebook to a Python script
-* Parametrizing the script with argparse
+* Parameterizing the script with argparse
 * Dockerizing the ingestion script
 
 ## :movie_camera: Running Postgres and pgAdmin with Docker-Compose
