@@ -1,6 +1,6 @@
 # Data ingestion with dlt
 
-* 🔗 Sign up here (optional): https://lu.ma/quyfn4q8 
+* Video: https://www.youtube.com/live/pgJWP_xqO1g
 * Homework: [dlt_homework.md](dlt_homework.md)
 
 
