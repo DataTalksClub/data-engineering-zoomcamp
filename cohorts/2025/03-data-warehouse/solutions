@@ -1,0 +1,33 @@
+Q1
+
+select  count(*) from `300619889801.demo_dataset.yellow_trip_data`;
+
+
+
+Q2
+
+select  count(distinct(PULocationID)) from `300619889801.demo_dataset.yellow_trip_data_2`;
+
+Q3
+select  PULocationID,DOLocationID  from `300619889801.demo_dataset.yellow_trip_data`;
+
+
+Q4
+SELECT count(*)  FROM `regal-groove-449420-h7.demo_dataset.yellow_trip_data`
+where fare_amount=0
+LIMIT 1000;
+
+
+
+Q5
+CREATE OR REPLACE TABLE `regal-groove-449420-h7.demo_dataset.yellow_trip_data_cp`
+PARTITION BY DATE(tpep_dropoff_datetime)
+CLUSTER BY VendorID AS
+( SELECT * FROM `regal-groove-449420-h7.demo_dataset.yellow_trip_data` );
+
+Q6
+select vendorID from regal-groove-449420-h7.demo_dataset.yellow_trip_data_cp
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15'
+
+select vendorID from regal-groove-449420-h7.demo_dataset.yellow_trip_data
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15'
