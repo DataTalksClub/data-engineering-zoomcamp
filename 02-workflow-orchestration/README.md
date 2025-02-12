@@ -112,7 +112,7 @@ Add the flow [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_
 
 ### Local DB: Load Taxi Data to Postgres
 
-Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](postgres/docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
+Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](docker/postgres/docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
 
 ```bash
 docker compose up -d
@@ -167,7 +167,7 @@ The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
 ### Resources
 - [pgAdmin Download](https://www.pgadmin.org/download/)
-- [Postgres DB Docker Compose](postgres/docker-compose.yml)
+- [Postgres DB Docker Compose](docker/postgres/docker-compose.yml)
 
 ---
 
@@ -257,7 +257,7 @@ The flow code: [`07_gcp_dbt.yaml`](flows/07_gcp_dbt.yaml).
 
 Now that we've got our ETL pipeline working both locally and in the cloud, we can deploy Kestra to the cloud so it can continue to orchestrate our ETL pipelines monthly with our configured schedules, We'll cover how you can install Kestra on Google Cloud in Production, and automatically sync and deploy your workflows from a Git repository.
 
-Note: When commiting your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
+Note: When committing your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
 
 ### Videos
 

@@ -1,6 +1,6 @@
 -- SELECT THE COLUMNS INTERESTED FOR YOU
 SELECT passenger_count, trip_distance, PULocationID, DOLocationID, payment_type, fare_amount, tolls_amount, tip_amount
-FROM `taxi-rides-ny.nytaxi.yellow_tripdata_partitoned` WHERE fare_amount != 0;
+FROM `taxi-rides-ny.nytaxi.yellow_tripdata_partitioned` WHERE fare_amount != 0;
 
 -- CREATE A ML TABLE WITH APPROPRIATE TYPE
 CREATE OR REPLACE TABLE `taxi-rides-ny.nytaxi.yellow_tripdata_ml` (
@@ -15,7 +15,7 @@ CREATE OR REPLACE TABLE `taxi-rides-ny.nytaxi.yellow_tripdata_ml` (
 ) AS (
 SELECT passenger_count, trip_distance, cast(PULocationID AS STRING), CAST(DOLocationID AS STRING),
 CAST(payment_type AS STRING), fare_amount, tolls_amount, tip_amount
-FROM `taxi-rides-ny.nytaxi.yellow_tripdata_partitoned` WHERE fare_amount != 0
+FROM `taxi-rides-ny.nytaxi.yellow_tripdata_partitioned` WHERE fare_amount != 0
 );
 
 -- CREATE MODEL WITH DEFAULT SETTING
