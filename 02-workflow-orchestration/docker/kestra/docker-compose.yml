@@ -18,6 +18,16 @@ services:
       interval: 30s
       timeout: 10s
       retries: 10
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8082:80"
 
   kestra:
     image: kestra/kestra:latest
@@ -50,6 +60,8 @@ services:
               basePath: "/app/storage"
           queue:
             type: postgres
+          tutorial-flows:
+            enabled: true
           tasks:
             tmpDir:
               path: /tmp/kestra-wd/tmp
