@@ -5,6 +5,7 @@ import pandas as pd
 print(sys.argv)
 
 day = sys.argv[1]
+# sys.argv[0] is the image name and [1] is the parameter after it
 
 # some fancy stuff with pandas
 
