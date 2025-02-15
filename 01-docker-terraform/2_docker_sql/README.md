@@ -260,8 +260,8 @@ services:
 
 ### SQL Refresher
 
-Pre-Requisites: If you followed the course through with the given order,
-Docker Compose should be already running with pgdatabase and pgAdmin.
+Pre-Requisites: If you followed the course in the given order,
+Docker Compose should already be running with pgdatabase and pgAdmin.
 
 You can run the following code using Jupyter Notebook to ingest the data for Taxi Zones:
 
@@ -291,7 +291,7 @@ SELECT
     tpep_dropoff_datetime,
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropff_loc"
+    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
 FROM 
     yellow_taxi_trips t,
     zones zpu,
@@ -310,11 +310,11 @@ SELECT
     tpep_dropoff_datetime,
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropff_loc"
+    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
 FROM 
     yellow_taxi_trips t
 JOIN 
--- or INNER JOIN but it's less used, when writing JOIN postgreSQL undranstands implicitly that we want to use an INNER JOIN
+-- or INNER JOIN but it's less used, when writing JOIN, postgreSQL understands implicitly that we want to use an INNER JOIN
     zones zpu ON t."PULocationID" = zpu."LocationID"
 JOIN
     zones zdo ON t."DOLocationID" = zdo."LocationID"
@@ -331,7 +331,7 @@ SELECT
     "PULocationID",
     "DOLocationID"
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 WHERE
     "PULocationID" IS NULL
     OR "DOLocationID" IS NULL
@@ -348,7 +348,7 @@ SELECT
     "PULocationID",
     "DOLocationID"
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 WHERE
     "DOLocationID" NOT IN (SELECT "LocationID" from zones)
     OR "PULocationID" NOT IN (SELECT "LocationID" from zones)
@@ -365,7 +365,7 @@ SELECT
     tpep_dropoff_datetime,
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropff_loc"
+    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
 FROM 
     yellow_taxi_trips t
 LEFT JOIN 
@@ -381,7 +381,7 @@ SELECT
     tpep_dropoff_datetime,
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropff_loc"
+    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
 FROM 
     yellow_taxi_trips t
 RIGHT JOIN 
@@ -397,7 +397,7 @@ SELECT
     tpep_dropoff_datetime,
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropff_loc"
+    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
 FROM 
     yellow_taxi_trips t
 OUTER JOIN 
@@ -414,7 +414,7 @@ SELECT
     CAST(tpep_dropoff_datetime AS DATE) AS "day",
     COUNT(1)
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
 LIMIT 100;
@@ -429,7 +429,7 @@ SELECT
     CAST(tpep_dropoff_datetime AS DATE) AS "day",
     COUNT(1)
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
 ORDER BY
@@ -442,7 +442,7 @@ SELECT
     CAST(tpep_dropoff_datetime AS DATE) AS "day",
     COUNT(1) AS "count"
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
 ORDER BY
@@ -459,7 +459,7 @@ SELECT
     MAX(total_amount) AS "total_amount",
     MAX(passenger_count) AS "passenger_count"
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
 ORDER BY
@@ -478,7 +478,7 @@ SELECT
     MAX(total_amount) AS "total_amount",
     MAX(passenger_count) AS "passenger_count"
 FROM 
-    yellow_taxi_trips t
+    yellow_taxi_trips
 GROUP BY
     1, 2
 ORDER BY
