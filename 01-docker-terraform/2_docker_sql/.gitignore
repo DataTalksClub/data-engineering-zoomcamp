@@ -2,3 +2,5 @@
 ny_taxi_postgres_data/
 *.csv
 .idea/
+*.parquet
+*.parquet
