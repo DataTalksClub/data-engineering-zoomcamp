@@ -1,7 +1,9 @@
 import os
+import sys
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from google.cloud import storage
+from google.api_core.exceptions import NotFound, Forbidden
 import time
 
 
@@ -41,9 +43,32 @@ def download_file(month):
 
 
 def create_bucket(bucket_name):
-    if not bucket.exists():
-        client.create_bucket(bucket_name)
-        print(f"Created bucket {bucket_name}")
+    try:
+        # Get bucket details
+        bucket = client.get_bucket(bucket_name)
+
+        # Check if the bucket belongs to the current project
+        project_bucket_ids = [bckt.id for bckt in client.list_buckets()]
+        if bucket_name in project_bucket_ids:
+            print(
+                f"Bucket '{bucket_name}' exists and belongs to your project. Proceeding..."
+            )
+        else:
+            print(
+                f"A bucket with the name '{bucket_name}' already exists, but it does not belong to your project."
+            )
+            sys.exit(1)
+
+    except NotFound:
+        # If the bucket doesn't exist, create it
+        bucket = client.create_bucket(bucket_name)
+        print(f"Created bucket '{bucket_name}'")
+    except Forbidden:
+        # If the request is forbidden, it means the bucket exists but you don't have access to see details
+        print(
+            f"A bucket with the name '{bucket_name}' exists, but it is not accessible. Bucket name is taken. Please try a different bucket name."
+        )
+        sys.exit(1)
 
 
 def verify_gcs_upload(blob_name):
@@ -77,6 +102,8 @@ def upload_to_gcs(file_path, max_retries=3):
 
 
 if __name__ == "__main__":
+    create_bucket(BUCKET_NAME)
+
     with ThreadPoolExecutor(max_workers=4) as executor:
         file_paths = list(executor.map(download_file, MONTHS))
 
