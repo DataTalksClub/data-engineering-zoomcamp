@@ -15,7 +15,7 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
   
 ### How to troubleshoot issues
 
-The first step is to try to solve the issue on you own; get use to solving problems. This will be a real life skill you need when employeed. 
+The first step is to try to solve the issue on you own; get used to solving problems. This will be a real life skill you need when employeed. 
 
 1. What does the error say? There will often be a description of the error or instructions on what is needed, I have even seen a link to the solution. Does it reference a specific line of your code?
 2. Restart the application or server/pc. 
