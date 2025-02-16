@@ -18,10 +18,10 @@
 * [Homework](02-workflow-orchestration/homework.md)
 * Office hours
 
-[**Workshop 1: Data Ingestion**](workshops/dlt.md)
+[**Workshop 1: Data Ingestion**](workshops/dlt/README.md)
 
 * Workshop with dlt
-* [Homework](workshops/dlt.md)
+* [Homework](workshops/dlt/README.md)
 
 
 [**Module 3: Data Warehouse**](03-data-warehouse)

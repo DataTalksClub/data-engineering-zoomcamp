@@ -60,7 +60,7 @@ if you have troubles setting up the environment and following along with the vid
 [![](https://markdown-videos-api.jorgenkh.no/youtube/B1WwATwf-vY)](https://youtu.be/B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=8)
 
 * Converting the Jupyter notebook to a Python script
-* Parametrizing the script with argparse
+* Parameterizing the script with argparse
 * Dockerizing the ingestion script
 
 ## :movie_camera: Running Postgres and pgAdmin with Docker-Compose
@@ -214,4 +214,7 @@ Did you take notes? You can share them here
 * [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-1-Containerization-and-Infrastructure-as-Code-15729780dc4a80a08288e497ba937a37)
 * [2025 Gitbook Notes from Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/introduction/introduction-and-set-up)
 * [Alex's Docker Notes](https://github.com/alexg9010/2025_data_engineering_zoomcamp/blob/master/01_docker/README.md) | [Alex's Terraform Notes](https://github.com/alexg9010/2025_data_engineering_zoomcamp/blob/master/01_3_terraform/README.md)
+* [2025 SQL Refresher - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/0_sql_refresh.ipynb)
+* [2025 Setting up the Environment - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/_setting_up.md)
+* [Notes from Mercy Markus: Linux/Fedora Tweaks and Tips](https://mercymarkus.com/posts/2025/series/dtc-dez-jan-2025/dtc-dez-2025-module-1/)
 * Add your notes above this line
