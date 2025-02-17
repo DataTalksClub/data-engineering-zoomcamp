@@ -10,7 +10,7 @@ Before you start,
 1. Make sure you, **at least**, have them in GCS with a External Table **OR** a Native Table - use whichever method you prefer to accomplish that (Workflow Orchestration with [pandas-gbq](https://cloud.google.com/bigquery/docs/samples/bigquery-pandas-gbq-to-gbq-simple), [dlt for gcs](https://dlthub.com/docs/dlt-ecosystem/destinations/filesystem), [dlt for BigQuery](https://dlthub.com/docs/dlt-ecosystem/destinations/bigquery), [gsutil](https://cloud.google.com/storage/docs/gsutil), etc)
 2. You should have exactly `7,778,101` records in your Green Taxi table
 3. You should have exactly `109,047,518` records in your Yellow Taxi table
-4. You should have exactly `43,244,696` record in your FHV table
+4. You should have exactly `43,244,696` records in your FHV table
 5. Build the staging models for green/yellow as shown in [here](../../../04-analytics-engineering/taxi_rides_ny/models/staging/)
 
 **Note**: If you don't have access to GCP, you can spin up a local Postgres instance and ingest the datasets above
@@ -132,7 +132,7 @@ Alright, in module 1, you had a SQL refresher, so now let's build on top of that
 These are not meant to be easy - but they'll boost your SQL and Analytics skills to the next level.  
 So, without any further do, let's get started...
 
-You might want to add some new dimensions `year` (e.g.: 2019, 2020), `quarter` (1, 2, 3, 4), `year_quarter` (e.g.: `2019/Q1`, `2019-Q2`), and `month` (e.g.: 1, 2, ..., 12) to your `fct_taxi_trips` OR `dim_taxi_trips.sql` models to facilitate filtering your queries
+You might want to add some new dimensions `year` (e.g.: 2019, 2020), `quarter` (1, 2, 3, 4), `year_quarter` (e.g.: `2019/Q1`, `2019-Q2`), and `month` (e.g.: 1, 2, ..., 12), **extracted from pickup_datetime**, to your `fct_taxi_trips` OR `dim_taxi_trips.sql` models to facilitate filtering your queries
 
 
 ### Quarter 5: Taxi Quarterly Revenue Growth
@@ -177,7 +177,7 @@ Prerequisites:
 Now...
 1. Create a new model `fct_fhv_monthly_zone_traveltime_p90.sql`
 2. For each record in `dim_fhv_trips.sql`, compute the [timediff](https://cloud.google.com/bigquery/docs/reference/standard-sql/time_functions#time_diff), in seconds between dropoff_datetime and pickup_datetime - we'll call it `trip_duration` for this exercise
-3. Compute the **continous** `p90` of `trip_duration` partitioning by year, month, and pickup_location
+3. Compute the **continous** `p90` of `trip_duration` partitioning by year, month, pickup_location_id, and dropoff_location_id
 
 For the Trips that **respectively** started from `Newark Airport`, `SoHo`, and `Yorkville East`, in November 2019, what are **dropoff_zones** with the 2nd longest p90 trip_duration ?
 
