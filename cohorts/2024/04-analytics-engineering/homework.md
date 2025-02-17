@@ -194,6 +194,6 @@ For the Trips that **respectively** started from `Newark Airport`, `SoHo`, and `
 Deadline: 24 February (Thursday), 22:00 CET
 
 
-## Solution
+## Solution 
 
-To be published after deadline
+* To be published after deadline
