@@ -1,8 +1,10 @@
 # Data ingestion with dlt
 
-* Video: https://www.youtube.com/live/pgJWP_xqO1g
-* Homework: [dlt_homework.md](dlt_homework.md)
+Homework: [dlt_homework.md](dlt_homework.md)
 
+🎥 **Watch the workshop video**
+
+[![Watch the workshop video](https://markdown-videos-api.jorgenkh.no/youtube/pgJWP_xqO1g)](https://www.youtube.com/watch?v=pgJWP_xqO1g "Watch the workshop video")
 
 Welcome to this hands-on workshop, where you'll learn to build efficient and scalable data ingestion pipelines.
 
@@ -16,7 +18,6 @@ In this workshop, you’ll learn the core skills required to build and manage da
 
 By the end of this workshop, you'll be able to build data pipelines like a senior data engineer — quickly, concisely, and with best practices baked in.
 
-🎥 **Watch the workshop video**  [![Watch the workshop video](https://markdown-videos-api.jorgenkh.no/youtube/pgJWP_xqO1g)](https://www.youtube.com/watch?v=pgJWP_xqO1g "Watch the workshop video")
 
 --- 
 
