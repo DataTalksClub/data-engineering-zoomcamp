@@ -70,7 +70,7 @@ By this stage of the course you should have already:
 > *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
 
 > [!TIP] 
->* If you recieve an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
+>* If you receive an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
 >
 >[![](https://markdown-videos-api.jorgenkh.no/youtube/kL3ZVNL9Y4A)](https://youtu.be/kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
 
@@ -105,7 +105,7 @@ By this stage of the course you should have already:
 
 
 > [!NOTE]
-> If find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://www.getdbt.com/dbt-fundamentals/) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
+> If you find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://www.getdbt.com/dbt-fundamentals/) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
 
 
  
