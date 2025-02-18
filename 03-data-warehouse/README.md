@@ -77,4 +77,5 @@ Did you take notes? You can share them here.
 * [Notes from Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-3-Data-Warehouse-and-BigQuery-17c29780dc4a80c8a226f372543ae388)
 * [2025 - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/03_data_warehouse/00_notes.md)
 * [2025 Gitbook Notes Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/module-3/introduction-to-module-3)
+* [2025 Notes from Daniel Lachner](https://drive.google.com/file/d/1hOs4Yazki3ZGAfWLq1M08BDhoDFCTLNj/view?usp=sharing)
 * Add your notes here (above this line)
