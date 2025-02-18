@@ -107,3 +107,12 @@ If you create a personal project, consider submitting it to our blog - we will b
 * ⭐ **Give us a [GitHub Star](https://github.com/dlt-hub/dlt)!**  
 * 💬 **Join our [Slack Community](https://dlthub.com/community)!**  
 * 🚀 **Let’s build great data pipelines together!**  
+
+---
+
+# Community notes
+
+Did you take notes? You can share them by creating a PR to this file!
+
+* [Ingest Data to GCS by dlt from peatwan](https://github.com/peatwan/de-zoomcamp/tree/main/workshop/dlt/homework/load_to_gcs)
+* Add your notes above this line
