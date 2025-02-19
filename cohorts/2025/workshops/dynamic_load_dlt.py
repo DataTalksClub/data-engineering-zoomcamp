@@ -93,3 +93,67 @@ pipeline = dlt.pipeline(
 # Run the pipeline
 info = pipeline.run(parquet_source())
 print(info)
+
+
+# Another approach without downloading the parquet. It would directly load to bigquery.
+
+import dlt
+import requests
+import pandas as pd
+import pyarrow.parquet as pq
+import io
+import os
+from google.cloud import bigquery
+
+# set the GOOGLE_APPLICATION_CREDENTIALS environment variable in your system.  
+
+# Base URL for the Parquet files
+BASE_URL = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-"
+MONTHS = [f"{i:02d}" for i in range(1, 7)]
+
+# Define a dlt resource for fetching Parquet data
+@dlt.resource(name="ny_taxi_dlt", write_disposition="replace")
+def paginated_getter():
+    """Fetches and yields monthly Parquet data as Pandas DataFrames."""
+
+    for month in MONTHS:
+        url = f"{BASE_URL}{month}.parquet"
+        
+        try:
+            # Fetch the Parquet file in streaming mode
+            with requests.get(url, stream=True) as response:
+                response.raise_for_status()  # Raise an error for failed requests
+
+                # Read file in chunks and store in a buffer
+                buffer = io.BytesIO()
+                for chunk in response.iter_content(chunk_size=1024 * 1024):  # Read in 1MB chunks
+                    buffer.write(chunk)
+
+                buffer.seek(0)  # Reset buffer position
+
+                # Read Parquet file using pyarrow and convert to Pandas DataFrame
+                table = pq.read_table(buffer)
+
+                print(f'Got month {month} with {len(table)} records')
+
+                if table.num_rows > 0:  # If data exists, yield it
+                    yield table
+                else:
+                    break  # Stop if no more data
+
+        except Exception as e:
+            print(f"Failed to fetch data for month {month}: {e}")
+
+# Create and configure the dlt pipeline
+pipeline = dlt.pipeline(
+    pipeline_name="ny_taxi_pipeline_dlt",
+    destination="bigquery",
+    dataset_name="ny_taxi_parquet_dlt_8",
+    dev_mode=True
+)
+
+# Run the pipeline and load data into BigQuery
+load_info = pipeline.run(paginated_getter())
+
+# Print load info and normalization details
+print(load_info)
