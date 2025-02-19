@@ -113,3 +113,7 @@ ANSWER AND EXPLANATION: 0B, since it can retrieve it from metadata and no need t
 ## Submitting the solutions
 
 Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw3
+
+## Solution
+
+Solution: https://www.youtube.com/watch?v=wpLmImIUlPg

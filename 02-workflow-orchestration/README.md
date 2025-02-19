@@ -112,7 +112,7 @@ Add the flow [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_
 
 ### Local DB: Load Taxi Data to Postgres
 
-Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](postgres/docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
+Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](docker/postgres/docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
 
 ```bash
 docker compose up -d
@@ -167,7 +167,7 @@ The flow code: [`03_postgres_dbt.yaml`](flows/03_postgres_dbt.yaml).
 
 ### Resources
 - [pgAdmin Download](https://www.pgadmin.org/download/)
-- [Postgres DB Docker Compose](postgres/docker-compose.yml)
+- [Postgres DB Docker Compose](docker/postgres/docker-compose.yml)
 
 ---
 
