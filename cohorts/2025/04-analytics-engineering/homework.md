@@ -176,16 +176,16 @@ Prerequisites:
 
 Now...
 1. Create a new model `fct_fhv_monthly_zone_traveltime_p90.sql`
-2. For each record in `dim_fhv_trips.sql`, compute the [timediff](https://cloud.google.com/bigquery/docs/reference/standard-sql/time_functions#time_diff), in seconds between dropoff_datetime and pickup_datetime - we'll call it `trip_duration` for this exercise
+2. For each record in `dim_fhv_trips.sql`, compute the [timestamp_diff](https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_diff) in seconds between dropoff_datetime and pickup_datetime - we'll call it `trip_duration` for this exercise
 3. Compute the **continous** `p90` of `trip_duration` partitioning by year, month, pickup_location_id, and dropoff_location_id
 
 For the Trips that **respectively** started from `Newark Airport`, `SoHo`, and `Yorkville East`, in November 2019, what are **dropoff_zones** with the 2nd longest p90 trip_duration ?
 
-- East Village, Chinatown, Garment District
-- East Village, Park Slope, Clinton East
-- East Village, Saint Albans, Howard Beach
-- East Village, Rosedale, Bath Beach
-- East Village, Yorkville East, Greenpoint
+- LaGuardia Airport, Chinatown, Garment District
+- LaGuardia Airport, Park Slope, Clinton East
+- LaGuardia Airport, Saint Albans, Howard Beach
+- LaGuardia Airport, Rosedale, Bath Beach
+- LaGuardia Airport, Yorkville East, Greenpoint
 
 
 ## Submitting the solutions
