@@ -16,17 +16,17 @@ This is a quick guide on how to setup dbt with BigQuery on Docker.
 - Create `docker-compose.yaml` [file](docker-compose.yaml).
   ```yaml
   version: '3'
-    services:
-      dbt-bq-dtc:
-        build:
-          context: .
-          target: dbt-bigquery
-        image: dbt/bigquery
-        volumes:
-          - .:/usr/app
-          - ~/.dbt/:/root/.dbt/
-          - ~/.google/credentials/google_credentials.json:/.google/credentials/google_credentials.json
-        network_mode: host
+  services:
+    dbt-bq-dtc:
+      build:
+        context: .
+        target: dbt-bigquery
+      image: dbt/bigquery
+      volumes:
+        - .:/usr/app
+        - ~/.dbt/:/root/.dbt/
+        - ~/.google/credentials/google_credentials.json:/.google/credentials/google_credentials.json
+      network_mode: host
   ```
   -   Name the service as you deem right or `dbt-bq-dtc`.
   -   Use the `Dockerfile` in the current directory to build the image by passing `.` in the context.

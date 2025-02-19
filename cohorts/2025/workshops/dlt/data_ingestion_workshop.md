@@ -1023,3 +1023,8 @@ Open source version of dlt supports basic functionality for **iceberg**, but the
 
 
 With **dlt’s automated load step**, you get **effortless, scalable, and resilient data loading**—so you can focus on insights instead of pipeline maintenance. 🚀
+
+---
+
+### Extra homework 💻
+* [Data ingestion with DLT to Bigquery from Sara Sabater](https://github.com/saraisab/Data_Engineer/blob/main/courses/DE_zoomcamp/Homework/DLT-Workshop/extra_homework/Data_ingestion_with_DLT_to_bigquery.ipynb).
