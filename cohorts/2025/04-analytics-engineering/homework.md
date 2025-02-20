@@ -61,7 +61,7 @@ Say you have to modify the following dbt_model (`fct_recent_taxi_trips.sql`) to 
 ```sql
 select *
 from {{ ref('fact_taxi_trips') }}
-where pickup_datetime >= CURRENT_DATE - INTERVAL '30 days'
+where pickup_datetime >= CURRENT_DATE - INTERVAL '30' DAY
 ```
 
 What would you change to accomplish that in a such way that command line arguments takes precedence over ENV_VARs, which takes precedence over DEFAULT value?
