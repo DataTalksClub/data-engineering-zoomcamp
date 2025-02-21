@@ -156,7 +156,7 @@ Considering the YoY Growth in 2020, which were the yearly quarters with the best
 ### Question 6: P97/P95/P90 Taxi Monthly Fare
 
 1. Create a new model `fct_taxi_trips_monthly_fare_p95.sql`
-2. Filter out invalid entries (`fare_amount > 0`, `trip_distance > 0`, and `payment_type_description in ('Cash', 'Credit Card')`)
+2. Filter out invalid entries (`fare_amount > 0`, `trip_distance > 0`, and `lower(payment_type_description) in ('cash', 'credit card')`)
 3. Compute the **continous percentile** of `fare_amount` partitioning by service_type, year and and month
 
 Now, what are the values of `p97`, `p95`, `p90` for Green Taxi and Yellow Taxi, in April 2020?
