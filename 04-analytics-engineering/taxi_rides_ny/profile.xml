@@ -1,0 +1,10 @@
+fit-brand-447721-a3:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: fit-brand-447721-a3
+      dataset: dbt_cwang  # Ensure this matches the dataset in BigQuery
+      location: US  # Ensure this matches the dataset region
+      threads: 4
