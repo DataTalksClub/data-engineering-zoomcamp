@@ -1,5 +1,10 @@
 # Data ingestion with dlt
-🔗 Sign up here (optional): https://lu.ma/quyfn4q8 
+
+Homework: [dlt_homework.md](dlt_homework.md)
+
+🎥 **Watch the workshop video**
+
+[![Watch the workshop video](https://markdown-videos-api.jorgenkh.no/youtube/pgJWP_xqO1g)](https://www.youtube.com/watch?v=pgJWP_xqO1g "Watch the workshop video")
 
 Welcome to this hands-on workshop, where you'll learn to build efficient and scalable data ingestion pipelines.
 
@@ -13,16 +18,18 @@ In this workshop, you’ll learn the core skills required to build and manage da
 
 By the end of this workshop, you'll be able to build data pipelines like a senior data engineer — quickly, concisely, and with best practices baked in.
 
-🎥**Watch the workshop video**: TBA
 
 --- 
 
 ## 📂 Navigation & Resources
 
-- [Workshop content](dlt_resources/data_ingestion_workshop.md)
-- [Workshop Colab Notebook]()
-- [Homework starter Colab Notebook]()
-- 🌐 Website & Community: Visit our [docs](https://dlthub.com/docs/intro), and join discussions in our Slack.
+- Workshop:
+  - [Workshop content](data_ingestion_workshop.md).
+  - [Workshop Colab Notebook](https://colab.research.google.com/drive/1FiAHNFenM8RyptyTPtDTfqPCi5W6KX_V?usp=sharing).
+- Homework:
+  - [Homework Markdown](dlt_homework.md).
+  - [Homework Colab Notebook](https://colab.research.google.com/drive/1plqdl33K_HkVx0E0nGJrrkEUssStQsW7).
+- 🌐 [Official dlt Documentation](https://dlthub.com/docs/intro).
 - 💬 Join our [Slack Community](https://dlthub.com/community).
 
 ---
@@ -30,11 +37,11 @@ By the end of this workshop, you'll be able to build data pipelines like a senio
 ## 📖 Course overview
 This workshop is structured into three key parts:
 
-1️⃣ **[Extracting Data](dlt_resources/data_ingestion_workshop.md#extracting-data)** – Learn scalable data extraction techniques.  
-2️⃣ **[Normalizing Data](dlt_resources/data_ingestion_workshop.md#normalizing-data)** – Clean and structure data before loading.  
-3️⃣ **[Loading & Incremental Updates](dlt_resources/data_ingestion_workshop.md#loading-data)** – Efficiently load and update data.  
+1️⃣ **[Extracting Data](data_ingestion_workshop.md#extracting-data)** – Learn scalable data extraction techniques.  
+2️⃣ **[Normalizing Data](data_ingestion_workshop.md#normalizing-data)** – Clean and structure data before loading.  
+3️⃣ **[Loading & Incremental Updates](data_ingestion_workshop.md#loading-data)** – Efficiently load and update data.  
 
-📌 **Find the full course file here**: [Course File](dlt_resources/data_ingestion_workshop.md)  
+📌 **Find the full course file here**: [Course File](data_ingestion_workshop.md)  
 
 ---
 
@@ -54,7 +61,9 @@ I'm Violetta Mishechkina, Solutions Engineer at dltHub. 👋
 ---
 
 ## Homework
-TBA
+
+- [Homework Markdown](dlt_homework.md).
+- [Homework Colab Notebook](https://colab.research.google.com/drive/1plqdl33K_HkVx0E0nGJrrkEUssStQsW7).
 
 --- 
 ## Next steps
@@ -95,7 +104,15 @@ If you create a personal project, consider submitting it to our blog - we will b
 
 ## **💛 If you enjoy dlt, support us!**  
 
-⭐ **Give us a [GitHub Star](https://github.com/dlt-hub/dlt)!**  
-💬 **Join our [Slack Community](https://dlthub.com/community)!**  
+* ⭐ **Give us a [GitHub Star](https://github.com/dlt-hub/dlt)!**  
+* 💬 **Join our [Slack Community](https://dlthub.com/community)!**  
+* 🚀 **Let’s build great data pipelines together!**  
 
-🚀 **Let’s build great data pipelines together!**  
+---
+
+# Community notes
+
+Did you take notes? You can share them by creating a PR to this file!
+
+* [Ingest Data to GCS by dlt from peatwan](https://github.com/peatwan/de-zoomcamp/tree/main/workshop/dlt/homework/load_to_gcs)
+* Add your notes above this line
