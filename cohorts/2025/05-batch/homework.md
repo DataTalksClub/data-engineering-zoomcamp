@@ -48,7 +48,7 @@ Consider only trips that started on the 15th of October.
 - 145,567
 
 
-## Question 4: Longest trip for each day 
+## Question 4: Longest trip
 
 What is the length of the longest trip in the dataset in hours?
 
