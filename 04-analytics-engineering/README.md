@@ -12,8 +12,7 @@ By this stage of the course you should have already:
   * fhv data - Year 2019. 
 
 > [!NOTE]
-> * Please be aware that the Option 1 below, which uses Marketplace data, is not valid anymore for the homework. 
-> * We have two quick hack to load that data quicker, follow [this video](https://www.youtube.com/watch?v=Mork172sK_c&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs) for option 1 or check instructions in [week3/extras](../03-data-warehouse/extras) for option 2
+> * We have prepared a python script for loading the data that can be found through [week3/extras](../03-data-warehouse/extras).
 
 ## Setting up your environment 
   
