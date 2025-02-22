@@ -7,7 +7,7 @@ To run PySpark, we first need to add it to `PYTHONPATH`:
 
 ```bash
 export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
-export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9-src.zip:$PYTHONPATH"
+export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
 ```
 
 Make sure that the version under `${SPARK_HOME}/python/lib/` matches the filename of py4j or you will
