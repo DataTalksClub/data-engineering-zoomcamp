@@ -141,6 +141,7 @@ Did you take notes? You can share them here.
 * [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
 * [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/4_Analytics-Engineering/README.md)
 * [2025 Notes by Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-4-Analytics-Engineering-18929780dc4a808692e4e0ee488bf49c?pvs=74)
+* [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/04_01_Analytics_Engineering.pdf)
 * Add your notes here (above this line)
 
 ## Useful links
