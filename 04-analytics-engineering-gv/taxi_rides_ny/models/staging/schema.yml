@@ -1,0 +1,9 @@
+version: 2
+sources:
+  - name: staging
+    database: gino-viloria-dtc-de-bootcamp
+    schema: trips_data_all
+
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
