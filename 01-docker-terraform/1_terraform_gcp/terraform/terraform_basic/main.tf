@@ -9,15 +9,15 @@ terraform {
 
 provider "google" {
 # Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
-#  credentials = 
-  project = "<Your Project ID>"
+  credentials = "../my-cred.json"
+  project = "zoomcamp-451609"
   region  = "us-central1"
 }
 
 
 
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "<Your Unique Bucket Name>"
+  name          = "zoomcamp-terraform-tydamon-bckt428"
   location      = "US"
 
   # Optional, but recommended settings:
@@ -42,7 +42,7 @@ resource "google_storage_bucket" "data-lake-bucket" {
 
 
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
+  dataset_id = "zoomcamp_terraform"
+  project    = "zoomcamp-451609"
   location   = "US"
 }
