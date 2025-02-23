@@ -1,13 +1,13 @@
 # Introduction
 
-* [![](https://markdown-videos-api.jorgenkh.no/youtube/AtRhA-NfS24)](https://www.youtube.com/watch?v=AtRhA-NfS24&list=PL3MmuxUbc_hKihpnNQ9qtTmWYy26bPrSb&index=3)
-* [Slides](https://www.slideshare.net/AlexeyGrigorev/data-engineering-zoomcamp-introduction)
+* [![](https://markdown-videos-api.jorgenkh.no/youtube/AtRhA-NfS24)](https://www.youtube.com/watch?v=X8cEEwi8DTM)
+* [Slides](https://docs.google.com/presentation/d/1974w3_zdaK7tDQJCcxHginiAuN0hRRYqXiHbDWcuVVg/edit?usp=drivesdk)
 * Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
 
 
 We suggest watching videos in the same order as in this document.
 
-The last video (setting up the environment) is optional, but you can check it earlier 
+The last video (setting up the environment) is optional, but you can check it earlier
 if you have troubles setting up the environment and following along with the videos.
 
 
@@ -127,14 +127,14 @@ if you have troubles setting up the environment and following along with the vid
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/PBi0hHjLftk)](https://youtu.be/PBi0hHjLftk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=13)
 
-* [Companion Notes](1_terraform_gcp)    
+* [Companion Notes](1_terraform_gcp)
 
 ## Configuring terraform and GCP SDK on Windows
 
 * [Instructions](1_terraform_gcp/windows.md)
 
 
-# Environment setup 
+# Environment setup
 
 For the course you'll need:
 
@@ -144,12 +144,12 @@ For the course you'll need:
 * Terraform
 * Git account
 
-> [!NOTE]  
+> [!NOTE]
 >If you have problems setting up the environment, you can check these videos.
 >
 >If you already have a working coding environment on local machine, these are optional. And only need to select one method. But if you have time to learn it now, these would be helpful if the local environment suddenly do not work one day.
 
-## :movie_camera: GCP Cloud VM 
+## :movie_camera: GCP Cloud VM
 
 ### Setting up the environment on cloud VM
 [![](https://markdown-videos-api.jorgenkh.no/youtube/ae-CV2KfoN0)](https://youtu.be/ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=14)
