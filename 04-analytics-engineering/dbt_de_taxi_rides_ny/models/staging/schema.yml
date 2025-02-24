@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: staging
+    database: robotic-incline-449301-g8
+    schema: zoomcamp
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
+         # freshness:
+           # error_after: {count: 6, period: hour}
