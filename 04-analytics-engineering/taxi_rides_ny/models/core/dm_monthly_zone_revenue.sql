@@ -14,7 +14,7 @@ with trips_data as (
     sum(fare_amount) as revenue_monthly_fare,
     sum(extra) as revenue_monthly_extra,
     sum(mta_tax) as revenue_monthly_mta_tax,
-    sum(trip_amount) as revenue_monthly_trip_amount,
+    sum(tip_amount) as revenue_monthly_trip_amount,
     sum(tolls_amount) as revenue_monthly_tolls_amount,
     sum(ehail_fee) as revenue_monthly_ehail_fee,
     sum(improvement_surcharge) as revenue_monthly_improvement_surcharge,
