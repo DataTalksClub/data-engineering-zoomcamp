@@ -116,3 +116,6 @@ gcloud dataproc jobs submit pyspark \
         --output=trips_data_all.reports-2020
 ```
 
+There can be issue with latest Spark version and the Big query connector. Download links to the jar file for respective Spark versions can be found at:
+[Spark and Big query connector](https://github.com/GoogleCloudDataproc/spark-bigquery-connector)
+
