@@ -42,6 +42,5 @@ select
     {{ get_payment_type_description("payment_type") }} as payment_type_description
 from tripdata
 where rn = 1
-{% if var('is_test_run', default=true) %}
   limit 100
-{% endif %}
+
