@@ -42,5 +42,5 @@ select
     {{ get_payment_type_description("payment_type") }} as payment_type_description
 from tripdata
 where rn = 1
-  limit 100
+
 
