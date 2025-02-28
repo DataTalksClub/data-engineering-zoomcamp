@@ -120,6 +120,10 @@ By this stage of the course you should have already:
 
 
 
+## Homework
+* [2025 Homework](../cohorts/2025/04-analytics-engineering/homework.md)
+
+
 ## Community notes
 
 Did you take notes? You can share them here.
