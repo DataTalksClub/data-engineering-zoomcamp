@@ -38,4 +38,4 @@ this is what we will use when generating certificates for you.
 
 ### Evaluation criteria
 
-See [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/projects/README.md)
+See [here](../../projects/README.md)
