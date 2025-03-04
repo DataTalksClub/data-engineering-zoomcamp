@@ -13,7 +13,7 @@
 
 ## 5.2 Installation
 
-Follow [these intructions](setup/) to install Spark:
+Follow [these instructions](setup/) to install Spark:
 
 * [Windows](setup/windows.md)
 * [Linux](setup/linux.md)
