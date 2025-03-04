@@ -41,7 +41,7 @@ df_yellow = df_yellow \
     .withColumnRenamed('tpep_dropoff_datetime', 'dropoff_datetime')
 
 
-common_colums = [
+common_columns = [
     'VendorID',
     'pickup_datetime',
     'dropoff_datetime',
@@ -65,11 +65,11 @@ common_colums = [
 
 
 df_green_sel = df_green \
-    .select(common_colums) \
+    .select(common_columns) \
     .withColumn('service_type', F.lit('green'))
 
 df_yellow_sel = df_yellow \
-    .select(common_colums) \
+    .select(common_columns) \
     .withColumn('service_type', F.lit('yellow'))
 
 
@@ -80,7 +80,7 @@ df_trips_data.registerTempTable('trips_data')
 
 df_result = spark.sql("""
 SELECT 
-    -- Reveneue grouping 
+    -- Revenue grouping 
     PULocationID AS revenue_zone,
     date_trunc('month', pickup_datetime) AS revenue_month, 
     service_type, 
@@ -96,8 +96,8 @@ SELECT
     SUM(congestion_surcharge) AS revenue_monthly_congestion_surcharge,
 
     -- Additional calculations
-    AVG(passenger_count) AS avg_montly_passenger_count,
-    AVG(trip_distance) AS avg_montly_trip_distance
+    AVG(passenger_count) AS avg_monthly_passenger_count,
+    AVG(trip_distance) AS avg_monthly_trip_distance
 FROM
     trips_data
 GROUP BY
