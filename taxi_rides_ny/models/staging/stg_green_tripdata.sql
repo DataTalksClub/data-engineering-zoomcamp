@@ -25,6 +25,7 @@ renamed as (
         airport_fee,
         total_amount,
         payment_type,
+        {{ get_payment_description(payment_type) }} as get_payment_descripted,
         distance_between_service,
         time_between_service,
         trip_type,
