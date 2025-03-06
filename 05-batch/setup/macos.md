@@ -1,11 +1,15 @@
 
 ## MacOS
 
-Here we'll show you how to install Spark 3.2.1 for MacOS.
+Here we'll show you how to install Spark 3.5.5 for MacOS.
 We tested it on MacOS Monterey 12.0.1, but it should work
 for other MacOS versions as well
 
-### Installing Java
+### Anaconda-based Spark set up
+
+If you are having anaconda setup, you can skip the spark installation and instead Pyspark package to run the spark.
+
+#### Installing Java
 
 Ensure Brew and Java installed in your system:
 
@@ -24,8 +28,8 @@ export PATH="$JAVA_HOME/bin/:$PATH"
 
 Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine. You can also run `brew info java` to check where java was installed on your machine.
 
-### Anaconda-based spark set up
-if you are having anaconda setup, you can skip the spark installation and instead Pyspark package to run the spark.
+#### Anaconda
+
 With Anaconda and Mac we can spark set by first installing pyspark and then for environment variable set up findspark
 
 Open Anaconda Activate the environment where you want to apply these changes
@@ -49,31 +53,41 @@ spark = SparkSession.builder.master("local[1]") \
 
 print(f'The PySpark {spark.version} version is running...')
 ```
-### Installing Spark
 
-1. Install Scala
+### Homebrew-based Spark set up
+#### Installing Spark
 
-```bash
-brew install scala@2.13
-```
-
-2. Install Apache Spark
+1. Install Apache Spark. Java and Scala will be installed as Spark's dependencies.
 
 ```bash
 brew install apache-spark
 ```
 
+2. Copy openjdk and apache-spark paths from installation output.
+
+You may see something like this in your terminal after the installation is complete:
+```
+==> Pouring openjdk@17--17.0.14.arm64_sequoia.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/openjdk@17/17.0.14: 636 files, 304.2MB
+...
+==> Pouring apache-spark--3.5.5.all.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/apache-spark/3.5.5: 1,823 files, 423.7MB
+```
+
 3. Add environment variables: 
 
-Add the following environment variables to your `.bash_profile` or `.zshrc`. Replace the path to `SPARK_HOME` to the path on your own host. Run `brew info apache-spark` to get this.
+Add the following environment variables to your `.bash_profile` or `.zshrc`. Replace the path to `JAVA_HOME` and `SPARK_HOME` to the paths on your own host. Run `brew info apache-spark` to get this.
 
 ```bash
-export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.14
+export PATH="$JAVA_HOME/bin/:$PATH"
+
+export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.5/libexec
 export PATH="$SPARK_HOME/bin/:$PATH"
 ```
 
 
-### Testing Spark
+#### Testing Spark
 
 Execute `spark-shell` and run the following in scala:
 
