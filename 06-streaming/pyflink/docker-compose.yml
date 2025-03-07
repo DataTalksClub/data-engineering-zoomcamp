@@ -36,9 +36,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile.flink
-      platforms:
-        - "linux/amd64"
-        - "linux/arm64"
     image: pyflink:1.16.0
     container_name: "flink-jobmanager"
     pull_policy: never
