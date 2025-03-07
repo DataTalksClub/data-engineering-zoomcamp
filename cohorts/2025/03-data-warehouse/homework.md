@@ -97,3 +97,7 @@ No Points: Write a `SELECT count(*)` query FROM the materialized table you creat
 ## Submitting the solutions
 
 Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw3
+
+## Solution
+
+Solution: https://www.youtube.com/watch?v=wpLmImIUlPg

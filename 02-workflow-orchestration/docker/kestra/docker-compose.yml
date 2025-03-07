@@ -20,7 +20,7 @@ services:
       retries: 10
 
   kestra:
-    image: kestra/kestra:latest
+    image: kestra/kestra:v0.20.7
     pull_policy: always
     user: "root"
     command: server standalone

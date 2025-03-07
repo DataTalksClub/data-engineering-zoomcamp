@@ -1,0 +1,4 @@
+apache-flink==1.16.0
+psycopg2-binary==2.9.1
+requests
+kafka-python

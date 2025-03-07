@@ -13,7 +13,7 @@
 
 ## 5.2 Installation
 
-Follow [these intructions](setup/) to install Spark:
+Follow [these instructions](setup/) to install Spark:
 
 * [Windows](setup/windows.md)
 * [Linux](setup/linux.md)
@@ -103,7 +103,7 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 
 # Homework
 
-* [2024 Homework](../cohorts/2024/05-batch/homework.md)
+* [2025 Homework](../cohorts/2025/05-batch/homework.md)
 
 
 # Community notes
@@ -119,4 +119,7 @@ Did you take notes? You can share them here.
 * [Notes by Oscar Garcia](https://github.com/ozkary/Data-Engineering-Bootcamp/tree/main/Step5-Batch-Processing)
 * [Notes by HongWei](https://github.com/hwchua0209/data-engineering-zoomcamp-submission/blob/main/05-batch-processing/README.md)
 * [2024 videos transcript](https://drive.google.com/drive/folders/1XMmP4H5AMm1qCfMFxc_hqaPGw31KIVcb?usp=drive_link) by Maria Fisher 
+* [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/5_Batch-Processing-Spark/README.md)
+* [2025 Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/05_batch_processing/00_notes.md)
+* [2025 Notes on Installing Spark on MacOS (with Anaconda + brew) by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/05_batch_processing/01_env_setup.md)
 * Add your notes here (above this line)

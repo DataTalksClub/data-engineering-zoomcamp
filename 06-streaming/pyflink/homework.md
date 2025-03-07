@@ -28,19 +28,14 @@ The connection credentials are:
 - Port `5432`
 
 
-In DBeaver, run these query to create the Postgres landing zone for the first events and windows:
+In DBeaver, run this query to create the Postgres landing zone for the first events:
 ```sql 
 CREATE TABLE processed_events (
     test_data INTEGER,
     event_timestamp TIMESTAMP
 )
-
-CREATE TABLE processed_events_aggregated (
-    event_hour TIMESTAMP,
-    test_data INTEGER,
-    num_hits INTEGER 
-)
 ```
+
 
 ## Question 1. Connecting to the Kafka server
 
@@ -61,6 +56,7 @@ Let's try to connect to our server:
 
 ```python
 import json
+import time 
 
 from kafka import KafkaProducer
 

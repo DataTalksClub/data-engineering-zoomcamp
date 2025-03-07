@@ -11,8 +11,8 @@ By this stage of the course you should have already:
   * Green taxi data - Years 2019 and 2020 
   * fhv data - Year 2019. 
 
-> [!NOTE]  
-> * We have two quick hack to load that data quicker, follow [this video](https://www.youtube.com/watch?v=Mork172sK_c&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs) for option 1 or check instructions in [week3/extras](../03-data-warehouse/extras) for option 2
+> [!NOTE]
+> * We have prepared a python script for loading the data that can be found through [week3/extras](../03-data-warehouse/extras).
 
 ## Setting up your environment 
   
@@ -105,8 +105,7 @@ By this stage of the course you should have already:
 
 
 > [!NOTE]
-> If find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
-
+> If you find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
 
  
 ## Advanced concepts
@@ -119,6 +118,10 @@ By this stage of the course you should have already:
  * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
  * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
 
+
+
+## Homework
+* [2025 Homework](../cohorts/2025/04-analytics-engineering/homework.md)
 
 
 ## Community notes
@@ -141,6 +144,8 @@ Did you take notes? You can share them here.
 * [2024 - Videos transcript week4](https://drive.google.com/drive/folders/1V2sHWOotPEMQTdMT4IMki1fbMPTn3jOP?usp=drive)
 * [Blog Post](https://www.jonahboliver.com/blog/de-zc-w4) by Jonah Oliver
 * [2025 Notes by Manuel Guerra](https://github.com/ManuelGuerra1987/data-engineering-zoomcamp-notes/blob/main/4_Analytics-Engineering/README.md)
+* [2025 Notes by Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-4-Analytics-Engineering-18929780dc4a808692e4e0ee488bf49c?pvs=74)
+* [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/04_01_Analytics_Engineering.pdf)
 * Add your notes here (above this line)
 
 ## Useful links

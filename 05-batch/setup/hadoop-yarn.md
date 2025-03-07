@@ -37,7 +37,7 @@ sudo service ssh start
 
 We use Spark that expects Hadoop 3.2 version. So we'll install it.
 
-Go to the [Hadoop's website](https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.2.3/hadoop-3.2.3.tar.gz) to get the closest mirrow. And then download it:
+Go to the [Hadoop's website](https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.2.3/hadoop-3.2.3.tar.gz) to get the closest mirror. And then download it:
 
 ```bash
 wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.3/hadoop-3.2.3.tar.gz

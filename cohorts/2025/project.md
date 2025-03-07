@@ -38,6 +38,4 @@ this is what we will use when generating certificates for you.
 
 ### Evaluation criteria
 
-See [here](../../week_7_project/README.md)
-
-
+See [here](../../projects/README.md)
