@@ -30,11 +30,10 @@ To run this repo, the following components will need to be installed:
 
 ### :computer: Local setup
 
-Clone/fork the repo and navigate to the root directory on your local computer.
+Make sure you're in the `pyflick` folder:
 
 ```bash
-git clone https://github.com/EcZachly-Inc-Second-Bootcamp/4-apache-flink-training.git
-cd apache-flink-training
+cd 06-streaming/pyflink
 ```
 
 ## :boom: Running the pipeline
@@ -45,7 +44,7 @@ cd apache-flink-training
     make up
 
     #// if you dont have make, you can run:
-    # docker compose --env-file flink-env.env up --build --remove-orphans  -d
+    # docker compose up --build --remove-orphans  -d
     ```
 
     **:star: Wait until the Flink UI is running at [http://localhost:8081/](http://localhost:8081/) before proceeding to the next step.** _Note the first time you build the Docker image it can take anywhere from 5 to 30 minutes. Future builds should only take a few second, assuming you haven't deleted the image since._
@@ -55,6 +54,7 @@ cd apache-flink-training
     ```
     taskmanager Successful registration at resource manager akka.tcp://flink@jobmanager:6123/user/rpc/resourcemanager_* under registration id <id_number>
     ```
+
 2. Now that the Flink cluster is up and running, it's time to finally run the PyFlink job! :smile:
 
     ```bash
@@ -65,6 +65,7 @@ cd apache-flink-training
     ```
 
     After about a minute, you should see a prompt that the job's been submitted (e.g., `Job has been submitted with JobID <job_id_number>`). Now go back to the [Flink UI](http://localhost:8081/#/job/running) to see the job running! :tada:
+
 
 3. When you're done, you can stop and/or clean up the Docker resources by running the commands below.
 
