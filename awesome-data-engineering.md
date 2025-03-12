@@ -71,7 +71,7 @@ Conference talks from companies, blog posts, etc
 ### Data warehousing
 
 
-* [Guide to Data Warehousing. Short and comprehensive information… | by Tomas Peluritis](https://towardsdatascience.com/guide-to-data-warehousing-6fdcf30b6fbe) (blog post) 
+* [Guide to Data Warehousing. Short and comprehensive information… | by Tomas Peluritis](https://medium.com/towards-data-science/guide-to-data-warehousing-6fdcf30b6fbe) (blog post) 
 * [Snowflake, Redshift, BigQuery, and Others: Cloud Data Warehouse Tools Compared](https://www.altexsoft.com/blog/snowflake-redshift-bigquery-data-warehouse-tools/) (blog post)
 
 
