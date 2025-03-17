@@ -1,5 +1,7 @@
 ## Course Project
 
+Video with explanations: https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6
+
 ### Objective
 
 The goal of this project is to apply everything we have learned
