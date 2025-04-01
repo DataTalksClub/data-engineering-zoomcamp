@@ -120,7 +120,14 @@ By this stage of the course you should have already:
 
 
 
+## SQL refresher
+
+The homework for this module focuses heavily on window functions and CTEs. If you need a refresher on these topics, you can refer to these notes.
+
+* [SQL refresher](SQL_refresher.md)
+
 ## Homework
+
 * [2025 Homework](../cohorts/2025/04-analytics-engineering/homework.md)
 
 
