@@ -198,4 +198,4 @@ For the Trips that **respectively** started from `Newark Airport`, `SoHo`, and `
 
 ## Solution 
 
-* To be published after deadline
+[Link to solution](https://github.com/Joyan9/learning_data_engineering/blob/main/Data%20Engineering%20ZoomCamp%202025/Week_4/dbt/Week_4_Homework.md)
