@@ -3,7 +3,7 @@
 ### Table of contents
 
 
-- [Window Funtions](#window-funtions)
+- [Window Functions](#window-funtions)
     - [Row Number](#row-number)
     - [Rank and Dense Rank](#rank-and-dense-rank)    
     - [Lag and Lead](#lag-and-lead)   
@@ -13,7 +13,7 @@
 
 
 
-## Window Funtions    
+## Window Functions    
 
 A window function performs a calculation across a set of table rows that are related to the current row within a specific "window" or subset of data. This is comparable to the type of calculation that can be done with an aggregate function  (such as SUM(), AVG(), COUNT(), etc.).
 
@@ -217,7 +217,7 @@ PERCENTILE_CONT(value_expression, percentile ) OVER (PARTITION BY partition_expr
 
 **Example:**
 
-Lets calculate the 90th percentile of total_amount for each unique pickup location (PULocationID)
+Let's calculate the 90th percentile of total_amount for each unique pickup location (PULocationID)
 
 ```sql
 
