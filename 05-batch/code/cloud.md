@@ -72,14 +72,14 @@ spark-submit \
 Upload the script to GCS:
 
 ```bash
-gsutil -m cp -r 06_spark_sql.py gs://dtc_data_lake_de-zoomcamp-nytaxi/code/06_spark_sql.py
+gsutil -m cp -r 06_spark_sql.py gs://kestra-de-zoomcamp-bucket99/code/spark_sql.py
 ```
 
 Params for the job:
 
-* `--input_green=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/2021/*/`
-* `--input_yellow=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/yellow/2021/*/`
-* `--output=gs://dtc_data_lake_de-zoomcamp-nytaxi/report-2021`
+* `--input_green=gs://kestra-de-zoomcamp-bucket99/pq/green/2021/*/`
+* `--input_yellow=gs://kestra-de-zoomcamp-bucket99/pq/yellow/2021/*/`
+* `--output=gs://kestra-de-zoomcamp-bucket99/report-2021`
 
 
 Using Google Cloud SDK for submitting to dataproc
