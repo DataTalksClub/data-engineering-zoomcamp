@@ -42,7 +42,7 @@ Below I am only concentrating on Yellow and green cabs
 
 
 
-### Taxi zone Loopup
+### Taxi zone Lookup
 
 | Columns      | Definition | Example        |
 | ------------ | ---------- | -------------- |

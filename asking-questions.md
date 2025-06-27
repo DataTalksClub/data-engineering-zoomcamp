@@ -15,14 +15,14 @@ To keep our discussion in Slack more organized, we ask you to follow these sugge
   
 ### How to troubleshoot issues
 
-The first step is to try to solve the issue on you own; get used to solving problems. This will be a real life skill you need when employeed. 
+The first step is to try to solve the issue on you own; get used to solving problems. This will be a real life skill you need when employed.
 
 1. What does the error say? There will often be a description of the error or instructions on what is needed, I have even seen a link to the solution. Does it reference a specific line of your code?
 2. Restart the application or server/pc. 
 3. Google it. It is going to be rare that you are the first to have the problem, someone out there has posted the issue and likely the solution. Search using: **technology** **problem statement**. Example: `pgcli error column c.relhasoids does not exist`. 
     * There are often different solutions for the same problem due to variation in environments. 
-4. Check the tech’s documentation. Use its search if available or use the browsers search function. 
-5. Try uninstall (this may remove the bad actor) and reinstall of application or reimplementation of action. Don’t forget to restart the server/pc for reinstalls.
+4. Check the tech’s documentation. Use its search if available or use the browser's search function. 
+5. Try uninstall (this may remove the bad actor) and reinstall of application or re-implementation of action. Don’t forget to restart the server/pc for reinstalls.
     * Sometimes reinstalling fails to resolve the issue but works if you uninstall first.
 6. Ask in Slack
 7. Take a break and come back to it later. You will be amazed at how often you figure out the solution after letting your brain rest. Get some fresh air, workout, play a video game, watch a tv show, whatever allows your brain to not think about it for a little while or even until the next day. 

@@ -13,7 +13,7 @@ It helps you get noticed and will lead to:
 * Landing a job or getting clients
 * Many other good things
 
-Here's a more compresensive reading on why you want to do it: https://github.com/readme/guides/publishing-your-work
+Here's a more comprehensive reading on why you want to do it: https://github.com/readme/guides/publishing-your-work
 
 
 ## Learning in Public for Zoomcamps
