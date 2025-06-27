@@ -1,16 +1,16 @@
 volumes:
-  postgres-data:
+  kestra-postgres-data:
     driver: local
-  kestra-data:
+  kestra-server-data:
     driver: local
-  zoomcamp-data:
+  pg-etl-data:
     driver: local
 
 services:
-  postgres:
+  kestra_postgres:
     image: postgres
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - kestra-postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: kestra
       POSTGRES_USER: kestra
@@ -22,28 +22,25 @@ services:
       retries: 10
 
   kestra:
-    image: kestra/kestra:v0.20.7
+    image: kestra/kestra:develop
     pull_policy: always
-    # Note that this setup with a root user is intended for development purpose.
-    # Our base image runs without root, but the Docker Compose implementation needs root to access the Docker socket
-    # To run Kestra in a rootless mode in production, see: https://kestra.io/docs/installation/podman-compose
     user: "root"
     command: server standalone
     volumes:
-      - kestra-data:/app/storage
+      - kestra-server-data:/app/storage
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/kestra-wd:/tmp/kestra-wd
     environment:
       KESTRA_CONFIGURATION: |
         datasources:
           postgres:
-            url: jdbc:postgresql://postgres:5432/kestra
+            url: jdbc:postgresql://kestra_postgres:5432/kestra
             driverClassName: org.postgresql.Driver
             username: kestra
             password: k3str4
         kestra:
           server:
-            basicAuth:
+            basic-auth:
               enabled: false
               username: "admin@kestra.io" # it must be a valid email address
               password: kestra
@@ -52,41 +49,43 @@ services:
           storage:
             type: local
             local:
-              basePath: "/app/storage"
+              base-path: "/app/storage"
           queue:
             type: postgres
+          tutorial-flows:
+            enabled: false 
           tasks:
-            tmpDir:
+            tmp-dir:
               path: /tmp/kestra-wd/tmp
           url: http://localhost:8080/
     ports:
       - "8080:8080"
       - "8081:8081"
     depends_on:
-      postgres:
+      kestra_postgres:
         condition: service_started
-    
-  postgres_zoomcamp:
+
+  pg_etl:
     image: postgres
     environment:
       POSTGRES_USER: kestra
       POSTGRES_PASSWORD: k3str4
-      POSTGRES_DB: postgres-zoomcamp
+      POSTGRES_DB: etl
     ports:
       - "5432:5432"
     volumes:
-      - zoomcamp-data:/var/lib/postgresql/data
+      - pg-etl-data:/var/lib/postgresql/data
     depends_on:
       kestra:
         condition: service_started
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
-      - "8085:80"
+      - "8082:80"
     depends_on:
-      postgres_zoomcamp:
+      pg_etl:
         condition: service_started
