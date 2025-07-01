@@ -1,14 +1,14 @@
 version: "3.8"
 services:
   postgres:
-    image: postgres
+    image: postgres:17.4
     container_name: postgres-db
     environment:
       POSTGRES_USER: kestra
       POSTGRES_PASSWORD: k3str4
       POSTGRES_DB: postgres-zoomcamp
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
 volumes:
