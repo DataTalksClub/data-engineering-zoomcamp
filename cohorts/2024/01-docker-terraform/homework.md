@@ -85,7 +85,7 @@ Tip: For every trip on a single day, we only care about the trip with the longes
 
 Consider lpep_pickup_datetime in '2019-09-18' and ignoring Borough has Unknown
 
-Which were the 3 pick up Boroughs that had a sum of total_amount superior to 50000?
+Which were the 3 pick up Boroughs that had the maximum total_amount?
  
 - "Brooklyn" "Manhattan" "Queens"
 - "Bronx" "Brooklyn" "Manhattan"
