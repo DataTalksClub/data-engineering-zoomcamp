@@ -38,7 +38,7 @@ Conference talks from companies, blog posts, etc
 ### Coding & Python
 
 * [CS50's Introduction to Computer Science | edX](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x) (course)
-* [Python for Everybody SpecializsationSpecialization](https://www.coursera.org/specializations/python) (course)
+* [Python for Everybody Specialization](https://www.coursera.org/specializations/python) (course)
 * [Practical Python programming](https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md)
 
 
