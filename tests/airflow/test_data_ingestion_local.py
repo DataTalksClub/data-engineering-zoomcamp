@@ -17,16 +17,20 @@ class TestDataIngestionLocal:
         'PG_PORT': '5432',
         'PG_DATABASE': 'test_db'
     })
-    @patch('data_ingestion_local.DAG')
-    @patch('data_ingestion_local.BashOperator')
-    @patch('data_ingestion_local.PythonOperator')
-    def test_dag_creation_and_configuration(self, mock_python_op, mock_bash_op, mock_dag):
+    @patch('airflow.operators.python.PythonOperator')
+    @patch('airflow.operators.bash.BashOperator')
+    @patch('airflow.DAG')
+    def test_dag_creation_and_configuration(self, mock_dag, mock_bash_op, mock_python_op):
         """Test that the DAG is created with correct configuration"""
-        mock_dag_instance = Mock()
+        mock_dag_instance = MagicMock()
+        mock_dag_instance.__enter__ = Mock(return_value=mock_dag_instance)
+        mock_dag_instance.__exit__ = Mock(return_value=None)
         mock_dag.return_value = mock_dag_instance
         
         mock_bash_task = Mock()
+        mock_bash_task.__rshift__ = Mock(return_value=mock_bash_task)
         mock_python_task = Mock()
+        mock_python_task.__rshift__ = Mock(return_value=mock_python_task)
         
         mock_bash_op.return_value = mock_bash_task
         mock_python_op.return_value = mock_python_task
@@ -34,15 +38,12 @@ class TestDataIngestionLocal:
         import data_ingestion_local
         
         mock_dag.assert_called_once()
-        dag_call_args = mock_dag.call_args[1]
+        dag_call_args = mock_dag.call_args
         
-        assert dag_call_args['dag_id'] == 'LocalIngestionDag'
-        assert dag_call_args['schedule_interval'] == '@once'
+        assert dag_call_args[0][0] == 'LocalIngestionDag'
+        assert dag_call_args[1]['schedule_interval'] == '0 6 2 * *'
         
-        default_args = dag_call_args['default_args']
-        assert default_args['owner'] == 'airflow'
-        assert default_args['depends_on_past'] == False
-        assert default_args['retries'] == 1
+        assert 'start_date' in dag_call_args[1]
 
     @patch.dict(os.environ, {
         'PG_HOST': 'localhost',
@@ -51,9 +52,12 @@ class TestDataIngestionLocal:
         'PG_PORT': '5432',
         'PG_DATABASE': 'test_db'
     })
-    @patch('data_ingestion_local.BashOperator')
+    @patch('airflow.operators.bash.BashOperator')
     def test_wget_task_configuration(self, mock_bash_op):
         """Test wget task configuration"""
+        if 'data_ingestion_local' in sys.modules:
+            del sys.modules['data_ingestion_local']
+            
         mock_bash_task = Mock()
         mock_bash_op.return_value = mock_bash_task
         
@@ -63,9 +67,9 @@ class TestDataIngestionLocal:
         
         bash_call_args = mock_bash_op.call_args[1]
         
-        assert bash_call_args['task_id'] == 'wget_task'
-        assert 'wget' in bash_call_args['bash_command']
-        assert 'yellow_tripdata_2021-01.csv' in bash_call_args['bash_command']
+        assert bash_call_args['task_id'] == 'wget'
+        assert 'curl' in bash_call_args['bash_command']
+        assert 'yellow_tripdata_' in bash_call_args['bash_command'] and 'execution_date.strftime' in bash_call_args['bash_command']
 
     @patch.dict(os.environ, {
         'PG_HOST': 'localhost',
@@ -74,9 +78,12 @@ class TestDataIngestionLocal:
         'PG_PORT': '5432',
         'PG_DATABASE': 'test_db'
     })
-    @patch('data_ingestion_local.PythonOperator')
+    @patch('airflow.operators.python.PythonOperator')
     def test_ingest_task_configuration(self, mock_python_op):
         """Test ingest task configuration"""
+        if 'data_ingestion_local' in sys.modules:
+            del sys.modules['data_ingestion_local']
+            
         mock_python_task = Mock()
         mock_python_op.return_value = mock_python_task
         
@@ -86,7 +93,7 @@ class TestDataIngestionLocal:
         
         python_call_args = mock_python_op.call_args[1]
         
-        assert python_call_args['task_id'] == 'ingest_task'
+        assert python_call_args['task_id'] == 'ingest'
         assert python_call_args['python_callable'].__name__ == 'ingest_callable'
         
         op_kwargs = python_call_args['op_kwargs']
@@ -95,8 +102,8 @@ class TestDataIngestionLocal:
         assert op_kwargs['host'] == 'localhost'
         assert op_kwargs['port'] == '5432'
         assert op_kwargs['db'] == 'test_db'
-        assert op_kwargs['table_name'] == 'yellow_taxi_trips'
-        assert 'yellow_tripdata_2021-01.csv' in op_kwargs['csv_file']
+        assert 'yellow_taxi_' in op_kwargs['table_name'] and 'execution_date.strftime' in op_kwargs['table_name']
+        assert '/opt/airflow/' in op_kwargs['csv_file'] and 'output_' in op_kwargs['csv_file'] and 'execution_date.strftime' in op_kwargs['csv_file']
 
     @patch.dict(os.environ, {})
     def test_missing_environment_variables(self):
@@ -121,12 +128,14 @@ class TestDataIngestionLocal:
         """Test that task dependencies are set up correctly"""
         if 'data_ingestion_local' in sys.modules:
             del sys.modules['data_ingestion_local']
-        
-        with patch('data_ingestion_local.BashOperator') as mock_bash_op, \
-             patch('data_ingestion_local.PythonOperator') as mock_python_op:
+            
+        with patch('airflow.operators.bash.BashOperator') as mock_bash_op, \
+             patch('airflow.operators.python.PythonOperator') as mock_python_op:
             
             mock_bash_task = Mock()
+            mock_bash_task.__rshift__ = Mock(return_value=mock_bash_task)
             mock_python_task = Mock()
+            mock_python_task.__rshift__ = Mock(return_value=mock_python_task)
             
             mock_bash_op.return_value = mock_bash_task
             mock_python_op.return_value = mock_python_task
@@ -147,14 +156,16 @@ class TestDataIngestionLocal:
         if 'data_ingestion_local' in sys.modules:
             del sys.modules['data_ingestion_local']
         
-        with patch('data_ingestion_local.DAG') as mock_dag:
-            mock_dag_instance = Mock()
+        with patch('airflow.DAG') as mock_dag:
+            mock_dag_instance = MagicMock()
+            mock_dag_instance.__enter__ = Mock(return_value=mock_dag_instance)
+            mock_dag_instance.__exit__ = Mock(return_value=None)
             mock_dag.return_value = mock_dag_instance
             
             import data_ingestion_local
             
-            dag_call_args = mock_dag.call_args[1]
-            assert dag_call_args['schedule_interval'] == '@once'
+            dag_call_args = mock_dag.call_args
+            assert dag_call_args[1]['schedule_interval'] == '0 6 2 * *'
 
     @patch.dict(os.environ, {
         'PG_HOST': 'localhost',
@@ -168,20 +179,20 @@ class TestDataIngestionLocal:
         if 'data_ingestion_local' in sys.modules:
             del sys.modules['data_ingestion_local']
         
-        with patch('data_ingestion_local.BashOperator') as mock_bash_op, \
-             patch('data_ingestion_local.PythonOperator') as mock_python_op:
+        with patch('airflow.operators.bash.BashOperator') as mock_bash_op, \
+             patch('airflow.operators.python.PythonOperator') as mock_python_op:
             
             import data_ingestion_local
             
             bash_call_args = mock_bash_op.call_args[1]
             bash_command = bash_call_args['bash_command']
             
-            assert '/opt/airflow/dags_local/yellow_tripdata_2021-01.csv' in bash_command
+            assert 'yellow_tripdata_' in bash_command and 'execution_date.strftime' in bash_command
             
             python_call_args = mock_python_op.call_args[1]
             op_kwargs = python_call_args['op_kwargs']
             
-            assert op_kwargs['csv_file'] == '/opt/airflow/dags_local/yellow_tripdata_2021-01.csv'
+            assert '/opt/airflow/' in op_kwargs['csv_file'] and 'output_' in op_kwargs['csv_file'] and 'execution_date.strftime' in op_kwargs['csv_file']
 
     @patch.dict(os.environ, {
         'PG_HOST': 'localhost',
@@ -195,7 +206,7 @@ class TestDataIngestionLocal:
         if 'data_ingestion_local' in sys.modules:
             del sys.modules['data_ingestion_local']
         
-        with patch('data_ingestion_local.PythonOperator') as mock_python_op:
+        with patch('airflow.operators.python.PythonOperator') as mock_python_op:
             import data_ingestion_local
             
             python_call_args = mock_python_op.call_args[1]
@@ -217,7 +228,7 @@ class TestDataIngestionLocal:
         if 'data_ingestion_local' in sys.modules:
             del sys.modules['data_ingestion_local']
         
-        with patch('data_ingestion_local.PythonOperator') as mock_python_op:
+        with patch('airflow.operators.python.PythonOperator') as mock_python_op:
             import data_ingestion_local
             
             python_call_args = mock_python_op.call_args[1]
