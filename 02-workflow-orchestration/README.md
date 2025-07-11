@@ -62,7 +62,7 @@ The project is organized as follows:
 We'll set up Kestra using Docker Compose containing one container for the Kestra server and another for the Postgres database:
 
 ```bash
-cd 02-workflow-orchestration/
+cd 02-workflow-orchestration/docker/combined
 docker compose up -d
 ```
 
