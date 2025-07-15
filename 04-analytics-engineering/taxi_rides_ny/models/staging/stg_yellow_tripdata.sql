@@ -8,7 +8,7 @@ with tripdata as
 (
   select *,
     row_number() over(partition by vendorid, tpep_pickup_datetime) as rn
-  from {{ source('staging','yellow_tripdata2019_2020') }}
+  from {{ source('staging','yellow_tripdata_2019_2020') }}
   where vendorid is not null 
 )
 select

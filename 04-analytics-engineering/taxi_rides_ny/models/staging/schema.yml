@@ -8,7 +8,7 @@ sources:
     tables:
       - name: green_tripdata_2019_2020
       - name: yellow_tripdata_2019_2020
-      - name: fhv_tripdata-2019
+      - name: fhv_tripdata_2019
          # freshness:
            # error_after: {count: 6, period: hour}
 
