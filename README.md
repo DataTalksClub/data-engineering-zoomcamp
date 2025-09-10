@@ -24,10 +24,9 @@ Master the fundamentals of data engineering by building an end-to-end data pipel
 
 ## How to Enroll
 
-### 2025 Cohort
-- **Start Date**: January 13, 2025
+### 2026 Cohort
+- **Start Date**: January 2026
 - **Register Here**: [Sign up](https://airtable.com/shr6oVXeQvSI5HuWD)
-- **Access Cohort Materials**: [2025 Cohort Folder](cohorts/2025/)
 
 ### Self-Paced Learning
 All course materials are freely available for independent study. Follow these steps:
