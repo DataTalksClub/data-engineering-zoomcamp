@@ -4,7 +4,7 @@
 * [Launch stream with course overview](https://www.youtube.com/live/AtRhA-NfS24?si=5JzA_E8BmJjiLi8l)
 * [Deadline calendar](https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml)
 * [Course Google calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
-* [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
+* [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html)
 * Course Playlist: Only 2024 Live videos & homeworks (TODO)
 * [Public Leaderboard of Top-100 Participants](leaderboard.md)
 
