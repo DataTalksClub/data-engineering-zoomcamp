@@ -6,9 +6,9 @@ in the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01
 To keep our discussion in Slack more organized, we ask you to follow these suggestions:
 
 * First, review How to troubleshoot issues listed below.
-* Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
+* Before asking a question, check the [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html).
 * Before asking a question review the [Slack Guidelines](#Ask-in-Slack).
-* If somebody helped you with your problem and it's not in [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit), please add it there.
+* If somebody helped you with your problem and it's not in [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html), please add it there.
   It'll help other students.
 * Zed Shaw (of the Learn the Hard Way series) has [a great post on how to help others help you](https://learncodethehardway.com/blog/03-how-to-ask-for-help/)
 * Check [Stackoverflow guide on asking](https://stackoverflow.com/help/how-to-ask)
@@ -30,7 +30,7 @@ The first step is to try to solve the issue on you own; get used to solving prob
 
 ### Asking in Slack
 
-* Before asking a question, check the [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit).
+* Before asking a question, check the [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html).
 * DO NOT use screenshots, especially don’t take pictures from a phone.
 * DO NOT tag instructors, it may discourage others from helping you.
 * Copy and paste errors; if it’s long, just post it in a reply to your thread. 
