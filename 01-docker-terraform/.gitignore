@@ -1,0 +1,5 @@
+# Ignore local environment files
+local.env
+
+# Ignore your service account key file
+zoomcamp-473216-93cb027b4d00.json
