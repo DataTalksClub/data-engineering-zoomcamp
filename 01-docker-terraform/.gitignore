@@ -9,6 +9,9 @@ zoomcamp-473216-93cb027b4d00.json
 # Local .terraform directories
 .terraform/
 
+docker_scratch.md
+example_docker.txt
+
 # .tfstate files
 *.tfstate
 *.tfstate.*
