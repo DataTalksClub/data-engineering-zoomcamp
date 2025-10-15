@@ -1,7 +1,6 @@
 ## Data Engineering Zoomcamp 2023 Cohort
 
 * [Launch stream with course overview](https://www.youtube.com/watch?v=-zpVha7bw5A)
-* [Course Google calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 * [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html)
 * [Public Leaderboard](leaderboard.md) and [Private Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vTbL00GcdQp0bJt9wf1ROltMq7s3qyxl-NYF7Pvk79Jfxgwfn9dNWmPD_yJHTDq_Wzvps8EIr6cOKWm/pubhtml)
 * [Course Playlist: Only 2023 Live videos & homeworks](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJjEePXIdE-LVUx_1ZZjYGW)
