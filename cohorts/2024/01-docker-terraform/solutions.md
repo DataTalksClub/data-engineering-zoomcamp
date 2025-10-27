@@ -80,8 +80,8 @@ Answer: `2019-09-26`
 ## Question 5. Three biggest pickup zones
 ```sql
 SELECT
-    "zone"."Zone",
-    ROUND(SUM(("total_amount")::NUMERIC), 3) AS "total_amount"
+    "zone"."Borough",
+    TRUNC(SUM("total_amount")) AS "total_amount"
 FROM
     "csv_green_tripdata_2019_09"
 INNER JOIN
@@ -95,16 +95,16 @@ ORDER BY
 LIMIT 3;
 ```
 ```
-+---------------------+--------------+
-| Zone                | total_amount |
-|---------------------+--------------|
-| East Harlem North   | 17893.060    |
-| East Harlem South   | 17152.160    |
-| Morningside Heights | 11259.680    |
-+---------------------+--------------+
++------------+-------------+
+| Zone      | total_amount |
+|------------+-------------|
+| Brooklyn  | 96333        |
+| Manhattan | 92271        |
+| Queens    | 78671        |
++------------+-------------+
 ```
 
-Answer: `East Harlem North, East Harlem South, Morningside Heights`
+Answer: `Brooklyn, Manhattan, Queens`
 
 
 ## Question 6. Largest tip
