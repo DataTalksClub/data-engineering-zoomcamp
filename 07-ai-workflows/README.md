@@ -245,38 +245,29 @@ Without RAG, the model might:
 
 **Try it yourself:**
 1. Import and run `1_chat_without_rag.yaml`
-2. Check the output—notice it may be incorrect or vague
+2. Check the output and confirm the response isn't accurate
 
 #### Step 2: With RAG (The Solution)
 
 Flow: [`2_chat_with_rag.yaml`](flows/2_chat_with_rag.yaml)
 
 This flow:
-1. **Ingests** Kestra 1.1 release notes from GitHub
+1. **Ingests** Kestra 1.1 release blog post from GitHub
 2. **Creates embeddings** using Gemini's embedding model
 3. **Stores** embeddings in Kestra KV Store
-4. **Queries** with RAG enabled, asking the same question
-5. **Returns** accurate, detailed features from the actual release notes
+4. **Asks LLM** the same question but with RAG enabled
+5. **Returns** accurate response with features from that release
 
 **Try it yourself:**
-1. Import and run `1_chat_without_rag.yaml`
-2. Import and run `2_chat_with_rag.yaml` and compare the output with `1_chat_without_rag.yaml`
-3. Notice the difference in accuracy and detail
-
-### RAG Use Cases in Data Engineering
-
-- **Documentation Q&A**: Answer questions about internal data pipelines
-- **Data catalog**: Query metadata about tables, columns, and lineage
-- **Compliance checks**: Verify data handling against policy documents
-- **Onboarding**: Help new team members understand existing workflows
+1. Import and run `2_chat_with_rag.yaml` and 
+2. Confirm the accuracy of this output compared to `1_chat_without_rag.yaml`
 
 ### RAG Best Practices
 
 1. **Keep documents updated**: Regularly re-ingest to ensure current information
 2. **Chunk appropriately**: Break large documents into meaningful sections
-3. **Use quality embeddings**: Choose embedding models suited to your content
-4. **Test retrieval quality**: Verify that the right documents are retrieved
-5. **Consider costs**: Embedding and storage have costs, so balance accuracy vs. budget
+3. **Test retrieval quality**: Verify that the right documents are retrieved
+4. **Consider costs**: Embedding and storage have costs, so balance accuracy vs. budget
 
 ---
 
@@ -294,6 +285,8 @@ An **AI Agent** is an autonomous system that:
 
 **Traditional Workflow:** → Fixed sequence, predetermined logic
 
+Pseudo-code:
+
 ```yaml
 tasks:
   - id: step1
@@ -306,6 +299,8 @@ tasks:
 
 
 **AI Agent Workflow:** → Agent decides what to do, in what order, based on the goal
+
+Pseudo-code:
 
 ```yaml
 tasks:
@@ -323,13 +318,11 @@ tasks:
 - ✅ The exact sequence of steps isn't known in advance
 - ✅ Decisions depend on dynamic, changing information
 - ✅ You need to adapt to unexpected conditions
-- ✅ Human-like reasoning and judgment are valuable
 
 **Use Traditional Workflows when:**
 - ✅ Steps are deterministic and repeatable
 - ✅ Compliance requires exact, auditable processes
 - ✅ Cost and latency must be minimized
-- ✅ Predictability is more important than flexibility
 
 ### Anatomy of an AI Agent
 
@@ -372,16 +365,16 @@ Flow: [`3_simple_agent.yaml`](flows/3_simple_agent.yaml)
 This flow demonstrates a basic AI agent that summarizes text with controllable length and language:
 
 **Features:**
-- Inputs for summary length (short/medium/long) and language
-- System message defining the agent's role
-- Two agent tasks demonstrating sequential execution
-- Token usage tracking for cost monitoring
+- **Inputs** for summary length (short/medium/long) and language
+- **System message** defining the agent's role
+- **Two agent tasks** demonstrating sequential execution
+- **Token usage output** for cost monitoring
 
-**What you'll learn:**
+**This flow demonstrates:**
 - How to structure agent prompts
 - How to chain agent tasks
 - How to use `pluginDefaults` to avoid repetition
-- How to observe token usage
+- How to track token usage
 
 ### Advanced Agent Example: Web Research
 
@@ -390,21 +383,19 @@ Flow: [`4_web_research_agent.yaml`](flows/4_web_research_agent.yaml)
 This flow demonstrates an agent with autonomous tool usage:
 
 **What the agent does:**
-1. Receives a research prompt (e.g., "Latest trends in workflow orchestration")
-2. Decides to use the web search tool to gather information
-3. Evaluates search results and determines if more searches are needed
-4. Synthesizes findings into a structured markdown report
-5. Saves the report to a file using the filesystem tool
+1. Receives a research **prompt** (e.g., "Latest trends in workflow orchestration")
+2. Decides to use the **web search tool** to gather information
+3. **Evaluates search results** and determines if more searches are needed
+4. **Synthesizes findings** into a structured markdown report
+5. Saves the **report** to a file using the **filesystem tool**
 
 **Key concepts:**
-- The agent autonomously decides when to use tools
+- The agent **autonomously decides** when to use tools
 - It can loop (search → evaluate → search again) until satisfied
 - You only specify the goal, not the exact steps
-- The agent handles errors and adapts to what it finds
 
-**What you'll learn:**
-- How agents use tools dynamically
-- How to mount volumes for file output
+**This flow demonstrates:**
+- How agents use tools
 - How to guide agent behavior with system messages
 - Trade-offs between autonomy and control
 
@@ -426,13 +417,13 @@ This flow demonstrates an agent with autonomous tool usage:
 
 Kestra provides full observability for agent executions:
 
-- **Token usage**: Track input/output tokens for cost monitoring
-- **Tool calls**: See which tools were called and with what parameters
-- **Logs**: View agent reasoning and decisions
-- **Outputs**: Access structured outputs and files
-- **Execution time**: Monitor performance
+- **Token usage**: Track input/output tokens to monitor cost
+- **Tool executions**: Track which tools were executed by the agent and with what parameters
+- **Request and response logs**: Track LLM's reasoning and decisions
+- **Outputs**: Access agent outputs
+- **Execution time**: Monitor agent performance
 
-Enable detailed logging:
+You can enable detailed logging via the `configuration` property:
 ```yaml
 provider:
   type: io.kestra.plugin.ai.provider.GoogleGemini
@@ -449,95 +440,51 @@ provider:
 
 For complex tasks, you can design systems where multiple specialized agents collaborate.
 
-### What is a Multi-Agent System?
-
-A **Multi-Agent System** involves:
-- **Multiple agents** with different specializations
+**Multi-Agent System** involves:
+- **Agents** with different specializations
 - **Coordination** between agents (one agent uses another as a tool)
 - **Modular design** where each agent has a clear responsibility
-- **Emergent behavior** from agent collaboration
 
-### Why Use Multiple Agents?
-
-**Benefits:**
+**Benefits of using multiple agents:**
 - **Separation of concerns**: Each agent focuses on one thing
-- **Reusability**: Agents can be tools for different parent agents
 - **Debugging**: Easier to isolate issues in specific agents
-- **Scalability**: Add new agents without changing existing ones
-
-**Example: Competitive Intelligence System**
-```
-Main Agent (Analyst)
-  ├─> Research Agent (gathers web data)
-  │     └─> Uses Tavily web search
-  ├─> Analysis Agent (synthesizes findings)
-  └─> Report Agent (formats output)
-```
 
 ### Multi-Agent Example: Company Research
 
 Flow: [`5_multi_agent_research.yaml`](flows/5_multi_agent_research.yaml)
 
-This flow demonstrates a two-agent system for competitive intelligence:
+This flow demonstrates a two-agent system for competitor research:
 
-**Agent 1: Research Agent (Tool)**
-- Specialization: Web research and data gathering
-- Tools: Tavily web search
-- Responsibility: Find factual, current information
-
-**Agent 2: Main Analyst Agent**
-- Specialization: Analysis and synthesis
-- Tools: Research agent (used as a tool)
-- Responsibility: Create structured reports
+| Agent | Specialization | Tools | Responsibility |
+|-------|---------------|-------|----------------|
+| **Research Agent** | Web research and data gathering | Tavily web search | Find factual, current information |
+| **Main Analyst Agent** | Analysis and synthesis | Research agent (used as a tool) | Create structured reports |
 
 **How it works:**
 
 1. **Input**: Company name (e.g., "kestra.io")
+2. **Main agent** receives prompt: "Research this company"
+3. **Main agent** calls research agent tool: "Find information about kestra.io"
+4. **Research agent** searches the web: Uses Tavily to gather data
+5. **Research agent** returns findings: Raw data about the company
+6. **Main agent** structures findings: Final JSON output.
 
-2. **Main agent receives prompt**: "Research this company"
-
-3. **Main agent calls research agent tool**: "Find information about kestra.io"
-
-4. **Research agent searches the web**: Uses Tavily to gather data
-
-5. **Research agent returns findings**: Raw data about the company
-
-6. **Main agent synthesizes**: Structures findings into JSON:
-   ```json
-   {
-     "company": "Kestra",
-     "summary": "Open-source orchestration platform...",
-     "recent_news": [
-       {
-         "title": "Kestra 1.0 — Declarative Orchestration with AI Agents and Copilot",
-         "date": "2025-09-09",
-         "description": "Kestra 1.0 delivers Declarative Orchestration as Code and from the UI. With AI Copilot and custom AI Agents, this LTS release sets the foundation for agentic automation."
-       }
-     ],
-     "competitors": ["Airflow", "Prefect", "Temporal"]
-   }
-   ```
-
-**What you'll learn:**
+**This flow demonstrates:**
 - How to use agents as tools for other agents
 - How to structure multi-agent systems
 - How to get structured JSON output
-- When to break tasks into multiple agents
 
 ### Best Practices for Multi-Agent Systems
 
 1. **Define clear responsibilities**: Each agent should have a specific role
-2. **Minimize inter-agent communication**: Reduce complexity and cost
-3. **Use structured output**: JSON or typed schemas for passing data
-4. **Monitor token usage**: Multiple agents = multiple LLM calls
-5. **Test agents independently**: Verify each agent works before combining
-6. **Document agent purposes**: Make the system maintainable
+2. **Monitor token usage**: Multiple agents = multiple LLM calls
+3. **Document agent purposes**: Make the system maintainable
 
 ---
 
 ## 7. Getting Started
 
-Ready to run the examples? Here's how to set up everything you need.
+Here's how to set up everything you need to run the example flows.
 
 ### Step 1: Ensure Kestra is Running
 
@@ -630,6 +577,7 @@ Then restart Kestra:
 
 ```bash
 cd 02-workflow-orchestration/docker/combined
+export GEMINI_API_KEY="your-api-key-here"
 docker compose up -d
 ```
 
@@ -641,6 +589,7 @@ docker compose up -d
 4. Click "Execute"
 5. Leave default inputs or customize
 6. Watch the execution and review outputs
+7. Run `4_web_research_agent` and `5_multi_agent_research` flows and analyze logs and outputs.
 
 ---
 
@@ -648,19 +597,19 @@ docker compose up -d
 
 ### When to Use What
 
-| Scenario | Use This | Why |
-|----------|----------|-----|
-| Building/modifying flows | AI Copilot | Fastest way to generate correct YAML |
-| Answering questions about your data | RAG | Grounds responses in real data |
-| Fixed, repeatable ETL pipelines | Traditional workflows | Deterministic, predictable, compliant |
-| Research and analysis tasks | AI Agents | Can adapt to findings and make decisions |
-| Complex, multi-step objectives | Multi-agent systems | Modular, maintainable, specialized |
+| Scenario                            | Use This | Why                                          |
+|-------------------------------------|----------|----------------------------------------------|
+| Creating/editing flows              | AI Copilot | Fastest way to generate YAML flow code       |
+| Answering questions about your data | RAG | Grounds responses in real data               |
+| Fixed, repeatable ETL pipelines     | Traditional workflows | Deterministic, predictable, compliant        |
+| Research and analysis tasks         | AI Agents | Can adapt to findings and make decisions     |
+| Complex, multi-step objectives      | Multi-agent systems | Specialized agents working together |
 
 ### Cost Considerations
 
 AI features use LLM APIs, which have costs based on token usage:
 
-**Gemini 2.5 Flash Pricing (as of 2025):**
+**Gemini 2.5 Flash Pricing (as of late 2025):**
 - **Free Tier**: Free for both input and output (with rate limits)
 - **Paid Tier** (per 1M tokens):
   - Input tokens: $0.30
@@ -673,16 +622,6 @@ AI features use LLM APIs, which have costs based on token usage:
 4. Monitor token usage in execution outputs
 5. Use traditional workflows when determinism is needed
 
-**Example calculation** (assuming paid tier):
-- Simple agent execution: ~1,000 input + 500 output tokens = $0.0013
-- RAG query with documents: ~5,000 input + 1,000 output tokens = $0.004
-- Multi-agent research: ~15,000 input + 5,000 output tokens = $0.017
-
-For a data engineering team running 100 AI-assisted tasks per day:
-- Daily cost: ~$0.40
-- Monthly cost: ~$12
-- **Still very affordable for the productivity gains!**
-
 ### Security Best Practices
 
 1. **Never commit API keys to Git**
@@ -693,22 +632,9 @@ For a data engineering team running 100 AI-assisted tasks per day:
    # ✅ CORRECT
    apiKey: "{{ kv('GEMINI_API_KEY') }}"
    ```
-
-2. **Use namespaced KV Store**
-   - Store keys in the namespace of your flows
-   - Limits access scope
-
-3. **Rotate keys regularly**
-   - Change API keys every 90 days
-   - Use key versioning
-
-4. **Monitor usage**
-   - Set up alerts for unusual API usage
-   - Review token consumption regularly
-
-5. **Limit agent permissions**
-   - Only give agents the tools they need
-   - Use least-privilege principle
+2. **Use KV Store in open-source Kestra** - Store keys in the namespace of your flows
+3. **Rotate keys regularly** - change API keys e.g. every 90 days
+4. **Monitor usage** - Review token consumption regularly
 
 ### Observability and Debugging
 
@@ -724,15 +650,12 @@ provider:
 - Token usage per execution
 - Agent tool calls and decisions
 - Execution time and costs
-- Error rates and types
-- Output quality metrics
+- Output quality
 
 **Debugging tips:**
 1. Start with simple prompts and iterate
 2. Check logs for LLM reasoning
-3. Verify tool outputs separately
-4. Test agents in isolation before combining
-5. Use structured output formats for validation
+3. Verify tool execution outputs
 
 ### Production Readiness
 
@@ -741,57 +664,37 @@ provider:
 1. **Test thoroughly**
    - Run multiple times with different inputs
    - Verify outputs are consistent and accurate
-   - Test error scenarios
-
 2. **Add fallbacks**
-   - Handle API failures gracefully
-   - Provide default behaviors
-   - Implement retry logic
-
-3. **Set limits**
-   - Maximum tokens per execution
-   - Timeout values
-   - Cost budgets
-
-4. **Document behavior**
-   - Explain what the agent does
-   - List expected outputs
-   - Document edge cases
-
-5. **Monitor in production**
-   - Track success rates
-   - Monitor costs
-   - Review outputs periodically
+   - Handle API failures e.g. by adding retries
+   - Configure alerts on failure
+3. **Set limits** e.g. max output tokens
+4. **Document behavior** - Explain what the agent does in your flow and task descriptions
 
 ---
 
 ## 9. Additional Resources
 
-### Kestra Documentation
-
+Kestra Documentation:
 - [AI Tools Overview](https://kestra.io/docs/ai-tools)
 - [AI Copilot](https://kestra.io/docs/ai-tools/ai-copilot)
 - [AI Agents](https://kestra.io/docs/ai-tools/ai-agents)
 - [RAG Workflows](https://kestra.io/docs/ai-tools/ai-rag-workflows)
 - [AI Workflows](https://kestra.io/docs/ai-tools/ai-workflows)
+- [Kestra Blueprints](https://kestra.io/blueprints) - Pre-built workflow examples
 
-### Plugin Documentation
-
+Kestra Plugin Documentation:
 - [AI Plugin](https://kestra.io/plugins/plugin-ai)
 - [AI Agent Task](https://kestra.io/plugins/plugin-ai/agent)
 - [RAG Tasks](https://kestra.io/plugins/plugin-ai/rag)
 
-### Provider Documentation
-
+External Documentation:
 - [Google Gemini](https://ai.google.dev/docs)
 - [Google AI Studio](https://aistudio.google.com/)
 - [Tavily Web Search](https://docs.tavily.com/)
 
-### Community
-
+Kestra Community:
 - [Kestra Slack](https://kestra.io/slack) - Join the community for help and discussions
 - [Kestra GitHub](https://github.com/kestra-io/kestra) - Report issues, contribute and give us a star ⭐
-- [Kestra Blueprints](https://kestra.io/blueprints) - Pre-built workflow examples
 
 ---
 
@@ -822,13 +725,6 @@ Congratulations on completing the AI Workflows module! You now have powerful too
 **Continue learning:**
 - Experiment with different LLM providers
 - Build custom agents for your data pipelines
-- Integrate AI into your Module 2 workflows
-- Share your learnings with the community
-
-**Join the conversation:**
-- Share your agent experiments in the Slack channel
-- Help others troubleshoot AI workflows
-- Suggest new AI use cases for data engineering
+- Share your learnings with the Slack community
 
 Happy orchestrating! 🚀
-
