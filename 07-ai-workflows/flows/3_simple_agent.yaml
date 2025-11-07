@@ -1,0 +1,91 @@
+id: 3_simple_agent
+namespace: zoomcamp
+
+description: |
+  This flow demonstrates a basic AI agent that summarizes text with controllable length and language. It shows:
+  - How to structure agent prompts
+  - How to chain multiple agent tasks
+  - How to use pluginDefaults to avoid repetition
+  - How to track token usage for cost monitoring
+
+inputs:
+  - id: summary_length
+    displayName: Summary Length
+    type: SELECT
+    defaults: medium
+    values:
+      - short
+      - medium
+      - long
+
+  - id: language
+    displayName: Language
+    type: SELECT
+    defaults: en
+    values:
+      - en
+      - fr
+      - de
+      - es
+      - it
+      - pt
+      - ja
+
+  - id: text
+    type: STRING
+    displayName: Text to summarize
+    defaults: |
+      Kestra is an open-source orchestration platform that allows you to define workflows declaratively in YAML. It enables both developers and non-developers to automate tasks through a no-code interface, while keeping everything versioned, governed, secure, and auditable. Kestra extends easily for custom use cases through plugins and custom scripts.
+      
+      Kestra follows a "start simple and grow as needed" philosophy. You can schedule a basic workflow in a few minutes, then later add Python scripts, Docker containers, or complex branching logic if the situation requires it. This makes Kestra ideal for data engineering, ETL pipelines, business process automation, and more.
+      
+      In Module 2 of the Data Engineering Zoomcamp, we learned how to build ETL pipelines with Kestra to load NYC taxi data into PostgreSQL and Google BigQuery. We explored scheduling, backfills, and dbt integration. Now in Module 7, we're learning how AI can accelerate workflow development through AI Copilot, RAG, and autonomous agents.
+
+tasks:
+  - id: multilingual_agent
+    type: io.kestra.plugin.ai.agent.AIAgent
+    description: Generate summary in requested language and length
+    systemMessage: |
+      You are a precise technical assistant.
+      Produce a {{ inputs.summary_length }} summary in {{ inputs.language }}.
+      Keep it factual, remove fluff, and avoid marketing language.
+      If the input is empty or non-text, return a one-sentence explanation.
+      
+      Output format guidelines:
+      - For 'short': 1-2 sentences
+      - For 'medium': 2-5 sentences  
+      - For 'long': 1-3 paragraphs
+    prompt: |
+      Summarize the following content: {{ inputs.text }}
+
+  - id: english_brevity
+    type: io.kestra.plugin.ai.agent.AIAgent
+    prompt: |
+      Generate exactly 1 sentence English summary of the following:
+      "{{ outputs.multilingual_agent.textOutput }}"
+
+  - id: log_token_usage
+    type: io.kestra.plugin.core.log.Log
+    message: |
+      📊 Token Usage Summary:
+      
+      Multilingual Agent:
+      - Input tokens: {{ outputs.multilingual_agent.tokenUsage.inputTokenCount }}
+      - Output tokens: {{ outputs.multilingual_agent.tokenUsage.outputTokenCount }}
+      - Total tokens: {{ outputs.multilingual_agent.tokenUsage.totalTokenCount }}
+      
+      English Brevity Agent:
+      - Input tokens: {{ outputs.english_brevity.tokenUsage.inputTokenCount }}
+      - Output tokens: {{ outputs.english_brevity.tokenUsage.outputTokenCount }}
+      - Total tokens: {{ outputs.english_brevity.tokenUsage.totalTokenCount }}
+      
+      💡 Tip: Monitor token usage to understand costs and optimize prompts!
+
+pluginDefaults:
+  - type: io.kestra.plugin.ai.agent.AIAgent
+    values:
+      provider:
+        type: io.kestra.plugin.ai.provider.GoogleGemini
+        modelName: gemini-2.5-flash
+        apiKey: "{{ kv('GEMINI_API_KEY') }}"
+

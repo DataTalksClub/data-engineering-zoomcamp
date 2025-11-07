@@ -84,6 +84,13 @@ No prior data engineering experience is necessary.
 - Kafka Streams and KSQL
 - Schema management with Avro
 
+#### [Module 7: AI Workflows and Agents (Bonus)](07-ai-workflows/)
+- Context Engineering with Google Gemini
+- AI Copilot for faster workflow development
+- Retrieval Augmented Generation (RAG)
+- Autonomous AI Agents
+- Multi-Agent Systems
+
 #### [Final Project](projects/)
 - Apply all concepts learned in a real-world scenario
 - Peer review and feedback process
