@@ -60,8 +60,8 @@ d. (Optional) Add your **Tavily API key** for web search examples:
 cd 07-ai-workflows
 
 # Import flows: assuming username admin@kestra.io and password Admin1234 (adjust to match your username and password)
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/2_chat_without_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/1_chat_with_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/1_chat_without_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/2_chat_with_rag.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/3_simple_agent.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/4_web_research_agent.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:48080/api/v1/flows/import -F fileUpload=@flows/5_multi_agent_research.yaml
@@ -89,7 +89,7 @@ After trying the same prompt in ChatGPT vs Kestra Copilot, what is the primary r
 
 ### Question 2: RAG Comparison
 
-Run both `2_chat_without_rag.yaml` and `1_chat_with_rag.yaml` flows and compare their outputs. Both ask: "Which features were released in Kestra 1.1?"
+Run both `1_chat_without_rag.yaml` and `2_chat_with_rag.yaml` flows and compare their outputs. Both ask: "Which features were released in Kestra 1.1?"
 
 When comparing the outputs, what difference do you observe?
 

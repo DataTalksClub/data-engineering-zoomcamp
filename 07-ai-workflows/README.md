@@ -233,7 +233,7 @@ Let's demonstrate RAG with a practical example: asking about features in a speci
 
 #### Step 1: Without RAG (The Problem)
 
-Flow: [`2_chat_without_rag.yaml`](flows/2_chat_without_rag.yaml)
+Flow: [`1_chat_without_rag.yaml`](flows/1_chat_without_rag.yaml)
 
 This flow asks Gemini: **"Which features were released in Kestra 1.1?"**
 
@@ -244,12 +244,12 @@ Without RAG, the model might:
 - Give vague or generic answers
 
 **Try it yourself:**
-1. Import and run `2_chat_without_rag.yaml`
+1. Import and run `1_chat_without_rag.yaml`
 2. Check the output—notice it may be incorrect or vague
 
 #### Step 2: With RAG (The Solution)
 
-Flow: [`1_chat_with_rag.yaml`](flows/1_chat_with_rag.yaml)
+Flow: [`2_chat_with_rag.yaml`](flows/2_chat_with_rag.yaml)
 
 This flow:
 1. **Ingests** Kestra 1.1 release notes from GitHub
@@ -259,8 +259,8 @@ This flow:
 5. **Returns** accurate, detailed features from the actual release notes
 
 **Try it yourself:**
-1. Import and run `1_chat_with_rag.yaml`
-2. Compare the output with `2_chat_without_rag.yaml`
+1. Import and run `1_chat_without_rag.yaml`
+2. Import and run `2_chat_with_rag.yaml` and compare the output with `1_chat_without_rag.yaml`
 3. Notice the difference in accuracy and detail
 
 ### RAG Use Cases in Data Engineering
@@ -600,8 +600,8 @@ Store your API keys securely using Kestra's KV Store via the UI:
 cd 07-ai-workflows
 
 # Import flows: assuming username admin@kestra.io and password Admin1234 (adjust to match your username and password)
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/2_chat_without_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/1_chat_with_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/1_chat_without_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/2_chat_with_rag.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/3_simple_agent.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/4_web_research_agent.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/5_multi_agent_research.yaml

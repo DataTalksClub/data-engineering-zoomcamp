@@ -1,10 +1,10 @@
-id: 1_chat_with_rag
+id: 2_chat_with_rag
 namespace: zoomcamp
 
 description: |
   This flow demonstrates RAG (Retrieval Augmented Generation) by ingesting Kestra release documentation and using it to answer questions accurately.
   
-  Compare this with 2_chat_without_rag.yaml to see the difference RAG makes!
+  Compare this with 1_chat_without_rag.yaml to see the difference RAG makes!
 
 tasks:
   - id: ingest_release_notes
@@ -47,5 +47,5 @@ tasks:
       ✅ RAG Response (with retrieved context):
       {{ outputs.chat_with_rag.textOutput }}
       
-      🎉 Note that this response is detailed, accurate, and grounded in the actual release documentation. Compare this with the output from 2_chat_without_rag.yaml!
+      🎉 Note that this response is detailed, accurate, and grounded in the actual release documentation. Compare this with the output from 1_chat_without_rag.yaml!
 

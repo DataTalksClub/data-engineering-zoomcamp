@@ -1,11 +1,11 @@
-id: 2_chat_without_rag
+id: 1_chat_without_rag
 namespace: zoomcamp
 
 description: |
   This flow demonstrates what happens when you query an LLM WITHOUT RAG.
   The model can only rely on its training data, which may be outdated or incomplete.
   
-  After running this, check out 1_chat_with_rag.yaml to see how RAG fixes these issues!
+  After running this, check out 2_chat_with_rag.yaml to see how RAG fixes these issues!
 
 tasks:
   - id: chat_without_rag
@@ -32,5 +32,5 @@ tasks:
       - Vague/generic?
       - Listing features that haven't been added in exactly this version but rather a long time ago?
       
-      👉 This is why context matters! Run `1_chat_with_rag.yaml` to see the accurate, context-grounded response.
+      👉 This is why context matters! Run `2_chat_with_rag.yaml` to see the accurate, context-grounded response.
 
