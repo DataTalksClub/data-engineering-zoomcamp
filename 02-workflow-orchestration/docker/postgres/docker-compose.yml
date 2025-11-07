@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   postgres:
-    image: postgres
+    image: postgres:18
     container_name: postgres-db
     environment:
       POSTGRES_USER: kestra
