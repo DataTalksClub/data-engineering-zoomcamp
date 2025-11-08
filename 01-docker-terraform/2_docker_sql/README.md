@@ -3,14 +3,18 @@
 Notes I used for preparing the videos: [link](https://docs.google.com/document/d/e/2PACX-1vRJUuGfzgIdbkalPgg2nQ884CnZkCg314T_OBq-_hfcowPxNIA0-z5OtMTDzuzute9VBHMjNYZFTCc1/pub)
 
 
-## Commands 
+## Commands
 
 All the commands from the video
 
 Downloading the data
 
 ```bash
-wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz 
+wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz
+```
+use the following to convert the csv.gz compression into csv after downloading, so the upload-data.ipynb works.
+```bash
+gunzip yellow_tripdata_2021-01.csv.gz
 ```
 
 > Note: now the CSV data is stored in the `csv_backup` folder, not `trip+date` like previously
@@ -199,7 +203,7 @@ You can solve it with `.dockerignore`:
 * Move `ny_taxi_postgres_data` to `data` (you might need to use `sudo` for that)
 * Map `-v $(pwd)/data/ny_taxi_postgres_data:/var/lib/postgresql/data`
 * Create a file `.dockerignore` and add `data` there
-* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details 
+* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details
 
 
 
@@ -220,7 +224,7 @@ docker run -it \
     --url=${URL}
 ```
 
-### Docker-Compose 
+### Docker-Compose
 
 Run it:
 
@@ -284,7 +288,7 @@ Don't forget to Right Click on the server or database to refresh it in case you 
 Now start querying!
 
 Joining Yellow Taxi table with Zones Lookup table (implicit INNER JOIN)
- 
+
 ```sql
 SELECT
     tpep_pickup_datetime,
@@ -292,7 +296,7 @@ SELECT
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
     CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
+FROM
     yellow_taxi_trips t,
     zones zpu,
     zones zdo
@@ -311,9 +315,9 @@ SELECT
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
     CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
+FROM
     yellow_taxi_trips t
-JOIN 
+JOIN
 -- or INNER JOIN but it's less used, when writing JOIN, postgreSQL understands implicitly that we want to use an INNER JOIN
     zones zpu ON t."PULocationID" = zpu."LocationID"
 JOIN
@@ -330,7 +334,7 @@ SELECT
     total_amount,
     "PULocationID",
     "DOLocationID"
-FROM 
+FROM
     yellow_taxi_trips
 WHERE
     "PULocationID" IS NULL
@@ -347,7 +351,7 @@ SELECT
     total_amount,
     "PULocationID",
     "DOLocationID"
-FROM 
+FROM
     yellow_taxi_trips
 WHERE
     "DOLocationID" NOT IN (SELECT "LocationID" from zones)
@@ -366,9 +370,9 @@ SELECT
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
     CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
+FROM
     yellow_taxi_trips t
-LEFT JOIN 
+LEFT JOIN
     zones zpu ON t."PULocationID" = zpu."LocationID"
 JOIN
     zones zdo ON t."DOLocationID" = zdo."LocationID"
@@ -382,9 +386,9 @@ SELECT
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
     CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
+FROM
     yellow_taxi_trips t
-RIGHT JOIN 
+RIGHT JOIN
     zones zpu ON t."PULocationID" = zpu."LocationID"
 JOIN
     zones zdo ON t."DOLocationID" = zdo."LocationID"
@@ -398,9 +402,9 @@ SELECT
     total_amount,
     CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
     CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
+FROM
     yellow_taxi_trips t
-OUTER JOIN 
+OUTER JOIN
     zones zpu ON t."PULocationID" = zpu."LocationID"
 JOIN
     zones zdo ON t."DOLocationID" = zdo."LocationID"
@@ -413,7 +417,7 @@ Using GROUP BY to calculate number of trips per day
 SELECT
     CAST(tpep_dropoff_datetime AS DATE) AS "day",
     COUNT(1)
-FROM 
+FROM
     yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
@@ -428,7 +432,7 @@ Using ORDER BY to order the results of your query
 SELECT
     CAST(tpep_dropoff_datetime AS DATE) AS "day",
     COUNT(1)
-FROM 
+FROM
     yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
@@ -441,7 +445,7 @@ LIMIT 100;
 SELECT
     CAST(tpep_dropoff_datetime AS DATE) AS "day",
     COUNT(1) AS "count"
-FROM 
+FROM
     yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
@@ -458,7 +462,7 @@ SELECT
     COUNT(1) AS "count",
     MAX(total_amount) AS "total_amount",
     MAX(passenger_count) AS "passenger_count"
-FROM 
+FROM
     yellow_taxi_trips
 GROUP BY
     CAST(tpep_dropoff_datetime AS DATE)
@@ -477,12 +481,12 @@ SELECT
     COUNT(1) AS "count",
     MAX(total_amount) AS "total_amount",
     MAX(passenger_count) AS "passenger_count"
-FROM 
+FROM
     yellow_taxi_trips
 GROUP BY
     1, 2
 ORDER BY
-    "day" ASC, 
+    "day" ASC,
     "DOLocationID" ASC
 LIMIT 100;
 ```
