@@ -1,4 +1,4 @@
-id: 06_gcp_taxi
+id: 05_gcp_taxi
 namespace: zoomcamp
 description: |
   The CSV Data used in the course: https://github.com/DataTalksClub/nyc-tlc-data/releases
@@ -246,3 +246,4 @@ pluginDefaults:
       projectId: "{{kv('GCP_PROJECT_ID')}}"
       location: "{{kv('GCP_LOCATION')}}"
       bucket: "{{kv('GCP_BUCKET_NAME')}}"
+

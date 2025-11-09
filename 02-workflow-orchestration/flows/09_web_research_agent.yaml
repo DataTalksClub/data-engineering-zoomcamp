@@ -1,0 +1,72 @@
+id: 09_web_research_agent
+namespace: zoomcamp
+
+description: |
+  This flow demonstrates an advanced AI agent that uses tools autonomously.
+  The agent:
+  - Decides when to use the web search tool
+  - Gathers information from multiple sources
+  - Synthesizes findings into a structured report
+  - Saves the output as a markdown file
+  Key concept: You specify the GOAL, the agent decides HOW to achieve it.
+
+inputs:
+  - id: research_topic
+    type: STRING
+    displayName: Research Topic
+    defaults: |
+      Research the latest trends in data orchestration and workflow automation.
+      Include information about:
+      - Popular tools and platforms
+      - Emerging patterns (e.g., AI-driven orchestration)
+      - Key challenges in the space
+      - Recent innovations
+
+tasks:
+  - id: research_agent
+    type: io.kestra.plugin.ai.agent.AIAgent
+    description: Autonomous research agent with web search capabilities
+    provider:
+      type: io.kestra.plugin.ai.provider.GoogleGemini
+      apiKey: "{{ kv('GEMINI_API_KEY') }}"
+      modelName: gemini-2.5-flash
+    prompt: "{{ inputs.research_topic }}"
+    systemMessage: |
+      You are a thorough research assistant. Follow this process:
+      1. Use the TavilyWebSearch content retriever to gather up-to-date information on the topic. Search multiple times if needed to get comprehensive coverage.
+      2. Evaluate the search results and determine if you have enough information. If not, search again with refined queries.
+      3. Synthesize your findings into a well-structured Markdown report with:
+         - Executive Summary (2-3 sentences)
+         - Key Findings (3-5 bullet points)
+         - Detailed Analysis (2-3 paragraphs)
+         - Sources (list URLs of key references)
+      4. Save the final report as 'research_report.md' in the /tmp directory using the filesystem tool.
+      Important rules:
+      - Always use the TavilyWebSearch content retriever to get current information
+      - Do not make up or hallucinate information
+      - Include specific examples and data points when available
+      - Always save the final report to research_report.md using the filesystem tool.
+    contentRetrievers:
+      - type: io.kestra.plugin.ai.retriever.TavilyWebSearch
+        apiKey: "{{ kv('TAVILY_API_KEY') }}"
+        maxResults: 10
+    tools:
+      - type: io.kestra.plugin.ai.tool.DockerMcpClient
+        image: mcp/filesystem
+        command: ["/tmp"]
+        binds: ["{{workingDir}}:/tmp"]
+    outputFiles:
+      - research_report.md
+
+  - id: log_report
+    type: io.kestra.plugin.core.log.Log
+    message: |
+      ✅ Research completed
+      🔍 Agent made autonomous decisions about:
+      - Which searches to perform
+      - How many searches were needed
+      - How to structure the report
+      - When the task was complete
+      📊 Token usage: {{ outputs.research_agent.tokenUsage.totalTokenCount }} tokens
+      💡 This demonstrates the power of AI agents: you specified the GOAL, the agent figured out the HOW.
+
