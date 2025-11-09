@@ -71,16 +71,15 @@ Once the container starts, you can access the Kestra UI at [http://localhost:808
 If you prefer to add flows programmatically using Kestra's API, run the following commands:
 
 ```bash
-# Import all flows: assuming username admin@kestra.io and password Admin1234 (adjust to match your username and password)
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/01_getting_started_data_pipeline.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi_scheduled.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/03_postgres_dbt.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_gcp_kv.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_gcp_setup.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_taxi.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_taxi_scheduled.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_gcp_dbt.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/01_getting_started_data_pipeline.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi_scheduled.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/03_postgres_dbt.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_gcp_kv.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_gcp_setup.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_taxi.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_taxi_scheduled.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_gcp_dbt.yaml
 ```
 
 ---
@@ -285,8 +284,8 @@ Resources
 ### Troubleshooting tips
 
 If you face any issues with Kestra flows in Module 2, make sure to use the following Docker images/ports:
-- `image: kestra/kestra:v1.1` - pin your Kestra Docker image to this version so we can ensure reproducibility; do NOT use `kestra/kestra:develop` as this is a bleeding-edge development version that might contain bugs
-- `postgres:18` — make sure to pin your Postgres image to version 18
+- `kestra/kestra:latest` is correct = latest stable release, while `kestra/kestra:develop` is incorrect as this is a bleeding-edge development version that might contain bugs
+- `postgres:latest` — make sure to use Postgres image, which uses **PostgreSQL 15** or higher
 - If you run `pgAdmin` or something else on port 8080, you can adjust Kestra docker-compose to use a different port, e.g. change port mapping to 18080 instead of 8080, and then access Kestra UI in your browser from http://localhost:18080/ instead of from http://localhost:8080/
 
 If you're using Linux, you might encounter `Connection Refused` errors when connecting to the Postgres DB from within Kestra. This is because `host.docker.internal` works differently on Linux. Using the modified Docker Compose file below, you can run both Kestra and its dedicated Postgres DB, as well as the Postgres DB for the exercises all together. You can access it within Kestra by referring to the container name `postgres_zoomcamp` instead of `host.docker.internal` in `pluginDefaults`. This applies to pgAdmin as well. If you'd prefer to keep it in separate Docker Compose files, you'll need to setup a Docker network so that they can communicate with each other.
@@ -313,7 +312,7 @@ volumes:
 
 services:
   postgres:
-    image: postgres:18
+    image: postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
@@ -327,7 +326,7 @@ services:
       retries: 10
 
   kestra:
-    image: kestra/kestra:v1.1
+    image: kestra/kestra:latest
     pull_policy: always
     # Note that this setup with a root user is intended for development purpose.
     # Our base image runs without root, but the Docker Compose implementation needs root to access the Docker socket
@@ -349,8 +348,9 @@ services:
         kestra:
           server:
             basicAuth:
+              enabled: false
               username: "admin@kestra.io" # it must be a valid email address
-              password: Admin1234
+              password: kestra
           repository:
             type: postgres
           storage:
@@ -448,5 +448,4 @@ Did you take notes? You can share them by creating a PR to this file!
 * 2022: [notes](../cohorts/2022/week_2_data_ingestion#community-notes) and [videos](../cohorts/2022/week_2_data_ingestion)
 * 2023: [notes](../cohorts/2023/week_2_workflow_orchestration#community-notes) and [videos](../cohorts/2023/week_2_workflow_orchestration)
 * 2024: [notes](../cohorts/2024/02-workflow-orchestration#community-notes) and [videos](../cohorts/2024/02-workflow-orchestration)
-* 2025: [notes](../cohorts/2025/02-workflow-orchestration/README.md#community-notes) and [videos](../cohorts/2025/02-workflow-orchestration)
 

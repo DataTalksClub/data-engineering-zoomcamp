@@ -6,7 +6,7 @@ volumes:
 
 services:
   postgres:
-    image: postgres
+    image: postgres:18
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
@@ -20,7 +20,7 @@ services:
       retries: 10
 
   kestra:
-    image: kestra/kestra:v0.20.7
+    image: kestra/kestra:v1.1
     pull_policy: always
     user: "root"
     command: server standalone
@@ -39,9 +39,8 @@ services:
         kestra:
           server:
             basicAuth:
-              enabled: false
               username: "admin@kestra.io" # it must be a valid email address
-              password: kestra
+              password: Admin1234
           repository:
             type: postgres
           storage:

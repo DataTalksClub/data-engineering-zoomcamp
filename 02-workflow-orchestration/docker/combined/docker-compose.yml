@@ -8,7 +8,7 @@ volumes:
 
 services:
   postgres:
-    image: postgres
+    image: postgres:18
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
@@ -22,7 +22,7 @@ services:
       retries: 10
 
   kestra:
-    image: kestra/kestra:v0.20.7
+    image: kestra/kestra:v1.1
     pull_policy: always
     # Note that this setup with a root user is intended for development purpose.
     # Our base image runs without root, but the Docker Compose implementation needs root to access the Docker socket
@@ -44,9 +44,8 @@ services:
         kestra:
           server:
             basicAuth:
-              enabled: false
               username: "admin@kestra.io" # it must be a valid email address
-              password: kestra
+              password: Admin1234
           repository:
             type: postgres
           storage:
@@ -67,7 +66,7 @@ services:
         condition: service_started
     
   postgres_zoomcamp:
-    image: postgres
+    image: postgres:18
     environment:
       POSTGRES_USER: kestra
       POSTGRES_PASSWORD: k3str4
