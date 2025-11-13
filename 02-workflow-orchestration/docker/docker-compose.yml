@@ -1,16 +1,16 @@
 volumes:
-  postgres-data:
+  kestra-pg-data:
     driver: local
   kestra-data:
     driver: local
-  zoomcamp-data:
+  zoomcamp-pg-data:
     driver: local
 
 services:
   kestra_postgres:
     image: postgres:18
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - kestra-pg-data:/var/lib/postgresql/18/docker
     environment:
       POSTGRES_DB: kestra
       POSTGRES_USER: kestra
@@ -65,7 +65,7 @@ services:
       kestra_postgres:
         condition: service_started
     
-  postgres_zoomcamp:
+  zoomcamp_postgres:
     image: postgres:18
     environment:
       POSTGRES_USER: kestra
@@ -74,7 +74,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - zoomcamp-data:/var/lib/postgresql/data
+      - zoomcamp-pg-data:/var/lib/postgresql/18/docker
     depends_on:
       kestra:
         condition: service_started
