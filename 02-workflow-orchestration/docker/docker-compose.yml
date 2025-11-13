@@ -70,7 +70,7 @@ services:
     environment:
       POSTGRES_USER: kestra
       POSTGRES_PASSWORD: k3str4
-      POSTGRES_DB: postgres-zoomcamp
+      POSTGRES_DB: zoomcamp
     ports:
       - "5432:5432"
     volumes:
