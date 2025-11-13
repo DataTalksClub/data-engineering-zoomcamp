@@ -1,4 +1,4 @@
-a# Workflow Orchestration
+# Workflow Orchestration
 
 Welcome to Module 2 of the Data Engineering Zoomcamp! This week, we’ll dive into workflow orchestration using [Kestra](https://go.kestra.io/de-zoomcamp/github). 
 
@@ -54,10 +54,7 @@ The project is organized as follows:
 │   ├── 05_gcp_taxi.yaml
 │   ├── 05_gcp_taxi_scheduled.yaml
 │   ├── 06_chat_without_rag.yaml
-│   ├── 07_chat_with_rag.yaml
-│   ├── 08_simple_agent.yaml
-│   ├── 09_web_research_agent.yaml
-│   └── 10_multi_agent_research.yaml
+│   └── 07_chat_with_rag.yaml
 ```
 
 ### Setup Kestra
@@ -84,9 +81,6 @@ curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/i
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_gcp_taxi_scheduled.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_chat_without_rag.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_chat_with_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/08_simple_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_web_research_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/10_multi_agent_research.yaml
 ```
 
 ---
@@ -228,57 +222,41 @@ The flow code: [`05_gcp_taxi_scheduled.yaml`](flows/05_gcp_taxi_scheduled.yaml).
 
 ---
 
-## 5. AI Workflows & AI Agents
+## 5. Using AI for Data Engineering in Kestra
 
-This section builds on what you learned earlier in Module 2 to show you how AI can accelerate workflow development and enable autonomous task automation.
+This section builds on what you learned earlier in Module 2 to show you how AI can speed up workflow development.
+
+By the end of this section, you will:
+- Understand why context engineering matters when collaborating with LLMs
+- Use AI Copilot to build Kestra flows faster
+- Use Retrieval Augmented Generation (RAG) in data pipelines
 
 ### Videos
 
-- **2.2.7 - AI Workflows and Agents**  
-  [![AI Workflows and Agents](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FPLACEHOLDER)](https://youtu.be/PLACEHOLDER)
+- **2.2.7 - Using AI for Data Engineering**  
+  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FPLACEHOLDER)](https://youtu.be/PLACEHOLDER)
 
-### Learning Objectives
-
-By the end of this section, you will:
-- Understand the importance of context engineering in AI applications
-- Use AI Copilot to build Kestra flows faster and more accurately
-- Implement Retrieval Augmented Generation (RAG) to ground AI responses in real data
-- Build autonomous AI agents that can make decisions and use tools dynamically
-- Design multi-agent systems where specialized agents collaborate to solve complex tasks
-- Apply best practices for using AI in production data workflows
 
 ### Prerequisites
 
 - Completion of earlier sections in Module 2 (Workflow Orchestration with Kestra)
-- Kestra running locally 
-- Google Cloud account with access to Gemini API
-- Basic understanding of YAML and workflow concepts
+- Kestra running locally
+- Google Cloud account with access to Gemini API (there's a generous free tier!)
 
 ---
 
-### Introduction: Why AI for Workflows?
+### 5.1 Introduction: Why AI for Workflows?
 
 As data engineers, we spend significant time writing boilerplate code, searching documentation, and structuring data pipelines. AI tools can help us:
 
-- **Generate workflows faster**: Describe what you want in natural language instead of writing YAML from scratch
-- **Avoid errors**: Get syntax-correct, up-to-date code that follows best practices
-- **Automate complex decisions**: Let AI agents dynamically orchestrate tasks based on changing conditions
-- **Ground responses in data**: Use RAG to ensure AI provides accurate, contextual information
+- **Generate workflows faster**: Describe what you want to accomplish in natural language instead of writing YAML from scratch
+- **Avoid errors**: Get syntax-correct, up-to-date workflow code that follows best practices
 
-However, AI is only as good as the context we provide. This section teaches you how to engineer that context for reliable, production-ready workflows.
-
-#### What Makes This Different from AI Assistants?
-
-Traditional AI assistants (like ChatGPT or Gemini in a browser) don't have context about:
-- Your codebase and workflow patterns
-- Real-time data from your systems
-- Latest documentation and best practices
-
-By integrating AI directly into Kestra and using techniques like RAG and specialized agents, we can provide this context and get much better results.
+However, AI is only as good as the context we provide. This section teaches you how to engineer that context for reliable, production-ready data workflows.
 
 ---
 
-### Context Engineering with ChatGPT
+### 5.2 Context Engineering with ChatGPT
 
 Let's start by seeing what happens when AI lacks proper context.
 
@@ -293,17 +271,15 @@ Let's start by seeing what happens when AI lacks proper context.
 
 3. **Observe the results:**
    - ChatGPT will generate a Kestra flow, but it likely contains:
-     - **Outdated plugin syntax** (e.g., old task types that have been renamed)
-     - **Incorrect property names** (e.g., properties that don't exist in current versions)
-     - **Hallucinated features** (e.g., tasks, triggers or properties that never existed)
+     - **Outdated plugin syntax** e.g., old task types that have been renamed
+     - **Incorrect property names** e.g., properties that don't exist in current versions
+     - **Hallucinated features** e.g., tasks, triggers or properties that never existed
 
 #### Why Does This Happen?
 
 Large Language Models (LLMs) like GPT models from OpenAI are trained on data up to a specific point in time (knowledge cutoff). They don't automatically know about:
 - Software updates and new releases
 - Renamed plugins or changed APIs
-- New best practices in your organization
-- Specific configurations for your infrastructure
 
 This is the fundamental challenge of using AI: **the model can only work with information it has access to.**
 
@@ -315,15 +291,15 @@ Without proper context:
 
 With proper context:
 - ✅ AI generates accurate, current, production-ready code
-- ✅ You can iterate faster and focus on business logic
+- ✅ You can iterate faster by letting AI generate boilerplate workflow code
 
 In the next section, we'll see how Kestra's AI Copilot solves this problem.
 
 ---
 
-### AI Copilot in Kestra
+### 5.3 AI Copilot in Kestra
 
-Kestra's AI Copilot is specifically designed to generate and modify Kestra flows with full context about the latest plugins, syntax, and best practices.
+Kestra's AI Copilot is specifically designed to generate and modify Kestra flows with full context about the latest plugins, workflow syntax, and best practices.
 
 #### Setup AI Copilot
 
@@ -339,7 +315,7 @@ Before using AI Copilot, you need to configure Gemini API access in your Kestra 
 > [!WARNING]  
 > Never commit API keys to Git. Always use environment variables or Kestra's KV Store.
 
-**Step 2: Configure Kestra**
+**Step 2: Configure Kestra AI Copilot**
 
 Add the following to your Kestra configuration. You can do this by modifying your `docker-compose.yml` file from Module 2:
 
@@ -358,75 +334,34 @@ services:
 
 Then restart Kestra:
 ```bash
-cd 02-workflow-orchestration/docker/combined
+cd 02-workflow-orchestration/docker
 export GEMINI_API_KEY="your-api-key-here"
 docker compose up -d
 ```
 
-Alternatively, you can store the API key in Kestra's KV Store for better security.
+#### Exercise: ChatGPT vs AI Copilot Comparison
 
-**Step 3: Access AI Copilot**
+**Objective:** Learn why context engineering matters.
 
-1. Open Kestra UI: http://localhost:8080
-2. Create a new flow or open an existing one
-3. Look for the **AI Copilot** button (sparkle icon ✨) in the top-right corner of the Flow Editor
-
-#### Hands-On: Compare Copilot vs. Raw ChatGPT
-
-Now let's use the same prompt from the previous section, but with AI Copilot:
-
-1. **Click the AI Copilot button** in Kestra's Flow Editor
-2. **Enter the same prompt:**
+1. **Open Kestra UI** at http://localhost:8080
+2. **Create a new flow** and open the Code editor panel
+3. **Click the AI Copilot button** (sparkle icon ✨) in the top-right corner
+4. **Enter the same exact prompt** we used with ChatGPT:
    ```
    Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
    ```
-3. **Observe the results:**
-   - ✅ Correct, up-to-date plugin types 
-   - ✅ Valid property names and configurations
-   - ✅ Working, executable YAML
+5. **Compare the outputs:**
+   - ✅ Copilot generates executable, working YAML
+   - ✅ Copilot uses correct plugin types and properties
+   - ✅ Copilot follows current Kestra best practices
 
-#### Why Does Copilot Work Better?
-
-Kestra's AI Copilot has access to:
-- **Current plugin documentation**: All available plugins and their exact syntax
-- **Flow context**: If you're editing an existing flow, it knows what's already there
-- **Best practices**: Patterns and configurations recommended by Kestra
-- **Version-specific details**: Exact task types, properties, and requirements for your Kestra version
-
-This is **context engineering** in action: by giving the AI the right context, we get reliable, production-ready results.
-
-#### Iterative Refinement with Copilot
-
-AI Copilot helps with both creating new flows and refining existing ones.
-
-**Example conversation with Copilot:**
-
-1. **You:** "Create a flow that downloads a CSV file and loads it to BigQuery"
-   - Copilot generates basic flow
-
-2. **You:** "Add a task that checks data quality of the data in BigQuery"
-   - Copilot adds a data quality validation task with SQL queries to verify record counts, null checks, and data freshness
-
-3. **You:** "Schedule the flow to run daily at 9 AM UTC"
-   - Copilot adds a `Schedule` trigger
-
-4. **You:** "Send a Slack notification if it fails"
-   - Copilot adds a `SlackIncomingWebhook` task in an `errors` branch
-
-Each iteration preserves the existing flow structure and only modifies what's needed. You're collaborating with AI, not starting from scratch each time.
-
-#### Example Use Cases for AI Copilot
-
-- **Generate new flows**: "Create a flow that syncs data from Postgres to GCS"
-- **Add tasks**: "Add an If-task performing conditional branching to determine whether to run a given list of tasks"
-- **Configure triggers**: "Add a webhook trigger"
-- **Add error handling**: "Add retry logic with exponential backoff"
+**Key Learning:** Context matters! AI Copilot has access to current Kestra documentation, generating Kestra flows better than a generic ChatGPT assistant.
 
 ---
 
-### Retrieval Augmented Generation (RAG)
+### 5.4 Bonus: Retrieval Augmented Generation (RAG)
 
-Now let's explore how to provide dynamic context to AI using Retrieval Augmented Generation (RAG).
+To further learn how to provide context to your prompts, this bonus section demonstrates how to use RAG.
 
 #### What is RAG?
 
@@ -455,403 +390,12 @@ graph LR
 4. **Query with context**: When you ask a question, retrieve relevant embeddings and include them in the prompt
 5. **Generate response**: The LLM has real context and provides accurate answers
 
-#### RAG Example: Kestra Release Features
+#### Exercise: Retrieval With vs Without Context
 
-Let's demonstrate RAG with a practical example: asking about features in a specific Kestra release.
-
-**Step 1: Without RAG (The Problem)**
-
-Flow: [`06_chat_without_rag.yaml`](flows/06_chat_without_rag.yaml)
-
-This flow asks Gemini: **"Which features were released in Kestra 1.1?"**
-
-Without RAG, the model might:
-- Hallucinate features that don't exist
-- Provide outdated information
-- Miss important features
-- Give vague or generic answers
-
-**Try it yourself:**
-1. Import and run `06_chat_without_rag.yaml`
-2. Check the output and confirm the response isn't accurate
-
-**Step 2: With RAG (The Solution)**
-
-Flow: [`07_chat_with_rag.yaml`](flows/07_chat_with_rag.yaml)
-
-This flow:
-1. **Ingests** Kestra 1.1 release blog post from GitHub
-2. **Creates embeddings** using Gemini's embedding model
-3. **Stores** embeddings in Kestra KV Store
-4. **Asks LLM** the same question but with RAG enabled
-5. **Returns** accurate response with features from that release
-
-**Try it yourself:**
-1. Import and run `07_chat_with_rag.yaml` and 
-2. Confirm the accuracy of this output compared to `06_chat_without_rag.yaml`
-
-#### RAG Best Practices
-
-1. **Keep documents updated**: Regularly re-ingest to ensure current information
-2. **Chunk appropriately**: Break large documents into meaningful sections
-3. **Test retrieval quality**: Verify that the right documents are retrieved
-4. **Consider costs**: Embedding and storage have costs, so balance accuracy vs. budget
-
----
-
-### AI Agents: Autonomous Task Execution
-
-While AI Copilot helps you *build* workflows faster, AI Agents help you *run* workflows that can make autonomous decisions.
-
-#### What is an AI Agent?
-
-An **AI Agent** is an autonomous system that:
-- Uses an LLM to reason and make decisions
-- Has access to tools (web search, task execution, etc.)
-- Can remember context across executions (with memory)
-- Dynamically decides which actions to take and in what order
-
-**Traditional Workflow:** → Fixed sequence, predetermined logic
-
-Pseudo-code:
-
-```yaml
-tasks:
-  - id: step1
-    type: Task1
-  - id: step2
-    type: Task2
-  - id: step3
-    type: Task3
-```
-
-
-**AI Agent Workflow:** → Agent decides what to do, in what order, based on the goal
-
-Pseudo-code:
-
-```yaml
-tasks:
-  - id: agent
-    type: io.kestra.plugin.ai.agent.AIAgent
-    prompt: "Research data engineering trends and create a report"
-    tools:
-      - WebSearch
-      - TaskExecution
-```
-
-#### When to Use AI Agents
-
-**Use AI Agents when:**
-- ✅ The exact sequence of steps isn't known in advance
-- ✅ Decisions depend on dynamic, changing information
-- ✅ You need to adapt to unexpected conditions
-
-**Use Traditional Workflows when:**
-- ✅ Steps are deterministic and repeatable
-- ✅ Compliance requires exact, auditable processes
-- ✅ Cost and latency must be minimized
-
-#### Anatomy of an AI Agent
-
-```yaml
-id: example_agent
-namespace: zoomcamp
-
-tasks:
-  - id: agent
-    type: io.kestra.plugin.ai.agent.AIAgent
-    
-    # Defines the agent's role and behavior
-    systemMessage: |
-      You are a data analyst. Analyze data and provide insights.
-    
-    # The actual task or question
-    prompt: "What are the top 3 trends in this data?"
-    
-    # LLM provider configuration
-    provider:
-      type: io.kestra.plugin.ai.provider.GoogleGemini
-      modelName: gemini-2.5-flash
-      apiKey: "{{ kv('GEMINI_API_KEY') }}"
-    
-    # Tools the agent can use
-    tools:
-      - type: io.kestra.plugin.ai.tool.TavilyWebSearch
-        apiKey: "{{ kv('TAVILY_API_KEY') }}"
-    
-    # Memory for context across executions
-    memory:
-      type: io.kestra.plugin.ai.memory.KestraKVStore
-      memoryId: analyst_001
-```
-
-#### Simple Agent Example
-
-Flow: [`08_simple_agent.yaml`](flows/08_simple_agent.yaml)
-
-This flow demonstrates a basic AI agent that summarizes text with controllable length and language:
-
-**Features:**
-- **Inputs** for summary length (short/medium/long) and language
-- **System message** defining the agent's role
-- **Two agent tasks** demonstrating sequential execution
-- **Token usage output** for cost monitoring
-
-**This flow demonstrates:**
-- How to structure agent prompts
-- How to chain agent tasks
-- How to use `pluginDefaults` to avoid repetition
-- How to track token usage
-
-#### Advanced Agent Example: Web Research
-
-Flow: [`09_web_research_agent.yaml`](flows/09_web_research_agent.yaml)
-
-This flow demonstrates an agent with autonomous tool usage:
-
-**What the agent does:**
-1. Receives a research **prompt** (e.g., "Latest trends in workflow orchestration")
-2. Decides to use the **web search tool** to gather information
-3. **Evaluates search results** and determines if more searches are needed
-4. **Synthesizes findings** into a structured markdown report
-5. Saves the **report** to a file using the **filesystem tool**
-
-**Key concepts:**
-- The agent **autonomously decides** when to use tools
-- It can loop (search → evaluate → search again) until satisfied
-- You only specify the goal, not the exact steps
-
-**This flow demonstrates:**
-- How agents use tools
-- How to guide agent behavior with system messages
-- Trade-offs between autonomy and control
-
-#### Agent Tools Available in Kestra
-
-| Tool | Purpose | Example Use |
-|------|---------|-------------|
-| `TavilyWebSearch` | Search the web for current information | Market research, news monitoring |
-| `GoogleCustomWebSearch` | Search with Google Custom Search API | Google search |
-| `CodeExecution` | Run code safely via Judge0 | Math calculations, data validation |
-| `KestraTask` | Execute any Kestra task | Run tasks based on +1000 Kestra plugins, e.g. query databases |
-| `KestraFlow` | Trigger other Kestra flows | Call other flows, great for modularity |
-| `StreamableHttpMcpClient` | Use MCP servers via HTTP/SSE | Connect to remote MCP servers |
-| `DockerMcpClient` | Use MCP servers in Docker | Connect to MCP servers spun up on-demand via Docker e.g. for file operations and custom tools |
-| `StdioMcpClient` | Use MCP servers via stdio | Integration with external systems via a local process |
-| `AIAgent` | Use another agent as a tool | Multi-agent systems, specialized sub-agents |
-
-#### Agent Observability
-
-Kestra provides full observability for agent executions:
-
-- **Token usage**: Track input/output tokens to monitor cost
-- **Tool executions**: Track which tools were executed by the agent and with what parameters
-- **Request and response logs**: Track LLM's reasoning and decisions
-- **Outputs**: Access agent outputs
-- **Execution time**: Monitor agent performance
-
-You can enable detailed logging via the `configuration` property:
-```yaml
-provider:
-  type: io.kestra.plugin.ai.provider.GoogleGemini
-  modelName: gemini-2.5-flash
-  apiKey: "{{ kv('GEMINI_API_KEY') }}"
-  configuration:
-    logRequests: true
-    logResponses: true
-```
-
----
-
-### Multi-Agent Systems
-
-For complex tasks, you can design systems where multiple specialized agents collaborate.
-
-**Multi-Agent System** involves:
-- **Agents** with different specializations
-- **Coordination** between agents (one agent uses another as a tool)
-- **Modular design** where each agent has a clear responsibility
-
-**Benefits of using multiple agents:**
-- **Separation of concerns**: Each agent focuses on one thing
-- **Debugging**: Easier to isolate issues in specific agents
-
-#### Multi-Agent Example: Company Research
-
-Flow: [`10_multi_agent_research.yaml`](flows/10_multi_agent_research.yaml)
-
-This flow demonstrates a two-agent system for competitor research:
-
-| Agent | Specialization | Tools | Responsibility |
-|-------|---------------|-------|----------------|
-| **Research Agent** | Web research and data gathering | Tavily web search | Find factual, current information |
-| **Main Analyst Agent** | Analysis and synthesis | Research agent (used as a tool) | Create structured reports |
-
-**How it works:**
-
-1. **Input**: Company name (e.g., "kestra.io")
-2. **Main agent** receives prompt: "Research this company"
-3. **Main agent** calls research agent tool: "Find information about kestra.io"
-4. **Research agent** searches the web: Uses Tavily to gather data
-5. **Research agent** returns findings: Raw data about the company
-6. **Main agent** structures findings: Final JSON output.
-
-**This flow demonstrates:**
-- How to use agents as tools for other agents
-- How to structure multi-agent systems
-- How to get structured JSON output
-
-#### Best Practices for Multi-Agent Systems
-
-1. **Define clear responsibilities**: Each agent should have a specific role
-2. **Monitor token usage**: Multiple agents = multiple LLM calls
-3. **Document agent purposes**: Make the system maintainable
-
----
-
-### Getting Started
-
-Here's how to set up everything you need to run the example flows.
-
-#### Step 1: Ensure Kestra is Running
-
-From Module 2, you should have Kestra running. 
-
-If not running, start it:
-```bash
-cd 02-workflow-orchestration/docker/combined
-docker compose up -d
-```
-
-#### Step 2: Obtain API Keys
-
-**Gemini API Key (Required)**
-
-1. Visit: https://aistudio.google.com/app/apikey
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy your key
-
-**Free Tier:** Generous quota suitable for learning (rate limits apply)
-
-**Tavily API Key (Optional, for web search examples)**
-
-1. Visit: https://tavily.com/
-2. Sign up for free tier
-3. Get API key from dashboard
-
-**Free Tier:** 1,000 searches/month
-
-#### Step 3: Configure API Keys in Kestra
-
-Store your API keys securely using Kestra's KV Store via the UI:
-
-1. **Navigate to KV Store**:
-   - In Kestra UI, click on **KV Store** in the left sidebar
-   - Click **New Key-Value** button in the top right
-
-2. **Add your Gemini API key**:
-   - **Namespace**: `zoomcamp`
-   - **Key**: `GEMINI_API_KEY`
-   - **Type**: Select `STRING` from dropdown
-   - **Value**: `your-gemini-api-key-here`
-   - Click **Save**
-
-3. **Add your Tavily API key** (for agent examples):
-   - Click **New Key-Value** again
-   - **Namespace**: `zoomcamp`
-   - **Key**: `TAVILY_API_KEY`
-   - **Type**: Select `STRING` from dropdown
-   - **Value**: `your-tavily-api-key-here`
-   - Click **Save**
-
-> [!WARNING]  
-> Never commit API keys to Git! Always use Kestra's KV Store (OSS) or Secrets (Enterprise) to store sensitive credentials.
-
-#### Step 4: Import Flows
-
-```bash
-# Import flows: assuming username admin@kestra.io and password Admin1234 (adjust to match your username and password)
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_chat_without_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_chat_with_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/08_simple_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_web_research_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/10_multi_agent_research.yaml
-```
-
-Alternatively, copy-paste the flow YAML directly into Kestra's UI.
-
-#### Step 5: Configure AI Copilot
-
-To enable AI Copilot in the UI, edit your `docker-compose.yml`:
-
-```yaml
-services:
-  kestra:
-    environment:
-      KESTRA_CONFIGURATION: |
-        kestra:
-          ai:
-            type: gemini
-            gemini:
-              model-name: gemini-2.5-flash
-              api-key: ${GEMINI_API_KEY}
-```
-
-Then restart Kestra:
-
-```bash
-cd 02-workflow-orchestration/docker/combined
-export GEMINI_API_KEY="your-api-key-here"
-docker compose up -d
-```
-
-#### Step 6: Hands-On Exercises
-
-Now that you have everything set up, let's run through a series of exercises to understand how AI workflows work in practice.
-
-##### Exercise 1: ChatGPT vs AI Copilot Comparison
-
-**Objective:** Experience firsthand why context engineering matters.
-
-**Steps:**
-
-1. **Open ChatGPT in a private/incognito browser window** (to avoid any existing chat history context): https://chatgpt.com
-
-2. **Enter this exact prompt:**
-   ```
-   Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
-   ```
-
-3. **Observe the output** and note common issues:
-   - Outdated plugin syntax (e.g., old task types)
-   - Incorrect property names
-   - Hallucinated features that don't exist in Kestra
-   - Generic, non-working YAML
-
-4. **Now open Kestra UI** at http://localhost:8080
-
-5. **Create a new flow** and open the Code editor panel
-
-6. **Click the AI Copilot button** (sparkle icon ✨) in the top-right corner
-
-7. **Enter the same exact prompt** and watch Copilot generate accurate, current YAML
-
-8. **Compare the outputs:**
-   - ✅ Copilot uses correct plugin types and properties
-   - ✅ Copilot follows current Kestra best practices
-   - ✅ Copilot generates executable, working YAML
-
-**Key Learning:** Context matters! AI Copilot has access to current Kestra documentation, generating Kestra flows better than a generic ChatGPT assistant.
-
-##### Exercise 2: RAG (Retrieval With vs Without Context)
-
-**Objective:** Understand how RAG eliminates hallucinations by grounding AI in real data.
+**Objective:** Understand how RAG eliminates hallucinations by grounding LLM responses in real data.
 
 **Part A: Without RAG**
-
-1. Navigate to the `06_chat_without_rag` flow in your Kestra UI
+1. Navigate to the [`06_chat_without_rag.yaml`](flows/06_chat_without_rag.yaml) flow in your Kestra UI
 2. Click **Execute**
 3. Wait for the execution to complete
 4. Open the **Logs** tab
@@ -862,248 +406,49 @@ Now that you have everything set up, let's run through a series of exercises to 
    - Based only on the model's training data (which may be outdated)
 
 **Part B: With RAG**
-
-1. Navigate to the `07_chat_with_rag` flow
+1. Navigate to the [`07_chat_with_rag.yaml`](flows/07_chat_with_rag.yaml) flow
 2. Click **Execute**
 3. Watch the execution:
-   - First task: **Ingests** Kestra 1.1 release documentation
-   - Creates **embeddings** and stores them
-   - Second task: **Queries** with the same question but includes retrieved context
+   - First task: **Ingests** Kestra 1.1 release documentation, creates **embeddings** and stores them
+   - Second task: **Prompts LLM** with context retrieved from stored embeddings
 4. Open the **Logs** tab
 5. Compare this output with the previous one - notice how it's:
    - ✅ Specific and detailed
    - ✅ Accurate with real features from the release
    - ✅ Grounded in actual documentation
 
-**Key Learning:** RAG (Retrieval Augmented Generation) grounds AI responses in real, current documentation, eliminating hallucinations and providing accurate, context-aware answers.
+**Key Learning:** RAG (Retrieval Augmented Generation) grounds AI responses in current documentation, eliminating hallucinations and providing accurate, context-aware answers.
 
-##### Exercise 3: Simple Agent Exploration
+#### RAG Best Practices
 
-**Objective:** See how agent parameters affect behavior and costs.
+1. **Keep documents updated**: Regularly re-ingest to ensure current information
+2. **Chunk appropriately**: Break large documents into meaningful chunks
+3. **Test retrieval quality**: Verify that the right documents are retrieved
 
-**Run the same flow with different parameters:**
-
-1. **First execution: Short English summary**
-   - Navigate to `08_simple_agent` flow
-   - Click Execute
-   - Set `summary_length` = **"short"**
-   - Set `language` = **"en"**
-   - Leave default text or use your own
-   - Click **Execute**
-   - Check the **Logs** for token usage
-
-2. **Second execution: Long English summary**
-   - Click Execute again
-   - Set `summary_length` = **"long"**
-   - Set `language` = **"en"**
-   - Execute and compare token usage
-
-3. **Third execution: Medium French summary**
-   - Execute once more
-   - Set `summary_length` = **"medium"**
-   - Set `language` = **"fr"**
-   - Compare results and token counts
-
-**Observations to make:**
-- LLMs have multilingual capabilities
-- Length parameter significantly affects output tokens (and thus cost)
-- Token usage is logged for cost monitoring
-
-**Key Learning:** Input parameters directly affect agent behavior, output quality, and cost. Monitor token usage to optimize for your use case.
-
-##### Exercise 4: Autonomous Agent with Tools
-
-**Objective:** Watch an agent make autonomous decisions and use tools.
-
-**Steps:**
-
-1. Navigate to the `09_web_research_agent` flow
-2. Click **Execute** (leave default research topic or customize)
-3. **Watch the execution in real-time** - observe:
-   - Agent reading the prompt and system message
-   - Agent **deciding** to use the `TavilyWebSearch` tool
-   - Agent evaluating results and determining if more searches are needed
-   - Agent synthesizing findings into a structured report
-   - Agent saving the report using the filesystem tool
-
-4. **Review the Logs tab** to see:
-   - Tool execution details
-   - Agent reasoning process
-   - Token usage
-
-5. **Check the Outputs tab** to find `research_report.md`
-   - Download and read the generated research report
-   - Note the structure: Executive Summary, Key Findings, Detailed Analysis, Sources
-
-**Key Learning:** AI Agents can make autonomous decisions about which tools to use, when to use them, and how many times. You specify the **goal**, the agent figures out the **how**.
-
-##### Exercise 5: Multi-Agent Collaboration
-
-**Objective:** Understand how specialized agents work together.
-
-**Steps:**
-1. Navigate to the `10_multi_agent_research` flow
-2. Click **Execute**
-3. Use default company name ("kestra.io") or enter your own
-4. **Watch the execution** - observe the multi-agent pattern:
-   - **Main Analyst Agent** receives the research request
-   - Main agent **calls the Research Agent** (as a tool)
-   - **Research Agent** uses `TavilyWebSearch` tool to gather data
-   - Research Agent **returns findings** to Main Agent
-   - Main Agent **structures** the findings into JSON format
-
-5. **Review the Logs** to see:
-   - Inter-agent communication
-   - Research agent tool execution
-   - Final structured output
-
-6. **Check the output** - you should see structured JSON with:
-   - Company summary
-   - Recent news
-   - Competitors list
-
-**Key Learning:** Multi-agent systems enable **separation of concerns**. Each agent has a specialized role (research vs analysis), making the system more debuggable.
-
-##### What You've Learned
-
-After completing these exercises, you now understand:
-
-✅ **Context Engineering is Critical** - AI Copilot with current documentation >> Generic ChatGPT  
-✅ **RAG Eliminates Hallucinations** - Grounding responses in real data ensures accuracy  
-✅ **Agents Make Autonomous Decisions** - You define the goal, agents determine the steps  
-✅ **Parameters Affect Behavior and Cost** - Token usage varies with output length and complexity  
-✅ **Multi-Agent Systems Enable Specialization** - Different agents for different responsibilities  
-✅ **Observability Matters** - Monitor logs, token usage, and outputs for production readiness
-
-##### Troubleshooting Common Issues
-
-**Issue: Authentication errors**
-- Solution: Verify your API key is stored in KV Store under the `zoomcamp` namespace
-- Check the key name matches exactly: `GEMINI_API_KEY` (case-sensitive)
-- Ensure you clicked "Save" after adding the key
-
-**Issue: Rate limiting / "429 Too Many Requests"**
-- Solution: You've hit the free tier rate limit
-- Wait a few minutes before retrying
-- Check Gemini API quotas at https://aistudio.google.com/
-
-**Issue: "Missing Tavily API key" for exercises 4-5**
-- Solution: Web search examples require a Tavily API key
-- Get one free at https://tavily.com/
-- Add it to KV Store as `TAVILY_API_KEY` in the `zoomcamp` namespace
-- Or skip these exercises if you don't need web search functionality
-
-**Still having issues?**
-- Check [Kestra Documentation](https://kestra.io/docs/ai-tools)
-- Join [Kestra Slack](https://kestra.io/slack) for community support
-- Review the [AI Plugin Docs](https://kestra.io/plugins/plugin-ai)
-
----
-
-### Best Practices
-
-#### When to Use What
-
-| Scenario                            | Use This | Why                                          |
-|-------------------------------------|----------|----------------------------------------------|
-| Creating/editing flows              | AI Copilot | Fastest way to generate YAML flow code       |
-| Answering questions about your data | RAG | Grounds responses in real data               |
-| Fixed, repeatable ETL pipelines     | Traditional workflows | Deterministic, predictable, compliant        |
-| Research and analysis tasks         | AI Agents | Can adapt to findings and make decisions     |
-| Complex, multi-step objectives      | Multi-agent systems | Specialized agents working together |
-
-#### Cost Considerations
-
-AI features use LLM APIs, which have costs based on token usage:
-
-**Gemini 2.5 Flash Pricing (as of late 2025):**
-- **Free Tier**: Free for both input and output (with rate limits)
-- **Paid Tier** (per 1M tokens):
-  - Input tokens: $0.30
-  - Output tokens: $2.50
-
-**Cost-Saving Tips:**
-1. Start with the **free tier** for learning and development
-2. Use smaller/cheaper models for simple tasks - check the pricing page: https://ai.google.dev/gemini-api/docs/pricing
-3. Set `maxOutputTokens` to limit response size
-4. Monitor token usage in execution outputs
-5. Use traditional workflows when determinism is needed
-
-#### Security Best Practices
-
-1. **Never commit API keys to Git**
-   ```yaml
-   # ❌ WRONG
-   apiKey: "sk-abc123def456"
-   
-   # ✅ CORRECT
-   apiKey: "{{ kv('GEMINI_API_KEY') }}"
-   ```
-2. **Use KV Store in open-source Kestra** - Store keys in the namespace of your flows
-3. **Rotate keys regularly** - change API keys e.g. every 90 days
-4. **Monitor usage** - Review token consumption regularly
-
-#### Observability and Debugging
-
-**Enable detailed logging:**
-```yaml
-provider:
-  configuration:
-    logRequests: true
-    logResponses: true
-```
-
-**What to monitor:**
-- Token usage per execution
-- Agent tool calls and decisions
-- Execution time and costs
-- Output quality
-
-**Debugging tips:**
-1. Start with simple prompts and iterate
-2. Check logs for LLM reasoning
-3. Verify tool execution outputs
-
-#### Production Readiness
-
-**Before deploying AI workflows to production:**
-
-1. **Test thoroughly**
-   - Run multiple times with different inputs
-   - Verify outputs are consistent and accurate
-2. **Add fallbacks**
-   - Handle API failures e.g. by adding retries
-   - Configure alerts on failure
-3. **Set limits** e.g. max output tokens
-4. **Document behavior** - Explain what the agent does in your flow and task descriptions
-
----
-
-### Additional AI Resources
+#### Additional AI Resources
 
 Kestra Documentation:
 - [AI Tools Overview](https://kestra.io/docs/ai-tools)
 - [AI Copilot](https://kestra.io/docs/ai-tools/ai-copilot)
-- [AI Agents](https://kestra.io/docs/ai-tools/ai-agents)
 - [RAG Workflows](https://kestra.io/docs/ai-tools/ai-rag-workflows)
 - [AI Workflows](https://kestra.io/docs/ai-tools/ai-workflows)
 - [Kestra Blueprints](https://kestra.io/blueprints) - Pre-built workflow examples
 
 Kestra Plugin Documentation:
 - [AI Plugin](https://kestra.io/plugins/plugin-ai)
-- [AI Agent Task](https://kestra.io/plugins/plugin-ai/agent)
 - [RAG Tasks](https://kestra.io/plugins/plugin-ai/rag)
 
 External Documentation:
 - [Google Gemini](https://ai.google.dev/docs)
 - [Google AI Studio](https://aistudio.google.com/)
-- [Tavily Web Search](https://docs.tavily.com/)
 
 ---
 
 ## 6. Bonus: Deploy to the Cloud (Optional)
 
-Now that we've got our ETL pipeline working both locally and in the cloud, we can deploy Kestra to the cloud so it can continue to orchestrate our ETL pipelines monthly with our configured schedules, We'll cover how you can install Kestra on Google Cloud in Production, and automatically sync and deploy your workflows from a Git repository.
+Now that we've got all our pipelines working and we know how to quickly create new flows with Kestra's AI Copilot, we can deploy Kestra to the cloud so it can continue to orchestrate our scheduled pipelines. 
+
+In this bonus section, we'll cover how you can deploy Kestra on Google Cloud and automatically sync your workflows from a Git repository.
 
 Note: When committing your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
 
@@ -1296,4 +641,3 @@ Did you take notes? You can share them by creating a PR to this file!
 * 2023: [notes](../cohorts/2023/week_2_workflow_orchestration#community-notes) and [videos](../cohorts/2023/week_2_workflow_orchestration)
 * 2024: [notes](../cohorts/2024/02-workflow-orchestration#community-notes) and [videos](../cohorts/2024/02-workflow-orchestration)
 * 2025: [notes](../cohorts/2025/02-workflow-orchestration/README.md#community-notes) and [videos](../cohorts/2025/02-workflow-orchestration)
-
