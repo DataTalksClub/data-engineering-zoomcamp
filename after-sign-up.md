@@ -12,6 +12,5 @@ To make sure you don't miss any announcements
 - Join the [course Telegram channel with announcements](https://t.me/dezoomcamp)
 - Subscribe to [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) and check 
   [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
-- Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
 
 See you in January!
