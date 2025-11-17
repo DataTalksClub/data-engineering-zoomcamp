@@ -171,7 +171,9 @@ Conference talks from companies, blog posts, etc
 ### Resource aggregators
 
 * [Reading List](https://www.scling.com/reading-list/) by Lars Albertsson
-* [GitHub - igorbarinov/awesome-data-engineering](https://github.com/igorbarinov/awesome-data-engineering) (focus is more on tools)  
+* [GitHub - igorbarinov/awesome-data-engineering](https://github.com/igorbarinov/awesome-data-engineering) (focus is more on tools)
+* [GitHub - DataExpert-io/data-engineer-handbook](https://github.com/DataExpert-io/data-engineer-handbook) (contains tools,blogs and more)
+
 
 
 ## License
