@@ -1,13 +1,10 @@
-{{
-    config(
-        materialized='view'
-    )
-}}
+{{ config(materialized='view') }}
+
+
 
 with tripdata as 
 (
-  select *,
-    row_number() over(partition by vendorid, lpep_pickup_datetime) as rn
+  select *
   from {{ source('staging','green_tripdata') }}
   where vendorid is not null 
 )
@@ -41,7 +38,6 @@ select
     coalesce({{ dbt.safe_cast("payment_type", api.Column.translate_type("integer")) }},0) as payment_type,
     {{ get_payment_type_description("payment_type") }} as payment_type_description
 from tripdata
-where rn = 1
 
 
 -- dbt build --select <model_name> --vars '{'is_test_run': 'false'}'
