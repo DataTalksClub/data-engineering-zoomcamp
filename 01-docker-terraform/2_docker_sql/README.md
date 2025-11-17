@@ -87,6 +87,24 @@ conda install -c conda-forge pgcli
 pip install -U mycli
 ```
 
+If you user Ubuntu: Ubuntu’s system Python (managed by apt) now prevents `pip` from installing packages globally to protect system integrity ([PEP 668]([url](https://peps.python.org/pep-0668/))). And additionally even if you installed pgcli with pip you will may get this error also `ImportError: no pq wrapper available... libpq library not found`
+Do the following ones step-by-step and will fix the error properly:
+```bash
+cd ~/Documents/dataTalksClub     # Change it with your working directory
+python3 -m venv venv             # Will create separate environment
+source venv/bin/activate         # Activate newly created environment
+pip install pgcli                # Install pgcli
+
+# Run these commands:
+sudo apt update
+sudo apt install libpq-dev python3-dev
+
+# Then reinstall psycopg inside your virtual environment to make it rebuild against the newly installed library:
+pip uninstall psycopg -y
+pip install psycopg[binary]
+# The [binary] extra installs a precompiled version of the libpq wrapper — no compilation needed.
+```
+
 Using `pgcli` to connect to Postgres
 
 ```bash
