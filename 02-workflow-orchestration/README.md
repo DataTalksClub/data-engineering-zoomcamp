@@ -24,7 +24,7 @@ Kestra is an open-source, event-driven orchestration platform that simplifies bu
 In this section, you’ll learn the foundations of workflow orchestration, its importance, and how Kestra fits into the orchestration landscape.
 
 ### Videos
-- **2.1.1 - What to Workflow Orchestration?**  
+- **2.1.1 - What is Workflow Orchestration?**  
   [![2.2.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 - **2.1.2 - What is Kestra?**  
@@ -40,8 +40,28 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 ## 2.2 Getting Started with Kestra
 
+In this section, you'll learn how to install Kestra, as well as the key concepts required to build your first workflow. Once our first workflow is built, we can extend this further by executing a Python script inside of a workflow. 
+
+### 2.2.1 - Installing Kestra
+
+We already have a Postgres database set up, along with pgAdmin from Module 1. We can continue to use these with Kestra but we'll need to make a few modifications to our Docker Compose file.
+
+Use [this example Docker Compose file](docker-compose.yml) to correctly add the 2 new services and set up the volumes correctly. You may need to rename the existing containers and volumes to match what you had previously been using.
+
+#### Videos
+
 - **2.2.1 - Installing Kestra**
+
+
+### 2.2.2 - Kestra Concepts
+
+
+#### Videos
 - **2.2.2 - Kestra Concepts**
+
+### 2.2.3 - Orchestrate Python Code
+
+#### Videos
 - **2.2.3 - Orchestrate Python Code**
 
 ## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
@@ -221,7 +241,7 @@ graph LR
 
 The flow code: [`05_gcp_taxi.yaml`](flows/05_gcp_taxi.yaml).
 
-### GCP Workflow: Schedule and Backfill Full Dataset
+### 2.4.2 GCP Workflow: Schedule and Backfill Full Dataset
 
 We can now schedule the same pipeline shown above to run daily at 9 AM UTC for the green dataset and at 10 AM UTC for the yellow dataset. You can backfill historical data directly from the Kestra UI.
 
@@ -240,12 +260,6 @@ By the end of this section, you will:
 - Use AI Copilot to build Kestra flows faster
 - Use Retrieval Augmented Generation (RAG) in data pipelines
 
-### Videos
-
-- **2.2.7 - Using AI for Data Engineering**  
-  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FPLACEHOLDER)](https://youtu.be/PLACEHOLDER)
-
-
 ### Prerequisites
 
 - Completion of earlier sections in Module 2 (Workflow Orchestration with Kestra)
@@ -262,6 +276,11 @@ As data engineers, we spend significant time writing boilerplate code, searching
 - **Avoid errors**: Get syntax-correct, up-to-date workflow code that follows best practices
 
 However, AI is only as good as the context we provide. This section teaches you how to engineer that context for reliable, production-ready data workflows.
+
+### Videos
+
+- **2.5.1 - Using AI for Data Engineering**  
+  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FPLACEHOLDER)](https://youtu.be/PLACEHOLDER)
 
 ---
 
