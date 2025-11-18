@@ -10,7 +10,7 @@ services:
   kestra_postgres:
     image: postgres:18
     volumes:
-      - kestra-pg-data:/var/lib/postgresql/18/docker
+      - kestra-pg-data:/var/lib/postgresql
     environment:
       POSTGRES_DB: kestra
       POSTGRES_USER: kestra
@@ -74,7 +74,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - zoomcamp-pg-data:/var/lib/postgresql/18/docker
+      - zoomcamp-pg-data:/var/lib/postgresql
     depends_on:
       kestra:
         condition: service_started
