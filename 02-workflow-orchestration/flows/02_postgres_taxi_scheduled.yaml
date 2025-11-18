@@ -257,9 +257,9 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:
-      url: jdbc:postgresql://host.docker.internal:5432/zoomcamp
-      username: kestra
-      password: k3str4
+      url: jdbc:postgresql://pgdatabase:5432/ny_taxi
+      username: root
+      password: root
 
 triggers:
   - id: green_schedule

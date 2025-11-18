@@ -1,16 +1,35 @@
 volumes:
-  kestra-pg-data:
+  ny_taxi_postgres_data:
     driver: local
-  kestra-data:
+  kestra_postgres_data:
     driver: local
-  zoomcamp-pg-data:
+  kestra_data:
     driver: local
 
 services:
+  pgdatabase:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: ny_taxi
+    ports:
+      - "5432:5432"
+    volumes:
+      - ny_taxi_postgres_data:/var/lib/postgresql
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8085:80"
+
   kestra_postgres:
     image: postgres:18
     volumes:
-      - kestra-pg-data:/var/lib/postgresql
+      - kestra_postgres_data:/var/lib/postgresql
     environment:
       POSTGRES_DB: kestra
       POSTGRES_USER: kestra
@@ -30,7 +49,7 @@ services:
     user: "root"
     command: server standalone
     volumes:
-      - kestra-data:/app/storage
+      - kestra_data:/app/storage
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/kestra-wd:/tmp/kestra-wd
     environment:
@@ -65,27 +84,3 @@ services:
       kestra_postgres:
         condition: service_started
     
-  zoomcamp_postgres:
-    image: postgres:18
-    environment:
-      POSTGRES_USER: kestra
-      POSTGRES_PASSWORD: k3str4
-      POSTGRES_DB: zoomcamp
-    ports:
-      - "5432:5432"
-    volumes:
-      - zoomcamp-pg-data:/var/lib/postgresql
-    depends_on:
-      kestra:
-        condition: service_started
-
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
-    ports:
-      - "8085:80"
-    depends_on:
-      zoomcamp_postgres:
-        condition: service_started
