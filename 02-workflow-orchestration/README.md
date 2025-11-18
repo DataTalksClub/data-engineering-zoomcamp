@@ -11,15 +11,23 @@ Kestra is an open-source, event-driven orchestration platform that simplifies bu
 
 # Course Structure
 
-## 1. Conceptual Material: Introduction to Orchestration and Kestra
+- [2.1 - Introduction to Workflow Orchestration](#21-introduction-to-workflow-orchestration)
+- [2.2 - Getting Started With Kestra](#22-getting-started-with-kestra)
+- [2.3 - Hands-On Coding Project: Build Data Pipelines with Kestra](#23-hands-on-coding-project-build-data-pipelines-with-kestra)
+- [2.4 - ETL Pipelines in Kestra: Google Cloud Platform](#24-etl-pipelines-in-kestra-google-cloud-platform)
+- [2.5 - Using AI for Data Engineering in Kestra](#25-using-ai-for-data-engineering-in-kestra)
+- [2.6 - Bonus](#26-bonus-deploy-to-the-cloud-optional)
+
+
+## 2.1 Introduction to Workflow Orchestration
 
 In this section, you’ll learn the foundations of workflow orchestration, its importance, and how Kestra fits into the orchestration landscape.
 
 ### Videos
-- **2.2.1 - Introduction to Workflow Orchestration**  
+- **2.1.1 - What to Workflow Orchestration?**  
   [![2.2.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
-- **2.2.2 - Learn the Concepts of Kestra**  
+- **2.1.2 - What is Kestra?**  
   [![Learn Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fo79n-EVpics)](https://youtu.be/o79n-EVpics)
 
 ### Resources
@@ -30,7 +38,13 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 ---
 
-## 2. Hands-On Coding Project: Build Data Pipelines with Kestra
+## 2.2 Getting Started with Kestra
+
+- **2.2.1 - Installing Kestra**
+- **2.2.2 - Kestra Concepts**
+- **2.2.3 - Orchestrate Python Code**
+
+## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
 
 This week, we're gonna build ETL pipelines for Yellow and Green Taxi data from NYC’s Taxi and Limousine Commission (TLC). You will:
 1. Extract data from [CSV files](https://github.com/DataTalksClub/nyc-tlc-data/releases).
@@ -82,10 +96,6 @@ curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/i
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_chat_without_rag.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_chat_with_rag.yaml
 ```
-
----
-
-## 3. ETL Pipelines in Kestra: Detailed Walkthrough
 
 ### Getting Started Pipeline
 
@@ -156,7 +166,7 @@ The flow code: [`02_postgres_taxi_scheduled.yaml`](flows/02_postgres_taxi_schedu
 
 ---
 
-## 4. ETL Pipelines in Kestra: Google Cloud Platform
+## 2.4 ETL Pipelines in Kestra: Google Cloud Platform
 
 Now that you've learned how to build ETL pipelines locally using Postgres, we are ready to move to the cloud. In this section, we'll load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: 
 1. Google Cloud Storage (GCS) as a data lake  
@@ -222,7 +232,7 @@ The flow code: [`05_gcp_taxi_scheduled.yaml`](flows/05_gcp_taxi_scheduled.yaml).
 
 ---
 
-## 5. Using AI for Data Engineering in Kestra
+## 2.5. Using AI for Data Engineering in Kestra
 
 This section builds on what you learned earlier in Module 2 to show you how AI can speed up workflow development.
 
@@ -245,7 +255,7 @@ By the end of this section, you will:
 
 ---
 
-### 5.1 Introduction: Why AI for Workflows?
+### 2.5.1 Introduction: Why AI for Workflows?
 
 As data engineers, we spend significant time writing boilerplate code, searching documentation, and structuring data pipelines. AI tools can help us:
 
@@ -256,7 +266,7 @@ However, AI is only as good as the context we provide. This section teaches you 
 
 ---
 
-### 5.2 Context Engineering with ChatGPT
+### 2.5.2 Context Engineering with ChatGPT
 
 Let's start by seeing what happens when AI lacks proper context.
 
@@ -297,7 +307,7 @@ In the next section, we'll see how Kestra's AI Copilot solves this problem.
 
 ---
 
-### 5.3 AI Copilot in Kestra
+### 2.5.3 AI Copilot in Kestra
 
 Kestra's AI Copilot is specifically designed to generate and modify Kestra flows with full context about the latest plugins, workflow syntax, and best practices.
 
@@ -359,7 +369,7 @@ docker compose up -d
 
 ---
 
-### 5.4 Bonus: Retrieval Augmented Generation (RAG)
+### 2.5.4 Bonus: Retrieval Augmented Generation (RAG)
 
 To further learn how to provide context to your prompts, this bonus section demonstrates how to use RAG.
 
@@ -444,7 +454,7 @@ External Documentation:
 
 ---
 
-## 6. Bonus: Deploy to the Cloud (Optional)
+## 2.6. Bonus: Deploy to the Cloud (Optional)
 
 Now that we've got all our pipelines working and we know how to quickly create new flows with Kestra's AI Copilot, we can deploy Kestra to the cloud so it can continue to orchestrate our scheduled pipelines. 
 
@@ -454,7 +464,7 @@ Note: When committing your workflows to Kestra, make sure your workflow doesn't 
 
 ### Videos
 
-- **2.2.8 - Deploy Workflows to the Cloud with Git**   
+- **2.6.1 - Deploy Workflows to the Cloud with Git**   
   [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl-wC71tI3co)](https://youtu.be/l-wC71tI3co)
 
 Resources
