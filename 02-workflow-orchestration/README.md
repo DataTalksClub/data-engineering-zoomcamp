@@ -32,8 +32,6 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 ### Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
-- [Install Kestra with Docker Compose](https://go.kestra.io/de-zoomcamp/docker-compose)
-- [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
 - [What is an Orchestrator?](https://go.kestra.io/de-zoomcamp/what-is-an-orchestrator)
 
 ---
@@ -48,21 +46,40 @@ We already have a Postgres database set up, along with pgAdmin from Module 1. We
 
 Use [this example Docker Compose file](docker-compose.yml) to correctly add the 2 new services and set up the volumes correctly. You may need to rename the existing containers and volumes to match what you had previously been using.
 
+
+
 #### Videos
 
 - **2.2.1 - Installing Kestra**
 
+#### Resources
+- [Install Kestra with Docker Compose](https://go.kestra.io/de-zoomcamp/docker-compose)
+
 
 ### 2.2.2 - Kestra Concepts
 
+To start building workflows in Kestra, we need to understand a number of concepts.
+- Flow
+- Tasks
+- Inputs
+- Triggers
+- Executions
+- Variables
+- Plugin Defaults
 
 #### Videos
 - **2.2.2 - Kestra Concepts**
+
+#### Resources
+- [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
 
 ### 2.2.3 - Orchestrate Python Code
 
 #### Videos
 - **2.2.3 - Orchestrate Python Code**
+
+### Resources
+- [Documentation](https://go.kestra.io/de-zoomcamp/docs)
 
 ## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
 

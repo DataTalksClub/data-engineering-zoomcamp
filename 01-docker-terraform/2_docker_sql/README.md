@@ -124,7 +124,7 @@ docker run -it \
 ```
 
 
-### Data ingestion
+### Data Ingestion
 
 Running locally
 
@@ -164,7 +164,7 @@ docker run -it \
     --url=${URL}
 ```
 
-### Docker-Compose 
+### Docker Compose 
 
 Run it:
 
