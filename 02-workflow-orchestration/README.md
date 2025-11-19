@@ -23,12 +23,23 @@ Kestra is an open-source, event-driven orchestration platform that simplifies bu
 
 In this section, you’ll learn the foundations of workflow orchestration, its importance, and how Kestra fits into the orchestration landscape.
 
-### Videos
+### 2.1.1 - What is Workflow Orchestration?
+
+TBC
+
+#### Videos
 - **2.1.1 - What is Workflow Orchestration?**  
-  [![2.2.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  [![2.1.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+
+
+### 2.1.2 - What is Kestra?
+
+TBC
+
+#### Videos
 
 - **2.1.2 - What is Kestra?**  
-  [![Learn Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fo79n-EVpics)](https://youtu.be/o79n-EVpics)
+  [![2.1.2 - What is Kestra?](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fo79n-EVpics)](https://youtu.be/o79n-EVpics)
 
 ### Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
@@ -40,58 +51,7 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 In this section, you'll learn how to install Kestra, as well as the key concepts required to build your first workflow. Once our first workflow is built, we can extend this further by executing a Python script inside of a workflow. 
 
-### 2.2.1 - Installing Kestra
-
-We already have a Postgres database set up, along with pgAdmin from Module 1. We can continue to use these with Kestra but we'll need to make a few modifications to our Docker Compose file.
-
-Use [this example Docker Compose file](docker-compose.yml) to correctly add the 2 new services and set up the volumes correctly. You may need to rename the existing containers and volumes to match what you had previously been using.
-
-
-
-#### Videos
-
-- **2.2.1 - Installing Kestra**
-
-#### Resources
-- [Install Kestra with Docker Compose](https://go.kestra.io/de-zoomcamp/docker-compose)
-
-
-### 2.2.2 - Kestra Concepts
-
-To start building workflows in Kestra, we need to understand a number of concepts.
-- Flow
-- Tasks
-- Inputs
-- Triggers
-- Executions
-- Variables
-- Plugin Defaults
-
-#### Videos
-- **2.2.2 - Kestra Concepts**
-
-#### Resources
-- [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
-
-### 2.2.3 - Orchestrate Python Code
-
-#### Videos
-- **2.2.3 - Orchestrate Python Code**
-
-### Resources
-- [Documentation](https://go.kestra.io/de-zoomcamp/docs)
-
-## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
-
-This week, we're gonna build ETL pipelines for Yellow and Green Taxi data from NYC’s Taxi and Limousine Commission (TLC). You will:
-1. Extract data from [CSV files](https://github.com/DataTalksClub/nyc-tlc-data/releases).
-2. Load it into Postgres or Google Cloud (GCS + BigQuery).
-3. Explore scheduling and backfilling workflows.
-
->[!NOTE] 
-If you’re using the PostgreSQL and PgAdmin docker setup from Module 1 for this week’s Kestra Workflow Orchestration exercise, ensure your PostgreSQL image version is 15 or later (preferably the latest). The MERGE statement, introduced in PostgreSQL 15, won’t work on earlier versions and will likely cause syntax errors in your kestra flows.
-
-### File Structure
+#### File Structure
 
 The project is organized as follows:
 ```
@@ -108,44 +68,106 @@ The project is organized as follows:
 │   └── 07_chat_with_rag.yaml
 ```
 
-### Setup Kestra
+### 2.2.1 - Installing Kestra
+
+To install Kestra, we are going to use Docker Compose. We already have a Postgres database set up, along with pgAdmin from Module 1. We can continue to use these with Kestra but we'll need to make a few modifications to our Docker Compose file.
+
+Use [this example Docker Compose file](docker-compose.yml) to correctly add the 2 new services and set up the volumes correctly.
+
+Add information about setting a username and password.
 
 We'll set up Kestra using Docker Compose containing one container for the Kestra server and another for the Postgres database:
 
 ```bash
-cd 02-workflow-orchestration/docker/combined
+cd 02-workflow-orchestration
 docker compose up -d
 ```
 
+**Note:** Check that `pgAdmin` isn't running on the same ports as Kestra. If so, check out the [FAQ](#troubleshooting-tips) at the bottom of the README.
+
 Once the container starts, you can access the Kestra UI at [http://localhost:8080](http://localhost:8080).
+
+To shut down Kestra, go to the same directory and run the following command:
+
+```bash
+docker compose down
+```
+#### Add Flows to Kestra
+
+Flows can be added to Kestra by copying and pasting the YAML directly into the editor, or by adding via Kestra's API. See below for adding programmatically.
+
+<details>
+<summary>Add Flows to Kestra programmatically</summary>
 
 If you prefer to add flows programmatically using Kestra's API, run the following commands:
 
 ```bash
 # Import all flows: assuming username admin@kestra.io and password Admin1234 (adjust to match your username and password)
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/01_getting_started_data_pipeline.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi_scheduled.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/03_gcp_kv.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_gcp_setup.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_gcp_taxi.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_gcp_taxi_scheduled.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_chat_without_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_chat_with_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/01_hello_world.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_python.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/03_getting_started_data_pipeline.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_postgres_taxi.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_postgres_taxi_scheduled.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_kv.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_gcp_setup.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/08_gcp_taxi.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_gcp_taxi_scheduled.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/10_chat_without_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/11_chat_with_rag.yaml
 ```
+</details>
 
-### Getting Started Pipeline
+#### Videos
+
+- **2.2.1 - Installing Kestra**  
+  [![2.2.1 - Installing Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+
+#### Resources
+- [Install Kestra with Docker Compose](https://go.kestra.io/de-zoomcamp/docker-compose)
+
+
+### 2.2.2 - Kestra Concepts
+
+To start building workflows in Kestra, we need to understand a number of concepts.
+- [Flow](https://go.kestra.io/de-zoomcamp/flow) - a container for tasks and their orchestration logic. 
+- [Tasks](https://go.kestra.io/de-zoomcamp/tasks) - the steps within a flow.
+- [Inputs](https://go.kestra.io/de-zoomcamp/inputs) - dynamic values passed to the flow at runtime.
+- [Triggers](https://go.kestra.io/de-zoomcamp/triggers) - mechanism that automatically starts the execution of a flow.
+- [Execution](https://go.kestra.io/de-zoomcamp/execution) - a single run of a flow with a specific state.
+- [Variables](https://go.kestra.io/de-zoomcamp/variables) - key–value pairs that let you reuse values across tasks.
+- [Plugin Defaults](https://go.kestra.io/de-zoomcamp/plugin-defaults) - default values applied to every task of a given type within one or more flows.
+- [Concurrency](https://go.kestra.io/de-zoomcamp/concurrency) - control how many executions of a flow can run at the same time.
+
+#### Videos
+- **2.2.2 - Kestra Concepts**  
+  [![2.2.2 - Kestra Concepts](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+
+#### Resources
+- [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
+
+### 2.2.3 - Orchestrate Python Code
+
+Now that we've built our first workflow, we can take it a step further by adding Python code into our flow. In Kestra, we can run Python code from a dedicated file or write it directly inside of our workflow.
+
+
+
+#### Videos
+- **2.2.3 - Orchestrate Python Code**  
+  [![2.2.3 - Orchestrate Python Code](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+
+### Resources
+- [Documentation](https://go.kestra.io/de-zoomcamp/docs)
+
+## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
+
+Next, we're gonna build ETL pipelines for Yellow and Green Taxi data from NYC’s Taxi and Limousine Commission (TLC). You will:
+1. Extract data from [CSV files](https://github.com/DataTalksClub/nyc-tlc-data/releases).
+2. Load it into Postgres or Google Cloud (GCS + BigQuery).
+3. Explore scheduling and backfilling workflows.
+
+### 2.3.1 Getting Started Pipeline
 
 This introductory flow is added just to demonstrate a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB. For this stage, a new separate Postgres database is created for the exercises. 
-
-**Note:** Check that `pgAdmin` isn't running on the same ports as Kestra. If so, check out the [FAQ](#troubleshooting-tips) at the bottom of the README.
-
-### Videos
-
-- **2.2.3 - Create an ETL Pipeline with Postgres in Kestra**   
-  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
-- **2.2.4 - Manage Scheduling and Backfills using Postgres in Kestra**  
-  [![Manage Scheduling and Backfills using Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F_-li_z97zog%3Fsi%3DG6jZbkfJb3GAyqrd)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
 
 
 ```mermaid
@@ -154,15 +176,17 @@ graph LR
   Transform --> Query[Query Data with DuckDB]
 ```
 
-Add the flow [`01_getting_started_data_pipeline.yaml`](flows/01_getting_started_data_pipeline.yaml) from the UI if you haven't already and execute it to see the results. Inspect the Gantt and Logs tabs to understand the flow execution.
+Add the flow [`03_getting_started_data_pipeline.yaml`](flows/03_getting_started_data_pipeline.yaml) from the UI if you haven't already and execute it to see the results. Inspect the Gantt and Logs tabs to understand the flow execution.
 
-### Local DB: Load Taxi Data to Postgres
+#### Videos
 
-Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We'll create a new Postgres database for these examples using this [Docker Compose file](docker-compose.yml). Download it into a new directory, navigate to it and run the following command to start it:
+- **2.3.1 - Getting Started Pipeline**   
+  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
 
-```bash
-docker compose up -d
-```
+
+### 2.3.2 Local DB: Load Taxi Data to Postgres
+
+Before we start loading data to GCP, we'll first play with the Yellow and Green Taxi data using a local Postgres database running in a Docker container. We will use the same database from Module 1 which should be in the same Docker Compose file as Kestra.
 
 The flow will extract CSV data partitioned by year and month, create tables, load data to the monthly table, and finally merge the data to the final destination table.
 
@@ -183,22 +207,29 @@ graph LR
   classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
 ```
 
-The flow code: [`02_postgres_taxi.yaml`](flows/02_postgres_taxi.yaml).
+The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
 
 
 > [!NOTE]  
 > The NYC Taxi and Limousine Commission (TLC) Trip Record Data provided on the [nyc.gov](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) website is currently available only in a Parquet format, but this is NOT the dataset we're going to use in this course. For the purpose of this course, we'll use the **CSV files** available [here on GitHub](https://github.com/DataTalksClub/nyc-tlc-data/releases). This is because the Parquet format can be challenging to understand by newcomers, and we want to make the course as accessible as possible — the CSV format can be easily introspected using tools like Excel or Google Sheets, or even a simple text editor.
 
-### Local DB: Learn Scheduling and Backfills
+#### Videos
+
+- **2.3.2 - Local DB: Load Taxi Data to Postgres**   
+  [![2.3.2 - Local DB: Load Taxi Data to Postgres](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
+
+#### Resources
+- [Docker Compose with Kestra, Postgres and pgAdmin](docker-compose.yml)
+
+### 2.3.3 Local DB: Learn Scheduling and Backfills
 
 We can now schedule the same pipeline shown above to run daily at 9 AM UTC. We'll also demonstrate how to backfill the data pipeline to run on historical data.
 
 Note: given the large dataset, we'll backfill only data for the green taxi dataset for the year 2019.
 
-The flow code: [`02_postgres_taxi_scheduled.yaml`](flows/02_postgres_taxi_scheduled.yaml).
+The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_scheduled.yaml).
 
-### Resources
-- [Docker Compose with Kestra, Postgres and pgAdmin](docker-compose.yml)
+
 
 ---
 
@@ -208,18 +239,32 @@ Now that you've learned how to build ETL pipelines locally using Postgres, we ar
 1. Google Cloud Storage (GCS) as a data lake  
 2. BigQuery as a data warehouse.
 
-### Videos
+### 2.4.1 - ETL vs ELT
 
-- **2.2.5 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
+In 2.3, we made a ETL pipeline inside of Kestra:
+- **Extract:** Firstly, we extract the dataset from GitHub
+- **Transform:** Next, we transform it with Python
+- **Load:** Finally, we load it into our Postgres database
+
+While this is very standard across the industry, sometimes it makes sense to change the order when working with the cloud. If you're working with a large dataset, like the Yellow Taxi data, there can be benefits to extracting and loading straight into a datawarehouse, and then performing transformations directly in the datawarehouse. When working with BigQuery, we will use ELT:
+- **Extract:** Firstly, we extract the dataset from GitHub
+- **Load:** Next, we load this dataset (in this case, a csv file) into a storage bucket (Google Cloud Storage)
+- **Transform:** Finally, we can create a table inside of BigQuery which uses the data from our storage bucket to perform our transformations.
+
+The reason for loading into the cloud before transforming means we can utilize the cloud's performance benefits for transforming large datasets. What might take a lot longer for a local machine, can take a fraction of the time in the cloud.
+
+Over the next few videos, we'll look at setting up BigQuery and transforming the Yellow Taxi dataset.
+
+#### Videos
+
+- **2.4.1 - ETL vs ELT**  
   [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
-- **2.2.6 - Manage Scheduling and Backfills using BigQuery in Kestra**   
-  [![Manage Scheduling and Backfills using BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FDoaZ5JWEkH0)](https://youtu.be/DoaZ5JWEkH0)
 
-### Setup Google Cloud Platform (GCP)
+### 2.4.2 Setup Google Cloud Platform (GCP)
 
 Before we start loading data to GCP, we need to set up the Google Cloud Platform. 
 
-First, adjust the following flow [`03_gcp_kv.yaml`](flows/03_gcp_kv.yaml) to include your service account, GCP project ID, BigQuery dataset and GCS bucket name (_along with their location_) as KV Store values:
+First, adjust the following flow [`06_gcp_kv.yaml`](flows/06_gcp_kv.yaml) to include your service account, GCP project ID, BigQuery dataset and GCS bucket name (_along with their location_) as KV Store values:
 - GCP_CREDS
 - GCP_PROJECT_ID
 - GCP_LOCATION
@@ -230,12 +275,18 @@ First, adjust the following flow [`03_gcp_kv.yaml`](flows/03_gcp_kv.yaml) to inc
 > [!WARNING]  
 > The `GCP_CREDS` service account contains sensitive information. Ensure you keep it secure and do not commit it to Git. Keep it as secure as your passwords.
 
-### Create GCP Resources
+#### Create GCP Resources
 
-If you haven't already created the GCS bucket and BigQuery dataset in the first week of the course, you can use this flow to create them: [`04_gcp_setup.yaml`](flows/04_gcp_setup.yaml).
+If you haven't already created the GCS bucket and BigQuery dataset in the first week of the course, you can use this flow to create them: [`07_gcp_setup.yaml`](flows/07_gcp_setup.yaml).
 
+#### Videos
 
-### GCP Workflow: Load Taxi Data to BigQuery
+- **2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
+  [![2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+
+### 2.4.3 GCP Workflow: Load Taxi Data to BigQuery
+
+Now that Google Cloud is set up with a storage bucket, we can start the ELT process.
 
 ```mermaid
 graph LR
@@ -256,19 +307,29 @@ graph LR
   classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
 ```
 
-The flow code: [`05_gcp_taxi.yaml`](flows/05_gcp_taxi.yaml).
+The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
 
-### 2.4.2 GCP Workflow: Schedule and Backfill Full Dataset
+#### Videos
+
+- **2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
+  [![2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+
+### 2.4.4 GCP Workflow: Schedule and Backfill Full Dataset
 
 We can now schedule the same pipeline shown above to run daily at 9 AM UTC for the green dataset and at 10 AM UTC for the yellow dataset. You can backfill historical data directly from the Kestra UI.
 
 Since we now process data in a cloud environment with infinitely scalable storage and compute, we can backfill the entire dataset for both the yellow and green taxi data without the risk of running out of resources on our local machine.
 
-The flow code: [`05_gcp_taxi_scheduled.yaml`](flows/05_gcp_taxi_scheduled.yaml).
+The flow code: [`09_gcp_taxi_scheduled.yaml`](flows/09_gcp_taxi_scheduled.yaml).
+
+#### Videos
+
+- **2.4.4 - GCP Workflow: Schedule and Backfills**  
+  [![2.4.4 - GCP Workflow: Schedule and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
 
 ---
 
-## 2.5. Using AI for Data Engineering in Kestra
+## 2.5 Using AI for Data Engineering in Kestra
 
 This section builds on what you learned earlier in Module 2 to show you how AI can speed up workflow development.
 
@@ -294,10 +355,10 @@ As data engineers, we spend significant time writing boilerplate code, searching
 
 However, AI is only as good as the context we provide. This section teaches you how to engineer that context for reliable, production-ready data workflows.
 
-### Videos
+#### Videos
 
 - **2.5.1 - Using AI for Data Engineering**  
-  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FPLACEHOLDER)](https://youtu.be/PLACEHOLDER)
+  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
 
 ---
 
@@ -339,6 +400,11 @@ With proper context:
 - ✅ You can iterate faster by letting AI generate boilerplate workflow code
 
 In the next section, we'll see how Kestra's AI Copilot solves this problem.
+
+#### Videos
+
+- **2.5.2 - Context Engineering with ChatGPT**  
+  [![2.5.2 - Context Engineering with ChatGPT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
 
 ---
 
@@ -402,7 +468,11 @@ docker compose up -d
 
 **Key Learning:** Context matters! AI Copilot has access to current Kestra documentation, generating Kestra flows better than a generic ChatGPT assistant.
 
----
+#### Videos
+
+- **2.5.3 - AI Copilot in Kestra**  
+  [![2.5.3 - Context Engineering with ChatGPT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
+
 
 ### 2.5.4 Bonus: Retrieval Augmented Generation (RAG)
 
@@ -440,7 +510,7 @@ graph LR
 **Objective:** Understand how RAG eliminates hallucinations by grounding LLM responses in real data.
 
 **Part A: Without RAG**
-1. Navigate to the [`06_chat_without_rag.yaml`](flows/06_chat_without_rag.yaml) flow in your Kestra UI
+1. Navigate to the [`10_chat_without_rag.yaml`](flows/10_chat_without_rag.yaml) flow in your Kestra UI
 2. Click **Execute**
 3. Wait for the execution to complete
 4. Open the **Logs** tab
@@ -451,7 +521,7 @@ graph LR
    - Based only on the model's training data (which may be outdated)
 
 **Part B: With RAG**
-1. Navigate to the [`07_chat_with_rag.yaml`](flows/07_chat_with_rag.yaml) flow
+1. Navigate to the [`11_chat_with_rag.yaml`](flows/11_chat_with_rag.yaml) flow
 2. Click **Execute**
 3. Watch the execution:
    - First task: **Ingests** Kestra 1.1 release documentation, creates **embeddings** and stores them
@@ -487,9 +557,12 @@ External Documentation:
 - [Google Gemini](https://ai.google.dev/docs)
 - [Google AI Studio](https://aistudio.google.com/)
 
----
+#### Videos
 
-## 2.6. Bonus: Deploy to the Cloud (Optional)
+- **2.5.4 (Bonus) - Retrieval Augmented Generation**  
+  [![2.5.4 (Bonus) - Retrieval Augmented Generation](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
+
+## 2.6 Bonus: Deploy to the Cloud (Optional)
 
 Now that we've got all our pipelines working and we know how to quickly create new flows with Kestra's AI Copilot, we can deploy Kestra to the cloud so it can continue to orchestrate our scheduled pipelines. 
 
