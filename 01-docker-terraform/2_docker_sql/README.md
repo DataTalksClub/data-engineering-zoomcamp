@@ -17,60 +17,20 @@ wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yell
 
 ### Running Postgres with Docker
 
-#### Windows
-
-Running Postgres on Windows (note the full path)
+Running Postgres on Windows, macOS and Linux
 
 ```bash
 docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
-  -p 5432:5432 \
-  postgres:18
-```
-
-If you have the following error:
-
-```
-docker run -it \
-  -e POSTGRES_USER="root" \
-  -e POSTGRES_PASSWORD="root" \
-  -e POSTGRES_DB="ny_taxi" \
-  -v e:/zoomcamp/data_engineer/week_1_fundamentals/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data  \
-  -p 5432:5432 \
-  postgres:13
-
-docker: Error response from daemon: invalid mode: \Program Files\Git\var\lib\postgresql\data.
-See 'docker run --help'.
-```
-
-Change the mounting path. Replace it with the following:
-
-```
--v /e/zoomcamp/...:/var/lib/postgresql/data
-```
-
-#### Linux and MacOS
-
-
-```bash
-docker run -it \
-  -e POSTGRES_USER="root" \
-  -e POSTGRES_PASSWORD="root" \
-  -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v ny_taxi_postgres_data:/var/lib/postgresql \
   -p 5432:5432 \
   postgres:18
 ```
 
 If you see that `ny_taxi_postgres_data` is empty after running
 the container, try these:
-
-* Deleting the folder and running Docker again (Docker will re-create the folder)
-* Adjust the permissions of the folder by running `sudo chmod a+rwx ny_taxi_postgres_data`
-
 
 ### CLI for Postgres
 
@@ -144,10 +104,10 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v ny_taxi_postgres_data:/var/lib/postgresql \
   -p 5432:5432 \
   --network=pg-network \
-  --name pg-database \
+  --name pgdatabase \
   postgres:18
 ```
 
@@ -187,22 +147,6 @@ Build the image
 docker build -t taxi_ingest:v001 .
 ```
 
-On Linux you may have a problem building it:
-
-```
-error checking context: 'can't stat '/home/name/data_engineering/ny_taxi_postgres_data''.
-```
-
-You can solve it with `.dockerignore`:
-
-* Create a folder `data`
-* Move `ny_taxi_postgres_data` to `data` (you might need to use `sudo` for that)
-* Map `-v $(pwd)/data/ny_taxi_postgres_data:/var/lib/postgresql/data`
-* Create a file `.dockerignore` and add `data` there
-* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details 
-
-
-
 Run the script with Docker
 
 ```bash
@@ -213,7 +157,7 @@ docker run -it \
   taxi_ingest:v001 \
     --user=root \
     --password=root \
-    --host=pg-database \
+    --host=pgdatabase \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi_trips \
@@ -225,35 +169,29 @@ docker run -it \
 Run it:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Run in detached mode:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Shutting it down:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
-Note: to make pgAdmin configuration persistent, create a folder `data_pgadmin`. Change its permission via
-
-```bash
-sudo chown 5050:5050 data_pgadmin
-```
-
-and mount it to the `/var/lib/pgadmin` folder:
+Add a docker volume to the `pgadmin` container:
 
 ```yaml
 services:
   pgadmin:
     image: dpage/pgadmin4
     volumes:
-      - ./data_pgadmin:/var/lib/pgadmin
+      - data_pgadmin:/var/lib/pgadmin
     ...
 ```
 
