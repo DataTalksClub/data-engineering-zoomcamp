@@ -13,8 +13,8 @@ Kestra is an open-source, event-driven orchestration platform that simplifies bu
 
 - [2.1 - Introduction to Workflow Orchestration](#21-introduction-to-workflow-orchestration)
 - [2.2 - Getting Started With Kestra](#22-getting-started-with-kestra)
-- [2.3 - Hands-On Coding Project: Build Data Pipelines with Kestra](#23-hands-on-coding-project-build-data-pipelines-with-kestra)
-- [2.4 - ETL Pipelines in Kestra: Google Cloud Platform](#24-etl-pipelines-in-kestra-google-cloud-platform)
+- [2.3 - Hands-On Coding Project: Build ETL Data Pipelines with Kestra](#23-hands-on-coding-project-build-data-pipelines-with-kestra)
+- [2.4 - ELT Pipelines in Kestra: Google Cloud Platform](#24-elt-pipelines-in-kestra-google-cloud-platform)
 - [2.5 - Using AI for Data Engineering in Kestra](#25-using-ai-for-data-engineering-in-kestra)
 - [2.6 - Bonus](#26-bonus-deploy-to-the-cloud-optional)
 
@@ -132,11 +132,23 @@ To start building workflows in Kestra, we need to understand a number of concept
 - [Flow](https://go.kestra.io/de-zoomcamp/flow) - a container for tasks and their orchestration logic. 
 - [Tasks](https://go.kestra.io/de-zoomcamp/tasks) - the steps within a flow.
 - [Inputs](https://go.kestra.io/de-zoomcamp/inputs) - dynamic values passed to the flow at runtime.
+- [Outputs](https://go.kestra.io/de-zoomcamp/outputs) - pass data between tasks and flows.
 - [Triggers](https://go.kestra.io/de-zoomcamp/triggers) - mechanism that automatically starts the execution of a flow.
 - [Execution](https://go.kestra.io/de-zoomcamp/execution) - a single run of a flow with a specific state.
 - [Variables](https://go.kestra.io/de-zoomcamp/variables) - key–value pairs that let you reuse values across tasks.
 - [Plugin Defaults](https://go.kestra.io/de-zoomcamp/plugin-defaults) - default values applied to every task of a given type within one or more flows.
 - [Concurrency](https://go.kestra.io/de-zoomcamp/concurrency) - control how many executions of a flow can run at the same time.
+
+While there are more concepts used for building powerful workflows, these are the ones we're going to use to build our data pipelines.
+
+The flow [`01_hello_world.yaml`](flows/01_hello_world.yaml) showcases all of these concepts inside of one workflow:
+- The flow has 5 tasks: 2 log tasks and a sleep task
+- The flow takes an input called `name`.
+- There is a variable that takes the `name` input to generate a full welcome message.
+- An output is generated from the return task and is logged in a later log task.
+- There is a trigger to execute this flow every day at 10am.
+- Plugin Defaults are used to make both log tasks send their messages as `ERROR` level.
+- We have a concurrency limit of 2 executions. Any further ones made while 2 are running will fail.
 
 #### Videos
 - **2.2.2 - Kestra Concepts**  
@@ -144,19 +156,22 @@ To start building workflows in Kestra, we need to understand a number of concept
 
 #### Resources
 - [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
+- [Workflow Components Documentation](https://go.kestra.io/de-zoomcamp/workflow-components)
 
 ### 2.2.3 - Orchestrate Python Code
 
 Now that we've built our first workflow, we can take it a step further by adding Python code into our flow. In Kestra, we can run Python code from a dedicated file or write it directly inside of our workflow.
 
+While Kestra has a huge variety of plugins available for building your workflows, you also have the option to write your own code and have Kestra execute that based on schedules or events. This means you can pick the right tools for your pipelines, rather than the ones you're limited to. 
 
+In our example Python workflow, [`02_python.yaml`](flows/02_python.yaml), our code fetches the number of Docker image pulls from DockerHub and returns it as an output to Kestra. This is useful as we can access this output with other tasks, even though it was generated inside of our Python script.
 
 #### Videos
 - **2.2.3 - Orchestrate Python Code**  
   [![2.2.3 - Orchestrate Python Code](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 ### Resources
-- [Documentation](https://go.kestra.io/de-zoomcamp/docs)
+- [How-to Guide: Python](https://go.kestra.io/de-zoomcamp/python)
 
 ## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
 
@@ -233,7 +248,7 @@ The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_schedu
 
 ---
 
-## 2.4 ETL Pipelines in Kestra: Google Cloud Platform
+## 2.4 ELT Pipelines in Kestra: Google Cloud Platform
 
 Now that you've learned how to build ETL pipelines locally using Postgres, we are ready to move to the cloud. In this section, we'll load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: 
 1. Google Cloud Storage (GCS) as a data lake  
