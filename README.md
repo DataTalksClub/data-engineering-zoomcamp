@@ -88,6 +88,11 @@ No prior data engineering experience is necessary.
 - Apply all concepts learned in a real-world scenario
 - Peer review and feedback process
 
+## Testimonials
+> Thank you for what you do! The DE Zoomcamp gave me skills that helped me land my first tech job. I hope I can set some time aside to join DTC for another course in the future.
+> 
+> — [Tim Claytor](https://www.linkedin.com/in/claytor/), Business Analyst at Tennessee Department of General Services ([Source](https://www.linkedin.com/feed/update/urn:li:activity:7396882073308938240?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7396882073308938240%2C7396889959711793152%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287396889959711793152%2Curn%3Ali%3Aactivity%3A7396882073308938240%29))
+
 ## Community & Support
 
 ### **Getting Help on Slack**
