@@ -9,7 +9,7 @@ Kestra is an open-source, event-driven orchestration platform that simplifies bu
 
 ---
 
-# Course Structure
+## Course Structure
 
 - [2.1 - Introduction to Workflow Orchestration](#21-introduction-to-workflow-orchestration)
 - [2.2 - Getting Started With Kestra](#22-getting-started-with-kestra)
@@ -34,7 +34,9 @@ A workflow orchestrator might do the following tasks:
 - Monitor and log errors, as well as taking a number of extra steps when they occur
 - Automatically run workflows based on schedules and events
 
-In data engineering, you often need to move data from one place, to another, sometimes with some modifications made to the data in the middle. This is where a workflow orchestrator can help out by managing these steps, while giving us visibility into it at the same time. In this module, we're going to build our own data pipeline using ETL (Extract, Transform Load) with Kestra at the core of the operation, but first we need to understand a bit more about how Kestra works before we can get building! 
+In data engineering, you often need to move data from one place, to another, sometimes with some modifications made to the data in the middle. This is where a workflow orchestrator can help out by managing these steps, while giving us visibility into it at the same time. 
+
+In this module, we're going to build our own data pipeline using ETL (Extract, Transform Load) with Kestra at the core of the operation, but first we need to understand a bit more about how Kestra works before we can get building! 
 
 #### Videos
 - **2.1.1 - What is Workflow Orchestration?**  
