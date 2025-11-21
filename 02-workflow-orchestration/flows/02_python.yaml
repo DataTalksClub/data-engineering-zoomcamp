@@ -6,12 +6,12 @@ description: This flow will install the pip package in a Docker container, and u
 tasks:
   - id: collect_stats
     type: io.kestra.plugin.scripts.python.Script
-    dependencies:
-      - requests
-      - kestra
     taskRunner:
       type: io.kestra.plugin.scripts.runner.docker.Docker
     containerImage: python:slim
+    dependencies:
+      - requests
+      - kestra
     script: |
       from kestra import Kestra
       import requests

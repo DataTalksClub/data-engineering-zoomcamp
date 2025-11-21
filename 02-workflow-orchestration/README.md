@@ -51,22 +51,10 @@ TBC
 
 In this section, you'll learn how to install Kestra, as well as the key concepts required to build your first workflow. Once our first workflow is built, we can extend this further by executing a Python script inside of a workflow. 
 
-#### File Structure
-
-The project is organized as follows:
-```
-.
-├── flows/
-│   ├── 01_getting_started_data_pipeline.yaml
-│   ├── 02_postgres_taxi.yaml
-│   ├── 02_postgres_taxi_scheduled.yaml
-│   ├── 03_gcp_kv.yaml
-│   ├── 04_gcp_setup.yaml
-│   ├── 05_gcp_taxi.yaml
-│   ├── 05_gcp_taxi_scheduled.yaml
-│   ├── 06_chat_without_rag.yaml
-│   └── 07_chat_with_rag.yaml
-```
+You will:
+1. Install Kestra using Docker Compose
+2. Learn the concepts of Kestra to build your first workflow
+3. Execute a Python script inside of a Kestra Flow
 
 ### 2.2.1 - Installing Kestra
 
@@ -170,8 +158,9 @@ In our example Python workflow, [`02_python.yaml`](flows/02_python.yaml), our co
 - **2.2.3 - Orchestrate Python Code**  
   [![2.2.3 - Orchestrate Python Code](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
-### Resources
+#### Resources
 - [How-to Guide: Python](https://go.kestra.io/de-zoomcamp/python)
+
 
 ## 2.3 Hands-On Coding Project: Build Data Pipelines with Kestra
 
@@ -196,7 +185,7 @@ Add the flow [`03_getting_started_data_pipeline.yaml`](flows/03_getting_started_
 #### Videos
 
 - **2.3.1 - Getting Started Pipeline**   
-  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
+  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 
 ### 2.3.2 Local DB: Load Taxi Data to Postgres
@@ -231,7 +220,7 @@ The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
 #### Videos
 
 - **2.3.2 - Local DB: Load Taxi Data to Postgres**   
-  [![2.3.2 - Local DB: Load Taxi Data to Postgres](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
+  [![2.3.2 - Local DB: Load Taxi Data to Postgres](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 #### Resources
 - [Docker Compose with Kestra, Postgres and pgAdmin](docker-compose.yml)
@@ -244,7 +233,10 @@ Note: given the large dataset, we'll backfill only data for the green taxi datas
 
 The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_scheduled.yaml).
 
+#### Videos
 
+- **2.3.3 - Scheduling and Backfills**  
+  [![2.3.3 - Scheduling and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 ---
 
@@ -273,7 +265,7 @@ Over the next few videos, we'll look at setting up BigQuery and transforming the
 #### Videos
 
 - **2.4.1 - ETL vs ELT**  
-  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 ### 2.4.2 Setup Google Cloud Platform (GCP)
 
@@ -297,7 +289,7 @@ If you haven't already created the GCS bucket and BigQuery dataset in the first 
 #### Videos
 
 - **2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+  [![2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 ### 2.4.3 GCP Workflow: Load Taxi Data to BigQuery
 
@@ -327,7 +319,7 @@ The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
 #### Videos
 
 - **2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+  [![2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 ### 2.4.4 GCP Workflow: Schedule and Backfill Full Dataset
 
@@ -340,7 +332,7 @@ The flow code: [`09_gcp_taxi_scheduled.yaml`](flows/09_gcp_taxi_scheduled.yaml).
 #### Videos
 
 - **2.4.4 - GCP Workflow: Schedule and Backfills**  
-  [![2.4.4 - GCP Workflow: Schedule and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+  [![2.4.4 - GCP Workflow: Schedule and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
 
 ---
 
@@ -585,7 +577,7 @@ In this bonus section, we'll cover how you can deploy Kestra on Google Cloud and
 
 Note: When committing your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
 
-### Videos
+#### Videos
 
 - **2.6.1 - Deploy Workflows to the Cloud with Git**   
   [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl-wC71tI3co)](https://youtu.be/l-wC71tI3co)
@@ -597,7 +589,7 @@ Resources
 - [Using Git in Kestra](https://go.kestra.io/de-zoomcamp/git)
 - [Deploy Flows with GitHub Actions](https://go.kestra.io/de-zoomcamp/deploy-github-actions)
 
-## 7. Additional Resources 📚
+## 2.7 Additional Resources 📚
 
 - Check [Kestra Docs](https://go.kestra.io/de-zoomcamp/docs)
 - Explore our [Blueprints](https://go.kestra.io/de-zoomcamp/blueprints) library
