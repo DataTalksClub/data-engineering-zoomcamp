@@ -157,7 +157,7 @@ The flow [`01_hello_world.yaml`](flows/01_hello_world.yaml) showcases all of the
 
 #### Videos
 - **2.2.2 - Kestra Concepts**  
-  [![2.2.2 - Kestra Concepts](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  [![2.2.2 - Kestra Concepts](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FMNOKVx8780E)](https://youtu.be/MNOKVx8780E)
 
 #### Resources
 - [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
@@ -173,7 +173,7 @@ In our example Python workflow, [`02_python.yaml`](flows/02_python.yaml), our co
 
 #### Videos
 - **2.2.3 - Orchestrate Python Code**  
-  [![2.2.3 - Orchestrate Python Code](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  [![2.2.3 - Orchestrate Python Code](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FVAHm0R_XjqI)](https://youtu.be/VAHm0R_XjqI)
 
 #### Resources
 - [How-to Guide: Python](https://go.kestra.io/de-zoomcamp/python)
@@ -202,7 +202,7 @@ Add the flow [`03_getting_started_data_pipeline.yaml`](flows/03_getting_started_
 #### Videos
 
 - **2.3.1 - Getting Started Pipeline**   
-  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F-KmwrCqRhic)](https://youtu.be/-KmwrCqRhic)
 
 
 ### 2.3.2 Local DB: Load Taxi Data to Postgres
