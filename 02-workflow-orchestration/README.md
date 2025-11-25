@@ -125,7 +125,7 @@ curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/i
 #### Videos
 
 - **2.2.1 - Installing Kestra**  
-  [![2.2.1 - Installing Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  [![2.2.1 - Installing Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FwgPxC4UjoLM)](https://youtu.be/wgPxC4UjoLM)
 
 #### Resources
 - [Install Kestra with Docker Compose](https://go.kestra.io/de-zoomcamp/docker-compose)
