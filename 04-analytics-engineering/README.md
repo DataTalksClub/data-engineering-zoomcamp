@@ -1,42 +1,53 @@
-# Module 4: Analytics Engineering 
+# Module 4: Analytics Engineering
+
 Goal: Transforming the data loaded in DWH into Analytical Views developing a [dbt project](taxi_rides_ny/README.md).
 
 ### Prerequisites
-By this stage of the course you should have already: 
+By this stage of the course you should have already:
 
-- A running warehouse (BigQuery or postgres) 
+- A running warehouse (BigQuery or postgres)
 - A set of running pipelines ingesting the project dataset (week 3 completed)
-- The following datasets ingested from the course [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/): 
+- The following datasets ingested from the course [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/):
   * Yellow taxi data - Years 2019 and 2020
-  * Green taxi data - Years 2019 and 2020 
-  * fhv data - Year 2019. 
+  * Green taxi data - Years 2019 and 2020
+  * fhv data - Year 2019
 
 > [!NOTE]
 > * We have prepared a python script for loading the data that can be found through [week3/extras](../03-data-warehouse/extras).
 
-## Setting up your environment 
-  
-> [!NOTE]  
->  the *cloud* setup is the preferred option.
->
-> the *local* setup does not require a cloud database.
+## Setting up your environment
 
-| Alternative A | Alternative B |
----|---|
-| Setting up dbt for using BigQuery (cloud) | Setting up dbt for using Postgres locally  |
-|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)|- Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup/)<br><br> |
-| - [Following these instructions to connect to your BigQuery instance]([https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth](https://docs.getdbt.com/guides/bigquery?step=4)) | - follow the [official dbt documentation]([https://docs.getdbt.com/dbt-cli/installation](https://docs.getdbt.com/docs/core/installation-overview)) or <br>- follow the [dbt core with BigQuery on Docker](docker_setup/README.md) guide to setup dbt locally on docker or <br>- use a docker image from official [Install with Docker](https://docs.getdbt.com/docs/core/docker-install). |
-|- More detailed instructions in [dbt_cloud_setup.md](dbt_cloud_setup.md)  | - You will need to install the latest version with the BigQuery adapter (dbt-bigquery).|
-| | - You will need to install the latest version with the postgres adapter (dbt-postgres).|
-| | After local installation you will have to set up the connection to PG in the `profiles.yml`, you can find the templates [here](https://docs.getdbt.com/docs/core/connect-data-platform/postgres-setup) |
+Choose your setup path:
 
+### 🏠 [Local Setup](setup/local_setup.md) (Recommended for Learning)
+
+- **Stack**: DuckDB + dbt Core
+- **Cost**: Free
+- **Time**: 10-15 minutes
+- **Best for**: Learning dbt, quick iteration, no cloud account needed
+- [→ Get Started](setup/local_setup.md)
+
+### ☁️ [Cloud Setup](setup/cloud_setup.md) (Recommended for Production)
+
+- **Stack**: BigQuery + dbt Core + Looker Studio
+- **Cost**: ~$10-50/month
+- **Time**: 20-30 minutes
+- **Best for**: Production deployments, large datasets, team collaboration
+- [→ Get Started](setup/cloud_setup.md)
+
+### 🌐 dbt Cloud (Alternative)
+
+For a fully managed solution:
+- Open a free developer dbt cloud account at [getdbt.com/signup](https://www.getdbt.com/signup/)
+- Connect to BigQuery following [these instructions](https://docs.getdbt.com/guides/bigquery?step=4)
+- More details in [dbt_cloud_setup.md](dbt_cloud_setup.md)
 
 ## Content
 
 ### Introduction to analytics engineering
 
 * What is analytics engineering?
-* ETL vs ELT 
+* ETL vs ELT
 * Data modeling concepts (fact and dim tables)
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://youtu.be/uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)

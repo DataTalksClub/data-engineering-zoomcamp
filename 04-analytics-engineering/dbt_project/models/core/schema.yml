@@ -14,9 +14,10 @@ models:
     columns:
       - name: revenue_monthly_total_amount
         description: Monthly sum of the the total_amount of the fare charged for the trip per pickup zone, month and service.
-        tests:
+        data_tests:
             - not_null:
-                severity: error
+                config:
+                  severity: error
       
   - name: fact_trips
     description: >

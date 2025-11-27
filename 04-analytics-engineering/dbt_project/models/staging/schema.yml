@@ -2,14 +2,13 @@ version: 2
 
 sources:
   - name: staging
-    database: "{{ env_var('DBT_DATABASE', 'taxi-rides-ny-339813-412521') }}"
-    schema: "{{ env_var('DBT_SCHEMA', 'trips_data_all') }}"
-      # loaded_at_field: record_loaded_at
+    # For BigQuery, use the environment variable or default project
+    # For DuckDB, database/schema can be omitted or set to null
+    database: taxi_rides_ny
+    schema: raw
     tables:
       - name: green_tripdata
       - name: yellow_tripdata
-         # freshness:
-           # error_after: {count: 6, period: hour}
 
 models:
     - name: stg_green_tripdata
@@ -18,42 +17,49 @@ models:
         Green taxis may respond to street hails,but only in the areas indicated in green on the
         map (i.e. above W 110 St/E 96th St in Manhattan and in the boroughs).
         The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
-        technology service providers. 
+        technology service providers.
       columns:
           - name: tripid
             description: Primary key for this table, generated with a concatenation of vendorid+pickup_datetime
-            tests:
+            data_tests:
                 - unique:
-                    severity: warn
+                    config:
+                      severity: warn
                 - not_null:
-                    severity: warn
-          - name: VendorID 
-            description: > 
+                    config:
+                      severity: warn
+          - name: VendorID
+            description: >
                 A code indicating the TPEP provider that provided the record.
-                1= Creative Mobile Technologies, LLC; 
+                1= Creative Mobile Technologies, LLC;
                 2= VeriFone Inc.
-          - name: pickup_datetime 
+          - name: pickup_datetime
             description: The date and time when the meter was engaged.
-          - name: dropoff_datetime 
+          - name: dropoff_datetime
             description: The date and time when the meter was disengaged.
-          - name: Passenger_count 
+          - name: Passenger_count
             description: The number of passengers in the vehicle. This is a driver-entered value.
-          - name: Trip_distance 
+          - name: Trip_distance
             description: The elapsed trip distance in miles reported by the taximeter.
           - name: Pickup_locationid
             description: locationid where the meter was engaged.
-            tests:
+            data_tests:
               - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-                  severity: warn
-          - name: dropoff_locationid 
+                  arguments:
+                    to: ref('taxi_zone_lookup')
+                    field: locationid
+                  config:
+                    severity: warn
+          - name: dropoff_locationid
             description: locationid where the meter was engaged.
-            tests:
+            data_tests:
               - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-          - name: RateCodeID 
+                  arguments:
+                    to: ref('taxi_zone_lookup')
+                    field: locationid
+                  config:
+                    severity: warn
+          - name: RateCodeID
             description: >
                 The final rate code in effect at the end of the trip.
                   1= Standard rate
@@ -62,90 +68,90 @@ models:
                   4=Nassau or Westchester
                   5=Negotiated fare
                   6=Group ride
-          - name: Store_and_fwd_flag 
-            description: > 
+          - name: Store_and_fwd_flag
+            description: >
               This flag indicates whether the trip record was held in vehicle
-              memory before sending to the vendor, aka “store and forward,”
+              memory before sending to the vendor, aka "store and forward,"
               because the vehicle did not have a connection to the server.
                 Y= store and forward trip
                 N = not a store and forward trip
-          - name: Dropoff_longitude 
-            description: Longitude where the meter was disengaged.
-          - name: Dropoff_latitude 
-            description: Latitude where the meter was disengaged.
-          - name: Payment_type 
+          - name: Payment_type
             description: >
               A numeric code signifying how the passenger paid for the trip.
-            tests: 
+            data_tests:
               - accepted_values:
-                  values: "{{ var('payment_type_values') }}"
-                  severity: warn
-                  quote: false
+                  arguments:
+                    values: "{{ var('payment_type_values') }}"
+                    quote: false
+                  config:
+                    severity: warn
           - name: payment_type_description
             description: Description of the payment_type code
-          - name: Fare_amount 
-            description: > 
+          - name: Fare_amount
+            description: >
               The time-and-distance fare calculated by the meter.
-              Extra Miscellaneous extras and surcharges. Currently, this only includes
-              the $0.50 and $1 rush hour and overnight charges.
-              MTA_tax $0.50 MTA tax that is automatically triggered based on the metered
-              rate in use.
-          - name: Improvement_surcharge 
-            description: > 
+          - name: Improvement_surcharge
+            description: >
               $0.30 improvement surcharge assessed trips at the flag drop. The
               improvement surcharge began being levied in 2015.
-          - name: Tip_amount 
-            description: > 
+          - name: Tip_amount
+            description: >
               Tip amount. This field is automatically populated for credit card
               tips. Cash tips are not included.
-          - name: Tolls_amount 
+          - name: Tolls_amount
             description: Total amount of all tolls paid in trip.
-          - name: Total_amount 
+          - name: Total_amount
             description: The total amount charged to passengers. Does not include cash tips.
 
     - name: stg_yellow_tripdata
-      description: > 
-        Trips made by New York City's iconic yellow taxis. 
+      description: >
+        Trips made by New York City's iconic yellow taxis.
         Yellow taxis are the only vehicles permitted to respond to a street hail from a passenger in all five
         boroughs. They may also be hailed using an e-hail app like Curb or Arro.
         The records were collected and provided to the NYC Taxi and Limousine Commission (TLC) by
-        technology service providers. 
+        technology service providers.
       columns:
           - name: tripid
             description: Primary key for this table, generated with a concatenation of vendorid+pickup_datetime
-            tests:
+            data_tests:
                 - unique:
-                    severity: warn
+                    config:
+                      severity: warn
                 - not_null:
-                    severity: warn
-          - name: VendorID 
-            description: > 
+                    config:
+                      severity: warn
+          - name: VendorID
+            description: >
                 A code indicating the TPEP provider that provided the record.
-                1= Creative Mobile Technologies, LLC; 
+                1= Creative Mobile Technologies, LLC;
                 2= VeriFone Inc.
-          - name: pickup_datetime 
+          - name: pickup_datetime
             description: The date and time when the meter was engaged.
-          - name: dropoff_datetime 
+          - name: dropoff_datetime
             description: The date and time when the meter was disengaged.
-          - name: Passenger_count 
+          - name: Passenger_count
             description: The number of passengers in the vehicle. This is a driver-entered value.
-          - name: Trip_distance 
+          - name: Trip_distance
             description: The elapsed trip distance in miles reported by the taximeter.
           - name: Pickup_locationid
             description: locationid where the meter was engaged.
-            tests:
+            data_tests:
               - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-                  severity: warn
-          - name: dropoff_locationid 
+                  arguments:
+                    to: ref('taxi_zone_lookup')
+                    field: locationid
+                  config:
+                    severity: warn
+          - name: dropoff_locationid
             description: locationid where the meter was engaged.
-            tests:
+            data_tests:
               - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-                  severity: warn
-          - name: RateCodeID 
+                  arguments:
+                    to: ref('taxi_zone_lookup')
+                    field: locationid
+                  config:
+                    severity: warn
+          - name: RateCodeID
             description: >
                 The final rate code in effect at the end of the trip.
                   1= Standard rate
@@ -154,43 +160,37 @@ models:
                   4=Nassau or Westchester
                   5=Negotiated fare
                   6=Group ride
-          - name: Store_and_fwd_flag 
-            description: > 
+          - name: Store_and_fwd_flag
+            description: >
               This flag indicates whether the trip record was held in vehicle
-              memory before sending to the vendor, aka “store and forward,”
+              memory before sending to the vendor, aka "store and forward,"
               because the vehicle did not have a connection to the server.
                 Y= store and forward trip
                 N= not a store and forward trip
-          - name: Dropoff_longitude 
-            description: Longitude where the meter was disengaged.
-          - name: Dropoff_latitude 
-            description: Latitude where the meter was disengaged.
-          - name: Payment_type 
+          - name: Payment_type
             description: >
               A numeric code signifying how the passenger paid for the trip.
-            tests: 
+            data_tests:
               - accepted_values:
-                  values: "{{ var('payment_type_values') }}"
-                  severity: warn
-                  quote: false
+                  arguments:
+                    values: "{{ var('payment_type_values') }}"
+                    quote: false
+                  config:
+                    severity: warn
           - name: payment_type_description
             description: Description of the payment_type code
-          - name: Fare_amount 
-            description: > 
+          - name: Fare_amount
+            description: >
               The time-and-distance fare calculated by the meter.
-              Extra Miscellaneous extras and surcharges. Currently, this only includes
-              the $0.50 and $1 rush hour and overnight charges.
-              MTA_tax $0.50 MTA tax that is automatically triggered based on the metered
-              rate in use.
-          - name: Improvement_surcharge 
-            description: > 
+          - name: Improvement_surcharge
+            description: >
               $0.30 improvement surcharge assessed trips at the flag drop. The
               improvement surcharge began being levied in 2015.
-          - name: Tip_amount 
-            description: > 
+          - name: Tip_amount
+            description: >
               Tip amount. This field is automatically populated for credit card
               tips. Cash tips are not included.
-          - name: Tolls_amount 
+          - name: Tolls_amount
             description: Total amount of all tolls paid in trip.
-          - name: Total_amount 
+          - name: Total_amount
             description: The total amount charged to passengers. Does not include cash tips.
