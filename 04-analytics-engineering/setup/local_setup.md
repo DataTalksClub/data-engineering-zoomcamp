@@ -116,92 +116,7 @@ taxi_rides_ny:
 
 ## Step 4: Download and Ingest Data
 
-Now that your dbt project is set up, let's load the taxi data into DuckDB.
-
-### Understanding the Data Architecture
-
-Before loading data, it's important to understand the schema strategy we're using:
-
-* **`raw` schema**: Stores raw, unprocessed data exactly as it comes from the source. Think of this as your "landing zone". Data here should never be changed or transformed.
-* **`staging` schema** (created later by dbt): Contains cleaned, standardized versions of raw data with consistent naming and types. This is only meant for minor transformations.
-* **`intermediate` schema** (created later by dbt): Contains any major transformation that is not meant to be exposed to business users.
-* **`marts` schema** (created later by dbt): Business-ready datasets combining multiple sources for analytics and reporting.
-
-This **raw → staging → intermediate → marts** pattern is the industry-standard approach in modern analytics engineering. You're setting up the `raw` layer now, and in future lessons you'll use dbt to build the staging and mart layers.
-
-### Choose Your Approach
-
-You can load the data using either **Python** (recommended for most users) or **DuckDB CLI** (for those who prefer pure SQL). Both approaches produce identical results.
-
-<details>
-<summary><b>Option A: Python Script (Recommended)</b></summary>
-
-Create a file called `ingest_data.py` in your `taxi_rides_ny` dbt project directory:
-
-```python
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
-import duckdb
-import os
-
-# Configuration
-START_DATE = '2019-01-01'
-END_DATE = '2020-12-01'
-BASE_URL = 'https://d37ci6vzurychx.cloudfront.net/trip-data/'
-DB_PATH = 'taxi_rides_ny.duckdb'
-
-def generate_urls(taxi_type, start, end):
-    urls, current = [], datetime.strptime(start, '%Y-%m-%d')
-    end_dt = datetime.strptime(end, '%Y-%m-%d')
-    while current <= end_dt:
-        urls.append(f"{BASE_URL}{taxi_type}_tripdata_{current.strftime('%Y-%m')}.parquet")
-        current += relativedelta(months=1)
-    return urls
-
-# Verify we're in the correct directory (where dbt_project.yml exists)
-if not os.path.exists('dbt_project.yml'):
-    print("ERROR: dbt_project.yml not found!")
-    print("Please run this script from your dbt project directory (taxi_rides_ny/)")
-    exit(1)
-
-# Connect and create schema
-con = duckdb.connect(DB_PATH)
-con.execute("CREATE SCHEMA IF NOT EXISTS raw")
-
-# Load yellow taxi data
-print("Loading yellow taxi data...")
-yellow_urls = generate_urls('yellow', START_DATE, END_DATE)
-con.execute(f"CREATE OR REPLACE TABLE raw.yellow_tripdata AS SELECT * FROM read_parquet({yellow_urls}, union_by_name=true)")
-print(f"✓ Loaded {con.execute('SELECT COUNT(*) FROM raw.yellow_tripdata').fetchone()[0]:,} records")
-
-# Load green taxi data
-print("Loading green taxi data...")
-green_urls = generate_urls('green', START_DATE, END_DATE)
-con.execute(f"CREATE OR REPLACE TABLE raw.green_tripdata AS SELECT * FROM read_parquet({green_urls}, union_by_name=true)")
-print(f"✓ Loaded {con.execute('SELECT COUNT(*) FROM raw.green_tripdata').fetchone()[0]:,} records")
-
-con.close()
-print("✓ Done!")
-```
-
-Install the required dependency and run the script:
-
-```bash
-pip install python-dateutil
-python ingest_data.py
-```
-
-> [!IMPORTANT]
-> **Always run this script from your dbt project directory** (where `dbt_project.yml` is located). The script includes a safety check to prevent creating the database in the wrong location. This ensures your Python script and dbt use the same DuckDB database file.
-
-</details>
-
-<details>
-<summary><b>Option B: DuckDB CLI (Pure SQL)</b></summary>
-
-This approach uses DuckDB's built-in capabilities to download and load the data. This works on all operating systems (Windows, Mac, Linux) and is memory-efficient.
-
-From within your `taxi_rides_ny` dbt project directory, open the DuckDB CLI:
+Now that your dbt project is set up, let's load the taxi data into DuckDB. From within your `taxi_rides_ny` dbt project directory, open the DuckDB CLI:
 
 ```bash
 duckdb taxi_rides_ny.duckdb
@@ -264,8 +179,6 @@ COPY (
 TO 'data/green_tripdata'
 (FORMAT PARQUET, PARTITION_BY (year, month));
 ```
-
-</details>
 
 ### Verify Data Loaded Successfully
 
