@@ -116,50 +116,75 @@ taxi_rides_ny:
 
 ## Step 4: Download and Ingest Data
 
-Now that your dbt project is set up, let's load the taxi data into DuckDB.
-
-### Understanding the Data Architecture
-
-Before loading data, it's important to understand the schema strategy we're using:
-
-* **`raw` schema**: Stores raw, unprocessed data exactly as it comes from the source. Think of this as your "landing zone". Data here should never be changed or transformed.
-* **`staging` schema** (created later by dbt): Contains cleaned, standardized versions of raw data with consistent naming and types. This is only meant for minor transformations.
-* **`intermediate` schema** (created later by dbt): Contains any major transformation that is not meant to be exposed to business users.
-* **`marts` schema** (created later by dbt): Business-ready datasets combining multiple sources for analytics and reporting.
-
-This **raw → staging → intermediate → marts** pattern is the industry-standard approach in modern analytics engineering. You're setting up the `raw` layer now, and in future lessons you'll use dbt to build the staging and mart layers.
-
-### Load Data Using DuckDB CLI
-
-From within your `taxi_rides_ny` dbt project directory, open the DuckDB CLI:
+Now that your dbt project is set up, let's load the taxi data into DuckDB. From within your `taxi_rides_ny` dbt project directory, open the DuckDB CLI:
 
 ```bash
 duckdb taxi_rides_ny.duckdb
 ```
 
-Then execute:
+Then execute the following SQL commands to load the data into tables:
 
 ```sql
+-- Create the raw schema
 CREATE SCHEMA IF NOT EXISTS raw;
 
-CREATE TABLE IF NOT EXISTS raw.green_tripdata AS (
-  SELECT * FROM 'https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2019-01.parquet'
+-- Configuration variables for both datasets
+SET VARIABLE base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/';
+SET VARIABLE start_date = DATE '2019-01-01';
+SET VARIABLE end_date = DATE '2020-12-01';
+
+-- Create yellow tripdata table with dynamically generated URLs
+CREATE OR REPLACE TABLE taxi_rides_ny.raw.yellow_tripdata AS
+SELECT *
+FROM read_parquet(
+    list_transform(
+        generate_series(getvariable('start_date'),
+                       getvariable('end_date'),
+                       INTERVAL 1 MONTH),
+        d -> getvariable('base_url') || 'yellow_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+    ),
+    union_by_name=true
 );
 
-CREATE TABLE IF NOT EXISTS raw.yellow_tripdata AS (
-  SELECT * FROM 'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2019-01.parquet'
+-- Create green tripdata table with dynamically generated URLs
+CREATE OR REPLACE TABLE taxi_rides_ny.raw.green_tripdata AS
+SELECT *
+FROM read_parquet(
+    list_transform(
+        generate_series(getvariable('start_date'),
+                       getvariable('end_date'),
+                       INTERVAL 1 MONTH),
+        d -> getvariable('base_url') || 'green_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+    ),
+    union_by_name=true
 );
+
+-- Export data as partitioned parquet files for backup/portability
+-- Partitioning by year and month keeps files manageable and enables efficient queries
+COPY (
+    SELECT *,
+           year(tpep_pickup_datetime) AS year,
+           month(tpep_pickup_datetime) AS month
+    FROM raw.yellow_tripdata
+)
+TO 'data/yellow_tripdata'
+(FORMAT PARQUET, PARTITION_BY (year, month));
+
+COPY (
+    SELECT *,
+           year(lpep_pickup_datetime) AS year,
+           month(lpep_pickup_datetime) AS month
+    FROM raw.green_tripdata
+)
+TO 'data/green_tripdata'
+(FORMAT PARQUET, PARTITION_BY (year, month));
 ```
-
-This will:
-
-* Create a `raw` schema to hold unprocessed source data
-* Download and load January 2019 yellow and green taxi data directly from Parquet files (DuckDB can read remote files!)
-* Create tables `raw.yellow_tripdata` and `raw.green_tripdata` in your `taxi_rides_ny.duckdb` database
 
 ### Verify Data Loaded Successfully
 
-After running the ingestion commands, verify the data is in the correct database and tables:
+**If you used the Python script**, verification is automatically performed at the end of the script execution.
+
+**If you used the DuckDB CLI approach**, verify the data manually by running these commands in the DuckDB CLI:
 
 ```sql
 -- Check which schemas exist
