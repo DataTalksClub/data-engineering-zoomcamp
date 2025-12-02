@@ -70,9 +70,9 @@ No prior data engineering experience is necessary.
 - Machine learning in BigQuery
 
 #### [Module 4: Analytics Engineering](04-analytics-engineering/)
-- dbt (data build tool) with PostgreSQL & BigQuery
+- dbt (data build tool) with DuckDB & BigQuery
 - Testing, documentation, and deployment
-- Data visualization with Metabase
+- Data visualization with Streamlit & Looker Studio
 
 #### [Module 5: Batch Processing](05-batch/)
 - Introduction to Apache Spark
@@ -119,14 +119,16 @@ To keep discussions organized:
 - Review the [community guidelines](https://datatalks.club/slack/guidelines.html).
 
 ## Meet the Instructors
-- [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
 - [Michael Shoemaker](https://www.linkedin.com/in/michaelshoemaker1/)
 - [Zach Wilson](https://www.linkedin.com/in/eczachly)
 - [Will Russell](https://www.linkedin.com/in/wrussell1999/)
 - [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
+- [Juan Manuel Perafan](https://www.linkedin.com/in/jmperafan/)
+- [Diana Gromakovskaia](https://www.linkedin.com/in/diana-gromakovskaia/)
 
 Past instructors:
+- [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Sejal Vaidya](https://www.linkedin.com/in/vaidyasejal/)
 - [Irem Erturk](https://www.linkedin.com/in/iremerturk/)
