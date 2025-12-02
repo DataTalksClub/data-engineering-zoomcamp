@@ -40,7 +40,7 @@ In this module, we're going to build our own data pipeline using ETL (Extract, T
 
 #### Videos
 - **2.1.1 - What is Workflow Orchestration?**  
-  [![2.1.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 
 ### 2.1.2 - What is Kestra?
@@ -56,7 +56,7 @@ Kestra is a great choice for workflow orchestration:
 #### Videos
 
 - **2.1.2 - What is Kestra?**  
-  [![2.1.2 - What is Kestra?](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fo79n-EVpics)](https://youtu.be/o79n-EVpics)
+  Coming soon
 
 ### Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
@@ -237,7 +237,7 @@ The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
 #### Videos
 
 - **2.3.2 - Local DB: Load Taxi Data to Postgres**   
-  [![2.3.2 - Local DB: Load Taxi Data to Postgres](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 #### Resources
 - [Docker Compose with Kestra, Postgres and pgAdmin](docker-compose.yml)
@@ -253,7 +253,7 @@ The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_schedu
 #### Videos
 
 - **2.3.3 - Scheduling and Backfills**  
-  [![2.3.3 - Scheduling and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 ---
 
@@ -282,7 +282,7 @@ Over the next few videos, we'll look at setting up BigQuery and transforming the
 #### Videos
 
 - **2.4.1 - ETL vs ELT**  
-  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 ### 2.4.2 Setup Google Cloud Platform (GCP)
 
@@ -306,7 +306,7 @@ If you haven't already created the GCS bucket and BigQuery dataset in the first 
 #### Videos
 
 - **2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![2.4.2 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 ### 2.4.3 GCP Workflow: Load Taxi Data to BigQuery
 
@@ -336,7 +336,7 @@ The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
 #### Videos
 
 - **2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 ### 2.4.4 GCP Workflow: Schedule and Backfill Full Dataset
 
@@ -349,7 +349,7 @@ The flow code: [`09_gcp_taxi_scheduled.yaml`](flows/09_gcp_taxi_scheduled.yaml).
 #### Videos
 
 - **2.4.4 - GCP Workflow: Schedule and Backfills**  
-  [![2.4.4 - GCP Workflow: Schedule and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  Coming soon
 
 ---
 
@@ -382,7 +382,7 @@ However, AI is only as good as the context we provide. This section teaches you 
 #### Videos
 
 - **2.5.1 - Using AI for Data Engineering**  
-  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
+  Coming soon
 
 ---
 
@@ -428,7 +428,7 @@ In the next section, we'll see how Kestra's AI Copilot solves this problem.
 #### Videos
 
 - **2.5.2 - Context Engineering with ChatGPT**  
-  [![2.5.2 - Context Engineering with ChatGPT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
+  Coming soon
 
 ---
 
@@ -495,7 +495,7 @@ docker compose up -d
 #### Videos
 
 - **2.5.3 - AI Copilot in Kestra**  
-  [![2.5.3 - Context Engineering with ChatGPT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
+  Coming soon
 
 
 ### 2.5.4 Bonus: Retrieval Augmented Generation (RAG)
@@ -584,7 +584,7 @@ External Documentation:
 #### Videos
 
 - **2.5.4 (Bonus) - Retrieval Augmented Generation**  
-  [![2.5.4 (Bonus) - Retrieval Augmented Generation](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/PLACEHOLDER)
+  Coming soon
 
 ## 2.6 Bonus: Deploy to the Cloud (Optional)
 
@@ -597,7 +597,7 @@ Note: When committing your workflows to Kestra, make sure your workflow doesn't 
 #### Videos
 
 - **2.6.1 - Deploy Workflows to the Cloud with Git**   
-  [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl-wC71tI3co)](https://youtu.be/l-wC71tI3co)
+  Coming soon
 
 Resources
 
