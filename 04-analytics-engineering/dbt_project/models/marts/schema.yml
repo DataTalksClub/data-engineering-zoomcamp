@@ -1,0 +1,135 @@
+version: 2
+
+models:
+  - name: dim_zones
+    description: Taxi zone dimension table with location details
+    columns:
+      - name: locationid
+        description: Unique identifier for each taxi zone
+        tests:
+          - unique
+          - not_null
+      - name: borough
+        description: NYC borough name
+      - name: zone
+        description: Specific zone name within the borough
+      - name: service_zone
+        description: Service zone classification
+
+  - name: fact_trips
+    description: Fact table with all taxi trips including trip and payment details
+    columns:
+      - name: tripid
+        description: Unique trip identifier
+        tests:
+          - not_null
+      - name: vendorid
+        description: Taxi technology provider
+        tests:
+          - not_null
+      - name: service_type
+        description: Type of taxi service (Green or Yellow)
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Green', 'Yellow']
+          - not_null
+      - name: ratecodeid
+        description: Final rate code
+      - name: pickup_locationid
+        description: TLC Taxi Zone where trip started
+      - name: pickup_borough
+        description: NYC borough where trip started
+      - name: pickup_zone
+        description: Specific zone where trip started
+      - name: dropoff_locationid
+        description: TLC Taxi Zone where trip ended
+      - name: dropoff_borough
+        description: NYC borough where trip ended
+      - name: dropoff_zone
+        description: Specific zone where trip ended
+      - name: pickup_datetime
+        description: Timestamp when meter was engaged
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: Timestamp when meter was disengaged
+      - name: store_and_fwd_flag
+        description: Trip record stored in vehicle memory (Y/N)
+      - name: passenger_count
+        description: Number of passengers
+      - name: trip_distance
+        description: Trip distance in miles
+      - name: trip_type
+        description: Trip type (1=Street-hail, 2=Dispatch)
+      - name: fare_amount
+        description: Time and distance fare
+      - name: extra
+        description: Miscellaneous extras and surcharges
+      - name: mta_tax
+        description: MTA tax
+      - name: tip_amount
+        description: Tip amount (credit card only)
+      - name: tolls_amount
+        description: Total tolls paid
+      - name: ehail_fee
+        description: E-hail service fee
+      - name: improvement_surcharge
+        description: Improvement surcharge
+      - name: total_amount
+        description: Total amount charged
+        tests:
+          - not_null
+      - name: payment_type
+        description: Payment method code
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6]
+      - name: payment_type_description
+        description: Human-readable payment method description
+
+  - name: dm_monthly_zone_revenue
+    description: Monthly revenue aggregation by pickup zone and service type
+    columns:
+      - name: revenue_zone
+        description: Pickup zone where revenue was generated
+        tests:
+          - not_null
+      - name: revenue_month
+        description: Month for revenue aggregation
+        tests:
+          - not_null
+      - name: service_type
+        description: Service type (Green or Yellow)
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Green', 'Yellow']
+      - name: revenue_monthly_fare
+        description: Monthly sum of base fare amounts
+      - name: revenue_monthly_extra
+        description: Monthly sum of extra charges
+      - name: revenue_monthly_mta_tax
+        description: Monthly sum of MTA tax
+      - name: revenue_monthly_tip_amount
+        description: Monthly sum of tips
+      - name: revenue_monthly_tolls_amount
+        description: Monthly sum of tolls
+      - name: revenue_monthly_ehail_fee
+        description: Monthly sum of e-hail fees
+      - name: revenue_monthly_improvement_surcharge
+        description: Monthly sum of improvement surcharges
+      - name: revenue_monthly_total_amount
+        description: Monthly sum of total fares
+        tests:
+          - not_null
+      - name: total_monthly_trips
+        description: Count of trips in the month
+        tests:
+          - not_null
+      - name: avg_monthly_passenger_count
+        description: Average passengers per trip
+      - name: avg_monthly_trip_distance
+        description: Average trip distance in miles

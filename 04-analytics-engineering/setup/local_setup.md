@@ -106,7 +106,7 @@ taxi_rides_ny:
   outputs:
     dev:
       path: taxi_rides_ny.duckdb
-      threads: 4
+      threads: 1
       type: duckdb
   target: dev
 ```
@@ -125,66 +125,66 @@ duckdb taxi_rides_ny.duckdb
 Then execute the following SQL commands to load the data into tables:
 
 ```sql
--- Create the raw schema
-CREATE SCHEMA IF NOT EXISTS raw;
-
--- Configuration variables for both datasets
+-- Configuration variables for downloading datasets
 SET VARIABLE base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/';
 SET VARIABLE start_date = DATE '2019-01-01';
 SET VARIABLE end_date = DATE '2020-12-01';
 
--- Create yellow tripdata table with dynamically generated URLs
-CREATE OR REPLACE TABLE taxi_rides_ny.raw.yellow_tripdata AS
-SELECT *
-FROM read_parquet(
-    list_transform(
-        generate_series(getvariable('start_date'),
-                       getvariable('end_date'),
-                       INTERVAL 1 MONTH),
-        d -> getvariable('base_url') || 'yellow_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
-    ),
-    union_by_name=true
-);
-
--- Create green tripdata table with dynamically generated URLs
-CREATE OR REPLACE TABLE taxi_rides_ny.raw.green_tripdata AS
-SELECT *
-FROM read_parquet(
-    list_transform(
-        generate_series(getvariable('start_date'),
-                       getvariable('end_date'),
-                       INTERVAL 1 MONTH),
-        d -> getvariable('base_url') || 'green_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
-    ),
-    union_by_name=true
-);
-
--- Export data as partitioned parquet files for backup/portability
--- Partitioning by year and month keeps files manageable and enables efficient queries
+-- Step 1: Download data locally as partitioned parquet files
+-- This creates the data folder and downloads all data into partitioned structure
+-- Download yellow tripdata and partition by year/month
 COPY (
     SELECT *,
            year(tpep_pickup_datetime) AS year,
            month(tpep_pickup_datetime) AS month
-    FROM raw.yellow_tripdata
+    FROM read_parquet(
+        list_transform(
+            generate_series(getvariable('start_date'),
+                           getvariable('end_date'),
+                           INTERVAL 1 MONTH),
+            d -> getvariable('base_url') || 'yellow_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+        ),
+        union_by_name=true
+    )
 )
 TO 'data/yellow_tripdata'
 (FORMAT PARQUET, PARTITION_BY (year, month));
 
+-- Download green tripdata and partition by year/month
 COPY (
     SELECT *,
            year(lpep_pickup_datetime) AS year,
            month(lpep_pickup_datetime) AS month
-    FROM raw.green_tripdata
+    FROM read_parquet(
+        list_transform(
+            generate_series(getvariable('start_date'),
+                           getvariable('end_date'),
+                           INTERVAL 1 MONTH),
+            d -> getvariable('base_url') || 'green_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+        ),
+        union_by_name=true
+    )
 )
 TO 'data/green_tripdata'
 (FORMAT PARQUET, PARTITION_BY (year, month));
+
+-- Step 2: Create the raw schema and tables from local parquet files
+CREATE SCHEMA IF NOT EXISTS raw;
+
+-- Create yellow tripdata table from local files
+CREATE OR REPLACE TABLE raw.yellow_tripdata AS
+SELECT * EXCLUDE (year, month)
+FROM read_parquet('data/yellow_tripdata/**/*.parquet', hive_partitioning=true);
+
+-- Create green tripdata table from local files
+CREATE OR REPLACE TABLE raw.green_tripdata AS
+SELECT * EXCLUDE (year, month)
+FROM read_parquet('data/green_tripdata/**/*.parquet', hive_partitioning=true);
 ```
 
 ### Verify Data Loaded Successfully
 
-**If you used the Python script**, verification is automatically performed at the end of the script execution.
-
-**If you used the DuckDB CLI approach**, verify the data manually by running these commands in the DuckDB CLI:
+Verify the data manually by running these commands in the DuckDB CLI:
 
 ```sql
 -- Check which schemas exist

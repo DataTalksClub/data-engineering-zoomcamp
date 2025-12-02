@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_green_tripdata_cleaned
+    description: Cleaned and deduplicated green taxi trips
+    columns:
+      - name: tripid
+        description: Unique trip identifier
+        tests:
+          - unique
+          - not_null
+
+  - name: int_yellow_tripdata_cleaned
+    description: Cleaned and deduplicated yellow taxi trips
+    columns:
+      - name: tripid
+        description: Unique trip identifier
+        tests:
+          - unique
+          - not_null
+
+  - name: int_trips_unioned
+    description: Union of green and yellow taxi trips
