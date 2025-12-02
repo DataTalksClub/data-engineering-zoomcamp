@@ -2,14 +2,14 @@ version: 2
 
 sources:
   - name: raw
-    description: Raw taxi trip data from NYC TLC
+    description: Raw taxi trip data from NYC TLC (nytaxi schema/dataset)
     database: |
       {%- if target.type == 'bigquery' -%}
         {{ env_var('GCP_PROJECT_ID', 'your-project-id') }}
       {%- else -%}
         taxi_rides_ny
       {%- endif -%}
-    schema: raw
+    schema: nytaxi
 
     tables:
       - name: green_tripdata

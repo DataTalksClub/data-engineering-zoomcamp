@@ -4,7 +4,7 @@ models:
   - name: dim_zones
     description: Taxi zone dimension table with location details
     columns:
-      - name: locationid
+      - name: location_id
         description: Unique identifier for each taxi zone
         tests:
           - unique
@@ -19,11 +19,11 @@ models:
   - name: fact_trips
     description: Fact table with all taxi trips including trip and payment details
     columns:
-      - name: tripid
+      - name: trip_id
         description: Unique trip identifier
         tests:
           - not_null
-      - name: vendorid
+      - name: vendor_id
         description: Taxi technology provider
         tests:
           - not_null
@@ -34,15 +34,15 @@ models:
               arguments:
                 values: ['Green', 'Yellow']
           - not_null
-      - name: ratecodeid
+      - name: rate_code_id
         description: Final rate code
-      - name: pickup_locationid
+      - name: pickup_location_id
         description: TLC Taxi Zone where trip started
       - name: pickup_borough
         description: NYC borough where trip started
       - name: pickup_zone
         description: Specific zone where trip started
-      - name: dropoff_locationid
+      - name: dropoff_location_id
         description: TLC Taxi Zone where trip ended
       - name: dropoff_borough
         description: NYC borough where trip ended

@@ -1,12 +1,12 @@
 select
-    -- identifiers
-    cast(vendorid as integer) as vendorid,
-    cast(ratecodeid as integer) as ratecodeid,
-    cast(pulocationid as integer) as pickup_locationid,
-    cast(dolocationid as integer) as dropoff_locationid,
+    -- identifiers (standardized naming for consistency across yellow/green)
+    cast(vendorid as integer) as vendor_id,
+    cast(ratecodeid as integer) as rate_code_id,
+    cast(pulocationid as integer) as pickup_location_id,
+    cast(dolocationid as integer) as dropoff_location_id,
 
-    -- timestamps
-    cast(tpep_pickup_datetime as timestamp) as pickup_datetime,
+    -- timestamps (standardized naming)
+    cast(tpep_pickup_datetime as timestamp) as pickup_datetime,  -- tpep = Taxicab Passenger Enhancement Program (yellow taxis)
     cast(tpep_dropoff_datetime as timestamp) as dropoff_datetime,
 
     -- trip info
@@ -25,8 +25,10 @@ select
     cast(payment_type as integer) as payment_type
 
 from {{ source('raw', 'yellow_tripdata') }}
+-- Filter out records with missing vendor info as they cannot be properly attributed
 where vendorid is not null
 
+-- Limit to 10,000 records in development for faster iteration
 {% if target.name == 'dev' %}
 limit 10000
 {% endif %}
