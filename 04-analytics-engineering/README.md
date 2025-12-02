@@ -3,17 +3,22 @@
 Goal: Transforming the data loaded in DWH into Analytical Views developing a [dbt project](taxi_rides_ny/README.md).
 
 ### Prerequisites
-By this stage of the course you should have already:
 
-- A running warehouse (BigQuery or postgres)
-- A set of running pipelines ingesting the project dataset (week 3 completed)
-- The following datasets ingested from the course [Datasets list](https://github.com/DataTalksClub/nyc-tlc-data/):
-  * Yellow taxi data - Years 2019 and 2020
-  * Green taxi data - Years 2019 and 2020
-  * fhv data - Year 2019
+The prerequisites depend on which setup path you choose:
+
+**For Cloud Setup (BigQuery):**
+
+- Completed [Module 3: Data Warehouse](../03-data-warehouse/) with:
+  - A GCP project with BigQuery enabled
+  - Service account with BigQuery permissions
+  - NYC taxi data loaded into BigQuery (yellow and green taxi data for 2019-2020)
+
+**For Local Setup (DuckDB):**
+
+- No prerequisites! The local setup guide will walk you through downloading and loading the data.
 
 > [!NOTE]
-> * We have prepared a python script for loading the data that can be found through [week3/extras](../03-data-warehouse/extras).
+> This module focuses on **yellow and green taxi data** (2019-2020). While Module 3 may have included FHV data, it is not used in this dbt project.
 
 ## Setting up your environment
 
@@ -29,10 +34,11 @@ Choose your setup path:
 
 ### ☁️ [Cloud Setup](setup/cloud_setup.md) (Recommended for Production)
 
-- **Stack**: BigQuery + dbt Core + Looker Studio
-- **Cost**: ~$10-50/month
+- **Stack**: BigQuery + dbt Cloud + Looker Studio
+- **Cost**: Free tier available (dbt Cloud Developer), BigQuery costs vary
 - **Time**: 20-30 minutes
 - **Best for**: Production deployments, large datasets, team collaboration
+- **Requires**: Completed Module 3 with BigQuery data
 - [→ Get Started](setup/cloud_setup.md)
 
 ### 🌐 dbt Cloud (Alternative)
