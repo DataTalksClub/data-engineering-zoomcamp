@@ -43,7 +43,7 @@ If you're not certain about some tools, ask in Slack.
 
 ## Dashboard
 
-You can use any of the tools shown in the course (Data Studio or Metabase) or any other BI tool of your choice to build a dashboard. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
+You can use any of the tools shown in the course (Looker Studio or Streamlit) or any other BI tool of your choice to build a dashboard. If you do use another tool, please specify and make sure that the dashboard is somehow accessible to your peers. 
 
 Your dashboard should contain at least two tiles, we suggest you include:
 
