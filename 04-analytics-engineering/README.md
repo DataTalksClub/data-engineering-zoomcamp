@@ -24,29 +24,18 @@ The prerequisites depend on which setup path you choose:
 
 Choose your setup path:
 
-### 🏠 [Local Setup](setup/local_setup.md) (Recommended for Learning)
+### 🏠 [Local Setup](setup/local_setup.md)
 
-- **Stack**: DuckDB + dbt Core
+- **Stack**: DuckDB + dbt Core + Streamlit
 - **Cost**: Free
-- **Time**: 10-15 minutes
-- **Best for**: Learning dbt, quick iteration, no cloud account needed
 - [→ Get Started](setup/local_setup.md)
 
-### ☁️ [Cloud Setup](setup/cloud_setup.md) (Recommended for Production)
+### ☁️ [Cloud Setup](setup/cloud_setup.md)
 
 - **Stack**: BigQuery + dbt Cloud + Looker Studio
 - **Cost**: Free tier available (dbt Cloud Developer), BigQuery costs vary
-- **Time**: 20-30 minutes
-- **Best for**: Production deployments, large datasets, team collaboration
 - **Requires**: Completed Module 3 with BigQuery data
 - [→ Get Started](setup/cloud_setup.md)
-
-### 🌐 dbt Cloud (Alternative)
-
-For a fully managed solution:
-- Open a free developer dbt cloud account at [getdbt.com/signup](https://www.getdbt.com/signup/)
-- Connect to BigQuery following [these instructions](https://docs.getdbt.com/guides/bigquery?step=4)
-- More details in [dbt_cloud_setup.md](dbt_cloud_setup.md)
 
 ## Content
 
@@ -58,9 +47,9 @@ For a fully managed solution:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://youtu.be/uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
 
-### What is dbt? 
+### What is dbt?
 
-* Introduction to dbt 
+* Introduction to dbt
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
 
@@ -68,7 +57,7 @@ For a fully managed solution:
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using Postgres + dbt core (locally) |
+| Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
 | - Starting a new project with dbt init (dbt cloud and core)<br>- dbt cloud setup<br>- project.yml<br><br> | - Starting a new project with dbt init (dbt cloud and core)<br>- dbt core local setup<br>- profiles.yml<br>- project.yml                                  |
 | [![](https://markdown-videos-api.jorgenkh.no/youtube/iMxh6s_wL4Q)](https://www.youtube.com/watch?v=J0XCDyKiU64&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=4) | [![](https://markdown-videos-api.jorgenkh.no/youtube/1HmL63e-vRs)](https://youtu.be/1HmL63e-vRs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) |
 
@@ -104,17 +93,17 @@ For a fully managed solution:
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using Postgres + dbt core (locally) |
+| Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
 | - Deployment: development environment vs production<br>- dbt cloud: scheduler, sources and hosted documentation  | - Deployment: development environment vs production<br>-  dbt cloud: scheduler, sources and hosted documentation |
 | [![](https://markdown-videos-api.jorgenkh.no/youtube/rjf6yZNGX8I)](https://www.youtube.com/watch?v=V2m5C0n8Gro&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=6) | [![](https://markdown-videos-api.jorgenkh.no/youtube/Cs9Od1pcrzM)](https://youtu.be/Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=47) |
 
 ## visualizing the transformed data
 
-:movie_camera: Google data studio Video (Now renamed to Looker studio)
+:movie_camera: Google Looker studio
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/39nLTs74A3E)](https://youtu.be/39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=48)
 
-:movie_camera: Metabase Video
+:movie_camera: Streamlit Video
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/BnLkrA7a6gM)](https://youtu.be/BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=49)
 
@@ -124,19 +113,6 @@ For a fully managed solution:
 > [!NOTE]
 > If you find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
 
- 
-## Advanced concepts
-
- * [Make a model Incremental](https://docs.getdbt.com/docs/building-a-dbt-project/building-models/configuring-incremental-models)
- * [Use of tags](https://docs.getdbt.com/reference/resource-configs/tags)
- * [Hooks](https://docs.getdbt.com/docs/building-a-dbt-project/hooks-operations)
- * [Analysis](https://docs.getdbt.com/docs/building-a-dbt-project/analyses)
- * [Snapshots](https://docs.getdbt.com/docs/building-a-dbt-project/snapshots)
- * [Exposure](https://docs.getdbt.com/docs/building-a-dbt-project/exposures)
- * [Metrics](https://docs.getdbt.com/docs/building-a-dbt-project/metrics)
-
-
-
 ## SQL refresher
 
 The homework for this module focuses heavily on window functions and CTEs. If you need a refresher on these topics, you can refer to these notes.
@@ -145,7 +121,7 @@ The homework for this module focuses heavily on window functions and CTEs. If yo
 
 ## Homework
 
-* [2025 Homework](../cohorts/2025/04-analytics-engineering/homework.md)
+* [2026 Homework](../cohorts/2026/04-analytics-engineering/homework.md)
 
 
 ## Community notes
@@ -174,5 +150,4 @@ Did you take notes? You can share them here.
 
 ## Useful links
 - [Slides used in the videos](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
-- [Visualizing data with Metabase course](https://www.metabase.com/learn/visualization/)
 - [dbt free courses](https://courses.getdbt.com/collections)
