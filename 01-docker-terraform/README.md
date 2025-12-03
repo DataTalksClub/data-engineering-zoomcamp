@@ -22,7 +22,6 @@ if you have troubles setting up the environment and following along with the vid
 * Why do we need Docker
 * Creating a simple "data pipeline" in Docker
 
-
 ## :movie_camera: Ingesting NY Taxi Data to Postgres
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/2JM-ziJt0WI)](https://youtu.be/2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5)
