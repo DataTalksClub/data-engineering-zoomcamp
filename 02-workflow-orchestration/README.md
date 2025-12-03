@@ -40,7 +40,7 @@ In this module, we're going to build our own data pipeline using ETL (Extract, T
 
 #### Videos
 - **2.1.1 - What is Workflow Orchestration?**  
-  [![2.2.1 - Installing Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F-JLnp-iLins)](https://youtu.be/-JLnp-iLins)
+  [![2.1.1 - What is Workflow Orchestration?](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F-JLnp-iLins)](https://youtu.be/-JLnp-iLins)
 
 
 ### 2.1.2 - What is Kestra?
@@ -56,7 +56,7 @@ Kestra is a great choice for workflow orchestration:
 #### Videos
 
 - **2.1.2 - What is Kestra?**  
-  Coming soon
+  [![2.1.2 - What is Kestra?](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZvVN_NmB_1s)](https://youtu.be/ZvVN_NmB_1s)
 
 ### Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
