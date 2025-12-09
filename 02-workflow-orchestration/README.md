@@ -24,7 +24,7 @@ Kestra is an open-source, event-driven orchestration platform that simplifies bu
 In this section, you’ll learn the foundations of workflow orchestration, its importance, and how Kestra fits into the orchestration landscape.
 
 ### 2.1.1 - What is Workflow Orchestration?
-
+  
 Think of a music orchestra. There's a variety of different instruments. Some more than others, all with different roles when it comes to playing music. To make sure they all come together at the right time, they follow a conductor who helps the orchestra to play together. 
 
 Now replace the instruments with tools and the conductor with an orchestrator. We often have multiple tools and platforms that we need to work together. Sometimes on a routine schedule, other times based on events that happen. That's where the orchestrator comes in to help all of these tools work together.
@@ -40,7 +40,7 @@ In this module, we're going to build our own data pipeline using ETL (Extract, T
 
 #### Videos
 - **2.1.1 - What is Workflow Orchestration?**  
-  Coming soon
+  [![2.1.1 - What is Workflow Orchestration?](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F-JLnp-iLins)](https://youtu.be/-JLnp-iLins)
 
 
 ### 2.1.2 - What is Kestra?
@@ -56,7 +56,7 @@ Kestra is a great choice for workflow orchestration:
 #### Videos
 
 - **2.1.2 - What is Kestra?**  
-  Coming soon
+  [![2.1.2 - What is Kestra?](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZvVN_NmB_1s)](https://youtu.be/ZvVN_NmB_1s)
 
 ### Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
