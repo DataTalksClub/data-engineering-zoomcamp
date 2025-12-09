@@ -23,5 +23,5 @@ select
     avg(passenger_count) as avg_monthly_passenger_count,
     avg(trip_distance) as avg_monthly_trip_distance
 
-from {{ ref('fact_trips') }}
+from {{ ref('fct_trips') }}
 group by all  -- Group by revenue_zone, revenue_month, service_type
