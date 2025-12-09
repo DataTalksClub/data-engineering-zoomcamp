@@ -62,24 +62,13 @@ LIMIT 10;
 > 1. In BigQuery Console, click on the `nytaxi` dataset
 > 2. Look for **Data location** in the dataset details
 
-## Step 3: Understanding dbt's Data Architecture
+## Step 3: Set Up dbt Cloud
 
-Before setting up dbt, it's important to understand how dbt organizes data:
+dbt Cloud is dbt's cloud-based development environment. It combines the power of dbt with a web-based IDE, making it easier to build and manage your data transformations.
 
-- **Source data** (`nytaxi` dataset): Your existing raw data from Module 3
-- **Staging models** (created by dbt): Cleaned, standardized versions of source data
-- **Intermediate models** (created by dbt): Major transformations not meant for business users
-- **Marts** (created by dbt): Business-ready datasets for analytics and reporting
+### Sign Up for dbt Cloud
 
-This **sources → staging → intermediate → marts** pattern is the industry-standard approach in modern analytics engineering. dbt will automatically create the necessary datasets when you run your transformations.
-
-## Step 4: Set Up dbt
-
-dbt is dbt's cloud-based development environment. It combines the power of dbt with a web-based IDE, making it easier to build and manage your data transformations.
-
-### Sign Up for dbt
-
-1. Go to [dbt](https://www.getdbt.com/signup)
+1. Go to [dbt Cloud](https://www.getdbt.com/signup)
 2. Sign up with your email or GitHub account
 3. Verify your email address
 4. You'll be taken to the dbt dashboard
@@ -138,27 +127,66 @@ Select your preferred option and click **Continue**.
 
 ### Configure Source Data
 
-Now you need to tell dbt where your source data from Module 3 lives:
+Now you need to tell dbt where your source data from Module 3 lives. The table names you use here must match what you created in Module 3.
 
 1. In the dbt IDE, navigate to **models/staging/**
-2. Create or edit `schema.yml` and add:
+2. Create or edit `sources.yml` and add:
 
 ```yaml
 version: 2
 
 sources:
-  - name: nytaxi
-    database: YOUR_PROJECT_ID  # Replace with your GCP project ID
-    schema: nytaxi
+  - name: raw
+    description: Raw taxi trip data from NYC TLC
+    database: YOUR_PROJECT_ID  # Replace with your GCP project ID (e.g., taxi-rides-ny-412345)
+    schema: nytaxi  # The dataset name from Module 3
+
     tables:
-      - name: yellow_tripdata_partitioned
-        description: "Yellow taxi trip records from Module 3"
+      - name: green_tripdata
+        description: Raw green taxi trip records
+        columns:
+          - name: vendorid
+            description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
+            tests:
+              - not_null
+          - name: lpep_pickup_datetime
+            description: Date and time when the meter was engaged
+            tests:
+              - not_null
+
+      - name: yellow_tripdata
+        description: Raw yellow taxi trip records
+        columns:
+          - name: vendorid
+            description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
+            tests:
+              - not_null
+          - name: tpep_pickup_datetime
+            description: Date and time when the meter was engaged
+            tests:
+              - not_null
 ```
 
 > [!IMPORTANT]
-> Replace `YOUR_PROJECT_ID` with your actual GCP project ID (e.g., `taxi-rides-ny`). This tells dbt where to find the data tables you created in Module 3.
+> **Important configuration notes:**
 >
-> **Note**: We're using `yellow_tripdata_partitioned` as the source table since that's the optimized table you created in Module 3. If you created green taxi tables or used different names, adjust accordingly.
+> - Replace `YOUR_PROJECT_ID` with your actual GCP project ID (e.g., `taxi-rides-ny-412345`)
+> - The `schema: nytaxi` should match your dataset name from Module 3
+> - **Table names**: This project expects tables named `green_tripdata` and `yellow_tripdata` (not the partitioned versions)
+>
+> **If your Module 3 tables have different names:**
+>
+> - If you created `yellow_tripdata_partitioned`, either:
+>   - **Option A**: Update the table names above to match (e.g., `yellow_tripdata_partitioned`, `green_tripdata_partitioned`)
+>   - **Option B**: Create views or copies with the expected names:
+>
+>     ```sql
+>     CREATE OR REPLACE TABLE `PROJECT_ID.nytaxi.yellow_tripdata` AS
+>     SELECT * FROM `PROJECT_ID.nytaxi.yellow_tripdata_partitioned`;
+>
+>     CREATE OR REPLACE TABLE `PROJECT_ID.nytaxi.green_tripdata` AS
+>     SELECT * FROM `PROJECT_ID.nytaxi.green_tripdata_partitioned`;
+>     ```
 
 ### Test the Setup
 
@@ -178,7 +206,8 @@ If you see errors, verify:
 - Service account JSON file was uploaded correctly
 - BigQuery API is enabled in your GCP project (it should be from Module 3)
 - Dataset location matches between your `nytaxi` dataset and dbt configuration
-- Your `sources` configuration in `schema.yml` uses the correct project ID and dataset name (`nytaxi`)
+- Your `sources` configuration in `sources.yml` uses the correct project ID and dataset name (`nytaxi`)
+- The table names in your `sources.yml` match the actual table names in your BigQuery `nytaxi` dataset
 
 ## Additional Resources
 

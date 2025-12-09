@@ -1,6 +1,6 @@
 # Local Setup Guide
 
-This guide walks you through setting up a local analytics engineering environment using DuckDB, dbt, and Streamlit.
+This guide walks you through setting up a local analytics engineering environment using DuckDB and dbt.
 
 <div align="center">
 
@@ -67,7 +67,7 @@ If starting from scratch, `dbt init` will guide you through creating a new proje
 
    Enter: `taxi_rides_ny.duckdb`
 
-   **What this does**: This creates a file called `taxi_rides_ny.duckdb` in your project directory (the same folder as `dbt_project.yml`). This is where all your data will be stored. The path is relative, so dbt will look for this file wherever you run dbt commands from - make sure you're always in the project directory when working with dbt.
+   **What this does**: This creates a file called `taxi_rides_ny.duckdb` in your home directory. This is where all your data will be stored.
 
    ```
    threads (1 or more) [1]:
@@ -106,7 +106,7 @@ taxi_rides_ny:
   outputs:
     dev:
       path: taxi_rides_ny.duckdb
-      threads: 4
+      threads: 1
       type: duckdb
   target: dev
 ```
@@ -125,81 +125,82 @@ duckdb taxi_rides_ny.duckdb
 Then execute the following SQL commands to load the data into tables:
 
 ```sql
--- Create the raw schema
-CREATE SCHEMA IF NOT EXISTS raw;
-
--- Configuration variables for both datasets
+-- Configuration variables for downloading datasets
 SET VARIABLE base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/';
 SET VARIABLE start_date = DATE '2019-01-01';
 SET VARIABLE end_date = DATE '2020-12-01';
 
--- Create yellow tripdata table with dynamically generated URLs
-CREATE OR REPLACE TABLE taxi_rides_ny.raw.yellow_tripdata AS
-SELECT *
-FROM read_parquet(
-    list_transform(
-        generate_series(getvariable('start_date'),
-                       getvariable('end_date'),
-                       INTERVAL 1 MONTH),
-        d -> getvariable('base_url') || 'yellow_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
-    ),
-    union_by_name=true
-);
-
--- Create green tripdata table with dynamically generated URLs
-CREATE OR REPLACE TABLE taxi_rides_ny.raw.green_tripdata AS
-SELECT *
-FROM read_parquet(
-    list_transform(
-        generate_series(getvariable('start_date'),
-                       getvariable('end_date'),
-                       INTERVAL 1 MONTH),
-        d -> getvariable('base_url') || 'green_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
-    ),
-    union_by_name=true
-);
-
--- Export data as partitioned parquet files for backup/portability
--- Partitioning by year and month keeps files manageable and enables efficient queries
+-- Step 1: Download data locally as partitioned parquet files
+-- This creates the data folder and downloads all data into partitioned structure
+-- Download yellow tripdata and partition by year/month
 COPY (
     SELECT *,
            year(tpep_pickup_datetime) AS year,
            month(tpep_pickup_datetime) AS month
-    FROM raw.yellow_tripdata
+    FROM read_parquet(
+        list_transform(
+            generate_series(getvariable('start_date'),
+                           getvariable('end_date'),
+                           INTERVAL 1 MONTH),
+            d -> getvariable('base_url') || 'yellow_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+        ),
+        union_by_name=true
+    )
 )
 TO 'data/yellow_tripdata'
 (FORMAT PARQUET, PARTITION_BY (year, month));
 
+-- Download green tripdata and partition by year/month
 COPY (
     SELECT *,
            year(lpep_pickup_datetime) AS year,
            month(lpep_pickup_datetime) AS month
-    FROM raw.green_tripdata
+    FROM read_parquet(
+        list_transform(
+            generate_series(getvariable('start_date'),
+                           getvariable('end_date'),
+                           INTERVAL 1 MONTH),
+            d -> getvariable('base_url') || 'green_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+        ),
+        union_by_name=true
+    )
 )
 TO 'data/green_tripdata'
 (FORMAT PARQUET, PARTITION_BY (year, month));
+
+-- Step 2: Create the nytaxi schema and tables from local parquet files
+-- Note: We use 'nytaxi' as the schema name to match the BigQuery dataset structure
+CREATE SCHEMA IF NOT EXISTS nytaxi;
+
+-- Create yellow tripdata table from local files
+CREATE OR REPLACE TABLE nytaxi.yellow_tripdata AS
+SELECT * EXCLUDE (year, month)
+FROM read_parquet('data/yellow_tripdata/**/*.parquet', hive_partitioning=true);
+
+-- Create green tripdata table from local files
+CREATE OR REPLACE TABLE nytaxi.green_tripdata AS
+SELECT * EXCLUDE (year, month)
+FROM read_parquet('data/green_tripdata/**/*.parquet', hive_partitioning=true);
 ```
 
 ### Verify Data Loaded Successfully
 
-**If you used the Python script**, verification is automatically performed at the end of the script execution.
-
-**If you used the DuckDB CLI approach**, verify the data manually by running these commands in the DuckDB CLI:
+Verify the data manually by running these commands in the DuckDB CLI:
 
 ```sql
 -- Check which schemas exist
 SHOW SCHEMAS;
 
--- Verify tables exist in the raw schema
+-- Verify tables exist in the nytaxi schema
 SHOW TABLES;
 
 -- Count rows in each table
-SELECT COUNT(*) as yellow_count FROM raw.yellow_tripdata;
-SELECT COUNT(*) as green_count FROM raw.green_tripdata;
+SELECT COUNT(*) as yellow_count FROM nytaxi.yellow_tripdata;
+SELECT COUNT(*) as green_count FROM nytaxi.green_tripdata;
 
 -- Preview sample data
-SELECT * FROM raw.yellow_tripdata LIMIT 5;
-SELECT * FROM raw.green_tripdata LIMIT 5;
+SELECT * FROM nytaxi.yellow_tripdata LIMIT 5;
+SELECT * FROM nytaxi.green_tripdata LIMIT 5;
 ```
 
 > [!TIP]
@@ -217,10 +218,13 @@ dbt debug
 
 If you see errors, check:
 
-1. `profiles.yml` is in the correct location (`~/.dbt/profiles.yml`)
+1. `profiles.yml` is in the correct location (`~/.dbt/profiles.yml`) - this is created automatically by `dbt init`
 2. Profile name matches between `profiles.yml` and `dbt_project.yml`
-3. DuckDB database file exists at the specified path
+3. DuckDB database file exists at the specified path (by default, in your home directory)
 4. You're running the command from within the `taxi_rides_ny` project directory
+
+> [!NOTE]
+> The `dbt init` command automatically creates the `~/.dbt/profiles.yml` file with your database connection settings. The database path `taxi_rides_ny.duckdb` is relative to where you run dbt commands, so make sure you're always working from within your project directory.
 
 ## Step 6: Install Streamlit
 

@@ -1,4 +1,4 @@
-# SQL Refresher for module 4
+# SQL Refresher
 
 ### Table of contents
 
