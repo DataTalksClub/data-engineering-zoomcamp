@@ -10,6 +10,7 @@ profiles.yml
 data/
 *.duckdb
 *.duckdb.wal
+.duckdb_temp/
 
 # Python artifacts
 __pycache__/
