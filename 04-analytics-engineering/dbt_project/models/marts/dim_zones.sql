@@ -3,7 +3,7 @@
 -- allows for future enhancements (e.g., adding calculated fields, filtering)
 
 select
-    location_id,
+    locationid as location_id,
     borough,
     zone,
     service_zone
