@@ -2,18 +2,22 @@ version: 2
 
 sources:
   - name: raw
-    description: Raw taxi trip data from NYC TLC (nytaxi schema/dataset)
+    description: Raw taxi trip data from NYC TLC (raw schema/dataset)
     database: |
       {%- if target.type == 'bigquery' -%}
         {{ env_var('GCP_PROJECT_ID', 'your-project-id') }}
       {%- else -%}
-        taxi_rides_ny
+        {{ target.database }}
       {%- endif -%}
-    schema: nytaxi
+    schema: raw
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
 
     tables:
       - name: green_tripdata
         description: Raw green taxi trip records
+        loaded_at_field: lpep_pickup_datetime
         columns:
           - name: vendorid
             description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
@@ -60,6 +64,7 @@ sources:
 
       - name: yellow_tripdata
         description: Raw yellow taxi trip records
+        loaded_at_field: tpep_pickup_datetime
         columns:
           - name: vendorid
             description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
