@@ -3,5 +3,3 @@ packages:
     version: 1.3.2
   - package: dbt-labs/codegen
     version: 0.14.0
-  - package: dbt-labs/dbt_project_evaluator
-    version: 0.10.0
