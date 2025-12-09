@@ -21,3 +21,8 @@ models:
 
   - name: int_trips_unioned
     description: Union of green and yellow taxi trips
+    columns:
+      - name: trip_id
+        description: Unique trip identifier
+        tests:
+          - not_null
