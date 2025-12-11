@@ -103,12 +103,35 @@ taxi_rides_ny/
 
 ```yaml
 taxi_rides_ny:
+  target: dev
   outputs:
+    # Development profile: optimized for students with varying hardware
+    # Conservative settings to work on most PCs (4GB+ RAM)
     dev:
+      type: duckdb
       path: taxi_rides_ny.duckdb
       threads: 1
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        memory_limit: '2GB'
+        preserve_insertion_order: false
+        temp_directory: '.duckdb_temp/'
+
+    # Production profile: Same database, more aggressive execution
+    # More threads and memory for better performance (16GB+ RAM recommended)
+    prod:
       type: duckdb
-  target: dev
+      path: taxi_rides_ny.duckdb 
+      threads: 1
+      extensions:
+        - httpfs
+        - parquet
+      settings:
+        memory_limit: '4GB'
+        preserve_insertion_order: false
+        temp_directory: '.duckdb_temp/'
 ```
 
 > [!IMPORTANT]
