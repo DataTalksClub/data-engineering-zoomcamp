@@ -13,63 +13,13 @@ if you have troubles setting up the environment and following along with the vid
 
 # Docker + Postgres
 
-[Code](2_docker_sql)
-
-## :movie_camera: Introduction to Docker
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/EYNwNlOrpr0)](https://youtu.be/EYNwNlOrpr0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=4)
-
-* Why do we need Docker
-* Creating a simple "data pipeline" in Docker
+## Workshop
 
 
-## :movie_camera: Ingesting NY Taxi Data to Postgres
+[![](https://markdown-videos-api.jorgenkh.no/youtube/lP8xXebHmuE)](https://youtu.be/lP8xXebHmuE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/2JM-ziJt0WI)](https://youtu.be/2JM-ziJt0WI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5)
-
-* Running Postgres locally with Docker
-* Using `pgcli` for connecting to the database
-* Exploring the NY Taxi dataset
-* Ingesting the data into the database
-
-> [!TIP]
->if you have problems with `pgcli`, check this video for an alternative way to connect to your database in jupyter notebook and pandas.
->
-> [![](https://markdown-videos-api.jorgenkh.no/youtube/3IkfkTwqHx4)](https://youtu.be/3IkfkTwqHx4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=6)
-
-
-## :movie_camera: Connecting pgAdmin and Postgres
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/hCAIVe9N0ow)](https://youtu.be/hCAIVe9N0ow&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=7)
-
-* The pgAdmin tool
-* Docker networks
-
-
-> [!IMPORTANT]
->The UI for PgAdmin 4 has changed, please follow the below steps for creating a server:
->
->* After login to PgAdmin, right click Servers in the left sidebar.
->* Click on Register.
->* Click on Server.
->* The remaining steps to create a server are the same as in the videos.
-
-
-## :movie_camera: Putting the ingestion script into Docker
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/B1WwATwf-vY)](https://youtu.be/B1WwATwf-vY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=8)
-
-* Converting the Jupyter notebook to a Python script
-* Parameterizing the script with argparse
-* Dockerizing the ingestion script
-
-## :movie_camera: Running Postgres and pgAdmin with Docker-Compose
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/hKI6PkPhpa0)](https://youtu.be/hKI6PkPhpa0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=9)
-
-* Why do we need Docker-compose
-* Docker-compose YAML file
-* Running multiple containers with `docker-compose up`
+* Video: https://www.youtube.com/watch?v=lP8xXebHmuE
+* Follow the instructions here: https://github.com/alexeygrigorev/workshops/tree/main/dezoomcamp-docker 
 
 ## :movie_camera: SQL refresher
 
