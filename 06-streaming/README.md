@@ -77,9 +77,10 @@ Kafka Connect
 
 
 
-## Community notes
+# Community notes
 
-Did you take notes? You can share them here.
+<details>
+<summary>Did you take notes? You can share them here</summary>
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/6_streaming.md )
 * [Marcos Torregrosa's blog (spanish)](https://www.n4gash.com/2023/data-engineering-zoomcamp-semana-6-stream-processing/)
@@ -87,4 +88,4 @@ Did you take notes? You can share them here.
 * [2024 videos transcript](https://drive.google.com/drive/folders/1UngeL5FM-GcDLM7QYaDTKb3jIS6CQC14?usp=drive_link) by Maria Fisher 
 * [Notes by Shayan Shafiee Moghadam](https://github.com/shayansm2/eng-notebook/blob/main/kafka/readme.md)
 * Add your notes here (above this line)
-
+</details>

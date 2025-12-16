@@ -108,7 +108,8 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 
 # Community notes
 
-Did you take notes? You can share them here.
+<details>
+<summary>Did you take notes? You can share them here</summary>
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/5_batch_processing.md)
 * [Sandy's DE Learning Blog](https://learningdataengineering540969211.wordpress.com/2022/02/24/week-5-de-zoomcamp-5-2-1-installing-spark-on-linux/)
@@ -124,3 +125,5 @@ Did you take notes? You can share them here.
 * [2025 Notes on Installing Spark on MacOS (with Anaconda + brew) by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/05_batch_processing/01_env_setup.md)
 * [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/05_01_Batch_Processing_Spark_GCP.pdf)
 * Add your notes here (above this line)
+
+</details>
