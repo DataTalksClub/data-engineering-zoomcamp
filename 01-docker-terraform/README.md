@@ -31,26 +31,6 @@ if you have troubles setting up the environment and following along with the vid
 * Left, Right and Outer joins
 * Group by
 
-## :movie_camera: Optional: Docker Networking and Port Mapping
-
-> [!TIP]
-> Optional: If you have some problems with docker networking, check **Port Mapping and Networks in Docker video**.
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/tOr4hTsHOzU)](https://youtu.be/tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5)
-
-* Docker networks
-* Port forwarding to the host environment
-* Communicating between containers in the network
-* `.dockerignore` file
-
-## :movie_camera: Optional: Walk-Through on WSL
-
-> [!TIP]
-> Optional: If you are willing to do the steps from "Ingesting NY Taxi Data to Postgres" till "Running Postgres and pgAdmin with Docker-Compose" with Windows Subsystem Linux please check **Docker Module Walk-Through on WSL**.
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/Mv4zFm2AwzQ)](https://youtu.be/Mv4zFm2AwzQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=33)
-
-
 # GCP
 
 ## :movie_camera: Introduction to GCP (Google Cloud Platform)
@@ -98,31 +78,6 @@ For the course you'll need:
 >If you have problems setting up the environment, you can check these videos.
 >
 >If you already have a working coding environment on local machine, these are optional. And only need to select one method. But if you have time to learn it now, these would be helpful if the local environment suddenly do not work one day.
-
-## :movie_camera: GCP Cloud VM
-
-### Setting up the environment on cloud VM
-[![](https://markdown-videos-api.jorgenkh.no/youtube/ae-CV2KfoN0)](https://youtu.be/ae-CV2KfoN0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=14)
-
-* Generating SSH keys
-* Creating a virtual machine on GCP
-* Connecting to the VM with SSH
-* Installing Anaconda
-* Installing Docker
-* Creating SSH `config` file
-* Accessing the remote machine with VS Code and SSH remote
-* Installing docker-compose
-* Installing pgcli
-* Port-forwarding with VS code: connecting to pgAdmin and Jupyter from the local computer
-* Installing Terraform
-* Using `sftp` for putting the credentials to the remote machine
-* Shutting down and removing the instance
-
-## :movie_camera: GitHub Codespaces
-
-### Preparing the environment with GitHub Codespaces
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/XOSUt8Ih3zA)](https://youtu.be/XOSUt8Ih3zA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=15)
 
 # Homework
 
