@@ -39,45 +39,25 @@ if you have troubles setting up the environment and following along with the vid
 
 # Terraform
 
-[Code](1_terraform_gcp)
+[Code and notes](terraform/)
 
 ## :movie_camera: Introduction Terraform: Concepts and Overview, a primer
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/s2bOYDCKl_M)](https://youtu.be/s2bOYDCKl_M&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11)
 
-* [Companion Notes](1_terraform_gcp)
-
 ## :movie_camera: Terraform Basics: Simple one file Terraform Deployment
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/Y2ux7gq3Z0o)](https://youtu.be/Y2ux7gq3Z0o&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
-
-* [Companion Notes](1_terraform_gcp)
 
 ## :movie_camera: Deployment with a Variables File
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/PBi0hHjLftk)](https://youtu.be/PBi0hHjLftk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=13)
 
-* [Companion Notes](1_terraform_gcp)
-
 ## Configuring terraform and GCP SDK on Windows
 
-* [Instructions](1_terraform_gcp/windows.md)
+* [Instructions](terraform/windows.md)
 
 
-# Environment setup
-
-For the course you'll need:
-
-* Python 3 (e.g. installed with Anaconda)
-* Google Cloud SDK
-* Docker with docker-compose
-* Terraform
-* Git account
-
-> [!NOTE]
->If you have problems setting up the environment, you can check these videos.
->
->If you already have a working coding environment on local machine, these are optional. And only need to select one method. But if you have time to learn it now, these would be helpful if the local environment suddenly do not work one day.
 
 # Homework
 
@@ -86,7 +66,8 @@ For the course you'll need:
 
 # Community notes
 
-Did you take notes? You can share them here
+<details>
+<summary>Did you take notes? You can share them here</summary>
 
 * [Notes from Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/1_intro.md)
 * [Notes from Abd](https://itnadigital.notion.site/Week-1-Introduction-f18de7e69eb4453594175d0b1334b2f4)
@@ -123,3 +104,5 @@ Did you take notes? You can share them here
 * [2025 Setting up the Environment - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/_setting_up.md)
 * [Notes from Mercy Markus: Linux/Fedora Tweaks and Tips](https://mercymarkus.com/posts/2025/series/dtc-dez-jan-2025/dtc-dez-2025-module-1/)
 * Add your notes above this line
+
+</details>
