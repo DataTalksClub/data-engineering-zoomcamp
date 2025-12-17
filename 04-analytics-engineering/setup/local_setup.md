@@ -139,35 +139,40 @@ taxi_rides_ny:
 
 ## Step 4: Download and Ingest Data
 
-Now that your dbt project is set up, let's load the taxi data into DuckDB. From within your `taxi_rides_ny` dbt project directory, open the DuckDB CLI:
+Now that your dbt project is set up, let's load the taxi data into DuckDB. Open the DuckDB CLI and connect to your database:
 
 ```bash
-duckdb taxi_rides_ny.duckdb
+duckdb taxi_rides_ny/taxi_rides_ny.duckdb
 ```
+
+> [!TIP]
+> This command works on all operating systems (Windows, macOS, and Linux). You don't need to change directories first.
 
 Then execute the following SQL commands to load the data into tables:
 
 ```sql
 -- Configuration variables for downloading datasets
-SET VARIABLE base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/';
+SET VARIABLE base_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/';
 SET VARIABLE start_date = DATE '2019-01-01';
 SET VARIABLE end_date = DATE '2020-12-01';
 
 -- Step 1: Download data locally as partitioned parquet files
--- This creates the data folder and downloads all data into partitioned structure
+-- This creates partitioned parquet files from the CSV.GZ sources
 -- Download yellow tripdata and partition by year/month
 COPY (
     SELECT *,
            year(tpep_pickup_datetime) AS year,
            month(tpep_pickup_datetime) AS month
-    FROM read_parquet(
+    FROM read_csv(
         list_transform(
             generate_series(getvariable('start_date'),
                            getvariable('end_date'),
                            INTERVAL 1 MONTH),
-            d -> getvariable('base_url') || 'yellow_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+            d -> getvariable('base_url') || 'yellow/yellow_tripdata_' || strftime(d, '%Y-%m') || '.csv.gz'
         ),
-        union_by_name=true
+        union_by_name=true,
+        auto_detect=true,
+        compression='gzip'
     )
 )
 TO 'data/yellow_tripdata'
@@ -178,14 +183,16 @@ COPY (
     SELECT *,
            year(lpep_pickup_datetime) AS year,
            month(lpep_pickup_datetime) AS month
-    FROM read_parquet(
+    FROM read_csv(
         list_transform(
             generate_series(getvariable('start_date'),
                            getvariable('end_date'),
                            INTERVAL 1 MONTH),
-            d -> getvariable('base_url') || 'green_tripdata_' || strftime(d, '%Y-%m') || '.parquet'
+            d -> getvariable('base_url') || 'green/green_tripdata_' || strftime(d, '%Y-%m') || '.csv.gz'
         ),
-        union_by_name=true
+        union_by_name=true,
+        auto_detect=true,
+        compression='gzip'
     )
 )
 TO 'data/green_tripdata'
