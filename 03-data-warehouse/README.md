@@ -55,7 +55,8 @@
 
 # Community notes
 
-Did you take notes? You can share them here.
+<details>
+<summary>Did you take notes? You can share them here</summary>
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/3_data_warehouse.md)
 * [Isaac Kargar's blog post](https://kargarisaac.github.io/blog/data%20engineering/jupyter/2022/01/30/data-engineering-w3.html)
@@ -79,3 +80,5 @@ Did you take notes? You can share them here.
 * [2025 Gitbook Notes Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/module-3/introduction-to-module-3)
 * [2025 Notes from Daniel Lachner](https://drive.google.com/file/d/105zjtLFi0sRqqFFgdMSCTzfcLPx2rfv4/view?usp=sharing)
 * Add your notes here (above this line)
+
+</details>

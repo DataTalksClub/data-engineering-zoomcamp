@@ -124,9 +124,10 @@ The homework for this module focuses heavily on window functions and CTEs. If yo
 * [2026 Homework](../cohorts/2026/04-analytics-engineering/homework.md)
 
 
-## Community notes
+# Community notes
 
-Did you take notes? You can share them here.
+<details>
+<summary>Did you take notes? You can share them here</summary>
 
 * [Notes by Alvaro Navas](https://github.com/ziritrion/dataeng-zoomcamp/blob/main/notes/4_analytics.md)
 * [Sandy's DE learning blog](https://learningdataengineering540969211.wordpress.com/2022/02/17/week-4-setting-up-dbt-cloud-with-bigquery/)
@@ -147,6 +148,8 @@ Did you take notes? You can share them here.
 * [2025 Notes by Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-4-Analytics-Engineering-18929780dc4a808692e4e0ee488bf49c?pvs=74)
 * [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/04_01_Analytics_Engineering.pdf)
 * Add your notes here (above this line)
+
+</details>
 
 ## Useful links
 - [Slides used in the videos](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
