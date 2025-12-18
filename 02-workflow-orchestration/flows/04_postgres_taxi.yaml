@@ -1,4 +1,4 @@
-id: 02_postgres_taxi
+id: 04_postgres_taxi
 namespace: zoomcamp
 description: |
   The CSV Data used in the course: https://github.com/DataTalksClub/nyc-tlc-data/releases

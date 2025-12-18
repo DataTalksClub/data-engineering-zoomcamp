@@ -1,4 +1,4 @@
-id: 01_getting_started_data_pipeline
+id: 03_getting_started_data_pipeline
 namespace: zoomcamp
 
 inputs:
