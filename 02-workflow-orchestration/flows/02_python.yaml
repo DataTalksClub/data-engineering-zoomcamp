@@ -1,4 +1,4 @@
-id: python_scripts
+id: 02_python
 namespace: zoomcamp
 
 description: This flow will install the pip package in a Docker container, and use kestra's Python library to generate outputs (number of downloads of the Kestra Docker image) and metrics (duration of the script).
