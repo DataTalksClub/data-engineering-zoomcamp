@@ -42,7 +42,7 @@ tasks:
           json.dump(filtered_data, file, indent=4)
 
   - id: query
-    type: io.kestra.plugin.jdbc.duckdb.Query
+    type: io.kestra.plugin.jdbc.duckdb.Queries
     inputFiles:
       products.json: "{{outputs.transform.outputFiles['products.json']}}"
     sql: |
