@@ -237,7 +237,7 @@ The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
 #### Videos
 
 - **2.3.2 - Local DB: Load Taxi Data to Postgres**   
-  Coming soon
+  [![Local DB: Load Taxi Data to Postgres](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZ9ZmmwtXDcU)](https://youtu.be/Z9ZmmwtXDcU)
 
 #### Resources
 - [Docker Compose with Kestra, Postgres and pgAdmin](docker-compose.yml)
@@ -253,8 +253,7 @@ The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_schedu
 #### Videos
 
 - **2.3.3 - Scheduling and Backfills**  
-  [![Scheduling and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F1pu_C_oOAMA)](https://youtu.be/)
-
+  [![Scheduling and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F1pu_C_oOAMA)](https://youtu.be/1pu_C_oOAMA)
 ---
 
 ## 2.4 ELT Pipelines in Kestra: Google Cloud Platform
@@ -282,7 +281,7 @@ Over the next few videos, we'll look at setting up BigQuery and transforming the
 #### Videos
 
 - **2.4.1 - ETL vs ELT**  
-  Coming soon
+  [![ETL vs ELT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FE04yurp1tSU)](https://youtu.be/E04yurp1tSU)
 
 ### 2.4.2 Setup Google Cloud Platform (GCP)
 
@@ -336,7 +335,7 @@ The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
 #### Videos
 
 - **2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FRq26UVqA4qU)](https://youtu.be/Rq26UVqA4qU)
+  [![Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F52u9X_bfTAo)](https://youtu.be/52u9X_bfTAo)
 
 ### 2.4.4 GCP Workflow: Schedule and Backfill Full Dataset
 
@@ -382,7 +381,7 @@ However, AI is only as good as the context we provide. This section teaches you 
 #### Videos
 
 - **2.5.1 - Using AI for Data Engineering**  
-  Coming soon
+  [![Using AI for Data Engineering](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FGHPtRDAv044)](https://youtu.be/GHPtRDAv044)
 
 ---
 
