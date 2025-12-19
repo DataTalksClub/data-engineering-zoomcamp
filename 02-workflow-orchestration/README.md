@@ -253,7 +253,7 @@ The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_schedu
 #### Videos
 
 - **2.3.3 - Scheduling and Backfills**  
-  Coming soon
+  [![Scheduling and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F1pu_C_oOAMA)](https://youtu.be/)
 
 ---
 
@@ -336,7 +336,7 @@ The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
 #### Videos
 
 - **2.4.3 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  Coming soon
+  [![Create an ETL Pipeline with GCS and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FRq26UVqA4qU)](https://youtu.be/Rq26UVqA4qU)
 
 ### 2.4.4 GCP Workflow: Schedule and Backfill Full Dataset
 
@@ -349,7 +349,7 @@ The flow code: [`09_gcp_taxi_scheduled.yaml`](flows/09_gcp_taxi_scheduled.yaml).
 #### Videos
 
 - **2.4.4 - GCP Workflow: Schedule and Backfills**  
-  Coming soon
+  [![GCP Workflow: Schedule and Backfills](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fb-6KhfWfk2M)](https://youtu.be/b-6KhfWfk2M)
 
 ---
 
@@ -428,7 +428,7 @@ In the next section, we'll see how Kestra's AI Copilot solves this problem.
 #### Videos
 
 - **2.5.2 - Context Engineering with ChatGPT**  
-  Coming soon
+  [![Context Engineering with ChatGPT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FLmnfjGKwnVU)](https://youtu.be/LmnfjGKwnVU)
 
 ---
 
@@ -495,7 +495,7 @@ docker compose up -d
 #### Videos
 
 - **2.5.3 - AI Copilot in Kestra**  
-  Coming soon
+  [![AI Copilot in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F3IbjHfC8bMg)](https://youtu.be/3IbjHfC8bMg)
 
 
 ### 2.5.4 Bonus: Retrieval Augmented Generation (RAG)
@@ -584,7 +584,7 @@ External Documentation:
 #### Videos
 
 - **2.5.4 (Bonus) - Retrieval Augmented Generation**  
-  Coming soon
+  [![Retrieval Augmented Generation](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FXuPDQ1UcNyI)](https://youtu.be/XuPDQ1UcNyI)
 
 ## 2.6 Bonus: Deploy to the Cloud (Optional)
 
@@ -594,12 +594,7 @@ In this bonus section, we'll cover how you can deploy Kestra on Google Cloud and
 
 Note: When committing your workflows to Kestra, make sure your workflow doesn't contain any sensitive information. You can use [Secrets](https://go.kestra.io/de-zoomcamp/secret) and the [KV Store](https://go.kestra.io/de-zoomcamp/kv-store) to keep sensitive data out of your workflow logic.
 
-#### Videos
-
-- **2.6.1 - Deploy Workflows to the Cloud with Git**   
-  Coming soon
-
-Resources
+#### Resources
 
 - [Install Kestra on Google Cloud](https://go.kestra.io/de-zoomcamp/gcp-install)
 - [Moving from Development to Production](https://go.kestra.io/de-zoomcamp/dev-to-prod)
