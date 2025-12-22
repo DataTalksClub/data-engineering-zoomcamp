@@ -30,7 +30,54 @@ You should already have a service account JSON key file from Module 3. Make sure
 - **BigQuery Job User**
 - **BigQuery User**
 
-If you need to create a new service account or download a new key, refer back to [Module 3's setup instructions](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/03-data-warehouse).
+If you need to create a new service account or download a new key, follow the instructions below.
+
+### How to Download Service Account JSON Key
+
+If you don't have the JSON key file or need to download a new one:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+
+2. Navigate to **IAM & Admin** > **Service Accounts**
+   - Or use the search bar and type "Service Accounts"
+
+3. Find your service account in the list
+   - It should look like: `service-account-name@project-id.iam.gserviceaccount.com`
+   - If you don't have a service account yet, click **+ CREATE SERVICE ACCOUNT** and:
+     - Enter a name (e.g., `dbt-bigquery-service-account`)
+     - Click **CREATE AND CONTINUE**
+     - Add these roles:
+       - **BigQuery Admin** (or at minimum: BigQuery Data Editor, BigQuery Job User, BigQuery User)
+     - Click **CONTINUE** > **DONE**
+
+4. Click on your service account name to open its details
+
+5. Go to the **KEYS** tab
+
+6. Click **ADD KEY** > **Create new key**
+
+7. Select **JSON** as the key type
+
+8. Click **CREATE**
+
+9. The JSON key file will automatically download to your computer
+   - Save it in a secure location
+   - **Never commit this file to Git or share it publicly** - it contains credentials to access your GCP resources
+
+The downloaded JSON file will look something like this:
+
+```json
+{
+  "type": "service_account",
+  "project_id": "your-project-id",
+  "private_key_id": "...",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-account-name@project-id.iam.gserviceaccount.com",
+  ...
+}
+```
+
+You'll use this JSON file in Step 4 to connect dbt Cloud to BigQuery.
 
 ### Verify Your Data from Module 3
 
@@ -116,9 +163,60 @@ dbt Cloud needs a Git repository to store your project code. You have two option
 
 It doesn't matter which one you prefer for this course.
 
-## Step 6: Initialize Your Development Environment
+## Step 6: Create Your Development Environment
+
+### What Are Environments in dbt?
+
+In dbt, **environments** define different contexts where your data transformations run:
+
+- **Development Environment**: Your personal workspace for building and testing models
+  - Uses your personal credentials
+  - Creates temporary schemas with your name (e.g., `dbt_<your_name>`)
+  - Changes only affect your work, not production
+  - Used when working in the dbt Cloud IDE
+
+- **Deployment Environment**: The production workspace where final models run on schedule
+  - Uses service account credentials
+  - Creates production schemas (e.g., `dbt_prod_staging`, `dbt_prod_marts`)
+  - Used by scheduled jobs that keep your data warehouse updated
+
+Think of it like having a draft folder (development) and a published folder (deployment) for your analytics code.
+
+### Create Your Development Environment
+
+After setting up your repository, dbt Cloud will prompt you to initialize a development environment.
+
+1. You'll see a screen titled **"Initialize your development environment"**
+
+2. **Development Credentials**: Choose how dbt will connect to BigQuery when you develop
+   - **Option 1 - OAuth** (Recommended):
+     - Click **Authorize dbt Cloud**
+     - Sign in with your Google account
+     - Grant BigQuery permissions
+     - dbt will use your personal Google credentials
+
+   - **Option 2 - Service Account**:
+     - Use the same service account JSON from Step 4
+     - Less secure for development (shared credentials)
+
+3. **Development Schema**: This is where your personal development models will be created
+   - dbt automatically suggests: `dbt_<your_name>` (e.g., `dbt_john_smith`)
+   - You can customize it, but the default is recommended
+   - This schema is separate from production (`dbt_prod`)
+
+4. **Target Name**: Leave as `dev` (default)
+   - This is just an internal identifier for this environment
+
+5. Click **Test Connection** to verify your credentials work
+
+6. Click **Continue**
+
+### Initialize the Environment
 
 1. dbt Cloud will now set up your development environment
+   - Installing dbt dependencies
+   - Connecting to your repository
+   - Preparing the IDE workspace
 
 2. This process takes about 1-2 minutes
 
@@ -126,7 +224,7 @@ It doesn't matter which one you prefer for this course.
 
 4. Click **Start developing in the IDE**
 
-You'll be taken to the dbt Cloud IDE with a fresh, empty project!
+You'll be taken to the dbt Cloud IDE with a fresh project ready for development!
 
 ## Additional Resources
 
