@@ -57,9 +57,6 @@ Lag and Lead Functions:
 - LAG(): Retrieves the value from a previous row.
 - LEAD(): Retrieves the value from the next row.
 
-
-
-
 ### Row Number
 
 ROW_NUMBER() does just what it sounds like—displays the number of a given row. It starts at 1 and numbers the rows according to the ORDER BY part of the window statement. Using the PARTITION BY clause will allow you to begin counting 1 again in each partition.
@@ -305,8 +302,6 @@ Result of the query:
 | lpep_pickup_datetime      | total_amount | rank | 
 |---------------------------|--------------|-------------------|
 | 2019-10-10 15:22:49 UTC  | 2878.3        | 2             | 
-
-
 
 ## dbt models and CTEs
 

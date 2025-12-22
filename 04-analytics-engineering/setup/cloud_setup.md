@@ -18,196 +18,115 @@ This guide walks you through setting up dbt to work with the BigQuery data wareh
 >
 > If you haven't completed Module 3, please go back and complete it first.
 
-## Step 1: Verify Your Service Account
+## Step 1: Verify Your BigQuery Setup
 
-You should already have a service account from Module 3. If you need to create a new service account key for dbt (or lost your previous one), refer back to [Module 3's setup instructions](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/03-data-warehouse) for creating service accounts and downloading JSON keys.
+Before setting up dbt Cloud, confirm you have the required data and credentials from Module 3.
 
-> [!TIP]
-> If you already have a service account JSON key file with BigQuery permissions from Module 3, you can reuse it for dbt. Just make sure it has at least these permissions:
-> - **BigQuery Data Editor**
-> - **BigQuery Job User**
-> - **BigQuery User**
+### Check Your Service Account
 
-## Step 2: Verify Your Data from Module 3
+You should already have a service account JSON key file from Module 3. Make sure it has these permissions:
 
-In Module 3, you loaded NYC taxi data into BigQuery. Let's verify that data exists and is accessible for dbt to transform.
+- **BigQuery Data Editor**
+- **BigQuery Job User**
+- **BigQuery User**
 
-### Check Your Existing Data
+If you need to create a new service account or download a new key, refer back to [Module 3's setup instructions](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/03-data-warehouse).
+
+### Verify Your Data from Module 3
 
 1. Go to [BigQuery Console](https://console.cloud.google.com/bigquery)
 2. In the Explorer panel on the left, expand your project
 3. You should see the `nytaxi` dataset from Module 3
 4. Expand the `nytaxi` dataset - you should see tables like:
-   - `yellow_tripdata_partitioned` (or `yellow_tripdata_non_partitioned`)
-   - `external_yellow_tripdata`
-   - Possibly `green_tripdata` tables if you completed the homework
+   - `yellow_tripdata` or `yellow_tripdata_partitioned`
+   - `green_tripdata` or `green_tripdata_partitioned` (if you completed the homework)
 
-### Verify Data is Accessible
+### Note Your Dataset Location
 
-Run a quick query to confirm you can access the data:
+When you created your BigQuery datasets in Module 3, you chose a location (e.g., `US`, `EU`, `us-central1`). You'll need to use the same location when configuring dbt.
 
-```sql
--- Check row counts (replace PROJECT_ID with your actual project ID)
-SELECT COUNT(*) as row_count
-FROM `PROJECT_ID.nytaxi.yellow_tripdata_partitioned`;
+**To check your dataset location:**
+1. In BigQuery Console, click on the `nytaxi` dataset
+2. Look for **Data location** in the dataset details
 
--- Preview the data
-SELECT *
-FROM `PROJECT_ID.nytaxi.yellow_tripdata_partitioned`
-LIMIT 10;
-```
+## Step 2: Sign Up for dbt Platform
 
-> [!IMPORTANT]
-> **Note your dataset location**: When you created your BigQuery datasets in Module 3, you chose a location (e.g., `US`, `EU`, `us-central1`). You'll need to use the same location when configuring dbt. To check your dataset location:
-> 1. In BigQuery Console, click on the `nytaxi` dataset
-> 2. Look for **Data location** in the dataset details
+dbt Platform is dbt's cloud-based development environment with a web IDE, scheduler, and collaboration features. dbt offers a **free Developer plan**. This should be more than enough to learn dbt and follow the course.
 
-## Step 3: Set Up dbt Cloud
+## Step 3: Create a New dbt Project
 
-dbt Cloud is dbt's cloud-based development environment. It combines the power of dbt with a web-based IDE, making it easier to build and manage your data transformations.
-
-### Sign Up for dbt Cloud
-
-1. Go to [dbt Cloud](https://www.getdbt.com/signup)
-2. Sign up with your email or GitHub account
-3. Verify your email address
-4. You'll be taken to the dbt dashboard
-
-### Create a New dbt Project
+Now you'll create a fresh dbt project from scratch in dbt Cloud.
 
 1. Click **Create a Project**
-2. Enter a project name (e.g., `taxi_rides_ny`)
-3. For the connection, select **BigQuery**
 
-### Configure BigQuery Connection
+2. Enter a project name:
+   - Project name: `taxi_rides_ny`
 
-Now you'll connect dbt to your BigQuery project:
+3. Click **Continue**
 
-1. **Upload Service Account JSON**:
-   - Click **Upload a Service Account JSON file**
-   - Select the service account JSON key file from Module 3
-   - dbt will automatically extract your project ID and credentials
+## Step 4: Configure BigQuery Connection
 
-2. **Configure Connection Settings**:
-   - **Dataset**: `dbt_production` (this will be the default dataset for dbt-created models)
-   - **Location**: Must match the location you used in Module 3 (check your `nytaxi` dataset location - typically `US`)
-   - **Timeout**: `300` seconds
-   - **Maximum Bytes Billed**: Leave blank for unlimited (or set a limit like `1000000000` for 1 GB to prevent runaway queries)
+Connect dbt Cloud to your BigQuery data warehouse.
 
-3. **Test Connection**:
-   - Click **Test Connection**
-   - You should see a success message confirming dbt can connect to BigQuery
+### Upload Service Account JSON
 
-4. Click **Continue**
+1. For the connection type, select **BigQuery**
 
-> [!IMPORTANT]
-> The **Dataset** setting (`dbt_production`) is where dbt will create your staging, intermediate, and mart models. This is separate from your `nytaxi` dataset which contains your source data from Module 3.
+2. Click **Upload a Service Account JSON file**
 
-### Configure Repository
+3. Select the service account JSON key file from Module 3
 
-dbt can connect to a Git repository to store your dbt project code:
+4. dbt will automatically extract:
+   - Your GCP project ID
+   - Authentication credentials
 
-1. **Option A: Managed Repository** (Recommended for learning)
-   - Select **Let dbt manage my repository**
-   - dbt will create and host a Git repository for you
-   - This is the easiest option and perfect for getting started
+### Configure Connection Settings
 
-2. **Option B: Connect Git Repository** (For production projects)
-   - Select **Connect to GitHub/GitLab/Azure DevOps**
-   - Follow the prompts to authorize and select a repository
-   - This gives you full control over version control
+1. **Dataset**: Enter `dbt_prod`
+   - This is the base schema name where dbt will create datasets
+   - dbt will organize your models into schemas like:
+     - `dbt_prod_staging` - for staging models
+     - `dbt_prod_intermediate` - for intermediate models
+     - `dbt_prod_marts` - for final analytics tables
 
-Select your preferred option and click **Continue**.
+2. **Location**: Select the same location as your `nytaxi` dataset from Module 3
+   - Example: `US`, `EU`, or `us-central1`
+   - **This must match your nytaxi dataset location**
 
-### Initialize Development Environment
+3. **Timeout**: `300` seconds
 
-1. dbt will create your development environment (this takes ~1-2 minutes)
-2. Once complete, you'll be taken to the dbt IDE
-3. You'll see the default project structure with example models
+4. **Maximum Bytes Billed**: (optional)
+   - Leave blank for unlimited, OR
+   - Set a limit like `1000000000` (1 GB) to prevent runaway queries
 
-### Configure Source Data
+### Test the Connection
 
-Now you need to tell dbt where your source data from Module 3 lives. The table names you use here must match what you created in Module 3.
+1. Click **Test Connection**
 
-1. In the dbt IDE, navigate to **models/staging/**
-2. Create or edit `sources.yml` and add:
+2. You should see a success message: ✅ "Connection test succeeded"
 
-```yaml
-version: 2
+3. Click **Continue**
 
-sources:
-  - name: raw
-    description: Raw taxi trip data from NYC TLC
-    database: YOUR_PROJECT_ID  # Replace with your GCP project ID (e.g., taxi-rides-ny-412345)
-    schema: nytaxi  # The dataset name from Module 3
+## Step 5: Set Up Your Repository
 
-    tables:
-      - name: green_tripdata
-        description: Raw green taxi trip records
-        columns:
-          - name: vendorid
-            description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
-            tests:
-              - not_null
-          - name: lpep_pickup_datetime
-            description: Date and time when the meter was engaged
-            tests:
-              - not_null
+dbt Cloud needs a Git repository to store your project code. You have two options:
 
-      - name: yellow_tripdata
-        description: Raw yellow taxi trip records
-        columns:
-          - name: vendorid
-            description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
-            tests:
-              - not_null
-          - name: tpep_pickup_datetime
-            description: Date and time when the meter was engaged
-            tests:
-              - not_null
-```
+- Let dbt Manage the Repository (Recommended for Beginners)
+- Connect Your Own GitHub Repository (Recommended for Production)
 
-> [!IMPORTANT]
-> **Important configuration notes:**
->
-> - Replace `YOUR_PROJECT_ID` with your actual GCP project ID (e.g., `taxi-rides-ny-412345`)
-> - The `schema: nytaxi` should match your dataset name from Module 3
-> - **Table names**: This project expects tables named `green_tripdata` and `yellow_tripdata` (not the partitioned versions)
->
-> **If your Module 3 tables have different names:**
->
-> - If you created `yellow_tripdata_partitioned`, either:
->   - **Option A**: Update the table names above to match (e.g., `yellow_tripdata_partitioned`, `green_tripdata_partitioned`)
->   - **Option B**: Create views or copies with the expected names:
->
->     ```sql
->     CREATE OR REPLACE TABLE `PROJECT_ID.nytaxi.yellow_tripdata` AS
->     SELECT * FROM `PROJECT_ID.nytaxi.yellow_tripdata_partitioned`;
->
->     CREATE OR REPLACE TABLE `PROJECT_ID.nytaxi.green_tripdata` AS
->     SELECT * FROM `PROJECT_ID.nytaxi.green_tripdata_partitioned`;
->     ```
+It doesn't matter which one you prefer for this course.
 
-### Test the Setup
+## Step 6: Initialize Your Development Environment
 
-Let's verify everything works:
+1. dbt Cloud will now set up your development environment
 
-1. In the dbt IDE, click the **Command Line** button at the bottom
-2. Run:
+2. This process takes about 1-2 minutes
 
-   ```bash
-   dbt debug
-   ```
+3. Once complete, you'll see: **"Successfully set up development environment"**
 
-3. You should see all checks pass with green checkmarks ✓
+4. Click **Start developing in the IDE**
 
-If you see errors, verify:
-
-- Service account JSON file was uploaded correctly
-- BigQuery API is enabled in your GCP project (it should be from Module 3)
-- Dataset location matches between your `nytaxi` dataset and dbt configuration
-- Your `sources` configuration in `sources.yml` uses the correct project ID and dataset name (`nytaxi`)
-- The table names in your `sources.yml` match the actual table names in your BigQuery `nytaxi` dataset
+You'll be taken to the dbt Cloud IDE with a fresh, empty project!
 
 ## Additional Resources
 

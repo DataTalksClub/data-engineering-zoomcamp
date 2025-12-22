@@ -13,6 +13,13 @@ This guide walks you through setting up a local analytics engineering environmen
 >[!NOTE]
 >*This guide will explain how to do the setup manually. If you want an additional challenge, try to run this setup using Docker Compose or a Python virtual environment.*
 
+**Important**: All dbt commands must be run from inside the `taxi_rides_ny/` directory. The setup steps below will guide you through:
+
+1. Installing the necessary tools
+2. Configuring your connection to DuckDB
+3. Loading the NYC taxi data
+4. Verifying everything works
+
 ## Step 1: Install DuckDB
 
 DuckDB is a fast, in-process SQL database that works great for local analytics workloads. To install DuckDB, follow the instruction on the [official site](https://duckdb.org/docs/installation) for your specific operating system.
@@ -31,81 +38,20 @@ This installs:
 * `dbt-core`: The core dbt framework
 * `dbt-duckdb`: The DuckDB adapter for dbt
 
-## Step 3: Initialize dbt Project
+## Step 3: Configure dbt Profile
 
-If starting from scratch, `dbt init` will guide you through creating a new project. Here's what happens step-by-step:
+Since this repository already contains a dbt project (`taxi_rides_ny/`), you don't need to run `dbt init`. Instead, you need to configure your dbt profile to connect to DuckDB.
 
-1. **Run the initialization command:**
+### Create or Update `~/.dbt/profiles.yml`
 
-   ```bash
-   dbt init taxi_rides_ny
-   ```
-
-2. **Select the database adapter:**
-
-   You'll see a prompt like this:
-   ```
-   Which database would you like to use?
-   [1] duckdb
-   [2] postgres
-   [3] redshift
-   ...
-
-   (Don't see the one you want? https://docs.getdbt.com/docs/available-adapters)
-
-   Enter a number:
-   ```
-
-   Type the right number and press Enter to select DuckDB.
-
-3. **Configure database settings:**
-
-   Next, you'll be asked for database configuration:
-   ```
-   path (The path to your DuckDB database file) [path/to/file.duckdb]:
-   ```
-
-   Enter: `taxi_rides_ny.duckdb`
-
-   **What this does**: This creates a file called `taxi_rides_ny.duckdb` in your home directory. This is where all your data will be stored.
-
-   ```
-   threads (1 or more) [1]:
-   ```
-
-   Press Enter to keep the default (1), or enter `4` for parallel execution.
-
-4. **Project created successfully:**
-
-   You'll see:
-   ```
-   Your new dbt project "taxi_rides_ny" was created!
-   ```
-
-**What `dbt init` created:**
-
-After initialization, your project directory contains:
-
-```
-taxi_rides_ny/
-├── dbt_project.yml       # Project configuration file
-├── README.md             # Project documentation
-├── models/               # Directory for SQL model files
-│   └── example/          # Example models (you can delete this)
-├── macros/               # Directory for reusable SQL macros
-├── seeds/                # Directory for CSV files to load
-├── snapshots/            # Directory for snapshot models
-├── tests/                # Directory for custom data tests
-└── analyses/             # Directory for ad-hoc queries
-```
-
-**AND** it created/updated `~/.dbt/profiles.yml` with:
+The dbt profile tells dbt how to connect to your database. Create or update the file `~/.dbt/profiles.yml` with the following content:
 
 ```yaml
+# dbt profiles configuration
 taxi_rides_ny:
   target: dev
   outputs:
-    # Development profile: optimized for students with varying hardware
+    # DuckDB Development profile
     # Conservative settings to work on most PCs (4GB+ RAM)
     dev:
       type: duckdb
@@ -119,11 +65,11 @@ taxi_rides_ny:
         preserve_insertion_order: false
         temp_directory: '.duckdb_temp/'
 
-    # Production profile: Same database, more aggressive execution
+    # DuckDB Production profile
     # More threads and memory for better performance (16GB+ RAM recommended)
     prod:
       type: duckdb
-      path: taxi_rides_ny.duckdb 
+      path: taxi_rides_ny.duckdb
       threads: 1
       extensions:
         - httpfs
@@ -135,108 +81,57 @@ taxi_rides_ny:
 ```
 
 > [!IMPORTANT]
-> The profile name `taxi_rides_ny` in `profiles.yml` **must match** the `profile: 'taxi_rides_ny'` setting in your `dbt_project.yml` file. If you used a different project name during `dbt init`, update one to match the other.
+> **Understanding the database path**: The `path: taxi_rides_ny.duckdb` is relative to where you run dbt commands. Since you'll be running dbt from inside the `taxi_rides_ny/` directory, the database file will be created at `taxi_rides_ny/taxi_rides_ny.duckdb`.
+>
+> The profile name `taxi_rides_ny` matches the `profile: 'taxi_rides_ny'` setting in the project's `dbt_project.yml` file. This connection is already configured in the repository.
 
 ## Step 4: Download and Ingest Data
 
-Now that your dbt project is set up, let's load the taxi data into DuckDB. Open the DuckDB CLI and connect to your database:
+Now that your dbt profile is configured, let's load the taxi data into DuckDB. Navigate to the dbt project directory and run the ingestion script
 
-```bash
-duckdb taxi_rides_ny/taxi_rides_ny.duckdb
+```python
+import duckdb
+import requests
+from pathlib import Path
+
+BASE_URL = "https://github.com/DataTalksClub/nyc-tlc-data/releases/download"
+
+def download_files(taxi_type):
+    data_dir = Path("data") / taxi_type
+    data_dir.mkdir(exist_ok=True, parents=True)
+
+    for year in [2019, 2020]:
+        for month in range(1, 13):
+            filename = f"{taxi_type}_tripdata_{year}-{month:02d}.csv.gz"
+            filepath = data_dir / filename
+
+            if filepath.exists():
+                continue
+
+            response = requests.get(f"{BASE_URL}/{taxi_type}/{filename}", stream=True)
+            response.raise_for_status()
+
+            with open(filepath, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    f.write(chunk)
+
+if __name__ == "__main__":
+    for taxi_type in ["yellow", "green"]:
+        download_files(taxi_type)
+
+    con = duckdb.connect("taxi_rides_ny.duckdb")
+    con.execute("CREATE SCHEMA IF NOT EXISTS nytaxi")
+
+    for taxi_type in ["yellow", "green"]:
+        con.execute(f"""
+            CREATE OR REPLACE TABLE nytaxi.{taxi_type}_tripdata AS
+            SELECT * FROM read_csv('data/{taxi_type}/*.csv.gz', union_by_name=true, auto_detect=true, compression='gzip')
+        """)
+
+    con.close()
 ```
 
-> [!TIP]
-> This command works on all operating systems (Windows, macOS, and Linux). You don't need to change directories first.
-
-Then execute the following SQL commands to load the data into tables:
-
-```sql
--- Configuration variables for downloading datasets
-SET VARIABLE base_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/';
-SET VARIABLE start_date = DATE '2019-01-01';
-SET VARIABLE end_date = DATE '2020-12-01';
-
--- Step 1: Download data locally as partitioned parquet files
--- This creates partitioned parquet files from the CSV.GZ sources
--- Download yellow tripdata and partition by year/month
-COPY (
-    SELECT *,
-           year(tpep_pickup_datetime) AS year,
-           month(tpep_pickup_datetime) AS month
-    FROM read_csv(
-        list_transform(
-            generate_series(getvariable('start_date'),
-                           getvariable('end_date'),
-                           INTERVAL 1 MONTH),
-            d -> getvariable('base_url') || 'yellow/yellow_tripdata_' || strftime(d, '%Y-%m') || '.csv.gz'
-        ),
-        union_by_name=true,
-        auto_detect=true,
-        compression='gzip'
-    )
-)
-TO 'data/yellow_tripdata'
-(FORMAT PARQUET, PARTITION_BY (year, month));
-
--- Download green tripdata and partition by year/month
-COPY (
-    SELECT *,
-           year(lpep_pickup_datetime) AS year,
-           month(lpep_pickup_datetime) AS month
-    FROM read_csv(
-        list_transform(
-            generate_series(getvariable('start_date'),
-                           getvariable('end_date'),
-                           INTERVAL 1 MONTH),
-            d -> getvariable('base_url') || 'green/green_tripdata_' || strftime(d, '%Y-%m') || '.csv.gz'
-        ),
-        union_by_name=true,
-        auto_detect=true,
-        compression='gzip'
-    )
-)
-TO 'data/green_tripdata'
-(FORMAT PARQUET, PARTITION_BY (year, month));
-
--- Step 2: Create the nytaxi schema and tables from local parquet files
--- Note: We use 'nytaxi' as the schema name to match the BigQuery dataset structure
-CREATE SCHEMA IF NOT EXISTS nytaxi;
-
--- Create yellow tripdata table from local files
-CREATE OR REPLACE TABLE nytaxi.yellow_tripdata AS
-SELECT * EXCLUDE (year, month)
-FROM read_parquet('data/yellow_tripdata/**/*.parquet', hive_partitioning=true);
-
--- Create green tripdata table from local files
-CREATE OR REPLACE TABLE nytaxi.green_tripdata AS
-SELECT * EXCLUDE (year, month)
-FROM read_parquet('data/green_tripdata/**/*.parquet', hive_partitioning=true);
-```
-
-### Verify Data Loaded Successfully
-
-Verify the data manually by running these commands in the DuckDB CLI:
-
-```sql
--- Check which schemas exist
-SHOW SCHEMAS;
-
--- Verify tables exist in the nytaxi schema
-SHOW TABLES;
-
--- Count rows in each table
-SELECT COUNT(*) as yellow_count FROM nytaxi.yellow_tripdata;
-SELECT COUNT(*) as green_count FROM nytaxi.green_tripdata;
-
--- Preview sample data
-SELECT * FROM nytaxi.yellow_tripdata LIMIT 5;
-SELECT * FROM nytaxi.green_tripdata LIMIT 5;
-```
-
-> [!TIP]
-> *If you don't see the expected row counts or tables, exit DuckDB (`Ctrl+D` or `.exit`) and verify you're running the commands in the correct database file (`taxi_rides_ny.duckdb`).*
-
-Once verified, exit DuckDB with `Ctrl+D` or `.exit` to return to your terminal.
+This script downloads yellow and green taxi data from 2019-2020, creates the `nytaxi` schema, and loads the data into DuckDB. The download may take several minutes depending on your internet connection.
 
 ## Step 5: Test the dbt Connection
 
@@ -246,16 +141,6 @@ Verify dbt can connect to your DuckDB database:
 dbt debug
 ```
 
-If you see errors, check:
-
-1. `profiles.yml` is in the correct location (`~/.dbt/profiles.yml`) - this is created automatically by `dbt init`
-2. Profile name matches between `profiles.yml` and `dbt_project.yml`
-3. DuckDB database file exists at the specified path (by default, in your home directory)
-4. You're running the command from within the `taxi_rides_ny` project directory
-
-> [!NOTE]
-> The `dbt init` command automatically creates the `~/.dbt/profiles.yml` file with your database connection settings. The database path `taxi_rides_ny.duckdb` is relative to where you run dbt commands, so make sure you're always working from within your project directory.
-
 ## Step 6: Install Streamlit
 
 Streamlit is used for building interactive data applications and dashboards. You'll use this later to visualize the analytics you build with dbt.
@@ -263,6 +148,9 @@ Streamlit is used for building interactive data applications and dashboards. You
 ```bash
 pip install streamlit
 ```
+
+> [!NOTE]
+> At this point, your local dbt environment is fully configured and ready to use. The next steps (running models, tests, and building documentation) will be covered in the tutorial videos.
 
 ## Additional Resources
 
