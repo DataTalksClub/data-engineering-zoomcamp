@@ -72,22 +72,9 @@ Choose your setup path:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/UVI30Vxzd6c)](https://www.youtube.com/watch?v=ueVy2N54lyc&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=3)
 
-> [!NOTE]  
-> *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
-
-> [!TIP] 
->* If you receive an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
->
->[![](https://markdown-videos-api.jorgenkh.no/youtube/kL3ZVNL9Y4A)](https://youtu.be/kL3ZVNL9Y4A&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
-
 ### Testing and documenting dbt models
 * Tests  
 * Documentation 
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/UishFmq1hLM)](https://www.youtube.com/watch?v=2dNJXHFCHaY&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=2)
-
->[!NOTE]  
-> *This video is shown entirely on dbt cloud IDE but the same steps can be followed locally on the IDE of your choice*
 
 ## Deployment
 
@@ -101,14 +88,9 @@ Choose your setup path:
 
 :movie_camera: Google Looker studio
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/39nLTs74A3E)](https://youtu.be/39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=48)
-
 :movie_camera: Streamlit Video
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/BnLkrA7a6gM)](https://youtu.be/BnLkrA7a6gM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=49)
-
 ## Extra resources
-
 
 > [!NOTE]
 > If you find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
@@ -117,12 +99,11 @@ Choose your setup path:
 
 The homework for this module focuses heavily on window functions and CTEs. If you need a refresher on these topics, you can refer to these notes.
 
-* [SQL refresher](SQL_refresher.md)
+* [SQL refresher](refreshers/SQL.md)
 
 ## Homework
 
 * [2026 Homework](../cohorts/2026/04-analytics-engineering/homework.md)
-
 
 # Community notes
 
@@ -152,5 +133,5 @@ The homework for this module focuses heavily on window functions and CTEs. If yo
 </details>
 
 ## Useful links
-- [Slides used in the videos](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
+- [Slides used in previous years](https://docs.google.com/presentation/d/1xSll_jv0T8JF4rYZvLHfkJXYqUjPtThA/edit?usp=sharing&ouid=114544032874539580154&rtpof=true&sd=true)
 - [dbt free courses](https://courses.getdbt.com/collections)
