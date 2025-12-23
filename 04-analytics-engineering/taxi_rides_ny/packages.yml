@@ -2,8 +2,4 @@ packages:
   - package: dbt-labs/dbt_utils
     version: 1.3.3
   - package: dbt-labs/codegen
-<<<<<<< HEAD
     version: 0.14.0
-=======
-    version: 0.14.0
->>>>>>> bd42033 (Initial commit)
