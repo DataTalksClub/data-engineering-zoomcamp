@@ -57,9 +57,8 @@ Choose your setup path:
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
-| - Starting a new project with dbt init (dbt cloud and core)<br>- dbt cloud setup<br>- project.yml<br><br> | - Starting a new project with dbt init (dbt cloud and core)<br>- dbt core local setup<br>- profiles.yml<br>- project.yml                                  |
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/iMxh6s_wL4Q)](https://www.youtube.com/watch?v=J0XCDyKiU64&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=4) | [![](https://markdown-videos-api.jorgenkh.no/youtube/1HmL63e-vRs)](https://youtu.be/1HmL63e-vRs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43) |
+| BigQuery + dbt Platform | DuckDB + dbt core |
+| [![](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FGFbwlrt6f54)](https://youtu.be/GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FqkuTGB40PBc)](https://youtu.be/qkuTGB40PBc)|
 
 ### dbt models
 
