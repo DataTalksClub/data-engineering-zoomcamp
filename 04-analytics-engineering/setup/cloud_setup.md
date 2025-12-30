@@ -211,7 +211,7 @@ After setting up your repository, dbt Cloud will prompt you to initialize a deve
 
 6. Click **Continue**
 
-### Initialize the Environment
+## Step 7: Initialize the Environment
 
 1. dbt Cloud will now set up your development environment
    - Installing dbt dependencies
