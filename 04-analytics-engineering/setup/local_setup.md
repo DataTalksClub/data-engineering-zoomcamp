@@ -80,11 +80,6 @@ taxi_rides_ny:
         temp_directory: '.duckdb_temp/'
 ```
 
-> [!IMPORTANT]
-> **Understanding the database path**: The `path: taxi_rides_ny.duckdb` is relative to where you run dbt commands. Since you'll be running dbt from inside the `taxi_rides_ny/` directory, the database file will be created at `taxi_rides_ny/taxi_rides_ny.duckdb`.
->
-> The profile name `taxi_rides_ny` matches the `profile: 'taxi_rides_ny'` setting in the project's `dbt_project.yml` file. This connection is already configured in the repository.
-
 ## Step 4: Download and Ingest Data
 
 Now that your dbt profile is configured, let's load the taxi data into DuckDB. Navigate to the dbt project directory and run the ingestion script
@@ -174,7 +169,7 @@ dbt Power User is a VS Code extension that provides:
 
 ### Why Not Use the Official dbt Extension?
 
-The official dbt Labs extension (`dbt Power User by dbt Labs`) requires dbt Cloud or specific supported warehouses (BigQuery, Snowflake, Databricks, Redshift). Since we're using DuckDB for local development, the community-maintained **dbt Power User by AltimateAI** is the better choice - it works with any dbt adapter, including DuckDB.
+The official dbt Labs extension (`dbt Power User by dbt Labs`) requires dbt Cloud or specific supported warehouses. Since we're using DuckDB for local development, the community-maintained **dbt Power User by AltimateAI** is the better choice. It works with any dbt adapter, including DuckDB.
 
 ### Installation
 
