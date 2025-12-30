@@ -115,7 +115,24 @@ def download_files(taxi_type):
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)
 
+def update_gitignore():
+    gitignore_path = Path(".gitignore")
+
+    if gitignore_path.exists():
+        with open(gitignore_path, 'r') as f:
+            content = f.read()
+
+        if 'data/' not in content:
+            with open(gitignore_path, 'a') as f:
+                f.write('\n# Data directory\ndata/\n')
+    else:
+        with open(gitignore_path, 'w') as f:
+            f.write('# Data directory\ndata/\n')
+
 if __name__ == "__main__":
+    # Update .gitignore to exclude data directory
+    update_gitignore()
+
     for taxi_type in ["yellow", "green"]:
         download_files(taxi_type)
 
@@ -141,7 +158,34 @@ Verify dbt can connect to your DuckDB database:
 dbt debug
 ```
 
-## Step 6: Install Streamlit
+## Step 6: Install dbt Power User Extension (VS Code Users)
+
+If you're using Visual Studio Code, install the **dbt Power User** extension to enhance your dbt development experience.
+
+### What is dbt Power User?
+
+dbt Power User is a VS Code extension that provides:
+
+* SQL syntax highlighting and formatting for dbt models
+* Inline column-level lineage visualization
+* Auto-completion for dbt models, sources, and macros
+* Interactive documentation preview
+* Model compilation and execution directly from the editor
+
+### Why Not Use the Official dbt Extension?
+
+The official dbt Labs extension (`dbt Power User by dbt Labs`) requires dbt Cloud or specific supported warehouses (BigQuery, Snowflake, Databricks, Redshift). Since we're using DuckDB for local development, the community-maintained **dbt Power User by AltimateAI** is the better choice - it works with any dbt adapter, including DuckDB.
+
+### Installation
+
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
+3. Search for "dbt Power User"
+4. Install **dbt Power User by AltimateAI** (not the dbt Labs version)
+
+Alternatively, install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=innoverio.vscode-dbt-power-user).
+
+## Step 7: Install Streamlit
 
 Streamlit is used for building interactive data applications and dashboards. You'll use this later to visualize the analytics you build with dbt.
 
