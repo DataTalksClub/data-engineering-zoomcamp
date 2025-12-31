@@ -9,6 +9,7 @@ profiles.yml
 # Data files for DuckDB
 data/green_tripdata/
 data/yellow_tripdata/
+data/
 *.duckdb
 *.duckdb.wal
 .duckdb_temp/
