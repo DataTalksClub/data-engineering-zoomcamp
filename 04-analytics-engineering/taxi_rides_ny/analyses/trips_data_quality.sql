@@ -1,6 +1,4 @@
 -- Data Quality Analysis for Trip Data
--- This analysis identifies records that fail basic data quality checks
--- Run with: dbt compile -s trips_data_quality
 
 select
     vendor_id,
