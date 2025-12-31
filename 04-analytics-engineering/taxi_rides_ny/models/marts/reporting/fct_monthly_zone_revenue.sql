@@ -24,4 +24,4 @@ select
     avg(trip_distance) as avg_monthly_trip_distance
 
 from {{ ref('fct_trips') }}
-group by all  -- Group by pickup_zone, revenue_month, service_type
+group by pickup_zone, revenue_month, service_type
