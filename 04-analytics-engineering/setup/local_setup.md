@@ -166,7 +166,14 @@ dbt Power User is a VS Code extension that provides:
 
 ### Why Not Use the Official dbt Extension?
 
-The official dbt Labs extension (`dbt Power User by dbt Labs`) requires dbt Cloud or specific supported warehouses. Since we're using DuckDB for local development, the community-maintained **dbt Power User by AltimateAI** is the better choice. It works with any dbt adapter, including DuckDB.
+dbt Labs released an official VS Code extension called [dbt Extension](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt) powered by the new dbt Fusion engine. However, this extension **requires dbt Fusion** and does not support dbt Core.
+
+Since we're using **dbt Core** with DuckDB for local development, we need the community-maintained **dbt Power User by AltimateAI** extension instead. This extension:
+
+* Works seamlessly with dbt Core (not just dbt Cloud)
+* Supports all dbt adapters, including DuckDB
+* Is actively maintained and open source
+* Provides a rich feature set for local development
 
 ### Installation
 
