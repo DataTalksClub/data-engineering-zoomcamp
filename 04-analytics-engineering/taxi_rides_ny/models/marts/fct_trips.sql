@@ -1,5 +1,14 @@
+{{
+  config(
+    materialized='incremental',
+    unique_key='trip_id',
+    on_schema_change='fail'
+  )
+}}
+
 -- Fact table containing all taxi trips enriched with zone information
 -- This is a classic star schema design: fact table (trips) joined to dimension table (zones)
+-- Materialized incrementally to handle large datasets efficiently
 
 select
     -- Trip identifiers
@@ -25,6 +34,7 @@ select
     t.passenger_count,
     t.trip_distance,
     t.trip_type,
+    {{ get_trip_duration_minutes('t.pickup_datetime', 't.dropoff_datetime') }} as trip_duration_minutes,
 
     -- Payment breakdown
     t.fare_amount,
@@ -38,9 +48,14 @@ select
     t.payment_type,
     t.payment_type_description
 
-from {{ ref('int_trips_unioned') }} as t
+from {{ ref('int_trips') }} as t
 -- LEFT JOIN preserves all trips even if zone information is missing or unknown
 left join {{ ref('dim_zones') }} as pickup_zone
     on t.pickup_location_id = pickup_zone.location_id
 left join {{ ref('dim_zones') }} as dropoff_zone
     on t.dropoff_location_id = dropoff_zone.location_id
+
+{% if is_incremental() %}
+  -- Only process new trips based on pickup datetime
+  where t.pickup_datetime > (select max(pickup_datetime) from {{ this }})
+{% endif %}

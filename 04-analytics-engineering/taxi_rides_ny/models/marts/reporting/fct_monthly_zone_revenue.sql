@@ -4,7 +4,7 @@
 
 select
     -- Grouping dimensions
-    pickup_zone as revenue_zone,
+    coalesce(pickup_zone, 'Unknown Zone') as pickup_zone,
     date_trunc('month', pickup_datetime) as revenue_month,  -- Truncate to first day of month
     service_type,
 
@@ -24,4 +24,4 @@ select
     avg(trip_distance) as avg_monthly_trip_distance
 
 from {{ ref('fct_trips') }}
-group by all  -- Group by revenue_zone, revenue_month, service_type
+group by all  -- Group by pickup_zone, revenue_month, service_type

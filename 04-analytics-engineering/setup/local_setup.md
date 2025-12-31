@@ -47,37 +47,37 @@ Since this repository already contains a dbt project (`taxi_rides_ny/`), you don
 The dbt profile tells dbt how to connect to your database. Create or update the file `~/.dbt/profiles.yml` with the following content:
 
 ```yaml
-# dbt profiles configuration
 taxi_rides_ny:
   target: dev
   outputs:
     # DuckDB Development profile
-    # Conservative settings to work on most PCs (4GB+ RAM)
     dev:
       type: duckdb
       path: taxi_rides_ny.duckdb
+      schema: dev
       threads: 1
       extensions:
-        - httpfs
         - parquet
       settings:
         memory_limit: '2GB'
         preserve_insertion_order: false
-        temp_directory: '.duckdb_temp/'
 
     # DuckDB Production profile
-    # More threads and memory for better performance (16GB+ RAM recommended)
     prod:
       type: duckdb
       path: taxi_rides_ny.duckdb
+      schema: prod
       threads: 1
       extensions:
-        - httpfs
         - parquet
       settings:
-        memory_limit: '4GB'
+        memory_limit: '2GB'
         preserve_insertion_order: false
-        temp_directory: '.duckdb_temp/'
+
+# Troubleshooting:
+# - If you have less than 4GB RAM, try setting memory_limit to '1GB'
+# - If you have 16GB+ RAM, you can increase to '4GB' for faster builds
+# - Expected build time: 5-10 minutes on most systems
 ```
 
 ## Step 4: Download and Ingest Data
@@ -97,7 +97,7 @@ def download_files(taxi_type):
 
     for year in [2019, 2020]:
         for month in range(1, 13):
-            filename = f"{taxi_type}_tripdata_{year}-{month:02d}.csv.gz"
+            filename = f"{taxi_type}_tripdata_{year}-{month:02d}.parquet"
             filepath = data_dir / filename
 
             if filepath.exists():
@@ -113,16 +113,13 @@ def download_files(taxi_type):
 def update_gitignore():
     gitignore_path = Path(".gitignore")
 
-    if gitignore_path.exists():
-        with open(gitignore_path, 'r') as f:
-            content = f.read()
+    # Read existing content or start with empty string
+    content = gitignore_path.read_text() if gitignore_path.exists() else ""
 
-        if 'data/' not in content:
-            with open(gitignore_path, 'a') as f:
-                f.write('\n# Data directory\ndata/\n')
-    else:
-        with open(gitignore_path, 'w') as f:
-            f.write('# Data directory\ndata/\n')
+    # Add data/ if not already present
+    if 'data/' not in content:
+        with open(gitignore_path, 'a') as f:
+            f.write('\n# Data directory\ndata/\n' if content else '# Data directory\ndata/\n')
 
 if __name__ == "__main__":
     # Update .gitignore to exclude data directory
@@ -132,18 +129,18 @@ if __name__ == "__main__":
         download_files(taxi_type)
 
     con = duckdb.connect("taxi_rides_ny.duckdb")
-    con.execute("CREATE SCHEMA IF NOT EXISTS nytaxi")
+    con.execute("CREATE SCHEMA IF NOT EXISTS prod")
 
     for taxi_type in ["yellow", "green"]:
         con.execute(f"""
-            CREATE OR REPLACE TABLE nytaxi.{taxi_type}_tripdata AS
-            SELECT * FROM read_csv('data/{taxi_type}/*.csv.gz', union_by_name=true, auto_detect=true, compression='gzip')
+            CREATE OR REPLACE TABLE prod.{taxi_type}_tripdata AS
+            SELECT * FROM read_parquet('data/{taxi_type}/*.parquet', union_by_name=true)
         """)
 
     con.close()
 ```
 
-This script downloads yellow and green taxi data from 2019-2020, creates the `nytaxi` schema, and loads the data into DuckDB. The download may take several minutes depending on your internet connection.
+This script downloads yellow and green taxi data from 2019-2020, creates the `prod` schema, and loads the raw data into DuckDB. The download may take several minutes depending on your internet connection.
 
 ## Step 5: Test the dbt Connection
 

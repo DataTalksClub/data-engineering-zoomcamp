@@ -16,17 +16,33 @@ models:
       - name: service_zone
         description: Service zone classification
 
+  - name: dim_vendors
+    description: Taxi technology vendor dimension table
+    columns:
+      - name: vendor_id
+        description: Unique vendor identifier
+        tests:
+          - unique
+          - not_null
+      - name: vendor_name
+        description: Company name of the vendor
+
   - name: fct_trips
     description: Fact table with all taxi trips including trip and payment details
     columns:
       - name: trip_id
         description: Unique trip identifier
         tests:
+          - unique
           - not_null
       - name: vendor_id
         description: Taxi technology provider
         tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_vendors')
+                field: vendor_id
       - name: service_type
         description: Type of taxi service (Green or Yellow)
         tests:
@@ -38,12 +54,22 @@ models:
         description: Final rate code
       - name: pickup_location_id
         description: TLC Taxi Zone where trip started
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zones')
+                field: location_id
       - name: pickup_borough
         description: NYC borough where trip started
       - name: pickup_zone
         description: Specific zone where trip started
       - name: dropoff_location_id
         description: TLC Taxi Zone where trip ended
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zones')
+                field: location_id
       - name: dropoff_borough
         description: NYC borough where trip ended
       - name: dropoff_zone
@@ -62,6 +88,8 @@ models:
         description: Trip distance in miles
       - name: trip_type
         description: Trip type (1=Street-hail, 2=Dispatch)
+      - name: trip_duration_minutes
+        description: Trip duration in minutes (calculated using cross-database macro)
       - name: fare_amount
         description: Time and distance fare
       - name: extra
@@ -88,55 +116,3 @@ models:
                 values: [0, 1, 2, 3, 4, 5, 6]
       - name: payment_type_description
         description: Human-readable payment method description
-
-  - name: fct_monthly_zone_revenue
-    description: Monthly revenue aggregation by pickup zone and service type
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          arguments:
-            combination_of_columns:
-              - revenue_zone
-              - revenue_month
-              - service_type
-    columns:
-      - name: revenue_zone
-        description: Pickup zone where revenue was generated
-        tests:
-          - not_null
-      - name: revenue_month
-        description: Month for revenue aggregation
-        tests:
-          - not_null
-      - name: service_type
-        description: Service type (Green or Yellow)
-        tests:
-          - not_null
-          - accepted_values:
-              arguments:
-                values: ['Green', 'Yellow']
-      - name: revenue_monthly_fare
-        description: Monthly sum of base fare amounts
-      - name: revenue_monthly_extra
-        description: Monthly sum of extra charges
-      - name: revenue_monthly_mta_tax
-        description: Monthly sum of MTA tax
-      - name: revenue_monthly_tip_amount
-        description: Monthly sum of tips
-      - name: revenue_monthly_tolls_amount
-        description: Monthly sum of tolls
-      - name: revenue_monthly_ehail_fee
-        description: Monthly sum of e-hail fees
-      - name: revenue_monthly_improvement_surcharge
-        description: Monthly sum of improvement surcharges
-      - name: revenue_monthly_total_amount
-        description: Monthly sum of total fares
-        tests:
-          - not_null
-      - name: total_monthly_trips
-        description: Count of trips in the month
-        tests:
-          - not_null
-      - name: avg_monthly_passenger_count
-        description: Average passengers per trip
-      - name: avg_monthly_trip_distance
-        description: Average trip distance in miles

@@ -1,12 +1,15 @@
 version: 2
 
 macros:
-  - name: get_payment_type_description
+  - name: get_trip_duration_minutes
     description: >
-      This macro receives a payment_type code and returns the corresponding human-readable description.
-      Supports codes 0-6 as defined by NYC TLC data dictionary.
+      Calculates trip duration in minutes from pickup and dropoff timestamps.
+      This macro is cross-database compatible, supporting both DuckDB and BigQuery.
+      Returns a numeric value representing the duration in minutes.
     arguments:
-      - name: payment_type
-        type: int
-        description: >
-          Payment type code (0-6). Returns 'EMPTY' for any value outside the accepted range.
+      - name: pickup_datetime
+        type: timestamp
+        description: The pickup timestamp
+      - name: dropoff_datetime
+        type: timestamp
+        description: The dropoff timestamp

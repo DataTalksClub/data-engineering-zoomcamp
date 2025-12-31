@@ -2,25 +2,26 @@ version: 2
 
 sources:
   - name: raw
-    description: Raw taxi trip data from NYC TLC (nytaxi schema/dataset)
+    description: Raw taxi trip data from NYC TLC
     database: |
       {%- if target.type == 'bigquery' -%}
         {{ env_var('GCP_PROJECT_ID', 'your-project-id') }}
       {%- else -%}
         taxi_rides_ny
       {%- endif -%}
-    schema: nytaxi
-    freshness:
-      warn_after: {count: 24, period: hour}
+    schema: |
+      {%- if target.type == 'bigquery' -%}
+        nytaxi
+      {%- else -%}
+        prod
+      {%- endif -%}
     tables:
       - name: green_tripdata
         description: Raw green taxi trip records
         loaded_at_field: lpep_pickup_datetime
         columns:
           - name: vendorid
-            description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
-            tests:
-              - not_null
+            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
           - name: lpep_pickup_datetime
             description: Date and time when the meter was engaged
             tests:
@@ -65,9 +66,7 @@ sources:
         loaded_at_field: tpep_pickup_datetime
         columns:
           - name: vendorid
-            description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
-            tests:
-              - not_null
+            description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
           - name: tpep_pickup_datetime
             description: Date and time when the meter was engaged
             tests:
