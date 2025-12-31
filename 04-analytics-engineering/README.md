@@ -39,21 +39,19 @@ Choose your setup path:
 
 ## Content
 
-### Introduction to analytics engineering
+### Introduction to Analytics Engineering
 
-* What is analytics engineering?
-* ETL vs ELT
-* Data modeling concepts (fact and dim tables)
+:movie_camera: What is Analytics Engineering?
+
+### Introduction to data modeling
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://youtu.be/uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
 
 ### What is dbt?
 
-* Introduction to dbt
-
 [![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
 
-## Starting a dbt project
+### Project Setup
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
@@ -62,32 +60,30 @@ Choose your setup path:
 
 ### dbt models
 
-* Anatomy of a dbt model: written code vs compiled Sources
-* materializations: table, view, incremental, ephemeral  
-* Seeds, sources and ref  
-* Jinja and Macros 
-* Packages 
-* Variables
+:movie_camera: dbt models
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/UVI30Vxzd6c)](https://www.youtube.com/watch?v=ueVy2N54lyc&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=3)
+### Testing and Documentation
 
-### Testing and documenting dbt models
-* Tests  
-* Documentation 
+:movie_camera: Testing and documenting
 
-## Deployment
+### Other features
+
+:movie_camera: Other features
+
+### Deployment
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
 | Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
-| - Deployment: development environment vs production<br>- dbt cloud: scheduler, sources and hosted documentation  | - Deployment: development environment vs production<br>-  dbt cloud: scheduler, sources and hosted documentation |
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/rjf6yZNGX8I)](https://www.youtube.com/watch?v=V2m5C0n8Gro&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=6) | [![](https://markdown-videos-api.jorgenkh.no/youtube/Cs9Od1pcrzM)](https://youtu.be/Cs9Od1pcrzM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=47) |
+| :movie_camera: Deployment A | :movie_camera: Deployment B |
+|
 
-## visualizing the transformed data
+### Visualizing the transformed data
 
-:movie_camera: Google Looker studio
-
-:movie_camera: Streamlit Video
+| Alternative A  | Alternative B   |
+|-----------------------------|--------------------------------|
+| Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
+| :movie_camera: Google Looker studio | :movie_camera: Streamlit Video |
 
 ## Extra resources
 
