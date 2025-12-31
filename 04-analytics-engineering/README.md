@@ -76,7 +76,6 @@ Choose your setup path:
 |-----------------------------|--------------------------------|
 | Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
 | :movie_camera: Deployment A | :movie_camera: Deployment B |
-|
 
 ### Visualizing the transformed data
 
