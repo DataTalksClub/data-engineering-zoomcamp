@@ -11,7 +11,7 @@ OPTIONS (
   uris = ['gs://nyc-tl-data/trip data/yellow_tripdata_2019-*.csv', 'gs://nyc-tl-data/trip data/yellow_tripdata_2020-*.csv']
 );
 
--- Check yello trip data
+-- Check yellow trip data
 SELECT * FROM taxi-rides-ny.nytaxi.external_yellow_tripdata limit 10;
 
 -- Create a non partitioned table from external table
