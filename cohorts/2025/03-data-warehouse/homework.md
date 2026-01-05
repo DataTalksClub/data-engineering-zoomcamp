@@ -12,7 +12,7 @@ Stop with loading the files into a bucket. </br></br>
 
 **Load Script:** You can manually download the parquet files and upload them to your GCS Bucket or you can use the linked script [here](./load_yellow_taxi_data.py):<br>
 You will simply need to generate a Service Account with GCS Admin Priveleges or be authenticated with the Google SDK and update the bucket name in the script to the name of your bucket<br>
-Nothing is fool proof so make sure that all 6 files show in your GCS Bucket before begining.</br><br>
+Nothing is fool proof so make sure that all 6 files show in your GCS Bucket before beginning.</br><br>
 
 <u>NOTE:</u> You will need to use the PARQUET option files when creating an External Table</br>
 
