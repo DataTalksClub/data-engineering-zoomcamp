@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: dim_zones
+    description: Taxi zone dimension table with location details
+    columns:
+      - name: location_id
+        description: Unique identifier for each taxi zone
+        tests:
+          - unique
+          - not_null
+      - name: borough
+        description: NYC borough name
+      - name: zone
+        description: Specific zone name within the borough
+      - name: service_zone
+        description: Service zone classification
+
+  - name: dim_vendors
+    description: Taxi technology vendor dimension table
+    columns:
+      - name: vendor_id
+        description: Unique vendor identifier
+        tests:
+          - unique
+          - not_null
+      - name: vendor_name
+        description: Company name of the vendor
+
+  - name: fct_trips
+    description: Fact table with all taxi trips including trip and payment details
+    columns:
+      - name: trip_id
+        description: Unique trip identifier
+        tests:
+          - unique
+          - not_null
+      - name: vendor_id
+        description: Taxi technology provider
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_vendors')
+                field: vendor_id
+      - name: service_type
+        description: Type of taxi service (Green or Yellow)
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Green', 'Yellow']
+          - not_null
+      - name: rate_code_id
+        description: Final rate code
+      - name: pickup_location_id
+        description: TLC Taxi Zone where trip started
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zones')
+                field: location_id
+      - name: pickup_borough
+        description: NYC borough where trip started
+      - name: pickup_zone
+        description: Specific zone where trip started
+      - name: dropoff_location_id
+        description: TLC Taxi Zone where trip ended
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zones')
+                field: location_id
+      - name: dropoff_borough
+        description: NYC borough where trip ended
+      - name: dropoff_zone
+        description: Specific zone where trip ended
+      - name: pickup_datetime
+        description: Timestamp when meter was engaged
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: Timestamp when meter was disengaged
+      - name: store_and_fwd_flag
+        description: Trip record stored in vehicle memory (Y/N)
+      - name: passenger_count
+        description: Number of passengers
+      - name: trip_distance
+        description: Trip distance in miles
+      - name: trip_type
+        description: Trip type (1=Street-hail, 2=Dispatch)
+      - name: trip_duration_minutes
+        description: Trip duration in minutes (calculated using cross-database macro)
+      - name: fare_amount
+        description: Time and distance fare
+      - name: extra
+        description: Miscellaneous extras and surcharges
+      - name: mta_tax
+        description: MTA tax
+      - name: tip_amount
+        description: Tip amount (credit card only)
+      - name: tolls_amount
+        description: Total tolls paid
+      - name: ehail_fee
+        description: E-hail service fee
+      - name: improvement_surcharge
+        description: Improvement surcharge
+      - name: total_amount
+        description: Total amount charged
+        tests:
+          - not_null
+      - name: payment_type
+        description: Payment method code
+        tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6]
+      - name: payment_type_description
+        description: Human-readable payment method description

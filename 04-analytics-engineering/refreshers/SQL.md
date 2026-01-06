@@ -1,4 +1,4 @@
-# SQL Refresher for module 4
+# SQL Refresher
 
 ### Table of contents
 
@@ -56,9 +56,6 @@ Lag and Lead Functions:
 
 - LAG(): Retrieves the value from a previous row.
 - LEAD(): Retrieves the value from the next row.
-
-
-
 
 ### Row Number
 
@@ -305,8 +302,6 @@ Result of the query:
 | lpep_pickup_datetime      | total_amount | rank | 
 |---------------------------|--------------|-------------------|
 | 2019-10-10 15:22:49 UTC  | 2878.3        | 2             | 
-
-
 
 ## dbt models and CTEs
 
