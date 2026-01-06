@@ -204,6 +204,9 @@ Add the flow [`03_getting_started_data_pipeline.yaml`](flows/03_getting_started_
 - **2.3.1 - Getting Started Pipeline**   
   [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F-KmwrCqRhic)](https://youtu.be/-KmwrCqRhic)
 
+#### Resources
+- [ETL Tutorial Video](https://go.kestra.io/de-zoomcamp/etl-tutorial)
+- [ETL in 3 Minutes](https://go.kestra.io/de-zoomcamp/etl-get-started)
 
 ### 2.3.2 Local DB: Load Taxi Data to Postgres
 
@@ -282,6 +285,11 @@ Over the next few videos, we'll look at setting up BigQuery and transforming the
 
 - **2.4.1 - ETL vs ELT**  
   [![ETL vs ELT](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FE04yurp1tSU)](https://youtu.be/E04yurp1tSU)
+
+#### Resources
+- [ETL vs ELT Video](https://go.kestra.io/de-zoomcamp/etl-vs-elt)
+- [Data Warehouse 101 Video](https://go.kestra.io/de-zoomcamp/data-warehouse-101)
+- [Data Lakes 101 Video](https://go.kestra.io/de-zoomcamp/data-lakes-101)
 
 ### 2.4.2 Setup Google Cloud Platform (GCP)
 
