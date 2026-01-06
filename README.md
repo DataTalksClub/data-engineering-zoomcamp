@@ -43,7 +43,7 @@ To get the most out of this course, you should have:
 - Familiarity with SQL
 - Experience with Python (helpful but not required)
 
-No prior data engineering experience is necessary.
+No prior data engineering experience is required for this program.
 
 ### **Modules**
 
@@ -135,7 +135,7 @@ Past instructors:
 - [Luis Oliveira](https://www.linkedin.com/in/lgsoliveira/)
 
 ## Sponsors & Supporters
-A special thanks to our course sponsors for making this initiative possible!
+Special appreciation to our esteemed course sponsors for making this initiative possible!
 
 <p align="center">
   <a href="https://kestra.io/">
@@ -149,7 +149,7 @@ A special thanks to our course sponsors for making this initiative possible!
   </a>
 </p>
 
-Interested in supporting our community? Reach out to [alexey@datatalks.club](mailto:alexey@datatalks.club).
+Would you be interested in supporting our community? Reach out to [alexey@datatalks.club](mailto:alexey@datatalks.club).
 
 ## About DataTalks.Club
 
@@ -172,7 +172,7 @@ Interested in supporting our community? Reach out to [alexey@datatalks.club](mai
 <a href="https://twitter.com/DataTalksClub">Twitter</a>
 </p>
 
-All the activity at DataTalks.Club mainly happens on [Slack](https://datatalks.club/slack.html). We post updates there and discuss different aspects of data, career questions, and more.
+All the activity at DataTalks.Club mainly takes place on [Slack](https://datatalks.club/slack.html). We post updates there and discuss different aspects of data, career questions, and more.
 
 At DataTalksClub, we organize online events, community activities, and free courses. You can learn more about what we do at [DataTalksClub Community Navigation](https://www.notion.so/DataTalksClub-Community-Navigation-bf070ad27ba44bf6bbc9222082f0e5a8?pvs=21).
 
