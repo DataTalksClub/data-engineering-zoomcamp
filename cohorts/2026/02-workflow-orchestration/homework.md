@@ -64,7 +64,7 @@ Complete the quiz shown below. It's a set of 6 multiple-choice questions to test
 
 ## Submitting the solutions
 
-* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw2
+* Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw2
 * Check the link above to see the due date
 
 ## Solution

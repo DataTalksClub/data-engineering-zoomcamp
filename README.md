@@ -144,6 +144,13 @@ A special thanks to our course sponsors for making this initiative possible!
 </p>
 
 <p align="center">
+  <a href="https://getbruin.com/">
+    <img height="110" src="images/bruin.svg">
+  </a>
+</p>
+
+
+<p align="center">
   <a href="https://dlthub.com/">
     <img height="90" src="images/dlthub.png">
   </a>
