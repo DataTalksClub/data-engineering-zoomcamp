@@ -60,7 +60,7 @@ See [docker-sql/sql-refresher.md](docker-sql/sql-refresher.md)
 
 # Homework
 
-* [Homework](../cohorts/2025/01-docker-terraform/homework.md)
+* [Homework](../cohorts/2026/01-docker-terraform/homework.md)
 
 
 # Community notes

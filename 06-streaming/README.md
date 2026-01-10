@@ -9,7 +9,7 @@ from a Kafka stream
 
 
 * Code: [PyFlink examples](pyflink/)
-* [2025 Homework](../cohorts/2025/06-streaming/homework.md)
+* [2026 Homework](../cohorts/2026/06-streaming/homework.md)
 
 
 ## Theoretical part: Kafka + Java (optional)

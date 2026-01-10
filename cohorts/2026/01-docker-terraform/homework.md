@@ -163,8 +163,6 @@ Answers:
 
 We encourage everyone to share what they learned. This is called "learning in public".
 
-Read more about the benefits of learning in public [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and)
-
 ### Why learn in public?
 
 - Accountability: Sharing your progress creates commitment and motivation to continue
@@ -172,6 +170,8 @@ Read more about the benefits of learning in public [here](https://alexeyondata.s
 - Networking: You'll connect with like-minded people and potential collaborators
 - Documentation: Your posts become a learning journal you can reference later
 - Opportunities: Employers and clients often discover talent through public learning
+
+You can read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
 
 Don't worry about being perfect. Everyone starts somewhere, and people love following genuine learning journeys!
 
