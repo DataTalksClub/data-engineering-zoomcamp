@@ -15,15 +15,14 @@ if you have troubles setting up the environment and following along with the vid
 
 ## Workshop
 
-
 [![](https://markdown-videos-api.jorgenkh.no/youtube/lP8xXebHmuE)](https://youtu.be/lP8xXebHmuE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 * Video: https://www.youtube.com/watch?v=lP8xXebHmuE
-* Follow the instructions here: https://github.com/alexeygrigorev/workshops/tree/main/dezoomcamp-docker 
+* Follow the instructions here: [docker-sql/](docker-sql/)
 
 ## :movie_camera: SQL refresher
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
+See [docker-sql/sql-refresher.md](docker-sql/sql-refresher.md)
 
 * Adding the Zones table
 * Inner joins
