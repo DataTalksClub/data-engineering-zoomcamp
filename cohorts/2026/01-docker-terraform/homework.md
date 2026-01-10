@@ -134,7 +134,7 @@ In this section homework we'll prepare the environment by creating resources in 
 
 In your VM on GCP/Laptop/GitHub Codespace install Terraform.
 Copy the files from the course repo
-[here](../../../01-docker-terraform/1_terraform_gcp/terraform) to your VM/Laptop/GitHub Codespace.
+[here](../../../01-docker-terraform/terraform/terraform) to your VM/Laptop/GitHub Codespace.
 
 Modify the files as necessary to create a GCP Bucket and Big Query Dataset.
 
@@ -177,29 +177,27 @@ Don't worry about being perfect. Everyone starts somewhere, and people love foll
 
 ### Example post for LinkedIn
 
----
-
+```
 🚀 Week 1 of Data Engineering Zoomcamp by @DataTalksClub complete!
 
 Just finished Module 1 - Docker & Terraform. Learned how to:
 
-- ✅ Containerize applications with Docker and Docker Compose
-- ✅ Set up PostgreSQL databases and write SQL queries
-- ✅ Build data pipelines to ingest NYC taxi data
-- ✅ Provision cloud infrastructure with Terraform
+✅ Containerize applications with Docker and Docker Compose
+✅ Set up PostgreSQL databases and write SQL queries
+✅ Build data pipelines to ingest NYC taxi data
+✅ Provision cloud infrastructure with Terraform
 
 Here's my homework solution: <LINK>
 
 Following along with this amazing free course - who else is learning data engineering?
 
 You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-
----
+```
 
 ### Example post for Twitter/X
 
----
 
+```
 🐳 Module 1 of Data Engineering Zoomcamp done!
 
 - Docker containers
@@ -210,6 +208,6 @@ You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp
 My solution: <LINK>
 
 Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
 
----
 
