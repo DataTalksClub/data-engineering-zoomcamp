@@ -1,5 +1,7 @@
 # pgAdmin - Database Management Tool
 
+**[↑ Up](README.md)** | **[← Previous](05-ingestion-script.md)** | **[Next →](07-dockerizing-ingestion.md)**
+
 `pgcli` is a handy tool but it's cumbersome to use for complex queries and database management. [`pgAdmin` is a web-based tool](https://www.pgadmin.org/) that makes it more convenient to access and manage our databases.
 
 It's possible to run pgAdmin as a container along with the Postgres container, but both containers will have to be in the same _virtual network_ so that they can find each other.
@@ -83,4 +85,4 @@ You should now be able to load pgAdmin on a web browser by browsing to `http://l
 
 Now you can explore the database using the pgAdmin interface!
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](05-ingestion-script.md)** | **[Next →](07-dockerizing-ingestion.md)**

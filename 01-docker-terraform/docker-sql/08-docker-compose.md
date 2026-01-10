@@ -1,5 +1,7 @@
 # Docker Compose
 
+**[↑ Up](README.md)** | **[← Previous](07-dockerizing-ingestion.md)** | **[Next →](09-sql-refresher.md)**
+
 `docker-compose` allows us to launch multiple containers using a single configuration file, so that we don't have to run multiple complex `docker run` commands separately.
 
 Docker compose makes use of YAML files. Here's the `docker-compose.yaml` file:
@@ -101,4 +103,4 @@ docker run -it \
     --table=yellow_taxi_trips
 ```
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](07-dockerizing-ingestion.md)** | **[Next →](09-sql-refresher.md)**

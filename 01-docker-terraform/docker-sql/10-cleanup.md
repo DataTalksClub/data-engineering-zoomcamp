@@ -1,5 +1,7 @@
 # Cleanup
 
+**[↑ Up](README.md)** | **[← Previous](09-sql-refresher.md)** | **[Next →](../README.md)**
+
 When you're done with the workshop, clean up Docker resources to free up disk space.
 
 ## Stop All Running Containers
@@ -87,4 +89,4 @@ rm -rf .venv
 
 That's all for today. Happy learning! 🐳📊
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](09-sql-refresher.md)** | **[Next →](../README.md)**

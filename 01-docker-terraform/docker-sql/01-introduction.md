@@ -1,5 +1,7 @@
 # Introduction to Docker
 
+**[↑ Up](README.md)** | **[← Previous](README.md)** | **[Next →](02-virtual-environment.md)**
+
 Docker is a _containerization software_ that allows us to isolate software in a similar way to virtual machines but in a much leaner way.
 
 A Docker image is a _snapshot_ of a container that we can define to run our software, or in this case our data pipelines. By exporting our Docker images to Cloud providers such as Amazon Web Services or Google Cloud Platform we can run our containers there.
@@ -166,4 +168,4 @@ python list_files.py
 
 You'll see the files from your host machine are accessible in the container!
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](README.md)** | **[Next →](02-virtual-environment.md)**

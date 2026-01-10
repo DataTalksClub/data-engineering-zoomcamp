@@ -1,5 +1,7 @@
 # NY Taxi Dataset and Data Ingestion
 
+**[↑ Up](README.md)** | **[← Previous](03-postgres-docker.md)** | **[Next →](05-ingestion-script.md)**
+
 We will now create a Jupyter Notebook `notebook.ipynb` file which we will use to read a CSV file and export it to Postgres.
 
 ## Setting up Jupyter
@@ -262,4 +264,4 @@ uv run pgcli -h localhost -p 5432 -u root -d ny_taxi
 
 And explore the data.
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](03-postgres-docker.md)** | **[Next →](05-ingestion-script.md)**

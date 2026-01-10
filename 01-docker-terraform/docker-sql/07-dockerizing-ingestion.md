@@ -1,5 +1,7 @@
 # Dockerizing the Ingestion Script
 
+**[↑ Up](README.md)** | **[← Previous](06-pgadmin.md)** | **[Next →](08-docker-compose.md)**
+
 Now let's containerize the ingestion script so we can run it in Docker.
 
 ## The Dockerfile
@@ -59,4 +61,4 @@ docker run -it \
 * Since Postgres is running on a separate container, the host argument will have to point to the container name of Postgres (`pgdatabase`).
 * You can drop the table in pgAdmin beforehand if you want, but the script will automatically replace the pre-existing table.
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](06-pgadmin.md)** | **[Next →](08-docker-compose.md)**

@@ -1,5 +1,7 @@
 # SQL Refresher
 
+**[↑ Up](README.md)** | **[← Previous](08-docker-compose.md)** | **[Next →](10-cleanup.md)**
+
 [![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 Pre-Requisites: If you followed the course in the given order, Docker Compose should already be running with pgdatabase and pgAdmin.
@@ -224,4 +226,4 @@ ORDER BY
 LIMIT 100;
 ```
 
-[← Back to workshop](README.md)
+**[↑ Up](README.md)** | **[← Previous](08-docker-compose.md)** | **[Next →](10-cleanup.md)**
