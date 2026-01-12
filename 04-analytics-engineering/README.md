@@ -41,7 +41,7 @@ Choose your setup path:
 
 ### Introduction to Analytics Engineering
 
-:movie_camera: What is Analytics Engineering?
+[![](https://markdown-videos-api.jorgenkh.no/youtube/HxMIsPrIyGQ)](https://youtu.be/HxMIsPrIyGQ)
 
 ### Introduction to data modeling
 
@@ -58,31 +58,35 @@ Choose your setup path:
 | BigQuery + dbt Platform | DuckDB + dbt core |
 | [![](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FGFbwlrt6f54)](https://youtu.be/GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FqkuTGB40PBc)](https://youtu.be/qkuTGB40PBc)|
 
-### dbt models
+### dbt Course
 
-:movie_camera: dbt models
+<details>
+<summary>📺 In this playlist, you can find all the videos recorded</summary>
 
-### Testing and Documentation
+#### dbt Project Structure
+[![](https://markdown-videos-api.jorgenkh.no/youtube/2dYDS4OQbT0)](https://youtu.be/2dYDS4OQbT0)
 
-:movie_camera: Testing and documenting
+#### dbt Sources
+[![](https://markdown-videos-api.jorgenkh.no/youtube/7CrrXazV_8k)](https://youtu.be/7CrrXazV_8k)
 
-### Other features
+#### dbt Models
+[![](https://markdown-videos-api.jorgenkh.no/youtube/JQYz-8sl1aQ)](https://youtu.be/JQYz-8sl1aQ)
 
-:movie_camera: Other features
+#### dbt Seeds and Macros
+[![](https://markdown-videos-api.jorgenkh.no/youtube/lT4fmTDEqVk)](https://youtu.be/lT4fmTDEqVk)
 
-### Deployment
+#### dbt Tests
+*Video coming soon*
 
-| Alternative A  | Alternative B   |
-|-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
-| :movie_camera: Deployment A | :movie_camera: Deployment B |
+#### dbt Documentation
+*Video coming soon*
 
-### Visualizing the transformed data
+#### dbt Advanced Features
+*Video coming soon*
 
-| Alternative A  | Alternative B   |
-|-----------------------------|--------------------------------|
-| Using BigQuery + dbt cloud | Using DuckDB + dbt core (locally) |
-| :movie_camera: Google Looker studio | :movie_camera: Streamlit Video |
+[→ Full playlist](https://youtube.com/playlist?list=PL12GPe_RDEGRfNWxAMj6ThiU0zO4OiJWT)
+
+</details>
 
 ## Extra resources
 
