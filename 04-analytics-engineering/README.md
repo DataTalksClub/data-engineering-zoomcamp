@@ -26,13 +26,13 @@ Choose your setup path:
 
 ### 🏠 [Local Setup](setup/local_setup.md)
 
-- **Stack**: DuckDB + dbt Core + Streamlit
+- **Stack**: DuckDB + dbt Core
 - **Cost**: Free
 - [→ Get Started](setup/local_setup.md)
 
 ### ☁️ [Cloud Setup](setup/cloud_setup.md)
 
-- **Stack**: BigQuery + dbt Cloud + Looker Studio
+- **Stack**: BigQuery + dbt Cloud
 - **Cost**: Free tier available (dbt Cloud Developer), BigQuery costs vary
 - **Requires**: Completed Module 3 with BigQuery data
 - [→ Get Started](setup/cloud_setup.md)
@@ -56,37 +56,17 @@ Choose your setup path:
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
 | BigQuery + dbt Platform | DuckDB + dbt core |
-| [![](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FGFbwlrt6f54)](https://youtu.be/GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FqkuTGB40PBc)](https://youtu.be/qkuTGB40PBc)|
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/GFbwlrt6f54)](https://youtu.be/GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/youtube/GoFAbJYfvlw)](https://youtu.be/GoFAbJYfvlw) |
 
 ### dbt Course
 
-<details>
-<summary>📺 In this playlist, you can find all the videos recorded</summary>
+| dbt Project Structure | dbt Sources | dbt Models | Seeds and Macros |
+|-----------------------|-------------|------------|------------------|
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/2dYDS4OQbT0)](https://youtu.be/2dYDS4OQbT0) | [![](https://markdown-videos-api.jorgenkh.no/youtube/7CrrXazV_8k)](https://youtu.be/7CrrXazV_8k) | [![](https://markdown-videos-api.jorgenkh.no/youtube/JQYz-8sl1aQ)](https://youtu.be/JQYz-8sl1aQ) | [![](https://markdown-videos-api.jorgenkh.no/youtube/lT4fmTDEqVk)](https://youtu.be/lT4fmTDEqVk) |
 
-#### dbt Project Structure
-[![](https://markdown-videos-api.jorgenkh.no/youtube/2dYDS4OQbT0)](https://youtu.be/2dYDS4OQbT0)
-
-#### dbt Sources
-[![](https://markdown-videos-api.jorgenkh.no/youtube/7CrrXazV_8k)](https://youtu.be/7CrrXazV_8k)
-
-#### dbt Models
-[![](https://markdown-videos-api.jorgenkh.no/youtube/JQYz-8sl1aQ)](https://youtu.be/JQYz-8sl1aQ)
-
-#### dbt Seeds and Macros
-[![](https://markdown-videos-api.jorgenkh.no/youtube/lT4fmTDEqVk)](https://youtu.be/lT4fmTDEqVk)
-
-#### dbt Tests
-*Video coming soon*
-
-#### dbt Documentation
-*Video coming soon*
-
-#### dbt Advanced Features
-*Video coming soon*
-
-[→ Full playlist](https://youtube.com/playlist?list=PL12GPe_RDEGRfNWxAMj6ThiU0zO4OiJWT)
-
-</details>
+| dbt Tests | Documentation | dbt Packages | dbt Commands |
+|-----------|---------------|----------------------|---------------|
+| *Video coming soon* | *Video coming soon* | *Video coming soon* | *Video coming soon* |
 
 ## Extra resources
 
