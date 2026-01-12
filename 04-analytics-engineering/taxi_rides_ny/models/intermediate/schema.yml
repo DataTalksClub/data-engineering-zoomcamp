@@ -36,13 +36,45 @@ models:
           - accepted_values:
               arguments:
                 values: ['Green', 'Yellow']
+      - name: rate_code_id
+        description: Rate code at end of trip
+      - name: pickup_location_id
+        description: TLC Taxi Zone where trip started
+      - name: dropoff_location_id
+        description: TLC Taxi Zone where trip ended
       - name: pickup_datetime
         description: Timestamp when meter was engaged
         tests:
           - not_null
+      - name: dropoff_datetime
+        description: Timestamp when meter was disengaged
+      - name: store_and_fwd_flag
+        description: Trip record stored in vehicle memory (Y/N)
+      - name: passenger_count
+        description: Number of passengers in the vehicle
+      - name: trip_distance
+        description: Trip distance in miles
+      - name: trip_type
+        description: Trip type (1=Street-hail, 2=Dispatch)
+      - name: fare_amount
+        description: Time and distance fare
+      - name: extra
+        description: Miscellaneous extras and surcharges
+      - name: mta_tax
+        description: MTA tax
+      - name: tip_amount
+        description: Tip amount (credit card only)
+      - name: tolls_amount
+        description: Total tolls paid
+      - name: ehail_fee
+        description: E-hail service fee
+      - name: improvement_surcharge
+        description: Improvement surcharge
       - name: total_amount
         description: Total amount charged to passenger
         tests:
           - not_null
+      - name: payment_type
+        description: Payment method code
       - name: payment_type_description
         description: Human-readable payment method description
