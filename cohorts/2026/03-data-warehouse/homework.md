@@ -1,4 +1,4 @@
-## Module 3 Homework
+## [DRAFT] Module 3 Homework
 
 ATTENTION: At the end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. 
 This repository should contain your code for solving the homework. If your solution includes code that is not in file format (such as SQL queries or 
@@ -96,7 +96,7 @@ No Points: Write a `SELECT count(*)` query FROM the materialized table you creat
 
 ## Submitting the solutions
 
-Form for submitting: https://courses.datatalks.club/de-zoomcamp-2025/homework/hw3
+Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw3
 
 ## Solution
 
