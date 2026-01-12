@@ -16,13 +16,12 @@ We suggest watching videos in the same order as in this document.
 
 ## :movie_camera: SQL refresher
 
-See [docker-sql/sql-refresher.md](docker-sql/sql-refresher.md)
 
-* Adding the Zones table
-* Inner joins
-* Basic data quality checks
-* Left, Right and Outer joins
-* Group by
+[![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
+
+* Video: https://www.youtube.com/watch?v=QEcps_iskgg
+* SQL queries: [09-sql-refresher.md](docker-sql/09-sql-refresher.md)
+
 
 # GCP
 
