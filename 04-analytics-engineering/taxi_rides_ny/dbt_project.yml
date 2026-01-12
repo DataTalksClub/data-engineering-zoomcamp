@@ -1,9 +1,16 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
 name: 'taxi_rides_ny'
 version: '1.0.0'
-config-version: 2
 
+# This setting configures which "profile" dbt uses for this project.
 profile: 'taxi_rides_ny'
 
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -11,21 +18,22 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-target-path: "target"
-clean-targets:
+clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/
+# directory as views. These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
 models:
   taxi_rides_ny:
     staging:
       +materialized: view
-
     intermediate:
       +materialized: table
-
     marts:
       +materialized: table
-
-vars:
-  record_limit: 100000
