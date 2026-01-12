@@ -13,10 +13,10 @@ seeds:
       Payment type reference data mapping payment type codes to their descriptions.
       Used as a dimension table for payment method analysis.
     columns:
-      - name: payment_type_code
+      - name: payment_type
         description: Numeric code for payment type
         tests:
           - unique
           - not_null
-      - name: payment_type_description
+      - name: description
         description: Human-readable description of payment method
