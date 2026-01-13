@@ -1,7 +1,7 @@
 ## Data Engineering Zoomcamp 2026 Cohort
 
 * [Pre-launch Q&A stream](https://www.youtube.com/watch?v=WB6b1lcguaA)
-* [Launch stream with course overview](TODO)
+* [Launch stream with course overview](https://www.youtube.com/watch?v=JgspdlKXS-w)
 * [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html)
 * [Course Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
