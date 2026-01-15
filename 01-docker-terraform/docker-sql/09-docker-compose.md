@@ -1,6 +1,6 @@
 # Docker Compose
 
-**[↑ Up](README.md)** | **[← Previous](07-dockerizing-ingestion.md)** | **[Next →](09-sql-refresher.md)**
+**[↑ Up](README.md)** | **[← Previous](08-dockerizing-ingestion.md)** | **[Next →](10-sql-refresher.md)**
 
 `docker-compose` allows us to launch multiple containers using a single configuration file, so that we don't have to run multiple complex `docker run` commands separately.
 
@@ -9,13 +9,13 @@ Docker compose makes use of YAML files. Here's the `docker-compose.yaml` file:
 ```yaml
 services:
   pgdatabase:
-    image: postgres:16
+    image: postgres:18
     environment:
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
       POSTGRES_DB: "ny_taxi"
     volumes:
-      - "ny_taxi_postgres_data:/var/lib/postgresql/data"
+      - "ny_taxi_postgres_data:/var/lib/postgresql"
     ports:
       - "5432:5432"
 
@@ -103,4 +103,4 @@ docker run -it \
     --table=yellow_taxi_trips
 ```
 
-**[↑ Up](README.md)** | **[← Previous](07-dockerizing-ingestion.md)** | **[Next →](09-sql-refresher.md)**
+**[↑ Up](README.md)** | **[← Previous](08-dockerizing-ingestion.md)** | **[Next →](10-sql-refresher.md)**

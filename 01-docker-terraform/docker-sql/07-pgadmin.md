@@ -1,6 +1,6 @@
 # pgAdmin - Database Management Tool
 
-**[↑ Up](README.md)** | **[← Previous](05-ingestion-script.md)** | **[Next →](07-dockerizing-ingestion.md)**
+**[↑ Up](README.md)** | **[← Previous](06-ingestion-script.md)** | **[Next →](08-dockerizing-ingestion.md)**
 
 `pgcli` is a handy tool but it's cumbersome to use for complex queries and database management. [`pgAdmin` is a web-based tool](https://www.pgadmin.org/) that makes it more convenient to access and manage our databases.
 
@@ -47,11 +47,11 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v ny_taxi_postgres_data:/var/lib/postgresql \
   -p 5432:5432 \
   --network=pg-network \
   --name pgdatabase \
-  postgres:16
+  postgres:18
 
 # In another terminal, run pgAdmin on the same network
 docker run -it \
@@ -85,4 +85,4 @@ You should now be able to load pgAdmin on a web browser by browsing to `http://l
 
 Now you can explore the database using the pgAdmin interface!
 
-**[↑ Up](README.md)** | **[← Previous](05-ingestion-script.md)** | **[Next →](07-dockerizing-ingestion.md)**
+**[↑ Up](README.md)** | **[← Previous](06-ingestion-script.md)** | **[Next →](08-dockerizing-ingestion.md)**

@@ -1,6 +1,6 @@
 # SQL Refresher
 
-**[↑ Up](README.md)** | **[← Previous](08-docker-compose.md)** | **[Next →](10-cleanup.md)**
+**[↑ Up](README.md)** | **[← Previous](09-docker-compose.md)** | **[Next →](11-cleanup.md)**
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
@@ -226,4 +226,4 @@ ORDER BY
 LIMIT 100;
 ```
 
-**[↑ Up](README.md)** | **[← Previous](08-docker-compose.md)** | **[Next →](10-cleanup.md)**
+**[↑ Up](README.md)** | **[← Previous](09-docker-compose.md)** | **[Next →](11-cleanup.md)**
