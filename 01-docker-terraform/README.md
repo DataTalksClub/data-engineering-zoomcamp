@@ -21,7 +21,7 @@ We suggest watching videos in the same order as in this document.
 [![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 * Video: https://www.youtube.com/watch?v=QEcps_iskgg
-* SQL queries: [09-sql-refresher.md](docker-sql/09-sql-refresher.md)
+* SQL queries: [10-sql-refresher.md](docker-sql/10-sql-refresher.md)
 
 
 # GCP
