@@ -1,5 +1,3 @@
-version: 2
-
 macros:
   - name: get_trip_duration_minutes
     description: >

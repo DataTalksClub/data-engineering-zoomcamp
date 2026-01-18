@@ -1,5 +1,3 @@
-version: 2
-
 models:
   - name: stg_green_tripdata
     description: >

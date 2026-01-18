@@ -1,5 +1,3 @@
-version: 2
-
 models:
   - name: fct_monthly_zone_revenue
     description: Monthly revenue aggregation by pickup zone and service type for business reporting
