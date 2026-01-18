@@ -22,16 +22,16 @@ models:
     columns:
       - name: trip_id
         description: Unique trip identifier (surrogate key)
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: vendor_id
         description: Taxi technology provider ID
-        tests:
+        data_tests:
           - not_null
       - name: service_type
         description: Type of taxi service (Green or Yellow)
-        tests:
+        data_tests:
           - not_null
           - accepted_values:
               arguments:
@@ -44,7 +44,7 @@ models:
         description: TLC Taxi Zone where trip ended
       - name: pickup_datetime
         description: Timestamp when meter was engaged
-        tests:
+        data_tests:
           - not_null
       - name: dropoff_datetime
         description: Timestamp when meter was disengaged
@@ -72,7 +72,7 @@ models:
         description: Improvement surcharge
       - name: total_amount
         description: Total amount charged to passenger
-        tests:
+        data_tests:
           - not_null
       - name: payment_type
         description: Payment method code

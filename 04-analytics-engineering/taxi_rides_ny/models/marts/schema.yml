@@ -6,7 +6,7 @@ models:
     columns:
       - name: location_id
         description: Unique identifier for each taxi zone
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: borough
@@ -21,7 +21,7 @@ models:
     columns:
       - name: vendor_id
         description: Unique vendor identifier
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: vendor_name
@@ -32,12 +32,12 @@ models:
     columns:
       - name: trip_id
         description: Unique trip identifier
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: vendor_id
         description: Taxi technology provider
-        tests:
+        data_tests:
           - not_null
           - relationships:
               arguments:
@@ -45,7 +45,7 @@ models:
                 field: vendor_id
       - name: service_type
         description: Type of taxi service (Green or Yellow)
-        tests:
+        data_tests:
           - accepted_values:
               arguments:
                 values: ['Green', 'Yellow']
@@ -54,7 +54,7 @@ models:
         description: Final rate code
       - name: pickup_location_id
         description: TLC Taxi Zone where trip started
-        tests:
+        data_tests:
           - relationships:
               arguments:
                 to: ref('dim_zones')
@@ -65,7 +65,7 @@ models:
         description: Specific zone where trip started
       - name: dropoff_location_id
         description: TLC Taxi Zone where trip ended
-        tests:
+        data_tests:
           - relationships:
               arguments:
                 to: ref('dim_zones')
@@ -76,7 +76,7 @@ models:
         description: Specific zone where trip ended
       - name: pickup_datetime
         description: Timestamp when meter was engaged
-        tests:
+        data_tests:
           - not_null
       - name: dropoff_datetime
         description: Timestamp when meter was disengaged
@@ -106,11 +106,11 @@ models:
         description: Improvement surcharge
       - name: total_amount
         description: Total amount charged
-        tests:
+        data_tests:
           - not_null
       - name: payment_type
         description: Payment method code
-        tests:
+        data_tests:
           - accepted_values:
               arguments:
                 values: [0, 1, 2, 3, 4, 5, 6]
