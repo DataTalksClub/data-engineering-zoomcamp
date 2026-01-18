@@ -1,6 +1,6 @@
 # Creating the Data Ingestion Script
 
-**[↑ Up](README.md)** | **[← Previous](04-data-ingestion.md)** | **[Next →](06-pgadmin.md)**
+**[↑ Up](README.md)** | **[← Previous](05-data-ingestion.md)** | **[Next →](07-pgadmin.md)**
 
 Now let's convert the notebook to a Python script.
 
@@ -80,4 +80,4 @@ uv run python ingest_data.py \
   --table=yellow_taxi_trips
 ```
 
-**[↑ Up](README.md)** | **[← Previous](04-data-ingestion.md)** | **[Next →](06-pgadmin.md)**
+**[↑ Up](README.md)** | **[← Previous](05-data-ingestion.md)** | **[Next →](07-pgadmin.md)**

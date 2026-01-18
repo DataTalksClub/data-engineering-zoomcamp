@@ -1,6 +1,7 @@
 # Introduction
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/AtRhA-NfS24)](https://www.youtube.com/watch?v=X8cEEwi8DTM)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/JgspdlKXS-w)](https://www.youtube.com/watch?v=JgspdlKXS-w)
+
 
 We suggest watching videos in the same order as in this document.
 

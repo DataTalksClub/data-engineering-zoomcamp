@@ -1,6 +1,6 @@
 # Running PostgreSQL with Docker
 
-**[↑ Up](README.md)** | **[← Previous](02-virtual-environment.md)** | **[Next →](04-data-ingestion.md)**
+**[↑ Up](README.md)** | **[← Previous](03-dockerizing-pipeline.md)** | **[Next →](05-data-ingestion.md)**
 
 Now we want to do real data engineering. Let's use a Postgres database for that.
 
@@ -15,20 +15,20 @@ docker run -it --rm \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v ny_taxi_postgres_data:/var/lib/postgresql \
   -p 5432:5432 \
-  postgres:16
+  postgres:18
 ```
 
 ### Explanation of Parameters
 
 * `-e` sets environment variables (user, password, database name)
-* `-v ny_taxi_postgres_data:/var/lib/postgresql/data` creates a **named volume**
+* `-v ny_taxi_postgres_data:/var/lib/postgresql` creates a **named volume**
   * Docker manages this volume automatically
   * Data persists even after container is removed
   * Volume is stored in Docker's internal storage
 * `-p 5432:5432` maps port 5432 from container to host
-* `postgres:16` uses PostgreSQL version 16
+* `postgres:18` uses PostgreSQL version 18 (latest as of Dec 2025)
 
 ### Alternative Approach - Bind Mount
 
@@ -41,9 +41,9 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql \
   -p 5432:5432 \
-  postgres:16
+  postgres:18
 ```
 
 ### Named Volume vs Bind Mount
@@ -99,4 +99,4 @@ SELECT * FROM test;
 \q
 ```
 
-**[↑ Up](README.md)** | **[← Previous](02-virtual-environment.md)** | **[Next →](04-data-ingestion.md)**
+**[↑ Up](README.md)** | **[← Previous](03-dockerizing-pipeline.md)** | **[Next →](05-data-ingestion.md)**
