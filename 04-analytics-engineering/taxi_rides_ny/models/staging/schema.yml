@@ -1,5 +1,3 @@
-version: 2
-
 models:
   - name: stg_green_tripdata
     description: >
@@ -9,7 +7,7 @@ models:
     columns:
       - name: vendor_id
         description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
-        tests:
+        data_tests:
           - not_null
       - name: rate_code_id
         description: Rate code at end of trip (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
@@ -19,7 +17,7 @@ models:
         description: TLC Taxi Zone where the meter was disengaged
       - name: pickup_datetime
         description: Date and time when the meter was engaged
-        tests:
+        data_tests:
           - not_null
       - name: dropoff_datetime
         description: Date and time when the meter was disengaged
@@ -58,7 +56,7 @@ models:
     columns:
       - name: vendor_id
         description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
-        tests:
+        data_tests:
           - not_null
       - name: rate_code_id
         description: Rate code at end of trip (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
@@ -68,7 +66,7 @@ models:
         description: TLC Taxi Zone where the meter was disengaged
       - name: pickup_datetime
         description: Date and time when the meter was engaged
-        tests:
+        data_tests:
           - not_null
       - name: dropoff_datetime
         description: Date and time when the meter was disengaged
