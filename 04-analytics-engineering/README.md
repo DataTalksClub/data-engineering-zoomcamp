@@ -51,6 +51,10 @@ Choose your setup path:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
 
+### Differences between dbt Core and dbt Cloud
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/auzcdLRyEIk)](https://www.youtube.com/auzcdLRyEIk)
+
 ### Project Setup
 
 | Alternative A  | Alternative B   |
@@ -66,7 +70,7 @@ Choose your setup path:
 
 | dbt Tests | Documentation | dbt Packages | dbt Commands |
 |-----------|---------------|----------------------|---------------|
-| *Video coming soon* | *Video coming soon* | *Video coming soon* | *Video coming soon* |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/bvZ-rJm7uMU)](https://youtu.be/bvZ-rJm7uMU) | [![](https://markdown-videos-api.jorgenkh.no/youtube/UqoWyMjcqrA)](https://www.youtube.com/UqoWyMjcqrA) | [![](https://markdown-videos-api.jorgenkh.no/youtube/KfhUA9Kfp8Y)](https://www.youtube.com/KfhUA9Kfp8Y) | [![](https://markdown-videos-api.jorgenkh.no/youtube/t4OeWHW3SsA)](https://www.youtube.com/t4OeWHW3SsA) |
 
 ## Extra resources
 
