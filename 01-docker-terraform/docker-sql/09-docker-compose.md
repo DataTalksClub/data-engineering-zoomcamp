@@ -95,12 +95,12 @@ docker network ls
 docker run -it \
   --network=pipeline_default \
   taxi_ingest:v001 \
-    --user=root \
-    --password=root \
-    --host=pgdatabase \
-    --port=5432 \
-    --db=ny_taxi \
-    --table=yellow_taxi_trips
+    --pg-user=root \
+    --pg-pass=root \
+    --pg-host=pgdatabase \
+    --pg-port=5432 \
+    --pg-db=ny_taxi \
+    --target-table=yellow_taxi_trips
 ```
 
 **[↑ Up](README.md)** | **[← Previous](08-dockerizing-ingestion.md)** | **[Next →](10-sql-refresher.md)**
