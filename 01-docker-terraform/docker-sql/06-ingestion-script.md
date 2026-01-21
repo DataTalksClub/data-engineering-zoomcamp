@@ -73,7 +73,7 @@ Example usage:
 ```bash
 uv run python ingest_data.py \
   --pg-user=root \
-  --pg-password=root \
+  --pg-pass=root \
   --pg-host=localhost \
   --pg-port=5432 \
   --pg-db=ny_taxi \
