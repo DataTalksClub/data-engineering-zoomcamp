@@ -72,12 +72,12 @@ Example usage:
 
 ```bash
 uv run python ingest_data.py
---pg-user=root
---pg-pass=root
---pg-host=localhost
---pg-port=5432
---pg-db=ny_taxi
---target-table=yellow_taxi_trips
+  --pg-user=root
+  --pg-pass=root
+  --pg-host=localhost
+  --pg-port=5432
+  --pg-db=ny_taxi
+  --target-table=yellow_taxi_trips
 ```
 
 **[↑ Up](README.md)** | **[← Previous](05-data-ingestion.md)** | **[Next →](07-pgadmin.md)**
