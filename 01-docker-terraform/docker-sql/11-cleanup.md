@@ -7,7 +7,7 @@ When you're done with the workshop, clean up Docker resources to free up disk sp
 ## Stop All Running Containers
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## Remove Specific Containers
