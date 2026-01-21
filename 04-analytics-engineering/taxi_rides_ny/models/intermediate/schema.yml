@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: int_trips_unioned
+    description: Union of green and yellow taxi trip data with normalized schema
+    columns:
+      - name: vendor_id
+        description: Taxi technology provider ID
+      - name: service_type
+        description: Type of taxi service (Green or Yellow)
+      - name: pickup_datetime
+        description: Timestamp when meter was engaged
+      - name: dropoff_datetime
+        description: Timestamp when meter was disengaged
+      - name: pickup_location_id
+        description: TLC Taxi Zone where trip started
+      - name: dropoff_location_id
+        description: TLC Taxi Zone where trip ended
+
+  - name: int_trips
+    description: Cleaned, enriched, and deduplicated trip data ready for marts
+    columns:
+      - name: trip_id
+        description: Unique trip identifier (surrogate key)
+        tests:
+          - unique
+          - not_null
+      - name: vendor_id
+        description: Taxi technology provider ID
+        tests:
+          - not_null
+      - name: service_type
+        description: Type of taxi service (Green or Yellow)
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Green', 'Yellow']
+      - name: pickup_datetime
+        description: Timestamp when meter was engaged
+        tests:
+          - not_null
+      - name: total_amount
+        description: Total amount charged to passenger
+        tests:
+          - not_null
+      - name: payment_type_description
+        description: Human-readable payment method description

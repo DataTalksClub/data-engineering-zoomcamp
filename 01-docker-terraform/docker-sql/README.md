@@ -1,214 +1,30 @@
+# Docker and PostgreSQL: Data Engineering Workshop
 
-### SQL Refresher
+* Video: [link](https://www.youtube.com/watch?v=lP8xXebHmuE)
+* Slides: [link](https://docs.google.com/presentation/d/19pXcInDwBnlvKWCukP5sDoCAb69SPqgIoxJ_0Bikr00/edit?usp=sharing)
+* Code: [pipeline/](pipeline/)
 
-Pre-Requisites: If you followed the course in the given order,
-Docker Compose should already be running with pgdatabase and pgAdmin.
+In this workshop, we will explore Docker fundamentals and data engineering workflows using Docker containers. This workshop is part of Module 1 of the [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp).
 
-Once done, you can go to http://localhost:8085/browser/ to access pgAdmin.
-Don't forget to Right Click on the server or database to refresh it in case you don't see the new table.
+**Data Engineering** is the design and development of systems for collecting, storing and analyzing data at scale.
 
-Now start querying!
+## Prerequisites
 
-Joining Yellow Taxi table with Zones Lookup table (implicit INNER JOIN)
- 
-```sql
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
-    yellow_taxi_trips t,
-    zones zpu,
-    zones zdo
-WHERE
-    t."PULocationID" = zpu."LocationID"
-    AND t."DOLocationID" = zdo."LocationID"
-LIMIT 100;
-```
+- Basic understanding of Python
+- Basic SQL knowledge (helpful but not required)
+- Docker and Python installed on your machine
+- Git (optional)
 
-Joining Yellow Taxi table with Zones Lookup table (Explicit INNER JOIN)
+## Workshop Contents
 
-```sql
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
-    yellow_taxi_trips t
-JOIN 
--- or INNER JOIN but it's less used, when writing JOIN, postgreSQL understands implicitly that we want to use an INNER JOIN
-    zones zpu ON t."PULocationID" = zpu."LocationID"
-JOIN
-    zones zdo ON t."DOLocationID" = zdo."LocationID"
-LIMIT 100;
-```
-
-Checking for records with NULL Location IDs in the Yellow Taxi table
-
-```sql
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    "PULocationID",
-    "DOLocationID"
-FROM 
-    yellow_taxi_trips
-WHERE
-    "PULocationID" IS NULL
-    OR "DOLocationID" IS NULL
-LIMIT 100;
-```
-
-Checking for Location IDs in the Zones table NOT IN the Yellow Taxi table
-
-```sql
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    "PULocationID",
-    "DOLocationID"
-FROM 
-    yellow_taxi_trips
-WHERE
-    "DOLocationID" NOT IN (SELECT "LocationID" from zones)
-    OR "PULocationID" NOT IN (SELECT "LocationID" from zones)
-LIMIT 100;
-```
-
-Using LEFT, RIGHT, and OUTER JOINS when some Location IDs are not in either Tables
-
-```sql
-DELETE FROM zones WHERE "LocationID" = 142;
-
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
-    yellow_taxi_trips t
-LEFT JOIN 
-    zones zpu ON t."PULocationID" = zpu."LocationID"
-JOIN
-    zones zdo ON t."DOLocationID" = zdo."LocationID"
-LIMIT 100;
-```
-
-```sql
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
-    yellow_taxi_trips t
-RIGHT JOIN 
-    zones zpu ON t."PULocationID" = zpu."LocationID"
-JOIN
-    zones zdo ON t."DOLocationID" = zdo."LocationID"
-LIMIT 100;
-```
-
-```sql
-SELECT
-    tpep_pickup_datetime,
-    tpep_dropoff_datetime,
-    total_amount,
-    CONCAT(zpu."Borough", ' | ', zpu."Zone") AS "pickup_loc",
-    CONCAT(zdo."Borough", ' | ', zdo."Zone") AS "dropoff_loc"
-FROM 
-    yellow_taxi_trips t
-OUTER JOIN 
-    zones zpu ON t."PULocationID" = zpu."LocationID"
-JOIN
-    zones zdo ON t."DOLocationID" = zdo."LocationID"
-LIMIT 100;
-```
-
-Using GROUP BY to calculate number of trips per day
-
-```sql
-SELECT
-    CAST(tpep_dropoff_datetime AS DATE) AS "day",
-    COUNT(1)
-FROM 
-    yellow_taxi_trips
-GROUP BY
-    CAST(tpep_dropoff_datetime AS DATE)
-LIMIT 100;
-```
-
-Using ORDER BY to order the results of your query
-
-```sql
--- Ordering by day
-
-SELECT
-    CAST(tpep_dropoff_datetime AS DATE) AS "day",
-    COUNT(1)
-FROM 
-    yellow_taxi_trips
-GROUP BY
-    CAST(tpep_dropoff_datetime AS DATE)
-ORDER BY
-    "day" ASC
-LIMIT 100;
-
--- Ordering by count
-
-SELECT
-    CAST(tpep_dropoff_datetime AS DATE) AS "day",
-    COUNT(1) AS "count"
-FROM 
-    yellow_taxi_trips
-GROUP BY
-    CAST(tpep_dropoff_datetime AS DATE)
-ORDER BY
-    "count" DESC
-LIMIT 100;
-```
-
-Other kinds of aggregations
-
-```sql
-SELECT
-    CAST(tpep_dropoff_datetime AS DATE) AS "day",
-    COUNT(1) AS "count",
-    MAX(total_amount) AS "total_amount",
-    MAX(passenger_count) AS "passenger_count"
-FROM 
-    yellow_taxi_trips
-GROUP BY
-    CAST(tpep_dropoff_datetime AS DATE)
-ORDER BY
-    "count" DESC
-LIMIT 100;
-```
-
-Grouping by multiple fields
-
-
-```sql
-SELECT
-    CAST(tpep_dropoff_datetime AS DATE) AS "day",
-    "DOLocationID",
-    COUNT(1) AS "count",
-    MAX(total_amount) AS "total_amount",
-    MAX(passenger_count) AS "passenger_count"
-FROM 
-    yellow_taxi_trips
-GROUP BY
-    1, 2
-ORDER BY
-    "day" ASC, 
-    "DOLocationID" ASC
-LIMIT 100;
-```
+1. [Introduction to Docker](01-introduction.md) - What is Docker, why use it, basic commands
+2. [Virtual Environments and Data Pipelines](02-virtual-environment.md) - Setting up Python environments with uv
+3. [Dockerizing the Pipeline](03-dockerizing-pipeline.md) - Creating a Dockerfile for a simple pipeline
+4. [Running PostgreSQL with Docker](04-postgres-docker.md) - Dockerizing PostgreSQL database
+5. [NY Taxi Dataset and Data Ingestion](05-data-ingestion.md) - Working with real data, pandas, SQLAlchemy
+6. [Creating the Data Ingestion Script](06-ingestion-script.md) - Converting notebook to Python script
+7. [pgAdmin - Database Management Tool](07-pgadmin.md) - Web-based database management
+8. [Dockerizing the Ingestion Script](08-dockerizing-ingestion.md) - Containerizing the pipeline
+9. [Docker Compose](09-docker-compose.md) - Multi-container orchestration
+10. [SQL Refresher](10-sql-refresher.md) - SQL joins, aggregations, and queries
+11. [Cleanup](11-cleanup.md) - Cleaning up Docker resources

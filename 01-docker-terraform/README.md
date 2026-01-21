@@ -1,35 +1,28 @@
 # Introduction
 
-* [![](https://markdown-videos-api.jorgenkh.no/youtube/AtRhA-NfS24)](https://www.youtube.com/watch?v=X8cEEwi8DTM)
-* [Slides](https://docs.google.com/presentation/d/1974w3_zdaK7tDQJCcxHginiAuN0hRRYqXiHbDWcuVVg/edit?usp=drivesdk)
-* Overview of [Architecture](https://github.com/DataTalksClub/data-engineering-zoomcamp#overview), [Technologies](https://github.com/DataTalksClub/data-engineering-zoomcamp#technologies) & [Pre-Requisites](https://github.com/DataTalksClub/data-engineering-zoomcamp#prerequisites)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/JgspdlKXS-w)](https://www.youtube.com/watch?v=JgspdlKXS-w)
 
 
 We suggest watching videos in the same order as in this document.
-
-The last video (setting up the environment) is optional, but you can check it earlier
-if you have troubles setting up the environment and following along with the videos.
 
 
 # Docker + Postgres
 
 ## Workshop
 
-
 [![](https://markdown-videos-api.jorgenkh.no/youtube/lP8xXebHmuE)](https://youtu.be/lP8xXebHmuE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 * Video: https://www.youtube.com/watch?v=lP8xXebHmuE
-* Follow the instructions here: https://github.com/alexeygrigorev/workshops/tree/main/dezoomcamp-docker 
+* Follow the instructions here: [docker-sql/](docker-sql/)
 
 ## :movie_camera: SQL refresher
 
+
 [![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
-* Adding the Zones table
-* Inner joins
-* Basic data quality checks
-* Left, Right and Outer joins
-* Group by
+* Video: https://www.youtube.com/watch?v=QEcps_iskgg
+* SQL queries: [09-sql-refresher.md](docker-sql/09-sql-refresher.md)
+
 
 # GCP
 
@@ -61,7 +54,7 @@ if you have troubles setting up the environment and following along with the vid
 
 # Homework
 
-* [Homework](../cohorts/2025/01-docker-terraform/homework.md)
+* [Homework](../cohorts/2026/01-docker-terraform/homework.md)
 
 
 # Community notes
