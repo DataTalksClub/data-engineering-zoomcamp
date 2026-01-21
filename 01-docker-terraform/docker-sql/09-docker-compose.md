@@ -46,7 +46,7 @@ volumes:
 We can now run Docker compose by running the following command from the same directory where `docker-compose.yaml` is found. Make sure that all previous containers aren't running anymore:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ### Detached Mode
@@ -54,7 +54,7 @@ docker-compose up
 If you want to run the containers again in the background rather than in the foreground (thus freeing up your terminal), you can run them in detached mode:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Stop Services
@@ -62,17 +62,17 @@ docker-compose up -d
 You will have to press `Ctrl+C` in order to shut down the containers when running in foreground mode. The proper way of shutting them down is with this command:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## Other Useful Commands
 
 ```bash
 # View logs
-docker-compose logs
+docker compose logs
 
 # Stop and remove volumes
-docker-compose down -v
+docker compose down -v
 ```
 
 ## Benefits of Docker Compose
@@ -84,7 +84,7 @@ docker-compose down -v
 
 ## Running the Ingestion Script with Docker Compose
 
-If you want to re-run the dockerized ingest script when you run Postgres and pgAdmin with `docker-compose`, you will have to find the name of the virtual network that Docker compose created for the containers.
+If you want to re-run the dockerized ingest script when you run Postgres and pgAdmin with `docker compose`, you will have to find the name of the virtual network that Docker compose created for the containers.
 
 ```bash
 # check the network link:
