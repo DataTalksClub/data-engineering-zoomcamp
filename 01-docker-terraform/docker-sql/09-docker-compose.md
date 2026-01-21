@@ -2,7 +2,7 @@
 
 **[↑ Up](README.md)** | **[← Previous](08-dockerizing-ingestion.md)** | **[Next →](10-sql-refresher.md)**
 
-`docker compose` allows us to launch multiple containers using a single configuration file, so that we don't have to run multiple complex `docker run` commands separately.
+`docker-compose` allows us to launch multiple containers using a single configuration file, so that we don't have to run multiple complex `docker run` commands separately.
 
 Docker compose makes use of YAML files. Here's the `docker-compose.yaml` file:
 
@@ -46,7 +46,7 @@ volumes:
 We can now run Docker compose by running the following command from the same directory where `docker-compose.yaml` is found. Make sure that all previous containers aren't running anymore:
 
 ```bash
-docker compose up
+docker-compose up
 ```
 
 ### Detached Mode
@@ -54,7 +54,7 @@ docker compose up
 If you want to run the containers again in the background rather than in the foreground (thus freeing up your terminal), you can run them in detached mode:
 
 ```bash
-docker compose up -d
+docker-compose up -d
 ```
 
 ## Stop Services
@@ -62,17 +62,17 @@ docker compose up -d
 You will have to press `Ctrl+C` in order to shut down the containers when running in foreground mode. The proper way of shutting them down is with this command:
 
 ```bash
-docker compose down
+docker-compose down
 ```
 
 ## Other Useful Commands
 
 ```bash
 # View logs
-docker compose logs
+docker-compose logs
 
 # Stop and remove volumes
-docker compose down -v
+docker-compose down -v
 ```
 
 ## Benefits of Docker Compose
