@@ -53,7 +53,7 @@ df.shape
 
 ### Handling Data Types
 
-We have a warning:
+We have a warning: (Note that this warning might pop up later for some users, so it's best to follow the instructions below)
 
 ```
 /tmp/ipykernel_25483/2933316018.py:1: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.
