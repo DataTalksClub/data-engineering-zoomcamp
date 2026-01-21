@@ -6,7 +6,6 @@ This guide walks you through setting up a local analytics engineering environmen
 
 [![dbt Core](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://www.getdbt.com/)
 [![DuckDB](https://img.shields.io/badge/DuckDB-FFF000?style=for-the-badge&logo=duckdb&logoColor=black)](https://duckdb.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 </div>
 
@@ -201,14 +200,6 @@ Since we're using **dbt Core** with DuckDB for local development, we need the co
 
 Alternatively, install it from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=innoverio.vscode-dbt-power-user).
 
-## Step 7: Install Streamlit
-
-Streamlit is used for building interactive data applications and dashboards. You'll use this later to visualize the analytics you build with dbt.
-
-```bash
-pip install streamlit
-```
-
 > [!NOTE]
 > At this point, your local dbt environment is fully configured and ready to use. The next steps (running models, tests, and building documentation) will be covered in the tutorial videos.
 
@@ -217,5 +208,4 @@ pip install streamlit
 * [DuckDB Documentation](https://duckdb.org/docs/)
 * [dbt Documentation](https://docs.getdbt.com/)
 * [dbt-duckdb Adapter](https://github.com/duckdb/dbt-duckdb)
-* [Streamlit Documentation](https://docs.streamlit.io/)
 * [NYC Taxi Data Dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)

@@ -6,7 +6,6 @@ This guide walks you through setting up dbt to work with the BigQuery data wareh
 
 [![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://www.getdbt.com/)
 [![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)](https://cloud.google.com/bigquery)
-[![Looker Studio](https://img.shields.io/badge/Looker_Studio-4285F4?style=for-the-badge&logo=looker&logoColor=white)](https://lookerstudio.google.com/)
 
 </div>
 
@@ -230,6 +229,5 @@ You'll be taken to the dbt Cloud IDE with a fresh project ready for development!
 
 * [BigQuery Documentation](https://cloud.google.com/bigquery/docs)
 * [dbt Documentation](https://docs.getdbt.com/docs/cloud/about-cloud/dbt-cloud-features)
-* [Looker Studio Help Center](https://support.google.com/looker-studio)
 * [BigQuery Best Practices](https://cloud.google.com/bigquery/docs/best-practices)
 * [NYC Taxi Data Dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)

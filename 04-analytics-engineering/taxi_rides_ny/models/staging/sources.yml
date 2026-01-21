@@ -1,5 +1,3 @@
-version: 2
-
 sources:
   - name: raw
     description: Raw taxi trip data from NYC TLC
@@ -15,6 +13,9 @@ sources:
       {%- else -%}
         prod
       {%- endif -%}
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
     tables:
       - name: green_tripdata
         description: Raw green taxi trip records
@@ -24,7 +25,7 @@ sources:
             description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
           - name: lpep_pickup_datetime
             description: Date and time when the meter was engaged
-            tests:
+            data_tests:
               - not_null
           - name: lpep_dropoff_datetime
             description: Date and time when the meter was disengaged
@@ -69,7 +70,7 @@ sources:
             description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
           - name: tpep_pickup_datetime
             description: Date and time when the meter was engaged
-            tests:
+            data_tests:
               - not_null
           - name: tpep_dropoff_datetime
             description: Date and time when the meter was disengaged

@@ -14,9 +14,7 @@ data/
 *.duckdb.wal
 .duckdb_temp/
 
-# CSV and Parquet data files
-*.csv
-*.csv.gz
+# Parquet data files
 *.parquet
 
 # Python artifacts
