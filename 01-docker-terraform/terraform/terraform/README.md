@@ -23,3 +23,6 @@ terraform apply -var="project=<your-gcp-project-id>"
 # Delete infra after your work, to avoid costs on any running services
 terraform destroy
 ```
+
+### Warning
+Remember to use a [proper gitignore](https://github.com/github/gitignore/blob/main/Terraform.gitignore) file before publishing your code on GitHub
