@@ -45,7 +45,7 @@ Remember to use a [proper gitignore](https://github.com/github/gitignore/blob/ma
       zone    = var.zone
     }
 
-    /* add these data blocks /*
+    /* add these data blocks */
     
     # This data source gets a temporary token for the service account
     data "google_service_account_access_token" "default" {
