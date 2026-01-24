@@ -1,6 +1,6 @@
 ### Concepts
 * [Terraform_overview](../1_terraform_overview.md)
-* If you were able to generate a service account keyfile due to organizational policies, refer to the instructions [below](#fallback)
+* If you were unable to generate a service account keyfile due to organizational policies, refer to the instructions [below](#fallback)
 
 ### Execution
 
@@ -29,23 +29,14 @@ terraform destroy
 Remember to use a [proper gitignore](https://github.com/github/gitignore/blob/main/Terraform.gitignore) file before publishing your code on GitHub
 
 ### Fallback
-1. Link gcloud cli with gcp
-```bash
-gcloud auth login
-```
-2. Generate ADC by confirming your identity
-```bash
-gcloud auth application-default login
-```
-
-3. Give yourself the token creator role on the pertinent service account
-```bash
-gcloud iam service-accounts add-iam-policy-binding \
-    <SERVICE_ACCOUNT_EMAIL> \
-    --member="user:YOUR_EMAIL@gmail.com" \
-    --role="roles/iam.serviceAccountTokenCreator"
-```
-4. Add the sections below the first block to your main terraform configuration
+1. Give yourself the token creator role on the pertinent service account
+    ```bash
+    gcloud iam service-accounts add-iam-policy-binding \
+        <SERVICE_ACCOUNT_EMAIL> \
+        --member="user:YOUR_EMAIL@gmail.com" \
+        --role="roles/iam.serviceAccountTokenCreator"
+    ```
+2. Add the sections below the first block to your main terraform configuration
    ```terraform
     # Connect to gcp using ADC (identity verification)
     provider "google" {
@@ -54,7 +45,7 @@ gcloud iam service-accounts add-iam-policy-binding \
       zone    = var.zone
     }
 
-    # add these data blocks 
+    /* add these data blocks */
     
     # This data source gets a temporary token for the service account
     data "google_service_account_access_token" "default" {

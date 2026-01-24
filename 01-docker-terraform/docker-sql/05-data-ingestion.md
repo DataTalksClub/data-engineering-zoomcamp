@@ -161,6 +161,7 @@ We don't want to insert all the data at once. Let's do it in batches and use an 
 
 ```python
 df_iter = pd.read_csv(
+    prefix + 'yellow_tripdata_2021-01.csv.gz',
     dtype=dtype,
     parse_dates=parse_dates,
     iterator=True,
