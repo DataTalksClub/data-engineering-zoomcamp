@@ -92,11 +92,11 @@ docker network ls
 
 # it's pipeline_default (or similar based on directory name)
 # now run the script:
-docker run -it \
+docker run -it --rm\
   --network=pipeline_default \
   taxi_ingest:v001 \
     --pg-user=root \
-    --pg-password=root \
+    --pg-pass=root \
     --pg-host=pgdatabase \
     --pg-port=5432 \
     --pg-db=ny_taxi \
