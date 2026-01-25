@@ -48,7 +48,7 @@ docker run -it \
   --network=pg-network \
   taxi_ingest:v001 \
     --pg-user=root \
-    --pg-password=root \
+    --pg-pass=root \
     --pg-host=pgdatabase \
     --pg-port=5432 \
     --pg-db=ny_taxi \
