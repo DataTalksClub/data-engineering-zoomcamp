@@ -106,7 +106,7 @@ In the Jupyter notebook, we create code to:
 ### Install SQLAlchemy
 
 ```bash
-uv add sqlalchemy psycopg2-binary
+uv add sqlalchemy "psycopg[binary,pool]"
 ```
 
 ### Create Database Connection
