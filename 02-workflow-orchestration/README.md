@@ -572,19 +572,19 @@ graph LR
 #### Additional AI Resources
 
 Kestra Documentation:
-- [AI Tools Overview](https://kestra.io/docs/ai-tools)
-- [AI Copilot](https://kestra.io/docs/ai-tools/ai-copilot)
-- [RAG Workflows](https://kestra.io/docs/ai-tools/ai-rag-workflows)
-- [AI Workflows](https://kestra.io/docs/ai-tools/ai-workflows)
-- [Kestra Blueprints](https://kestra.io/blueprints) - Pre-built workflow examples
+- [AI Tools Overview](https://go.kestra.io/de-zoomcamp/ai-tools)
+- [AI Copilot](https://go.kestra.io/de-zoomcamp/ai-copilot)
+- [RAG Workflows](https://go.kestra.io/de-zoomcamp/rag-workflows)
+- [AI Workflows](https://go.kestra.io/de-zoomcamp/ai-workflows)
+- [Kestra Blueprints](https://go.kestra.io/de-zoomcamp/blueprints) - Pre-built workflow examples
 
 Kestra Plugin Documentation:
-- [AI Plugin](https://kestra.io/plugins/plugin-ai)
-- [RAG Tasks](https://kestra.io/plugins/plugin-ai/rag)
+- [AI Plugin](https://go.kestra.io/de-zoomcamp/ai-plugin)
+- [RAG Tasks](https://go.kestra.io/de-zoomcamp/ai-rag-task)
 
 External Documentation:
-- [Google Gemini](https://ai.google.dev/docs)
-- [Google AI Studio](https://aistudio.google.com/)
+- [Google Gemini](https://go.kestra.io/de-zoomcamp/gemini-docs)
+- [Google AI Studio](https://go.kestra.io/de-zoomcamp/ai-studio)
 
 #### Videos
 
