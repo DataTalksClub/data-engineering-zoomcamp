@@ -12,6 +12,12 @@ Install Jupyter:
 uv add --dev jupyter
 ```
 
+> [!NOTE]
+>If the port didn't detect automatically then write this command
+> ```bash
+>uv run jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+>```
+
 Let's create a Jupyter notebook to explore the data:
 
 ```bash
