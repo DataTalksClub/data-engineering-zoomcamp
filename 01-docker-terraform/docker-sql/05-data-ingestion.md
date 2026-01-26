@@ -114,7 +114,7 @@ In the Jupyter notebook, we create code to:
 ## using terminal
 uv add sqlalchemy psycopg2-binary
 ## using jupyter
-!uv add sqlalchemy
+!uv add sqlalchemy psycopg2-binary
 ```
 
 ### Create Database Connection
