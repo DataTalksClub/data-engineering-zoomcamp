@@ -41,36 +41,36 @@ Choose your setup path:
 
 ### Introduction to Analytics Engineering
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/HxMIsPrIyGQ)](https://youtu.be/HxMIsPrIyGQ)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/HxMIsPrIyGQ)](https://www.youtube.com/watch?v=HxMIsPrIyGQ)
 
 ### Introduction to data modeling
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://youtu.be/uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/uF76d5EmdtU)](https://www.youtube.com/watch?v=uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
 
 ### What is dbt?
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/4eCouvVOJUw)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/gsKuETFJr54)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
 
 ### Differences between dbt Core and dbt Cloud
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/auzcdLRyEIk)](https://www.youtube.com/auzcdLRyEIk)
+[![](https://markdown-videos-api.jorgenkh.no/youtube/auzcdLRyEIk)](https://www.youtube.com/watch?v=auzcdLRyEIk)
 
 ### Project Setup
 
 | Alternative A  | Alternative B   |
 |-----------------------------|--------------------------------|
 | BigQuery + dbt Platform | DuckDB + dbt core |
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/GFbwlrt6f54)](https://youtu.be/GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/youtube/GoFAbJYfvlw)](https://youtu.be/GoFAbJYfvlw) |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/GFbwlrt6f54)](https://www.youtube.com/watch?v=GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/youtube/GoFAbJYfvlw)](https://www.youtube.com/watch?v=GoFAbJYfvlw) |
 
 ### dbt Course
 
 | dbt Project Structure | dbt Sources | dbt Models | Seeds and Macros |
 |-----------------------|-------------|------------|------------------|
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/2dYDS4OQbT0)](https://youtu.be/2dYDS4OQbT0) | [![](https://markdown-videos-api.jorgenkh.no/youtube/7CrrXazV_8k)](https://youtu.be/7CrrXazV_8k) | [![](https://markdown-videos-api.jorgenkh.no/youtube/JQYz-8sl1aQ)](https://youtu.be/JQYz-8sl1aQ) | [![](https://markdown-videos-api.jorgenkh.no/youtube/lT4fmTDEqVk)](https://youtu.be/lT4fmTDEqVk) |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/2dYDS4OQbT0)](https://www.youtube.com/watch?v=2dYDS4OQbT0) | [![](https://markdown-videos-api.jorgenkh.no/youtube/7CrrXazV_8k)](https://www.youtube.com/watch?v=7CrrXazV_8k) | [![](https://markdown-videos-api.jorgenkh.no/youtube/JQYz-8sl1aQ)](https://www.youtube.com/watch?v=JQYz-8sl1aQ) | [![](https://markdown-videos-api.jorgenkh.no/youtube/lT4fmTDEqVk)](https://www.youtube.com/watch?v=lT4fmTDEqVk) |
 
 | dbt Tests | Documentation | dbt Packages | dbt Commands |
 |-----------|---------------|----------------------|---------------|
-| [![](https://markdown-videos-api.jorgenkh.no/youtube/bvZ-rJm7uMU)](https://youtu.be/bvZ-rJm7uMU) | [![](https://markdown-videos-api.jorgenkh.no/youtube/UqoWyMjcqrA)](https://www.youtube.com/UqoWyMjcqrA) | [![](https://markdown-videos-api.jorgenkh.no/youtube/KfhUA9Kfp8Y)](https://www.youtube.com/KfhUA9Kfp8Y) | [![](https://markdown-videos-api.jorgenkh.no/youtube/t4OeWHW3SsA)](https://www.youtube.com/t4OeWHW3SsA) |
+| [![](https://markdown-videos-api.jorgenkh.no/youtube/bvZ-rJm7uMU)](https://www.youtube.com/watch?v=bvZ-rJm7uMU) | [![](https://markdown-videos-api.jorgenkh.no/youtube/UqoWyMjcqrA)](https://www.youtube.com/watch?v=UqoWyMjcqrA) | [![](https://markdown-videos-api.jorgenkh.no/youtube/KfhUA9Kfp8Y)](https://www.youtube.com/watch?v=KfhUA9Kfp8Y) | [![](https://markdown-videos-api.jorgenkh.no/youtube/t4OeWHW3SsA)](https://www.youtube.com/watch?v=t4OeWHW3SsA) |
 
 ## Extra resources
 
