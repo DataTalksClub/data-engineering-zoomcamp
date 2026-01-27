@@ -18,7 +18,7 @@ tasks:
       type: io.kestra.plugin.ai.embeddings.KestraKVStore
     drop: true
     fromExternalURLs:
-      - https://raw.githubusercontent.com/kestra-io/docs/refs/heads/main/content/blogs/release-1-1.md
+      - https://raw.githubusercontent.com/kestra-io/docs/refs/heads/main/src/contents/blogs/release-1-1/index.md
 
   - id: chat_with_rag
     type: io.kestra.plugin.ai.rag.ChatCompletion
