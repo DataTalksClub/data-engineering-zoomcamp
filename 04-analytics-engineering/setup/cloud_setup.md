@@ -1,5 +1,7 @@
 # Cloud Setup Guide
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fbigquery%2Fdevcontainer.json&editor=web)
+
 This guide walks you through setting up dbt to work with the BigQuery data warehouse you created in Module 3.
 
 <div align="center">
@@ -9,15 +11,28 @@ This guide walks you through setting up dbt to work with the BigQuery data wareh
 
 </div>
 
-> [!NOTE]
-> This guide assumes you've completed [Module 3: Data Warehouse](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/03-data-warehouse) where you:
-> - Created a GCP project and enabled the BigQuery API
-> - Created a service account with BigQuery permissions
-> - Loaded NYC taxi data into BigQuery (in the `nytaxi` dataset)
->
-> If you haven't completed Module 3, please go back and complete it first.
+...
 
-## Step 1: Verify Your BigQuery Setup
+## Option 1: dbt Platform (Cloud)
+
+dbt Platform is dbt's cloud-based development environment with a web IDE, scheduler, and collaboration features. dbt offers a **free Developer plan**. This should be more than enough to learn dbt and follow the course.
+
+...
+
+## Option 2: GitHub Codespaces (Local dbt-core)
+
+If you prefer to run `dbt-core` locally within a containerized environment instead of using dbt Cloud, you can use the provided GitHub Codespaces configuration.
+
+> [!TIP]
+> **Prefer the Web Editor?** If Codespaces keeps opening in your local VS Code desktop app, you can change your default preference to "Visual Studio Code for Web" in your [GitHub Settings](https://github.com/settings/codespaces).
+
+1. Click the **Open in GitHub Codespaces** badge at the top of this page.
+2. Once the Codespace is ready, upload your GCP service account JSON key to the root of the repository and rename it to `gcp_key.json`.
+3. Navigate to the project directory and run dbt:
+   ```bash
+   dbt debug
+   ```
+
 
 Before setting up dbt Cloud, confirm you have the required data and credentials from Module 3.
 
