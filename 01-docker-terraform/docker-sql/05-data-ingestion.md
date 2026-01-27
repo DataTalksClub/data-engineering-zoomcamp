@@ -17,6 +17,11 @@ Let's create a Jupyter notebook to explore the data:
 ```bash
 uv run jupyter notebook
 ```
+> [!NOTE]
+>If the port didn't detect automatically then write this command
+> ```bash
+>uv run jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+>```
 
 ## The NYC Taxi Dataset
 
@@ -106,7 +111,10 @@ In the Jupyter notebook, we create code to:
 ### Install SQLAlchemy
 
 ```bash
+## using terminal
 uv add sqlalchemy psycopg2-binary
+## using jupyter
+!uv add sqlalchemy psycopg2-binary
 ```
 
 ### Create Database Connection
