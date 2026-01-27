@@ -1,0 +1,24 @@
+taxi_rides_ny:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "/home/vscode/homework/taxi_rides_ny.duckdb"
+      schema: dev
+      threads: 1
+      extensions:
+        - parquet
+      settings:
+        memory_limit: "4GB"
+        preserve_insertion_order: false
+
+    prod:
+      type: duckdb
+      path: "/home/vscode/homework/taxi_rides_ny.duckdb"
+      schema: prod
+      threads: 1
+      extensions:
+        - parquet
+      settings:
+        memory_limit: "4GB"
+        preserve_insertion_order: false

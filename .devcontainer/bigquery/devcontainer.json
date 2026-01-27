@@ -1,0 +1,56 @@
+{
+  "name": "AE Homework: Cloud (BigQuery)",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": "..",
+    "args": {
+      "BAKE_DATA": "false"
+    }
+  },
+  "remoteUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/data-engineering-zoomcamp,type=bind",
+  "workspaceFolder": "/home/vscode/homework",
+  "containerEnv": {
+    "DBT_PROFILES_DIR": "/home/vscode/homework/profiles",
+    "IS_GCP_ENV": "true",
+    "POETRY_VIRTUALENVS_CREATE": "false"
+  },
+  "postStartCommand": "bash /opt/devcontainer/bigquery/scripts/postCreate.sh",
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "innoverio.vscode-dbt-power-user",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "googlecloudtools.cloudcode",
+        "tamasfe.even-better-toml"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/venv/bin/python",
+        "dbt.dbtPythonPath": "/opt/venv/bin/python",
+        "dbt.executablePath": "/opt/venv/bin/dbt",
+        "dbt.enableRunResultDecorations": true,
+        "files.associations": {
+          "*.sql": "jinja-sql"
+        },
+        "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": true
+        },
+        "github.copilot.chat.codeGeneration.instructions": [
+          {
+            "text": "This dev container is optimized for the Data Engineering Zoomcamp. It includes dbt-core and dbt-bigquery pre-installed in a virtual environment at `/opt/venv`."
+          },
+          {
+            "text": "The workspace is isolated in `/home/vscode/homework`. Always run dbt commands from the root of this workspace. Use gcp_key.json for authentication."
+          }
+        ]
+      }
+    }
+  }
+}
