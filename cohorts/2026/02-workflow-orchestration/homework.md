@@ -112,7 +112,7 @@ Module 2 of DE Zoomcamp by @DataTalksClub @wrussell1999 done!
 - Backfill & scheduling
 - Variables & dynamic flows
 
-My solution: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+My solution: <LINK>
 
 Join me here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
