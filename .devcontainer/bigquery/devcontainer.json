@@ -10,6 +10,11 @@
   "remoteUser": "vscode",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/data-engineering-zoomcamp,type=bind",
   "workspaceFolder": "/home/vscode/homework",
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
   "containerEnv": {
     "DBT_PROFILES_DIR": "/home/vscode/homework/profiles",
     "IS_GCP_ENV": "true",

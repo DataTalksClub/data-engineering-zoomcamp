@@ -10,6 +10,11 @@
   "remoteUser": "vscode",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/data-engineering-zoomcamp,type=bind",
   "workspaceFolder": "/home/vscode/homework",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
   "containerEnv": {
     "DBT_PROFILES_DIR": "/home/vscode/homework/profiles",
     "DBT_DUCKDB_PATH": "/home/vscode/homework/taxi_rides_ny.duckdb",
