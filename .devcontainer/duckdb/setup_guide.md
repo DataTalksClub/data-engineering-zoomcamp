@@ -40,17 +40,19 @@ The taxi data has been pre-loaded during codespace creation. Verify it:
 
 ```bash
 cd /home/vscode/homework
-dbt show --select stg_green_tripdata --limit 5
-dbt show --select stg_yellow_tripdata --limit 5
+dbt show --select stg_green_tripdata --limit 5 --target prod
+dbt show --select stg_yellow_tripdata --limit 5 --target prod
 ```
 
 **Expected**: You should see sample trip data from both Green and Yellow taxis.
+
+**Note**: We use `--target prod` because the source data is loaded in the prod schema. You can also build models in dev first with `dbt build --select +int_trips_unioned` to work without specifying the target.
 
 ### Step 3: Verify dbt Connection
 
 ```bash
 cd /home/vscode/homework
-dbt debug
+dbt debug --target prod
 ```
 
 **Expected output**:
@@ -137,7 +139,7 @@ Done. PASS=34 WARN=0 ERROR=0 SKIP=11 TOTAL=45
 Check the main fact table:
 
 ```bash
-dbt show --select fct_trips --limit 10
+dbt show --select fct_trips --limit 10 --target prod
 ```
 
 Query the database directly:
@@ -239,12 +241,12 @@ Now you're ready to tackle the homework questions! Here's a roadmap:
 
 3. **Build the model**:
    ```bash
-   dbt run --select fct_taxi_trips_quarterly_revenue
+   dbt run --select fct_taxi_trips_quarterly_revenue --target prod
    ```
 
 4. **Test your results**:
    ```bash
-   dbt show --select fct_taxi_trips_quarterly_revenue
+   dbt show --select fct_taxi_trips_quarterly_revenue --target prod
    ```
 
 ### Useful SQL Functions for Homework
@@ -405,7 +407,7 @@ sources:
 ### Step 4: Build FHV Models
 
 ```bash
-dbt run --select stg_fhv_tripdata dim_fhv_trips
+dbt run --select stg_fhv_tripdata dim_fhv_trips --target prod
 ```
 
 ---
@@ -430,9 +432,11 @@ cat /home/vscode/homework/setup.log
 
 **Error**: `Catalog Error: Table with name "stg_green_tripdata" does not exist!`
 
-**Solution**: Build the staging models first:
+**Solution**: Build the staging models first, or use the prod target where models are already built:
 ```bash
-dbt run --select staging
+dbt run --select staging --target prod
+# OR
+dbt show --select stg_green_tripdata --target prod
 ```
 
 ### Issue 3: "Memory limit exceeded"
@@ -474,7 +478,7 @@ dbt run --select your_model --full-refresh
 
 ### 2. **Use dbt show for Quick Testing**
 ```bash
-dbt show --select your_model --limit 20
+dbt show --select your_model --limit 20 --target prod
 ```
 
 ### 3. **Use DuckDB CLI for Ad-Hoc Queries**
@@ -590,22 +594,22 @@ cd /home/vscode/homework
 dbt build --target prod
 
 # Build specific model
-dbt run --select fct_trips
+dbt run --select fct_trips --target prod
 
 # Build model and its dependencies
-dbt run --select +fct_trips
+dbt run --select +fct_trips --target prod
 
 # Build model and its dependents
-dbt run --select fct_trips+
+dbt run --select fct_trips+ --target prod
 
 # Run tests
-dbt test
+dbt test --target prod
 
 # Show compiled SQL
-dbt compile --select model_name
+dbt compile --select model_name --target prod
 
 # View results
-dbt show --select model_name --limit 10
+dbt show --select model_name --limit 10 --target prod
 
 # Clean build artifacts
 dbt clean
