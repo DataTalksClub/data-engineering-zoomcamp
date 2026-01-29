@@ -40,10 +40,20 @@ dbt --version
 cd "$DEST_DIR"
 dbt deps
 
+# 5. Copy setup guide and open it
+if [[ -f "/opt/devcontainer/duckdb/setup_guide.md" ]]; then
+    echo "Copying setup guide..."
+    cp "/opt/devcontainer/duckdb/setup_guide.md" "$DEST_DIR/SETUP_GUIDE.md"
+    # Try to open the setup guide (will fail silently if not in VS Code)
+    code "$DEST_DIR/SETUP_GUIDE.md" --reuse-window 2>/dev/null || true
+fi
+
 echo "------------------------------------------------------------------"
 echo "Environment Ready!"
 echo "Workspace: $DEST_DIR"
 echo ""
 echo "Taxi data (Yellow/Green 2019-2020, FHV 2019) has been pre-loaded."
 echo "You can run 'dbt build' or 'dbt show' immediately."
+echo ""
+echo "📖 Setup guide: $DEST_DIR/SETUP_GUIDE.md"
 echo "------------------------------------------------------------------"
