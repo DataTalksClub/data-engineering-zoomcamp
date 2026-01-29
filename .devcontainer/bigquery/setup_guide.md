@@ -180,6 +180,319 @@ dbt run      # Run models only
 dbt test     # Run tests only
 ```
 
+## Part 4: Homework Questions Guide
+
+Now you're ready to tackle the homework questions! Here's a roadmap:
+
+### Question 1: Understanding dbt Model Resolution
+- **Topic**: dbt sources, env_var() function
+- **No coding required**: Pure conceptual question about how dbt resolves source references
+- **Hint**: env_var() replaces variables with their values from the environment
+
+### Question 2: dbt Variables & Dynamic Models
+- **Topic**: var() vs env_var(), precedence rules
+- **No coding required**: Understanding dbt variable resolution order
+- **Hint**: Command line args → env vars → defaults (in that order)
+
+### Question 3: dbt Data Lineage and Execution
+- **Topic**: dbt selectors, graph traversal
+- **No coding required**: Understanding dbt run selection syntax
+- **Hint**: `+model+` means "model, its parents, and its children"
+
+### Question 4: dbt Macros and Jinja
+- **Topic**: Jinja macros, conditional logic, env_var defaults
+- **No coding required**: Understanding macro logic and env_var fallbacks
+- **Hint**: Second parameter in env_var() is the default if variable is not set
+
+### Question 5: Taxi Quarterly Revenue Growth
+- **Requires coding**: Create `fct_taxi_trips_quarterly_revenue.sql`
+- **Steps**:
+  1. Extract year, quarter from pickup_datetime
+  2. GROUP BY year, quarter, service_type
+  3. Calculate YoY growth percentage
+- **Hint**: Use LAG() window function to compare with previous year
+
+### Question 6: P97/P95/P90 Taxi Monthly Fare
+- **Requires coding**: Create `fct_taxi_trips_monthly_fare_percentiles.sql`
+- **Steps**:
+  1. Filter valid trips (fare > 0, distance > 0, payment type in Cash/Credit)
+  2. Use PERCENTILE_CONT() for continuous percentiles
+  3. Partition by service_type, year, month
+- **Hint**: BigQuery syntax: `PERCENTILE_CONT(fare_amount, 0.95) OVER (PARTITION BY ...)`
+
+### Question 7: Top #Nth longest P90 travel time Location for FHV
+- **Requires coding**: Create staging and core models for FHV, then `fct_fhv_monthly_zone_traveltime_p90.sql`
+- **Steps**:
+  1. Create `stg_fhv_tripdata.sql` (similar to green/yellow staging)
+  2. Create `dim_fhv_trips.sql` joining with dim_zones
+  3. Calculate trip_duration using TIMESTAMP_DIFF()
+  4. Use PERCENTILE_CONT() partitioned by year, month, pickup, dropoff locations
+  5. Find 2nd longest p90 for specific pickup zones
+- **Hint**: Use RANK() or ROW_NUMBER() to find the 2nd longest
+
+---
+
+## Part 5: Creating New Models for Homework
+
+### Adding a New Model
+
+1. **Create the SQL file**:
+   ```bash
+   touch models/marts/fct_taxi_trips_quarterly_revenue.sql
+   ```
+
+2. **Write your query**:
+   ```sql
+   {{ config(
+       materialized='table'
+   ) }}
+
+   -- Your query here
+   SELECT ...
+   FROM {{ ref('int_trips_unioned') }}
+   ```
+
+3. **Build the model**:
+   ```bash
+   dbt run --select fct_taxi_trips_quarterly_revenue
+   ```
+
+4. **Test your results**:
+   ```bash
+   dbt show --select fct_taxi_trips_quarterly_revenue --limit 20
+   ```
+
+### Useful SQL Functions for Homework
+
+**Date/Time Functions (BigQuery)**:
+```sql
+-- Extract year, quarter, month
+EXTRACT(YEAR FROM pickup_datetime) as year
+EXTRACT(QUARTER FROM pickup_datetime) as quarter
+EXTRACT(MONTH FROM pickup_datetime) as month
+
+-- Format year/quarter
+CAST(year AS STRING) || '/Q' || CAST(quarter AS STRING) as year_quarter
+```
+
+**Window Functions**:
+```sql
+-- Year-over-Year comparison
+LAG(revenue, 4) OVER (PARTITION BY service_type ORDER BY year, quarter) as prev_year_revenue
+
+-- YoY Growth percentage
+((revenue - prev_year_revenue) / prev_year_revenue * 100) as yoy_growth_pct
+```
+
+**Percentile Functions (BigQuery)**:
+```sql
+-- Continuous percentiles
+PERCENTILE_CONT(fare_amount, 0.90) OVER (PARTITION BY service_type, year, month) as p90
+PERCENTILE_CONT(fare_amount, 0.95) OVER (PARTITION BY service_type, year, month) as p95
+PERCENTILE_CONT(fare_amount, 0.97) OVER (PARTITION BY service_type, year, month) as p97
+```
+
+**Ranking Functions**:
+```sql
+-- Find 2nd highest value
+RANK() OVER (PARTITION BY pickup_zone ORDER BY p90_duration DESC) as rank
+-- Filter WHERE rank = 2
+```
+
+**Time Difference (BigQuery)**:
+```sql
+-- Calculate duration in seconds
+TIMESTAMP_DIFF(dropoff_datetime, pickup_datetime, SECOND) as trip_duration_seconds
+```
+
+---
+
+## Part 6: Working with FHV Data (Question 7)
+
+### Step 1: Create FHV Staging Model
+
+Create `models/staging/stg_fhv_tripdata.sql`:
+
+```sql
+{{ config(
+    materialized='view'
+) }}
+
+with source as (
+    select * from {{ source('raw', 'fhv_tripdata') }}
+),
+
+renamed as (
+    select
+        -- identifiers
+        dispatching_base_num,
+
+        -- timestamps
+        pickup_datetime,
+        dropoff_datetime,
+
+        -- location IDs
+        pulocationid as pickup_location_id,
+        dolocationid as dropoff_location_id,
+
+        -- additional
+        sr_flag,
+        affiliated_base_number
+
+    from source
+    where dispatching_base_num is not null  -- Filter as per homework requirements
+)
+
+select * from renamed
+```
+
+### Step 2: Add FHV Source Definition
+
+Update `models/staging/sources.yml` to include FHV:
+
+```yaml
+sources:
+  - name: raw
+    database: "{{ env_var('GCP_PROJECT_ID', 'your-project-id') }}"
+    schema: nytaxi
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
+      - name: fhv_tripdata  # Add this
+```
+
+### Step 3: Create FHV Core Model
+
+Create `models/marts/dim_fhv_trips.sql`:
+
+```sql
+{{ config(
+    materialized='table'
+) }}
+
+with fhv_data as (
+    select * from {{ ref('stg_fhv_tripdata') }}
+),
+
+dim_zones as (
+    select * from {{ ref('dim_zones') }}
+),
+
+fhv_trips as (
+    select
+        fhv_data.*,
+
+        -- Add date dimensions
+        EXTRACT(YEAR FROM fhv_data.pickup_datetime) as year,
+        EXTRACT(MONTH FROM fhv_data.pickup_datetime) as month,
+
+        -- Calculate trip duration
+        TIMESTAMP_DIFF(fhv_data.dropoff_datetime, fhv_data.pickup_datetime, SECOND) as trip_duration_seconds,
+
+        -- Join with zones for pickup
+        pickup_zones.borough as pickup_borough,
+        pickup_zones.zone as pickup_zone,
+
+        -- Join with zones for dropoff
+        dropoff_zones.borough as dropoff_borough,
+        dropoff_zones.zone as dropoff_zone
+
+    from fhv_data
+    left join dim_zones as pickup_zones
+        on fhv_data.pickup_location_id = pickup_zones.location_id
+    left join dim_zones as dropoff_zones
+        on fhv_data.dropoff_location_id = dropoff_zones.location_id
+)
+
+select * from fhv_trips
+```
+
+### Step 4: Build FHV Models
+
+```bash
+dbt run --select stg_fhv_tripdata dim_fhv_trips
+```
+
+---
+
+## Tips for Success
+
+### 1. **Start Simple**
+- Test your logic on small datasets first (add LIMIT 1000)
+- Build incrementally, don't try to solve everything at once
+
+### 2. **Use dbt show for Quick Testing**
+```bash
+dbt show --select your_model --limit 20
+```
+
+### 3. **Use BigQuery Console for Ad-Hoc Queries**
+- Navigate to https://console.cloud.google.com/bigquery
+- Explore your datasets and run test queries
+- View query execution plans and costs
+
+### 4. **Check Compiled SQL**
+```bash
+dbt compile --select your_model
+cat target/compiled/taxi_rides_ny/models/marts/your_model.sql
+```
+
+### 5. **Use CTE (Common Table Expressions)**
+Break complex queries into readable steps:
+```sql
+with revenue_by_quarter as (
+  -- Step 1
+),
+yoy_comparison as (
+  -- Step 2
+)
+select * from yoy_comparison
+```
+
+---
+
+## Quick Reference Commands
+
+```bash
+# Navigate to workspace
+cd /home/vscode/homework
+
+# Set GCP project (required before dbt commands)
+export GCP_PROJECT_ID=$(gcloud config get-value project)
+
+# Build everything
+dbt build
+
+# Build specific model
+dbt run --select fct_trips
+
+# Build model and its dependencies
+dbt run --select +fct_trips
+
+# Build model and its dependents
+dbt run --select fct_trips+
+
+# Run tests
+dbt test
+
+# Show compiled SQL
+dbt compile --select model_name
+
+# View results
+dbt show --select model_name --limit 10
+
+# Clean build artifacts
+dbt clean
+
+# Reinstall dependencies
+dbt deps
+
+# Query BigQuery directly
+bq query --use_legacy_sql=false "SELECT COUNT(*) FROM \`${GCP_PROJECT_ID}.nytaxi.green_tripdata\`"
+```
+
+---
+
 ## Troubleshooting
 
 ### "Table your-project-id:nytaxi.table does not exist"
