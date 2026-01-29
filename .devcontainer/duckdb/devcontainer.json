@@ -4,7 +4,7 @@
     "dockerfile": "../Dockerfile",
     "context": "..",
     "args": {
-      "BAKE_DATA": "true"
+      "BAKE_DATA": "false"
     }
   },
   "remoteUser": "vscode",

@@ -16,22 +16,33 @@ echo "Copying DuckDB profiles..."
 mkdir -p "$DEST_DIR/profiles"
 cp "/opt/devcontainer/duckdb/dbt/profiles.yml" "$DEST_DIR/profiles/"
 
-# 3. Initialize DuckDB from pre-baked image data
-DB_TEMPLATE="/opt/data/taxi_rides_ny.duckdb"
+# 3. Download pre-built DuckDB database
 DB_DEST="$DEST_DIR/taxi_rides_ny.duckdb"
+DB_URL="https://github.com/lassebenni/data-engineering-zoomcamp/releases/download/v1.0.0/taxi_rides_ny.duckdb"
 
-if [[ -f "$DB_TEMPLATE" ]]; then
-    echo "Loading pre-baked taxi data from image..."
-    cp "$DB_TEMPLATE" "$DB_DEST"
+if [[ ! -f "$DB_DEST" ]]; then
+    echo "Downloading pre-built taxi database (3.3GB)..."
+    echo "This will take 2-4 minutes depending on network speed..."
+    echo ""
+
+    # Download with progress bar
+    if command -v wget &> /dev/null; then
+        wget --progress=bar:force --show-progress -O "$DB_DEST" "$DB_URL"
+    elif command -v curl &> /dev/null; then
+        curl -L --progress-bar -o "$DB_DEST" "$DB_URL"
+    else
+        echo "Error: Neither wget nor curl found. Cannot download database."
+        exit 1
+    fi
+
+    echo ""
+    echo "Download complete!"
+    echo "Database contains:"
+    echo "  - Green Taxi 2019-2020:  8,035,161 records"
+    echo "  - Yellow Taxi 2019-2020: 109,247,536 records"
+    echo "  - FHV 2019:              43,261,276 records"
 else
-    echo "Initializing empty database..."
-    python - <<PY
-import duckdb
-con = duckdb.connect("$DB_DEST")
-con.execute("CREATE SCHEMA IF NOT EXISTS prod")
-con.execute("CREATE SCHEMA IF NOT EXISTS dev")
-con.close()
-PY
+    echo "Database already exists, skipping download."
 fi
 
 # 4. Diagnostics and Deps

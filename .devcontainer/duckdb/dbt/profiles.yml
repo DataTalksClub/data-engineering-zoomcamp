@@ -9,7 +9,7 @@ taxi_rides_ny:
       extensions:
         - parquet
       settings:
-        memory_limit: "4GB"
+        memory_limit: "8GB"
         preserve_insertion_order: false
 
     prod:
@@ -20,5 +20,5 @@ taxi_rides_ny:
       extensions:
         - parquet
       settings:
-        memory_limit: "4GB"
+        memory_limit: "8GB"
         preserve_insertion_order: false
