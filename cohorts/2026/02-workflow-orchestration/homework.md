@@ -70,3 +70,49 @@ Complete the quiz shown below. It's a set of 6 multiple-choice questions to test
 ## Solution
 
 Will be added after the due date
+
+
+## Learning in Public
+
+We encourage everyone to share what they learned. This is called "learning in public".
+
+Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
+
+### Example post for LinkedIn
+
+```
+🚀 Week 2 of Data Engineering Zoomcamp by @DataTalksClub and @Will Russel complete!
+
+Just finished Module 2 - Workflow Orchestration with @Kestra. Learned how to:
+
+✅ Orchestrate data pipelines with Kestra flows
+✅ Use variables and expressions for dynamic workflows
+✅ Implement backfill for historical data
+✅ Schedule workflows with timezone support
+✅ Process NYC taxi data (Yellow & Green) for 2019-2021
+
+Built ETL pipelines that extract, transform, and load taxi trip data automatically!
+
+Thanks to the @Kestra team for the great orchestration tool!
+
+Here's my homework solution: <LINK>
+
+Following along with this amazing free course - who else is learning data engineering?
+
+You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
+
+### Example post for Twitter/X
+
+```
+Module 2 of DE Zoomcamp by @DataTalksClub @wrussell1999 done!
+
+- @kestra_io workflow orchestration
+- ETL pipelines for taxi data
+- Backfill & scheduling
+- Variables & dynamic flows
+
+My solution: <LINK>
+
+Join me here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```

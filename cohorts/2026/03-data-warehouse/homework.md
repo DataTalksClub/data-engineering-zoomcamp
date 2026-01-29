@@ -101,3 +101,47 @@ Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw
 ## Solution
 
 Solution: https://www.youtube.com/watch?v=wpLmImIUlPg
+
+
+## Learning in Public
+
+We encourage everyone to share what they learned. This is called "learning in public".
+
+Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
+
+### Example post for LinkedIn
+
+```
+🚀 Week 3 of Data Engineering Zoomcamp by @DataTalksClub complete!
+
+Just finished Module 3 - Data Warehousing with BigQuery. Learned how to:
+
+✅ Create external tables from GCS bucket data
+✅ Build materialized tables in BigQuery
+✅ Partition and cluster tables for performance
+✅ Understand columnar storage and query optimization
+✅ Analyze NYC taxi data at scale
+
+Working with 20M+ records and learning how partitioning reduces query costs!
+
+Here's my homework solution: <LINK>
+
+Following along with this amazing free course - who else is learning data engineering?
+
+You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
+
+### Example post for Twitter/X
+
+```
+📊 Module 3 of Data Engineering Zoomcamp done!
+
+- BigQuery & GCS
+- External vs materialized tables
+- Partitioning & clustering
+- Query optimization
+
+My solution: <LINK>
+
+Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
