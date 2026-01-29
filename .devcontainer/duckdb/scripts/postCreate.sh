@@ -16,12 +16,12 @@ echo "Copying DuckDB profiles..."
 mkdir -p "$DEST_DIR/profiles"
 cp "/opt/devcontainer/duckdb/dbt/profiles.yml" "$DEST_DIR/profiles/"
 
-# 3. Download selective Parquet files for homework
+# 3. Download selective CSV files for homework
 DB_DEST="$DEST_DIR/taxi_rides_ny.duckdb"
 
 if [[ ! -f "$DB_DEST" ]]; then
     echo "Loading taxi data for homework (selective download)..."
-    echo "Downloading only necessary Parquet files (2019-2020 data)..."
+    echo "Downloading 49 CSV files (2019-2020 data, ~2.5 min)..."
     echo ""
 
     # Run the selective download script
