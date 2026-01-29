@@ -16,31 +16,16 @@ echo "Copying DuckDB profiles..."
 mkdir -p "$DEST_DIR/profiles"
 cp "/opt/devcontainer/duckdb/dbt/profiles.yml" "$DEST_DIR/profiles/"
 
-# 3. Download pre-built DuckDB database
+# 3. Download selective Parquet files for homework
 DB_DEST="$DEST_DIR/taxi_rides_ny.duckdb"
-DB_URL="https://github.com/lassebenni/data-engineering-zoomcamp/releases/download/v1.0.0/taxi_rides_ny.duckdb"
 
 if [[ ! -f "$DB_DEST" ]]; then
-    echo "Downloading pre-built taxi database (3.3GB)..."
-    echo "This will take 2-4 minutes depending on network speed..."
+    echo "Loading taxi data for homework (selective download)..."
+    echo "Downloading only necessary Parquet files (2019-2020 data)..."
     echo ""
 
-    # Download with progress bar
-    if command -v wget &> /dev/null; then
-        wget --progress=bar:force --show-progress -O "$DB_DEST" "$DB_URL"
-    elif command -v curl &> /dev/null; then
-        curl -L --progress-bar -o "$DB_DEST" "$DB_URL"
-    else
-        echo "Error: Neither wget nor curl found. Cannot download database."
-        exit 1
-    fi
-
-    echo ""
-    echo "Download complete!"
-    echo "Database contains:"
-    echo "  - Green Taxi 2019-2020:  8,035,161 records"
-    echo "  - Yellow Taxi 2019-2020: 109,247,536 records"
-    echo "  - FHV 2019:              43,261,276 records"
+    # Run the selective download script
+    bash /opt/devcontainer/duckdb/scripts/download_homework_data.sh "$DB_DEST"
 else
     echo "Database already exists, skipping download."
 fi
