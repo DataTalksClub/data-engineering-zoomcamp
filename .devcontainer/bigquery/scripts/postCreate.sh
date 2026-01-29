@@ -32,3 +32,8 @@ echo ""
 echo "After authenticating, run this script to sync data to your GCS bucket:"
 echo "  bash setup/prepare_homework_data.sh"
 echo "------------------------------------------------------------------"
+
+# 4. Copy and open setup guide
+echo "Opening setup guide..."
+cp "/opt/devcontainer/bigquery/setup_guide.md" "$DEST_DIR/SETUP_GUIDE.md"
+code "$DEST_DIR/SETUP_GUIDE.md" --reuse-window 2>/dev/null || echo "Setup guide available at: $DEST_DIR/SETUP_GUIDE.md"
