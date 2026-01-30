@@ -81,7 +81,7 @@ Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits
 ### Example post for LinkedIn
 
 ```
-🚀 Week 2 of Data Engineering Zoomcamp by @DataTalksClub and @Will Russel complete!
+🚀 Week 2 of Data Engineering Zoomcamp by @DataTalksClub and @Will Russell complete!
 
 Just finished Module 2 - Workflow Orchestration with @Kestra. Learned how to:
 
