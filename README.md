@@ -4,10 +4,9 @@ Welcome to the **Analytics Engineering** module! This repository contains the is
 
 ## 🚀 Getting Started
 
-You are likely already in a GitHub Codespace. If not, click one of the options below to start:
+You are likely already in a GitHub Codespace. If not, click the button below to start:
 
-*   **[Local Setup (DuckDB)](https://codespaces.new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fduckdb%2Fdevcontainer.json&editor=web)** (Recommended)
-*   **[Cloud Setup (BigQuery)](https://codespaces.new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fbigquery%2Fdevcontainer.json&editor=web)**
+*   **[Launch DuckDB Codespace](https://codespaces.new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fduckdb%2Fdevcontainer.json&editor=web)**
 
 ## 📂 Project Structure
 
