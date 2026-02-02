@@ -1,0 +1,41 @@
+id: 12_postgres_taxi_backfill
+namespace: zoomcamp
+description: |
+  Backfill Jan–Dec 2021 for both yellow and green taxis by calling 04_postgres_taxi
+
+concurrency:
+  limit: 1
+
+tasks:
+  - id: month_loop
+    type: io.kestra.plugin.core.flow.ForEach
+    values:
+      - "01"
+      - "02"
+      - "03"
+      - "04"
+      - "05"
+      - "06"
+      - "07"
+      - "08"
+      - "09"
+      - "10"
+      - "11"
+      - "12"
+
+    tasks:
+      - id: taxi_loop
+        type: io.kestra.plugin.core.flow.ForEach
+        values:
+          - yellow
+          - green
+
+        tasks:
+          - id: run_ingest
+            type: io.kestra.plugin.core.flow.Subflow
+            namespace: zoomcamp
+            flowId: 04_postgres_taxi
+            inputs:
+              taxi: "{{taskrun.value}}"
+              year: "2021"
+              month: "{{parent.taskrun.value}}"

@@ -4,23 +4,30 @@ description: |
   The CSV Data used in the course: https://github.com/DataTalksClub/nyc-tlc-data/releases
 
 inputs:
+  # - id: taxi
+  #   type: SELECT
+  #   displayName: Select taxi type
+  #   values: [yellow, green]
+  #   defaults: yellow
+
+  # - id: year
+  #   type: SELECT
+  #   displayName: Select year
+  #   values: ["2019", "2020", "2021"]
+  #   defaults: "2019"
+
+  # - id: month
+  #   type: SELECT
+  #   displayName: Select month
+  #   values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+  #   defaults: "01"
+  inputs:
   - id: taxi
-    type: SELECT
-    displayName: Select taxi type
-    values: [yellow, green]
-    defaults: yellow
-
+    type: STRING
   - id: year
-    type: SELECT
-    displayName: Select year
-    values: ["2019", "2020"]
-    defaults: "2019"
-
+    type: STRING
   - id: month
-    type: SELECT
-    displayName: Select month
-    values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-    defaults: "01"
+    type: STRING
 
 variables:
   file: "{{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.month}}.csv"
