@@ -14,7 +14,7 @@ bash /opt/devcontainer/scripts/common_setup.sh
 # 2. Copy variant-specific profiles
 echo "Copying DuckDB profiles..."
 mkdir -p "$DEST_DIR/profiles"
-cp "/opt/devcontainer/duckdb/dbt/profiles.yml" "$DEST_DIR/profiles/"
+cp "/opt/devcontainer/dbt/profiles.yml" "$DEST_DIR/profiles/"
 
 # 3. Download selective CSV files for homework
 DB_DEST="$DEST_DIR/taxi_rides_ny.duckdb"
@@ -25,7 +25,7 @@ if [[ ! -f "$DB_DEST" ]]; then
     echo ""
 
     # Run the selective download script
-    bash /opt/devcontainer/duckdb/scripts/download_homework_data.sh "$DB_DEST"
+    bash /opt/devcontainer/scripts/download_homework_data.sh "$DB_DEST"
 else
     echo "Database already exists, skipping download."
 fi
@@ -37,9 +37,9 @@ cd "$DEST_DIR"
 dbt deps
 
 # 5. Copy setup guide and open it
-if [[ -f "/opt/devcontainer/duckdb/setup_guide.md" ]]; then
+if [[ -f "/opt/devcontainer/setup_guide.md" ]]; then
     echo "Copying setup guide..."
-    cp "/opt/devcontainer/duckdb/setup_guide.md" "$DEST_DIR/SETUP_GUIDE.md"
+    cp "/opt/devcontainer/setup_guide.md" "$DEST_DIR/SETUP_GUIDE.md"
     # Try to open the setup guide (will fail silently if not in VS Code)
     code "$DEST_DIR/SETUP_GUIDE.md" --reuse-window 2>/dev/null || true
 fi

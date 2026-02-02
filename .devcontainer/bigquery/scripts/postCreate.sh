@@ -14,7 +14,7 @@ bash /opt/devcontainer/scripts/common_setup.sh
 # 2. Copy variant-specific profiles
 echo "Copying BigQuery profiles..."
 mkdir -p "$DEST_DIR/profiles"
-cp "/opt/devcontainer/bigquery/dbt/profiles.yml" "$DEST_DIR/profiles/"
+cp "/opt/devcontainer/dbt/profiles.yml" "$DEST_DIR/profiles/"
 
 # 3. Diagnostics and Deps
 echo "dbt Version:"
@@ -35,5 +35,5 @@ echo "------------------------------------------------------------------"
 
 # 4. Copy and open setup guide
 echo "Opening setup guide..."
-cp "/opt/devcontainer/bigquery/setup_guide.md" "$DEST_DIR/SETUP_GUIDE.md"
+cp "/opt/devcontainer/setup_guide.md" "$DEST_DIR/SETUP_GUIDE.md"
 code "$DEST_DIR/SETUP_GUIDE.md" --reuse-window 2>/dev/null || echo "Setup guide available at: $DEST_DIR/SETUP_GUIDE.md"
