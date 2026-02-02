@@ -21,6 +21,10 @@
 * Workshop with dlt
 * [Homework](workshops/dlt/README.md)
 
+[**Workshop 2: AI-Assisted Data Ingestion with dlt**](workshops/dlt.md)
+
+* [Workshop details and registration](workshops/dlt.md)
+
 
 [**Module 3: Data Warehouse**](03-data-warehouse)
 

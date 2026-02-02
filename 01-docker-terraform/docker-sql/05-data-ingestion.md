@@ -113,7 +113,7 @@ uv add sqlalchemy "psycopg[binary,pool]"
 
 ```python
 from sqlalchemy import create_engine
-engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
+engine = create_engine('postgresql+psycopg://root:root@localhost:5432/ny_taxi')
 ```
 
 ### Get DDL Schema
@@ -255,7 +255,7 @@ from tqdm.auto import tqdm
 for df_chunk in tqdm(df_iter):
     ...
 ```
-To see progess in terms of total chunks, you would have to add the `total` argument to `tqdm(df_iter)`. In our scenario, the pragmatic way is 
+To see progress in terms of total chunks, you would have to add the `total` argument to `tqdm(df_iter)`. In our scenario, the pragmatic way is 
 to hardcode a value based on the number of entries in the table.
 
 ## Verify the Data
