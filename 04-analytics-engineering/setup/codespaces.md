@@ -9,7 +9,7 @@ You can run the Analytics Engineering module in **GitHub Codespaces** using one 
 
 **Recommended for:** Quick start, no cloud costs, learning dbt core concepts.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fduckdb%2Fdevcontainer.json&editor=web)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/lassebenni/data-engineering-zoomcamp?quickstart=1&devcontainer_path=.devcontainer%2Fduckdb%2Fdevcontainer.json&ref=feat%2Fdevcontainer&editor=web)
 
 **Includes:**
 * `dbt-duckdb` adapter
@@ -21,7 +21,7 @@ You can run the Analytics Engineering module in **GitHub Codespaces** using one 
 
 **Recommended for:** Production-like experience, using Google Cloud Platform (requires GCP account).
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fbigquery%2Fdevcontainer.json&editor=web)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/lassebenni/data-engineering-zoomcamp?quickstart=1&devcontainer_path=.devcontainer%2Fbigquery%2Fdevcontainer.json&ref=feat%2Fdevcontainer&editor=web)
 
 **Includes:**
 

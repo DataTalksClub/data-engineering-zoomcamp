@@ -20,9 +20,8 @@ trap "rm -rf $TEMP_DIR" EXIT
 
 log "Temporary directory: $TEMP_DIR"
 
-# Initialize DuckDB with prod schema
+# Initialize DuckDB database (main schema exists by default)
 log "Initializing DuckDB database..."
-duckdb "$DB_PATH" "CREATE SCHEMA IF NOT EXISTS prod;"
 
 # Helper function to download a file
 download_file() {
@@ -61,9 +60,9 @@ done
 
 # Load all downloaded green files into DuckDB
 log "Loading Green Taxi data into DuckDB..."
-duckdb "$DB_PATH" "CREATE OR REPLACE TABLE prod.green_tripdata AS SELECT * FROM read_csv('${TEMP_DIR}/green_tripdata_*.csv.gz', auto_detect=true, compression='gzip', filename=true);"
+duckdb "$DB_PATH" "CREATE OR REPLACE TABLE main.green_tripdata AS SELECT * FROM read_csv('${TEMP_DIR}/green_tripdata_*.csv.gz', auto_detect=true, compression='gzip', filename=true);"
 
-GREEN_COUNT=$(duckdb "$DB_PATH" "SELECT COUNT(*) FROM prod.green_tripdata;" -csv -noheader)
+GREEN_COUNT=$(duckdb "$DB_PATH" "SELECT COUNT(*) FROM main.green_tripdata;" -csv -noheader)
 log "Green Taxi loaded: $GREEN_COUNT records"
 
 # Clean up green files to save space
@@ -86,9 +85,9 @@ done
 
 # Load all downloaded yellow files into DuckDB
 log "Loading Yellow Taxi data into DuckDB..."
-duckdb "$DB_PATH" "CREATE OR REPLACE TABLE prod.yellow_tripdata AS SELECT * FROM read_csv('${TEMP_DIR}/yellow_tripdata_*.csv.gz', auto_detect=true, compression='gzip', filename=true);"
+duckdb "$DB_PATH" "CREATE OR REPLACE TABLE main.yellow_tripdata AS SELECT * FROM read_csv('${TEMP_DIR}/yellow_tripdata_*.csv.gz', auto_detect=true, compression='gzip', filename=true);"
 
-YELLOW_COUNT=$(duckdb "$DB_PATH" "SELECT COUNT(*) FROM prod.yellow_tripdata;" -csv -noheader)
+YELLOW_COUNT=$(duckdb "$DB_PATH" "SELECT COUNT(*) FROM main.yellow_tripdata;" -csv -noheader)
 log "Yellow Taxi loaded: $YELLOW_COUNT records"
 
 # Clean up yellow files to save space
@@ -101,9 +100,9 @@ log "Downloading FHV November 2019 data..."
 download_file "${BASE_URL}/fhv/fhv_tripdata_2019-11.csv.gz" "${TEMP_DIR}/fhv_tripdata_2019-11.csv.gz"
 
 log "Loading FHV data into DuckDB..."
-duckdb "$DB_PATH" "CREATE OR REPLACE TABLE prod.fhv_tripdata AS SELECT * FROM read_csv('${TEMP_DIR}/fhv_tripdata_2019-11.csv.gz', auto_detect=true, compression='gzip');"
+duckdb "$DB_PATH" "CREATE OR REPLACE TABLE main.fhv_tripdata AS SELECT * FROM read_csv('${TEMP_DIR}/fhv_tripdata_2019-11.csv.gz', auto_detect=true, compression='gzip');"
 
-FHV_COUNT=$(duckdb "$DB_PATH" "SELECT COUNT(*) FROM prod.fhv_tripdata;" -csv -noheader)
+FHV_COUNT=$(duckdb "$DB_PATH" "SELECT COUNT(*) FROM main.fhv_tripdata;" -csv -noheader)
 log "FHV loaded: $FHV_COUNT records"
 
 # ============================================
@@ -131,5 +130,5 @@ log ""
 log "Note: Downloads only necessary months for homework (49 CSV files)"
 log "instead of full dataset, with same homework answer accuracy."
 log ""
-log "You can now run: dbt build --target prod"
+log "You can now run: dbt build"
 log "════════════════════════════════════════════════════════════"

@@ -36,24 +36,30 @@ Plugins:
 
 ### Step 2: Verify Database and Data
 
-The taxi data has been pre-loaded during codespace creation. Verify it:
+The taxi data has been pre-loaded during codespace creation. Verify it by querying the raw tables:
 
 ```bash
 cd /home/vscode/homework
-dbt show --select stg_green_tripdata --limit 5 --target prod
-dbt show --select stg_yellow_tripdata --limit 5 --target prod
+duckdb taxi_rides_ny.duckdb "SELECT COUNT(*) FROM main.green_tripdata"
+duckdb taxi_rides_ny.duckdb "SELECT COUNT(*) FROM main.yellow_tripdata"
 ```
 
-**Expected**: You should see sample trip data from both Green and Yellow taxis.
+**Expected output**:
+- Green taxi: 7,778,101 rows
+- Yellow taxi: 109,047,518 rows
 
-**Note**: We use `--target prod` because the source data is loaded in the prod schema. You can also build models in dev first with `dbt build --select +int_trips_unioned` to work without specifying the target.
+You can also view sample data:
+```bash
+duckdb taxi_rides_ny.duckdb "SELECT * FROM main.green_tripdata LIMIT 5"
+```
+
+**Note**: The staging models (stg_green_tripdata, stg_yellow_tripdata) are views that will be created when you run `dbt build` in Part 3. All dbt models will be created in the `dev` schema.
 
 ### Step 3: Verify dbt Connection
 
 ```bash
 cd /home/vscode/homework
-dbt debug --target prod
-```
+dbt debug```
 
 **Expected output**:
 ```
@@ -115,8 +121,7 @@ The pre-loaded database contains:
 
 ```bash
 cd /home/vscode/homework
-dbt build --target prod
-```
+dbt build```
 
 **Build time**: ~30-60 seconds (depending on data size)
 
@@ -139,8 +144,7 @@ Done. PASS=34 WARN=0 ERROR=0 SKIP=11 TOTAL=45
 Check the main fact table:
 
 ```bash
-dbt show --select fct_trips --limit 10 --target prod
-```
+dbt show --select fct_trips --limit 10```
 
 Query the database directly:
 
@@ -154,7 +158,7 @@ SELECT
   service_type,
   COUNT(*) as total_trips,
   COUNT(DISTINCT pickup_zone) as pickup_zones
-FROM prod.fct_trips
+FROM dev.fct_trips
 GROUP BY service_type;
 ```
 
@@ -230,8 +234,7 @@ Now you're ready to tackle the homework questions! Here's a roadmap:
 2. **Write your query**:
    ```sql
    {{ config(
-       materialized='table',
-       schema='prod'
+       materialized='table'
    ) }}
 
    -- Your query here
@@ -241,13 +244,11 @@ Now you're ready to tackle the homework questions! Here's a roadmap:
 
 3. **Build the model**:
    ```bash
-   dbt run --select fct_taxi_trips_quarterly_revenue --target prod
-   ```
+   dbt run --select fct_taxi_trips_quarterly_revenue   ```
 
 4. **Test your results**:
    ```bash
-   dbt show --select fct_taxi_trips_quarterly_revenue --target prod
-   ```
+   dbt show --select fct_taxi_trips_quarterly_revenue   ```
 
 ### Useful SQL Functions for Homework
 
@@ -407,8 +408,7 @@ sources:
 ### Step 4: Build FHV Models
 
 ```bash
-dbt run --select stg_fhv_tripdata dim_fhv_trips --target prod
-```
+dbt run --select stg_fhv_tripdata dim_fhv_trips```
 
 ---
 
@@ -432,11 +432,13 @@ cat /home/vscode/homework/setup.log
 
 **Error**: `Catalog Error: Table with name "stg_green_tripdata" does not exist!`
 
-**Solution**: Build the staging models first, or use the prod target where models are already built:
+**Solution**: The staging models are views that must be created before you can query them. Build them first:
 ```bash
-dbt run --select staging --target prod
-# OR
-dbt show --select stg_green_tripdata --target prod
+dbt build --select staging```
+
+After building, you can view the staging models:
+```bash
+dbt show --select stg_green_tripdata --limit 10
 ```
 
 ### Issue 3: "Memory limit exceeded"
@@ -478,8 +480,7 @@ dbt run --select your_model --full-refresh
 
 ### 2. **Use dbt show for Quick Testing**
 ```bash
-dbt show --select your_model --limit 20 --target prod
-```
+dbt show --select your_model --limit 20```
 
 ### 3. **Use DuckDB CLI for Ad-Hoc Queries**
 ```bash
@@ -489,7 +490,7 @@ duckdb /home/vscode/homework/taxi_rides_ny.duckdb
 Then explore:
 ```sql
 SHOW TABLES;
-SELECT * FROM prod.fct_trips LIMIT 10;
+SELECT * FROM dev.fct_trips LIMIT 10;
 ```
 
 ### 4. **Check Compiled SQL**
@@ -591,26 +592,19 @@ FROM main.yellow_tripdata;
 cd /home/vscode/homework
 
 # Build everything
-dbt build --target prod
-
+dbt build
 # Build specific model
-dbt run --select fct_trips --target prod
-
+dbt run --select fct_trips
 # Build model and its dependencies
-dbt run --select +fct_trips --target prod
-
+dbt run --select +fct_trips
 # Build model and its dependents
-dbt run --select fct_trips+ --target prod
-
+dbt run --select fct_trips+
 # Run tests
-dbt test --target prod
-
+dbt test
 # Show compiled SQL
-dbt compile --select model_name --target prod
-
+dbt compile --select model_name
 # View results
-dbt show --select model_name --limit 10 --target prod
-
+dbt show --select model_name --limit 10
 # Clean build artifacts
 dbt clean
 
