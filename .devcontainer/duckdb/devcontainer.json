@@ -17,7 +17,7 @@
     "DBT_DUCKDB_PATH": "/home/vscode/homework/taxi_rides_ny.duckdb",
     "POETRY_VIRTUALENVS_CREATE": "false"
   },
-  "postStartCommand": "bash /opt/devcontainer/duckdb/scripts/postCreate.sh",
+  "postStartCommand": "bash /opt/devcontainer/scripts/postCreate.sh",
   "features": {
     "ghcr.io/devcontainers/features/sshd:1": {
       "version": "latest"

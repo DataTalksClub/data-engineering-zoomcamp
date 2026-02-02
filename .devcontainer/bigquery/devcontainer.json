@@ -17,7 +17,7 @@
     "IS_GCP_ENV": "true",
     "POETRY_VIRTUALENVS_CREATE": "false"
   },
-  "postStartCommand": "bash /opt/devcontainer/bigquery/scripts/postCreate.sh",
+  "postStartCommand": "bash /opt/devcontainer/scripts/postCreate.sh",
   "features": {
     "ghcr.io/devcontainers/features/sshd:1": {
       "version": "latest"
