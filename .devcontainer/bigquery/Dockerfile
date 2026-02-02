@@ -1,4 +1,9 @@
-FROM mcr.microsoft.com/devcontainers/python:3.11-bookworm
+FROM python:3.11-slim-bookworm
+
+# Install sudo and create vscode user for compatibility with devcontainers
+RUN apt-get update && apt-get install -y sudo && \
+    useradd -m -s /bin/bash vscode && \
+    echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Create a virtual environment and activate it
 ENV VIRTUAL_ENV=/opt/venv
