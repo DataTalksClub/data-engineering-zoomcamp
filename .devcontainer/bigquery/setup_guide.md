@@ -309,42 +309,15 @@ TIMESTAMP_DIFF(dropoff_datetime, pickup_datetime, SECOND) as trip_duration_secon
 
 ## Part 6: Working with FHV Data (Question 7)
 
+For Question 7, you'll need to work with FHV (For-Hire Vehicle) data. Here's the approach:
+
 ### Step 1: Create FHV Staging Model
 
-Create `models/staging/stg_fhv_tripdata.sql`:
-
-```sql
-{{ config(
-    materialized='view'
-) }}
-
-with source as (
-    select * from {{ source('raw', 'fhv_tripdata') }}
-),
-
-renamed as (
-    select
-        -- identifiers
-        dispatching_base_num,
-
-        -- timestamps
-        pickup_datetime,
-        dropoff_datetime,
-
-        -- location IDs
-        pulocationid as pickup_location_id,
-        dolocationid as dropoff_location_id,
-
-        -- additional
-        sr_flag,
-        affiliated_base_number
-
-    from source
-    where dispatching_base_num is not null  -- Filter as per homework requirements
-)
-
-select * from renamed
-```
+Create `models/staging/stg_fhv_tripdata.sql` following the same pattern as `stg_green_tripdata.sql`:
+- Use a CTE to select from the FHV source
+- Rename columns to match your naming convention (e.g., `pulocationid` → `pickup_location_id`)
+- Filter out records where `dispatching_base_num` is null (per homework requirements)
+- Key columns: `dispatching_base_num`, `pickup_datetime`, `dropoff_datetime`, `pickup_location_id`, `dropoff_location_id`
 
 ### Step 2: Add FHV Source Definition
 
@@ -361,51 +334,13 @@ sources:
       - name: fhv_tripdata  # Add this
 ```
 
-### Step 3: Create FHV Core Model
+### Step 3: Create FHV Analysis Model
 
-Create `models/marts/dim_fhv_trips.sql`:
-
-```sql
-{{ config(
-    materialized='table'
-) }}
-
-with fhv_data as (
-    select * from {{ ref('stg_fhv_tripdata') }}
-),
-
-dim_zones as (
-    select * from {{ ref('dim_zones') }}
-),
-
-fhv_trips as (
-    select
-        fhv_data.*,
-
-        -- Add date dimensions
-        EXTRACT(YEAR FROM fhv_data.pickup_datetime) as year,
-        EXTRACT(MONTH FROM fhv_data.pickup_datetime) as month,
-
-        -- Calculate trip duration
-        TIMESTAMP_DIFF(fhv_data.dropoff_datetime, fhv_data.pickup_datetime, SECOND) as trip_duration_seconds,
-
-        -- Join with zones for pickup
-        pickup_zones.borough as pickup_borough,
-        pickup_zones.zone as pickup_zone,
-
-        -- Join with zones for dropoff
-        dropoff_zones.borough as dropoff_borough,
-        dropoff_zones.zone as dropoff_zone
-
-    from fhv_data
-    left join dim_zones as pickup_zones
-        on fhv_data.pickup_location_id = pickup_zones.location_id
-    left join dim_zones as dropoff_zones
-        on fhv_data.dropoff_location_id = dropoff_zones.location_id
-)
-
-select * from fhv_trips
-```
+Create a model that joins FHV data with `dim_zones` to get zone names:
+- Join on both pickup and dropoff location IDs
+- Add date dimensions (year, month) using EXTRACT()
+- Calculate trip duration using `TIMESTAMP_DIFF(dropoff_datetime, pickup_datetime, SECOND)`
+- This model will be the foundation for your P90 travel time analysis
 
 ### Step 4: Build FHV Models
 
