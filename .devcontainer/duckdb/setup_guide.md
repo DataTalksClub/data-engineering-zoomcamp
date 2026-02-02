@@ -59,7 +59,8 @@ duckdb taxi_rides_ny.duckdb "SELECT * FROM main.green_tripdata LIMIT 5"
 
 ```bash
 cd /home/vscode/homework
-dbt debug```
+dbt debug
+```
 
 **Expected output**:
 ```
@@ -121,7 +122,8 @@ The pre-loaded database contains:
 
 ```bash
 cd /home/vscode/homework
-dbt build```
+dbt build
+```
 
 **Build time**: ~30-60 seconds (depending on data size)
 
@@ -144,7 +146,8 @@ Done. PASS=34 WARN=0 ERROR=0 SKIP=11 TOTAL=45
 Check the main fact table:
 
 ```bash
-dbt show --select fct_trips --limit 10```
+dbt show --select fct_trips --limit 10
+```
 
 Query the database directly:
 
@@ -246,7 +249,8 @@ cat /home/vscode/homework/setup.log
 
 **Solution**: The staging models are views that must be created before you can query them. Build them first:
 ```bash
-dbt build --select staging```
+dbt build --select staging
+```
 
 After building, you can view the staging models:
 ```bash
@@ -292,7 +296,8 @@ dbt run --select your_model --full-refresh
 
 ### 2. **Use dbt show for Quick Testing**
 ```bash
-dbt show --select your_model --limit 20```
+dbt show --select your_model --limit 20
+```
 
 ### 3. **Use DuckDB CLI for Ad-Hoc Queries**
 ```bash
