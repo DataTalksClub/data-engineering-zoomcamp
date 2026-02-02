@@ -4,38 +4,19 @@ Goal: Transforming the data loaded in DWH into Analytical Views developing a [db
 
 ### Prerequisites
 
-The prerequisites depend on which setup path you choose:
-
-**For Cloud Setup (BigQuery):**
-
-- Completed [Module 3: Data Warehouse](../03-data-warehouse/) with:
-  - A GCP project with BigQuery enabled
-  - Service account with BigQuery permissions
-  - NYC taxi data loaded into BigQuery (yellow and green taxi data for 2019-2020)
-
-**For Local Setup (DuckDB):**
-
-- No prerequisites! The local setup guide will walk you through downloading and loading the data.
+No prerequisites! This module uses DuckDB with pre-loaded NYC taxi data (yellow and green taxi, 2019-2020).
 
 > [!NOTE]
-> This module focuses on **yellow and green taxi data** (2019-2020). While Module 3 may have included FHV data, it is not used in this dbt project.
+> This module focuses on **yellow and green taxi data** (2019-2020). The data is automatically loaded when you start the codespace.
 
 ## Setting up your environment
 
-Choose your setup path:
-
-### 🏠 [Local Setup](setup/local_setup.md)
+### 🏠 DuckDB Setup (Recommended)
 
 - **Stack**: DuckDB + dbt Core
 - **Cost**: Free
-- [→ Get Started](setup/local_setup.md)
-
-### ☁️ [Cloud Setup](setup/cloud_setup.md)
-
-- **Stack**: BigQuery + dbt Cloud
-- **Cost**: Free tier available (dbt Cloud Developer), BigQuery costs vary
-- **Requires**: Completed Module 3 with BigQuery data
-- [→ Get Started](setup/cloud_setup.md)
+- **Data**: Pre-loaded automatically
+- [→ Launch Codespace](https://codespaces.new/lassebenni/data-engineering-zoomcamp/tree/feat/devcontainer?quickstart=1&devcontainer_path=.devcontainer%2Fduckdb%2Fdevcontainer.json&editor=web)
 
 ## Content
 
@@ -57,7 +38,10 @@ Choose your setup path:
 
 ### Project Setup
 
-| Alternative A  | Alternative B   |
+> [!TIP]
+> **This homework uses DuckDB + dbt core.** The videos below show both BigQuery and DuckDB setups for learning purposes.
+
+| Alternative A  | Alternative B (Homework)   |
 |-----------------------------|--------------------------------|
 | BigQuery + dbt Platform | DuckDB + dbt core |
 | [![](https://markdown-videos-api.jorgenkh.no/youtube/GFbwlrt6f54)](https://www.youtube.com/watch?v=GFbwlrt6f54) | [![](https://markdown-videos-api.jorgenkh.no/youtube/GoFAbJYfvlw)](https://www.youtube.com/watch?v=GoFAbJYfvlw) |

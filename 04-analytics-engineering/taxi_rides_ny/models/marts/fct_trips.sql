@@ -2,7 +2,8 @@
   config(
     materialized='incremental',
     unique_key='trip_id',
-    on_schema_change='fail'
+    incremental_strategy='merge',
+    on_schema_change='append_new_columns'
   )
 }}
 
@@ -28,7 +29,7 @@ select
     -- Trip timing
     trips.pickup_datetime,
     trips.dropoff_datetime,
-    trips.store_and_fwd_flag,
+    CAST(trips.store_and_fwd_flag AS STRING) as store_and_fwd_flag,
 
     -- Trip metrics
     trips.passenger_count,

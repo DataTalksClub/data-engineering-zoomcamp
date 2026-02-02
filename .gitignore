@@ -16,3 +16,16 @@ serving_dir
 !week_6_stream_processing/avro_example/data/rides.csv
 *.parquet
 *.csv
+
+# DuckDB database files
+*.duckdb
+*.duckdb.wal
+*.db
+
+# Claude Code files
+CLAUDE.md
+
+# dbt artifacts
+**/target/
+**/dbt_packages/
+**/logs/

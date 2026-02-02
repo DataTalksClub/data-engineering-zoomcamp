@@ -1,9 +1,9 @@
 # you shouldn't commit these into source control
 # these are the default directory names, adjust/add to fit your needs
+# dbt
 target/
 dbt_packages/
 logs/
-profiles.yml
 .user.yml
 
 # Data files for DuckDB
