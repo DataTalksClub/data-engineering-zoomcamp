@@ -10,14 +10,14 @@ terraform {
 provider "google" {
 # Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
 #  credentials = 
-  project = "dte-de-486307"
+  project = "dtc-de-course-486306" 
   region  = "us-central1"
 }
 
 
 
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "dte-de-486307-terra-bucket"
+  name          = "dtc-de-course-486306-terra-bucket"
   location      = "US"
 
   # Optional, but recommended settings:
@@ -42,7 +42,7 @@ resource "google_storage_bucket" "data-lake-bucket" {
 
 
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
+  dataset_id = "dataset"
+  project    = "dtc-de-course-486306"
   location   = "US"
 }
