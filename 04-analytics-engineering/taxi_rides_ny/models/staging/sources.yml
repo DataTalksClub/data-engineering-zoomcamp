@@ -3,7 +3,7 @@ sources:
     description: Raw taxi trip data from NYC TLC
     database: |
       {%- if target.type == 'bigquery' -%}
-        {{ env_var('GCP_PROJECT_ID', 'zoomcamp-479215') }}
+        {{ env_var('GCP_PROJECT_ID', 'please-add-your-gcp-project-id-here') }}
       {%- else -%}
         taxi_rides_ny
       {%- endif -%}
