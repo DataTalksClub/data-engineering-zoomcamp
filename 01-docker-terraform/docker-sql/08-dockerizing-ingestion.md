@@ -20,7 +20,7 @@ RUN uv sync --locked
 
 COPY ingest_data.py .
 
-ENTRYPOINT ["python", "ingest_data.py"]
+ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
 ```
 
 ### Explanation
@@ -32,7 +32,7 @@ ENTRYPOINT ["python", "ingest_data.py"]
 - `COPY pyproject.toml .python-version uv.lock ./`: Copy dependency files first (better caching)
 - `RUN uv sync --locked`: Install all dependencies from lock file (ensures reproducible builds)
 - `COPY ingest_data.py .`: Copy ingestion script
-- `ENTRYPOINT ["python", "ingest_data.py"]`: Set entry point to run the ingestion script
+- `ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]`: Set entry point to run the ingestion script
 
 ## Build the Docker Image
 
@@ -47,12 +47,12 @@ docker build -t taxi_ingest:v001 .
 docker run -it \
   --network=pg-network \
   taxi_ingest:v001 \
-    --user=root \
-    --password=root \
-    --host=pgdatabase \
-    --port=5432 \
-    --db=ny_taxi \
-    --table=yellow_taxi_trips
+    --pg-user=root \
+    --pg-pass=root \
+    --pg-host=pgdatabase \
+    --pg-port=5432 \
+    --pg-db=ny_taxi \
+    --target-table=yellow_taxi_trips
 ```
 
 ### Important Notes

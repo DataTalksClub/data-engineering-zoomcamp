@@ -19,7 +19,7 @@ So far in the course, we processed data for the year 2019 and 2020. Your task is
 ![homework datasets](../../../02-workflow-orchestration/images/homework.png)
 
 As a hint, Kestra makes that process really easy:
-1. You can leverage the backfill functionality in the [scheduled flow](../../../02-workflow-orchestration/flows/05_gcp_taxi_scheduled.yaml) to backfill the data for the year 2021. Just make sure to select the time period for which data exists i.e. from `2021-01-01` to `2021-07-31`. Also, make sure to do the same for both `yellow` and `green` taxi data (select the right service in the `taxi` input).
+1. You can leverage the backfill functionality in the [scheduled flow](../../../02-workflow-orchestration/flows/09_gcp_taxi_scheduled.yaml) to backfill the data for the year 2021. Just make sure to select the time period for which data exists i.e. from `2021-01-01` to `2021-07-31`. Also, make sure to do the same for both `yellow` and `green` taxi data (select the right service in the `taxi` input).
 2. Alternatively, run the flow manually for each of the seven months of 2021 for both `yellow` and `green` taxi data. Challenge for you: find out how to loop over the combination of Year-Month and `taxi`-type using `ForEach` task which triggers the flow for each combination using a `Subflow` task.
 
 ### Quiz Questions
@@ -70,3 +70,49 @@ Complete the quiz shown below. It's a set of 6 multiple-choice questions to test
 ## Solution
 
 Will be added after the due date
+
+
+## Learning in Public
+
+We encourage everyone to share what they learned. This is called "learning in public".
+
+Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
+
+### Example post for LinkedIn
+
+```
+🚀 Week 2 of Data Engineering Zoomcamp by @DataTalksClub and @Will Russell complete!
+
+Just finished Module 2 - Workflow Orchestration with @Kestra. Learned how to:
+
+✅ Orchestrate data pipelines with Kestra flows
+✅ Use variables and expressions for dynamic workflows
+✅ Implement backfill for historical data
+✅ Schedule workflows with timezone support
+✅ Process NYC taxi data (Yellow & Green) for 2019-2021
+
+Built ETL pipelines that extract, transform, and load taxi trip data automatically!
+
+Thanks to the @Kestra team for the great orchestration tool!
+
+Here's my homework solution: <LINK>
+
+Following along with this amazing free course - who else is learning data engineering?
+
+You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
+
+### Example post for Twitter/X
+
+```
+Module 2 of DE Zoomcamp by @DataTalksClub @wrussell1999 done!
+
+- @kestra_io workflow orchestration
+- ETL pipelines for taxi data
+- Backfill & scheduling
+- Variables & dynamic flows
+
+My solution: <LINK>
+
+Join me here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```

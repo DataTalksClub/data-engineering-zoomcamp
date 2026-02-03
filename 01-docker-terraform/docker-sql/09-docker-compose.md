@@ -38,7 +38,7 @@ volumes:
 
 ### Explanation
 
-* We don't have to specify a network because `docker-compose` takes care of it: every single container (or "service", as the file states) will run within the same network and will be able to find each other according to their names (`pgdatabase` and `pgadmin` in this example).
+* We don't have to specify a network because `docker compose` takes care of it: every single container (or "service", as the file states) will run within the same network and will be able to find each other according to their names (`pgdatabase` and `pgadmin` in this example).
 * All other details from the `docker run` commands (environment variables, volumes and ports) are mentioned accordingly in the file following YAML syntax.
 
 ## Start Services with Docker Compose
@@ -84,7 +84,7 @@ docker-compose down -v
 
 ## Running the Ingestion Script with Docker Compose
 
-If you want to re-run the dockerized ingest script when you run Postgres and pgAdmin with `docker-compose`, you will have to find the name of the virtual network that Docker compose created for the containers.
+If you want to re-run the dockerized ingest script when you run Postgres and pgAdmin with `docker compose`, you will have to find the name of the virtual network that Docker compose created for the containers.
 
 ```bash
 # check the network link:
@@ -92,15 +92,15 @@ docker network ls
 
 # it's pipeline_default (or similar based on directory name)
 # now run the script:
-docker run -it \
+docker run -it --rm\
   --network=pipeline_default \
   taxi_ingest:v001 \
-    --user=root \
-    --password=root \
-    --host=pgdatabase \
-    --port=5432 \
-    --db=ny_taxi \
-    --table=yellow_taxi_trips
+    --pg-user=root \
+    --pg-pass=root \
+    --pg-host=pgdatabase \
+    --pg-port=5432 \
+    --pg-db=ny_taxi \
+    --target-table=yellow_taxi_trips
 ```
 
 **[↑ Up](README.md)** | **[← Previous](08-dockerizing-ingestion.md)** | **[Next →](10-sql-refresher.md)**

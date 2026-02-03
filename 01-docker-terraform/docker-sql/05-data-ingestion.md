@@ -53,7 +53,7 @@ df.shape
 
 ### Handling Data Types
 
-We have a warning:
+We have a warning: (Note that this warning might pop up later for some users, so it's best to follow the instructions below)
 
 ```
 /tmp/ipykernel_25483/2933316018.py:1: DtypeWarning: Columns (6) have mixed types. Specify dtype option on import or set low_memory=False.
@@ -106,14 +106,14 @@ In the Jupyter notebook, we create code to:
 ### Install SQLAlchemy
 
 ```bash
-uv add sqlalchemy psycopg2-binary
+uv add sqlalchemy "psycopg[binary,pool]"
 ```
 
 ### Create Database Connection
 
 ```python
 from sqlalchemy import create_engine
-engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
+engine = create_engine('postgresql+psycopg://root:root@localhost:5432/ny_taxi')
 ```
 
 ### Get DDL Schema
@@ -161,7 +161,9 @@ We don't want to insert all the data at once. Let's do it in batches and use an 
 
 ```python
 df_iter = pd.read_csv(
-    ...
+    prefix + 'yellow_tripdata_2021-01.csv.gz',
+    dtype=dtype,
+    parse_dates=parse_dates,
     iterator=True,
     chunksize=100000
 )
@@ -253,6 +255,8 @@ from tqdm.auto import tqdm
 for df_chunk in tqdm(df_iter):
     ...
 ```
+To see progress in terms of total chunks, you would have to add the `total` argument to `tqdm(df_iter)`. In our scenario, the pragmatic way is 
+to hardcode a value based on the number of entries in the table.
 
 ## Verify the Data
 

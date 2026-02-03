@@ -147,7 +147,7 @@ To start building workflows in Kestra, we need to understand a number of concept
 While there are more concepts used for building powerful workflows, these are the ones we're going to use to build our data pipelines.
 
 The flow [`01_hello_world.yaml`](flows/01_hello_world.yaml) showcases all of these concepts inside of one workflow:
-- The flow has 5 tasks: 2 log tasks and a sleep task
+- The flow has 5 tasks: 3 log tasks and a sleep task
 - The flow takes an input called `name`.
 - There is a variable that takes the `name` input to generate a full welcome message.
 - An output is generated from the return task and is logged in a later log task.
@@ -304,6 +304,10 @@ First, adjust the following flow [`06_gcp_kv.yaml`](flows/06_gcp_kv.yaml) to inc
 #### Create GCP Resources
 
 If you haven't already created the GCS bucket and BigQuery dataset in the first week of the course, you can use this flow to create them: [`07_gcp_setup.yaml`](flows/07_gcp_setup.yaml).
+
+> [!WARNING]  
+> The `GCP_CREDS` service account contains sensitive information. Ensure you keep it secure and do not commit it to Git. Keep it as secure as your passwords.
+
 
 #### Videos
 
@@ -572,19 +576,19 @@ graph LR
 #### Additional AI Resources
 
 Kestra Documentation:
-- [AI Tools Overview](https://kestra.io/docs/ai-tools)
-- [AI Copilot](https://kestra.io/docs/ai-tools/ai-copilot)
-- [RAG Workflows](https://kestra.io/docs/ai-tools/ai-rag-workflows)
-- [AI Workflows](https://kestra.io/docs/ai-tools/ai-workflows)
-- [Kestra Blueprints](https://kestra.io/blueprints) - Pre-built workflow examples
+- [AI Tools Overview](https://go.kestra.io/de-zoomcamp/ai-tools)
+- [AI Copilot](https://go.kestra.io/de-zoomcamp/ai-copilot)
+- [RAG Workflows](https://go.kestra.io/de-zoomcamp/rag-workflows)
+- [AI Workflows](https://go.kestra.io/de-zoomcamp/ai-workflows)
+- [Kestra Blueprints](https://go.kestra.io/de-zoomcamp/blueprints) - Pre-built workflow examples
 
 Kestra Plugin Documentation:
-- [AI Plugin](https://kestra.io/plugins/plugin-ai)
-- [RAG Tasks](https://kestra.io/plugins/plugin-ai/rag)
+- [AI Plugin](https://go.kestra.io/de-zoomcamp/ai-plugin)
+- [RAG Tasks](https://go.kestra.io/de-zoomcamp/ai-rag-task)
 
 External Documentation:
-- [Google Gemini](https://ai.google.dev/docs)
-- [Google AI Studio](https://aistudio.google.com/)
+- [Google Gemini](https://go.kestra.io/de-zoomcamp/gemini-docs)
+- [Google AI Studio](https://go.kestra.io/de-zoomcamp/ai-studio)
 
 #### Videos
 

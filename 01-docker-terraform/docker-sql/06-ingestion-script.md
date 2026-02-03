@@ -53,13 +53,13 @@ The script uses `click` for command-line argument parsing:
 import click
 
 @click.command()
-@click.option('--user', default='root', help='PostgreSQL user')
-@click.option('--password', default='root', help='PostgreSQL password')
-@click.option('--host', default='localhost', help='PostgreSQL host')
-@click.option('--port', default=5432, type=int, help='PostgreSQL port')
-@click.option('--db', default='ny_taxi', help='PostgreSQL database name')
-@click.option('--table', default='yellow_taxi_data', help='Target table name')
-def ingest_data(user, password, host, port, db, table):
+@click.option('--pg-user', default='root', help='PostgreSQL user')
+@click.option('--pg-pass', default='root', help='PostgreSQL password')
+@click.option('--pg-host', default='localhost', help='PostgreSQL host')
+@click.option('--pg-port', default=5432, type=int, help='PostgreSQL port')
+@click.option('--pg-db', default='ny_taxi', help='PostgreSQL database name')
+@click.option('--target-table', default='yellow_taxi_data', help='Target table name')
+def run(pg_user, pg_pass, pg_host, pg_port, pg_db, target_table):
     # Ingestion logic here
     pass
 ```
@@ -72,12 +72,12 @@ Example usage:
 
 ```bash
 uv run python ingest_data.py \
-  --user=root \
-  --password=root \
-  --host=localhost \
-  --port=5432 \
-  --db=ny_taxi \
-  --table=yellow_taxi_trips
+  --pg-user=root \
+  --pg-pass=root \
+  --pg-host=localhost \
+  --pg-port=5432 \
+  --pg-db=ny_taxi \
+  --target-table=yellow_taxi_trips
 ```
 
 **[↑ Up](README.md)** | **[← Previous](05-data-ingestion.md)** | **[Next →](07-pgadmin.md)**

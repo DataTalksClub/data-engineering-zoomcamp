@@ -77,7 +77,7 @@ RUN uv sync --locked
 COPY pipeline.py pipeline.py
 
 # Set entry point
-ENTRYPOINT ["python", "pipeline.py"]
+ENTRYPOINT ["uv", "run", "python", "pipeline.py"]
 ```
 
 **[↑ Up](README.md)** | **[← Previous](02-virtual-environment.md)** | **[Next →](04-postgres-docker.md)**

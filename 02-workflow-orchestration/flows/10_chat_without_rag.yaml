@@ -5,7 +5,7 @@ description: |
   This flow demonstrates what happens when you query an LLM WITHOUT RAG.
   The model can only rely on its training data, which may be outdated or incomplete.
   
-  After running this, check out 07_chat_with_rag.yaml to see how RAG fixes these issues.
+  After running this, check out 11_chat_with_rag.yaml to see how RAG fixes these issues.
 
 tasks:
   - id: chat_without_rag
@@ -32,6 +32,6 @@ tasks:
       - Vague/generic
       - Listing features that haven't been added in exactly this version but rather a long time ago
       
-      👉 This is why context matters. Run `07_chat_with_rag.yaml` to see the accurate, context-grounded response.
+      👉 This is why context matters. Run `11_chat_with_rag.yaml` to see the accurate, context-grounded response.
 
 
