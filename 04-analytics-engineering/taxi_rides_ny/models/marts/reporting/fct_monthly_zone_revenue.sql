@@ -5,7 +5,9 @@
 select
     -- Grouping dimensions
     coalesce(pickup_zone, 'Unknown Zone') as pickup_zone,
-    date_trunc('month', pickup_datetime) as revenue_month,  -- Truncate to first day of month
+    {% if target.type == 'bigquery' %}cast(date_trunc(pickup_datetime, month) as date)
+    {% elif target.type == 'duckdb' %}date_trunc('month', pickup_datetime)
+    {% endif %} as revenue_month,
     service_type,
 
     -- Revenue breakdown (summed by zone, month, and service type)
