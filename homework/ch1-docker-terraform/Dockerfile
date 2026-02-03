@@ -10,4 +10,3 @@ RUN uv sync --locked
 COPY ingest_data_green_taxi_2025_11.py .
 
 ENTRYPOINT ["python", "ingest_data_green_taxi_2025_11.py"]
-

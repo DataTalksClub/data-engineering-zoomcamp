@@ -1,0 +1,14 @@
+[project]
+name = "ch2-orchestration"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.0.0",
+    "pgcli>=4.4.0",
+    "pyarrow>=23.0.0",
+    "requests>=2.32.5",
+    "sqlalchemy>=2.0.46",
+    "tqdm>=4.67.2",
+]
