@@ -18,3 +18,4 @@ serving_dir
 *.csv
 my-google_credentials
 my-creds.json
+**.env_encoded
