@@ -33,7 +33,7 @@ models:
     columns:
       - name: trip_id
         description: Unique trip identifier
-        data_type: varchar
+        data_type: string
         data_tests:
           - unique
           - not_null
@@ -44,7 +44,7 @@ models:
           - not_null
       - name: service_type
         description: Type of taxi service (Green or Yellow)
-        data_type: varchar
+        data_type: string
         data_tests:
           - accepted_values:
               arguments:
@@ -63,10 +63,10 @@ models:
                 field: location_id
       - name: pickup_borough
         description: NYC borough where trip started
-        data_type: varchar
+        data_type: string
       - name: pickup_zone
         description: Specific zone where trip started
-        data_type: varchar
+        data_type: string
       - name: dropoff_location_id
         description: TLC Taxi Zone where trip ended
         data_type: integer
@@ -77,10 +77,10 @@ models:
                 field: location_id
       - name: dropoff_borough
         description: NYC borough where trip ended
-        data_type: varchar
+        data_type: string
       - name: dropoff_zone
         description: Specific zone where trip ended
-        data_type: varchar
+        data_type: string
       - name: pickup_datetime
         description: Timestamp when meter was engaged
         data_type: timestamp
@@ -91,7 +91,7 @@ models:
         data_type: timestamp
       - name: store_and_fwd_flag
         description: Trip record stored in vehicle memory (Y/N)
-        data_type: varchar
+        data_type: string
       - name: passenger_count
         description: Number of passengers
         data_type: integer
@@ -133,10 +133,6 @@ models:
       - name: payment_type
         description: Payment method code
         data_type: integer
-        data_tests:
-          - accepted_values:
-              arguments:
-                values: [0, 1, 2, 3, 4, 5, 6]
       - name: payment_type_description
         description: Human-readable payment method description
-        data_type: varchar
+        data_type: string

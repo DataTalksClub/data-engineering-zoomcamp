@@ -117,10 +117,7 @@ What is the count of records in `stg_fhv_tripdata`?
 
 - Form for submitting: <https://courses.datatalks.club/de-zoomcamp-2026/homework/hw4>
 
-## Solution
-
-- Video: To be published after deadline
-
+=======
 
 ## Learning in Public
 

@@ -37,7 +37,7 @@ yellow_trips as (
         store_and_fwd_flag,
         passenger_count,
         trip_distance,
-        1 as trip_type,  -- Yellow taxis only do street-hail (code 1)
+        cast(1 as integer) as trip_type,  -- Yellow taxis only do street-hail (code 1)
         fare_amount,
         extra,
         mta_tax,

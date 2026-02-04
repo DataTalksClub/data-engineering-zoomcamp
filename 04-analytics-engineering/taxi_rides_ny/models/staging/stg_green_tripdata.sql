@@ -6,7 +6,7 @@ renamed as (
     select
         -- identifiers
         cast(vendorid as integer) as vendor_id,
-        cast(ratecodeid as integer) as rate_code_id,
+        {{ safe_cast('ratecodeid', 'integer') }} as rate_code_id,
         cast(pulocationid as integer) as pickup_location_id,
         cast(dolocationid as integer) as dropoff_location_id,
 
@@ -15,10 +15,10 @@ renamed as (
         cast(lpep_dropoff_datetime as timestamp) as dropoff_datetime,
 
         -- trip info
-        store_and_fwd_flag,
+        cast(store_and_fwd_flag as string) as store_and_fwd_flag,
         cast(passenger_count as integer) as passenger_count,
         cast(trip_distance as numeric) as trip_distance,
-        cast(trip_type as integer) as trip_type,
+        {{ safe_cast('trip_type', 'integer') }} as trip_type,
 
         -- payment info
         cast(fare_amount as numeric) as fare_amount,
@@ -29,8 +29,7 @@ renamed as (
         cast(ehail_fee as numeric) as ehail_fee,
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(total_amount as numeric) as total_amount,
-        cast(payment_type as integer) as payment_type
-
+        {{ safe_cast('payment_type', 'integer') }} as payment_type
     from source
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
