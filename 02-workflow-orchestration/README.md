@@ -227,8 +227,9 @@ graph LR
   YellowCopyIn --> YellowMerge[Merge Yellow Data]:::yellow
   GreenCopyIn --> GreenMerge[Merge Green Data]:::green
 
-  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px;
-  classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
+  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px,color:#000;
+  classDef green fill:#32CD32,stroke:#000,stroke-width:1px,color:#000;
+
 ```
 
 The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
