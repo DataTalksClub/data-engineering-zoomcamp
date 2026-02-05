@@ -337,8 +337,8 @@ graph LR
   BQYellowMerge --> PurgeFiles[Purge Files]
   BQGreenMerge --> PurgeFiles[Purge Files]
 
-  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px;
-  classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
+  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px,color:#000
+  classDef green fill:#32CD32,stroke:#000,stroke-width:1px,color:#000
 ```
 
 The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
