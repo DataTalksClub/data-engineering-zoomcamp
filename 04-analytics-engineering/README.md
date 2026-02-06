@@ -55,10 +55,6 @@ Choose your setup path:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/auzcdLRyEIk)](https://www.youtube.com/watch?v=auzcdLRyEIk)
 
-### Differences between dbt Core and dbt Cloud
-
-[![](https://markdown-videos-api.jorgenkh.no/youtube/auzcdLRyEIk)](https://www.youtube.com/auzcdLRyEIk)
-
 ### Project Setup
 
 | Alternative A  | Alternative B   |
