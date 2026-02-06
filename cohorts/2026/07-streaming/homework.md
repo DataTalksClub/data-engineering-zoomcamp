@@ -20,10 +20,10 @@ We need:
 - Flink Task Manager
 - Postgres
 
-It's the same setup as in the [pyflink module](../../../06-streaming/pyflink/), so go there and start docker-compose:
+It's the same setup as in the [pyflink module](../../../07-streaming/pyflink/), so go there and start docker-compose:
 
 ```bash
-cd ../../../06-streaming/pyflink/
+cd ../../../07-streaming/pyflink/
 docker-compose up
 ```
 
@@ -183,4 +183,48 @@ Now we have the data in the Kafka stream. It's time to process it.
 
 - Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw6
 - Deadline: See the website
+
+
+## Learning in Public
+
+We encourage everyone to share what they learned. This is called "learning in public".
+
+Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
+
+### Example post for LinkedIn
+
+```
+🚀 Week 6 of Data Engineering Zoomcamp by @DataTalksClub complete!
+
+Just finished Module 6 - Streaming with PyFlink. Learned how to:
+
+✅ Set up Redpanda as a Kafka replacement
+✅ Build streaming data pipelines
+✅ Create topics and produce/consume messages
+✅ Implement sessionization windows
+✅ Process real-time taxi trip data
+
+Streaming data in real-time - the future of data engineering!
+
+Here's my homework solution: <LINK>
+
+Following along with this amazing free course - who else is learning data engineering?
+
+You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
+
+### Example post for Twitter/X
+
+```
+🌊 Module 6 of Data Engineering Zoomcamp done!
+
+- Streaming with PyFlink
+- Redpanda & Kafka concepts
+- Sessionization windows
+- Real-time data processing
+
+My solution: <LINK>
+
+Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
+```
 

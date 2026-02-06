@@ -21,6 +21,10 @@
 * Workshop with dlt
 * [Homework](workshops/dlt/README.md)
 
+[**Workshop 2: AI-Assisted Data Ingestion with dlt**](workshops/dlt.md)
+
+* [Workshop details and registration](workshops/dlt.md)
+
 
 [**Module 3: Data Warehouse**](03-data-warehouse)
 
@@ -32,14 +36,19 @@
 * [Homework](04-analytics-engineering/homework.md)
 
 
-[**Module 5: Batch processing**](05-batch/)
+[**Module 5: Data Platforms**](05-data-platforms/)
 
-* [Homework](05-batch/homework.md)
+* [Homework](05-data-platforms/homework.md)
 
 
-[**Module 6: Stream Processing**](06-streaming)
+[**Module 6: Batch processing**](06-batch/)
 
-* [Homework](06-streaming/homework.md)
+* [Homework](06-batch/homework.md)
+
+
+[**Module 7: Stream Processing**](07-streaming)
+
+* [Homework](07-streaming/homework.md)
 
 
 [**Project**](project.md)

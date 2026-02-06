@@ -33,7 +33,7 @@ To run this repo, the following components will need to be installed:
 Make sure you're in the `pyflick` folder:
 
 ```bash
-cd 06-streaming/pyflink
+cd 07-streaming/pyflink
 ```
 
 ## :boom: Running the pipeline

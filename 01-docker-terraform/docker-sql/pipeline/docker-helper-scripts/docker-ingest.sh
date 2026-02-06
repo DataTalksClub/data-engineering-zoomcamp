@@ -8,10 +8,10 @@ docker run -it --rm \
   taxi_ingest:v001 \
   --year=2021 \
   --month=1 \
-  --pg_user=root \
-  --pg_password=root \
-  --pg_host=pgdatabase \
-  --pg_port=5432 \
-  --pg_db=ny_taxi \
-  --chunk_size=100000 \
-  --target_table=yellow_taxi_trips
+  --pg-user=root \
+  --pg-pass=root \
+  --pg-host=pgdatabase \
+  --pg-port=5432 \
+  --pg-db=ny_taxi \
+  --chunksize=100000 \
+  --target-table=yellow_taxi_trips

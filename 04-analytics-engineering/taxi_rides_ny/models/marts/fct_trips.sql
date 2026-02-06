@@ -2,8 +2,8 @@
   config(
     materialized='incremental',
     unique_key='trip_id',
-    on_schema_change='fail'
-  )
+    incremental_strategy='merge',
+    on_schema_change='append_new_columns'  )
 }}
 
 -- Fact table containing all taxi trips enriched with zone information

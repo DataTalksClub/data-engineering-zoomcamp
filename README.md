@@ -59,7 +59,7 @@ No prior data engineering experience is necessary.
 - Workflow orchestration with Kestra
 - Homework
 
-#### [Workshop 1: Data Ingestion](cohorts/2025/workshops/dlt/README.md)
+#### [Workshop 1: Data Ingestion](cohorts/2026/workshops/dlt.md)
 - API reading and pipeline scalability
 - Data normalization and incremental loading
 - Homework
@@ -74,12 +74,17 @@ No prior data engineering experience is necessary.
 - dbt (data build tool) with DuckDB & BigQuery
 - Testing, documentation, and deployment
 
-#### [Module 5: Batch Processing](05-batch/)
+#### [Module 5: Data Platforms](05-data-platforms/)
+- Building end-to-end data pipelines with Bruin
+- Data ingestion, transformation, and quality
+- Deployment to cloud (BigQuery)
+
+#### [Module 6: Batch Processing](06-batch/)
 - Introduction to Apache Spark
 - DataFrames and SQL
 - Internals of GroupBy and Joins
 
-#### [Module 6: Streaming](06-streaming/)
+#### [Module 7: Streaming](07-streaming/)
 - Introduction to Kafka
 - Kafka Streams and KSQL
 - Schema management with Avro
@@ -125,7 +130,6 @@ To keep discussions organized:
 - [Will Russell](https://www.linkedin.com/in/wrussell1999/)
 - [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
 - [Juan Manuel Perafan](https://www.linkedin.com/in/jmperafan/)
-- [Diana Gromakovskaia](https://www.linkedin.com/in/diana-gromakovskaia/)
 
 Past instructors:
 

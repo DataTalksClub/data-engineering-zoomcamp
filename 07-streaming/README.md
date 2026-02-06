@@ -1,15 +1,15 @@
-# Module 6: Stream Processing
+# Module 7: Stream Processing
 
 ## Practical part: PyFlink
 
-In this video, we show how to use PyFlink to consume data 
+In this video, we show how to use PyFlink to consume data
 from a Kafka stream
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/P2loELMUUeI)](https://youtu.be/P2loELMUUeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=51)
 
 
 * Code: [PyFlink examples](pyflink/)
-* [2026 Homework](../cohorts/2026/06-streaming/homework.md)
+* [2026 Homework](../cohorts/2026/07-streaming/homework.md)
 
 
 ## Theoretical part: Kafka + Java (optional)
@@ -21,12 +21,12 @@ Code: [Java examples](java/)
 
 ### Stream processing
 
-- [:movie_camera: 6.0.1 Introduction](https://youtu.be/hfvju3iOIP0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=67)
-- [:movie_camera: 6.0.2 What is stream processing](https://youtu.be/WxTxKGcfA-k&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=68)
-- [:movie_camera: 6.3  What is kafka?](https://youtu.be/zPLZUDPi4AY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=69)
-- [:movie_camera: 6.4 Confluent cloud](https://youtu.be/ZnEZFEYKppw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=70)
-- [:movie_camera: 6.5 Kafka producer consumer](https://youtu.be/aegTuyxX7Yg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=71)
-- [:movie_camera: 6.6 Kafka configuration](https://youtu.be/SXQtWyRpMKs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=72)
+- [:movie_camera: 7.0.1 Introduction](https://youtu.be/hfvju3iOIP0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=67)
+- [:movie_camera: 7.0.2 What is stream processing](https://youtu.be/WxTxKGcfA-k&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=68)
+- [:movie_camera: 7.3  What is kafka?](https://youtu.be/zPLZUDPi4AY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=69)
+- [:movie_camera: 7.4 Confluent cloud](https://youtu.be/ZnEZFEYKppw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=70)
+- [:movie_camera: 7.5 Kafka producer consumer](https://youtu.be/aegTuyxX7Yg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=71)
+- [:movie_camera: 7.6 Kafka configuration](https://youtu.be/SXQtWyRpMKs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=72)
 
 Links:
 
@@ -36,12 +36,12 @@ Links:
 
 ### Kafka Streams
 
-- [:movie_camera: 6.7 Kafka stream basics](https://youtu.be/dUyA_63eRb0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=73)
-- [:movie_camera: 6.8 Kafka stream join](https://youtu.be/NcpKlujh34Y&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=74)
-- [:movie_camera: 6.9 Kafka stream testing](https://youtu.be/TNx5rmLY8Pk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=75)
-- [:movie_camera: 6.10 Kafka stream windowing](https://youtu.be/r1OuLdwxbRc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=76)
-- [:movie_camera: 6.11 Kafka ksqldb & Connect](https://youtu.be/DziQ4a4tn9Y&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=77)
-- [:movie_camera: 6.12 Kafka Schema registry](https://youtu.be/tBY_hBuyzwI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=78)
+- [:movie_camera: 7. Kafka stream basics](https://youtu.be/dUyA_63eRb0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=73)
+- [:movie_camera: 7. Kafka stream join](https://youtu.be/NcpKlujh34Y&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=74)
+- [:movie_camera: 7. Kafka stream testing](https://youtu.be/TNx5rmLY8Pk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=75)
+- [:movie_camera: 7.0 Kafka stream windowing](https://youtu.be/r1OuLdwxbRc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=76)
+- [:movie_camera: 7.1 Kafka ksqldb & Connect](https://youtu.be/DziQ4a4tn9Y&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=77)
+- [:movie_camera: 7.2 Kafka Schema registry](https://youtu.be/tBY_hBuyzwI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=78)
 
 Links:
 
@@ -55,8 +55,8 @@ Code: [Python examples](python/)
 
 Please follow the steps described under [pyspark-streaming](python/streams-example/pyspark/README.md)
 
-- [:movie_camera: 6.13 Kafka Streaming with Python](https://youtu.be/BgAlVknDFlQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=79)
-- [:movie_camera: 6.14 Pyspark Structured Streaming](https://youtu.be/VIVr7KwRQmE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=80)
+- [:movie_camera: 7.3 Kafka Streaming with Python](https://youtu.be/BgAlVknDFlQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=79)
+- [:movie_camera: 7.4 Pyspark Structured Streaming](https://youtu.be/VIVr7KwRQmE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=80)
 
 
 ## Other streaming resources
