@@ -1,48 +1,55 @@
-Data Engineering Zoomcamp 2026 - Week 2 Homework
+Data Engineering Zoomcamp 2026 - Week 3 Homework
 
-Setup
+Commands used: 
+gcloud storage cp yellow_tripdata_2024-*.parquet gs://de-zoomcamp-module3-bucket/
+gcloud storage ls gs://de-zoomcamp-module3-bucket/
 
-This project uses Docker Compose to run:
-	•	Postgres (NY Taxi data)
-	•	PgAdmin
-	•	Kestra (workflow orchestration)
+Queries used: 
+-- SELECT COUNT(distinct PULocationID) FROM `zoomcamp.yellow_tripdata_non_partitioned`
 
-How to run
+-- CREATE OR REPLACE EXTERNAL TABLE `de-engineering-zoomcamp-486403.zoomcamp.yellow_taxi_external`
+-- OPTIONS (
+--   format = 'PARQUET',
+--   uris = ['gs://de-zoomcamp-module3-bucket/yellow_tripdata_2024-*.parquet']
+-- );
 
-docker compose up -d
+-- CREATE OR REPLACE TABLE de-engineering-zoomcamp-486403.zoomcamp.yellow_tripdata_non_partitioned AS
+-- SELECT * FROM de-engineering-zoomcamp-486403.zoomcamp.yellow_taxi_external;
 
-Services:
-	•	Postgres: localhost:5432
-	•	PgAdmin: http://localhost:8085
-	•	Kestra UI: http://localhost:8080
+-- select count(*) from de-engineering-zoomcamp-486403.zoomcamp.yellow_tripdata_non_partitioned;
 
-Pipelines
+-- SELECT COUNT(distinct PULocationID) FROM `zoomcamp.yellow_taxi_external`
 
-Implemented Kestra flows:
-	•	04_postgres_taxi, manual ingestion for a single taxi / year / month
-	•	12_postgres_taxi_backfill, backfill flow looping over taxi type and Year-Month combinations (2020 Yellow, 2021 March)
+-- SELECT 'external' AS table_name, COUNT(DISTINCT PULocationID) AS dist_pu_loc
+-- FROM
+--   zoomcamp.yellow_taxi_external
+-- UNION ALL
+-- SELECT
+--   'non_partitioned' AS table_name, COUNT(DISTINCT PULocationID) AS dist_pu_loc
+-- FROM
+--   `zoomcamp.yellow_tripdata_non_partitioned`
 
-Flows:
-	•	Download CSVs from DataTalksClub NYC TLC releases
-	•	Load into Postgres using staging tables + MERGE
-	•	Generate deterministic unique_row_id
-	•	Cleanup execution files after ingestion
+-- select PULocationID, DOLocationID from `zoomcamp.yellow_tripdata_non_partitioned`;
 
-Data validation
+-- select count(*) from `zoomcamp.yellow_tripdata_non_partitioned` where fare_amount = 0;
 
-Row counts verified directly in Postgres using SQL:
+-- create table zoomcamp.yellow_tripdata_optimized
+-- partition by date(tpep_dropoff_datetime)
+-- cluster by vendorID as
+-- select * from `zoomcamp.yellow_tripdata_non_partitioned`
 
-SELECT COUNT(*) FROM yellow_tripdata;
-SELECT COUNT(*) FROM green_tripdata;
+-- SELECT vendorID
+-- FROM `zoomcamp.yellow_tripdata_non_partitioned`
+-- WHERE
+--   tpep_dropoff_datetime >= timestamp('2024-03-01')
+--   AND tpep_dropoff_datetime < timestamp('2024-03-16')
 
-Homework answers
-	•	Terraform workflow: terraform init → terraform apply -auto-approve → terraform destroy
-	•	Yellow Taxi 2020 rows: 24,648,499
-	•	Green Taxi 2020 rows: 1,734,051
-	•	Yellow Taxi March 2021 rows: 1,925,152
-	•	Kestra Schedule timezone: America/New_York
+-- SELECT vendorID
+-- FROM `zoomcamp.yellow_tripdata_optimized`
+-- WHERE
+--   tpep_dropoff_datetime >= timestamp('2024-03-01')
+--   AND tpep_dropoff_datetime < timestamp('2024-03-16')
 
-Notes
-	•	CSV files are handled ephemerally by Kestra and uploaded to internal storage.
-	•	Postgres tables are treated as the source of truth for validation.
-	•	Secrets (GCP credentials) are injected via Docker environment variables and excluded from git.
+-- Select count(*) from `zoomcamp.yellow_tripdata_optimized`;
+
+SELECT COUNT(*) FROM `zoomcamp.yellow_tripdata_non_partitioned`;
