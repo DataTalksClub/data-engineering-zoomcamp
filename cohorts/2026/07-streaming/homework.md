@@ -20,10 +20,10 @@ We need:
 - Flink Task Manager
 - Postgres
 
-It's the same setup as in the [pyflink module](../../../06-streaming/pyflink/), so go there and start docker-compose:
+It's the same setup as in the [pyflink module](../../../07-streaming/pyflink/), so go there and start docker-compose:
 
 ```bash
-cd ../../../06-streaming/pyflink/
+cd ../../../07-streaming/pyflink/
 docker-compose up
 ```
 

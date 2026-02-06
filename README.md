@@ -74,12 +74,17 @@ No prior data engineering experience is necessary.
 - dbt (data build tool) with DuckDB & BigQuery
 - Testing, documentation, and deployment
 
-#### [Module 5: Batch Processing](05-batch/)
+#### [Module 5: Data Platforms](05-data-platforms/)
+- Building end-to-end data pipelines with Bruin
+- Data ingestion, transformation, and quality
+- Deployment to cloud (BigQuery)
+
+#### [Module 6: Batch Processing](06-batch/)
 - Introduction to Apache Spark
 - DataFrames and SQL
 - Internals of GroupBy and Joins
 
-#### [Module 6: Streaming](06-streaming/)
+#### [Module 7: Streaming](07-streaming/)
 - Introduction to Kafka
 - Kafka Streams and KSQL
 - Schema management with Avro

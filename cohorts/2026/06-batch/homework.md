@@ -1,4 +1,4 @@
-# [DRAFT] Module 5 Homework
+# [DRAFT] Module 6 Homework
 
 In this homework we'll put what we learned about Spark in practice.
 
@@ -19,7 +19,7 @@ wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-10.par
 What's the output?
 
 > [!NOTE]
-> To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/05-batch/setup/pyspark.md)
+> To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/setup/pyspark.md)
 
 
 ## Question 2: Yellow October 2024
