@@ -45,6 +45,7 @@ columns:
       - accepted_values:
           arguments:
             values: [1, 2, 3, 4, 5]
+            quote: false
 ```
 
 Your model `fct_trips` has been running successfully for months. A new value `6` now appears in the source data.
