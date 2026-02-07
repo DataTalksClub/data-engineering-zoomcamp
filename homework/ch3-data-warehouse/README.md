@@ -119,6 +119,7 @@ Choose the answer which most closely matches.</br>
 - 5.87 MB for non-partitioned table and 0 MB for the partitioned table
 - 310.31 MB for non-partitioned table and 285.64 MB for the partitioned table
 
+Answer: 310.24 MB for non-partitioned table and 26.84 MB for the partitioned table
 
 ## Question 7: 
 Where is the data stored in the External Table you created?
@@ -140,7 +141,7 @@ Answer: False
 ## (Bonus: Not worth points) Question 9:
 No Points: Write a `SELECT count(*)` query FROM the materialized table you created. How many bytes does it estimate will be read? Why?
 
-
+Answer: Estimated data processed is 2.72 GB. It is huge because the materialized table is not partitioned and clustered. Then, the reason why it is so big to process is that I am calling all columns. BigQuery is columnar based and serverless database system, so, more columns I call, more data it is processed, and more costs emerge.
 
 ## Submitting the solutions
 
