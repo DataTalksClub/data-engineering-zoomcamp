@@ -67,7 +67,7 @@ What is the count of records in the `fct_monthly_zone_revenue` model?
 
 - 12,998
 - 14,120
-- 12,184
+- 11,812
 - 15,421
 
 ---
