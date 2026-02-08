@@ -130,6 +130,7 @@ To keep discussions organized:
 - [Will Russell](https://www.linkedin.com/in/wrussell1999/)
 - [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
 - [Juan Manuel Perafan](https://www.linkedin.com/in/jmperafan/)
+- [Arsalan Noorafkan](https://www.linkedin.com/in/arsalan0/)
 
 Past instructors:
 

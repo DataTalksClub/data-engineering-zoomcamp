@@ -16,7 +16,7 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.gcp
     values:
-      serviceAccount: "{{kv('GCP_CREDS')}}"
+      serviceAccount: "{{secret('GCP_CREDS')}}"
       projectId: "{{kv('GCP_PROJECT_ID')}}"
       location: "{{kv('GCP_LOCATION')}}"
       bucket: "{{kv('GCP_BUCKET_NAME')}}"
