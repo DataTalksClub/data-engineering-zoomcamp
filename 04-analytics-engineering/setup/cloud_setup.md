@@ -78,14 +78,23 @@ The downloaded JSON file will look something like this:
 
 You'll use this JSON file in Step 4 to connect dbt Cloud to BigQuery.
 
-### Verify Your Data from Module 3
+### Load the Taxi Data
+
+This module uses **yellow and green taxi data for 2019-2020**, which is different from the data you loaded in Module 3. Using the same approach you learned in Module 3, load the following data into your BigQuery `nytaxi` dataset:
+
+- **Yellow taxi trip records** for all months of 2019 and 2020
+- **Green taxi trip records** for all months of 2019 and 2020
+
+Parquet files are available from the [NYC TLC trip data page](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+
+After loading, verify your data:
 
 1. Go to [BigQuery Console](https://console.cloud.google.com/bigquery)
 2. In the Explorer panel on the left, expand your project
-3. You should see the `nytaxi` dataset from Module 3
-4. Expand the `nytaxi` dataset - you should see tables like:
-   - `yellow_tripdata` or `yellow_tripdata_partitioned`
-   - `green_tripdata` or `green_tripdata_partitioned` (if you completed the homework)
+3. You should see the `nytaxi` dataset
+4. Expand the `nytaxi` dataset - you should see tables:
+   - `green_tripdata`
+   - `yellow_tripdata`
 
 ### Note Your Dataset Location
 
