@@ -35,8 +35,11 @@ renamed as (
 )
 
 select * from renamed
-
+where
 -- Sample records for dev environment using deterministic date filter
 {% if target.name == 'dev' %}
-where pickup_datetime >= '2019-01-01' and pickup_datetime < '2019-02-01'
+    pickup_datetime >= '2019-01-01' and pickup_datetime < '2019-02-01'
+    {% else %}
+    -- Filters out records outside of the reporting period
+    pickup_datetime >= '2019-01-01' and pickup_datetime <= '2020-12-31'
 {% endif %}
