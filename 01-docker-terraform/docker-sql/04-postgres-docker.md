@@ -4,7 +4,7 @@
 
 Now we want to do real data engineering. Let's use a Postgres database for that.
 
-You can run a containerized version of Postgres that doesn't require any installation steps. You only need to provide a few _environment variables_ to it as well as a _volume_ for storing data.
+You can run a containerized version of Postgres that doesn't require any installation steps. You only need to provide a few *environment variables* to it as well as a *volume* for storing data.
 
 ## Running PostgreSQL in a Container
 
@@ -15,7 +15,7 @@ docker run -it --rm \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v ny_taxi_postgres_data:/var/lib/postgresql \
+  -v ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:18
 ```
@@ -23,7 +23,8 @@ docker run -it --rm \
 ### Explanation of Parameters
 
 * `-e` sets environment variables (user, password, database name)
-* `-v ny_taxi_postgres_data:/var/lib/postgresql` creates a **named volume**
+* `-v ny_taxi_postgres_data:/var/lib/postgresql/data` creates a **named volume**
+
   * Docker manages this volume automatically
   * Data persists even after container is removed
   * Volume is stored in Docker's internal storage
@@ -41,7 +42,7 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:18
 ```
@@ -98,5 +99,6 @@ SELECT * FROM test;
 -- Exit
 \q
 ```
+
 
 **[↑ Up](README.md)** | **[← Previous](03-dockerizing-pipeline.md)** | **[Next →](05-data-ingestion.md)**
