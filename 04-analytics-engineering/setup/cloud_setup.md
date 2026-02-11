@@ -85,7 +85,8 @@ This module uses **yellow and green taxi data for 2019-2020**, which is differen
 - **Yellow taxi trip records** for all months of 2019 and 2020
 - **Green taxi trip records** for all months of 2019 and 2020
 
-Parquet files are available from the [NYC TLC trip data page](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
+> [!IMPORTANT]
+> Download the data from the [DataTalksClub NYC TLC Data repository](https://github.com/DataTalksClub/nyc-tlc-data/releases), **not** from the official NYC TLC website. The official site has been retroactively updated over the years, so its data differs from what the homework answers are based on.
 
 After loading, verify your data:
 
