@@ -3,7 +3,7 @@
 target/
 dbt_packages/
 logs/
-profiles.yml
+profiles.yml 
 .user.yml
 
 # Data files for DuckDB
@@ -90,3 +90,4 @@ google-*.json
 .env.local
 .env.*.local
 *.env
+dbt_internal_packages/
