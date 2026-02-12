@@ -14,13 +14,7 @@ For this homework, build a dlt pipeline that loads NYC taxi trip data from a cus
 
 ## Data Source
 
-You'll be working with **NYC Yellow Taxi trip data** from a custom API (not available as a dlt scaffold). This dataset contains records of individual taxi trips in New York City, including:
-
-- Pickup and dropoff timestamps
-- Trip distance
-- Fare amount and payment type
-- Tip amount
-- Passenger count
+You'll be working with **NYC Yellow Taxi trip data** from a custom API (not available as a dlt scaffold). This dataset contains records of individual taxi trips in New York City.
 
 | Property | Value |
 |----------|-------|
