@@ -8,6 +8,14 @@ Build a dlt pipeline that loads NYC taxi trip data from a custom API into DuckDB
 
 ## Data Source
 
+You'll be working with **NYC Yellow Taxi trip data** from a custom API (not available as a dlt scaffold). This dataset contains records of individual taxi trips in New York City, including:
+
+- Pickup and dropoff timestamps
+- Trip distance
+- Fare amount and payment type
+- Tip amount
+- Passenger count
+
 | Property | Value |
 |----------|-------|
 | Base URL | `https://us-central1-dlthub-analytics.cloudfunctions.net/data_engineering_zoomcamp_api` |
@@ -19,7 +27,9 @@ Build a dlt pipeline that loads NYC taxi trip data from a custom API into DuckDB
 
 Since this API is custom (not one of the scaffolds in dlt workspace), the setup is slightly different.
 
-### Step 1: Create a New Project
+### Step 1: Create a New Project (or Reuse Your Demo Project)
+
+If you already created a project folder while following along with the workshop demo, you can reuse that folder. Otherwise, create a new one:
 
 ```bash
 mkdir taxi-pipeline
@@ -30,7 +40,9 @@ Open this folder in Cursor (or your preferred agentic IDE).
 
 ### Step 2: Set Up the dlt MCP Server (If Not Already Done)
 
-Create a file at `.cursor/mcp.json` with the following contents:
+In Cursor, go to **Settings → Tools & MCP → New MCP Server**. This will open (or create) the `.cursor/mcp.json` file.
+
+Add the following configuration:
 
 ```json
 {
