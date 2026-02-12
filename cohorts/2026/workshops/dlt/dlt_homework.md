@@ -16,6 +16,7 @@ For this homework, build a dlt pipeline that loads NYC taxi trip data from a cus
 
 You'll be working with **NYC Yellow Taxi trip data** from a custom API (not available as a dlt scaffold). This dataset contains records of individual taxi trips in New York City.
 
+
 | Property | Value |
 |----------|-------|
 | Base URL | `https://us-central1-dlthub-analytics.cloudfunctions.net/data_engineering_zoomcamp_api` |
@@ -142,6 +143,7 @@ We challenge you to try out the different methods explored in the workshop when 
 - $6,063.41
 - $8,063.41
 - $10,063.41
+
 
 ### Resources
 
