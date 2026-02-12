@@ -23,7 +23,9 @@ Before the workshop, make sure you have the following set up:
 
 ### 1. Understand What dlt Does (Recommended for Beginners)
 
-If you're unfamiliar with dlt and what the library does, we recommend reading through the included Jupyter notebook (`dlt_Pipeline_Overview.ipynb`) before the workshop.
+If you're unfamiliar with dlt and what the library does, we recommend reading through the included Jupyter notebook before the workshop.
+
+**[Open the notebook in Google Colab](https://colab.research.google.com/github/anair123/data-engineering-zoomcamp/blob/workshop/dlt_2026/cohorts/2026/workshops/dlt/dlt_Pipeline_Overview.ipynb)**
 
 It walks through dlt step by step:
 
@@ -31,14 +33,7 @@ It walks through dlt step by step:
 - How data moves through Extract, Normalize, and Load
 - How to inspect the loaded data
 
-Understanding these concepts will help you know what the agent-generated code is actually doing. To view the notebook, clone the repository:
-
-```bash
-git clone https://github.com/anair123/data-engineering-zoomcamp.git
-cd data-engineering-zoomcamp/cohorts/2026/workshops/dlt
-```
-
-Then open `dlt_Pipeline_Overview.ipynb` in Jupyter or your IDE.
+Understanding these concepts will help you know what the agent-generated code is actually doing.
 
 > You do not need to clone the repo to follow the workshop. The `dlt init` command scaffolds everything you need.
 
