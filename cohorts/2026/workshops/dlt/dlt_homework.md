@@ -4,17 +4,11 @@ You've seen how to build a pipeline with a scaffolded source. Now it's your turn
 
 ## The Challenge
 
-Build a dlt pipeline that loads NYC taxi trip data from a custom API into DuckDB.
+For this homework, build a dlt pipeline that loads NYC taxi trip data from a custom API into DuckDB and then answer some questions using the loaded data
 
 ## Data Source
 
-You'll be working with **NYC Yellow Taxi trip data** from a custom API (not available as a dlt scaffold). This dataset contains records of individual taxi trips in New York City, including:
-
-- Pickup and dropoff timestamps
-- Trip distance
-- Fare amount and payment type
-- Tip amount
-- Passenger count
+You'll be working with **NYC Yellow Taxi trip data** from a custom API (not available as a dlt scaffold). This dataset contains records of individual taxi trips in New York City.
 
 | Property | Value |
 |----------|-------|
@@ -124,8 +118,6 @@ Once your pipeline has run successfully, use the methods covered in the workshop
 
 1. What is the start date and end date of the dataset?
 2. What proportion of trips are paid with credit card?
-3. How long in duration is the average trip?
-4. How long in distance is the average trip?
 5. What is the total amount of money generated in tips?
 
 We challenge you to try out the different methods explored in the workshop when answering these questions to see what works best for you. Feel free to share your thoughts on what worked (or didn't) in your submission!
