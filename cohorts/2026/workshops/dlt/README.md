@@ -82,7 +82,9 @@ cd my-dlt-pipeline
 
 ### Step 2: Add the dlt MCP Server Config
 
-For Cursor, create a file at `.cursor/mcp.json` in your project folder with the following contents:
+In Cursor, go to **Settings → Tools & MCP → New MCP Server**. This will open (or create) the `.cursor/mcp.json` file.
+
+Add the following configuration:
 
 ```json
 {
