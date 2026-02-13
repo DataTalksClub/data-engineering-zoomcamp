@@ -12,63 +12,46 @@ We'll use [Bruin](https://getbruin.com/) as an example of a data platform. Bruin
 - Data quality (built-in checks and validation)
 - Metadata management (lineage, documentation)
 
-## Getting Started with Bruin
-
-### Installation
-
-```bash
-curl -LsSf https://getbruin.com/install/cli | sh
-bruin version
-```
-
-### Initialize a Project
-
-```bash
-bruin init zoomcamp my-pipeline
-cd my-pipeline
-```
-
-### Key Concepts
-
-- Asset: Any data artifact (table, view, file, ML model, etc.)
-- Pipeline: A group of assets executed together in dependency order
-- Environment: Named connection configs (e.g., `default`, `production`)
-- Connection: Credentials for data sources and destinations
-
 ## Tutorial
 
 Follow the complete hands-on tutorial at:
 
 [Bruin Data Engineering Zoomcamp Template](https://github.com/bruin-data/bruin/tree/main/templates/zoomcamp)
 
-This tutorial guides you through building a complete NYC Taxi data pipeline from scratch, including:
-- Setting up a Bruin project
-- Building ingestion, staging, and reporting layers
-- Adding data quality checks
-- Using AI assistance (Bruin MCP)
-- Deploying to BigQuery
+## Videos
+
+### :movie_camera: 5.1 - Introduction to Bruin
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/f6vg7lGqZx0)](https://youtu.be/f6vg7lGqZx0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=1)
+
+Introduction to the Bruin data platform: what it is, what a modern data stack looks like (ETL/ELT, orchestration, data quality), and how Bruin brings all of these together into a single project.
+
+- [Notes](notes/01-introduction.md)
+
+
+### :movie_camera: 5.2 - Getting Started with Bruin
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/JJwHKSidX_c)](https://youtu.be/JJwHKSidX_c&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+
+Install Bruin, set up the VS Code/Cursor extension and Bruin MCP, and create a first project using `bruin init`. Walk through environments, connections (DuckDB, Chess.com), pipeline YAML configuration, and running Python, YAML ingestor, and SQL assets.
+
+- [Notes](notes/02-getting-started.md)
+
+
+### :movie_camera: 5.3 - Building an End-to-End Pipeline with NYC Taxi Data
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/q0k_iz9kWsI)](https://youtu.be/q0k_iz9kWsI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
+
+Build a full pipeline with a three-layered architecture (ingestion, staging, reports) using NYC taxi data and DuckDB.
+
+- [Notes](notes/03-nyc-taxi-pipeline.md)
+
 
 ## Resources
 
 - [Bruin Documentation](https://getbruin.com/docs)
 - [Bruin GitHub Repository](https://github.com/bruin-data/bruin)
 - [Bruin MCP (AI Integration)](https://getbruin.com/docs/bruin/getting-started/bruin-mcp)
-
-## Quick Commands
-
-```bash
-# Validate pipeline structure
-bruin validate ./pipeline/pipeline.yml
-
-# Run pipeline
-bruin run ./pipeline/pipeline.yml --full-refresh
-
-# View lineage
-bruin lineage ./pipeline/pipeline.yml
-
-# Query data
-bruin query --connection duckdb-default --query "SELECT * FROM ingestion.trips LIMIT 10"
-```
 
 # Homework
 
