@@ -89,9 +89,9 @@ The Zoomcamp gives you two options, and the videos will alternate between them (
 
 This is the path most of the videos will follow. It's the fastest way to get started and closest to how teams actually use dbt in production.
 
-### Option B: Postgres + dbt Core
+### Option B: DuckDB + dbt Core
 
-- Data warehouse: Postgres (local or however you've got it set up)
+- Data warehouse: DuckDB (local or however you've got it set up)
 - dbt: dbt Core installed locally
 - Dev environment: your own IDE (VS Code, etc.)
 - Orchestration: you'll need to handle this separately (Airflow, Prefect, whatever)
