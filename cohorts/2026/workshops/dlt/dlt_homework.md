@@ -143,6 +143,7 @@ We challenge you to try out the different methods explored in the workshop when 
 - $8,063.41
 - $10,063.41
 
+
 ### Resources
 
 | Resource | Link |
