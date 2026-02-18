@@ -12,16 +12,49 @@ With the Bruin MCP and an AI agent, you can:
 - Run queries and analyze data using natural language
 - Ask questions about your pipeline logic and structure
 
-## Installing Bruin MCP in Cursor / VS Code
+## Installing Bruin MCP
 
-1. Open your IDE settings
-2. Go to **Tools and MCP**
-3. Click **New MCP**
-4. Go to the [Bruin MCP documentation](https://getbruin.com/docs/bruin/getting-started/bruin-mcp) and copy the configuration
-5. Paste into your MCP JSON configuration
-6. If it shows a failure/error, close and reopen your IDE — you should see "Bruin enabled"
+Make sure you have [Bruin CLI installed](https://getbruin.com/docs/bruin/getting-started/introduction/installation) first.
 
-Bruin also has integrations with other agents (Claude Code, etc.) — check the [MCP docs](https://getbruin.com/docs/bruin/getting-started/bruin-mcp) for details.
+### Cursor
+
+Go to **Settings → Tools & MCP → New MCP Server** and add:
+
+```json
+{
+  "mcpServers": {
+    "bruin": {
+      "command": "bruin",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+If it shows a failure/error, close and reopen your IDE — you should see "Bruin enabled".
+
+### VS Code (Copilot)
+
+Create `.vscode/mcp.json` in your project folder:
+
+```json
+{
+  "servers": {
+    "bruin": {
+      "command": "bruin",
+      "args": ["mcp"]
+    }
+  }
+}
+```
+
+### Claude Code
+
+```bash
+claude mcp add bruin -- bruin mcp
+```
+
+See the full [Bruin MCP documentation](https://getbruin.com/docs/bruin/getting-started/bruin-mcp) for other agents and troubleshooting.
 
 ## Building a pipeline with MCP
 

@@ -40,9 +40,9 @@ Open this folder in Cursor (or your preferred agentic IDE).
 
 ### Step 2: Set Up the dlt MCP Server (If Not Already Done)
 
-In Cursor, go to **Settings → Tools & MCP → New MCP Server**. This will open (or create) the `.cursor/mcp.json` file.
+Choose the setup for your IDE:
 
-Add the following configuration:
+Cursor - go to **Settings → Tools & MCP → New MCP Server** and add:
 
 ```json
 {
@@ -62,6 +62,34 @@ Add the following configuration:
     }
   }
 }
+```
+
+VS Code (Copilot) - create `.vscode/mcp.json` in your project folder:
+
+```json
+{
+  "servers": {
+    "dlt": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "dlt[duckdb]",
+        "--with",
+        "dlt-mcp[search]",
+        "python",
+        "-m",
+        "dlt_mcp"
+      ]
+    }
+  }
+}
+```
+
+Claude Code - run in your terminal:
+
+```bash
+claude mcp add dlt -- uv run --with "dlt[duckdb]" --with "dlt-mcp[search]" python -m dlt_mcp
 ```
 
 This enables the dlt MCP server, giving the AI access to dlt documentation, code examples, and your pipeline metadata.
