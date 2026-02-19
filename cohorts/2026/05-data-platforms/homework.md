@@ -72,10 +72,10 @@ You've modified the `ingestion/trips.py` asset and want to run it plus all downs
 
 You want to ensure the `pickup_datetime` column in your trips table never has NULL values. Which quality check should you add to your asset definition?
 
-- `unique: true`
-- `not_null: true`
-- `positive: true`
-- `accepted_values: [not_null]`
+- `name: unique`
+- `name: not_null`
+- `name: positive`
+- `name: accepted_values, value: [not_null]`
 
 ---
 
