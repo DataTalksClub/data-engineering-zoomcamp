@@ -67,6 +67,55 @@ Register for Bruin Cloud, connect your GitHub repository, set up data warehouse 
 - [Notes](notes/05-bruin-cloud.md)
 
 
+## Bruin Core Concepts
+
+Short videos covering the fundamental concepts of Bruin: projects, pipelines, assets, variables, and commands.
+
+### :movie_camera: Projects
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/YWDjnSxbBtY)](https://www.youtube.com/watch?v=YWDjnSxbBtY)
+
+The root directory where you create your Bruin data pipeline. Learn about project initialization, the `.bruin.yml` configuration file, environments, and connections.
+
+- [Notes](notes/06-core-01-projects.md)
+
+
+### :movie_camera: Pipelines
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/uzp_DiR4Sok)](https://www.youtube.com/watch?v=uzp_DiR4Sok)
+
+A grouping mechanism for organizing assets based on their execution schedule. Each pipeline has a single schedule and its own configuration file.
+
+- [Notes](notes/06-core-02-pipelines.md)
+
+
+### :movie_camera: Assets
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/ZElY5SoqrwI)](https://www.youtube.com/watch?v=ZElY5SoqrwI)
+
+Single files that perform specific tasks, creating or updating tables/views in your database. Covers SQL, Python, and YAML asset types with examples.
+
+- [Notes](notes/06-core-03-assets.md)
+
+
+### :movie_camera: Variables
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/XCx0nDmhhxA)](https://www.youtube.com/watch?v=XCx0nDmhhxA)
+
+Dynamic values initialized at each pipeline run. Learn about built-in variables (start_date, end_date) and custom variables for parameterizing your pipelines.
+
+- [Notes](notes/06-core-04-variables.md)
+
+
+### :movie_camera: Commands
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/3nykPEs_V7E)](https://www.youtube.com/watch?v=3nykPEs_V7E)
+
+CLI commands for interacting with your Bruin project: `bruin run`, `bruin validate`, `bruin lineage`, and more with practical examples.
+
+- [Notes](notes/06-core-05-commands.md)
+
+
 ## Resources
 
 - [Bruin Documentation](https://getbruin.com/docs)
