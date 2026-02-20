@@ -13,13 +13,9 @@ sources:
       {%- else -%}
         prod
       {%- endif -%}
-    freshness:
-      warn_after: {count: 24, period: hour}
-      error_after: {count: 48, period: hour}
     tables:
       - name: green_tripdata
         description: Raw green taxi trip records
-        loaded_at_field: lpep_pickup_datetime
         columns:
           - name: vendorid
             description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
@@ -60,9 +56,10 @@ sources:
           - name: ehail_fee
             description: E-hail fee
 
+        config:
+          loaded_at_field: lpep_pickup_datetime
       - name: yellow_tripdata
         description: Raw yellow taxi trip records
-        loaded_at_field: tpep_pickup_datetime
         columns:
           - name: vendorid
             description: "Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.) - Note: Raw data may contain nulls, filtered in staging"
@@ -98,3 +95,9 @@ sources:
             description: Improvement surcharge
           - name: total_amount
             description: Total amount charged
+        config:
+          loaded_at_field: tpep_pickup_datetime
+    config:
+      freshness:
+        warn_after: {count: 24, period: hour}
+        error_after: {count: 48, period: hour}

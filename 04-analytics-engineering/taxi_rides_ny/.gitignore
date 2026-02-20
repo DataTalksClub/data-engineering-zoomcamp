@@ -90,3 +90,4 @@ google-*.json
 .env.local
 .env.*.local
 *.env
+dbt_internal_packages/
