@@ -26,7 +26,7 @@ In a Bruin project, what are the required files/directories?
 
 ### Question 2. Materialization Strategies
 
-You're building a pipeline that processes NYC taxi data organized by month based on `pickup_datetime`. Which materialization strategy should you use for the staging layer that deduplicates and cleans the data?
+You're building a pipeline that processes NYC taxi data organized by month based on `pickup_datetime`. Which incremental strategy is best for processing a specific interval period by deleting and inserting data for that time period?
 
 - `append` - always add new rows
 - `replace` - truncate and rebuild entirely
@@ -72,10 +72,10 @@ You've modified the `ingestion/trips.py` asset and want to run it plus all downs
 
 You want to ensure the `pickup_datetime` column in your trips table never has NULL values. Which quality check should you add to your asset definition?
 
-- `unique: true`
-- `not_null: true`
-- `positive: true`
-- `accepted_values: [not_null]`
+- `name: unique`
+- `name: not_null`
+- `name: positive`
+- `name: accepted_values, value: [not_null]`
 
 ---
 

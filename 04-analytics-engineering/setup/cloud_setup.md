@@ -13,9 +13,9 @@ This guide walks you through setting up dbt to work with the BigQuery data wareh
 > This guide assumes you've completed [Module 3: Data Warehouse](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/03-data-warehouse) where you:
 > - Created a GCP project and enabled the BigQuery API
 > - Created a service account with BigQuery permissions
-> - Loaded NYC taxi data into BigQuery (in the `nytaxi` dataset)
+> - Learned how to load data into BigQuery (in the `nytaxi` dataset)
 >
-> If you haven't completed Module 3, please go back and complete it first.
+> Module 4 uses **different data** than Module 3 (green and yellow taxi data for 2019-2020 instead of yellow-only 2024). You'll load the new data in [Step 1](#load-the-taxi-data) below.
 
 ## Step 1: Verify Your BigQuery Setup
 
@@ -78,14 +78,24 @@ The downloaded JSON file will look something like this:
 
 You'll use this JSON file in Step 4 to connect dbt Cloud to BigQuery.
 
-### Verify Your Data from Module 3
+### Load the Taxi Data
+
+This module uses **yellow and green taxi data for 2019-2020**, which is different from the data you loaded in Module 3. Using the same approach you learned in Module 3, load the following data into your BigQuery `nytaxi` dataset:
+
+- **Yellow taxi trip records** for all months of 2019 and 2020
+- **Green taxi trip records** for all months of 2019 and 2020
+
+> [!IMPORTANT]
+> Download the data from the [DataTalksClub NYC TLC Data repository](https://github.com/DataTalksClub/nyc-tlc-data/releases), **not** from the official NYC TLC website. The official site has been retroactively updated over the years, so its data differs from what the homework answers are based on.
+
+After loading, verify your data:
 
 1. Go to [BigQuery Console](https://console.cloud.google.com/bigquery)
 2. In the Explorer panel on the left, expand your project
-3. You should see the `nytaxi` dataset from Module 3
-4. Expand the `nytaxi` dataset - you should see tables like:
-   - `yellow_tripdata` or `yellow_tripdata_partitioned`
-   - `green_tripdata` or `green_tripdata_partitioned` (if you completed the homework)
+3. You should see the `nytaxi` dataset
+4. Expand the `nytaxi` dataset - you should see tables:
+   - `green_tripdata`
+   - `yellow_tripdata`
 
 ### Note Your Dataset Location
 
@@ -103,7 +113,7 @@ dbt Platform is dbt's cloud-based development environment with a web IDE, schedu
 
 Now you'll create a fresh dbt project from scratch in dbt Cloud.
 
-1. Click **Create a Project**
+1. Navigate to **Account settings** (gear icon in the top-right corner) and click **+ New Project**
 
 2. Enter a project name:
    - Project name: `taxi_rides_ny`
@@ -112,7 +122,10 @@ Now you'll create a fresh dbt project from scratch in dbt Cloud.
 
 ## Step 4: Configure BigQuery Connection
 
-Connect dbt Cloud to your BigQuery data warehouse.
+After clicking **Continue** in the previous step, dbt Cloud will prompt you to configure your data warehouse connection.
+
+> [!TIP]
+> If you're not automatically taken to the connection setup, you can also configure it from **Account settings** > **Projects** > **taxi_rides_ny** > **Connection**.
 
 ### Upload Service Account JSON
 
@@ -138,6 +151,7 @@ Connect dbt Cloud to your BigQuery data warehouse.
 2. **Location**: Select the same location as your `nytaxi` dataset from Module 3
    - Example: `US`, `EU`, or `us-central1`
    - **This must match your nytaxi dataset location**
+   - You can find this under **Optional Settings** or **Advanced Settings** depending on your UI version
 
 3. **Timeout**: `300` seconds
 
@@ -149,7 +163,7 @@ Connect dbt Cloud to your BigQuery data warehouse.
 
 1. Click **Test Connection**
 
-2. You should see a success message: ✅ "Connection test succeeded"
+2. You should see a success message: "Connection test succeeded"
 
 3. Click **Continue**
 
@@ -162,7 +176,7 @@ dbt Cloud needs a Git repository to store your project code. You have two option
 
 It doesn't matter which one you prefer for this course.
 
-## Step 6: Create Your Development Environment
+## Step 6: Verify Your Development Environment
 
 ### What Are Environments in dbt?
 
@@ -181,49 +195,37 @@ In dbt, **environments** define different contexts where your data transformatio
 
 Think of it like having a draft folder (development) and a published folder (deployment) for your analytics code.
 
-### Create Your Development Environment
+### Check Your Development Environment
 
-After setting up your repository, dbt Cloud will prompt you to initialize a development environment.
+dbt Cloud **automatically creates a development environment** when you set up a project. You don't need to create one manually.
 
-1. You'll see a screen titled **"Initialize your development environment"**
+To verify it was created:
 
-2. **Development Credentials**: Choose how dbt will connect to BigQuery when you develop
-   - **Option 1 - OAuth** (Recommended):
-     - Click **Authorize dbt Cloud**
-     - Sign in with your Google account
-     - Grant BigQuery permissions
-     - dbt will use your personal Google credentials
+1. Navigate to **Deploy** > **Environments** in the top navigation bar
+2. You should see a **Development** environment already listed
 
-   - **Option 2 - Service Account**:
-     - Use the same service account JSON from Step 4
-     - Less secure for development (shared credentials)
+### Customize Your Development Credentials (Optional)
 
-3. **Development Schema**: This is where your personal development models will be created
-   - dbt automatically suggests: `dbt_<your_name>` (e.g., `dbt_john_smith`)
-   - You can customize it, but the default is recommended
-   - This schema is separate from production (`dbt_prod`)
+If you need to change how dbt connects to BigQuery during development, or adjust your development schema:
 
-4. **Target Name**: Leave as `dev` (default)
-   - This is just an internal identifier for this environment
+1. Click your profile icon (bottom-left corner) > **Your Profile** > **Credentials**
+2. Select the credential linked to your project
+3. From here you can update:
+   - **Development Schema**: Where your personal development models will be created
+     - dbt automatically suggests: `dbt_<your_name>` (e.g., `dbt_john_smith`)
+     - This schema is separate from production (`dbt_prod`)
+   - **Target Name**: Leave as `dev` (default)
 
-5. Click **Test Connection** to verify your credentials work
+## Step 7: Start Developing
 
-6. Click **Continue**
+Once your project, connection, and repository are configured, you're ready to start building dbt models.
 
-## Step 7: Initialize the Environment
+1. Click **Start developing in the Studio IDE**
+   - If you don't see this option, navigate to **Develop** in the top navigation bar
 
-1. dbt Cloud will now set up your development environment
-   - Installing dbt dependencies
-   - Connecting to your repository
-   - Preparing the IDE workspace
+2. dbt Cloud will initialize your workspace (this may take a minute)
 
-2. This process takes about 1-2 minutes
-
-3. Once complete, you'll see: **"Successfully set up development environment"**
-
-4. Click **Start developing in the IDE**
-
-You'll be taken to the dbt Cloud IDE with a fresh project ready for development!
+3. Once the IDE loads, you'll have a fresh project ready for development!
 
 ## Additional Resources
 

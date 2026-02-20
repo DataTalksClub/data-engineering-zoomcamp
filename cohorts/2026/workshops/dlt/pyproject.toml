@@ -1,0 +1,13 @@
+[project]
+name = "zoomcamp-workshop-prep"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "altair>=6.0.0",
+    "dlt[workspace]>=1.21.0",
+    "ibis-framework[duckdb]>=12.0.0",
+    "jupyterlab>=4.5.4",
+    "marimo>=0.19.9",
+]

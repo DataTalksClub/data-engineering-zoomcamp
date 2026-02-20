@@ -2,7 +2,7 @@ name: 'taxi_rides_ny'
 version: '1.0.0'
 
 # Require a specific dbt version for reproducibility
-require-dbt-version: [">=1.7.0", "<2.0.0"]
+require-dbt-version: [">=1.7.0", "<3.0.0"]
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'taxi_rides_ny'
@@ -35,3 +35,5 @@ models:
       +materialized: table
     marts:
       +materialized: table
+flags:
+  require_generic_test_arguments_property: true

@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="100%" src="/images/architecture/arch_v4_workshops.jpg" alt="Data Engineering Zoomcamp Overview">
+  <img width="100%" src="/images/architecture/arch_v5_workshops.png" alt="Data Engineering Zoomcamp Overview">
 </p>
 
 <h1 align="center">
@@ -130,6 +130,7 @@ To keep discussions organized:
 - [Will Russell](https://www.linkedin.com/in/wrussell1999/)
 - [Anna Geller](https://www.linkedin.com/in/anna-geller-12a86811a/)
 - [Juan Manuel Perafan](https://www.linkedin.com/in/jmperafan/)
+- [Arsalan Noorafkan](https://www.linkedin.com/in/arsalan0/)
 
 Past instructors:
 
