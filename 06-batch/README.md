@@ -19,8 +19,6 @@ Follow [these instructions](setup/) to install Spark:
 * [Linux](setup/linux.md)
 * [MacOS](setup/macos.md)
 
-And follow [this](setup/pyspark.md) to run PySpark in Jupyter
-
 * :movie_camera: 6.2.1 (Optional) Installing Spark (Linux)
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/hqUbB9c8sKg)](https://youtu.be/hqUbB9c8sKg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=53)

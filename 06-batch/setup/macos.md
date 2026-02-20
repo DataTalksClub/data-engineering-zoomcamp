@@ -1,17 +1,12 @@
 
 ## MacOS
 
-Here we'll show you how to install Spark 3.5.5 for MacOS.
-We tested it on MacOS Monterey 12.0.1, but it should work
-for other MacOS versions as well
+> TODO: These instructions are for Spark 3.5.5. If you'd like to help update them for Spark 4.1.1,
+> please submit a PR! See [windows.md](windows.md) and [linux.md](linux.md) for reference.
 
-### Anaconda-based Spark set up
+### Installing Java
 
-If you are having anaconda setup, you can skip the spark installation and instead Pyspark package to run the spark.
-
-#### Installing Java
-
-Ensure Brew and Java installed in your system:
+Ensure Brew and Java are installed in your system:
 
 ```bash
 xcode-select --install
@@ -26,81 +21,52 @@ export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12
 export PATH="$JAVA_HOME/bin/:$PATH"
 ```
 
-Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to appropriate path on your machine. You can also run `brew info java` to check where java was installed on your machine.
-
-#### Anaconda
-
-With Anaconda and Mac we can spark set by first installing pyspark and then for environment variable set up findspark
-
-Open Anaconda Activate the environment where you want to apply these changes
-
-Run pyspark and install it as a package in this environment <br>
-Run findspark and install it as a package in this environment
-
-Ensure that open JDK is already set up. This allows us to not have to install Spark separately and manually set up the environment Also with this we may have to use Jupyter Lab (instead of Jupyter Notebook) to open a Jupyter notebook for running the programs. 
-Once the Spark is set up start the conda environment and open Jupyter Lab. 
-Run the program below in notebook to check everything is running fine.
-```
-import pyspark
-from pyspark.sql import SparkSession
-
-!spark-shell --version
-
-# Create SparkSession
-spark = SparkSession.builder.master("local[1]") \
-                    .appName('test-spark') \
-                    .getOrCreate()
-
-print(f'The PySpark {spark.version} version is running...')
-```
-
-### Homebrew-based Spark set up
-#### Installing Spark
-
-1. Install Apache Spark. Java and Scala will be installed as Spark's dependencies.
-
-```bash
-brew install apache-spark
-```
-
-2. Copy openjdk and apache-spark paths from installation output.
-
-You may see something like this in your terminal after the installation is complete:
-```
-==> Pouring openjdk@17--17.0.14.arm64_sequoia.bottle.1.tar.gz
-🍺  /opt/homebrew/Cellar/openjdk@17/17.0.14: 636 files, 304.2MB
-...
-==> Pouring apache-spark--3.5.5.all.bottle.tar.gz
-🍺  /opt/homebrew/Cellar/apache-spark/3.5.5: 1,823 files, 423.7MB
-```
-
-3. Add environment variables: 
-
-Add the following environment variables to your `.bash_profile` or `.zshrc`. Replace the path to `JAVA_HOME` and `SPARK_HOME` to the paths on your own host. Run `brew info apache-spark` to get this.
-
-```bash
-export JAVA_HOME=/opt/homebrew/Cellar/openjdk@17/17.0.14
-export PATH="$JAVA_HOME/bin/:$PATH"
-
-export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.5/libexec
-export PATH="$SPARK_HOME/bin/:$PATH"
-```
-
-
-#### Testing Spark
-
-Execute `spark-shell` and run the following in scala:
-
-```scala
-val data = 1 to 10000
-val distData = sc.parallelize(data)
-distData.filter(_ < 10).collect()
-```
+Make sure Java was installed to `/usr/local/Cellar/openjdk@11/11.0.12`: Open Finder > Press Cmd+Shift+G > paste "/usr/local/Cellar/openjdk@11/11.0.12". If you can't find it, then change the path location to the appropriate path on your machine. You can also run `brew info java` to check where java was installed on your machine.
 
 
 ### PySpark
 
-It's the same for all platforms. Go to [pyspark.md](pyspark.md). 
+We recommend using [uv](https://docs.astral.sh/uv/) for managing Python packages:
+
+```bash
+uv init
+uv add pyspark
+```
+
+Alternatively, you can use pip:
+
+```bash
+pip install pyspark
+```
+
+Both approaches install PySpark along with a bundled Spark distribution — no separate Spark download needed.
 
 
+### Testing it
 
+Regardless of the installation method above, the goal is to get this test script working.
+
+Create a test script `test_spark.py`:
+
+```python
+import pyspark
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .master("local[*]") \
+    .appName('test') \
+    .getOrCreate()
+
+print(f"Spark version: {spark.version}")
+
+df = spark.range(10)
+df.show()
+
+spark.stop()
+```
+
+Run it:
+
+```bash
+uv run python test_spark.py
+```

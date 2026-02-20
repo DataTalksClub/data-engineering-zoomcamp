@@ -60,4 +60,31 @@ pip install pyspark
 
 Both approaches install PySpark along with a bundled Spark distribution - no separate Spark download needed.
 
-For other platforms, see [pyspark.md](pyspark.md).
+
+### Testing it
+
+Create a test script `test_spark.py`:
+
+```python
+import pyspark
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .master("local[*]") \
+    .appName('test') \
+    .getOrCreate()
+
+print(f"Spark version: {spark.version}")
+
+df = spark.range(10)
+df.show()
+
+spark.stop()
+```
+
+Run it:
+
+```bash
+uv run python test_spark.py
+```
+
