@@ -1,11 +1,11 @@
-# [DRAFT] Module 6 Homework
+# Module 6 Homework
 
 In this homework we'll put what we learned about Spark in practice.
 
-For this homework we will be using the Yellow 2024-10 data from the official website: 
+For this homework we will be using the Yellow 2025-11 data from the official website:
 
 ```bash
-wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-10.parquet
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.parquet
 ```
 
 
@@ -22,9 +22,9 @@ What's the output?
 > To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/setup/pyspark.md)
 
 
-## Question 2: Yellow October 2024
+## Question 2: Yellow November 2025
 
-Read the October 2024 Yellow into a Spark Dataframe.
+Read the November 2025 Yellow into a Spark Dataframe.
 
 Repartition the Dataframe to 4 partitions and save it to parquet.
 
@@ -36,31 +36,31 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 - 100MB
 
 
-## Question 3: Count records 
+## Question 3: Count records
 
-How many taxi trips were there on the 15th of October?
+How many taxi trips were there on the 15th of November?
 
-Consider only trips that started on the 15th of October.
+Consider only trips that started on the 15th of November.
 
-- 85,567
-- 105,567
-- 125,567
-- 145,567
+- 62,610
+- 102,340
+- 162,604
+- 225,768
 
 
 ## Question 4: Longest trip
 
 What is the length of the longest trip in the dataset in hours?
 
-- 122
-- 142
-- 162
-- 182
+- 22.7
+- 58.2
+- 90.6
+- 134.5
 
 
 ## Question 5: User Interface
 
-Spark’s User Interface which shows the application's dashboard runs on which local port?
+Spark's User Interface which shows the application's dashboard runs on which local port?
 
 - 80
 - 443
@@ -77,7 +77,7 @@ Load the zone lookup data into a temp view in Spark:
 wget https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
 ```
 
-Using the zone lookup data and the Yellow October 2024 data, what is the name of the LEAST frequent pickup location Zone?
+Using the zone lookup data and the Yellow November 2025 data, what is the name of the LEAST frequent pickup location Zone?
 
 - Governor's Island/Ellis Island/Liberty Island
 - Arden Heights
@@ -87,7 +87,7 @@ Using the zone lookup data and the Yellow October 2024 data, what is the name of
 
 ## Submitting the solutions
 
-- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw5
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw6
 - Deadline: See the website
 
 
@@ -100,9 +100,9 @@ Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits
 ### Example post for LinkedIn
 
 ```
-🚀 Week 5 of Data Engineering Zoomcamp by @DataTalksClub complete!
+🚀 Week 6 of Data Engineering Zoomcamp by @DataTalksClub complete!
 
-Just finished Module 5 - Batch Processing with Spark. Learned how to:
+Just finished Module 6 - Batch Processing with Spark. Learned how to:
 
 ✅ Set up PySpark and create Spark sessions
 ✅ Read and process Parquet files at scale
@@ -110,7 +110,7 @@ Just finished Module 5 - Batch Processing with Spark. Learned how to:
 ✅ Analyze millions of taxi trips with DataFrames
 ✅ Use Spark UI for monitoring jobs
 
-Processing 100K+ taxi trips with Spark - distributed computing is powerful!
+Processing 4M+ taxi trips with Spark - distributed computing is powerful! 💪
 
 Here's my homework solution: <LINK>
 
@@ -122,9 +122,9 @@ You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp
 ### Example post for Twitter/X
 
 ```
-⚡ Module 5 of Data Engineering Zoomcamp done!
+⚡ Module 6 of Data Engineering Zoomcamp done!
 
-- Batch processing with Spark
+- Batch processing with Spark 🔥
 - PySpark & DataFrames
 - Parquet file optimization
 - Spark UI on port 4040

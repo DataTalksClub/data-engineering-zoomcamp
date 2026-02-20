@@ -1,94 +1,63 @@
 
 ## Linux
 
-Here we'll show you how to install Spark 3.3.2 for Linux.
-We tested it on Ubuntu 20.04 (also WSL), but it should work
+Here we'll show you how to install Spark 4.x for Linux.
+We tested it on Ubuntu 24.04 (also WSL), but it should work
 for other Linux distros as well
 
 
 ### Installing Java
 
-Download OpenJDK 11 or Oracle JDK 11 (It's important that the version is 11 - spark requires 8 or 11)
-
-We'll use [OpenJDK](https://jdk.java.net/archive/)
-
-Download it (e.g. to `~/spark`):
-
-```
-wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
-```
-
-Unpack it:
+Spark 4.x requires Java 17 or 21. The simplest way is to install it via your package manager:
 
 ```bash
-tar xzfv openjdk-11.0.2_linux-x64_bin.tar.gz
+sudo apt update
+sudo apt install default-jdk
 ```
 
-define `JAVA_HOME` and add it to `PATH`:
-
-```bash
-export JAVA_HOME="${HOME}/spark/jdk-11.0.2"
-export PATH="${JAVA_HOME}/bin:${PATH}"
-```
-
-check that it works:
+Check that it works:
 
 ```bash
 java --version
 ```
 
-Output:
+Output (example):
 
 ```
-openjdk 11.0.2 2019-01-15
-OpenJDK Runtime Environment 18.9 (build 11.0.2+9)
-OpenJDK 64-Bit Server VM 18.9 (build 11.0.2+9, mixed mode)
+openjdk 21.0.10 2026-01-20
+OpenJDK Runtime Environment (build 21.0.10+7-Ubuntu-124.04)
+OpenJDK 64-Bit Server VM (build 21.0.10+7-Ubuntu-124.04, mixed mode, sharing)
 ```
 
-Remove the archive:
+Set `JAVA_HOME` (add to your `.bashrc` or `.zshrc`):
 
 ```bash
-rm openjdk-11.0.2_linux-x64_bin.tar.gz
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+export PATH="${JAVA_HOME}/bin:${PATH}"
 ```
 
-### Installing Spark
-
-
-Download Spark. Use 3.3.2 version:
-
-```bash
-wget https://archive.apache.org/dist/spark/spark-3.3.2/spark-3.3.2-bin-hadoop3.tgz
-```
-
-Unpack:
-
-```bash
-tar xzfv spark-3.3.2-bin-hadoop3.tgz
-```
-
-Remove the archive:
-
-```bash
-rm spark-3.3.2-bin-hadoop3.tgz
-```
-
-Add it to `PATH`:
-
-```bash
-export SPARK_HOME="${HOME}/spark/spark-3.3.2-bin-hadoop3"
-export PATH="${SPARK_HOME}/bin:${PATH}"
-```
-
-### Testing Spark
-
-Execute `spark-shell` and run the following:
-
-```scala
-val data = 1 to 10000
-val distData = sc.parallelize(data)
-distData.filter(_ < 10).collect()
-```
 
 ### PySpark
 
-It's the same for all platforms. Go to [pyspark.md](pyspark.md). 
+We recommend using [uv](https://docs.astral.sh/uv/) for managing Python packages:
+
+```bash
+uv init
+uv add pyspark
+```
+
+Then run your scripts with `uv run`:
+
+```bash
+uv run python your_script.py
+```
+
+Alternatively, you can use pip:
+
+```bash
+pip install pyspark
+```
+
+Both approaches install PySpark along with a bundled Spark distribution - no separate Spark download needed.
+
+For other platforms, see [pyspark.md](pyspark.md).
