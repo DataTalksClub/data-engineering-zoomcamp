@@ -1,0 +1,14 @@
+[project]
+name = "extras"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "google-cloud-storage>=3.8.0",
+    "pandas>=3.0.0",
+    "pyarrow>=23.0.0",
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.5",
+    "tqdm>=4.67.1",
+]

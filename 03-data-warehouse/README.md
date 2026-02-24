@@ -79,6 +79,7 @@
 * [2025 - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/03_data_warehouse/00_notes.md)
 * [2025 Gitbook Notes Tinker0425](https://data-engineering-zoomcamp-2025-t.gitbook.io/tinker0425/module-3/introduction-to-module-3)
 * [2025 Notes from Daniel Lachner](https://drive.google.com/file/d/105zjtLFi0sRqqFFgdMSCTzfcLPx2rfv4/view?usp=sharing)
+* [2026 Notes from Catherine Frost](https://docs.google.com/document/d/1j3jeNnBI2fw1nq7JwEauPx2G8FybDfTqmMk7eRu0vSo/edit?tab=t.0)
 * Add your notes here (above this line)
 
 </details>

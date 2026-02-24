@@ -85,7 +85,7 @@ docker ps -a
 We can restart one of them, but we won't do it, because it's not a good practice. They take space, so let's delete them:
 
 ```bash
-docker rm `docker ps -aq`
+docker rm $(docker ps -aq)
 ```
 
 Next time we run something, we add `--rm`:

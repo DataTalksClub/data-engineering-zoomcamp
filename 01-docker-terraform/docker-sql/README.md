@@ -19,11 +19,12 @@ In this workshop, we will explore Docker fundamentals and data engineering workf
 
 1. [Introduction to Docker](01-introduction.md) - What is Docker, why use it, basic commands
 2. [Virtual Environments and Data Pipelines](02-virtual-environment.md) - Setting up Python environments with uv
-3. [Running PostgreSQL with Docker](03-postgres-docker.md) - Dockerizing PostgreSQL database
-4. [NY Taxi Dataset and Data Ingestion](04-data-ingestion.md) - Working with real data, pandas, SQLAlchemy
-5. [Creating the Data Ingestion Script](05-ingestion-script.md) - Converting notebook to Python script
-6. [pgAdmin - Database Management Tool](06-pgadmin.md) - Web-based database management
-7. [Dockerizing the Ingestion Script](07-dockerizing-ingestion.md) - Containerizing the pipeline
-8. [Docker Compose](08-docker-compose.md) - Multi-container orchestration
-9. [SQL Refresher](09-sql-refresher.md) - SQL joins, aggregations, and queries
-10. [Cleanup](10-cleanup.md) - Cleaning up Docker resources
+3. [Dockerizing the Pipeline](03-dockerizing-pipeline.md) - Creating a Dockerfile for a simple pipeline
+4. [Running PostgreSQL with Docker](04-postgres-docker.md) - Dockerizing PostgreSQL database
+5. [NY Taxi Dataset and Data Ingestion](05-data-ingestion.md) - Working with real data, pandas, SQLAlchemy
+6. [Creating the Data Ingestion Script](06-ingestion-script.md) - Converting notebook to Python script
+7. [pgAdmin - Database Management Tool](07-pgadmin.md) - Web-based database management
+8. [Dockerizing the Ingestion Script](08-dockerizing-ingestion.md) - Containerizing the pipeline
+9. [Docker Compose](09-docker-compose.md) - Multi-container orchestration
+10. [SQL Refresher](10-sql-refresher.md) - SQL joins, aggregations, and queries
+11. [Cleanup](11-cleanup.md) - Cleaning up Docker resources

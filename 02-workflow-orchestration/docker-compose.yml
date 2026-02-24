@@ -5,6 +5,8 @@ volumes:
     driver: local
   kestra_data:
     driver: local
+  kestra_tmp:
+    driver: local
 
 services:
   pgdatabase:
@@ -17,6 +19,9 @@ services:
       - "5432:5432"
     volumes:
       - ny_taxi_postgres_data:/var/lib/postgresql
+    depends_on:
+      kestra:
+        condition: service_started
 
   pgadmin:
     image: dpage/pgadmin4
@@ -25,6 +30,9 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=root
     ports:
       - "8085:80"
+    depends_on:
+      pgdatabase:
+        condition: service_started
 
   kestra_postgres:
     image: postgres:18
@@ -51,7 +59,7 @@ services:
     volumes:
       - kestra_data:/app/storage
       - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp/kestra-wd:/tmp/kestra-wd
+      - kestra_tmp:/tmp/kestra-wd
     environment:
       KESTRA_CONFIGURATION: |
         datasources:
@@ -64,7 +72,7 @@ services:
           server:
             basicAuth:
               username: "admin@kestra.io" # it must be a valid email address
-              password: Admin1234
+              password: Admin1234!
           repository:
             type: postgres
           storage:

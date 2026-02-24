@@ -107,18 +107,18 @@ Flows can be added to Kestra by copying and pasting the YAML directly into the e
 If you prefer to add flows programmatically using Kestra's API, run the following commands:
 
 ```bash
-# Import all flows: assuming username admin@kestra.io and password Admin1234 (adjust to match your username and password)
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/01_hello_world.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_python.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/03_getting_started_data_pipeline.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_postgres_taxi.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_postgres_taxi_scheduled.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_kv.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_gcp_setup.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/08_gcp_taxi.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_gcp_taxi_scheduled.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/10_chat_without_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/11_chat_with_rag.yaml
+# Import all flows: assuming username admin@kestra.io and password Admin1234! (adjust to match your username and password)
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/01_hello_world.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_python.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/03_getting_started_data_pipeline.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_postgres_taxi.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_postgres_taxi_scheduled.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/06_gcp_kv.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_gcp_setup.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/08_gcp_taxi.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_gcp_taxi_scheduled.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/10_chat_without_rag.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/11_chat_with_rag.yaml
 ```
 </details>
 
@@ -147,7 +147,7 @@ To start building workflows in Kestra, we need to understand a number of concept
 While there are more concepts used for building powerful workflows, these are the ones we're going to use to build our data pipelines.
 
 The flow [`01_hello_world.yaml`](flows/01_hello_world.yaml) showcases all of these concepts inside of one workflow:
-- The flow has 5 tasks: 2 log tasks and a sleep task
+- The flow has 5 tasks: 3 log tasks and a sleep task
 - The flow takes an input called `name`.
 - There is a variable that takes the `name` input to generate a full welcome message.
 - An output is generated from the return task and is logged in a later log task.
@@ -227,8 +227,9 @@ graph LR
   YellowCopyIn --> YellowMerge[Merge Yellow Data]:::yellow
   GreenCopyIn --> GreenMerge[Merge Green Data]:::green
 
-  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px;
-  classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
+  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px,color:#000;
+  classDef green fill:#32CD32,stroke:#000,stroke-width:1px,color:#000;
+
 ```
 
 The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
@@ -305,6 +306,10 @@ First, adjust the following flow [`06_gcp_kv.yaml`](flows/06_gcp_kv.yaml) to inc
 
 If you haven't already created the GCS bucket and BigQuery dataset in the first week of the course, you can use this flow to create them: [`07_gcp_setup.yaml`](flows/07_gcp_setup.yaml).
 
+> [!WARNING]  
+> The `GCP_CREDS` service account contains sensitive information. Ensure you keep it secure and do not commit it to Git. Keep it as secure as your passwords.
+
+
 #### Videos
 
 - **2.4.2 - Setup Google Cloud Platform**  
@@ -332,8 +337,8 @@ graph LR
   BQYellowMerge --> PurgeFiles[Purge Files]
   BQGreenMerge --> PurgeFiles[Purge Files]
 
-  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px;
-  classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
+  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px,color:#000
+  classDef green fill:#32CD32,stroke:#000,stroke-width:1px,color:#000
 ```
 
 The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
@@ -572,19 +577,19 @@ graph LR
 #### Additional AI Resources
 
 Kestra Documentation:
-- [AI Tools Overview](https://kestra.io/docs/ai-tools)
-- [AI Copilot](https://kestra.io/docs/ai-tools/ai-copilot)
-- [RAG Workflows](https://kestra.io/docs/ai-tools/ai-rag-workflows)
-- [AI Workflows](https://kestra.io/docs/ai-tools/ai-workflows)
-- [Kestra Blueprints](https://kestra.io/blueprints) - Pre-built workflow examples
+- [AI Tools Overview](https://go.kestra.io/de-zoomcamp/ai-tools)
+- [AI Copilot](https://go.kestra.io/de-zoomcamp/ai-copilot)
+- [RAG Workflows](https://go.kestra.io/de-zoomcamp/rag-workflows)
+- [AI Workflows](https://go.kestra.io/de-zoomcamp/ai-workflows)
+- [Kestra Blueprints](https://go.kestra.io/de-zoomcamp/blueprints) - Pre-built workflow examples
 
 Kestra Plugin Documentation:
-- [AI Plugin](https://kestra.io/plugins/plugin-ai)
-- [RAG Tasks](https://kestra.io/plugins/plugin-ai/rag)
+- [AI Plugin](https://go.kestra.io/de-zoomcamp/ai-plugin)
+- [RAG Tasks](https://go.kestra.io/de-zoomcamp/ai-rag-task)
 
 External Documentation:
-- [Google Gemini](https://ai.google.dev/docs)
-- [Google AI Studio](https://aistudio.google.com/)
+- [Google Gemini](https://go.kestra.io/de-zoomcamp/gemini-docs)
+- [Google AI Studio](https://go.kestra.io/de-zoomcamp/ai-studio)
 
 #### Videos
 
