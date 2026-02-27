@@ -116,6 +116,8 @@ The homework for this module focuses heavily on window functions and CTEs. If yo
 * [2025 Notes by Horeb SEIDOU](https://spotted-hardhat-eea.notion.site/Week-4-Analytics-Engineering-18929780dc4a808692e4e0ee488bf49c?pvs=74)
 * [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/04_01_Analytics_Engineering.pdf)
 * [2026 Notes by Sharad K. Gupta](https://github.com/sharadgupta27/data-engineering/blob/main/Notes/dbt_commands.md)
+* [Analytical Engineering overview](https://github.com/khanhnguyen7802/DataEngineer101/tree/main/week4-analytics-engineering#readme) 
+* [2026 Notes about dbt](https://github.com/khanhnguyen7802/DataEngineer101/blob/main/week4-analytics-engineering/dbt_installation.md) | [dbt + Duckdb setup using Docker](https://github.com/khanhnguyen7802/DataEngineer101/blob/main/week4-analytics-engineering/dbt_installation.md) by Khanh Nguyen
 * Add your notes here (above this line)
 
 </details>
