@@ -96,6 +96,7 @@ We suggest watching videos in the same order as in this document.
 * [2025 SQL Refresher - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/0_sql_refresh.ipynb)
 * [2025 Setting up the Environment - Notes by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/01_docker_postgress/_setting_up.md)
 * [Notes from Mercy Markus: Linux/Fedora Tweaks and Tips](https://mercymarkus.com/posts/2025/series/dtc-dez-jan-2025/dtc-dez-2025-module-1/)
+* [[2026 tutorial video - Khanh Nguyen] Setting up the environment for homework-w1](https://youtu.be/_iqCWi_UoOc)
 * Add your notes above this line
 
 </details>
