@@ -31,7 +31,7 @@ def create_events_source_kafka(t_env):
             WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND
         ) WITH (
             'connector' = 'kafka',
-            'properties.bootstrap.servers' = 'redpanda-1:29092',
+            'properties.bootstrap.servers' = 'redpanda:29092',
             'topic' = 'test-topic',
             'scan.startup.mode' = 'latest-offset',
             'properties.auto.offset.reset' = 'latest',

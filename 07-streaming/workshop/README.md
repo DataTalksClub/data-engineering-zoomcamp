@@ -1,25 +1,23 @@
 # PyFlink: Stream Processing Workshop
 
-- Video: [link](https://www.youtube.com/watch?v=P2loELMUUeI)
-- Code: [07-streaming/workshop/](.)
 
 In this workshop, we build a real-time streaming pipeline step by step.
-We start simple — producing and consuming Kafka messages with plain Python —
+We start simple - producing and consuming Kafka messages with plain Python -
 then introduce Apache Flink to see what a stream processing framework gives us.
 
 What we'll build:
 
 ```
-Producer (Python) → Kafka (Redpanda) → Flink → PostgreSQL
+Producer (Python) -> Kafka (Redpanda) -> Flink -> PostgreSQL
 ```
 
 Prerequisites:
 
 - Docker and Docker Compose
 - Python 3.12+ with [uv](https://docs.astral.sh/uv/) installed
-- A SQL client — [pgcli](https://www.pgcli.com/), DBeaver, pgAdmin, or DataGrip
+- A SQL client - [pgcli](https://www.pgcli.com/) (`uvx pgcli`), DBeaver, pgAdmin, or DataGrip
 
-> Note: The original `kafka-python` library is no longer maintained. This workshop uses `kafka-python-ng` — a maintained drop-in replacement.
+> Note: The original `kafka-python` library is no longer maintained. This workshop uses `kafka-python-ng` - a maintained drop-in replacement.
 
 
 ## Step 1: Start the infrastructure
@@ -46,7 +44,7 @@ Then start everything:
 docker compose up --build -d
 ```
 
-The first build takes a few minutes — it creates a custom Flink image with Python, PyFlink, and connector JARs.
+The first build takes a few minutes - it creates a custom Flink image with Python, PyFlink, and connector JARs.
 
 Verify all four services are running:
 
@@ -55,14 +53,14 @@ docker compose ps
 ```
 
 ```
-NAME                IMAGE                            SERVICE       STATUS
-flink-jobmanager    pyflink-workshop                 jobmanager    Up
-flink-taskmanager   pyflink-workshop                 taskmanager   Up
-postgres            postgres:17                      postgres      Up
-redpanda-1          redpandadata/redpanda:v24.2.18   redpanda-1    Up
+NAME                 IMAGE                           SERVICE       STATUS
+workshop-jobmanager  pyflink-workshop                jobmanager    Up
+workshop-taskmanager pyflink-workshop                taskmanager   Up
+workshop-postgres    postgres:18                     postgres      Up
+workshop-redpanda    redpandadata/redpanda:v25.3.9   redpanda      Up
 ```
 
-Check the Flink dashboard at [http://localhost:8081](http://localhost:8081) — you should see 1 task manager with 15 available slots.
+Check the Flink dashboard at [http://localhost:8081](http://localhost:8081) - you should see 1 task manager with 15 available slots.
 
 
 ## Step 2: Set up PostgreSQL
@@ -70,7 +68,7 @@ Check the Flink dashboard at [http://localhost:8081](http://localhost:8081) — 
 Connect to PostgreSQL. You can use any SQL client. With `pgcli`:
 
 ```bash
-pgcli -h localhost -p 5432 -U postgres -d postgres
+uvx pgcli -h localhost -p 5432 -U postgres -d postgres
 # password: postgres
 ```
 
@@ -133,15 +131,15 @@ producer.flush()
 ```
 
 Key concepts:
-- Bootstrap server (`localhost:9092`): where the Kafka broker (Redpanda) accepts connections
-- Topic (`test-topic`): a named stream of messages. Kafka auto-creates it on first use.
+- Bootstrap server (`localhost:9092`): where the Kafka broker (Redpanda) accepts connections. In production with multiple brokers, you'd pass a comma-separated list for redundancy - if one broker is down, the client connects through another.
+- Topic (`test-topic`): a named stream of messages. Kafka auto-creates it on first use. A topic has no schema enforcement - you could send completely different JSON shapes to the same topic (though you shouldn't).
 - Serializer: Kafka needs bytes, so we serialize Python dicts to JSON
 - Messages: each has `test_data` (an integer) and `event_timestamp` (epoch milliseconds)
 
 Run it:
 
 ```bash
-uv run python3 src/producers/producer.py
+uv run python src/producers/producer.py
 ```
 
 You'll see 990 messages sent over ~50 seconds:
@@ -194,7 +192,7 @@ consumer.close()
 Run it:
 
 ```bash
-uv run python3 src/consumers/consumer.py
+uv run python src/consumers/consumer.py
 ```
 
 ```
@@ -257,7 +255,7 @@ conn.close()
 Run it (press Ctrl+C after it processes the data):
 
 ```bash
-uv run python3 src/consumers/consumer_postgres.py
+uv run python src/consumers/consumer_postgres.py
 ```
 
 Check PostgreSQL:
@@ -289,13 +287,15 @@ TRUNCATE processed_events;
 
 Flink is a stream processing framework that handles all the hard parts:
 
-- Windowing — built-in tumbling, sliding, and session windows
-- Checkpointing — automatic state recovery after failures (no manual offset tracking)
-- Parallelism — distribute processing across multiple workers
-- Connectors — built-in JDBC, Kafka, filesystem sinks (no psycopg2 code)
-- SQL interface — express stream processing with SQL queries
+- Windowing - built-in tumbling, sliding, and session windows
+- Checkpointing - automatic state recovery after failures (no manual offset tracking)
+- Parallelism - distribute processing across multiple workers
+- Connectors - built-in JDBC, Kafka, filesystem sinks (no psycopg2 code)
+- SQL interface - express stream processing with SQL queries
 
-The trade-off is infrastructure complexity — we need the JobManager and TaskManager containers. But for anything beyond simple consume-and-write, Flink pays for itself.
+Flink can also connect to sources beyond Kafka - REST APIs, websockets, filesystems, and more. But Kafka is the most common source in stream processing.
+
+The trade-off is infrastructure complexity - we need the JobManager and TaskManager containers. A streaming job is more like owning a server than running a batch pipeline - it runs 24/7 and needs monitoring. But for anything beyond simple consume-and-write, Flink pays for itself.
 
 
 ## Step 7: The custom Flink image
@@ -305,31 +305,26 @@ Look at `Dockerfile.flink` to understand what goes into our Flink image:
 ```dockerfile
 FROM flink:2.2.0-scala_2.12-java17
 
-USER root
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
-RUN apt-get update -y && \
-    apt-get install -y python3 python3-dev python3-venv curl && \
-    ln -s /usr/bin/python3 /usr/bin/python && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.local/bin:$PATH"
-RUN uv init /opt/pyflink && uv add --project /opt/pyflink apache-flink==2.2.0
+WORKDIR /opt/pyflink
+COPY pyproject.flink.toml pyproject.toml
+RUN uv python install 3.12 && uv sync
 ENV PATH="/opt/pyflink/.venv/bin:$PATH"
 
-RUN wget -P /opt/flink/lib/ https://...flink-json-2.2.0.jar; \
-    wget -P /opt/flink/lib/ https://...flink-sql-connector-kafka-4.0.1-2.0.jar; \
-    wget -P /opt/flink/lib/ https://...flink-connector-jdbc-core-4.0.0-2.0.jar; \
-    wget -P /opt/flink/lib/ https://...flink-connector-jdbc-postgres-4.0.0-2.0.jar; \
-    wget -P /opt/flink/lib/ https://...postgresql-42.7.4.jar
+WORKDIR /opt/flink/lib
+RUN wget https://...flink-json-2.2.0.jar; \
+    wget https://...flink-sql-connector-kafka-4.0.1-2.0.jar; \
+    wget https://...flink-connector-jdbc-core-4.0.0-2.0.jar; \
+    wget https://...flink-connector-jdbc-postgres-4.0.0-2.0.jar; \
+    wget https://...postgresql-42.7.10.jar
 ```
 
 The base Flink image is Java-only. We add:
-1. Python 3 — needed for PyFlink
-2. uv — to manage Python packages
-3. PyFlink (`apache-flink==2.2.0`) — the Python API for Flink
-4. Connector JARs — Flink needs these to talk to Kafka, PostgreSQL, and parse JSON
+1. uv - Python package manager, copied from the official uv Docker image
+2. Python 3.12 - installed by uv (`uv python install 3.12`), no system Python needed
+3. PyFlink (`apache-flink==2.2.0`) - installed via `uv sync` from `pyproject.flink.toml`
+4. Connector JARs - Flink needs these to talk to Kafka, PostgreSQL, and parse JSON
 
 
 ## Step 8: The pass-through Flink job
@@ -349,7 +344,7 @@ def create_events_source_kafka(t_env):
             WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND
         ) WITH (
             'connector' = 'kafka',
-            'properties.bootstrap.servers' = 'redpanda-1:29092',
+            'properties.bootstrap.servers' = 'redpanda:29092',
             'topic' = 'test-topic',
             'scan.startup.mode' = 'latest-offset',
             'properties.auto.offset.reset' = 'latest',
@@ -362,12 +357,12 @@ def create_events_source_kafka(t_env):
 
 This is a Flink SQL DDL statement. Breaking it down:
 
-- `test_data INTEGER`, `event_timestamp BIGINT` — the two JSON fields from our producer
-- `event_watermark AS TO_TIMESTAMP_LTZ(event_timestamp, 3)` — a computed column that converts epoch milliseconds to a timestamp. The `3` means milliseconds precision.
-- `WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND` — tells Flink to tolerate events arriving up to 5 seconds late. We don't need this for pass-through, but it's required for windowed aggregation later.
-- `'properties.bootstrap.servers' = 'redpanda-1:29092'` — the internal Docker network address (not localhost — Flink runs inside Docker)
-- `'scan.startup.mode' = 'latest-offset'` — only read new messages arriving after the job starts
-- `'format' = 'json'` — Flink deserializes JSON automatically
+- `test_data INTEGER`, `event_timestamp BIGINT` - the two JSON fields from our producer
+- `event_watermark AS TO_TIMESTAMP_LTZ(event_timestamp, 3)` - a computed column that converts epoch milliseconds to a timestamp. The `3` means milliseconds precision.
+- `WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND` - tells Flink to tolerate events arriving up to 5 seconds late. Think of it this way: if someone goes through a tunnel and their phone loses signal for a few seconds, the events they generate arrive late. The watermark says "don't close the window yet - wait 5 seconds for stragglers." The trade-off: a larger watermark means more tolerance for out-of-order data but higher latency before you see results. We don't need this for pass-through, but it's required for windowed aggregation later.
+- `'properties.bootstrap.servers' = 'redpanda:29092'` - the internal Docker network address (not localhost - Flink runs inside Docker)
+- `'scan.startup.mode' = 'latest-offset'` - only read new messages arriving after the job starts
+- `'format' = 'json'` - Flink deserializes JSON automatically
 
 The PostgreSQL sink table:
 
@@ -391,7 +386,7 @@ def create_processed_events_sink_postgres(t_env):
     return table_name
 ```
 
-No psycopg2, no INSERT statements — just declare the table and Flink handles the rest.
+No psycopg2, no INSERT statements - just declare the table and Flink handles the rest.
 
 The execution:
 
@@ -417,9 +412,9 @@ def log_processing():
     ).wait()
 ```
 
-- Checkpointing every 10 seconds — Flink saves its state (Kafka offsets, in-flight data). If the job crashes, it resumes from the last checkpoint.
-- Streaming mode — the job runs continuously, waiting for new data
-- The `INSERT INTO ... SELECT` is the pipeline — read from Kafka, convert the timestamp, write to PostgreSQL
+- Checkpointing every 10 seconds - Flink periodically serializes its state (Kafka offsets, in-flight data, open windows) to disk. If the job crashes, it resumes from the last checkpoint. This is a trade-off: checkpoint too often (e.g., every 1 second) and you waste resources on serialization; checkpoint too rarely and you lose more progress on failure. 10 seconds is a reasonable default.
+- Streaming mode - the job runs continuously, waiting for new data
+- The `INSERT INTO ... SELECT` is the pipeline - read from Kafka, convert the timestamp, write to PostgreSQL
 
 Submit the job:
 
@@ -439,12 +434,12 @@ docker compose exec jobmanager ./bin/flink run \
 Job has been submitted with JobID 663cff6811b65e97fc1e068d641401f4
 ```
 
-Check the Flink UI at [http://localhost:8081](http://localhost:8081) — you should see a running job.
+Check the Flink UI at [http://localhost:8081](http://localhost:8081) - you should see a running job.
 
 Since the job uses `latest-offset`, it's waiting for new messages. Send data:
 
 ```bash
-uv run python3 src/producers/producer.py
+uv run python src/producers/producer.py
 ```
 
 Query PostgreSQL:
@@ -473,7 +468,7 @@ SELECT * FROM processed_events ORDER BY test_data LIMIT 5;
         14 | 2026-03-02 17:31:34.033
 ```
 
-Compare this to our Python consumer approach — same result, but Flink handles checkpointing, offset management, and PostgreSQL writes automatically.
+Compare this to our Python consumer approach - same result, but Flink handles checkpointing, offset management, and PostgreSQL writes automatically.
 
 
 ## Step 9: Real-time streaming
@@ -481,13 +476,13 @@ Compare this to our Python consumer approach — same result, but Flink handles 
 The Flink job is still running. Let's prove it processes data in real time.
 
 Open two terminals:
-- Terminal 1: Run the producer — `uv run python3 src/producers/producer.py`
+- Terminal 1: Run the producer - `uv run python src/producers/producer.py`
 - Terminal 2: Repeatedly query `SELECT count(*) FROM processed_events;`
 
-You'll see the count increase live as the producer sends messages. This is continuous stream processing — no batch scheduling, no cron jobs.
+You'll see the count increase live as the producer sends messages. This is continuous stream processing - no batch scheduling, no cron jobs.
 
 
-## Step 10: Offsets — earliest vs latest
+## Step 10: Offsets - earliest vs latest
 
 When Flink connects to Kafka, it needs to know where to start reading. This is the `scan.startup.mode` setting:
 
@@ -504,7 +499,7 @@ Our pass-through job uses `latest-offset`. Let's see what happens with `earliest
    ```sql
    TRUNCATE processed_events;
    ```
-3. Edit `src/job/start_job.py` — change both offset settings:
+3. Edit `src/job/start_job.py` - change both offset settings:
    ```
    'scan.startup.mode' = 'earliest-offset',
    'properties.auto.offset.reset' = 'earliest',
@@ -515,16 +510,20 @@ Our pass-through job uses `latest-offset`. Let's see what happens with `earliest
    SELECT count(*) FROM processed_events;
    ```
 
-Flink reads all messages from the topic — including data from previous producer runs. If you ran the producer twice before, you'll see ~1980 rows (duplicates of everything already processed).
+Flink reads all messages from the topic - including data from previous producer runs. If you ran the producer twice before, you'll see ~1980 rows (duplicates of everything already processed).
 
 Why duplicates? Checkpoints are scoped to a specific job instance. When you cancel and resubmit, it's a brand new job that knows nothing about previous checkpoints. With `earliest-offset`, it starts from scratch.
+
+There is a third option - `timestamp` mode. If your job was running fine until 2:00 PM and then crashed, you can restart it from exactly 2:00 PM. This is useful for recovering from failures without reprocessing everything from the beginning or missing the data that arrived while the job was down.
+
+A common production pattern (Lambda architecture): run your streaming job with `latest-offset` for real-time results, and if it goes down, use a separate batch job to backfill the gap. This way the streaming job stays fast and you don't lose data.
 
 > Change the offset back to `latest-offset` when you're done experimenting.
 
 
 ## Step 11: Aggregation with tumbling windows
 
-Now let's do something our plain Python consumer can't easily do — windowed aggregation.
+Now let's do something our plain Python consumer can't easily do - windowed aggregation.
 
 First, cancel any running jobs. Then create the aggregation table in PostgreSQL:
 
@@ -539,8 +538,8 @@ CREATE TABLE processed_events_aggregated (
 
 Two important design choices:
 
-1. `test_data` is included — we group by both time window and `test_data`, so both appear in the output.
-2. `PRIMARY KEY` — enables upsert behavior. When Flink sends updated counts for the same window, PostgreSQL updates the existing row instead of creating a duplicate.
+1. `test_data` is included - we group by both time window and `test_data`, so both appear in the output.
+2. `PRIMARY KEY` - enables upsert behavior. When Flink sends updated counts for the same window, PostgreSQL updates the existing row instead of creating a duplicate. This matters because late-arriving events can cause Flink to re-evaluate a window it already emitted results for. With upsert, the corrected count replaces the old one automatically.
 
 > During the original stream, Zach forgot the `test_data` column and the primary key, which caused errors. We include both from the start.
 
@@ -552,7 +551,7 @@ Tighter watermark (1 second instead of 5):
 WATERMARK for event_watermark as event_watermark - INTERVAL '1' SECOND
 ```
 
-This makes windows close faster so we see results sooner.
+This means Flink waits only 1 second for late events before closing a window, so we see results sooner. In production, you'd tune this based on how out-of-order your data actually is.
 
 The tumbling window query:
 
@@ -571,9 +570,9 @@ t_env.execute_sql(f"""
 ```
 
 The `TUMBLE` function:
-- `TABLE {source_table}` — input data (Kafka source)
-- `DESCRIPTOR(event_watermark)` — the time column for windowing (must match the `WATERMARK` column)
-- `INTERVAL '1' MINUTE` — window size
+- `TABLE {source_table}` - input data (Kafka source)
+- `DESCRIPTOR(event_watermark)` - the time column for windowing (must match the `WATERMARK` column)
+- `INTERVAL '1' MINUTE` - window size
 
 > During the stream, Zach tried `DESCRIPTOR(window_timestamp)` instead of `DESCRIPTOR(event_watermark)`, which caused an error. The descriptor must reference the column with the `WATERMARK` defined on it.
 
@@ -583,7 +582,7 @@ Parallelism:
 env.set_parallelism(3)
 ```
 
-Flink runs 3 copies processing data in parallel (similar to Spark executors). The task manager has 15 slots, so there's room to spare.
+Flink runs 3 copies processing data in parallel. The task manager has 15 slots, so there's room to spare. If you see "back pressure" in the Flink UI (events arriving faster than they're processed), increasing parallelism is one way to handle it.
 
 Submit and test:
 
@@ -594,7 +593,7 @@ make aggregation_job
 Send data:
 
 ```bash
-uv run python3 src/producers/producer.py
+uv run python src/producers/producer.py
 ```
 
 Wait ~15 seconds for the windows to close, then check:
@@ -615,7 +614,7 @@ ORDER BY event_hour;
 
 The 990 events were grouped into 1-minute tumbling windows. Each row shows how many events landed in that minute.
 
-Try this with a plain Python consumer — you'd need to implement the windowing logic, handle late events, manage state, and write the upsert SQL yourself. With Flink, it's a SQL query.
+Try this with a plain Python consumer - you'd need to implement the windowing logic, handle late events, manage state, and write the upsert SQL yourself. With Flink, it's a SQL query.
 
 
 ## Step 12: Understanding window types
@@ -641,14 +640,14 @@ Fixed-size, overlapping. An event can belong to multiple windows.
 |--- Window 1 (5 min) ---|
       |--- Window 2 (5 min) ---|
             |--- Window 3 (5 min) ---|
-      ← 1 min slide →
+      <- 1 min slide ->
 ```
 
 ```sql
 HOP(TABLE events, DESCRIPTOR(event_watermark), INTERVAL '1' MINUTE, INTERVAL '5' MINUTE)
 ```
 
-Use case: "What was our peak traffic in any 5-minute window?" — useful for finding peaks, moving averages, surge detection.
+Use case: "What was our peak traffic in any 5-minute window?" - useful for finding highs and lows, moving averages, and surge detection (e.g., ride-share surge pricing).
 
 ### Session windows
 
@@ -659,12 +658,12 @@ Dynamic windows based on inactivity gaps. A window closes after no events arrive
 | Session 1|     |  Session 2   |     | Session 3|
 ```
 
-Use case: User session analysis — group a user's clicks until they're inactive for 30 minutes. Great for behavioral analytics.
+Use case: User session analysis - group a user's clicks until they're inactive for 30 minutes. Great for behavioral analytics.
 
 
 ## Step 13: When to use streaming vs batch
 
-Not everything needs streaming. In Zach's words from the workshop: "In my whole career as a data engineer for 10 years, there were literally two use cases where I actually needed streaming — Airbnb's surge pricing and Netflix fraud detection."
+Not everything needs streaming. In Zach's words from the workshop: "In my whole career as a data engineer for 10 years, there were literally two use cases where I actually needed streaming - Airbnb's surge pricing and Netflix fraud detection."
 
 Use streaming when:
 - You need real-time automated reactions (fraud detection, surge pricing, security alerting)
@@ -674,7 +673,11 @@ Use streaming when:
 Use batch or micro-batch when:
 - Results can wait minutes or hours (dashboards, reports, analytics)
 - A human is the end consumer (they won't notice 15-minute vs real-time)
-- Simpler to maintain — hourly or 15-minute micro-batches are the sweet spot
+- Simpler to maintain - hourly or 15-minute micro-batches are the sweet spot
+
+Before committing to streaming, consider the operational cost. A streaming job runs 24/7 - if it breaks at 3 AM, someone needs to fix it. If you're the only person on the team who understands Flink, you'll be on-call for it. Make sure the business need justifies the complexity.
+
+How is Flink different from Spark Streaming? Spark Streaming uses micro-batches - it pulls data in small intervals (say, every few seconds) and processes each batch. Flink uses a continuous push model - events flow through the pipeline one by one as they arrive. For most use cases the difference is negligible, but Flink has lower latency for truly real-time needs.
 
 Why Flink over a plain Kafka consumer?
 
