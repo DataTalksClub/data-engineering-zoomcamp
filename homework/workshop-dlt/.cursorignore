@@ -1,0 +1,7 @@
+# virtual environments and typical python compilation artifacts
+.env
+.venv
+**/__pycache__/
+**/venv/
+**/virtualenv/
+**/conda/
