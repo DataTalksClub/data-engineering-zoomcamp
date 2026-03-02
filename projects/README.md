@@ -1,6 +1,6 @@
 ## Course Project
 
-[🎥 Projects how-to (watch it!)](https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6)
+[🎥 Projects how-to (watch it!)](https://www.youtube.com/watch?v=BL0E8xO8OnE)
 
 
 ### Objective
