@@ -304,6 +304,49 @@ t1 = time.time()
 print(f'took {(t1 - t0):.2f} seconds')
 ```
 
+If you're building from scratch (not using the cloned repo files), create
+the source directory structure and save the shared data model. The
+producer and consumer scripts both import from this file:
+
+```bash
+mkdir -p src/producers src/consumers src/job
+```
+
+Create `src/models.py`:
+
+```python
+import json
+from dataclasses import dataclass
+
+
+@dataclass
+class Ride:
+    PULocationID: int
+    DOLocationID: int
+    trip_distance: float
+    total_amount: float
+    tpep_pickup_datetime: int  # epoch milliseconds
+
+
+def ride_from_row(row):
+    return Ride(
+        PULocationID=int(row['PULocationID']),
+        DOLocationID=int(row['DOLocationID']),
+        trip_distance=float(row['trip_distance']),
+        total_amount=float(row['total_amount']),
+        tpep_pickup_datetime=int(row['tpep_pickup_datetime'].timestamp() * 1000),
+    )
+
+
+def ride_deserializer(data):
+    json_str = data.decode('utf-8')
+    ride_dict = json.loads(json_str)
+    return Ride(**ride_dict)
+```
+
+`ride_deserializer` is introduced in the next step - we include it here so
+the file is complete.
+
 > The complete script is in `src/producers/producer.py`.
 
 Run it:
@@ -315,7 +358,7 @@ uv run python src/producers/producer.py
 You'll see 1000 taxi trips sent over ~10 seconds:
 
 ```
-Sent: Ride(PULocationID=186, DOLocationID=79, trip_distance=1.72, total_amount=17.31, tpep_pickup_datetime=1730429702000)
+Sent: Ride(PULocationID=..., DOLocationID=..., trip_distance=..., total_amount=..., tpep_pickup_datetime=...)
 ...
 took 10.23 seconds
 ```
@@ -329,7 +372,6 @@ manually, let's write a function that does both in one step:
 
 ```python
 import json
-from models import Ride
 
 def ride_deserializer(data):
     json_str = data.decode('utf-8')
@@ -410,7 +452,7 @@ uv run python src/consumers/consumer.py
 
 ```
 Listening to rides...
-Received: PU=186, DO=79, distance=1.72, amount=$17.31, pickup=2025-11-01 00:15:02
+Received: PU=..., DO=..., distance=..., amount=$..., pickup=2025-...
 ...
 ... received 10 messages so far (stopping after 10 for demo)
 ```
@@ -479,7 +521,6 @@ each read all messages:
 
 ```python
 from kafka import KafkaConsumer
-from models import ride_deserializer
 
 server = 'localhost:9092'
 topic_name = 'rides'
@@ -936,8 +977,7 @@ SELECT * FROM processed_events ORDER BY pickup_datetime LIMIT 5;
 ```
  pulocationid | dolocationid | trip_distance | total_amount |   pickup_datetime
 --------------+--------------+---------------+--------------+---------------------
-          186 |           79 |          1.72 |        17.31 | 2025-11-01 00:15:02
-          140 |          236 |          3.18 |        22.00 | 2025-11-01 00:17:43
+          ... |          ... |          ...  |         ...  | 2025-11-01 ...
           ...
 ```
 
@@ -1062,58 +1102,108 @@ Two important design choices:
 > During the original stream, Zach forgot a grouping column and the primary
 > key, which caused errors. We include both from the start.
 
-Now create `src/job/aggregation_job.py`. The key differences from the
-pass-through job:
-
-Tighter watermark (1 second instead of 5):
+Now create `src/job/aggregation_job.py`:
 
 ```python
-WATERMARK for event_watermark as event_watermark - INTERVAL '1' SECOND
+from pyflink.datastream import StreamExecutionEnvironment
+from pyflink.table import EnvironmentSettings, StreamTableEnvironment
+
+
+def create_events_source_kafka(t_env):
+    table_name = "events"
+    source_ddl = f"""
+        CREATE TABLE {table_name} (
+            PULocationID INTEGER,
+            DOLocationID INTEGER,
+            trip_distance DOUBLE,
+            total_amount DOUBLE,
+            tpep_pickup_datetime BIGINT,
+            event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
+            WATERMARK for event_watermark as event_watermark - INTERVAL '1' SECOND
+        ) WITH (
+            'connector' = 'kafka',
+            'properties.bootstrap.servers' = 'redpanda:29092',
+            'topic' = 'rides',
+            'scan.startup.mode' = 'earliest-offset',
+            'properties.auto.offset.reset' = 'earliest',
+            'format' = 'json'
+        );
+        """
+    t_env.execute_sql(source_ddl)
+    return table_name
+
+
+def create_events_aggregated_sink(t_env):
+    table_name = 'processed_events_aggregated'
+    sink_ddl = f"""
+        CREATE TABLE {table_name} (
+            window_start TIMESTAMP(3),
+            PULocationID INT,
+            num_trips BIGINT,
+            total_revenue DOUBLE,
+            PRIMARY KEY (window_start, PULocationID) NOT ENFORCED
+        ) WITH (
+            'connector' = 'jdbc',
+            'url' = 'jdbc:postgresql://postgres:5432/postgres',
+            'table-name' = '{table_name}',
+            'username' = 'postgres',
+            'password' = 'postgres',
+            'driver' = 'org.postgresql.Driver'
+        );
+        """
+    t_env.execute_sql(sink_ddl)
+    return table_name
+
+
+def log_aggregation():
+    env = StreamExecutionEnvironment.get_execution_environment()
+    env.enable_checkpointing(10 * 1000)
+    env.set_parallelism(3)
+
+    settings = EnvironmentSettings.new_instance().in_streaming_mode().build()
+    t_env = StreamTableEnvironment.create(env, environment_settings=settings)
+
+    try:
+        source_table = create_events_source_kafka(t_env)
+        aggregated_table = create_events_aggregated_sink(t_env)
+
+        t_env.execute_sql(f"""
+        INSERT INTO {aggregated_table}
+        SELECT
+            window_start,
+            PULocationID,
+            COUNT(*) AS num_trips,
+            SUM(total_amount) AS total_revenue
+        FROM TABLE(
+            TUMBLE(TABLE {source_table}, DESCRIPTOR(event_watermark), INTERVAL '1' HOUR)
+        )
+        GROUP BY window_start, PULocationID;
+
+        """).wait()
+
+    except Exception as e:
+        print("Writing records from Kafka to JDBC failed:", str(e))
+
+
+if __name__ == '__main__':
+    log_aggregation()
 ```
 
-This means Flink waits only 1 second for late events before closing a window,
-so we see results sooner. In production, you'd tune this based on how
-out-of-order your data actually is.
+Key differences from the pass-through job:
 
-The tumbling window query:
+- Tighter watermark (`INTERVAL '1' SECOND` instead of `'5' SECOND`) - Flink
+  waits only 1 second for late events before closing a window, so we see
+  results sooner.
+- The sink has a `PRIMARY KEY` with `NOT ENFORCED` - this enables upsert
+  behavior in the Flink JDBC connector.
+- `earliest-offset` - reads all existing data from Kafka.
+- `env.set_parallelism(3)` - runs 3 copies processing data in parallel.
+- The `TUMBLE` function creates fixed-size, non-overlapping windows.
+  `DESCRIPTOR(event_watermark)` must reference the column with the `WATERMARK`
+  defined on it, and `INTERVAL '1' HOUR` sets the window size.
 
-```python
-t_env.execute_sql(f"""
-    INSERT INTO {aggregated_table}
-    SELECT
-        window_start,
-        PULocationID,
-        COUNT(*) AS num_trips,
-        SUM(total_amount) AS total_revenue
-    FROM TABLE(
-        TUMBLE(TABLE {source_table}, DESCRIPTOR(event_watermark), INTERVAL '1' HOUR)
-    )
-    GROUP BY window_start, PULocationID;
-""").wait()
-```
-
-The `TUMBLE` function:
-- `TABLE {source_table}` - input data (Kafka source)
-- `DESCRIPTOR(event_watermark)` - the time column for windowing (must match
-  the `WATERMARK` column)
-- `INTERVAL '1' HOUR` - window size
-
-> During the stream, Zach tried `DESCRIPTOR(window_timestamp)` instead of
-> `DESCRIPTOR(event_watermark)`, which caused an error. The descriptor must
-> reference the column with the `WATERMARK` defined on it.
-
-Parallelism:
-
-```python
-env.set_parallelism(3)
-```
-
-Parallelism in Flink is based on the key of the data - depending on what
-you group by, Flink hashes the key and distributes it across executors.
-This is very similar to how Spark distributes data. With parallelism set
-to 3, Flink runs 3 copies processing data in parallel. The task manager
-has 15 slots, so there's room to spare. These settings scale up to
-terabytes and even petabytes of data in production.
+> During the original stream, Zach tried `DESCRIPTOR(window_timestamp)`
+> instead of `DESCRIPTOR(event_watermark)`, which caused an error.
 
 Submit and test:
 
@@ -1142,8 +1232,8 @@ ORDER BY window_start;
 ```
      window_start     | locations | total_trips | revenue
 ----------------------+-----------+-------------+---------
- 2025-11-01 00:00:00  |        82 |         342 | 6847.50
- 2025-11-01 01:00:00  |        45 |         186 | 3542.80
+ 2025-11-01 00:00:00  |        ...
+ 2025-11-01 01:00:00  |        ...
  ...
 ```
 

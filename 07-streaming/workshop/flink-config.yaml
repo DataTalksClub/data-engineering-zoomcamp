@@ -15,7 +15,7 @@ taskmanager:
     jvm-metaspace:
       size: 512m  # added for PyFlink
   bind-host: 0.0.0.0
-  numberOfTaskSlots: 1
+  numberOfTaskSlots: 15
 jobmanager:
   execution:
     failover-strategy: region
