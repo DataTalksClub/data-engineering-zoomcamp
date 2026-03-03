@@ -5,10 +5,10 @@
 In this video, we show how to use PyFlink to consume data
 from a Kafka stream
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/P2loELMUUeI)](https://youtu.be/P2loELMUUeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=51)
+Video: TBA (see old video from 2025 [here](https://youtu.be/P2loELMUUeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=51))
 
 
-* Code: [PyFlink examples](pyflink/)
+* [PyFlink 2026 workshop](workshop/)
 * [2026 Homework](../cohorts/2026/07-streaming/homework.md)
 
 
@@ -47,34 +47,6 @@ Links:
 
 - [Slides](https://docs.google.com/presentation/d/1fVi9sFa7fL2ZW3ynS5MAZm0bRSZ4jO10fymPmrfTUjE/edit?usp=sharing)  
 - [Streams Concepts](https://docs.confluent.io/platform/current/streams/concepts.html)
-
-
-### PySpark - Structured Streaming (optional)
-
-Code: [Python examples](python/)
-
-Please follow the steps described under [pyspark-streaming](python/streams-example/pyspark/README.md)
-
-- [:movie_camera: 7.3 Kafka Streaming with Python](https://youtu.be/BgAlVknDFlQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=79)
-- [:movie_camera: 7.4 Pyspark Structured Streaming](https://youtu.be/VIVr7KwRQmE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=80)
-
-
-## Other streaming resources
-
-Kafka Streams with JVM library
-
-- [Confluent Kafka Streams](https://kafka.apache.org/documentation/streams/)
-- [Scala Example](https://github.com/AnkushKhanna/kafka-helper/tree/master/src/main/scala/kafka/schematest)
-
-KSQL and ksqlDB
-
-- [Introducing KSQL: Streaming SQL for Apache Kafka](https://www.confluent.io/blog/ksql-streaming-sql-for-apache-kafka/)
-- [ksqlDB](https://ksqldb.io/)
-
-Kafka Connect
-
-- [Making Sense of Stream Data](https://medium.com/analytics-vidhya/making-sense-of-stream-data-b74c1252a8f5)
-
 
 
 # Community notes

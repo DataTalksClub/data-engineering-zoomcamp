@@ -6,10 +6,11 @@ def create_events_aggregated_sink(t_env):
     table_name = 'processed_events_aggregated'
     sink_ddl = f"""
         CREATE TABLE {table_name} (
-            event_hour TIMESTAMP(3),
-            test_data INT,
-            num_hits BIGINT,
-            PRIMARY KEY (event_hour, test_data) NOT ENFORCED
+            window_start TIMESTAMP(3),
+            PULocationID INT,
+            num_trips BIGINT,
+            total_revenue DOUBLE,
+            PRIMARY KEY (window_start, PULocationID) NOT ENFORCED
         ) WITH (
             'connector' = 'jdbc',
             'url' = 'jdbc:postgresql://postgres:5432/postgres',
@@ -26,14 +27,17 @@ def create_events_source_kafka(t_env):
     table_name = "events"
     source_ddl = f"""
         CREATE TABLE {table_name} (
-            test_data INTEGER,
-            event_timestamp BIGINT,
-            event_watermark AS TO_TIMESTAMP_LTZ(event_timestamp, 3),
+            PULocationID INTEGER,
+            DOLocationID INTEGER,
+            trip_distance DOUBLE,
+            total_amount DOUBLE,
+            tpep_pickup_datetime BIGINT,
+            event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
             WATERMARK for event_watermark as event_watermark - INTERVAL '1' SECOND
         ) WITH (
             'connector' = 'kafka',
             'properties.bootstrap.servers' = 'redpanda:29092',
-            'topic' = 'test-topic',
+            'topic' = 'rides',
             'scan.startup.mode' = 'earliest-offset',
             'properties.auto.offset.reset' = 'earliest',
             'format' = 'json'
@@ -61,13 +65,14 @@ def log_aggregation():
         t_env.execute_sql(f"""
         INSERT INTO {aggregated_table}
         SELECT
-            window_start as event_hour,
-            test_data,
-            COUNT(*) AS num_hits
+            window_start,
+            PULocationID,
+            COUNT(*) AS num_trips,
+            SUM(total_amount) AS total_revenue
         FROM TABLE(
-            TUMBLE(TABLE {source_table}, DESCRIPTOR(event_watermark), INTERVAL '1' MINUTE)
+            TUMBLE(TABLE {source_table}, DESCRIPTOR(event_watermark), INTERVAL '1' HOUR)
         )
-        GROUP BY window_start, test_data;
+        GROUP BY window_start, PULocationID;
 
         """).wait()
 

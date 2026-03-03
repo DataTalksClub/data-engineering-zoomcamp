@@ -6,8 +6,11 @@ def create_processed_events_sink_postgres(t_env):
     table_name = 'processed_events'
     sink_ddl = f"""
         CREATE TABLE {table_name} (
-            test_data INTEGER,
-            event_timestamp TIMESTAMP
+            PULocationID INTEGER,
+            DOLocationID INTEGER,
+            trip_distance DOUBLE,
+            total_amount DOUBLE,
+            pickup_datetime TIMESTAMP
         ) WITH (
             'connector' = 'jdbc',
             'url' = 'jdbc:postgresql://postgres:5432/postgres',
@@ -25,14 +28,17 @@ def create_events_source_kafka(t_env):
     table_name = "events"
     source_ddl = f"""
         CREATE TABLE {table_name} (
-            test_data INTEGER,
-            event_timestamp BIGINT,
-            event_watermark AS TO_TIMESTAMP_LTZ(event_timestamp, 3),
+            PULocationID INTEGER,
+            DOLocationID INTEGER,
+            trip_distance DOUBLE,
+            total_amount DOUBLE,
+            tpep_pickup_datetime BIGINT,
+            event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
             WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND
         ) WITH (
             'connector' = 'kafka',
             'properties.bootstrap.servers' = 'redpanda:29092',
-            'topic' = 'test-topic',
+            'topic' = 'rides',
             'scan.startup.mode' = 'latest-offset',
             'properties.auto.offset.reset' = 'latest',
             'format' = 'json'
@@ -58,8 +64,11 @@ def log_processing():
             f"""
                     INSERT INTO {postgres_sink}
                     SELECT
-                        test_data,
-                        TO_TIMESTAMP_LTZ(event_timestamp, 3) as event_timestamp
+                        PULocationID,
+                        DOLocationID,
+                        trip_distance,
+                        total_amount,
+                        TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3) as pickup_datetime
                     FROM {source_table}
                     """
         ).wait()

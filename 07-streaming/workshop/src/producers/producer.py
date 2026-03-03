@@ -1,25 +1,40 @@
+import dataclasses
 import json
+import sys
 import time
-from kafka import KafkaProducer
+from pathlib import Path
 
-def json_serializer(data):
-    return json.dumps(data).encode('utf-8')
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+import pandas as pd
+from kafka import KafkaProducer
+from models import Ride, ride_from_row
+
+# Download NYC yellow taxi trip data (first 1000 rows)
+url = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.parquet"
+columns = ['PULocationID', 'DOLocationID', 'trip_distance', 'total_amount', 'tpep_pickup_datetime']
+df = pd.read_parquet(url, columns=columns).head(1000)
+
+def ride_serializer(ride):
+    ride_dict = dataclasses.asdict(ride)
+    json_str = json.dumps(ride_dict)
+    return json_str.encode('utf-8')
 
 server = 'localhost:9092'
 
 producer = KafkaProducer(
     bootstrap_servers=[server],
-    value_serializer=json_serializer
+    value_serializer=ride_serializer
 )
 t0 = time.time()
 
-topic_name = 'test-topic'
+topic_name = 'rides'
 
-for i in range(10, 1000):
-    message = {'test_data': i, 'event_timestamp': time.time() * 1000}
-    producer.send(topic_name, value=message)
-    print(f"Sent: {message}")
-    time.sleep(0.05)
+for _, row in df.iterrows():
+    ride = ride_from_row(row)
+    producer.send(topic_name, value=ride)
+    print(f"Sent: {ride}")
+    time.sleep(0.01)
 
 producer.flush()
 
