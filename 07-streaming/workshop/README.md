@@ -14,10 +14,8 @@ Producer (Python) -> Kafka (Redpanda) -> Flink -> PostgreSQL
 Prerequisites:
 
 - Docker and Docker Compose
-- Python 3.12+ with [uv](https://docs.astral.sh/uv/) installed
+- [uv](https://docs.astral.sh/uv/)
 - A SQL client - [pgcli](https://www.pgcli.com/) (`uvx pgcli`), DBeaver, pgAdmin, or DataGrip
-
-> Note: The original `kafka-python` library is no longer maintained. This workshop uses `kafka-python-ng` - a maintained drop-in replacement.
 
 
 ## Step 1: Start the infrastructure
