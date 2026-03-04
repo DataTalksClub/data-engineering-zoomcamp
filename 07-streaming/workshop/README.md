@@ -185,7 +185,6 @@ Define a dataclass for our message. This gives us a clear schema for each
 taxi trip:
 
 ```python
-import dataclasses
 from dataclasses import dataclass
 
 @dataclass
@@ -195,7 +194,6 @@ class Ride:
     trip_distance: float
     total_amount: float
     tpep_pickup_datetime: int  # epoch milliseconds
-
 ```
 
 Write a function to convert a DataFrame row into a `Ride`. We convert the
@@ -744,6 +742,14 @@ parallelism 3, that job uses 3 slots. With 15 slots available, you can run
 have multiple task managers across different machines, each contributing
 slots to the cluster. The job manager decides which slots run which parts
 of which jobs.
+
+Make sure `src/` exists before starting Docker - the volume mount
+`./src/:/opt/src` will create it as root if it doesn't exist, causing
+permission issues later when you try to create files inside it:
+
+```bash
+mkdir -p src/job
+```
 
 Build the Flink image and start all services:
 
