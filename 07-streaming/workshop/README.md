@@ -28,7 +28,7 @@ Prerequisites:
 > along step by step or study the existing files and run the commands.
 
 
-## Step 1: Redpanda - a Kafka-compatible broker
+## Redpanda - a Kafka-compatible broker
 
 Before we can produce or consume messages, we need a message broker -
 a service that receives messages from producers, stores them, and delivers
@@ -150,7 +150,7 @@ workshop-redpanda   redpandadata/redpanda:v25.3.9   redpanda   Up
 ```
 
 
-## Step 2: Produce messages to Kafka
+## Produce messages to Kafka
 
 Initialize a Python project and add the dependencies we need:
 
@@ -362,7 +362,7 @@ took 10.23 seconds
 ```
 
 
-## Step 3: Consume messages with Python
+## Consume messages with Python
 
 Now let's read back the messages. The consumer receives raw bytes from
 Kafka. Instead of deserializing to a dict and then constructing a `Ride`
@@ -456,7 +456,7 @@ Received: PU=..., DO=..., distance=..., amount=$..., pickup=2025-...
 ```
 
 
-## Step 4: Save events to PostgreSQL
+## Save events to PostgreSQL
 
 Printing to the screen is fine for debugging, but let's save events to a
 database. Add the PostgreSQL service to `docker-compose.yml`:
@@ -614,7 +614,7 @@ TRUNCATE processed_events;
 ```
 
 
-## Step 5: Why Flink?
+## Why Flink?
 
 Flink is a stream processing framework that handles all the hard parts:
 
@@ -633,7 +633,7 @@ running a batch pipeline - it runs 24/7 and needs monitoring. But for anything
 beyond simple consume-and-write, Flink pays for itself.
 
 
-## Step 6: The Flink image and services
+## The Flink image and services
 
 Flink doesn't come with Python support out of the box. We need a custom
 Docker image with Python, PyFlink, and connector JARs.
@@ -778,7 +778,7 @@ Check the Flink dashboard at [http://localhost:8081](http://localhost:8081) -
 you should see 1 task manager with 15 available task slots.
 
 
-## Step 7: The pass-through Flink job
+## The pass-through Flink job
 
 Now let's do the same thing our Python consumer did, but with Flink.
 
@@ -787,7 +787,7 @@ Jupyter notebook. They are submitted to the Flink cluster as .py files
 using `docker compose exec`. We cover how job submission works in
 production in the "Flink in production" section at the end.
 
-Create `src/job/start_job.py`.
+Create `src/job/pass_through_job.py`.
 
 The Kafka source table:
 
@@ -800,9 +800,7 @@ def create_events_source_kafka(t_env):
             DOLocationID INTEGER,
             trip_distance DOUBLE,
             total_amount DOUBLE,
-            tpep_pickup_datetime BIGINT,
-            event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
-            WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND
+            tpep_pickup_datetime BIGINT
         ) WITH (
             'connector' = 'kafka',
             'properties.bootstrap.servers' = 'redpanda:29092',
@@ -820,71 +818,11 @@ This is a Flink SQL DDL statement. Breaking it down:
 
 - `PULocationID`, `DOLocationID`, `trip_distance`, `total_amount`,
   `tpep_pickup_datetime` - the JSON fields from our producer
-- `event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3)` - a computed
-  column that converts epoch milliseconds to a timestamp. The `3` means
-  milliseconds precision.
 - `'properties.bootstrap.servers' = 'redpanda:29092'` - the internal Docker
   network address (not `localhost` - Flink runs inside Docker)
 - `'scan.startup.mode' = 'latest-offset'` - only read new messages arriving
   after the job starts
 - `'format' = 'json'` - Flink deserializes JSON automatically
-
-The `WATERMARK` line tells Flink how to handle late-arriving events.
-
-Why "watermark"? Think of a high-water mark on a river wall - a line showing
-how high the water has risen. In stream processing, events are the "water"
-flowing through the system, and the watermark marks how far event time has
-progressed. Everything below the line has passed. The watermark says: "I'm
-reasonably confident that no events with timestamps earlier than this will
-arrive."
-
-Watermarking only matters when you're doing windows - when you're grouping
-events by time. Think of a window as a GROUP BY in SQL, but more
-complicated because some of the data you're grouping on doesn't exist yet
-(it's still arriving) and some of it might be out of order.
-
-In the real world, events don't always arrive in order. Imagine a rider goes
-through a tunnel and their phone loses signal for a few seconds. The trip
-event gets generated on time, but it arrives at Kafka a few seconds late.
-Without a watermark, Flink might close a time window before that event
-shows up, and the event would be lost.
-
-Now look at the subtraction:
-
-```
-WATERMARK FOR event_watermark AS event_watermark - INTERVAL '5' SECOND
-```
-
-This means the watermark is always 5 seconds behind the latest event
-timestamp Flink has seen so far. If the latest event has timestamp
-`12:00:30`, the watermark is at `12:00:25`. Flink interprets this as:
-"no events earlier than `12:00:25` will arrive anymore." When the watermark
-passes the end of a time window, Flink closes that window and emits results.
-
-The subtraction defines your lateness tolerance:
-
-- `- INTERVAL '5' SECOND` = tolerate up to 5 seconds of disorder
-- `- INTERVAL '1' SECOND` = less tolerance, faster results (used in the
-  aggregation job later)
-- `- INTERVAL '0' SECOND` = no tolerance at all, events must arrive in
-  perfect order
-
-As Zach puts it in the workshop: think of it like someone being one minute
-late to a Zoom call - they're not really late, there's an acceptable
-amount of lateness. The watermark is that acceptable amount.
-
-The trade-off is latency vs completeness. A larger watermark means more
-tolerance for out-of-order data but higher latency before you see results.
-5 seconds is a reasonable default. In production, you'd tune this based
-on how out-of-order your data actually is.
-
-Note that the watermark can be based on two different things: the event time
-(when the trip actually happened) or the Kafka ingestion time (when the
-broker received the message). These can be different times because of
-network problems. We use event time here (`tpep_pickup_datetime`).
-
-We don't need watermarks for pass-through (we're just copying rows), but
-the column is required for windowed aggregation later.
 
 The PostgreSQL sink table:
 
@@ -971,7 +909,7 @@ Submit the job:
 
 ```bash
 docker compose exec jobmanager ./bin/flink run \
-    -py /opt/src/job/start_job.py \
+    -py /opt/src/job/pass_through_job.py \
     --pyFiles /opt/src -d
 ```
 
@@ -994,50 +932,11 @@ Query PostgreSQL:
 SELECT count(*) FROM processed_events;
 ```
 
-```
- count
--------
-  1000
-```
-
-```sql
-SELECT * FROM processed_events ORDER BY pickup_datetime LIMIT 5;
-```
-
-```
- pulocationid | dolocationid | trip_distance | total_amount |   pickup_datetime
---------------+--------------+---------------+--------------+---------------------
-          ... |          ... |          ...  |         ...  | 2025-11-01 ...
-          ...
-```
-
 Compare this to our Python consumer approach - same result, but Flink handles
 checkpointing, offset management, and PostgreSQL writes automatically.
 
 
-## Step 8: Real-time streaming
-
-The Flink job is still running. Let's prove it processes data in real time.
-
-Open two terminals:
-
-Terminal 1 - run the producer:
-
-```bash
-uv run python src/producers/producer.py
-```
-
-Terminal 2 - watch the count grow in PostgreSQL:
-
-```bash
-watch -n 1 'PGPASSWORD=postgres docker compose exec postgres psql -U postgres -d postgres -c "SELECT count(*) FROM processed_events;"'
-```
-
-You'll see the count increase live as the producer sends messages. This is
-continuous stream processing - no batch scheduling, no cron jobs.
-
-
-## Step 9: Offsets - earliest vs latest
+## Offsets - earliest vs latest
 
 When Flink connects to Kafka, it needs to know where to start reading. This
 is the `scan.startup.mode` setting:
@@ -1062,7 +961,7 @@ Our pass-through job uses `latest-offset`. Let's see what happens with
    ```sql
    TRUNCATE processed_events;
    ```
-3. Edit `src/job/start_job.py` - change both offset settings:
+3. Edit `src/job/pass_through_job.py` - change both offset settings:
    ```
    'scan.startup.mode' = 'earliest-offset',
    'properties.auto.offset.reset' = 'earliest',
@@ -1070,7 +969,7 @@ Our pass-through job uses `latest-offset`. Let's see what happens with
 4. Resubmit:
    ```bash
    docker compose exec jobmanager ./bin/flink run \
-       -py /opt/src/job/start_job.py \
+       -py /opt/src/job/pass_through_job.py \
        --pyFiles /opt/src -d
    ```
 5. Wait 15 seconds, then check:
@@ -1102,7 +1001,7 @@ don't lose data.
 > Change the offset back to `latest-offset` when you're done experimenting.
 
 
-## Step 10: Aggregation with tumbling windows
+## Aggregation with tumbling windows
 
 Now let's do something our plain Python consumer can't easily do - windowed
 aggregation. We'll count taxi trips and sum revenue by pickup location per hour.
@@ -1129,9 +1028,6 @@ Two important design choices:
    re-evaluate a window it already emitted results for. With upsert, the
    corrected count replaces the old one automatically.
 
-> During the original stream, Zach forgot a grouping column and the primary
-> key, which caused errors. We include both from the start.
-
 Now create `src/job/aggregation_job.py`:
 
 ```python
@@ -1148,8 +1044,8 @@ def create_events_source_kafka(t_env):
             trip_distance DOUBLE,
             total_amount DOUBLE,
             tpep_pickup_datetime BIGINT,
-            event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
-            WATERMARK for event_watermark as event_watermark - INTERVAL '1' SECOND
+            event_timestamp AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
+            WATERMARK for event_timestamp as event_timestamp - INTERVAL '5' SECOND
         ) WITH (
             'connector' = 'kafka',
             'properties.bootstrap.servers' = 'redpanda:29092',
@@ -1205,7 +1101,7 @@ def log_aggregation():
             COUNT(*) AS num_trips,
             SUM(total_amount) AS total_revenue
         FROM TABLE(
-            TUMBLE(TABLE {source_table}, DESCRIPTOR(event_watermark), INTERVAL '1' HOUR)
+            TUMBLE(TABLE {source_table}, DESCRIPTOR(event_timestamp), INTERVAL '1' HOUR)
         )
         GROUP BY window_start, PULocationID;
 
@@ -1219,21 +1115,120 @@ if __name__ == '__main__':
     log_aggregation()
 ```
 
-Key differences from the pass-through job:
+The Kafka source table has two new lines compared to the pass-through job:
 
-- Tighter watermark (`INTERVAL '1' SECOND` instead of `'5' SECOND`) - Flink
-  waits only 1 second for late events before closing a window, so we see
-  results sooner.
+- `event_timestamp AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3)` - a computed
+  column that converts epoch milliseconds to a timestamp. The `3` means
+  milliseconds precision.
+- `WATERMARK for event_timestamp as event_timestamp - INTERVAL '5' SECOND` -
+  tells Flink when to publish window results.
+
+The window defines WHAT you're counting - a 1-hour bucket of taxi trips.
+But in a stream, events keep arriving. How does Flink know when to stop
+waiting and publish the count for the 2 PM - 3 PM hour? It can't just
+look at the clock because some events arrive late. Without a trigger,
+Flink would accumulate data forever and never write anything to PostgreSQL.
+
+The watermark is that trigger. It tells Flink when to publish. In the SQL:
+
+```
+WATERMARK FOR event_timestamp AS event_timestamp - INTERVAL '5' SECOND
+                                                   ^^^^^^^^^^^^^^^^^^^
+                                                   patience = 5 seconds
+```
+
+The watermark is always 5 seconds behind the latest event timestamp Flink
+has seen. When the watermark passes the end of a window, Flink publishes
+that window's results. The 5 seconds is patience for stragglers - events
+that happened before the window ended but arrived a few seconds late.
+
+Three pieces working together:
+
+- Window = what bucket to count into (1 hour)
+- Watermark = when to publish the result (the trigger)
+- Upsert (PRIMARY KEY) = safety net that corrects the result if something
+  arrives after publishing
+
+Here's a concrete example. Two taxi pickups in East Village (PU=79) with
+a 10-second window and 5-second watermark. Event A is on time, Event B is
+8 seconds late (the rider's phone lost signal in a tunnel).
+
+Event B arrives late, but Flink hasn't published yet - both events counted:
+
+```mermaid
+sequenceDiagram
+    participant P as Producer
+    participant K as Kafka
+    participant F as Flink
+    participant PG as PostgreSQL
+
+    P->>K: Event A (ts=14:00:07, on time)
+    K->>F: Event A
+    Note over F: watermark = 00:02<br/>window [00:00, 00:10) not published yet<br/>A added to window
+
+    Note over P: 5 seconds pass, phone reconnects
+
+    P->>K: Event B (ts=14:00:04, 8s late)
+    K->>F: Event B
+    Note over F: watermark = 00:07<br/>window [00:00, 00:10) still not published<br/>B added to window
+
+    Note over F: more events arrive<br/>watermark reaches 00:10<br/>time to publish
+
+    F->>PG: INSERT (window=00:00, PU=79, trips=2)
+    Note over PG: both events counted
+```
+
+Event B arrived late, but within Flink's patience window. Flink hadn't
+published the result yet, so B was included in the count.
+
+Now what if Event B were 20 seconds late - arriving after Flink already
+published?
+
+```mermaid
+sequenceDiagram
+    participant P as Producer
+    participant K as Kafka
+    participant F as Flink
+    participant PG as PostgreSQL
+
+    P->>K: Event A (ts=14:00:07, on time)
+    K->>F: Event A
+    Note over F: A added to window [00:00, 00:10)
+
+    Note over F: watermark reaches 00:10<br/>time to publish
+
+    F->>PG: INSERT (window=00:00, PU=79, trips=1)
+    Note over PG: published with trips=1
+
+    Note over P: 20 seconds later, phone reconnects
+
+    P->>K: Event B (ts=14:00:04, 20s late)
+    K->>F: Event B
+    Note over F: window [00:00, 00:10) already published<br/>but B still belongs to it
+
+    F->>PG: UPDATE (window=00:00, PU=79, trips=2)
+    Note over PG: upsert via PRIMARY KEY<br/>corrected from 1 to 2
+```
+
+Flink already published trips=1, but when Event B finally arrives, the
+PRIMARY KEY lets Flink send a correction. PostgreSQL updates the row
+from 1 to 2. Without the PRIMARY KEY (an append-only sink), Event B
+would be lost - Flink can't re-open a published window in append mode.
+
+The trade-off is latency vs completeness. A larger watermark means more
+patience for late events, but you wait longer before seeing any results.
+5 seconds is a reasonable default. In production, you'd tune this based
+on how out-of-order your data actually is.
+
+Other differences from the pass-through job:
+
 - The sink has a `PRIMARY KEY` with `NOT ENFORCED` - this enables upsert
   behavior in the Flink JDBC connector.
 - `earliest-offset` - reads all existing data from Kafka.
 - `env.set_parallelism(3)` - runs 3 copies processing data in parallel.
 - The `TUMBLE` function creates fixed-size, non-overlapping windows.
-  `DESCRIPTOR(event_watermark)` must reference the column with the `WATERMARK`
+  `DESCRIPTOR(event_timestamp)` must reference the column with the `WATERMARK`
   defined on it, and `INTERVAL '1' HOUR` sets the window size.
-
-> During the original stream, Zach tried `DESCRIPTOR(window_timestamp)`
-> instead of `DESCRIPTOR(event_watermark)`, which caused an error.
 
 Submit and test:
 
@@ -1276,7 +1271,60 @@ logic, handle late events, manage state, and write the upsert SQL yourself.
 With Flink, it's a SQL query.
 
 
-## Step 11: Understanding window types
+## Late events and upserts
+
+The CSV producer sends events in order, so the watermark never has to
+handle late arrivals. Let's use a real-time producer that generates
+synthetic events with occasional delays to see what happens.
+
+Download and run the real-time producer:
+
+```bash
+PREFIX="https://raw.githubusercontent.com/DataTalksClub/data-engineering-zoomcamp/main/07-streaming/workshop"
+wget ${PREFIX}/src/producers/producer_realtime.py -P src/producers/
+```
+
+```bash
+uv run python src/producers/producer_realtime.py
+```
+
+It generates random taxi trips with current timestamps, but ~20% of events
+are sent with a timestamp 3-10 seconds in the past (simulating network
+delays). The output labels each event:
+
+```
+  on time   -> PU=79 ts=14:23:05
+  on time   -> PU=107 ts=14:23:05
+  LATE (8s) -> PU=234 ts=14:22:58
+  on time   -> PU=48 ts=14:23:06
+```
+
+With our 5-second watermark and 1-hour windows, no events will be dropped -
+even an event 10 seconds late lands well within the current hour window.
+But the watermark + upsert behavior is still visible: Flink first emits
+window results when the watermark passes the window end, then late events
+update those results via the PRIMARY KEY.
+
+To see this in action, open two terminals:
+
+Terminal 1 - run the real-time producer:
+
+```bash
+uv run python src/producers/producer_realtime.py
+```
+
+Terminal 2 - watch aggregation counts change:
+
+```bash
+watch -n 1 'PGPASSWORD=postgres docker compose exec postgres psql -U postgres -d postgres -c "SELECT window_start, sum(num_trips) as trips, round(sum(total_revenue)::numeric, 2) as revenue FROM processed_events_aggregated GROUP BY window_start ORDER BY window_start;"'
+```
+
+You'll see the counts for older windows increase as late events arrive
+and update the aggregation via upsert. This is why we set up the PRIMARY
+KEY - without it, late events would either be dropped or create duplicates.
+
+
+## Understanding window types
 
 We used tumbling windows above. Flink supports three types:
 
@@ -1309,7 +1357,7 @@ starting at different points. Sliding windows capture all of them.
 ```
 
 ```sql
-HOP(TABLE events, DESCRIPTOR(event_watermark), INTERVAL '15' MINUTE, INTERVAL '1' HOUR)
+HOP(TABLE events, DESCRIPTOR(event_timestamp), INTERVAL '15' MINUTE, INTERVAL '1' HOUR)
 ```
 
 Use case: finding peaks and valleys - "what was our peak traffic in any
@@ -1395,7 +1443,7 @@ closes a window are discarded. If you set allowed lateness to 10 minutes,
 Flink will go back, find the old closed window, create a new aggregation
 with the late event, and send it to the sink as a brand new record. This
 means you need deduplication logic on the sink side (a primary key with
-upsert behavior - exactly what we set up in Step 10).
+upsert behavior - exactly what we set up in the aggregation section).
 
 The trade-off: allowed lateness requires Flink to hold all those windows
 on disk for the duration of the tolerance.

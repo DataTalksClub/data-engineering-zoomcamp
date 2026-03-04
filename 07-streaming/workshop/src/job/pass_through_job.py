@@ -32,9 +32,7 @@ def create_events_source_kafka(t_env):
             DOLocationID INTEGER,
             trip_distance DOUBLE,
             total_amount DOUBLE,
-            tpep_pickup_datetime BIGINT,
-            event_watermark AS TO_TIMESTAMP_LTZ(tpep_pickup_datetime, 3),
-            WATERMARK for event_watermark as event_watermark - INTERVAL '5' SECOND
+            tpep_pickup_datetime BIGINT
         ) WITH (
             'connector' = 'kafka',
             'properties.bootstrap.servers' = 'redpanda:29092',
