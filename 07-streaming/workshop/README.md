@@ -1,6 +1,6 @@
 # PyFlink: Stream Processing Workshop
 
-Video: TBA ([sign up for the live session](https://luma.com/dc89rxyy))
+Video: https://www.youtube.com/watch?v=YDUgFeHQzJU
 
 This workshop is based on the
 [2025 stream with Zach Wilson](https://www.youtube.com/watch?v=P2loELMUUeI).
