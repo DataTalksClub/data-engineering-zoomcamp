@@ -6,7 +6,7 @@ not part of the main workshop but may be useful as reference material.
 
 ## python/
 
-Python Kafka examples using various libraries.
+Python Kafka examples by Irem Erturk, using various libraries.
 
 - [json_example/](python/json_example) - producer and consumer using
   `kafka-python` with JSON serialization
