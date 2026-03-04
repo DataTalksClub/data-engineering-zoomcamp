@@ -31,9 +31,9 @@ Python Kafka examples using various libraries.
 
 PyFlink workshop by Irem Erturk. Uses Apache Flink 1.x with a
 Makefile-based workflow, PostgreSQL sink, and Docker Compose setup. The
-[2025 workshop with Zach Wilson](https://www.youtube.com/watch?v=P2loELMUUeI)
-was rewritten into the current [2026 workshop](../workshop/) using Flink 2.2,
-uv, and a step-by-step README.
+[2025 stream with Zach Wilson](https://www.youtube.com/watch?v=P2loELMUUeI)
+was rewritten into the current [2026 workshop](../workshop/) by Alexey,
+using Flink 2.2, uv, and a step-by-step README.
 
 
 ## ksqldb/
