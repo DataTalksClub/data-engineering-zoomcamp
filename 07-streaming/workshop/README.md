@@ -825,6 +825,13 @@ This is a Flink SQL DDL statement. Breaking it down:
 
 The `WATERMARK` line tells Flink how to handle late-arriving events.
 
+Why "watermark"? Think of a high-water mark on a river wall - a line showing
+how high the water has risen. In stream processing, events are the "water"
+flowing through the system, and the watermark marks how far event time has
+progressed. Everything below the line has passed. The watermark says: "I'm
+reasonably confident that no events with timestamps earlier than this will
+arrive."
+
 Watermarking only matters when you're doing windows - when you're grouping
 events by time. Think of a window as a GROUP BY in SQL, but more
 complicated because some of the data you're grouping on doesn't exist yet
@@ -836,17 +843,34 @@ event gets generated on time, but it arrives at Kafka a few seconds late.
 Without a watermark, Flink might close a time window before that event
 shows up, and the event would be lost.
 
-`event_watermark - INTERVAL '5' SECOND` means: "don't close the window yet -
-wait 5 seconds for stragglers." As Zach puts it in the workshop: think of
-it like someone being one minute late to a Zoom call - they're not really
-late, there's an acceptable amount of lateness. The watermark is that
-acceptable amount.
+Now look at the subtraction:
 
-The trade-off: a larger watermark means more tolerance for out-of-order data
-but higher latency before you see results. You're balancing how much
-ordering guarantees you want versus how much latency you're adding to
-your job. 5 seconds is a reasonable default. In production, you'd tune this
-based on how out-of-order your data actually is.
+```
+WATERMARK FOR event_watermark AS event_watermark - INTERVAL '5' SECOND
+```
+
+This means the watermark is always 5 seconds behind the latest event
+timestamp Flink has seen so far. If the latest event has timestamp
+`12:00:30`, the watermark is at `12:00:25`. Flink interprets this as:
+"no events earlier than `12:00:25` will arrive anymore." When the watermark
+passes the end of a time window, Flink closes that window and emits results.
+
+The subtraction defines your lateness tolerance:
+
+- `- INTERVAL '5' SECOND` = tolerate up to 5 seconds of disorder
+- `- INTERVAL '1' SECOND` = less tolerance, faster results (used in the
+  aggregation job later)
+- `- INTERVAL '0' SECOND` = no tolerance at all, events must arrive in
+  perfect order
+
+As Zach puts it in the workshop: think of it like someone being one minute
+late to a Zoom call - they're not really late, there's an acceptable
+amount of lateness. The watermark is that acceptable amount.
+
+The trade-off is latency vs completeness. A larger watermark means more
+tolerance for out-of-order data but higher latency before you see results.
+5 seconds is a reasonable default. In production, you'd tune this based
+on how out-of-order your data actually is.
 
 Note that the watermark can be based on two different things: the event time
 (when the trip actually happened) or the Kafka ingestion time (when the
