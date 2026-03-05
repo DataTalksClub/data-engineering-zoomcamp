@@ -1,6 +1,6 @@
 # Module 7: Stream Processing
 
-Video: TBA (see old video from 2025 [here](https://youtu.be/P2loELMUUeI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=51))
+Video: https://www.youtube.com/live/YDUgFeHQzJU
 
 - [PyFlink workshop](workshop/) - build a real-time streaming pipeline step by step (Redpanda, Python, Flink, PostgreSQL)
 - [Homework](../cohorts/2026/07-streaming/homework.md)
