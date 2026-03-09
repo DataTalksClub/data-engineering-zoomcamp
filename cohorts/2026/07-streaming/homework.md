@@ -1,214 +1,214 @@
-# [DRAFT] Homework
+# Homework
 
-In this homework, we're going to learn about streaming with PyFlink.
+In this homework, we'll practice streaming with Kafka (Redpanda) and PyFlink.
 
-Instead of Kafka, we will use Red Panda, which is a drop-in
-replacement for Kafka. It implements the same interface, 
-so we can use the Kafka library for Python for communicating
-with it, as well as use the Kafka connector in PyFlink.
+We use Redpanda, a drop-in replacement for Kafka. It implements the same
+protocol, so any Kafka client library works with it unchanged.
 
-For this homework we will be using the Taxi data:
-- Green 2019-10 data from [here](https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-10.csv.gz)
+For this homework we will be using Green Taxi Trip data from October 2025:
+
+- [green_tripdata_2025-10.parquet](https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-10.parquet)
 
 
 ## Setup
 
-We need:
+We'll use the same infrastructure from the
+[workshop](../../../07-streaming/workshop/). Go there and follow the setup
+instructions (build the Docker image, start the services):
 
-- Red Panda
-- Flink Job Manager
+```bash
+cd 07-streaming/workshop/
+docker compose build
+docker compose up -d
+```
+
+This gives us:
+
+- Redpanda (Kafka-compatible broker) on `localhost:9092`
+- Flink Job Manager at http://localhost:8081
 - Flink Task Manager
-- Postgres
+- PostgreSQL on `localhost:5432` (user: `postgres`, password: `postgres`)
 
-It's the same setup as in the [pyflink module](../../../07-streaming/pyflink/), so go there and start docker-compose:
 
-```bash
-cd ../../../07-streaming/pyflink/
-docker-compose up
-```
+## Part 1: Kafka producer and consumer (Questions 1-3)
 
-(Add `-d` if you want to run in detached mode)
+### Question 1. Redpanda version
 
-Visit http://localhost:8081 to see the Flink Job Manager
-
-Connect to Postgres with pgcli, pg-admin, [DBeaver](https://dbeaver.io/) or any other tool.
-
-The connection credentials are:
-
-- Username `postgres`
-- Password `postgres`
-- Database `postgres`
-- Host `localhost`
-- Port `5432`
-
-With pgcli, you'll need to run this to connect:
+Run `rpk version` inside the Redpanda container:
 
 ```bash
-pgcli -h localhost -p 5432 -u postgres -d postgres
+docker exec -it workshop-redpanda-1 rpk version
 ```
 
-Run these query to create the Postgres landing zone for the first events and windows:
-
-```sql 
-CREATE TABLE processed_events (
-    test_data INTEGER,
-    event_timestamp TIMESTAMP
-);
-
-CREATE TABLE processed_events_aggregated (
-    event_hour TIMESTAMP,
-    test_data INTEGER,
-    num_hits INTEGER 
-);
-```
-
-## Question 1: Redpanda version
-
-Now let's find out the version of redpandas. 
-
-For that, check the output of the command `rpk help` _inside the container_. The name of the container is `redpanda-1`.
-
-Find out what you need to execute based on the `help` output.
-
-What's the version, based on the output of the command you executed? (copy the entire version)
+What version of Redpanda are you running?
 
 
-## Question 2. Creating a topic
+### Question 2. Sending data to Redpanda
 
-Before we can send data to the redpanda server, we
-need to create a topic. We do it also with the `rpk`
-command we used previously for figuring out the version of 
-redpandas.
-
-Read the output of `help` and based on it, create a topic with name `green-trips` 
-
-What's the output of the command for creating a topic? Include the entire output in your answer.
-
-
-## Question 3. Connecting to the Kafka server
-
-We need to make sure we can connect to the server, so
-later we can send some data to its topics
-
-First, let's install the kafka connector (up to you if you
-want to have a separate virtual environment for that)
+Create a topic called `green-trips`:
 
 ```bash
-pip install kafka-python
+docker exec -it workshop-redpanda-1 rpk topic create green-trips
 ```
 
-You can start a jupyter notebook in your solution folder or
-create a script
+Now write a producer to send the green taxi data to this topic.
 
-Let's try to connect to our server:
+Read the parquet file and keep only these columns:
 
-```python
-import json
+- `lpep_pickup_datetime`
+- `lpep_dropoff_datetime`
+- `PULocationID`
+- `DOLocationID`
+- `passenger_count`
+- `trip_distance`
+- `tip_amount`
+- `total_amount`
 
-from kafka import KafkaProducer
+Convert each row to a dictionary and send it to the `green-trips` topic.
+You'll need to handle the datetime columns - convert them to strings
+before serializing to JSON.
 
-def json_serializer(data):
-    return json.dumps(data).encode('utf-8')
-
-server = 'localhost:9092'
-
-producer = KafkaProducer(
-    bootstrap_servers=[server],
-    value_serializer=json_serializer
-)
-
-producer.bootstrap_connected()
-```
-
-Provided that you can connect to the server, what's the output
-of the last command?
-
-## Question 4: Sending the Trip Data
-
-Now we need to send the data to the `green-trips` topic
-
-Read the data, and keep only these columns:
-
-* `'lpep_pickup_datetime',`
-* `'lpep_dropoff_datetime',`
-* `'PULocationID',`
-* `'DOLocationID',`
-* `'passenger_count',`
-* `'trip_distance',`
-* `'tip_amount'`
-
-Now send all the data using this code:
-
-```python
-producer.send(topic_name, value=message)
-```
-
-For each row (`message`) in the dataset. In this case, `message`
-is a dictionary.
-
-After sending all the messages, flush the data:
-
-```python
-producer.flush()
-```
-
-Use `from time import time` to see the total time 
+Measure the time it takes to send the entire dataset and flush:
 
 ```python
 from time import time
 
 t0 = time()
 
-# ... your code
+# send all rows ...
+
+producer.flush()
 
 t1 = time()
-took = t1 - t0
+print(f'took {(t1 - t0):.2f} seconds')
 ```
 
-How much time did it take to send the entire dataset and flush? 
+How long did it take to send the data?
+
+- 22.34 seconds
+- 42.34 seconds
+- 62.34 seconds
+- 82.34 seconds
 
 
-## Question 5: Build a Sessionization Window (2 points)
+### Question 3. Consumer - trip distance
 
-Now we have the data in the Kafka stream. It's time to process it.
+Write a Kafka consumer that reads all messages from the `green-trips` topic
+(set `auto_offset_reset='earliest'`).
 
-* Copy `aggregation_job.py` and rename it to `session_job.py`
-* Have it read from `green-trips` fixing the schema
-* Use a [session window](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/operators/windows/) with a gap of 5 minutes
-* Use `lpep_dropoff_datetime` time as your watermark with a 5 second tolerance
-* Which pickup and drop off locations have the longest unbroken streak of taxi trips?
+Count how many trips have a `trip_distance` greater than 5.0 kilometers.
+
+How many trips have `trip_distance` > 5?
+
+- 6506
+- 7506
+- 8506
+- 9506
+
+
+## Part 2: PyFlink (Questions 4-6)
+
+For the PyFlink questions, you'll adapt the workshop code to work with
+the green taxi data. The key differences from the workshop:
+
+- Topic name: `green-trips` (instead of `rides`)
+- Datetime columns use `lpep_` prefix (instead of `tpep_`)
+- You'll need to handle timestamps as strings (not epoch milliseconds)
+
+You can convert string timestamps to Flink timestamps in your source DDL:
+
+```sql
+lpep_pickup_datetime VARCHAR,
+event_timestamp AS TO_TIMESTAMP(lpep_pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),
+WATERMARK FOR event_timestamp AS event_timestamp - INTERVAL '5' SECOND
+```
+
+Before running the Flink jobs, create the necessary PostgreSQL tables
+for your results.
+
+
+### Question 4. Tumbling window - pickup location
+
+Create a Flink job that reads from `green-trips` and uses a 5-minute
+tumbling window to count trips per `PULocationID`.
+
+Write the results to a PostgreSQL table with columns:
+`window_start`, `PULocationID`, `num_trips`.
+
+After the job processes all data, query the results:
+
+```sql
+SELECT PULocationID, num_trips
+FROM <your_table>
+ORDER BY num_trips DESC
+LIMIT 3;
+```
+
+Which `PULocationID` had the most trips in a single 5-minute window?
+
+- 42
+- 74
+- 75
+- 166
+
+
+### Question 5. Session window - longest streak
+
+Create another Flink job that uses a session window with a 5-minute gap
+on `PULocationID`, using `lpep_dropoff_datetime` as the event time
+with a 5-second watermark tolerance.
+
+A session window groups events that arrive within 5 minutes of each other.
+When there's a gap of more than 5 minutes, the window closes.
+
+Write the results to a PostgreSQL table and find the `PULocationID`
+with the longest session (most trips in a single session).
+
+How many trips were in the longest session?
+
+- 39
+- 69
+- 99
+- 139
+
+
+### Question 6. Tumbling window - largest tip
+
+Create a Flink job that uses a 1-hour tumbling window to compute the
+total `tip_amount` per hour (across all locations).
+
+Which hour had the highest total tip amount?
+
+- 2025-10-01 18:00:00
+- 2025-10-16 18:00:00
+- 2025-10-22 08:00:00
+- 2025-10-30 16:00:00
 
 
 ## Submitting the solutions
 
-- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw6
+- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw7
 - Deadline: See the website
 
 
-## Learning in Public
+## Learning in public
 
-We encourage everyone to share what they learned. This is called "learning in public".
-
+We encourage everyone to share what they learned.
 Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
 
 ### Example post for LinkedIn
 
 ```
-🚀 Week 6 of Data Engineering Zoomcamp by @DataTalksClub complete!
+Week 7 of Data Engineering Zoomcamp by @DataTalksClub complete!
 
-Just finished Module 6 - Streaming with PyFlink. Learned how to:
+Just finished Module 7 - Streaming with PyFlink. Learned how to:
 
-✅ Set up Redpanda as a Kafka replacement
-✅ Build streaming data pipelines
-✅ Create topics and produce/consume messages
-✅ Implement sessionization windows
-✅ Process real-time taxi trip data
-
-Streaming data in real-time - the future of data engineering!
+- Set up Redpanda as a Kafka replacement
+- Build Kafka producers and consumers in Python
+- Create tumbling and session windows in Flink
+- Analyze real-time taxi trip data with stream processing
 
 Here's my homework solution: <LINK>
-
-Following along with this amazing free course - who else is learning data engineering?
 
 You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
@@ -216,15 +216,14 @@ You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp
 ### Example post for Twitter/X
 
 ```
-🌊 Module 6 of Data Engineering Zoomcamp done!
+Module 7 of Data Engineering Zoomcamp done!
 
-- Streaming with PyFlink
-- Redpanda & Kafka concepts
-- Sessionization windows
-- Real-time data processing
+- Kafka producers and consumers
+- PyFlink tumbling and session windows
+- Real-time taxi data analysis
+- Redpanda as Kafka replacement
 
 My solution: <LINK>
 
 Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
-
