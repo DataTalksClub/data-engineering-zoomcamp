@@ -12,9 +12,9 @@ For this homework we will be using Green Taxi Trip data from October 2025:
 
 ## Setup
 
-We'll use the same infrastructure from the
-[workshop](../../../07-streaming/workshop/). Go there and follow the setup
-instructions (build the Docker image, start the services):
+We'll use the same infrastructure from the [workshop](../../../07-streaming/workshop/).
+
+Follow the setup instructions: build the Docker image, start the services:
 
 ```bash
 cd 07-streaming/workshop/
@@ -29,10 +29,20 @@ This gives us:
 - Flink Task Manager
 - PostgreSQL on `localhost:5432` (user: `postgres`, password: `postgres`)
 
+If you previously ran the workshop and have old containers/volumes,
+do a clean start:
 
-## Part 1: Kafka producer and consumer (Questions 1-3)
+```bash
+docker compose down -v
+docker compose build
+docker compose up -d
+```
 
-### Question 1. Redpanda version
+Note: the container names (like `workshop-redpanda-1`) assume the
+directory is called `workshop`. If you renamed it, adjust accordingly.
+
+
+## Question 1. Redpanda version
 
 Run `rpk version` inside the Redpanda container:
 
@@ -43,7 +53,7 @@ docker exec -it workshop-redpanda-1 rpk version
 What version of Redpanda are you running?
 
 
-### Question 2. Sending data to Redpanda
+## Question 2. Sending data to Redpanda
 
 Create a topic called `green-trips`:
 
@@ -85,13 +95,13 @@ print(f'took {(t1 - t0):.2f} seconds')
 
 How long did it take to send the data?
 
-- 22.34 seconds
-- 42.34 seconds
-- 62.34 seconds
-- 82.34 seconds
+- 10 seconds
+- 60 seconds
+- 120 seconds
+- 300 seconds
 
 
-### Question 3. Consumer - trip distance
+## Question 3. Consumer - trip distance
 
 Write a Kafka consumer that reads all messages from the `green-trips` topic
 (set `auto_offset_reset='earliest'`).
@@ -126,8 +136,24 @@ WATERMARK FOR event_timestamp AS event_timestamp - INTERVAL '5' SECOND
 Before running the Flink jobs, create the necessary PostgreSQL tables
 for your results.
 
+Important notes for the Flink jobs:
 
-### Question 4. Tumbling window - pickup location
+- Place your job files in `workshop/src/job/` - this directory is
+  mounted into the Flink containers at `/opt/src/job/`
+- Submit jobs with:
+  `docker exec -it workshop-jobmanager-1 flink run -py /opt/src/job/your_job.py`
+- The `green-trips` topic has 1 partition, so set parallelism to 1
+  in your Flink jobs (`env.set_parallelism(1)`). With higher parallelism,
+  idle consumer subtasks prevent the watermark from advancing.
+- Flink streaming jobs run continuously. Let the job run for a minute
+  or two until results appear in PostgreSQL, then query the results.
+  You can cancel the job from the Flink UI at http://localhost:8081
+- If you sent data to the topic multiple times, delete and recreate
+  the topic to avoid duplicates:
+  `docker exec -it workshop-redpanda-1 rpk topic delete green-trips`
+
+
+## Question 4. Tumbling window - pickup location
 
 Create a Flink job that reads from `green-trips` and uses a 5-minute
 tumbling window to count trips per `PULocationID`.
@@ -152,10 +178,10 @@ Which `PULocationID` had the most trips in a single 5-minute window?
 - 166
 
 
-### Question 5. Session window - longest streak
+## Question 5. Session window - longest streak
 
 Create another Flink job that uses a session window with a 5-minute gap
-on `PULocationID`, using `lpep_dropoff_datetime` as the event time
+on `PULocationID`, using `lpep_pickup_datetime` as the event time
 with a 5-second watermark tolerance.
 
 A session window groups events that arrive within 5 minutes of each other.
@@ -166,13 +192,13 @@ with the longest session (most trips in a single session).
 
 How many trips were in the longest session?
 
-- 39
-- 69
-- 99
-- 139
+- 12
+- 31
+- 51
+- 81
 
 
-### Question 6. Tumbling window - largest tip
+## Question 6. Tumbling window - largest tip
 
 Create a Flink job that uses a 1-hour tumbling window to compute the
 total `tip_amount` per hour (across all locations).
@@ -188,7 +214,6 @@ Which hour had the highest total tip amount?
 ## Submitting the solutions
 
 - Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw7
-- Deadline: See the website
 
 
 ## Learning in public
@@ -196,7 +221,7 @@ Which hour had the highest total tip amount?
 We encourage everyone to share what they learned.
 Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
 
-### Example post for LinkedIn
+## Example post for LinkedIn
 
 ```
 Week 7 of Data Engineering Zoomcamp by @DataTalksClub complete!
@@ -213,7 +238,7 @@ Here's my homework solution: <LINK>
 You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
 ```
 
-### Example post for Twitter/X
+## Example post for Twitter/X
 
 ```
 Module 7 of Data Engineering Zoomcamp done!
