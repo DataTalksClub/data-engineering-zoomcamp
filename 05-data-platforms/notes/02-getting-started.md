@@ -15,6 +15,31 @@ Install the Bruin extension for VS Code or Cursor. This adds a Bruin render pane
 
 Bruin provides an MCP (Model Context Protocol) server that you can add to your IDE (Cursor, VS Code) to use AI agents for creating pipelines. Add the Bruin MCP under your IDE settings > Tools and MCP.
 
+### Bruin MCP Integration for VS Code
+
+ Create a new file `mcp.json` in your Repository Root:
+In the root directory of your project (the same level as your `.git` folder or `package.json`), create a new file named `mcp.json`.
+
+Add the Configuration:
+Open the `mcp.json` file and paste the following JSON configuration into it:
+
+```json
+{
+  "servers": {
+    "bruin": {
+      "type": "stdio",
+      "command": "bruin",
+      "args": [
+        "mcp"
+      ]
+    }
+  },
+  "inputs": []
+}
+```
+
+This configuration instructs VS Code to launch the `bruin mcp` command, establishing a standard input/output connection with the Bruin MCP server.
+
 ## Initializing a project
 
 ```bash
