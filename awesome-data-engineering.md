@@ -83,7 +83,7 @@ Conference talks from companies, blog posts, etc
 ### DataOps
 
 * [DataOps 101 with Lars Albertsson – DataTalks.Club](https://datatalks.club/podcast/s02e11-dataops.html) (podcast)
-*  
+* [envscan](https://ckmtools.dev/envscan) - CLI tool for validating .env files against .env.example; catches missing or undocumented environment variables before deployment (tool)
 
 
 ### Monitoring and observability 
