@@ -123,6 +123,7 @@ Script to prepare the Dataset [download_data.sh](code/download_data.sh)
 * [2025 Notes on Installing Spark on MacOS (with Anaconda + brew) by Gabi Fonseca](https://github.com/fonsecagabriella/data_engineering/blob/main/05_batch_processing/01_env_setup.md)
 * [2025 Notes by Daniel Lachner](https://github.com/mossdet/dlp_data_eng/blob/main/Notes/05_01_Batch_Processing_Spark_GCP.pdf)
 * [2026 Notes by Ajay Katte](https://github.com/mushroomsandchai/dtdez/tree/main/06_batch_processing/notes)
+* [2026 Video PySpark installation on Windows (no pip install) by khanh](https://www.youtube.com/watch?v=8OYBW4Lwu60)
 * Add your notes here (above this line)
 
 </details>
