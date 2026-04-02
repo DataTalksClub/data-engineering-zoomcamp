@@ -50,6 +50,9 @@ df.dtypes
 # Check data shape
 df.shape
 ```
+### Note 
+- When using `nrows=100` to sample the first 100 rows, all columns have consistent data types in this subset, so **the `DtypeWarning` below will NOT appear**.
+- To reproduce the type warning shown below, remove the `nrows=100` parameter and read the full dataset.
 
 ### Handling Data Types
 
