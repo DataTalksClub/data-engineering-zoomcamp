@@ -24,6 +24,9 @@ Here are some datasets that you could use for the project:
   * [part 1](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-1.html) (from agriculture and finance to government)
   * [part 2](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-2.html) (from healthcare to transportation)
 * [Data For Good by Meta](https://dataforgood.facebook.com/dfg/tools)
+* [Open Food Facts](https://world.openfoodfacts.org/data) - A collaborative database of food products from around the world. Excellent for practicing complex JSON/CSV parsing, data cleaning, and building analytical dashboards with Spark.
+* [Binance Public Data](https://github.com/binance/binance-public-data) - Historical and real-time cryptocurrency trade data. Perfect for building streaming pipelines using Kafka and Flink to analyze market trends.
+* [NOAA Global Surface Summary of the Day](https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily) - Massive weather dataset from over 9,000 stations. Ideal for practicing BigQuery partitioning, clustering, and heavy batch processing.
 
 PRs with more datasets are welcome!
 
