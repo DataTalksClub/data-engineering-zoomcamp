@@ -7,6 +7,7 @@ Have you found any cool resources about data engineering? Put them here
 * [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) by DataTalks.Club (free)
 * [Big Data Platforms, Autumn 2022: Introduction to Big Data Processing Frameworks](https://big-data-platforms-22.mooc.fi/) by the University of Helsinki (free)   
 * [Awesome Data Engineering Learning Path](https://awesomedataengineering.com/)
+* [Data Engineering Fundamentals](https://github.com/Mavengence/data-engineering-fundamentals) - Ten DE concepts taught as live browser simulators. Drag the watermark, overflow a worker, break a capstone gate. No install. (free)
 
 
 ### Books
