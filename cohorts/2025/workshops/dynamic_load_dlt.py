@@ -39,11 +39,22 @@ def generate_urls(color, start_year, end_year, start_month, end_month):
     return urls
 
 # User input for time range and trip color
-color = input("Enter color (green, yellow): ").lower()  
-start_year = int(input("Enter the start year (e.g., 2019): "))
-end_year = int(input("Enter the end year (e.g., 2022): "))
-start_month = int(input("Enter the start month (1-12): "))
-end_month = int(input("Enter the end month (1-12): "))
+color = input("Enter color (green, yellow): ").lower()
+try:
+    start_year = int(input("Enter the start year (e.g., 2019): "))
+    end_year = int(input("Enter the end year (e.g., 2022): "))
+    start_month = int(input("Enter the start month (1-12): "))
+    end_month = int(input("Enter the end month (1-12): "))
+except ValueError:
+    print("Error: Year and month values must be integers.")
+    exit(1)
+
+if not (1900 <= start_year <= 2100 and 1900 <= end_year <= 2100):
+    print("Error: Year must be between 1900 and 2100.")
+    exit(1)
+if not (1 <= start_month <= 12 and 1 <= end_month <= 12):
+    print("Error: Month must be between 1 and 12.")
+    exit(1)
 
 # Generate URLs based on user input
 urls = generate_urls(color, start_year, end_year, start_month, end_month)
@@ -71,7 +82,7 @@ if dlt_method == "1":
         gcs_blob = bucket.blob(file_name)
 
         print(f"Downloading {url} and uploading to GCS as {file_name}")
-        response = requests.get(url)
+        response = requests.get(url, timeout=60)
         gcs_blob.upload_from_string(response.content)
         gcs_files.append(f"gs://{bucket_name}/{file_name}")
 
@@ -94,7 +105,7 @@ elif dlt_method == "2":
     def paginated_getter():
         for url in urls:
             try:
-                with requests.get(url, stream=True) as response:
+                with requests.get(url, stream=True, timeout=60) as response:
                     response.raise_for_status()
                     buffer = io.BytesIO()
                     for chunk in response.iter_content(chunk_size=1024 * 1024):  # 1MB chunks
