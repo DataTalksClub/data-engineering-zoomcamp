@@ -120,7 +120,7 @@ No prior data engineering experience is necessary.
 Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel on [DataTalks.Club Slack](https://datatalks.club/slack.html) for discussions, troubleshooting, and networking.
 
 To keep discussions organized:
-- Follow [our guidelines](asking-questions.md) when posting questions.
+- Follow [our guidelines](https://datatalks.club/docs/courses/zoomcamp-logistics/asking-questions/) when posting questions.
 - Review the [community guidelines](https://datatalks.club/slack/guidelines.html).
 
 ## Meet the Instructors
@@ -189,4 +189,3 @@ Interested in supporting our community? Reach out to [alexey@datatalks.club](mai
 All the activity at DataTalks.Club mainly happens on [Slack](https://datatalks.club/slack.html). We post updates there and discuss different aspects of data, career questions, and more.
 
 At DataTalksClub, we organize online events, community activities, and free courses. You can learn more about what we do at [DataTalksClub Community Navigation](https://www.notion.so/DataTalksClub-Community-Navigation-bf070ad27ba44bf6bbc9222082f0e5a8?pvs=21).
-
