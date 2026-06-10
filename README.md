@@ -59,20 +59,27 @@ No prior data engineering experience is necessary.
 
 ## How to Take the Course
 
-### Live Cohort
+There are two ways to follow the course: live and self-paced.
 
-- Start date: January 2027
-- Register: [Sign up](https://airtable.com/shr6oVXeQvSI5HuWD)
+| | Live Cohort | Self-Paced |
+|-|-|-|
+| Start | January 2027 | Anytime |
+| Lectures | Pre-recorded | Pre-recorded |
+| Homework | Graded | Available but not scored |
+| Leaderboard | ✅ Yes | ❌ No |
+| Peer Review | ✅ Yes | ❌ No |
+| Certificate | ✅ Yes | ❌ No |
+| Cost | Free | Free |
+| Register | [Sign up here](https://airtable.com/shr6oVXeQvSI5HuWD) | Just start learning! |
 
-Follow the weekly schedule, submit homework, and get help in Slack. Materials from past cohorts are in the [cohorts folder](cohorts/).
+> [!IMPORTANT]
+> "Live cohort" does not mean live classes. All lectures are pre-recorded. "Live" means working alongside others with deadlines, scored homework, a leaderboard, peer review, and a certificate at the end.
 
-### Self-Paced
+Self-paced steps:
 
-All course materials are freely available for independent study:
-
-1. Watch the course videos.
-2. Join the [Slack community](https://datatalks.club/slack.html).
-3. Refer to the [FAQ document](https://datatalks.club/faq/data-engineering-zoomcamp.html) for guidance.
+1. Follow the materials on [GitHub](https://github.com/DataTalksClub/data-engineering-zoomcamp)
+2. Ask questions and share progress in [Slack](https://datatalks.club/slack.html)
+3. Do the homework (self-checked) and build a project for your portfolio
 
 ## Syllabus
 
