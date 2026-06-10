@@ -139,6 +139,10 @@ The [final project](projects/) applies all the concepts learned in a real-world 
 
 ## Certificate
 
+<p align="center">
+<img src="images/de-zoomcamp-certificate.jpg" alt="Data Engineering Zoomcamp certificate of completion awarded after finishing the final project and peer reviews" title="Data Engineering Zoomcamp Certificate of Completion" width="500" />
+</p>
+
 Certificates are awarded to learners who complete the final project during a live cohort. See [Certification](https://datatalks.club/docs/courses/zoomcamp-logistics/certification/) for how certification works and how to get your certificate.
 
 ## Instructors
@@ -238,7 +242,7 @@ Interested in supporting our community? Reach out to [alexey@datatalks.club](mai
 <a href="https://www.youtube.com/@DataTalksClub/featured">YouTube</a> •
 <a href="https://github.com/DataTalksClub">GitHub</a> •
 <a href="https://www.linkedin.com/company/datatalks-club/">LinkedIn</a> •
-<a href="https://twitter.com/DataTalksClub">Twitter</a>
+<a href="https://x.com/DataTalksClub">X</a>
 </p>
 
 All the activity at DataTalks.Club mainly happens on [Slack](https://datatalks.club/slack.html). We post updates there and discuss different aspects of data, career questions, and more.
