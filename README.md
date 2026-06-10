@@ -33,6 +33,7 @@ Master the fundamentals of data engineering by building an end-to-end data pipel
 |----------|------|
 | Course materials | [GitHub repository](https://github.com/DataTalksClub/data-engineering-zoomcamp) |
 | Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) |
+| Documentation | [Zoomcamp Logistics](https://datatalks.club/docs/courses/zoomcamp-logistics/) · [Data Engineering Zoomcamp](https://datatalks.club/docs/courses/data-engineering-zoomcamp/) |
 | Course platform (deadlines, homework) | [courses.datatalks.club](https://courses.datatalks.club/) |
 | Slack channel | [#course-data-engineering](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) |
 | Announcements | [Telegram](https://t.me/dezoomcamp) |
@@ -60,10 +61,10 @@ No prior data engineering experience is necessary.
 
 ### Live Cohort
 
-- Start date: 12 January 2026
+- Start date: January 2027
 - Register: [Sign up](https://airtable.com/shr6oVXeQvSI5HuWD)
 
-Follow the weekly schedule, submit homework, and get help in Slack. See the current [cohort folder](cohorts/2026/).
+Follow the weekly schedule, submit homework, and get help in Slack. Materials from past cohorts are in the [cohorts folder](cohorts/).
 
 ### Self-Paced
 
