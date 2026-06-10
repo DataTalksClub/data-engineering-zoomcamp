@@ -14,14 +14,6 @@ from settings import RIDE_KEY_SCHEMA_PATH, RIDE_VALUE_SCHEMA_PATH, \
     SCHEMA_REGISTRY_URL, BOOTSTRAP_SERVERS, INPUT_DATA_PATH, KAFKA_TOPIC
 
 
-def delivery_report(err, msg):
-    if err is not None:
-        print("Delivery failed for record {}: {}".format(msg.key(), err))
-        return
-    print('Record {} successfully produced to {} [{}] at offset {}'.format(
-        msg.key(), msg.topic(), msg.partition(), msg.offset()))
-
-
 class RideAvroProducer:
     def __init__(self, props: Dict):
         # Schema Registry and Serializer-Deserializer Configurations
@@ -71,7 +63,7 @@ class RideAvroProducer:
                                                                                         field=MessageField.KEY)),
                                       value=self.value_serializer(value, SerializationContext(topic=topic,
                                                                                               field=MessageField.VALUE)),
-                                      on_delivery=delivery_report)
+                                      on_delivery=self.delivery_report)
             except KeyboardInterrupt:
                 break
             except Exception as e:
