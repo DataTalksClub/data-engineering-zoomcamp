@@ -224,6 +224,22 @@ A special thanks to our course sponsors for making this initiative possible!
 
 Interested in supporting our community? Reach out to [alexey@datatalks.club](mailto:alexey@datatalks.club).
 
+## FAQ
+
+A few common questions. For everything else, see the full [Data Engineering Zoomcamp FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html).
+
+Q: Is this course really free?<br/>
+A: Yes. All videos, materials, and homework are free and open-source.
+
+Q: Do I need prior data engineering experience?<br/>
+A: No. You just need basic coding experience and some familiarity with SQL. Python helps but isn't required.
+
+Q: What does "live cohort" mean? Are there live classes?<br/>
+A: No mandatory live classes. All lectures are pre-recorded. "Live" means deadlines, scored homework, a leaderboard, peer review, and certificate eligibility.
+
+Q: Can I take it self-paced, and will I get a certificate?<br/>
+A: Yes, you can start anytime. Certificates require completing the final project and peer reviews during a live cohort.
+
 ## About DataTalks.Club
 
 <p align="center">
