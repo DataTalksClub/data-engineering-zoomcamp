@@ -25,6 +25,8 @@ What's the version of `pip` in the image?
 - 24.2.1
 - 23.3.1
 
+> Note: if you run this after the cohort, the actual version may differ from the options above. Just use the value you get. The options reflect the versions available during the live cohort.
+
 
 ## Question 2. Understanding Docker networking and docker-compose
 
