@@ -200,7 +200,7 @@ To keep discussions organized:
 
 Share your progress as you go — see the [learning in public guide](learning-in-public.md).
 
-## Sponsors & Supporters
+## Sponsors
 
 A special thanks to our course sponsors for making this initiative possible!
 
