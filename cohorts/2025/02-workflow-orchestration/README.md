@@ -17,10 +17,10 @@ In this section, you’ll learn the foundations of workflow orchestration, its i
 
 ### Videos
 - **2.2.1 - Introduction to Workflow Orchestration**  
-  [![2.2.1 - Workflow Orchestration Introduction](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FNp6QmmcgLCs)](https://youtu.be/Np6QmmcgLCs)
+  [![2.2.1 - Workflow Orchestration Introduction](images/thumbnail-Np6QmmcgLCs.jpg)](https://youtu.be/Np6QmmcgLCs)
 
 - **2.2.2 - Learn the Concepts of Kestra**  
-  [![Learn Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fo79n-EVpics)](https://youtu.be/o79n-EVpics)
+  [![Learn Kestra](images/thumbnail-o79n-EVpics.jpg)](https://youtu.be/o79n-EVpics)
 
 ### Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
@@ -95,11 +95,11 @@ This introductory flow is added just to demonstrate a simple data pipeline which
 ### Videos
 
 - **2.2.3 - Create an ETL Pipeline with Postgres in Kestra**   
-  [![Create an ETL Pipeline with Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FOkfLX28Ecjg%3Fsi%3DvKbIyWo1TtjpNnvt)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
+  [![Create an ETL Pipeline with Postgres in Kestra](images/thumbnail-OkfLX28Ecjg.jpg)](https://youtu.be/OkfLX28Ecjg?si=vKbIyWo1TtjpNnvt)
 - **2.2.4 - Manage Scheduling and Backfills using Postgres in Kestra**  
-  [![Manage Scheduling and Backfills using Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F_-li_z97zog%3Fsi%3DG6jZbkfJb3GAyqrd)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
+  [![Manage Scheduling and Backfills using Postgres in Kestra](images/thumbnail-_-li_z97zog.jpg)](https://youtu.be/_-li_z97zog?si=G6jZbkfJb3GAyqrd)
 - **2.2.5 - Transform Data with dbt and Postgres in Kestra**  
-  [![Transform Data with dbt and Postgres in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FZLp2N6p2JjE%3Fsi%3DtWhcvq5w4lO8v1_p)](https://youtu.be/ZLp2N6p2JjE?si=tWhcvq5w4lO8v1_p)
+  [![Transform Data with dbt and Postgres in Kestra](images/thumbnail-ZLp2N6p2JjE.jpg)](https://youtu.be/ZLp2N6p2JjE?si=tWhcvq5w4lO8v1_p)
 
 
 ```mermaid
@@ -180,11 +180,11 @@ Now that you've learned how to build ETL pipelines locally using Postgres, we ar
 ### Videos
 
 - **2.2.6 - Create an ETL Pipeline with GCS and BigQuery in Kestra**  
-  [![Create an ETL Pipeline with BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FnKqjjLJ7YXs)](https://youtu.be/nKqjjLJ7YXs)
+  [![Create an ETL Pipeline with BigQuery in Kestra](images/thumbnail-nKqjjLJ7YXs.jpg)](https://youtu.be/nKqjjLJ7YXs)
 - **2.2.7 - Manage Scheduling and Backfills using BigQuery in Kestra**   
-  [![Manage Scheduling and Backfills using BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FDoaZ5JWEkH0)](https://youtu.be/DoaZ5JWEkH0)
+  [![Manage Scheduling and Backfills using BigQuery in Kestra](images/thumbnail-DoaZ5JWEkH0.jpg)](https://youtu.be/DoaZ5JWEkH0)
 - **2.2.8 - Transform Data with dbt and BigQuery in Kestra**   
-  [![Transform Data with dbt and BigQuery in Kestra](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FeF_EdV4A1Wk)](https://youtu.be/eF_EdV4A1Wk)
+  [![Transform Data with dbt and BigQuery in Kestra](images/thumbnail-eF_EdV4A1Wk.jpg)](https://youtu.be/eF_EdV4A1Wk)
 
 ### Setup Google Cloud Platform (GCP)
 
@@ -262,7 +262,7 @@ Note: When committing your workflows to Kestra, make sure your workflow doesn't 
 ### Videos
 
 - **2.2.9 - Deploy Workflows to the Cloud with Git**   
-  [![Deploy Workflows to the Cloud with Git](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl-wC71tI3co)](https://youtu.be/l-wC71tI3co)
+  [![Deploy Workflows to the Cloud with Git](images/thumbnail-l-wC71tI3co.jpg)](https://youtu.be/l-wC71tI3co)
 
 Resources
 
@@ -401,11 +401,11 @@ services:
 If you are still facing any issues, stop and remove your existing Kestra + Postgres containers and start them again using `docker-compose up -d`. If this doesn't help, post your question on the DataTalksClub Slack or on Kestra's Slack http://kestra.io/slack.
 
 - **DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin**   
-  [![DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2FywAPYNYFaB4%3Fsi%3D5X9AD0nFAT2WLWgS)](https://youtu.be/ywAPYNYFaB4?si=5X9AD0nFAT2WLWgS)
+  [![DE Zoomcamp FAQ - PostgresDB Setup and Installing pgAdmin](images/thumbnail-ywAPYNYFaB4.jpg)](https://youtu.be/ywAPYNYFaB4?si=5X9AD0nFAT2WLWgS)
 - **DE Zoomcamp FAQ - Port and Images**  
-  [![DE Zoomcamp FAQ - Ports and Images](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2Fl2M2mW76RIU%3Fsi%3DoqyZ7KUaI27vi90V)](https://youtu.be/l2M2mW76RIU?si=oqyZ7KUaI27vi90V)
+  [![DE Zoomcamp FAQ - Ports and Images](images/thumbnail-l2M2mW76RIU.jpg)](https://youtu.be/l2M2mW76RIU?si=oqyZ7KUaI27vi90V)
 - **DE Zoomcamp FAQ - Docker Setup**  
-  [![DE Zoomcamp FAQ - Docker Setup](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F73g6qJN0HcM)](https://youtu.be/73g6qJN0HcM)
+  [![DE Zoomcamp FAQ - Docker Setup](images/thumbnail-73g6qJN0HcM.jpg)](https://youtu.be/73g6qJN0HcM)
 
 
 

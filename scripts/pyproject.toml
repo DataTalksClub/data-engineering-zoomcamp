@@ -1,0 +1,9 @@
+[project]
+name = "thumbnails"
+version = "0.1.0"
+description = "Generate self-hosted YouTube thumbnails with a play-button overlay for course READMEs"
+requires-python = ">=3.10"
+dependencies = [
+    "pillow>=10.0",
+    "requests>=2.31",
+]

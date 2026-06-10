@@ -1,6 +1,6 @@
 # Introduction
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/JgspdlKXS-w)](https://www.youtube.com/watch?v=JgspdlKXS-w)
+[![](images/thumbnail-JgspdlKXS-w.jpg)](https://www.youtube.com/watch?v=JgspdlKXS-w)
 
 
 We suggest watching videos in the same order as in this document.
@@ -10,7 +10,7 @@ We suggest watching videos in the same order as in this document.
 
 ## Workshop
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/lP8xXebHmuE)](https://youtu.be/lP8xXebHmuE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
+[![](images/thumbnail-lP8xXebHmuE.jpg)](https://youtu.be/lP8xXebHmuE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 * Video: https://www.youtube.com/watch?v=lP8xXebHmuE
 * Follow the instructions here: [docker-sql/](docker-sql/)
@@ -18,7 +18,7 @@ We suggest watching videos in the same order as in this document.
 ## :movie_camera: SQL refresher
 
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
+[![](images/thumbnail-QEcps_iskgg.jpg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 * Video: https://www.youtube.com/watch?v=QEcps_iskgg
 * SQL queries: [10-sql-refresher.md](docker-sql/10-sql-refresher.md)
@@ -28,7 +28,7 @@ We suggest watching videos in the same order as in this document.
 
 ## :movie_camera: Introduction to GCP (Google Cloud Platform)
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/18jIzE41fJ4)](https://youtu.be/18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
+[![](images/thumbnail-18jIzE41fJ4.jpg)](https://youtu.be/18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
 
 # Terraform
 
@@ -36,15 +36,15 @@ We suggest watching videos in the same order as in this document.
 
 ## :movie_camera: Introduction Terraform: Concepts and Overview, a primer
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/s2bOYDCKl_M)](https://youtu.be/s2bOYDCKl_M&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11)
+[![](images/thumbnail-s2bOYDCKl_M.jpg)](https://youtu.be/s2bOYDCKl_M&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11)
 
 ## :movie_camera: Terraform Basics: Simple one file Terraform Deployment
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/Y2ux7gq3Z0o)](https://youtu.be/Y2ux7gq3Z0o&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
+[![](images/thumbnail-Y2ux7gq3Z0o.jpg)](https://youtu.be/Y2ux7gq3Z0o&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
 
 ## :movie_camera: Deployment with a Variables File
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/PBi0hHjLftk)](https://youtu.be/PBi0hHjLftk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=13)
+[![](images/thumbnail-PBi0hHjLftk.jpg)](https://youtu.be/PBi0hHjLftk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=13)
 
 ## Configuring terraform and GCP SDK on Windows
 

@@ -4,7 +4,7 @@ Homework: [dlt_homework.md](dlt_homework.md)
 
 🎥 **Watch the workshop video**
 
-[![Watch the workshop video](https://markdown-videos-api.jorgenkh.no/youtube/pgJWP_xqO1g)](https://www.youtube.com/watch?v=pgJWP_xqO1g "Watch the workshop video")
+[![Watch the workshop video](images/thumbnail-pgJWP_xqO1g.jpg)](https://www.youtube.com/watch?v=pgJWP_xqO1g "Watch the workshop video")
 
 Welcome to this hands-on workshop, where you'll learn to build efficient and scalable data ingestion pipelines.
 

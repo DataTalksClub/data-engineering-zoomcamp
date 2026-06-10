@@ -24,7 +24,7 @@ The template is a TODO-based learning exercise — run `bruin init zoomcamp my-t
 
 ### :movie_camera: 5.1 - Introduction to Bruin
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/f6vg7lGqZx0)](https://youtu.be/f6vg7lGqZx0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=1)
+[![](images/thumbnail-f6vg7lGqZx0.jpg)](https://youtu.be/f6vg7lGqZx0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=1)
 
 Introduction to the Bruin data platform: what it is, what a modern data stack looks like (ETL/ELT, orchestration, data quality), and how Bruin brings all of these together into a single project.
 
@@ -33,7 +33,7 @@ Introduction to the Bruin data platform: what it is, what a modern data stack lo
 
 ### :movie_camera: 5.2 - Getting Started with Bruin
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/JJwHKSidX_c)](https://youtu.be/JJwHKSidX_c&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+[![](images/thumbnail-JJwHKSidX_c.jpg)](https://youtu.be/JJwHKSidX_c&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
 
 Install Bruin, set up the VS Code/Cursor extension and Bruin MCP, and create a first project using `bruin init`. Walk through environments, connections (DuckDB, Chess.com), pipeline YAML configuration, and running Python, YAML ingestor, and SQL assets.
 
@@ -42,7 +42,7 @@ Install Bruin, set up the VS Code/Cursor extension and Bruin MCP, and create a f
 
 ### :movie_camera: 5.3 - Building an End-to-End Pipeline with NYC Taxi Data
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/q0k_iz9kWsI)](https://youtu.be/q0k_iz9kWsI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
+[![](images/thumbnail-q0k_iz9kWsI.jpg)](https://youtu.be/q0k_iz9kWsI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
 
 Build a full pipeline with a three-layered architecture (ingestion, staging, reports) using NYC taxi data and DuckDB.
 
@@ -51,7 +51,7 @@ Build a full pipeline with a three-layered architecture (ingestion, staging, rep
 
 ### :movie_camera: 5.4 - Using Bruin MCP with AI Agents
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/224xH7h8OaQ)](https://youtu.be/224xH7h8OaQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=4)
+[![](images/thumbnail-224xH7h8OaQ.jpg)](https://youtu.be/224xH7h8OaQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=4)
 
 Install the Bruin MCP in Cursor/VS Code and use an AI agent to build the entire NYC taxi pipeline end to end. Query data conversationally, ask questions about pipeline logic, and troubleshoot issues — all through natural language.
 
@@ -60,7 +60,7 @@ Install the Bruin MCP in Cursor/VS Code and use an AI agent to build the entire 
 
 ### :movie_camera: 5.5 - Deploying to Bruin Cloud
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/uBqjLEwF8rc)](https://youtu.be/uBqjLEwF8rc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5)
+[![](images/thumbnail-uBqjLEwF8rc.jpg)](https://youtu.be/uBqjLEwF8rc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5)
 
 Register for Bruin Cloud, connect your GitHub repository, set up data warehouse connections, deploy and monitor your pipelines with a fully managed infrastructure.
 
@@ -73,7 +73,7 @@ Short videos covering the fundamental concepts of Bruin: projects, pipelines, as
 
 ### :movie_camera: Projects
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/YWDjnSxbBtY)](https://www.youtube.com/watch?v=YWDjnSxbBtY)
+[![](images/thumbnail-YWDjnSxbBtY.jpg)](https://www.youtube.com/watch?v=YWDjnSxbBtY)
 
 The root directory where you create your Bruin data pipeline. Learn about project initialization, the `.bruin.yml` configuration file, environments, and connections.
 
@@ -82,7 +82,7 @@ The root directory where you create your Bruin data pipeline. Learn about projec
 
 ### :movie_camera: Pipelines
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/uzp_DiR4Sok)](https://www.youtube.com/watch?v=uzp_DiR4Sok)
+[![](images/thumbnail-uzp_DiR4Sok.jpg)](https://www.youtube.com/watch?v=uzp_DiR4Sok)
 
 A grouping mechanism for organizing assets based on their execution schedule. Each pipeline has a single schedule and its own configuration file.
 
@@ -91,7 +91,7 @@ A grouping mechanism for organizing assets based on their execution schedule. Ea
 
 ### :movie_camera: Assets
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/ZElY5SoqrwI)](https://www.youtube.com/watch?v=ZElY5SoqrwI)
+[![](images/thumbnail-ZElY5SoqrwI.jpg)](https://www.youtube.com/watch?v=ZElY5SoqrwI)
 
 Single files that perform specific tasks, creating or updating tables/views in your database. Covers SQL, Python, and YAML asset types with examples.
 
@@ -100,7 +100,7 @@ Single files that perform specific tasks, creating or updating tables/views in y
 
 ### :movie_camera: Variables
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/XCx0nDmhhxA)](https://www.youtube.com/watch?v=XCx0nDmhhxA)
+[![](images/thumbnail-XCx0nDmhhxA.jpg)](https://www.youtube.com/watch?v=XCx0nDmhhxA)
 
 Dynamic values initialized at each pipeline run. Learn about built-in variables (start_date, end_date) and custom variables for parameterizing your pipelines.
 
@@ -109,7 +109,7 @@ Dynamic values initialized at each pipeline run. Learn about built-in variables 
 
 ### :movie_camera: Commands
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/3nykPEs_V7E)](https://www.youtube.com/watch?v=3nykPEs_V7E)
+[![](images/thumbnail-3nykPEs_V7E.jpg)](https://www.youtube.com/watch?v=3nykPEs_V7E)
 
 CLI commands for interacting with your Bruin project: `bruin run`, `bruin validate`, `bruin lineage`, and more with practical examples.
 

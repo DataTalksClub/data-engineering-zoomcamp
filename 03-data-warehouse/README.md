@@ -9,27 +9,27 @@
 
 - Data Warehouse and BigQuery
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/jrHljAoD6nM)](https://youtu.be/jrHljAoD6nM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
+[![](images/thumbnail-jrHljAoD6nM.jpg)](https://youtu.be/jrHljAoD6nM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
 
 ## :movie_camera: Partitioning and clustering
 
 - Partitioning vs Clustering
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/-CqXf7vhhDs)](https://youtu.be/-CqXf7vhhDs?si=p1sYQCAs8dAa7jIm&t=193&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
+[![](images/thumbnail--CqXf7vhhDs.jpg)](https://youtu.be/-CqXf7vhhDs?si=p1sYQCAs8dAa7jIm&t=193&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=35)
 
 ## :movie_camera: Best practices
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/k81mLJVX08w)](https://youtu.be/k81mLJVX08w&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=36)
+[![](images/thumbnail-k81mLJVX08w.jpg)](https://youtu.be/k81mLJVX08w&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=36)
 
 ## :movie_camera: Internals of BigQuery
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/eduHi1inM4s)](https://youtu.be/eduHi1inM4s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=37)
+[![](images/thumbnail-eduHi1inM4s.jpg)](https://youtu.be/eduHi1inM4s&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=37)
 
 ## Advanced topics
 
 ### :movie_camera: Machine Learning in Big Query
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/B-WtpB0PuG4)](https://youtu.be/B-WtpB0PuG4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
+[![](images/thumbnail-B-WtpB0PuG4.jpg)](https://youtu.be/B-WtpB0PuG4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=34)
 
 * [SQL for ML in BigQuery](big_query_ml.sql)
 
@@ -42,7 +42,7 @@
 
 ### :movie_camera: Deploying Machine Learning model from BigQuery
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/BjARzEWaznU)](https://youtu.be/BjARzEWaznU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=39)
+[![](images/thumbnail-BjARzEWaznU.jpg)](https://youtu.be/BjARzEWaznU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=39)
 
 - [Steps to extract and deploy model with docker](extract_model.md)  
 

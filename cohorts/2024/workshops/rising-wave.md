@@ -70,7 +70,7 @@ https://tutorials.risingwave.com/docs/intro
 Workshop video:
 
 <a href="https://youtube.com/live/L2BHFnZ6XjE">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/L2BHFnZ6XjE" />
+  <img src="images/thumbnail-L2BHFnZ6XjE.jpg" />
 </a>
 
 [Project Repository](https://github.com/risingwavelabs/risingwave-data-talks-workshop-2024-03-04)

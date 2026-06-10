@@ -2,7 +2,7 @@
 
 **[↑ Up](README.md)** | **[← Previous](09-docker-compose.md)** | **[Next →](11-cleanup.md)**
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/QEcps_iskgg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
+[![](images/thumbnail-QEcps_iskgg.jpg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
 
 Pre-Requisites: If you followed the course in the given order, Docker Compose should already be running with pgdatabase and pgAdmin.
 

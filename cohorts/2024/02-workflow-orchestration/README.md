@@ -30,7 +30,7 @@ In this section, we'll cover the basics of workflow orchestration. We'll discuss
 Videos
 - 2.2.1a - What is Orchestration?
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/Li8-MWHhTbo)](https://youtu.be/Li8-MWHhTbo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17)
+[![](images/thumbnail-Li8-MWHhTbo.jpg)](https://youtu.be/Li8-MWHhTbo&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=17)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/17zSxG5Z-tidmgY-9l7Al1cPmz4Slh4VPK6o2sryFYvw/)
@@ -42,15 +42,15 @@ In this section, we'll introduce the Mage platform. We'll cover what makes Mage 
 Videos
 - 2.2.2a - What is Mage?
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/AicKRcK3pa4)](https://youtu.be/AicKRcK3pa4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=18)
+[![](images/thumbnail-AicKRcK3pa4.jpg)](https://youtu.be/AicKRcK3pa4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=18)
 
 - 2.2.2b - Configuring Mage
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/tNiV7Wp08XE)](https://youtu.be/tNiV7Wp08XE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=19)
+[![](images/thumbnail-tNiV7Wp08XE.jpg)](https://youtu.be/tNiV7Wp08XE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=19)
 
 - 2.2.2c - A Simple Pipeline
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/stI-gg4QBnI)](https://youtu.be/stI-gg4QBnI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=20)
+[![](images/thumbnail-stI-gg4QBnI.jpg)](https://youtu.be/stI-gg4QBnI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=20)
 
 Resources
 - [Getting Started Repo](https://github.com/mage-ai/mage-zoomcamp)
@@ -63,11 +63,11 @@ Hooray! Mage is up and running. Now, let's build a _real_ pipeline. In this sect
 Videos
 - 2.2.3a - Configuring Postgres
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/pmhI-ezd3BE)](https://youtu.be/pmhI-ezd3BE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=21)
+[![](images/thumbnail-pmhI-ezd3BE.jpg)](https://youtu.be/pmhI-ezd3BE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=21)
 
 - 2.2.3b - Writing an ETL Pipeline : API to postgres
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/Maidfe7oKLs)](https://youtu.be/Maidfe7oKLs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=22)
+[![](images/thumbnail-Maidfe7oKLs.jpg)](https://youtu.be/Maidfe7oKLs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=22)
 
 
 ### 2.2.4 - 🤓 ETL: API to GCS
@@ -79,11 +79,11 @@ We'll cover both writing _partitioned_ and _unpartitioned_ data to GCS and discu
 Videos
 - 2.2.4a - Configuring GCP
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/00LP360iYvE)](https://youtu.be/00LP360iYvE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=23)
+[![](images/thumbnail-00LP360iYvE.jpg)](https://youtu.be/00LP360iYvE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=23)
 
 - 2.2.4b - Writing an ETL Pipeline : API to GCS
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/w0XmcASRUnc)](https://youtu.be/w0XmcASRUnc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=24)
+[![](images/thumbnail-w0XmcASRUnc.jpg)](https://youtu.be/w0XmcASRUnc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=24)
 
 Resources
 - [DTC Zoomcamp GCP Setup](../01-docker-terraform/1_terraform_gcp/2_gcp_overview.md)
@@ -95,7 +95,7 @@ Now that we've written data to GCS, let's load it into BigQuery. In this section
 Videos
 - 2.2.5a - Writing an ETL Pipeline : GCS to BigQuery
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/JKp_uzM-XsM)](https://youtu.be/JKp_uzM-XsM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=25)
+[![](images/thumbnail-JKp_uzM-XsM.jpg)](https://youtu.be/JKp_uzM-XsM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=25)
 
 ### 2.2.6 - 👨‍💻 Parameterized Execution
 
@@ -104,12 +104,12 @@ By now you're familiar with building pipelines, but what about adding parameters
 Videos
 - 2.2.6a - Parameterized Execution
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/H0hWjWxB-rg)](https://youtu.be/H0hWjWxB-rg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=26)
+[![](images/thumbnail-H0hWjWxB-rg.jpg)](https://youtu.be/H0hWjWxB-rg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=26)
 
 
 - 2.2.6b - Backfills
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/ZoeC6Ag5gQc)](https://youtu.be/ZoeC6Ag5gQc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=27)
+[![](images/thumbnail-ZoeC6Ag5gQc.jpg)](https://youtu.be/ZoeC6Ag5gQc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=27)
 
 Resources
 - [Mage Variables Overview](https://docs.mage.ai/development/variables/overview)
@@ -122,19 +122,19 @@ In this section, we'll cover deploying Mage using Terraform and Google Cloud. Th
 Videos
 - 2.2.7a - Deployment Prerequisites
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/zAwAX5sxqsg)](https://youtu.be/zAwAX5sxqsg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=28)
+[![](images/thumbnail-zAwAX5sxqsg.jpg)](https://youtu.be/zAwAX5sxqsg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=28)
 
 - 2.2.7b - Google Cloud Permissions
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/O_H7DCmq2rA)](https://youtu.be/O_H7DCmq2rA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=29)
+[![](images/thumbnail-O_H7DCmq2rA.jpg)](https://youtu.be/O_H7DCmq2rA&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=29)
 
 - 2.2.7c - Deploying to Google Cloud - Part 1
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/9A872B5hb_0)](https://youtu.be/9A872B5hb_0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=30)
+[![](images/thumbnail-9A872B5hb_0.jpg)](https://youtu.be/9A872B5hb_0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=30)
 
 - 2.2.7d - Deploying to Google Cloud - Part 2
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/0YExsb2HgLI)](https://youtu.be/0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
+[![](images/thumbnail-0YExsb2HgLI.jpg)](https://youtu.be/0YExsb2HgLI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=31)
 
 Resources
 - [Installing Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -156,7 +156,7 @@ Congratulations! You've completed Week 2 of the Data Engineering Zoomcamp. We ho
 Videos
 - 2.2.9 - Next Steps
 
-[![](https://markdown-videos-api.jorgenkh.no/youtube/uUtj7N0TleQ)](https://youtu.be/uUtj7N0TleQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=32)
+[![](images/thumbnail-uUtj7N0TleQ.jpg)](https://youtu.be/uUtj7N0TleQ&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=32)
 
 Resources
 - [Slides](https://docs.google.com/presentation/d/1yN-e22VNwezmPfKrZkgXQVrX5owDb285I2HxHWgmAEQ/edit#slide=id.g262fb0d2905_0_12)
