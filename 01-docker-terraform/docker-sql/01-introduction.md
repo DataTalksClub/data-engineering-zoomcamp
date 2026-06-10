@@ -157,6 +157,18 @@ docker run -it \
     python:3.9.16-slim
 ```
 
+OR
+
+```bash
+MSYS_NO_PATHCONV=1 \
+docker run -it \
+    --rm \
+    -v "$(pwd)/test:/app/test" \
+    --entrypoint=bash \
+    python:3.9.16-slim
+```
+
+
 Inside the container, run:
 
 ```bash
