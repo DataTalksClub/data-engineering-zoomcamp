@@ -219,7 +219,7 @@ Which hour had the highest total tip amount?
 ## Learning in public
 
 We encourage everyone to share what they learned.
-Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
+Read more about the benefits [here](https://aishippingblog.com/p/benefits-of-learning-in-public-and).
 
 ## Example post for LinkedIn
 

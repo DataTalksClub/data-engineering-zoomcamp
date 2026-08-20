@@ -96,7 +96,7 @@ If multiple answers are correct, select any
 
 We encourage everyone to share what they learned. This is called "learning in public".
 
-Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
+Read more about the benefits [here](https://aishippingblog.com/p/benefits-of-learning-in-public-and).
 
 ### Example post for LinkedIn
 
