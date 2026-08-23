@@ -1,0 +1,42 @@
+FROM flink:2.2.0-scala_2.12-java17
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
+
+USER root
+
+# Install a full JDK (not just a runtime) plus native build tools for pemja
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-17-jdk-headless \
+    build-essential \
+    python3-dev \
+    wget \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Point JAVA_HOME at the full JDK and make /opt/java/openjdk match what pemja expects
+RUN JDK_DIR="$(dirname "$(dirname "$(readlink -f "$(command -v javac)")")")" \
+    && rm -rf /opt/java/openjdk \
+    && ln -s "${JDK_DIR}" /opt/java/openjdk \
+    && test -d /opt/java/openjdk/include
+
+ENV JAVA_HOME=/opt/java/openjdk
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+# ref: https://nightlies.apache.org/flink/flink-docs-release-2.2/docs/deployment/resource-providers/standalone/docker/#using-flink-python-on-docker
+
+WORKDIR /opt/pyflink
+COPY pyproject.flink.toml pyproject.toml
+RUN uv python install 3.12 && uv sync
+ENV PATH="/opt/pyflink/.venv/bin:$PATH"
+
+# Download connector libraries
+# flink-json-2.2.0.jar is already bundled in the base image -- do NOT re-download it.
+WORKDIR /opt/flink/lib
+RUN wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka/4.0.1-2.0/flink-sql-connector-kafka-4.0.1-2.0.jar \
+    && wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-connector-jdbc-core/4.0.0-2.0/flink-connector-jdbc-core-4.0.0-2.0.jar \
+    && wget https://repo.maven.apache.org/maven2/org/apache/flink/flink-connector-jdbc-postgres/4.0.0-2.0/flink-connector-jdbc-postgres-4.0.0-2.0.jar \
+    && wget https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.10/postgresql-42.7.10.jar
+
+COPY flink-config.yaml /opt/flink/conf/config.yaml
+
+WORKDIR /opt/flink

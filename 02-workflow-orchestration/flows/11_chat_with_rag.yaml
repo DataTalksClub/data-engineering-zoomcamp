@@ -1,0 +1,52 @@
+id: 11_chat_with_rag
+namespace: zoomcamp
+
+description: |
+  This flow demonstrates RAG (Retrieval Augmented Generation) by ingesting Kestra release documentation and using it to answer questions accurately.
+  
+  Compare this with 10_chat_without_rag.yaml to see the difference RAG makes.
+
+tasks:
+  - id: ingest_release_notes
+    type: io.kestra.plugin.ai.rag.IngestDocument
+    description: Ingest Kestra 1.1 release notes to create embeddings
+    provider:
+      type: io.kestra.plugin.ai.provider.GoogleGemini
+      modelName: gemini-embedding-001
+      apiKey: "{{ kv('GEMINI_API_KEY') }}"
+    embeddings:
+      type: io.kestra.plugin.ai.embeddings.KestraKVStore
+    drop: true
+    fromExternalURLs:
+      - https://raw.githubusercontent.com/kestra-io/docs/refs/heads/main/src/contents/blogs/release-1-1/index.md
+
+  - id: chat_with_rag
+    type: io.kestra.plugin.ai.rag.ChatCompletion
+    description: Query about Kestra 1.1 features with RAG context
+    chatProvider:
+      type: io.kestra.plugin.ai.provider.GoogleGemini
+      modelName: gemini-2.5-flash
+      apiKey: "{{ kv('GEMINI_API_KEY') }}"
+    embeddingProvider:
+      type: io.kestra.plugin.ai.provider.GoogleGemini
+      modelName: gemini-embedding-001
+      apiKey: "{{ kv('GEMINI_API_KEY') }}"
+    embeddings:
+      type: io.kestra.plugin.ai.embeddings.KestraKVStore
+    systemMessage: |
+      You are a helpful assistant that answers questions about Kestra.
+      Use the provided documentation to give accurate, specific answers.
+      If you don't find the information in the context, say so.
+    prompt: |
+      Which features were released in Kestra 1.1? 
+      Please list at least 5 major features with brief descriptions.
+
+  - id: log_results
+    type: io.kestra.plugin.core.log.Log
+    message: |
+      ✅ RAG Response (with retrieved context):
+      {{ outputs.chat_with_rag.textOutput }}
+      
+      Note that this response is detailed, accurate, and grounded in the actual release documentation. Compare this with the output from 06_chat_without_rag.yaml.
+
+

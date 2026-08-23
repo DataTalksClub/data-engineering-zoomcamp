@@ -1,0 +1,11 @@
+[project]
+name = "workshop"
+version = "0.1.0"
+description = "PyFlink Stream Processing Workshop"
+requires-python = ">=3.12"
+dependencies = [
+    "kafka-python>=2.3.0",
+    "pandas>=2.2.0",
+    "psycopg2-binary>=2.9.11",
+    "pyarrow>=19.0.0",
+]

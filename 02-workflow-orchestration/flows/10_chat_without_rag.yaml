@@ -1,0 +1,37 @@
+id: 10_chat_without_rag
+namespace: zoomcamp
+
+description: |
+  This flow demonstrates what happens when you query an LLM WITHOUT RAG.
+  The model can only rely on its training data, which may be outdated or incomplete.
+  
+  After running this, check out 11_chat_with_rag.yaml to see how RAG fixes these issues.
+
+tasks:
+  - id: chat_without_rag
+    type: io.kestra.plugin.ai.completion.ChatCompletion
+    description: Query about Kestra 1.1 features WITHOUT RAG
+    provider:
+      type: io.kestra.plugin.ai.provider.GoogleGemini
+      modelName: gemini-2.5-flash
+      apiKey: "{{ kv('GEMINI_API_KEY') }}"
+    messages:
+      - type: USER
+        content: |
+          Which features were released in Kestra 1.1? 
+          Please list at least 5 major features with brief descriptions.
+
+  - id: log_results
+    type: io.kestra.plugin.core.log.Log
+    message: |
+      ❌ Response WITHOUT RAG (no retrieved context):
+      {{ outputs.chat_without_rag.textOutput }}
+      
+      🤔 Did you notice that this response seems to be:
+      - Incorrect
+      - Vague/generic
+      - Listing features that haven't been added in exactly this version but rather a long time ago
+      
+      👉 This is why context matters. Run `11_chat_with_rag.yaml` to see the accurate, context-grounded response.
+
+

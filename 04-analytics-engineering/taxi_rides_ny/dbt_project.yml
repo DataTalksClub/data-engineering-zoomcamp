@@ -1,0 +1,39 @@
+name: 'taxi_rides_ny'
+version: '1.0.0'
+
+# Require a specific dbt version for reproducibility
+require-dbt-version: [">=1.7.0", "<3.0.0"]
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'taxi_rides_ny'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Project-level variables
+vars:
+  # Date range for dev environment sampling
+  dev_start_date: '2019-01-01'
+  dev_end_date: '2019-02-01'
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+models:
+  taxi_rides_ny:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table
+flags:
+  require_generic_test_arguments_property: true
