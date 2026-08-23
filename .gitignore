@@ -19,6 +19,6 @@ serving_dir
 *.json
 prefect-zoomcamp
 venv
-*.parquet*.parquet
+*.parquet
 *.csv
 *.duckdb
