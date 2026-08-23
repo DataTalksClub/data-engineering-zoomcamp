@@ -67,7 +67,7 @@ pip install uv
 Now initialize a Python project with uv:
 
 ```bash
-uv init --python=3.13
+uv init --no-package --python=3.13
 ```
 
 This creates a `pyproject.toml` file for managing dependencies and a `.python-version` file.
