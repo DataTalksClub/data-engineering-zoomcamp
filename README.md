@@ -11,7 +11,7 @@ Master the fundamentals of data engineering by building an end-to-end data pipel
 </p>
 
 <p align="center">
-<a href="https://airtable.com/shr6oVXeQvSI5HuWD"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+<a href="https://courses.datatalks.club/register/de-zoomcamp/"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
 </p>
 
 <p align="center">
@@ -70,7 +70,7 @@ There are two ways to follow the course: live and self-paced.
 | Peer Review | ✅ Yes | ❌ No |
 | Certificate | ✅ Yes | ❌ No |
 | Cost | Free | Free |
-| Register | [Sign up here](https://airtable.com/shr6oVXeQvSI5HuWD) | Just start learning! |
+| Register | [Sign up here](https://courses.datatalks.club/register/de-zoomcamp/) | Just start learning! |
 
 > [!IMPORTANT]
 > "Live cohort" does not mean live classes. All lectures are pre-recorded. "Live" means working alongside others with deadlines, scored homework, a leaderboard, peer review, and a certificate at the end.
