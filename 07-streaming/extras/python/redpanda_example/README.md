@@ -9,12 +9,10 @@ The aim of this module is to have a good grasp on the foundation of these Kafka/
 - data serialization and deserialization
 - replication and retention
 - offsets
-- consumer-groups
-- 
 
 ## 1. Pre-requisites
 
-If you have been following the [module-07](./../../../07-streaming/README.md) videos, you might already have installed the `kafka-python` library, so you can move on to [Docker](#2-docker) section.
+If you have been following the [module-07](../../../README.md) videos, you might already have installed the `kafka-python` library, so you can move on to [Docker](#2-docker) section.
 
 If you have not, this is the only package you need to install in your virtual environment for this Redpanda lesson. 
 
@@ -26,7 +24,7 @@ If you have not, this is the only package you need to install in your virtual en
 Start a Redpanda cluster. Redpanda is a single binary image, so it is very easy to start learning kafka concepts with Redpanda.
 
 ```bash
-cd 07-streaming/python/redpanda_example/
+cd 07-streaming/extras/python/redpanda_example/
 docker-compose up -d
 ```
 
