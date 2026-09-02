@@ -1,0 +1,23 @@
+schema_version: 1
+content_id: 5d460d46-0494-440c-9ca3-3be7a01061de
+slug: hw03
+title: "Module 3 Homework: Data Warehousing & BigQuery [DRAFT]"
+instructions_path: homework.md
+# Draft deadline: replace before the cohort is published.
+due_at: 2027-02-01T21:59:00Z
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+# Placeholder question. The graded questions are transcribed from
+# homework.md once the cohort's assignment is finalised.
+questions:
+  - content_id: 473a5fb6-9983-472a-ae91-a4913f842da2
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Describe one practical idea you took from this module.
+    points: 0

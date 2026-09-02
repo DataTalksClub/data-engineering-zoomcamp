@@ -1,0 +1,10 @@
+schema_version: 1
+content_id: 51468846-f65c-4245-884b-1946e600940d
+title: "Data Warehousing"
+units:
+  - content_id: a1fd26ed-1b90-4b0a-ab68-e7da1baa93e9
+    title: "Data Warehouse and BigQuery"
+    path: 01-data-warehouse-and-bigquery.md
+  - content_id: 1405c22d-b2d7-48bd-b344-9fbd17e08611
+    title: "Model deployment"
+    path: 02-model-deployment.md
