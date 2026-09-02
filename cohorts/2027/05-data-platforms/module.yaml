@@ -1,0 +1,34 @@
+schema_version: 1
+content_id: a69d8b2f-3ee5-4cd5-a9e8-0c346a712e9e
+title: "Data Platforms"
+units:
+  - content_id: a6236535-f539-4b78-9571-144f6fc9b43d
+    title: "Introduction to Bruin"
+    path: 01-introduction.md
+  - content_id: 56655130-3454-416e-a726-f53454e970dc
+    title: "Getting Started with Bruin"
+    path: 02-getting-started.md
+  - content_id: ca44207f-c9c9-4ce4-976b-bac8e0722783
+    title: "Building an End-to-End Pipeline with NYC Taxi Data"
+    path: 03-nyc-taxi-pipeline.md
+  - content_id: ec67085a-258a-4a31-95e1-856449599469
+    title: "Using Bruin MCP with AI Agents"
+    path: 04-bruin-mcp.md
+  - content_id: 34627fae-107c-4ecb-9609-82ee50fa68d3
+    title: "Deploying to Bruin Cloud"
+    path: 05-bruin-cloud.md
+  - content_id: ebd7557b-4bb1-4936-90be-909e7380fd7a
+    title: "Core Concepts: Projects"
+    path: 06-core-concepts-projects.md
+  - content_id: d5683cfe-6226-4eff-8954-07728f509cbc
+    title: "Core Concepts: Pipelines"
+    path: 07-core-concepts-pipelines.md
+  - content_id: a96847f5-e2d5-4c51-b4e2-52f5797da275
+    title: "Core Concepts: Assets"
+    path: 08-core-concepts-assets.md
+  - content_id: 18f90adb-99f3-4f5a-b639-efa51e24d70c
+    title: "Core Concepts: Variables"
+    path: 09-core-concepts-variables.md
+  - content_id: cb1afb85-5ea0-4b0a-bf8d-21a183d527a4
+    title: "Core Concepts: Commands"
+    path: 10-core-concepts-commands.md
