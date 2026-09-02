@@ -1,0 +1,1 @@
+FROM library/openjdk:11

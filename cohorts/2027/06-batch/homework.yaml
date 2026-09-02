@@ -1,0 +1,23 @@
+schema_version: 1
+content_id: db888c59-70dd-434a-9fd0-cbb7c090c1a3
+slug: hw06
+title: "Module 6 Homework [DRAFT]"
+instructions_path: homework.md
+# Draft deadline: replace before the cohort is published.
+due_at: 2027-02-22T21:59:00Z
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+# Placeholder question. The graded questions are transcribed from
+# homework.md once the cohort's assignment is finalised.
+questions:
+  - content_id: f94bbfea-d44b-4d6d-a215-d2eeaced903d
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Describe one practical idea you took from this module.
+    points: 0
