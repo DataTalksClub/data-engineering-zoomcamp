@@ -1,0 +1,11 @@
+schema_version: 1
+content_id: 91b633e9-f0a6-4a08-beb0-dc25a47a4375
+slug: de-zoomcamp
+title: Data Engineering Zoomcamp
+description_path: SITE.md
+outcome: Build production-grade data pipelines with industry-standard tools, starting from data engineering fundamentals.
+repository_url: https://github.com/DataTalksClub/data-engineering-zoomcamp
+docs_url: https://datatalks.club/docs/courses/data-engineering-zoomcamp/
+faq_url: https://datatalks.club/faq/data-engineering-zoomcamp.html
+hashtag: dezoomcamp
+published: true
