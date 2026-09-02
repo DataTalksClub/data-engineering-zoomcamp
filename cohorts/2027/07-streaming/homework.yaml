@@ -1,0 +1,23 @@
+schema_version: 1
+content_id: f2a228c0-70ae-4704-863e-9c8b7bf17f16
+slug: hw07
+title: "Homework [DRAFT]"
+instructions_path: homework.md
+# Draft deadline: replace before the cohort is published.
+due_at: 2027-03-01T21:59:00Z
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+# Placeholder question. The graded questions are transcribed from
+# homework.md once the cohort's assignment is finalised.
+questions:
+  - content_id: f8e1780b-5890-4ea5-9a3a-057c7b2ab6a2
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Describe one practical idea you took from this module.
+    points: 0

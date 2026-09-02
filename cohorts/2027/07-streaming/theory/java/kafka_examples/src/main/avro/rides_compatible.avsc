@@ -1,0 +1,11 @@
+{
+   "type": "record",
+       "name":"RideRecordCompatible",
+       "namespace": "schemaregistry",
+       "fields":[
+         {"name":"vendorId","type":"string"},
+         {"name":"passenger_count","type":"int"},
+         {"name":"trip_distance","type":"double"},
+         {"name":"pu_location_id", "type": [ "null", "long" ], "default": null}
+       ]
+}
