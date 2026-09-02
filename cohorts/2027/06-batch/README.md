@@ -1,8 +1,37 @@
 # Batch Processing
 
+> [!WARNING]
+> **This module is scaffolded, not written.** The sixteen units below are real —
+> correct titles, correct videos, and the setup guides, notebooks, scripts and
+> cloud commands that already existed in the repository — but none of them has a
+> lesson write-up. Every one carries a visible warning and the marker
+> `SCAFFOLD-NO-WRITEUP`; find them all with
+> `grep -rln SCAFFOLD-NO-WRITEUP --include='[0-9][0-9]-*.md' .`.
+> Until someone who has watched the recordings writes them, the videos are the
+> lesson and these pages are an index over the code. The 2027 cohort stays
+> unpublished for exactly this reason.
+
 ## Units
 
-1. [Batch Processing](01-batch-processing-with-spark.md)
+1. [Introduction to Batch Processing](01-introduction-to-batch-processing.md)
+2. [Introduction to Spark](02-introduction-to-spark.md)
+3. [Installing Spark](03-installing-spark.md)
+4. [First Look at Spark/PySpark](04-first-look-at-spark.md)
+5. [Spark DataFrames](05-spark-dataframes.md)
+6. [Preparing Yellow and Green Taxi Data](06-preparing-taxi-data.md)
+7. [SQL with Spark](07-sql-with-spark.md)
+8. [Anatomy of a Spark Cluster](08-anatomy-of-a-spark-cluster.md)
+9. [GroupBy in Spark](09-groupby-in-spark.md)
+10. [Joins in Spark](10-joins-in-spark.md)
+11. [Operations on Spark RDDs](11-operations-on-spark-rdds.md)
+12. [Spark RDD mapPartition](12-spark-rdd-mappartition.md)
+13. [Connecting to Google Cloud Storage](13-connecting-to-google-cloud-storage.md)
+14. [Creating a Local Spark Cluster](14-creating-a-local-spark-cluster.md)
+15. [Setting up a Dataproc Cluster](15-setting-up-a-dataproc-cluster.md)
+16. [Connecting Spark to BigQuery](16-connecting-spark-to-bigquery.md)
+
+Units 11 and 12 cover RDDs, which the module marks optional, as is the taxi-data
+preparation in unit 6 and the guided Linux install in unit 3.
 
 ## Homework
 
