@@ -1,13 +1,32 @@
 # Data Warehousing
 
+> [!WARNING]
+> **This module is scaffolded, not written.** The six units below are real —
+> correct titles, correct videos, and the links, SQL and slides that already
+> existed — but none of them has a lesson write-up. Every one carries a visible
+> warning and the marker `SCAFFOLD-NO-WRITEUP`; find them all with
+> `grep -rln SCAFFOLD-NO-WRITEUP --include='[0-9][0-9]-*.md' .`.
+> Until someone who has watched the
+> recordings writes them, the videos are the lesson and these pages are an
+> index. The 2027 cohort stays unpublished for exactly this reason.
+
 ## Units
 
 1. [Data Warehouse and BigQuery](01-data-warehouse-and-bigquery.md)
-2. [Model deployment](02-model-deployment.md)
+2. [Partitioning vs Clustering](02-partitioning-vs-clustering.md)
+3. [BigQuery Best Practices](03-bigquery-best-practices.md)
+4. [Internals of BigQuery](04-internals-of-bigquery.md)
+5. [Machine Learning in BigQuery](05-machine-learning-in-bigquery.md)
+6. [Deploying a Machine Learning Model from BigQuery](06-deploying-a-machine-learning-model.md)
 
 ## Homework
 
 * [Homework](homework.md)
+
+## Other files in this module
+
+* [`extras/`](extras/README.md) — a standalone script that downloads the taxi
+  CSVs and uploads them to Cloud Storage as parquet, without an orchestrator
 
 # Community notes
 

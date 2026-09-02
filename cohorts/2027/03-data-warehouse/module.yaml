@@ -1,10 +1,25 @@
 schema_version: 1
 content_id: 51468846-f65c-4245-884b-1946e600940d
 title: "Data Warehousing"
+# Scaffolded module: every unit below has its title, video and existing
+# materials, and none of them has a written lesson. Grep SCAFFOLD-NO-WRITEUP.
+# The cohort must stay unpublished until they are authored.
 units:
   - content_id: a1fd26ed-1b90-4b0a-ab68-e7da1baa93e9
     title: "Data Warehouse and BigQuery"
     path: 01-data-warehouse-and-bigquery.md
+  - content_id: 85e7db97-9d01-4906-801a-edec09608c1f
+    title: "Partitioning vs Clustering"
+    path: 02-partitioning-vs-clustering.md
+  - content_id: 9ecb220a-f2e5-402d-8622-aa360429e750
+    title: "BigQuery Best Practices"
+    path: 03-bigquery-best-practices.md
+  - content_id: 8f22a9b8-d9e4-4ed5-b080-ceb3a6757a90
+    title: "Internals of BigQuery"
+    path: 04-internals-of-bigquery.md
+  - content_id: 7b6a8dda-bc93-4e26-8563-32698448c5f4
+    title: "Machine Learning in BigQuery"
+    path: 05-machine-learning-in-bigquery.md
   - content_id: 1405c22d-b2d7-48bd-b344-9fbd17e08611
-    title: "Model deployment"
-    path: 02-model-deployment.md
+    title: "Deploying a Machine Learning Model from BigQuery"
+    path: 06-deploying-a-machine-learning-model.md
