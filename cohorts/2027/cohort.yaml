@@ -1,0 +1,36 @@
+schema_version: 1
+content_id: 405cbd79-ec53-48ab-ba67-165bf7c6b512
+course: de-zoomcamp
+identifier: "2027"
+legacy_slug: de-zoomcamp-2027
+year: 2027
+title: Data Engineering Zoomcamp 2027
+description: The 2027 live delivery of Data Engineering Zoomcamp.
+format: modules
+# Draft: the cohort is unpublished and the dates below are placeholders
+# until the schedule is confirmed.
+published: false
+start_date: 2027-01-11
+end_date: 2027-04-05
+flow:
+  - module:
+      source: cohorts/2027/01-docker-terraform/module.yaml
+      homework: cohorts/2027/01-docker-terraform/homework.yaml
+  - module:
+      source: cohorts/2027/02-workflow-orchestration/module.yaml
+      homework: cohorts/2027/02-workflow-orchestration/homework.yaml
+  - module:
+      source: cohorts/2027/03-data-warehouse/module.yaml
+      homework: cohorts/2027/03-data-warehouse/homework.yaml
+  - module:
+      source: cohorts/2027/04-analytics-engineering/module.yaml
+      homework: cohorts/2027/04-analytics-engineering/homework.yaml
+  - module:
+      source: cohorts/2027/05-data-platforms/module.yaml
+      homework: cohorts/2027/05-data-platforms/homework.yaml
+  - module:
+      source: cohorts/2027/06-batch/module.yaml
+      homework: cohorts/2027/06-batch/homework.yaml
+  - module:
+      source: cohorts/2027/07-streaming/module.yaml
+      homework: cohorts/2027/07-streaming/homework.yaml
