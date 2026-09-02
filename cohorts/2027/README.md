@@ -5,6 +5,12 @@
 > curriculum layout. Dates, homework questions and deadlines are placeholders until
 > the schedule is confirmed.
 
+> [!WARNING]
+> **Modules 3 and 6 are scaffolded, not written.** Their units have the right
+> titles, videos and materials, and no lesson text at all — each one says so and
+> is marked `SCAFFOLD-NO-WRITEUP`. The cohort must stay unpublished until those
+> write-ups exist.
+
 * [FAQ](https://datatalks.club/faq/data-engineering-zoomcamp.html)
 * [Course Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
 
