@@ -1,0 +1,20 @@
+seeds:
+  - name: taxi_zone_lookup
+    description: >
+      Taxi Zones roughly based on NYC Department of City Planning's Neighborhood
+      Tabulation Areas (NTAs) and are meant to approximate neighborhoods, so you can see which
+      neighborhood a passenger was picked up in, and which neighborhood they were dropped off in.
+      Includes associated service_zone (EWR, Boro Zone, Yellow Zone)
+
+  - name: payment_type_lookup
+    description: >
+      Payment type reference data mapping payment type codes to their descriptions.
+      Used as a dimension table for payment method analysis.
+    columns:
+      - name: payment_type
+        description: Numeric code for payment type
+        data_tests:
+          - unique
+          - not_null
+      - name: description
+        description: Human-readable description of payment method

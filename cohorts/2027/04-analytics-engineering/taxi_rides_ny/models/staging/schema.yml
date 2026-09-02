@@ -1,0 +1,94 @@
+models:
+  - name: stg_green_tripdata
+    description: >
+      Staging model for green taxi trip data. This model standardizes column names
+      and data types from the raw green_tripdata source, providing a clean foundation
+      for downstream transformations.
+    columns:
+      - name: vendor_id
+        description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
+        data_tests:
+          - not_null
+      - name: rate_code_id
+        description: Rate code at end of trip (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
+      - name: pickup_location_id
+        description: TLC Taxi Zone where the meter was engaged
+      - name: dropoff_location_id
+        description: TLC Taxi Zone where the meter was disengaged
+      - name: pickup_datetime
+        description: Date and time when the meter was engaged
+        data_tests:
+          - not_null
+      - name: dropoff_datetime
+        description: Date and time when the meter was disengaged
+      - name: store_and_fwd_flag
+        description: Flag indicating if trip record was held in vehicle memory (Y/N)
+      - name: passenger_count
+        description: Number of passengers in the vehicle (driver-entered value)
+      - name: trip_distance
+        description: Trip distance in miles reported by the taximeter
+      - name: trip_type
+        description: Code for trip type (1=Street-hail, 2=Dispatch)
+      - name: fare_amount
+        description: Time and distance fare calculated by the meter
+      - name: extra
+        description: Miscellaneous extras and surcharges (rush hour, overnight)
+      - name: mta_tax
+        description: $0.50 MTA tax automatically triggered based on meter rate
+      - name: tip_amount
+        description: Tip amount (credit card tips only, cash tips not included)
+      - name: tolls_amount
+        description: Total amount of all tolls paid during the trip
+      - name: ehail_fee
+        description: E-hail service fee
+      - name: improvement_surcharge
+        description: Improvement surcharge assessed on hailed trips
+      - name: total_amount
+        description: Total amount charged to passengers (does not include cash tips)
+      - name: payment_type
+        description: Payment method code (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)
+
+  - name: stg_yellow_tripdata
+    description: >
+      Staging model for yellow taxi trip data. This model standardizes column names
+      and data types from the raw yellow_tripdata source, providing a clean foundation
+      for downstream transformations.
+    columns:
+      - name: vendor_id
+        description: Taxi technology provider (1 = Creative Mobile Technologies, 2 = VeriFone Inc.)
+        data_tests:
+          - not_null
+      - name: rate_code_id
+        description: Rate code at end of trip (1=Standard, 2=JFK, 3=Newark, 4=Nassau/Westchester, 5=Negotiated, 6=Group)
+      - name: pickup_location_id
+        description: TLC Taxi Zone where the meter was engaged
+      - name: dropoff_location_id
+        description: TLC Taxi Zone where the meter was disengaged
+      - name: pickup_datetime
+        description: Date and time when the meter was engaged
+        data_tests:
+          - not_null
+      - name: dropoff_datetime
+        description: Date and time when the meter was disengaged
+      - name: store_and_fwd_flag
+        description: Flag indicating if trip record was held in vehicle memory (Y/N)
+      - name: passenger_count
+        description: Number of passengers in the vehicle (driver-entered value)
+      - name: trip_distance
+        description: Trip distance in miles reported by the taximeter
+      - name: fare_amount
+        description: Time and distance fare calculated by the meter
+      - name: extra
+        description: Miscellaneous extras and surcharges (rush hour, overnight)
+      - name: mta_tax
+        description: $0.50 MTA tax automatically triggered based on meter rate
+      - name: tip_amount
+        description: Tip amount (credit card tips only, cash tips not included)
+      - name: tolls_amount
+        description: Total amount of all tolls paid during the trip
+      - name: improvement_surcharge
+        description: Improvement surcharge assessed on hailed trips
+      - name: total_amount
+        description: Total amount charged to passengers (does not include cash tips)
+      - name: payment_type
+        description: Payment method code (1=Credit card, 2=Cash, 3=No charge, 4=Dispute, 5=Unknown, 6=Voided)

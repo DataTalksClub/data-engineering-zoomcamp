@@ -1,0 +1,23 @@
+schema_version: 1
+content_id: b31c73ea-dcaf-458e-b5ea-0239ca7ea838
+slug: hw04
+title: "Module 4 Homework: Analytics Engineering with dbt [DRAFT]"
+instructions_path: homework.md
+# Draft deadline: replace before the cohort is published.
+due_at: 2027-02-08T21:59:00Z
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+# Placeholder question. The graded questions are transcribed from
+# homework.md once the cohort's assignment is finalised.
+questions:
+  - content_id: 5e01e09e-9ab4-4c79-b6cb-04887daf2c20
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Describe one practical idea you took from this module.
+    points: 0

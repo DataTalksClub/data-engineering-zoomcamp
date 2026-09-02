@@ -1,0 +1,37 @@
+schema_version: 1
+content_id: 58aee3a2-f019-46d3-ba7a-ca447c767692
+title: "Analytics Engineering"
+units:
+  - content_id: 425ef3a4-f8af-48e5-9aeb-7e477227dc5f
+    title: "Analytics Engineering Basics"
+    path: 01-analytics-engineering-basics.md
+  - content_id: 4476c69d-9bac-48df-a050-ed2d6d608b8a
+    title: "What is dbt?"
+    path: 02-what-is-dbt.md
+  - content_id: 3617f909-3536-4e7d-a415-6051b613c6d8
+    title: "dbt Core vs dbt Cloud"
+    path: 03-dbt-core-vs-dbt-cloud.md
+  - content_id: 2a576b65-3036-4940-8b2f-e76cd53b5ab4
+    title: "dbt Project Structure"
+    path: 04-dbt-project-structure.md
+  - content_id: 01023829-0f7d-4b65-a06a-6337dcf37748
+    title: "dbt Sources"
+    path: 05-dbt-sources.md
+  - content_id: 66daf4f3-06e9-4514-a15d-479fa52f6994
+    title: "dbt Models"
+    path: 06-dbt-models.md
+  - content_id: 129f3654-5ebc-4e33-adb4-0a0d83851a8b
+    title: "dbt Seeds and Macros"
+    path: 07-dbt-seeds-and-macros.md
+  - content_id: 39669ef5-0ddc-4793-94c5-6448ab118920
+    title: "Documentation"
+    path: 08-documentation.md
+  - content_id: c5c73735-ef62-417c-9fa7-5507afa0cbce
+    title: "dbt Tests"
+    path: 09-dbt-tests.md
+  - content_id: b977241b-fa4e-4fb5-bff6-5ae28d30fd0e
+    title: "dbt Packages"
+    path: 10-dbt-packages.md
+  - content_id: 0de2bea6-dfc2-422c-b465-afa0a9275d7f
+    title: "dbt Commands"
+    path: 11-dbt-commands.md
