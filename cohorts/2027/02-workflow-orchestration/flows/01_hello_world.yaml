@@ -1,0 +1,48 @@
+id: 01_hello_world
+namespace: zoomcamp
+
+inputs:
+  - id: name
+    type: STRING
+    defaults: Will
+
+concurrency:
+  behavior: FAIL
+  limit: 2
+
+variables:
+  welcome_message: "Hello, {{ inputs.name }}!"
+  
+tasks:
+  - id: hello_message
+    type: io.kestra.plugin.core.log.Log
+    message: "{{ render(vars.welcome_message) }}"
+  
+  - id: generate_output
+    type: io.kestra.plugin.core.debug.Return
+    format: I was generated during this workflow.
+
+  - id: sleep
+    type: io.kestra.plugin.core.flow.Sleep
+    duration: PT15S
+
+  - id: log_output
+    type: io.kestra.plugin.core.log.Log
+    message: "This is an output: {{ outputs.generate_output.value }}"
+
+  - id: goodbye_message
+    type: io.kestra.plugin.core.log.Log
+    message: "Goodbye, {{ inputs.name }}!"
+
+pluginDefaults:
+  - type: io.kestra.plugin.core.log.Log
+    values:
+      level: ERROR
+
+triggers:
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 10 * * *"
+    inputs:
+      name: Sarah
+    disabled: true

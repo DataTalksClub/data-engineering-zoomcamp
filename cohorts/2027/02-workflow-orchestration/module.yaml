@@ -1,0 +1,58 @@
+schema_version: 1
+content_id: 03f78ccc-b11a-48c3-8076-4f5438250781
+title: "Workflow Orchestration"
+units:
+  - content_id: caa259e6-4286-4d83-8616-f88389b34b0b
+    title: "What is Workflow Orchestration?"
+    path: 01-what-is-workflow-orchestration.md
+  - content_id: 8c2e77fa-c18c-4aec-a376-9a4ac12c0dd0
+    title: "What is Kestra?"
+    path: 02-what-is-kestra.md
+  - content_id: 599fcd5a-df3d-4b6f-8ec8-f755c98e51f0
+    title: "Installing Kestra"
+    path: 03-installing-kestra.md
+  - content_id: 25542c50-8668-43a5-a92b-36fe98232d3f
+    title: "Kestra Concepts"
+    path: 04-kestra-concepts.md
+  - content_id: b0ca265f-c6ab-4116-a806-5194669c3da7
+    title: "Orchestrate Python Code"
+    path: 05-orchestrate-python-code.md
+  - content_id: f818daa2-2051-4729-9a3b-0267711725dd
+    title: "Getting Started Pipeline"
+    path: 06-getting-started-pipeline.md
+  - content_id: d808ff8e-812d-4e3a-b50f-d9b35e3d8d41
+    title: "Local DB: Load Taxi Data to Postgres"
+    path: 07-load-taxi-data-to-postgres.md
+  - content_id: bcf93a1d-5862-42a1-a0c3-9ec2445752b6
+    title: "Local DB: Learn Scheduling and Backfills"
+    path: 08-scheduling-and-backfills.md
+  - content_id: 42941619-a748-4208-8566-0859d74f4380
+    title: "ETL vs ELT"
+    path: 09-etl-vs-elt.md
+  - content_id: 3b799872-5e61-4a39-8e75-d2834c1e04aa
+    title: "Setup Google Cloud Platform (GCP)"
+    path: 10-setup-google-cloud-platform.md
+  - content_id: fbad337d-5073-48b0-ae2f-2b36e0bc331a
+    title: "GCP Workflow: Load Taxi Data to BigQuery"
+    path: 11-load-taxi-data-to-bigquery.md
+  - content_id: e464471f-e969-4c35-a500-8612786022c3
+    title: "GCP Workflow: Schedule and Backfill Full Dataset"
+    path: 12-schedule-and-backfill-full-dataset.md
+  - content_id: 71918961-d409-4128-87e2-9869ec9b6919
+    title: "Introduction: Why AI for Workflows?"
+    path: 13-why-ai-for-workflows.md
+  - content_id: d8bcede5-a312-40fa-a832-86ca06600960
+    title: "Context Engineering with ChatGPT"
+    path: 14-context-engineering-with-chatgpt.md
+  - content_id: 8bbfd356-b961-4aa8-bb1d-1cb62915c975
+    title: "AI Copilot in Kestra"
+    path: 15-ai-copilot-in-kestra.md
+  - content_id: ca209a5a-9815-4ca5-bf5b-10249979ef01
+    title: "Bonus: Retrieval Augmented Generation (RAG)"
+    path: 16-retrieval-augmented-generation.md
+  - content_id: 54f4ad25-c87d-4afd-97c6-2f86eb4d01a5
+    title: "Bonus: Deploy to the Cloud (Optional)"
+    path: 17-deploy-to-the-cloud.md
+  - content_id: 704b78e7-8d13-4bc5-a229-9cef2ada3ca1
+    title: "Additional Resources"
+    path: 18-additional-resources.md

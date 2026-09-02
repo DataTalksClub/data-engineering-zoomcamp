@@ -1,0 +1,23 @@
+schema_version: 1
+content_id: ed554c32-eda1-43bd-b712-0f4d4e1d3b36
+slug: hw02
+title: "Module 2 Homework [DRAFT]"
+instructions_path: homework.md
+# Draft deadline: replace before the cohort is published.
+due_at: 2027-01-25T21:59:00Z
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+# Placeholder question. The graded questions are transcribed from
+# homework.md once the cohort's assignment is finalised.
+questions:
+  - content_id: f450596a-b334-43b0-99ed-12e7146ef322
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Describe one practical idea you took from this module.
+    points: 0

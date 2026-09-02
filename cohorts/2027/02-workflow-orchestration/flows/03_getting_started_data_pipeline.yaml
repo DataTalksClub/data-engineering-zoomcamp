@@ -1,0 +1,55 @@
+id: 03_getting_started_data_pipeline
+namespace: zoomcamp
+
+inputs:
+  - id: columns_to_keep
+    type: ARRAY
+    itemType: STRING
+    defaults:
+      - brand
+      - price
+
+tasks:
+  - id: extract
+    type: io.kestra.plugin.core.http.Download
+    uri: https://dummyjson.com/products
+
+  - id: transform
+    type: io.kestra.plugin.scripts.python.Script
+    containerImage: python:3.11-alpine
+    inputFiles:
+      data.json: "{{outputs.extract.uri}}"
+    outputFiles:
+      - "*.json"
+    env:
+      COLUMNS_TO_KEEP: "{{inputs.columns_to_keep}}"
+    script: |
+      import json
+      import os
+
+      columns_to_keep_str = os.getenv("COLUMNS_TO_KEEP")
+      columns_to_keep = json.loads(columns_to_keep_str)
+
+      with open("data.json", "r") as file:
+          data = json.load(file)
+
+      filtered_data = [
+          {column: product.get(column, "N/A") for column in columns_to_keep}
+          for product in data["products"]
+      ]
+
+      with open("products.json", "w") as file:
+          json.dump(filtered_data, file, indent=4)
+
+  - id: query
+    type: io.kestra.plugin.jdbc.duckdb.Queries
+    inputFiles:
+      products.json: "{{outputs.transform.outputFiles['products.json']}}"
+    sql: |
+      INSTALL json;
+      LOAD json;
+      SELECT brand, round(avg(price), 2) as avg_price
+      FROM read_json_auto('{{workingDir}}/products.json')
+      GROUP BY brand
+      ORDER BY avg_price DESC;
+    fetchType: STORE
