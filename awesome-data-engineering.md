@@ -40,6 +40,7 @@ Conference talks from companies, blog posts, etc
 * [CS50's Introduction to Computer Science | edX](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x) (course)
 * [Python for Everybody Specialization](https://www.coursera.org/specializations/python) (course)
 * [Practical Python programming](https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md)
+* [PySpark.in coding challenges](https://pyspark.in/challenges/) - graded PySpark, SQL and Python practice problems (free)
 
 
 ### SQL
