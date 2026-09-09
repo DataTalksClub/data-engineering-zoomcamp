@@ -115,6 +115,11 @@ docker run -it \
 
 So, we know that with docker we can restore any container to its initial state in a reproducible manner. But what about data? A common way to do so is with _volumes_.
 
+The durable relationship is that host files can be shared with a container
+through a mounted volume:
+
+![Local host files can be shared with a Docker container through a mounted volume.](images/docker-volume-mapping-imagegen.png)
+
 Let's create some data in `test`:
 
 ```bash

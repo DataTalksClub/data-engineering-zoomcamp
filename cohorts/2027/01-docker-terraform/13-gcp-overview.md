@@ -8,6 +8,11 @@ video_url: https://www.youtube.com/watch?v=18jIzE41fJ4
 * Google Cloud Storage (GCS): Data Lake
 * BigQuery: Data Warehouse
 
+Cloud platforms group their services into families such as compute,
+networking, storage, big data, identity, and machine learning:
+
+![Cloud services grouped into compute, management, networking, storage and databases, big data, identity and security, and machine learning families.](images/cloud-service-families-imagegen.png)
+
 (Concepts explained in Week 2 - Data Ingestion)
 
 ## Initial Setup

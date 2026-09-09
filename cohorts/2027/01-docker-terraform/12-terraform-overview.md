@@ -21,6 +21,11 @@ video_url: https://www.youtube.com/watch?v=18jIzE41fJ4
    * Very useful for stack-based deployments, and with cloud providers such as AWS, GCP, Azure, K8S…
    * State-based approach to track resource changes throughout deployments
 
+Terraform runs locally and uses a provider to plan and apply changes in a
+cloud platform:
+
+![Terraform runs on a local machine and manages resources in a cloud provider.](images/terraform-provider-flow-imagegen.png)
+
 ### Files
 * `main.tf`
 * `variables.tf`
