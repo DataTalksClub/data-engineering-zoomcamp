@@ -583,15 +583,38 @@ Postman chrome is removed only where it is outside the instructional UI.
   complementarity 2, durability 1, caption/accessibility 2).
 - Decision: `crop/replace`; the Postman request/response demonstrates the
   deployed endpoint returning a tip prediction of about `$3.2`.
-- Preparation: deterministic crop `(x=0, y=0, width=575, height=315)`;
-  resized 2x with a light unsharp mask. The exact request JSON, endpoint, and
-  response were retained while the terminal background was removed.
-- Method: deterministic PNG sibling
-  `06-deploying-a-machine-learning-model-05-predict-cropped.png`.
-- Invariants checked: POST endpoint, request feature values, successful status,
-  and prediction value remain unchanged; surrounding terminal, faces, camera
-  tiles, cursors, and unrelated chrome are absent.
-- Validation: output visually inspected; Markdown reference resolves and
+- Updated: 2026-09-09.
+- Preparation: the true native crop is `640x320` at `(x=0, y=0)`; an
+  independent `convert` extraction reproduces the preparation crop with
+  `compare -metric AE = 0`. The original JPG and native crop were both sent
+  to imagegen. The generated candidate supplied only a clean bright Postman
+  background; no generated text or numeric value was trusted.
+- Method: imagegen background canvas `1774x887`, cropped to the focused
+  request/response surface `(x=475, y=75, width=1290, height=800)`, followed
+  by a deterministic SVG overlay for the exact POST endpoint, request JSON,
+  response metadata, and prediction. No source enlargement, Lanczos resize,
+  sharpening, or old crisp derivative was used.
+- Invariants checked: `POST`,
+  `http://localhost:8501/v1/models/tip_model:predict`, all request feature
+  values (`passenger_count=1`, `trip_distance=12.2`, `PULocationID=193`,
+  `DOLocationID=264`, `payment_type=1`, `fare_amount=20.4`,
+  `tolls_amount=0.0`), `predictions`, `3.2106109757442027`, `200 OK`,
+  `58 ms`, and `158 B` remain exact. The focused output removes
+  browser/recording chrome, camera/face, cursor, scrollbar, and unrelated
+  sidebar content.
+- Validation: final `1290x800` output SHA-256 is
+  `3c58799f7a19b39b9674bf8da16f8397fad48c93e3d33aa0788246b596a032f4`;
+  imagegen canvas SHA-256 is
+  `30b8a0be429b64e6efcf1564371dc9d8a32a202fa21a9278d26cd591eb919b06`;
+  focused background crop SHA-256 is
+  `63c08179d2f2dac1f45ac8ea052add7ab4e12ac896700c61c614b772e3b7d29f`;
+  source JPG SHA-256 is
+  `c92bf5a12d3a87e4b91c8ebc694710b5e094e1f011dee37002d91a9c9397b4c8`.
+  The preparation crop is not a committed lesson asset; reviewers should
+  reproduce the source crop command rather than rely on scratch PNG
+  serialization hashes. Proportional `608x377` render SHA-256 is
+  `4d9ca0dfcfa1ac888d7e5dcb9266b8c8cd73553f56df530c21386cc9aec99c4e`.
+  Final and 608px renders were inspected; Markdown reference resolves and
   `git diff --check` passes.
 
 ### 06-deploying-a-machine-learning-model-06-predict-payment-type-2.jpg
