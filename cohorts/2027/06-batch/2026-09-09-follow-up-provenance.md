@@ -224,6 +224,22 @@ Constraints: preserve the factual layout and exact labels from the references; J
 Avoid: the presenter’s face, webcam circle, browser tabs/address bar, browser chrome, cursor, annotations, handwritten marks, selection highlights, watermarks, invented fields, altered labels, extra components, illegible text, cropped checklist rows, and any screenshot-like blur or simple enlargement.
 ```
 
+## Typical Spark workflow — presenter-free crop correction
+
+The independent Module 06 review found that the prior workflow crop still
+contained a presenter fragment and capture/editor chrome. The replacement was
+generated from the original non-crisp JPG plus a new focused crop, then
+independently reviewed before publication. No resize, sharpening, or post-
+generation text edit was used.
+
+| Published target | Original JPG SHA-256 | New crop (geometry; SHA-256) | Imagegen output / published SHA-256 | Independent review |
+|---|---|---|---|---|
+| `images/02-introduction-to-spark-04-typical-workflow-whiteboard-imagegen.png` | `28d74acb2c1a4787aeb2bef9126292a8089e32981e45b8d1495ed6bd786161c1` | `x=55,y=37,w=475,h=281`; `e49695727b3cf4aee8768dad57f57bca6bf331976e912fc3866e730cfbf667eb` | `5aaed4d371e84a496ee9e08850ce17e606ff104a171579d9fc06455523832f44` | PASS — `/home/alexey/git/.tmp/workshop-processing/de-2027-m06/FOLLOW-UP-INDEPENDENT-REVIEW.md` |
+
+The new crop retains the complete source-backed flow from raw data through
+the lake, SQL/Athena, Spark, Python model training, model application, and the
+final lake, while excluding the presenter and all capture/editor controls.
+
 The prior `images/15-setting-up-a-dataproc-cluster-01-create-cluster-cropped.png`
 is retained as historical audit evidence for the superseded output. Its
 `1070×660` bytes were produced by an undocumented 2× Lanczos/sharpen step and
