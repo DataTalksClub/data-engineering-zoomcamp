@@ -23,7 +23,18 @@ integers. Instead of looking at `df.schema`, there is a nicer way:
 df.printSchema()
 ```
 
-![printSchema shows the types carried by parquet for each column](images/05-spark-dataframes-01-print-schema-crisp.png)
+The schema stored in parquet is:
+
+```text
+root
+ |-- hvfhs_license_num: string (nullable = true)
+ |-- dispatching_base_num: string (nullable = true)
+ |-- pickup_datetime: timestamp (nullable = true)
+ |-- dropoff_datetime: timestamp (nullable = true)
+ |-- PULocationID: integer (nullable = true)
+ |-- DOLocationID: integer (nullable = true)
+ |-- SR_Flag: string (nullable = true)
+```
 
 This is also one of the reasons parquet files are smaller: they know
 the schema and use more efficient ways of compressing the data. For
@@ -40,7 +51,12 @@ df.select('pickup_datetime', 'dropoff_datetime',
           'PULocationID', 'DOLocationID')
 ```
 
-![Selecting four columns from the FHV DataFrame](images/05-spark-dataframes-02-select-crisp.png)
+The result is a DataFrame with these four columns:
+
+```text
+DataFrame[pickup_datetime: timestamp, dropoff_datetime: timestamp,
+          PULocationID: int, DOLocationID: int]
+```
 
 This DataFrame now contains only these four columns. We can also
 filter rows:
@@ -104,8 +120,6 @@ from pyspark.sql import functions as F
 Type `F.` and hit tab - there are quite a lot of them. The one we want
 is `to_date`: it takes a datetime and keeps only the date, discarding
 the hour, minutes and seconds.
-
-![Importing pyspark.sql.functions as F and browsing the built-in functions](images/05-spark-dataframes-03-built-in-functions-crisp.png)
 
 To apply it, we use `withColumn`, which adds a new column to a
 DataFrame - also a transformation:

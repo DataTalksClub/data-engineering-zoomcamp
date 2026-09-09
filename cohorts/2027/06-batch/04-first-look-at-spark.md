@@ -35,7 +35,11 @@ If we run `df.show()`, Spark correctly gets the names of the columns.
 And if we open localhost:4040 and refresh, we see the Spark application's
 Jobs page. After a notebook action runs, it appears here as a job.
 
-![Spark UI on port 4040 showing the active application's Jobs page](images/04-first-look-at-spark-01-spark-ui-crisp.png)
+Before the first action, the page is empty:
+
+| Spark UI page | Initial state |
+| --- | --- |
+| `localhost:4040` → Jobs | No job has run yet |
 
 ## The schema problem
 
@@ -76,7 +80,21 @@ Pandas does a decent job: `PULocationID` and `DOLocationID` are
 `int64`, the rest are strings. The pickup and dropoff datetimes stay
 objects too - pandas is not smart enough to see they are timestamps.
 
-![The notebook reads sample rows into pandas to infer more useful column types](images/04-first-look-at-spark-02-schema-problem-pandas-crisp.png)
+```python
+df.schema
+```
+
+The original Spark schema therefore has seven nullable string columns:
+
+| Column | Type | Nullable |
+| --- | --- | --- |
+| `hvfhs_license_num` | `StringType` | `true` |
+| `dispatching_base_num` | `StringType` | `true` |
+| `pickup_datetime` | `StringType` | `true` |
+| `dropoff_datetime` | `StringType` | `true` |
+| `PULocationID` | `StringType` | `true` |
+| `DOLocationID` | `StringType` | `true` |
+| `SR_Flag` | `StringType` | `true` |
 
 Now we turn this pandas DataFrame into a Spark DataFrame:
 
@@ -119,8 +137,6 @@ schema = types.StructType([
 
 The `True` at the end means the column can be null - `SR_Flag` is
 definitely nullable. And in Python `True` starts with a capital T.
-
-![The schema is declared explicitly with StructField definitions](images/04-first-look-at-spark-03-schema-structtype-crisp.png)
 
 Now we read the CSV again, telling Spark that this file must have this
 schema:

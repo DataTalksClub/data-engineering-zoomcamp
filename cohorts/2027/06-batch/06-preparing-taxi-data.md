@@ -79,12 +79,30 @@ with `zcat` - the same as `cat`, but for gzipped files:
 zcat data/raw/yellow/2021/01/yellow_tripdata_2021_01.csv.gz | head -n 10
 ```
 
-![zcat prints the first rows of the compressed yellow taxi CSV](images/06-preparing-taxi-data-04-zcat-crisp.png)
+The command starts with this header and the first two rows:
+
+```text
+VendorID,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,RatecodeID,store_and_fwd_flag,PULocationID,DOLocationID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,congestion_surcharge
+1,2021-01-01 00:30:10,2021-01-01 00:36:12,1,2.10,1,N,142,43,2,8,3,0.5,0,0,0.3,11.8,2.5
+1,2021-01-01 00:51:20,2021-01-01 00:52:19,1,.20,1,N,238,151,2,3,0.5,0.5,0,0,0.3,4.3,0
+```
 
 And `tree` shows us the folder structure we ended up with: for each taxi
 type and year, one folder per month with a compressed CSV inside:
 
-![tree shows the raw taxi files organized by taxi type, year, and month](images/06-preparing-taxi-data-05-tree-raw-crisp.png)
+```text
+data/raw/
+├── green/
+│   ├── 2020/
+│   │   └── <month>/green_tripdata_2020_<month>.csv.gz
+│   └── 2021/
+│       └── <month>/green_tripdata_2021_<month>.csv.gz
+└── yellow/
+    ├── 2020/
+    │   └── <month>/yellow_tripdata_2020_<month>.csv.gz
+    └── 2021/
+        └── <month>/yellow_tripdata_2021_<month>.csv.gz
+```
 
 ## Defining the schema
 
@@ -104,7 +122,31 @@ We can point to a folder (or even use `*` to read the whole year) - Spark
 will read all files in it. If we print the schema now, we see the column
 names, but everything is a string:
 
-![Spark infers the raw taxi CSV columns as strings](images/06-preparing-taxi-data-06-schema-strings-crisp.png)
+```python
+df_green.printSchema()
+```
+
+```text
+root
+ |-- VendorID: string (nullable = true)
+ |-- lpep_pickup_datetime: string (nullable = true)
+ |-- lpep_dropoff_datetime: string (nullable = true)
+ |-- store_and_fwd_flag: string (nullable = true)
+ |-- RatecodeID: string (nullable = true)
+ |-- PULocationID: string (nullable = true)
+ |-- DOLocationID: string (nullable = true)
+ |-- passenger_count: string (nullable = true)
+ |-- trip_distance: string (nullable = true)
+ |-- fare_amount: string (nullable = true)
+ |-- extra: string (nullable = true)
+ |-- mta_tax: string (nullable = true)
+ |-- tip_amount: string (nullable = true)
+ |-- tolls_amount: string (nullable = true)
+ |-- ehail_fee: string (nullable = true)
+ |-- improvement_surcharge: string (nullable = true)
+ |-- total_amount: string (nullable = true)
+ |-- payment_type: string (nullable = true)
+```
 
 The way we inferred types before: read the same file with pandas, which
 figures out the types for us. Because pandas can read gzipped files directly,
@@ -169,7 +211,12 @@ them. We can watch this in the Spark UI: first only one task runs (one
 executor going through the CSV file), which then writes the results to four
 temporary files that end up on disk:
 
-![Spark UI shows the one-task read and parquet write job](images/06-preparing-taxi-data-07-spark-ui-one-task-crisp.png)
+The important task counts are stable even though the Spark UI is not:
+
+| Step | Tasks/files |
+| --- | --- |
+| Read the gzipped CSV | One task, because gzip cannot be split |
+| Write parquet after `repartition(4)` | Four temporary files, which end up on disk |
 
 We run this for all four combinations: green and yellow, 2020 and 2021.
 
@@ -178,7 +225,15 @@ We run this for all four combinations: green and yellow, 2020 and 2021.
 Looking at `data/pq` with `tree`, each month now has four parquet part-files
 (the result of the repartition) plus a `_SUCCESS` marker:
 
-![tree shows the parquet output partitioned by taxi type and month](images/06-preparing-taxi-data-08-tree-pq-crisp.png)
+```text
+data/pq/
+└── <taxi type>/<year>/<month>/
+    ├── _SUCCESS
+    ├── part-00000-...snappy.parquet
+    ├── part-00001-...snappy.parquet
+    ├── part-00002-...snappy.parquet
+    └── part-00003-...snappy.parquet
+```
 
 Comparing sizes with `ls -lh`: the compressed yellow CSV for January 2020 is
 111 MB, and the parquet version is actually slightly bigger - gzip compresses
