@@ -541,16 +541,45 @@ Postman chrome is removed only where it is outside the instructional UI.
   complementarity 2, durability 2, caption/accessibility 2).
 - Decision: `crop/replace`; the diagram shows rows grouped by date and tag,
   which is a concrete relationship not conveyed as clearly by the prose.
-- Preparation: deterministic crop `(x=20, y=18, width=600, height=335)`;
-  resized 2x with a light unsharp mask. Imagegen was not used because the
-  sample table values and highlighted ranges are exact evidence.
-- Method: deterministic PNG sibling
-  `01-data-warehouse-and-bigquery-07-clustering-diagram-cropped.png`.
-- Invariants checked: source table, date-partitioned tables, tag grouping,
-  highlighted ranges, table headings, and arrow direction remain unchanged;
-  no face, camera tile, cursor, or overlay was present.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Preparation: original non-crisp source JPG `640×360`, SHA-256
+  `cd9e95ec73a25f19240309320cf10869cf8ac58360b4caf99f3420aa8f0d2c84`; true
+  native crop command `convert 01-data-warehouse-and-bigquery-07-clustering-diagram.jpg
+  -crop 510x285+65+65 +repage
+  01-data-warehouse-and-bigquery-07-clustering-diagram-native-crop.png`,
+  i.e. `(x=65, y=65, width=510, height=285)`. The retained crop is `510×285`,
+  SHA-256 `8c16f8382a8b1fc5ac8b9c3f13390f6e629bf11f6851e64fa0a03b57396a0429`;
+  an independent rerun compares at zero differing pixels (ImageMagick AE=0).
+  The old crisp/upscaled derivative was not used as an imagegen reference.
+- Method: built-in imagegen, `scientific-educational`, using the original JPG
+  and true native crop as the only image inputs. Artifact:
+  `/home/alexey/.codex/generated_images/01a08586-db9e-70e1-b2b5-505707c41602/exec-253729e5-7ece-4ee8-9466-7696ac1e090c.png`; artifact SHA-256
+  `0fe3553cdcec97d17bafdd4b42dcb590421c52d3d1170ef0898508f1cc1ed462`.
+  Published PNG is byte-identical, `1677×938`, with the same SHA-256.
+- C2PA: `urn:c2pa:5b565ea6-6f8e-4258-98e1-013053e000e1`; embedded
+  `OpenAI Media Service API` / `gpt-image` C2PA/JUMD provenance is present.
+- Semantic checks: title and centered heading; `Stack_Questions` source table
+  with all 11 rows and exact punctuation; `Stack_Questions_2019_03_01`,
+  `_02`, and `_03` partitions with their exact row order and values; the
+  left-to-right arrow; blue outline around the three Android rows and green
+  outline around the two Linux rows; original peach, blue, and pink grouping
+  colors; table headings and `...` columns all remain unchanged. Manual
+  comparison of source, native crop, native output, and 608px render checked
+  these source rows verbatim, in order: `2019-03-01 | How do I?? | Android`,
+  `2019-03-01 | When Should? | Linux`, `2019-03-02 | This is great! | Linux`,
+  `2019-03-03 | Can this? | C++`, `2019-03-02 | Help! | Android`,
+  `2019-03-01 | What does? | Android`, `2019-03-02 | When does? | Android`,
+  `2019-03-02 | Can you help? | Linux`, `2019-03-02 | What now? | Android`,
+  `2019-03-03 | Just learned! | SQL`, and `2019-03-01 | How does? | SQL`;
+  partition rows are `2019-03-01: Android / How do I??, Android / What does?,
+  Linux / When Should?, SQL / How Does?`; `2019-03-02: Android / Help!,
+  Android / When does?, Android / What now?, Linux / This is great!, Linux /
+  Can you help?`; and `2019-03-03: SQL / Just learned!, C++ / Can this?`.
+  No face, camera tile, video controls, browser chrome, cursor, watermark,
+  extra label, row, or relationship is present.
+- Overlay/size validation: native `1677×938` output and proportional
+  `608×340` render were visually inspected and remained legible; 608px render
+  SHA-256 is `68b0b25b000a3cbadce399c0bea3e56a87e55ce097f71a083dc3d25654b766b9`.
+  Markdown reference resolves and `git diff --check` passes.
 
 ### 01-data-warehouse-and-bigquery-06-partition-pruning.jpg
 
