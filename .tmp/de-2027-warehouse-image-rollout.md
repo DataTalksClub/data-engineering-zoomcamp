@@ -567,10 +567,11 @@ Postman chrome is removed only where it is outside the instructional UI.
   imagegen background SHA-256 is
   `5b9b6df3be9e9dff4751447affc8f7eb6f11c080910da2b6ab64afc1339123cb`;
   source JPG SHA-256 is
-  `5ce611080efdc428384a0385a66fc058c6144205b677ca3c4801aca2b5e89dd2`,
-  native-crop SHA-256 is
-  `19cb0bc9f13b09f602d5153ad10f528e224d0dacf2dd3c827f8b951f30882e0f`,
-  and proportional `608x398` render SHA-256 is
+  `5ce611080efdc428384a0385a66fc058c6144205b677ca3c4801aca2b5e89dd2`.
+  The native crop is a preparation artifact, not a committed lesson asset;
+  reviewers should reproduce it from the recorded source command and verify
+  `compare -metric AE = 0` rather than rely on PNG-serialization hashes from
+  separate scratch worktrees. Proportional `608x399` render SHA-256 is
   `76cc8f1b1a76387c3cf124e39a2475880518ed4b02ca36a7e83873ef9c1f7109`.
   The final was inspected at 100% and 608px; Markdown reference resolves
   and `git diff --check` passes.
