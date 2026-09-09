@@ -73,31 +73,39 @@ the lesson image paths.
 
 ## Follow-up correction: Docker output readability
 
-The strict audit of the previous Docker output found that its genuine redraw
-was still too panoramic: at 2206×713, the single-line `docker ps` table became
-unreadable at the 608px lesson width. The target was regenerated with the
-built-in imagegen tool using only the original JPG and bounded crop above. The
-previous crisp PNG was not used as an imagegen source.
+The previous imagegen-only redraw was superseded because exact terminal text
+must not depend on generated typography. Imagegen was available and received
+both the original JPG and the true native crop below. Its text-free output was
+used only as the clean high-resolution terminal background; the final terminal
+text was rendered deterministically as vector/text overlay. No resize,
+sharpen, or enlarged derivative was used, and no candidate was rejected in
+this pass.
 
-The replacement reflows the same exact `docker ps` facts into a compact
-terminal card with large monospace text. It preserves the container ID,
-`tensorflow/serving` image, command, created time, status, both port mappings,
-and `great_crazy` name. Camera/browser artifacts, cursor, selection, prior
-commands, and overlays are absent.
+The exact retained overlay is:
 
-The replacement is `1672×941`; a proportional `608×342` render was inspected
-and remains readable. The generated output is stored under
-`/home/alexey/.codex/generated_images/01a0830b-f2a1-7200-ba75-3712b4d99f0f/`.
+```text
+ok331b4MLT03748:/tmp/model/tip_model$ docker ps
+CONTAINER ID    44453cbc5cc3
+IMAGE           tensorflow/serving
+COMMAND         "/usr/bin/tf_serving..."
+CREATED         7 seconds ago
+STATUS          Up 5 seconds
+PORTS           8501/tcp, 0.0.0.0:8501->8501/tcp,
+                :::8501->8501/tcp
+NAMES           great_crazy
+```
 
-| Published target | Original JPG source | Bounded crop | Imagegen output | Correction and validation |
-|---|---|---|---|---|
-| `cohorts/2027/03-data-warehouse/images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | `06-deploying-a-machine-learning-model-03-docker-running.jpg` (`0b0266a6417fc628c06e317b42d4c114c0228667f913bcdf5837198910050998`) | `06-deploying-a-machine-learning-model-03-docker-running-cropped.png` (`0790349ec4b1994707d4faa3174028766adca031fdb541a08b91fa1577945360`) | `exec-04ac4351-0ce9-46e3-9113-506b31eb5cf4.png` | Replaced the unreadable panoramic layout with a focused stacked terminal card; exact `docker ps` facts retained; native and 608px checks passed. |
+The final `1672×941` PNG and proportional `608×342` lesson-size render were
+inspected at 100%; both are readable, with no face, camera, browser/header,
+cursor, selection, watermark, or unrelated overlay.
 
-### Latest published hash
-
-| File | SHA-256 |
-|---|---|
-| `06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | `bcbf293e5febb408c19e329dd9bbb6c75f628dadd20bc7220636b449b7bbc686` |
+| Artifact | Path | Dimensions | SHA-256 |
+|---|---|---:|---|
+| Original source JPG | `cohorts/2027/03-data-warehouse/images/06-deploying-a-machine-learning-model-03-docker-running.jpg` | `640×360` | `0b0266a6417fc628c06e317b42d4c114c0228667f913bcdf5837198910050998` |
+| True native crop (`x=0,y=0,w=630,h=350`) | `cohorts/2027/03-data-warehouse/images/06-deploying-a-machine-learning-model-03-docker-running-native-crop.png` | `630×350` | `d0e0ac0bdb733cdc4efa5f4221d8c59338648e8fb5054ecf1b0f2bc820084555` |
+| Imagegen background-only artifact | `/home/alexey/.codex/generated_images/01a0860c-3c3b-7020-a713-02cef399034e/exec-8b4e51e4-820c-452c-8387-72f9845cfff5.png` | `1672×941` | `07a0f8d2eb989a704d67d1bfcb96e8af6f8d2addd1a3030ced06254a4e8a1e3a` |
+| Final published PNG | `cohorts/2027/03-data-warehouse/images/06-deploying-a-machine-learning-model-03-docker-running-crisp.png` | `1672×941` | `409a0b96bbc8c3cd7146db28e2c45a26bab9a37685023e858b778532e0e5fb85` |
+| Uncommitted 608px validation render | `final-rgb-608.png` | `608×342` | `653e2fa86eb1fd9605360a7189baa0cfa0ddcfb35f3b7fd62a081575c995e973` |
 
 ## Strict follow-up repair — 2026-09-09
 
