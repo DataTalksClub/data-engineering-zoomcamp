@@ -1,24 +1,128 @@
 {
   "title": "Stream join window",
   "description": "Two event streams produce join results inside a bounded join window.",
-  "canvas": {"width": 1240, "height": 560, "background": "#ffffff"},
-  "layout": {"type": "manual", "card_width": 200, "card_height": 90},
+  "canvas": {
+    "width": 1240,
+    "height": 560,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 200,
+    "card_height": 90
+  },
   "nodes": [
-    {"id": "streama", "variant": "icon", "title": "Stream A", "icon": "queue", "color": "blue", "x": 50, "y": 100},
-    {"id": "streamb", "variant": "icon", "title": "Stream B", "icon": "queue", "color": "purple", "x": 50, "y": 330},
-    {"id": "a-old", "variant": "icon", "title": "earlier event", "icon": "message", "color": "gray", "show_label": false, "icon_size": 44, "x": 350, "y": 110},
-    {"id": "b-old", "variant": "icon", "title": "earlier event", "icon": "message", "color": "gray", "show_label": false, "icon_size": 44, "x": 350, "y": 340},
-    {"id": "win", "variant": "boundary", "title": "Join window", "contains": ["a-new", "b-new"]},
-    {"id": "a-new", "variant": "icon", "title": "event A", "icon": "message", "color": "blue", "icon_size": 44, "x": 680, "y": 110},
-    {"id": "b-new", "variant": "icon", "title": "event B", "icon": "message", "color": "purple", "icon_size": 44, "x": 680, "y": 340},
-    {"id": "result", "title": "Joined pair", "subtitle": "emitted together", "color": "green", "icon": "check", "x": 950, "y": 200}
+    {
+      "id": "streama",
+      "variant": "icon",
+      "title": "Stream A",
+      "icon": "queue",
+      "color": "blue",
+      "x": 50,
+      "y": 100
+    },
+    {
+      "id": "streamb",
+      "variant": "icon",
+      "title": "Stream B",
+      "icon": "queue",
+      "color": "purple",
+      "x": 50,
+      "y": 330
+    },
+    {
+      "id": "a-old",
+      "variant": "icon",
+      "title": "earlier event",
+      "icon": "message",
+      "color": "gray",
+      "icon_size": 44,
+      "x": 350,
+      "y": 110
+    },
+    {
+      "id": "b-old",
+      "variant": "icon",
+      "title": "earlier event",
+      "icon": "message",
+      "color": "gray",
+      "icon_size": 44,
+      "x": 350,
+      "y": 340
+    },
+    {
+      "id": "win",
+      "variant": "boundary",
+      "title": "Join window",
+      "contains": [
+        "a-new",
+        "b-new"
+      ]
+    },
+    {
+      "id": "a-new",
+      "variant": "icon",
+      "title": "event A",
+      "icon": "message",
+      "color": "blue",
+      "icon_size": 44,
+      "x": 680,
+      "y": 110
+    },
+    {
+      "id": "b-new",
+      "variant": "icon",
+      "title": "event B",
+      "icon": "message",
+      "color": "purple",
+      "icon_size": 44,
+      "x": 680,
+      "y": 340
+    },
+    {
+      "id": "result",
+      "title": "Joined pair",
+      "subtitle": "emitted together",
+      "color": "green",
+      "icon": "check",
+      "x": 950,
+      "y": 200
+    }
   ],
   "edges": [
-    {"from": "streama", "to": "a-old", "dashed": true, "route": "orthogonal"},
-    {"from": "a-old", "to": "a-new", "dashed": true},
-    {"from": "streamb", "to": "b-old", "dashed": true, "route": "orthogonal"},
-    {"from": "b-old", "to": "b-new", "dashed": true},
-    {"from": "a-new", "to": "result", "route": "orthogonal", "color": "blue"},
-    {"from": "b-new", "to": "result", "route": "orthogonal", "color": "purple"}
+    {
+      "from": "streama",
+      "to": "a-old",
+      "dashed": true,
+      "route": "orthogonal"
+    },
+    {
+      "from": "a-old",
+      "to": "a-new",
+      "dashed": true
+    },
+    {
+      "from": "streamb",
+      "to": "b-old",
+      "dashed": true,
+      "route": "orthogonal"
+    },
+    {
+      "from": "b-old",
+      "to": "b-new",
+      "dashed": true
+    },
+    {
+      "from": "a-new",
+      "to": "result",
+      "route": "orthogonal",
+      "color": "blue"
+    },
+    {
+      "from": "b-new",
+      "to": "result",
+      "route": "orthogonal",
+      "color": "purple"
+    }
   ]
 }

@@ -72,9 +72,11 @@
   </g>
   <g class="node-icon-only node-gray" transform="translate(350 110)">
     <use href="#icon-message" x="0" y="0" width="44" height="44" color="#64748b"/>
+    <text class="icon-node-title" x="22" y="69">earlier event</text>
   </g>
   <g class="node-icon-only node-gray" transform="translate(350 340)">
     <use href="#icon-message" x="0" y="0" width="44" height="44" color="#64748b"/>
+    <text class="icon-node-title" x="22" y="69">earlier event</text>
   </g>
   <g class="node-icon-only node-blue" transform="translate(680 110)">
     <use href="#icon-message" x="0" y="0" width="44" height="44" color="#2563eb"/>
