@@ -170,7 +170,20 @@ external table, BigQuery cannot determine its rows or size — the data
 is not inside BigQuery, it is in an external system, Google Cloud
 Storage.
 
-![External table details: 0 bytes, source URIs in Cloud Storage, CSV format](images/01-data-warehouse-and-bigquery-04-external-table-details-crisp.png)
+The resulting external table has the following details:
+
+| Field | Value |
+| --- | --- |
+| Table ID | `taxi-rides-ny.nytaxi.external_yellow_tripdata` |
+| Table size | 0 B |
+| Long-term storage size | 0 B |
+| Number of rows | 0 |
+| Table expiration | Never |
+| Data location | `europe-west3` |
+| Source URI | `gs://nyc-tlc/data/trip_data/yellow_tripdata_2019-*.csv` |
+| Source URI | `gs://nyc-tlc/data/trip_data/yellow_tripdata_2020-*.csv` |
+| Auto-detect schema | `true` |
+| Source format | CSV |
 
 Querying it works like any other table:
 
@@ -242,7 +255,12 @@ partitioned one, and the estimate drops to about 106 MB. If you run
 this query over and over, you process 106 MB each time instead of
 1.6 GB, which directly reduces your cost.
 
-![The partitioned variant of the same query processes only 105.9 MB](images/01-data-warehouse-and-bigquery-06-partition-pruning-crisp.png)
+The partitioned query's estimate and actual processed bytes are:
+
+| Query | Bytes processed |
+| --- | ---: |
+| Estimate before running | 105.9 MiB |
+| Actual after running | 105.9 MiB |
 
 You can also inspect the partitions themselves. Every dataset has an
 `INFORMATION_SCHEMA` with a `PARTITIONS` view:
@@ -315,7 +333,12 @@ still says 1.1 GB — the approximation cannot know what clustering will
 skip. But the actual run processes less: 843.5 MB instead of 1.1 GB.
 That is the clustering effect.
 
-![The clustered table actually processes 843.5 MB, below the 1.1 GB estimate](images/01-data-warehouse-and-bigquery-08-cluster-pruning-crisp.png)
+The comparison between the partitioned and clustered queries is:
+
+| Table | Estimated bytes | Actual bytes |
+| --- | ---: | ---: |
+| Partitioned | 1.1 GB | 1.1 GB |
+| Partitioned and clustered | 1.1 GB | 843.5 MB |
 
 When to prefer partitioning, when clustering, and when both — that is
 the topic of [the next unit](02-partitioning-vs-clustering.md).

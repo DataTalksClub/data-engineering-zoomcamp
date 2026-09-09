@@ -66,6 +66,93 @@ I'm Violetta Mishechkina, Solutions Engineer at dltHub. 👋
 - [Homework Colab Notebook](https://colab.research.google.com/drive/1plqdl33K_HkVx0E0nGJrrkEUssStQsW7).
 
 --- 
+## Running dlt pipelines with an orchestrator
+
+To run a dlt pipeline on a schedule, embed it into a workflow orchestrator such as Apache Airflow or Kestra.
+
+### Apache Airflow
+
+Wrap the pipeline call in a `PythonOperator`:
+
+```python
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime, timedelta
+import dlt
+from my_dlt_pipeline import load_data  # Import your dlt pipeline function
+
+default_args = {
+    "owner": "airflow",
+    "depends_on_past": False,
+    "start_date": datetime(2024, 2, 16),
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
+}
+
+def run_dlt_pipeline():
+    pipeline = dlt.pipeline(
+        pipeline_name="my_pipeline",
+        destination="duckdb",  # Change this based on your database
+        dataset_name="my_dataset"
+    )
+    info = pipeline.run(load_data())
+    print(info)  # Logs for debugging
+
+with DAG(
+    "dlt_airflow_pipeline",
+    default_args=default_args,
+    schedule_interval="@daily",
+    catchup=False,
+) as dag:
+    run_dlt_task = PythonOperator(
+        task_id="run_dlt_pipeline",
+        python_callable=run_dlt_pipeline,
+    )
+    run_dlt_task
+```
+
+### Kestra
+
+Run the pipeline from a script task:
+
+```yaml
+id: dlt_ingestion
+
+namespace: my.dlt
+
+description: "Run dlt pipeline with Kestra"
+
+tasks:
+
+- id: run_dlt
+
+  type: io.kestra.plugin.scripts.python.Commands
+
+  commands:
+
+  - |
+
+    import dlt
+
+    from my_dlt_pipeline import load_data  # Import your dlt function
+
+    pipeline = dlt.pipeline(
+
+      pipeline_name="kestra_pipeline",
+
+      destination="duckdb",
+
+      dataset_name="kestra_dataset"
+
+    )
+
+    info = pipeline.run(load_data())
+
+    print(info)
+```
+
+Replace `"duckdb"` with your actual destination and adjust `load_data` to match your own pipeline.
+
 ## Next steps
 
 As you are learning the various concepts of data engineering, 
