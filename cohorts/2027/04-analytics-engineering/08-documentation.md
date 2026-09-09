@@ -149,4 +149,6 @@ Two commands, run them in order:
 - **Lineage graph** — a visual DAG showing sources in green, all the way through to your final mart models. You can see exactly what depends on what, and whether a change might break something downstream
 - **Project structure** — toggle between a folder view and a database view
 
+![A dbt lineage graph traces source data through staging, intermediate, and final models to a BI dashboard.](images/dbt-lineage-graph-imagegen.png)
+
 It's more of a **technical documentation** tool than a pretty data catalog. It's not going to replace something like Looker or Confluent's data catalog for non-technical stakeholders. But for the people building the models, it's genuinely useful — you can see at a glance what data assets exist, how they connect, and how they work.

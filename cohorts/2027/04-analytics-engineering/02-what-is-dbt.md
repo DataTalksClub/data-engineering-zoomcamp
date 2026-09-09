@@ -19,6 +19,8 @@ You write SQL (or Python) to define your transformations, and dbt handles the re
 
 In a real company setup, you'd have data flowing in from all over the place — backend systems, frontend apps, third-party APIs like weather data. All of that gets loaded into your warehouse (BigQuery, Snowflake, Databricks, whatever), and dbt is the layer that transforms that raw data into something the business can actually consume.
 
+![dbt compiles a model, transforms it, and persists the derived model in the data warehouse.](images/dbt-model-warehouse-flow-imagegen.png)
+
 ---
 
 ## What problems it solves

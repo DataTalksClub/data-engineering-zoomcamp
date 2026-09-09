@@ -47,6 +47,8 @@ In terms of the toolchain, an analytics engineer might touch:
 
 The focus this week is on modeling and presentation — everything in between "data is in the warehouse" and "business user sees a dashboard."
 
+![Analytics engineering connects data loading and storage to modeling and business presentation.](images/analytics-engineering-toolchain-imagegen.png)
+
 ---
 
 ## ETL vs ELT — a quick recap
