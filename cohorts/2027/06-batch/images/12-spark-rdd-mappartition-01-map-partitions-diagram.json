@@ -1,0 +1,15 @@
+{
+  "title": "mapPartitions",
+  "description": "The mapPartitions transformation: a partition goes in, a partition comes out.",
+  "canvas": {"width": 1060, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "in", "title": "Partition in", "subtitle": "1 TB of rows", "color": "blue", "icon": "document", "x": 40, "y": 90},
+    {"id": "mapp", "title": "mapPartitions", "subtitle": "one call per partition", "color": "amber", "icon": "settings", "x": 410, "y": 90},
+    {"id": "out", "title": "Partition out", "subtitle": "iterator of rows", "color": "green", "icon": "document", "x": 780, "y": 90}
+  ],
+  "edges": [
+    {"from": "in", "to": "mapp"},
+    {"from": "mapp", "to": "out"}
+  ]
+}

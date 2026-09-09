@@ -495,7 +495,7 @@ By loading incrementally, our pipelines run faster and cheaper.
 
 Here is how you can think about which method to use:
 
-![Incremental Loading](./incremental_loading-imagegen.png)
+![Incremental Loading](incremental_loading.png)
 
 * If you want to keep track of when changes occur in stateful data (slowly changing dimension) then you will need to append the data
 

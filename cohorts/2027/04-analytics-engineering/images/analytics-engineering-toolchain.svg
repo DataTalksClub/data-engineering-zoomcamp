@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="620" viewBox="0 0 780 620" role="img" aria-labelledby="title desc">
+  <title id="title">Analytics engineering toolchain</title>
+  <desc id="desc">Analytics engineering connects data loading and storage to modeling and business presentation.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+        <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-observability" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="17" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M6 13v-3M10 13V7M14 13V9M7 21h7M10.5 17v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="18" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="18" cy="15" r="1" fill="currentColor"/>
+        <path d="m21 18 2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="780" height="620" fill="#ffffff"/>
+
+  <path class="edge" d="M170 140L170 180" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M170 280L170 320" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M170 420L170 460" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M280 230L360 230" stroke="#64748b" stroke-dasharray="8 8"/>
+  <path class="edge" d="M280 370L360 370" stroke="#64748b" stroke-dasharray="8 8"/>
+  <path class="edge" d="M280 510L360 510" stroke="#64748b" stroke-dasharray="8 8"/>
+
+  <g class="node node-purple" transform="translate(60 40)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-api" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="41.68" font-size="13">Data loading</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">ingest from sources</text>
+  </g>
+  <g class="node node-purple" transform="translate(60 180)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-database" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="41.68" font-size="13">Data storage</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">central warehouse</text>
+  </g>
+  <g class="node node-purple" transform="translate(60 320)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="41.68" font-size="13">Data modeling</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">transform and test</text>
+  </g>
+  <g class="node node-purple" transform="translate(60 460)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-observability" x="16" y="9" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="30.68" font-size="13">Data presentation</text>
+    <text class="node-subtitle" x="110" y="64" font-size="16">dashboards and</text>
+    <text class="node-subtitle" x="110" y="86" font-size="16">reports</text>
+  </g>
+  <g class="node node-gray" transform="translate(360 180)" filter="url(#shadow)">
+    <rect width="340" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <text class="node-title" x="170" y="41.68" font-size="13">Cloud warehouses</text>
+    <text class="node-subtitle" x="170" y="75" font-size="16">Snowflake, BigQuery, Redshift</text>
+  </g>
+  <g class="node node-gray" transform="translate(360 320)" filter="url(#shadow)">
+    <rect width="340" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <text class="node-title" x="170" y="41.68" font-size="13">Transform tools</text>
+    <text class="node-subtitle" x="170" y="75" font-size="16">dbt and Dataform</text>
+  </g>
+  <g class="node node-gray" transform="translate(360 460)" filter="url(#shadow)">
+    <rect width="340" height="100" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <text class="node-title" x="170" y="41.68" font-size="13">BI tools</text>
+    <text class="node-subtitle" x="170" y="75" font-size="16">Looker and Tableau</text>
+  </g>
+</svg>

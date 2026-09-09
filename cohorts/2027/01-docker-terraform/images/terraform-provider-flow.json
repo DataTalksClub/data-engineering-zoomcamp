@@ -1,0 +1,64 @@
+{
+  "title": "Terraform provider flow",
+  "description": "Terraform runs on a local machine and manages resources in a cloud provider.",
+  "canvas": {
+    "width": 940,
+    "height": 280,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "local",
+      "title": "Local machine",
+      "subtitle": "where you run Terraform",
+      "color": "blue",
+      "icon": "user",
+      "x": 40,
+      "y": 90
+    },
+    {
+      "id": "tf",
+      "title": "Terraform",
+      "subtitle": "infrastructure as code",
+      "color": "amber",
+      "icon": "settings",
+      "x": 360,
+      "y": 90
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud provider",
+      "subtitle": "GCP \u00b7 AWS \u00b7 Azure",
+      "color": "green",
+      "icon": "environment",
+      "x": 680,
+      "y": 90
+    }
+  ],
+  "edges": [
+    {
+      "from": "local",
+      "to": "tf"
+    },
+    {
+      "from": "tf",
+      "to": "cloud",
+      "label": "plan & apply",
+      "from_anchor": "right_top",
+      "to_anchor": "left_top"
+    },
+    {
+      "from": "cloud",
+      "to": "tf",
+      "label": "read state",
+      "dashed": true,
+      "from_anchor": "left_bottom",
+      "to_anchor": "right_bottom"
+    }
+  ]
+}

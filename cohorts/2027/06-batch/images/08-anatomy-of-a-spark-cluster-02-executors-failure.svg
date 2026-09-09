@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="500" viewBox="0 0 1060 500" role="img" aria-labelledby="title desc">
+  <title id="title">Executor failure</title>
+  <desc id="desc">The Spark master coordinates executors and redirects work when one fails.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 22c.6-5 3.3-7 8-7s7.4 2 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1060" height="500" fill="#ffffff"/>
+
+  <g class="node-boundary node-blue" transform="translate(500 10)">
+    <rect width="490" height="460" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">Cluster</text>
+  </g>
+  <path class="edge" d="M89 238H119.5V250H150" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M350 250L520 250" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M350 250L520 250" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <g class="edge-label" transform="translate(435 250)">
+    <rect x="-63.56" y="-16" width="127.12" height="32" rx="16.0" fill="#ffffff" stroke="#64748b"/>
+    <text fill="#64748b">spark submit</text>
+  </g>
+  <path class="edge" d="M720 250H745V105H770" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M720 250H745V205H770" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M720 250H745V305H770" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M720 250H745V405H770" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node-icon-only node-blue" transform="translate(40 210)">
+    <use href="#icon-user" x="0" y="0" width="56" height="56" color="#2563eb"/>
+    <text class="icon-node-title" x="28" y="81">You</text>
+  </g>
+  <g class="node node-blue" transform="translate(150 200)" filter="url(#shadow)">
+    <rect width="200" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text class="node-title" x="100" y="44.2" font-size="20">Driver</text>
+    <text class="node-subtitle" x="100" y="75" font-size="16">your laptop</text>
+  </g>
+  <g class="node node-purple" transform="translate(520 200)" filter="url(#shadow)">
+    <rect width="200" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-workflow" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Master</text>
+    <text class="node-subtitle" x="100" y="75" font-size="16">UI on port 4040</text>
+  </g>
+  <g class="node node-red" transform="translate(770 70)" filter="url(#shadow)">
+    <rect width="200" height="70" rx="16" fill="#fef2f2" stroke="#dc2626"/>
+    <text class="node-title" x="100" y="27" font-size="20">Executor 1</text>
+    <text class="node-subtitle" x="100" y="50" font-size="16">failed</text>
+  </g>
+  <g class="node node-green" transform="translate(770 170)" filter="url(#shadow)">
+    <rect width="200" height="70" rx="16" fill="#ecfdf5" stroke="#15803d"/>
+    <text class="node-title" x="100" y="27" font-size="20">Executor 2</text>
+    <text class="node-subtitle" x="100" y="50" font-size="16">running</text>
+  </g>
+  <g class="node node-green" transform="translate(770 270)" filter="url(#shadow)">
+    <rect width="200" height="70" rx="16" fill="#ecfdf5" stroke="#15803d"/>
+    <text class="node-title" x="100" y="27" font-size="20">Executor 3</text>
+    <text class="node-subtitle" x="100" y="50" font-size="16">running</text>
+  </g>
+  <g class="node node-green" transform="translate(770 370)" filter="url(#shadow)">
+    <rect width="200" height="70" rx="16" fill="#ecfdf5" stroke="#15803d"/>
+    <text class="node-title" x="100" y="27" font-size="20">Executor 4</text>
+    <text class="node-subtitle" x="100" y="50" font-size="16">running</text>
+  </g>
+</svg>

@@ -10,7 +10,7 @@ A **Project** is the root directory where you create your entire Bruin data pipe
 
 *The project is the boundary for configuration: local secrets stay out of version control while environments select their own connections.*
 
-![A Bruin project root contains environments, connections and secrets, and pipelines with their assets.](images/bruin-project-structure-imagegen.png)
+![A Bruin project root contains environments, connections and secrets, and pipelines with their assets.](images/bruin-project-structure.png)
 
 ## Project Initialization
 

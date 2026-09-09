@@ -29,7 +29,7 @@ There are multiple ways of processing data. The two main ones are batch
 processing and streaming. This week is about batch; streaming is the
 next module.
 
-![Batch processes a complete day's data in one job, while streaming processes events continuously](images/01-introduction-to-batch-processing-01-batch-vs-streaming-imagegen.png)
+![Batch processes a complete day's data in one job, while streaming processes events continuously](images/01-introduction-to-batch-processing-01-batch-vs-streaming.png)
 
 With batch, imagine we have a database with our taxi trip data. We take
 the entire dataset for one day - say, all of January 15, from 00:00 to
@@ -43,7 +43,7 @@ with some metadata to a data stream. Something - a stream processor -
 reads events from this stream, processes them, and puts the results to
 another stream. All of this happens on the fly, in real time.
 
-![A ride-start event flowing through a stream processor into an output stream](images/01-introduction-to-batch-processing-02-streaming-example-imagegen.png)
+![A ride-start event flowing through a stream processor into an output stream](images/01-introduction-to-batch-processing-02-streaming-example.png)
 
 ## When do batch jobs run
 
@@ -113,7 +113,7 @@ they show up on a dashboard. Because batch is so convenient, the
 majority of data processing jobs - in my experience, 80% or more - are
 batch. The remaining 10-20% are streaming.
 
-![Approximate 80/20 split between batch and streaming data processing](images/01-introduction-to-batch-processing-07-batch-vs-streaming-share-imagegen.png)
+![Approximate 80/20 split between batch and streaming data processing](images/01-introduction-to-batch-processing-07-batch-vs-streaming-share.png)
 
 We already saw how to do batch transformations with SQL in the previous
 module, and we touched Python scripts in week one. So the rest of this

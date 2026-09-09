@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="560" viewBox="0 0 700 560" role="img" aria-labelledby="title desc">
+  <title id="title">Partitions and executors</title>
+  <desc id="desc">Cloud storage partitions are processed by executors in a Spark cluster.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="700" height="560" fill="#ffffff"/>
+
+  <g class="node-boundary node-blue" transform="translate(60 40)">
+    <rect width="190" height="460" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">Google Cloud Storage</text>
+  </g>
+  <g class="node-boundary node-blue" transform="translate(450 40)">
+    <rect width="190" height="460" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">Spark cluster</text>
+  </g>
+  <path class="edge-boundary-halo" d="M230 135L470 135" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M230 135L470 135" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M230 235L470 235" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M230 235L470 235" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M230 335L470 335" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M230 335L470 335" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M230 435L470 435" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M230 435L470 435" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-amber" transform="translate(80 100)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#fff7ed" stroke="#c2410c"/>
+    <text class="node-title" x="75" y="27" font-size="19">Partition 1</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">data file</text>
+  </g>
+  <g class="node node-amber" transform="translate(80 200)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#fff7ed" stroke="#c2410c"/>
+    <text class="node-title" x="75" y="27" font-size="19">Partition 2</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">data file</text>
+  </g>
+  <g class="node node-amber" transform="translate(80 300)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#fff7ed" stroke="#c2410c"/>
+    <text class="node-title" x="75" y="27" font-size="19">Partition 3</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">data file</text>
+  </g>
+  <g class="node node-amber" transform="translate(80 400)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#fff7ed" stroke="#c2410c"/>
+    <text class="node-title" x="75" y="27" font-size="19">Partition 4</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">data file</text>
+  </g>
+  <g class="node node-purple" transform="translate(470 100)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="node-title" x="75" y="27" font-size="19">Executor 1</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">runs tasks</text>
+  </g>
+  <g class="node node-purple" transform="translate(470 200)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="node-title" x="75" y="27" font-size="19">Executor 2</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">runs tasks</text>
+  </g>
+  <g class="node node-purple" transform="translate(470 300)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="node-title" x="75" y="27" font-size="19">Executor 3</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">runs tasks</text>
+  </g>
+  <g class="node node-purple" transform="translate(470 400)" filter="url(#shadow)">
+    <rect width="150" height="70" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text class="node-title" x="75" y="27" font-size="19">Executor 4</text>
+    <text class="node-subtitle" x="75" y="50" font-size="16">runs tasks</text>
+  </g>
+</svg>

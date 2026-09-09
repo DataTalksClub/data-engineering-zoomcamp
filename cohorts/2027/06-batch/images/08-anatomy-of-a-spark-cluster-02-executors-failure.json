@@ -1,0 +1,122 @@
+{
+  "title": "Executor failure",
+  "description": "The Spark master coordinates executors and redirects work when one fails.",
+  "canvas": {
+    "width": 1060,
+    "height": 500,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 200,
+    "card_height": 70
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "variant": "icon",
+      "title": "You",
+      "icon": "user",
+      "color": "blue",
+      "x": 40,
+      "y": 210
+    },
+    {
+      "id": "driver",
+      "title": "Driver",
+      "subtitle": "your laptop",
+      "color": "blue",
+      "x": 150,
+      "y": 200,
+      "width": 200,
+      "height": 100
+    },
+    {
+      "id": "cluster",
+      "variant": "boundary",
+      "title": "Cluster",
+      "contains": [
+        "master",
+        "ex1",
+        "ex2",
+        "ex3",
+        "ex4"
+      ]
+    },
+    {
+      "id": "master",
+      "title": "Master",
+      "subtitle": "UI on port 4040",
+      "color": "purple",
+      "icon": "workflow",
+      "x": 520,
+      "y": 200,
+      "width": 200,
+      "height": 100
+    },
+    {
+      "id": "ex1",
+      "title": "Executor 1",
+      "subtitle": "failed",
+      "color": "red",
+      "x": 770,
+      "y": 70
+    },
+    {
+      "id": "ex2",
+      "title": "Executor 2",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 170
+    },
+    {
+      "id": "ex3",
+      "title": "Executor 3",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 270
+    },
+    {
+      "id": "ex4",
+      "title": "Executor 4",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 370
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "driver",
+      "route": "orthogonal"
+    },
+    {
+      "from": "driver",
+      "to": "master",
+      "label": "spark submit"
+    },
+    {
+      "from": "master",
+      "to": "ex1",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex2",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex3",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex4",
+      "route": "orthogonal"
+    }
+  ]
+}

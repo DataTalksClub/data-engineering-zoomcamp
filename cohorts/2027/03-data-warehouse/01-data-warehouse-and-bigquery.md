@@ -62,7 +62,7 @@ use cases, especially for data scientists, it makes sense to look at
 the raw data directly from the warehouse. A data warehouse provides all
 these possibilities.
 
-![Data warehouse architecture: sources, staging area, warehouse, data marts, users](images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram-imagegen.png)
+![Data warehouse architecture: sources, staging area, warehouse, data marts, users](images/01-data-warehouse-and-bigquery-02-data-warehouse-diagram.png)
 
 ## BigQuery
 

@@ -1,0 +1,29 @@
+{
+  "title": "Dremel serving tree",
+  "description": "The Dremel serving tree: a root server rewrites SELECT A, COUNT(B) as SELECT A, SUM(C) and distributes it through mixers to leaf nodes, which read from Colossus.",
+  "canvas": {"width": 1040, "height": 780, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 90},
+  "nodes": [
+    {"id": "query", "variant": "plain", "title": "SELECT A, COUNT(B)", "subtitle": "FROM T GROUP BY A", "x": 40, "y": 50, "width": 230, "height": 70},
+    {"id": "root", "title": "Root server", "subtitle": "rewrites to SUM(C)", "color": "amber", "icon": "api", "x": 410, "y": 40},
+    {"id": "m1", "title": "Mixer 11", "subtitle": "intermediate server", "color": "purple", "x": 100, "y": 260},
+    {"id": "m2", "title": "Mixer 12", "subtitle": "intermediate server", "color": "purple", "x": 410, "y": 260},
+    {"id": "m3", "title": "Mixer 13", "subtitle": "intermediate server", "color": "purple", "x": 720, "y": 260},
+    {"id": "l1", "title": "Leaf node 21", "subtitle": "reads column chunks", "color": "blue", "x": 100, "y": 450},
+    {"id": "l2", "title": "Leaf node 22", "subtitle": "reads column chunks", "color": "blue", "x": 410, "y": 450},
+    {"id": "l3", "title": "Leaf node 23", "subtitle": "reads column chunks", "color": "blue", "x": 720, "y": 450},
+    {"id": "colossus", "title": "Colossus", "subtitle": "columnar storage", "color": "green", "icon": "database", "x": 100, "y": 630, "width": 840, "height": 90}
+  ],
+  "edges": [
+    {"from": "query", "to": "root"},
+    {"from": "root", "to": "m1", "route": "orthogonal"},
+    {"from": "root", "to": "m2"},
+    {"from": "root", "to": "m3", "route": "orthogonal"},
+    {"from": "m1", "to": "l1"},
+    {"from": "m2", "to": "l2"},
+    {"from": "m3", "to": "l3"},
+    {"from": "l1", "to": "colossus", "route": "orthogonal", "to_anchor": "left_top"},
+    {"from": "l2", "to": "colossus"},
+    {"from": "l3", "to": "colossus", "route": "orthogonal", "to_anchor": "right_top"}
+  ]
+}

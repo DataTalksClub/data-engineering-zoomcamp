@@ -17,7 +17,7 @@ produces another element. `mapPartitions` works one level up. The input is
 a partition - an entire chunk of the data - and the output is another
 partition:
 
-![The mapPartitions transformation: a partition goes in, a partition comes out](images/12-spark-rdd-mappartition-01-map-partitions-diagram-imagegen.png)
+![The mapPartitions transformation: a partition goes in, a partition comes out](images/12-spark-rdd-mappartition-01-map-partitions-diagram.png)
 
 This is convenient when your function needs more than one row at a time.
 Imagine a one-terabyte dataset that does not fit into the memory of any

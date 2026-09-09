@@ -1,0 +1,69 @@
+{
+  "title": "Streaming example",
+  "description": "A ride-start event flowing through a stream processor into an output stream.",
+  "canvas": {
+    "width": 1080,
+    "height": 300,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "event",
+      "title": "Ride starts",
+      "subtitle": "one event",
+      "color": "blue",
+      "icon": "message",
+      "x": 40,
+      "y": 100
+    },
+    {
+      "id": "in",
+      "variant": "icon",
+      "title": "Input stream",
+      "icon": "queue",
+      "color": "purple",
+      "x": 340,
+      "y": 110
+    },
+    {
+      "id": "proc",
+      "title": "Processor",
+      "subtitle": "transforms each event",
+      "color": "amber",
+      "icon": "settings",
+      "x": 540,
+      "y": 100
+    },
+    {
+      "id": "out",
+      "variant": "icon",
+      "title": "Output stream",
+      "icon": "queue",
+      "color": "green",
+      "x": 860,
+      "y": 110
+    }
+  ],
+  "edges": [
+    {
+      "from": "event",
+      "to": "in",
+      "route": "orthogonal"
+    },
+    {
+      "from": "in",
+      "to": "proc",
+      "route": "orthogonal"
+    },
+    {
+      "from": "proc",
+      "to": "out",
+      "route": "orthogonal"
+    }
+  ]
+}

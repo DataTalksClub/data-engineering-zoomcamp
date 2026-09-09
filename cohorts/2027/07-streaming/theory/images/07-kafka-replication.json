@@ -1,0 +1,19 @@
+{
+  "title": "Kafka replication",
+  "description": "A Kafka topic has a leader and follower replicas, with consumers reading from the leader.",
+  "canvas": {"width": 940, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "topic", "title": "Topic", "subtitle": "partition being copied", "color": "blue", "icon": "document", "x": 40, "y": 230},
+    {"id": "leader", "title": "Leader", "subtitle": "serves reads and writes", "color": "amber", "icon": "database", "x": 360, "y": 230},
+    {"id": "follower1", "title": "Follower", "subtitle": "replica copy", "color": "purple", "icon": "database", "x": 360, "y": 40},
+    {"id": "follower2", "title": "Follower", "subtitle": "replica copy", "color": "purple", "icon": "database", "x": 360, "y": 420},
+    {"id": "consumer", "title": "Consumer", "subtitle": "reads from leader", "color": "green", "icon": "robot", "x": 680, "y": 230}
+  ],
+  "edges": [
+    {"from": "topic", "to": "leader"},
+    {"from": "leader", "to": "follower1", "label": "replication"},
+    {"from": "leader", "to": "follower2", "label": "replication"},
+    {"from": "leader", "to": "consumer"}
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Spark submit to master",
+  "description": "The driver submits a Spark job to the master inside the cluster.",
+  "canvas": {
+    "width": 900,
+    "height": 460,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "variant": "icon",
+      "title": "You",
+      "icon": "user",
+      "color": "blue",
+      "x": 60,
+      "y": 190
+    },
+    {
+      "id": "driver",
+      "title": "Driver",
+      "subtitle": "your laptop",
+      "color": "blue",
+      "x": 200,
+      "y": 180
+    },
+    {
+      "id": "cluster",
+      "variant": "boundary",
+      "title": "Cluster",
+      "contains": [
+        "master"
+      ]
+    },
+    {
+      "id": "master",
+      "title": "Master",
+      "subtitle": "UI on port 4040",
+      "color": "purple",
+      "icon": "workflow",
+      "x": 580,
+      "y": 180
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "driver",
+      "route": "orthogonal"
+    },
+    {
+      "from": "driver",
+      "to": "master",
+      "label": "spark submit"
+    }
+  ]
+}

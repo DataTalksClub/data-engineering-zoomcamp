@@ -1,0 +1,17 @@
+{
+  "title": "Bruin pipeline lineage",
+  "description": "A Bruin pipeline separates raw ingestion, staging transformations, and business-facing reports while preserving lineage.",
+  "canvas": {"width": 1180, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "raw", "title": "Raw ingestion", "subtitle": "raw source tables", "color": "blue", "icon": "database", "x": 40, "y": 90},
+    {"id": "python", "title": "Python assets", "subtitle": "ingestion logic", "color": "amber", "icon": "robot", "x": 340, "y": 90},
+    {"id": "staging", "title": "Staging models", "subtitle": "SQL transformations", "color": "purple", "icon": "document", "x": 640, "y": 90},
+    {"id": "reports", "title": "Reports", "subtitle": "business dashboards", "color": "green", "icon": "observability", "x": 940, "y": 90}
+  ],
+  "edges": [
+    {"from": "raw", "to": "python"},
+    {"from": "python", "to": "staging"},
+    {"from": "staging", "to": "reports"}
+  ]
+}

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-labelledby="title desc">
+  <title id="title">Batch vs streaming share</title>
+  <desc id="desc">Approximate 80/20 split between batch and streaming data processing.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="900" height="330" fill="#ffffff"/>
+
+
+  <g class="node-specimen node-blue specimen-series" transform="translate(40 80)" filter="url(#shadow)">
+    <rect width="400" height="170" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="24" y="31" font-size="19" font-weight="750" text-anchor="start" fill="#172033">Batch · about 80%</text>
+    <path d="M24 122V51M24 122H190" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+    <path d="M24 98H190M24 74H190" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 5"/>
+    <path d="M28 108L52 101L76 104L100 84L124 89L148 63L186 70" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 115L52 112L76 99L100 103L124 78L148 82L186 57" fill="none" stroke="#2563eb" stroke-opacity=".45" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="220" y1="57" x2="236" y2="57" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="246" y="62" font-size="14" font-weight="600" text-anchor="start" fill="#475569">one job per day</text>
+    <line x1="220" y1="86" x2="236" y2="86" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <text x="246" y="91" font-size="14" font-weight="600" text-anchor="start" fill="#475569">hourly summaries</text>
+    <line x1="220" y1="115" x2="236" y2="115" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="246" y="120" font-size="14" font-weight="600" text-anchor="start" fill="#475569">nightly loads</text>
+  </g>
+  <g class="node-specimen node-purple specimen-series" transform="translate(460 80)" filter="url(#shadow)">
+    <rect width="400" height="170" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <text x="24" y="31" font-size="19" font-weight="750" text-anchor="start" fill="#172033">Streaming · about 20%</text>
+    <path d="M24 122V51M24 122H190" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+    <path d="M24 98H190M24 74H190" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 5"/>
+    <path d="M28 108L52 101L76 104L100 84L124 89L148 63L186 70" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 115L52 112L76 99L100 103L124 78L148 82L186 57" fill="none" stroke="#7c3aed" stroke-opacity=".45" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="220" y1="57" x2="236" y2="57" stroke="#7c3aed" stroke-width="2.5"/>
+    <text x="246" y="62" font-size="14" font-weight="600" text-anchor="start" fill="#475569">live dashboards</text>
+    <line x1="220" y1="86" x2="236" y2="86" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4 3"/>
+    <text x="246" y="91" font-size="14" font-weight="600" text-anchor="start" fill="#475569">fraud checks</text>
+    <line x1="220" y1="115" x2="236" y2="115" stroke="#7c3aed" stroke-width="2.5"/>
+    <text x="246" y="120" font-size="14" font-weight="600" text-anchor="start" fill="#475569">alerts</text>
+  </g>
+</svg>

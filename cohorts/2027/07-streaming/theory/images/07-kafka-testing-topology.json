@@ -1,0 +1,20 @@
+{
+  "title": "Kafka Streams test topology",
+  "description": "A Kafka Streams test topology joins two input topics and writes to an output topic.",
+  "canvas": {"width": 940, "height": 620, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 90},
+  "nodes": [
+    {"id": "kstreams", "title": "Kafka Streams", "subtitle": "topology under test", "color": "blue", "icon": "workflow", "x": 40, "y": 60},
+    {"id": "test", "variant": "boundary", "title": "Test topology", "contains": ["in1", "in2", "join", "out"]},
+    {"id": "in1", "variant": "icon", "title": "Input topic A", "icon": "queue", "color": "purple", "x": 420, "y": 120},
+    {"id": "in2", "variant": "icon", "title": "Input topic B", "icon": "queue", "color": "purple", "x": 680, "y": 120},
+    {"id": "join", "title": "Join", "subtitle": "combined records", "color": "amber", "icon": "settings", "x": 460, "y": 300},
+    {"id": "out", "variant": "icon", "title": "Output topic", "icon": "queue", "color": "green", "x": 550, "y": 460}
+  ],
+  "edges": [
+    {"from": "kstreams", "to": "join", "dashed": true, "route": "orthogonal", "label": "defines"},
+    {"from": "in1", "to": "join", "route": "orthogonal"},
+    {"from": "in2", "to": "join", "route": "orthogonal"},
+    {"from": "join", "to": "out", "route": "orthogonal"}
+  ]
+}

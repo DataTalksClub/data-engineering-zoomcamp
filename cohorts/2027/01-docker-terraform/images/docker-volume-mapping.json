@@ -1,0 +1,15 @@
+{
+  "title": "Docker volume mapping",
+  "description": "Local host files can be shared with a Docker container through a mounted volume.",
+  "canvas": {"width": 940, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "host", "title": "Local host files", "subtitle": "code and data on your machine", "color": "blue", "icon": "document", "x": 50, "y": 90},
+    {"id": "volume", "title": "Mounted volume", "subtitle": "shared folder", "color": "purple", "icon": "volume", "x": 350, "y": 90},
+    {"id": "container", "title": "Docker container", "subtitle": "sees the same files", "color": "green", "icon": "container", "x": 650, "y": 90}
+  ],
+  "edges": [
+    {"from": "host", "to": "volume", "bidirectional": true},
+    {"from": "volume", "to": "container", "bidirectional": true}
+  ]
+}

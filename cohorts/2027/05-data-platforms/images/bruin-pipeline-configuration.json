@@ -1,0 +1,19 @@
+{
+  "title": "Bruin pipeline configuration",
+  "description": "Pipeline configuration connects a schedule, connections, variables, and assets.",
+  "canvas": {"width": 940, "height": 540, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "conf", "title": "Pipeline configuration", "subtitle": "pipeline.yml", "color": "amber", "icon": "settings", "x": 350, "y": 220},
+    {"id": "schedule", "title": "Schedule", "subtitle": "when the pipeline runs", "color": "blue", "x": 350, "y": 40},
+    {"id": "connections", "title": "Connections", "subtitle": "external systems", "color": "blue", "x": 40, "y": 220},
+    {"id": "variables", "title": "Variables", "subtitle": "pipeline parameters", "color": "blue", "x": 660, "y": 220},
+    {"id": "assets", "title": "Assets", "subtitle": "SQL and Python files", "color": "blue", "x": 350, "y": 400}
+  ],
+  "edges": [
+    {"from": "conf", "to": "schedule"},
+    {"from": "conf", "to": "connections"},
+    {"from": "conf", "to": "variables"},
+    {"from": "conf", "to": "assets"}
+  ]
+}

@@ -47,13 +47,13 @@ They are called executors. When we submit a job to the Spark master, it
 coordinates between the executors: it decides which of them will work on
 our job and sends them instructions.
 
-![The driver submits a Spark job to the master inside the cluster](images/08-anatomy-of-a-spark-cluster-01-spark-submit-master-imagegen.png)
+![The driver submits a Spark job to the master inside the cluster](images/08-anatomy-of-a-spark-cluster-01-spark-submit-master.png)
 
 The master needs to be up and running all the time. If one of the executors
 goes away for whatever reason, the master knows about it and assigns the
 tasks that this executor had to some other executor.
 
-![The Spark master coordinates executors and redirects work when one fails](images/08-anatomy-of-a-spark-cluster-02-executors-failure-imagegen.png)
+![The Spark master coordinates executors and redirects work when one fails](images/08-anatomy-of-a-spark-cluster-02-executors-failure.png)
 
 ## How executors get the data
 
@@ -64,7 +64,7 @@ a partition, works through it, and marks the task as completed
 successfully. Then it gets another task. This way the executors process the
 partitions of the DataFrame one by one and save the results somewhere.
 
-![Each executor pulls one partition from the DataFrame](images/08-anatomy-of-a-spark-cluster-03-executors-pull-partitions-imagegen.png)
+![Each executor pulls one partition from the DataFrame](images/08-anatomy-of-a-spark-cluster-03-executors-pull-partitions.png)
 
 These days the DataFrames usually live in S3 or Google Cloud Storage.
 
@@ -91,7 +91,7 @@ but not significantly slower. So instead of keeping the data on the
 executors, they can just pull it from S3 or Google Cloud Storage, process
 it, and save the results back to the data lake.
 
-![Executors pull DataFrame partitions from S3 or GCS instead of HDFS](images/08-anatomy-of-a-spark-cluster-04-s3-gcs-instead-of-hdfs-imagegen.png)
+![Executors pull DataFrame partitions from S3 or GCS instead of HDFS](images/08-anatomy-of-a-spark-cluster-04-s3-gcs-instead-of-hdfs.png)
 
 This is why Hadoop and HDFS became less popular: they add overhead, and the
 preferred way now is simply keeping the files on S3. You don't need HDFS,

@@ -1,0 +1,19 @@
+{
+  "title": "dbt lineage graph",
+  "description": "A dbt lineage graph traces source data through staging, intermediate, and final models to a BI dashboard.",
+  "canvas": {"width": 1380, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "source", "title": "Source data", "subtitle": "raw tables in the warehouse", "color": "blue", "icon": "database", "x": 40, "y": 90},
+    {"id": "staging", "title": "Staging model", "subtitle": "clean and rename", "color": "purple", "icon": "document", "x": 310, "y": 90},
+    {"id": "intermediate", "title": "Intermediate model", "subtitle": "joins and business logic", "color": "purple", "icon": "document", "x": 580, "y": 90},
+    {"id": "final", "title": "Final model", "subtitle": "metrics ready to serve", "color": "purple", "icon": "document", "x": 850, "y": 90},
+    {"id": "dashboard", "title": "BI dashboard", "subtitle": "charts for the business", "color": "green", "icon": "browser", "x": 1120, "y": 90}
+  ],
+  "edges": [
+    {"from": "source", "to": "staging"},
+    {"from": "staging", "to": "intermediate"},
+    {"from": "intermediate", "to": "final"},
+    {"from": "final", "to": "dashboard"}
+  ]
+}

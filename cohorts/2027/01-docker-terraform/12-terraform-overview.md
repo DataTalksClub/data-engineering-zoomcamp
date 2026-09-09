@@ -24,7 +24,7 @@ video_url: https://www.youtube.com/watch?v=18jIzE41fJ4
 Terraform runs locally and uses a provider to plan and apply changes in a
 cloud platform:
 
-![Terraform runs on a local machine and manages resources in a cloud provider.](images/terraform-provider-flow-imagegen.png)
+![Terraform runs on a local machine and manages resources in a cloud provider.](images/terraform-provider-flow.png)
 
 ### Files
 * `main.tf`

@@ -1,0 +1,110 @@
+{
+  "title": "Typical workflow",
+  "description": "Typical workflow: SQL prepares data, Spark and Python train a model, and Spark applies it.",
+  "canvas": {
+    "width": 1440,
+    "height": 380,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "raw",
+      "title": "Raw data",
+      "subtitle": "sources and events",
+      "color": "blue",
+      "icon": "document",
+      "x": 40,
+      "y": 40
+    },
+    {
+      "id": "lake",
+      "title": "Data lake",
+      "subtitle": "S3 / GCS",
+      "color": "green",
+      "icon": "database",
+      "x": 320,
+      "y": 40
+    },
+    {
+      "id": "sql",
+      "title": "SQL \u00b7 Athena",
+      "subtitle": "prepare and aggregate",
+      "color": "purple",
+      "icon": "search",
+      "x": 600,
+      "y": 40
+    },
+    {
+      "id": "spark",
+      "title": "Spark",
+      "subtitle": "feature pipelines",
+      "color": "amber",
+      "icon": "settings",
+      "x": 880,
+      "y": 40
+    },
+    {
+      "id": "train",
+      "title": "Model training",
+      "subtitle": "Python \u00b7 scikit-learn",
+      "color": "purple",
+      "icon": "robot",
+      "x": 1160,
+      "y": 40
+    },
+    {
+      "id": "model",
+      "title": "Model",
+      "subtitle": "trained artifact",
+      "color": "purple",
+      "icon": "sparkles",
+      "x": 1160,
+      "y": 220
+    },
+    {
+      "id": "apply",
+      "title": "Apply model",
+      "subtitle": "results back to the lake",
+      "color": "amber",
+      "icon": "settings",
+      "x": 880,
+      "y": 220
+    }
+  ],
+  "edges": [
+    {
+      "from": "raw",
+      "to": "lake"
+    },
+    {
+      "from": "lake",
+      "to": "sql"
+    },
+    {
+      "from": "sql",
+      "to": "spark"
+    },
+    {
+      "from": "spark",
+      "to": "train"
+    },
+    {
+      "from": "train",
+      "to": "model"
+    },
+    {
+      "from": "model",
+      "to": "apply",
+      "route": "orthogonal"
+    },
+    {
+      "from": "spark",
+      "to": "apply"
+    }
+  ]
+}

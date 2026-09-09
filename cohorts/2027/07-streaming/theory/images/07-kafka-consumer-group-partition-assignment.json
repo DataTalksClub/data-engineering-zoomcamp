@@ -1,0 +1,17 @@
+{
+  "title": "Consumer group partition assignment",
+  "description": "A consumer group assigns parallel Kafka partition lanes across its consumers.",
+  "canvas": {"width": 1000, "height": 480, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 90},
+  "nodes": [
+    {"id": "p1", "title": "Partition 1", "subtitle": "ordered log", "color": "purple", "icon": "queue", "x": 40, "y": 90},
+    {"id": "p2", "title": "Partition 2", "subtitle": "ordered log", "color": "purple", "icon": "queue", "x": 40, "y": 300},
+    {"id": "group", "variant": "boundary", "title": "Consumer group", "contains": ["c1", "c2"]},
+    {"id": "c1", "title": "Consumer 1", "subtitle": "reads partition 1", "color": "blue", "icon": "robot", "x": 640, "y": 90},
+    {"id": "c2", "title": "Consumer 2", "subtitle": "reads partition 2", "color": "green", "icon": "robot", "x": 640, "y": 300}
+  ],
+  "edges": [
+    {"from": "p1", "to": "c1"},
+    {"from": "p2", "to": "c2"}
+  ]
+}

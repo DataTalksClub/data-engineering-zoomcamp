@@ -1,0 +1,24 @@
+{
+  "title": "Partitions and executors",
+  "description": "Cloud storage partitions are processed by executors in a Spark cluster.",
+  "canvas": {"width": 700, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 150, "card_height": 70},
+  "nodes": [
+    {"id": "gcs", "variant": "boundary", "title": "Google Cloud Storage", "contains": ["p1", "p2", "p3", "p4"]},
+    {"id": "p1", "title": "Partition 1", "subtitle": "data file", "color": "amber", "x": 80, "y": 100},
+    {"id": "p2", "title": "Partition 2", "subtitle": "data file", "color": "amber", "x": 80, "y": 200},
+    {"id": "p3", "title": "Partition 3", "subtitle": "data file", "color": "amber", "x": 80, "y": 300},
+    {"id": "p4", "title": "Partition 4", "subtitle": "data file", "color": "amber", "x": 80, "y": 400},
+    {"id": "cluster", "variant": "boundary", "title": "Spark cluster", "contains": ["e1", "e2", "e3", "e4"]},
+    {"id": "e1", "title": "Executor 1", "subtitle": "runs tasks", "color": "purple", "x": 470, "y": 100},
+    {"id": "e2", "title": "Executor 2", "subtitle": "runs tasks", "color": "purple", "x": 470, "y": 200},
+    {"id": "e3", "title": "Executor 3", "subtitle": "runs tasks", "color": "purple", "x": 470, "y": 300},
+    {"id": "e4", "title": "Executor 4", "subtitle": "runs tasks", "color": "purple", "x": 470, "y": 400}
+  ],
+  "edges": [
+    {"from": "p1", "to": "e1"},
+    {"from": "p2", "to": "e2"},
+    {"from": "p3", "to": "e3"},
+    {"from": "p4", "to": "e4"}
+  ]
+}

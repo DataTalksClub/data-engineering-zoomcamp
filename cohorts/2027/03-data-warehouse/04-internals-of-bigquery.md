@@ -10,7 +10,7 @@ and partitioning and clustering are enough for day-to-day work. But
 understanding how a data warehouse like this is built will help you when
 you design data products of your own.
 
-![BigQuery architecture: clients talk to a client interface, below it the Dremel query execution tree running on Borg, connected over the Jupiter network to Colossus storage](images/04-internals-of-bigquery-01-architecture-imagegen.png)
+![BigQuery architecture: clients talk to a client interface, below it the Dremel query execution tree running on Borg, connected over the Jupiter network to Colossus storage](images/04-internals-of-bigquery-01-architecture.png)
 
 The diagram above is the high-level architecture. Three names to remember:
 
@@ -49,7 +49,7 @@ is laid out. The video calls this part Polymer — the component on the
 storage side — and compares record-oriented storage with column-oriented
 storage.
 
-![Record-oriented storage keeps rows r1 and r2 together, like CSV; column-oriented storage keeps each column in its own place](images/04-internals-of-bigquery-02-columnar-storage-imagegen.png)
+![Record-oriented storage keeps rows r1 and r2 together, like CSV; column-oriented storage keeps each column in its own place](images/04-internals-of-bigquery-02-columnar-storage.png)
 
 On the left is record-oriented storage: each record (row `r1`, `r2`) is
 stored as one piece. This is very similar to structures like CSV, and it's
@@ -71,7 +71,7 @@ Dremel is the query execution engine. It takes your query and divides it
 into a tree structure, in such a way that each node executes an individual
 subset of the query.
 
-![The Dremel serving tree: a root server rewrites SELECT A, COUNT(B) as SELECT A, SUM(C) and distributes it through mixers to leaf nodes, which read from Colossus](images/04-internals-of-bigquery-03-dremel-tree-imagegen.png)
+![The Dremel serving tree: a root server rewrites SELECT A, COUNT(B) as SELECT A, SUM(C) and distributes it through mixers to leaf nodes, which read from Colossus](images/04-internals-of-bigquery-03-dremel-tree.png)
 
 Let's walk through the example in the diagram. Assume a query like
 `SELECT A, COUNT(B) FROM T GROUP BY A` — count the rows per group of

@@ -1,0 +1,90 @@
+{
+  "title": "BigQuery architecture",
+  "description": "BigQuery architecture: clients talk to a client interface, below it the Dremel query execution tree running on Borg, connected over the Jupiter network to Colossus storage.",
+  "canvas": {
+    "width": 720,
+    "height": 800,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 240,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "clients",
+      "title": "Clients",
+      "subtitle": "REST API \u00b7 Web UI \u00b7 bq CLI",
+      "color": "blue",
+      "icon": "browser",
+      "x": 240,
+      "y": 30
+    },
+    {
+      "id": "interface",
+      "title": "Client interface",
+      "subtitle": "public query endpoint",
+      "color": "purple",
+      "icon": "api",
+      "x": 240,
+      "y": 170
+    },
+    {
+      "id": "borg",
+      "variant": "boundary",
+      "title": "Borg",
+      "contains": [
+        "dremel"
+      ]
+    },
+    {
+      "id": "dremel",
+      "title": "Dremel",
+      "subtitle": "query execution tree",
+      "color": "amber",
+      "icon": "workflow",
+      "x": 240,
+      "y": 340
+    },
+    {
+      "id": "jupiter",
+      "title": "Jupiter",
+      "subtitle": "datacenter network",
+      "color": "purple",
+      "icon": "websocket",
+      "x": 240,
+      "y": 480
+    },
+    {
+      "id": "colossus",
+      "title": "Colossus",
+      "subtitle": "distributed storage",
+      "color": "green",
+      "icon": "database",
+      "x": 240,
+      "y": 620
+    }
+  ],
+  "edges": [
+    {
+      "from": "clients",
+      "to": "interface",
+      "bidirectional": true
+    },
+    {
+      "from": "interface",
+      "to": "dremel"
+    },
+    {
+      "from": "dremel",
+      "to": "jupiter",
+      "bidirectional": true
+    },
+    {
+      "from": "jupiter",
+      "to": "colossus",
+      "bidirectional": true
+    }
+  ]
+}

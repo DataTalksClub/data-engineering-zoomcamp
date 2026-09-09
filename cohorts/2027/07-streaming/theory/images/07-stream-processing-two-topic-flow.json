@@ -1,0 +1,20 @@
+{
+  "title": "Stream processing two-topic flow",
+  "description": "Two source streams pass through separate Kafka and Spark topics before reaching realtime consumers.",
+  "canvas": {"width": 1040, "height": 520, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "prod1", "title": "Producer", "subtitle": "rides service", "color": "blue", "icon": "api", "x": 40, "y": 80},
+    {"id": "topic1", "variant": "icon", "title": "Kafka topic", "icon": "queue", "color": "purple", "x": 400, "y": 100},
+    {"id": "cons1", "title": "Consumers", "subtitle": "realtime readers", "color": "green", "icon": "robot", "x": 780, "y": 80},
+    {"id": "prod2", "title": "Producer", "subtitle": "spark service", "color": "blue", "icon": "api", "x": 40, "y": 340},
+    {"id": "topic2", "variant": "icon", "title": "Spark topic", "icon": "queue", "color": "purple", "x": 400, "y": 360},
+    {"id": "cons2", "title": "Consumers", "subtitle": "realtime readers", "color": "green", "icon": "robot", "x": 780, "y": 340}
+  ],
+  "edges": [
+    {"from": "prod1", "to": "topic1", "route": "orthogonal"},
+    {"from": "topic1", "to": "cons1", "route": "orthogonal", "label": "realtime"},
+    {"from": "prod2", "to": "topic2", "route": "orthogonal"},
+    {"from": "topic2", "to": "cons2", "route": "orthogonal", "label": "realtime"}
+  ]
+}

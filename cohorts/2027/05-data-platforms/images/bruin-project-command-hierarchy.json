@@ -1,0 +1,17 @@
+{
+  "title": "Bruin command hierarchy",
+  "description": "Bruin commands operate on a hierarchy from project to pipeline to assets and variables.",
+  "canvas": {"width": 740, "height": 540, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "project", "title": "Project", "subtitle": "repository root", "color": "blue", "icon": "github", "x": 250, "y": 30},
+    {"id": "pipeline", "title": "Pipeline", "subtitle": "pipeline folder", "color": "purple", "icon": "workflow", "x": 250, "y": 200},
+    {"id": "assets", "title": "Assets", "subtitle": "SQL · Python files", "color": "green", "icon": "document", "x": 60, "y": 380},
+    {"id": "variables", "title": "Variables", "subtitle": "pipeline parameters", "color": "amber", "icon": "settings", "x": 440, "y": 380}
+  ],
+  "edges": [
+    {"from": "project", "to": "pipeline"},
+    {"from": "pipeline", "to": "assets", "route": "orthogonal"},
+    {"from": "pipeline", "to": "variables", "route": "orthogonal"}
+  ]
+}

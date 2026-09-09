@@ -1,0 +1,13 @@
+{
+  "title": "Bruin project pipelines",
+  "description": "A Bruin project contains multiple pipelines, each organized around its own schedule.",
+  "canvas": {"width": 900, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "root", "variant": "boundary", "title": "Project", "contains": ["pa", "pb", "pc"]},
+    {"id": "pa", "title": "Pipeline A", "subtitle": "own schedule", "color": "purple", "icon": "workflow", "x": 60, "y": 100},
+    {"id": "pb", "title": "Pipeline B", "subtitle": "own schedule", "color": "purple", "icon": "workflow", "x": 340, "y": 100},
+    {"id": "pc", "title": "Pipeline C", "subtitle": "own schedule", "color": "purple", "icon": "workflow", "x": 620, "y": 100}
+  ],
+  "edges": []
+}

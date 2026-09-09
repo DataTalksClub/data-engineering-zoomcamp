@@ -1,0 +1,185 @@
+{
+  "title": "Record-oriented vs column-oriented storage",
+  "description": "Record-oriented storage keeps rows r1 and r2 together, like CSV; column-oriented storage keeps each column in its own place.",
+  "canvas": {
+    "width": 840,
+    "height": 360,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 80,
+    "card_height": 48
+  },
+  "nodes": [
+    {
+      "id": "r1",
+      "variant": "plain",
+      "title": "r1",
+      "x": 10,
+      "y": 150,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "r2",
+      "variant": "plain",
+      "title": "r2",
+      "x": 10,
+      "y": 210,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "rec-boundary",
+      "variant": "boundary",
+      "title": "Record-oriented",
+      "x": 70,
+      "y": 100,
+      "width": 310,
+      "height": 190
+    },
+    {
+      "id": "a1",
+      "title": "a1",
+      "color": "blue",
+      "x": 94,
+      "y": 146
+    },
+    {
+      "id": "b1",
+      "title": "b1",
+      "color": "green",
+      "x": 186,
+      "y": 146
+    },
+    {
+      "id": "c1",
+      "title": "c1",
+      "color": "amber",
+      "x": 278,
+      "y": 146
+    },
+    {
+      "id": "a2",
+      "title": "a2",
+      "color": "blue",
+      "x": 94,
+      "y": 206
+    },
+    {
+      "id": "b2",
+      "title": "b2",
+      "color": "green",
+      "x": 186,
+      "y": 206
+    },
+    {
+      "id": "c2",
+      "title": "c2",
+      "color": "amber",
+      "x": 278,
+      "y": 206
+    },
+    {
+      "id": "col-boundary",
+      "variant": "boundary",
+      "title": "Column-oriented",
+      "x": 470,
+      "y": 100,
+      "width": 310,
+      "height": 190
+    },
+    {
+      "id": "ha",
+      "variant": "plain",
+      "title": "A",
+      "color": "blue",
+      "x": 494,
+      "y": 142,
+      "width": 80,
+      "height": 28
+    },
+    {
+      "id": "hb",
+      "variant": "plain",
+      "title": "B",
+      "color": "green",
+      "x": 586,
+      "y": 142,
+      "width": 80,
+      "height": 28
+    },
+    {
+      "id": "hc",
+      "variant": "plain",
+      "title": "C",
+      "color": "amber",
+      "x": 678,
+      "y": 142,
+      "width": 80,
+      "height": 28
+    },
+    {
+      "id": "ca1",
+      "title": "a1",
+      "color": "blue",
+      "x": 494,
+      "y": 178
+    },
+    {
+      "id": "ca2",
+      "title": "a2",
+      "color": "blue",
+      "x": 494,
+      "y": 238
+    },
+    {
+      "id": "cb1",
+      "title": "b1",
+      "color": "green",
+      "x": 586,
+      "y": 178
+    },
+    {
+      "id": "cb2",
+      "title": "b2",
+      "color": "green",
+      "x": 586,
+      "y": 238
+    },
+    {
+      "id": "cc1",
+      "title": "c1",
+      "color": "amber",
+      "x": 678,
+      "y": 178
+    },
+    {
+      "id": "cc2",
+      "title": "c2",
+      "color": "amber",
+      "x": 678,
+      "y": 238
+    },
+    {
+      "id": "cap-l",
+      "variant": "plain",
+      "title": "rows kept together",
+      "x": 70,
+      "y": 302,
+      "width": 310,
+      "height": 30
+    },
+    {
+      "id": "cap-r",
+      "variant": "plain",
+      "title": "columns stored apart",
+      "x": 470,
+      "y": 302,
+      "width": 310,
+      "height": 30
+    }
+  ],
+  "edges": []
+}

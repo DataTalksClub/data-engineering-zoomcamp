@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="300" viewBox="0 0 1080 300" role="img" aria-labelledby="title desc">
+  <title id="title">Streaming example</title>
+  <desc id="desc">A ride-start event flowing through a stream processor into an output stream.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M4 4h16v12H9l-5 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-queue" viewBox="0 0 56 28">
+        <path d="M5 8h46M5 20h46" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M5 8C.3 8 .3 20 5 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <ellipse cx="51" cy="14" rx="3.5" ry="6" fill="currentColor" fill-opacity=".1" stroke="currentColor" stroke-width="1.8"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1080" height="300" fill="#ffffff"/>
+
+  <path class="edge" d="M260 150H301.51V138H343.02" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M448.98 138H494.49V150H540" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M760 150H811.51V138H863.02" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(40 100)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-message" x="16" y="20" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Ride starts</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">one event</text>
+  </g>
+  <g class="node-icon-only node-purple" transform="translate(340 110)">
+    <use href="#icon-queue" x="0" y="0" width="112" height="56" color="#7c3aed"/>
+    <text class="icon-node-title" x="56" y="81">Input stream</text>
+  </g>
+  <g class="node node-amber" transform="translate(540 100)" filter="url(#shadow)">
+    <rect width="220" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Processor</text>
+    <text class="node-subtitle" x="110" y="75" font-size="16">transforms each event</text>
+  </g>
+  <g class="node-icon-only node-green" transform="translate(860 110)">
+    <use href="#icon-queue" x="0" y="0" width="112" height="56" color="#15803d"/>
+    <text class="icon-node-title" x="56" y="81">Output stream</text>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "title": "Tumbling windows",
+  "description": "Tumbling windows divide stream time into equal adjacent non-overlapping intervals.",
+  "canvas": {"width": 1240, "height": 480, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 270, "card_height": 90},
+  "nodes": [
+    {"id": "records", "variant": "plain", "title": "records arrive over stream time", "x": 100, "y": 60, "width": 1040, "height": 40},
+    {"id": "w1", "title": "Window 1", "subtitle": "15:00 – 15:15", "color": "blue", "x": 100, "y": 180},
+    {"id": "w2", "title": "Window 2", "subtitle": "15:15 – 15:30", "color": "blue", "x": 370, "y": 180},
+    {"id": "w3", "title": "Window 3", "subtitle": "15:30 – 15:45", "color": "blue", "x": 640, "y": 180},
+    {"id": "w4", "title": "Window 4", "subtitle": "15:45 – 16:00", "color": "blue", "x": 910, "y": 180},
+    {"id": "cap", "variant": "plain", "title": "equal length · adjacent · no overlap", "x": 100, "y": 330, "width": 1040, "height": 40}
+  ],
+  "edges": [],
+  "dividers": [
+    {"after_node": "records"},
+    {"after_node": "w4"}
+  ]
+}

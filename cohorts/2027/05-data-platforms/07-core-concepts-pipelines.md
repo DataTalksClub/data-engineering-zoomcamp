@@ -10,9 +10,9 @@ A **Pipeline** is a grouping mechanism for organizing assets based on their exec
 
 *A pipeline is the operational grouping: shared schedule and connection scope around a dependency graph of assets.*
 
-![A Bruin project contains multiple pipelines, each organized around its own schedule.](images/bruin-project-pipelines-imagegen.png)
+![A Bruin project contains multiple pipelines, each organized around its own schedule.](images/bruin-project-pipelines.png)
 
-![Pipeline configuration connects a schedule, connections, variables, and assets.](images/bruin-pipeline-configuration-imagegen.png)
+![Pipeline configuration connects a schedule, connections, variables, and assets.](images/bruin-pipeline-configuration.png)
 
 ## Key Characteristics
 

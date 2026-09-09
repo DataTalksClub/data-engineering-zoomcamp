@@ -1,0 +1,94 @@
+{
+  "title": "Spark data processing engine",
+  "description": "Spark as a data-processing engine moving data through a distributed cluster.",
+  "canvas": {
+    "width": 1120,
+    "height": 420,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 220,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "src",
+      "title": "Source data",
+      "subtitle": "distributed storage",
+      "color": "blue",
+      "icon": "database",
+      "x": 40,
+      "y": 100
+    },
+    {
+      "id": "cluster",
+      "variant": "boundary",
+      "title": "Spark cluster",
+      "contains": [
+        "spark",
+        "ex1",
+        "ex2",
+        "ex3"
+      ]
+    },
+    {
+      "id": "spark",
+      "title": "Spark",
+      "subtitle": "Java \u00b7 Scala \u00b7 PySpark",
+      "color": "amber",
+      "icon": "settings",
+      "x": 400,
+      "y": 100
+    },
+    {
+      "id": "ex1",
+      "variant": "icon",
+      "title": "Executor 1",
+      "icon": "container",
+      "color": "purple",
+      "x": 420,
+      "y": 260,
+      "icon_size": 48
+    },
+    {
+      "id": "ex2",
+      "variant": "icon",
+      "title": "Executor 2",
+      "icon": "container",
+      "color": "purple",
+      "x": 540,
+      "y": 260,
+      "icon_size": 48
+    },
+    {
+      "id": "ex3",
+      "variant": "icon",
+      "title": "Executor 3",
+      "icon": "container",
+      "color": "purple",
+      "x": 660,
+      "y": 260,
+      "icon_size": 48
+    },
+    {
+      "id": "dst",
+      "title": "Output data",
+      "subtitle": "results written back",
+      "color": "green",
+      "icon": "database",
+      "x": 860,
+      "y": 100
+    }
+  ],
+  "edges": [
+    {
+      "from": "src",
+      "to": "spark"
+    },
+    {
+      "from": "spark",
+      "to": "dst"
+    }
+  ]
+}

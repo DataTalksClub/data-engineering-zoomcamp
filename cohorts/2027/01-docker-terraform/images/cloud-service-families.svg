@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="660" viewBox="0 0 600 660" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud service families</title>
+  <desc id="desc">Cloud services grouped into compute, management, networking, storage and databases, big data, identity and security, and machine learning families.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-container" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M7 5v14M12 5v14M17 5v14" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 2.5 20 6v5.5c0 5-3.1 8.6-8 10-4.9-1.4-8-5-8-10V6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m8.5 12 2.2 2.2 4.8-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="m12 2 1.4 4.6L18 8l-4.6 1.4L12 14l-1.4-4.6L6 8l4.6-1.4ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8ZM5 14l.8 2.2L8 17l-2.2.8L5 20l-.8-2.2L2 17l2.2-.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-websocket" viewBox="0 0 24 24">
+        <path d="M4 7a8 8 0 0 1 12.8-2.1M20 17a8 8 0 0 1-12.8 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="m14 3 3 2-2 3M10 21l-3-2 2-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.5 9 6 12l2.5 3M15.5 9l2.5 3-2.5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="600" height="660" fill="#ffffff"/>
+
+
+  <g class="node node-purple" transform="translate(70 52)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-container" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Compute</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">Compute Engine, GKE, App Engine</text>
+  </g>
+  <g class="node node-purple" transform="translate(70 134)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-settings" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Management</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">Monitoring and admin tools</text>
+  </g>
+  <g class="node node-purple" transform="translate(70 216)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-websocket" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Networking</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">VPC, load balancers, DNS</text>
+  </g>
+  <g class="node node-purple" transform="translate(70 298)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-database" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Storage &amp; Databases</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">GCS, BigQuery, Cloud SQL</text>
+  </g>
+  <g class="node node-purple" transform="translate(70 380)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-workflow" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Big Data</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">Dataflow, Pub/Sub, Dataproc</text>
+  </g>
+  <g class="node node-purple" transform="translate(70 462)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-shield" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Identity &amp; Security</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">IAM and access management</text>
+  </g>
+  <g class="node node-purple" transform="translate(70 544)" filter="url(#shadow)">
+    <rect width="460" height="64" rx="16" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-sparkles" x="16" y="19" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="27" font-size="20">Machine Learning</text>
+    <text class="node-subtitle" x="230" y="50" font-size="16">Vertex AI and pre-trained APIs</text>
+  </g>
+</svg>

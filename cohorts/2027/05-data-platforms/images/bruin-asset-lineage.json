@@ -1,0 +1,19 @@
+{
+  "title": "Bruin asset lineage",
+  "description": "Three upstream assets converge through a transform into one downstream asset.",
+  "canvas": {"width": 980, "height": 500, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 90},
+  "nodes": [
+    {"id": "ua", "title": "Upstream asset A", "subtitle": "raw input", "color": "blue", "icon": "database", "x": 40, "y": 30},
+    {"id": "ub", "title": "Upstream asset B", "subtitle": "raw input", "color": "blue", "icon": "database", "x": 40, "y": 170},
+    {"id": "uc", "title": "Upstream asset C", "subtitle": "raw input", "color": "blue", "icon": "database", "x": 40, "y": 310},
+    {"id": "transform", "title": "Transform", "subtitle": "asset dependencies", "color": "purple", "icon": "settings", "x": 380, "y": 170},
+    {"id": "down", "title": "Downstream asset", "subtitle": "derived output", "color": "green", "icon": "check", "x": 720, "y": 170}
+  ],
+  "edges": [
+    {"from": "ua", "to": "transform", "route": "orthogonal"},
+    {"from": "ub", "to": "transform"},
+    {"from": "uc", "to": "transform", "route": "orthogonal"},
+    {"from": "transform", "to": "down"}
+  ]
+}

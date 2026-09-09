@@ -1,0 +1,18 @@
+{
+  "title": "When to use Spark",
+  "description": "Decision aid: use Hive, Presto, or Athena when the batch job can be expressed as SQL.",
+  "canvas": {"width": 1000, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "batch", "title": "Batch job", "subtitle": "a transformation to run", "color": "blue", "icon": "document", "x": 40, "y": 230},
+    {"id": "spark", "title": "Spark", "subtitle": "general compute", "color": "amber", "icon": "settings", "x": 400, "y": 40},
+    {"id": "sql", "title": "Hive · Presto · Athena", "subtitle": "if you can say it in SQL", "color": "purple", "icon": "search", "x": 400, "y": 420},
+    {"id": "lake", "title": "Data lake", "subtitle": "results written back", "color": "green", "icon": "database", "x": 760, "y": 230}
+  ],
+  "edges": [
+    {"from": "batch", "to": "spark", "route": "orthogonal"},
+    {"from": "batch", "to": "sql", "route": "orthogonal", "label": "SQL"},
+    {"from": "spark", "to": "lake", "route": "orthogonal"},
+    {"from": "sql", "to": "lake", "route": "orthogonal"}
+  ]
+}

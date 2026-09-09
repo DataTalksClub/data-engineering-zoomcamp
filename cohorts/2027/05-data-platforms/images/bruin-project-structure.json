@@ -1,0 +1,13 @@
+{
+  "title": "Bruin project structure",
+  "description": "A Bruin project root contains environments, connections and secrets, and pipelines with their assets.",
+  "canvas": {"width": 900, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "root", "variant": "boundary", "title": "Bruin project root", "contains": ["env", "conn", "pipes"]},
+    {"id": "env", "title": "Environments", "subtitle": "dev · staging · prod", "color": "blue", "icon": "environment", "x": 60, "y": 100},
+    {"id": "conn", "title": "Connections & secrets", "subtitle": "credentials and settings", "color": "purple", "icon": "shield", "x": 340, "y": 100},
+    {"id": "pipes", "title": "Pipelines", "subtitle": "assets with schedules", "color": "amber", "icon": "workflow", "x": 620, "y": 100}
+  ],
+  "edges": []
+}

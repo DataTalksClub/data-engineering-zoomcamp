@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="380" viewBox="0 0 1060 380" role="img" aria-labelledby="title desc">
+  <title id="title">Kafka retention window</title>
+  <desc id="desc">Kafka retention keeps recent records inside a retention window and expires older records.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="m8 8 8 8M16 8l-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M4 4h16v12H9l-5 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1060" height="380" fill="#ffffff"/>
+
+  <g class="node-boundary node-blue" transform="translate(80 70)">
+    <rect width="710" height="170" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">Retention window</text>
+  </g>
+  <path class="edge" d="M270 170L350 170" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M520 170L600 170" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M770 170L850 170" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M770 170L850 170" stroke="#64748b" stroke-dasharray="8 8" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(100 130)" filter="url(#shadow)">
+    <rect width="170" height="80" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-message" x="16" y="10" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="31.32" font-size="12">Day 0</text>
+    <text class="node-subtitle" x="85" y="65" font-size="16">recent events</text>
+  </g>
+  <g class="node node-blue" transform="translate(350 130)" filter="url(#shadow)">
+    <rect width="170" height="80" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-message" x="16" y="10" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="31.32" font-size="12">Day 3</text>
+    <text class="node-subtitle" x="85" y="65" font-size="16">recent events</text>
+  </g>
+  <g class="node node-blue" transform="translate(600 130)" filter="url(#shadow)">
+    <rect width="170" height="80" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-message" x="16" y="10" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="31.32" font-size="12">Day 6</text>
+    <text class="node-subtitle" x="85" y="65" font-size="16">recent events</text>
+  </g>
+  <g class="node node-gray" transform="translate(850 130)" filter="url(#shadow)">
+    <rect width="170" height="80" rx="18" fill="#f8fafc" stroke="#64748b"/>
+    <use href="#icon-close" x="16" y="10" width="34" height="34" color="#64748b"/>
+    <text class="node-title icon-copy" x="62" y="31.32" font-size="12">Older events</text>
+    <text class="node-subtitle" x="85" y="65" font-size="16">expired, deleted</text>
+  </g>
+</svg>

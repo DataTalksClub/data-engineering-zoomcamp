@@ -1,0 +1,18 @@
+{
+  "title": "Kafka retention window",
+  "description": "Kafka retention keeps recent records inside a retention window and expires older records.",
+  "canvas": {"width": 1060, "height": 380, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 170, "card_height": 80},
+  "nodes": [
+    {"id": "window", "variant": "boundary", "title": "Retention window", "contains": ["n0", "n1", "n2"]},
+    {"id": "n0", "title": "Day 0", "subtitle": "recent events", "color": "blue", "icon": "message", "x": 100, "y": 130},
+    {"id": "n1", "title": "Day 3", "subtitle": "recent events", "color": "blue", "icon": "message", "x": 350, "y": 130},
+    {"id": "n2", "title": "Day 6", "subtitle": "recent events", "color": "blue", "icon": "message", "x": 600, "y": 130},
+    {"id": "old", "title": "Older events", "subtitle": "expired, deleted", "color": "gray", "icon": "close", "x": 850, "y": 130}
+  ],
+  "edges": [
+    {"from": "n0", "to": "n1"},
+    {"from": "n1", "to": "n2"},
+    {"from": "n2", "to": "old", "dashed": true}
+  ]
+}

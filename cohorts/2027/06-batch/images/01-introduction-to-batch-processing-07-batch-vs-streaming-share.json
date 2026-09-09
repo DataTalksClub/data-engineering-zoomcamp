@@ -1,0 +1,49 @@
+{
+  "title": "Batch vs streaming share",
+  "description": "Approximate 80/20 split between batch and streaming data processing.",
+  "canvas": {
+    "width": 900,
+    "height": 330,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 400,
+    "card_height": 170
+  },
+  "nodes": [
+    {
+      "id": "batch",
+      "title": "Batch \u00b7 about 80%",
+      "color": "blue",
+      "x": 40,
+      "y": 80,
+      "specimen": {
+        "mode": "series",
+        "items": [
+          "one job per day",
+          "hourly summaries",
+          "nightly loads"
+        ]
+      },
+      "variant": "specimen"
+    },
+    {
+      "id": "stream",
+      "title": "Streaming \u00b7 about 20%",
+      "color": "purple",
+      "x": 460,
+      "y": 80,
+      "specimen": {
+        "mode": "series",
+        "items": [
+          "live dashboards",
+          "fraud checks",
+          "alerts"
+        ]
+      },
+      "variant": "specimen"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Incremental loading decision tree",
+  "description": "Write disposition depends on whether data is stateful and whether it can be requested incrementally.",
+  "canvas": {"width": 980, "height": 620, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 260, "card_height": 100},
+  "nodes": [
+    {"id": "stateful", "title": "Is it stateful data?", "subtitle": "does it change over time?", "color": "purple", "x": 60, "y": 40},
+    {"id": "append", "title": "Append", "subtitle": "write disposition", "color": "green", "icon": "check", "x": 60, "y": 240},
+    {"id": "incremental", "title": "Can you request it incrementally?", "subtitle": "e.g. by timestamp", "color": "purple", "x": 460, "y": 240},
+    {"id": "replace", "title": "Replace", "subtitle": "write disposition", "color": "green", "icon": "check", "x": 380, "y": 460},
+    {"id": "merge", "title": "Merge (upsert)", "subtitle": "write disposition", "color": "green", "icon": "check", "x": 680, "y": 460}
+  ],
+  "edges": [
+    {"from": "stateful", "to": "append", "route": "orthogonal", "label": "no"},
+    {"from": "stateful", "to": "incremental", "route": "orthogonal", "label": "yes"},
+    {"from": "incremental", "to": "replace", "route": "orthogonal", "label": "no"},
+    {"from": "incremental", "to": "merge", "route": "orthogonal", "label": "yes"}
+  ]
+}

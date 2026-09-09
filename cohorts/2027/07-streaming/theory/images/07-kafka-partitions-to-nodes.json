@@ -1,0 +1,20 @@
+{
+  "title": "Kafka partitions to nodes",
+  "description": "The Rides topic is divided into partitions distributed across separate Kafka nodes.",
+  "canvas": {"width": 940, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 200, "card_height": 80},
+  "nodes": [
+    {"id": "topic", "variant": "boundary", "title": "Rides topic", "contains": ["p1", "p2", "p3"]},
+    {"id": "p1", "title": "Partition 1", "subtitle": "ordered log", "color": "blue", "x": 100, "y": 90},
+    {"id": "p2", "title": "Partition 2", "subtitle": "ordered log", "color": "green", "x": 100, "y": 240},
+    {"id": "p3", "title": "Partition 3", "subtitle": "ordered log", "color": "amber", "x": 100, "y": 390},
+    {"id": "n1", "title": "Kafka node 1", "subtitle": "stores partition", "color": "blue", "icon": "container", "x": 620, "y": 90},
+    {"id": "n2", "title": "Kafka node 2", "subtitle": "stores partition", "color": "green", "icon": "container", "x": 620, "y": 240},
+    {"id": "n3", "title": "Kafka node 3", "subtitle": "stores partition", "color": "amber", "icon": "container", "x": 620, "y": 390}
+  ],
+  "edges": [
+    {"from": "p1", "to": "n1", "color": "blue"},
+    {"from": "p2", "to": "n2", "color": "green"},
+    {"from": "p3", "to": "n3", "color": "amber"}
+  ]
+}

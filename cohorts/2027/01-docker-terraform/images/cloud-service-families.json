@@ -1,0 +1,81 @@
+{
+  "title": "Cloud service families",
+  "description": "Cloud services grouped into compute, management, networking, storage and databases, big data, identity and security, and machine learning families.",
+  "canvas": {
+    "width": 600,
+    "height": 660,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "grid",
+    "card_width": 460,
+    "card_height": 64,
+    "row_gap": 18
+  },
+  "nodes": [
+    {
+      "id": "compute",
+      "title": "Compute",
+      "subtitle": "Compute Engine, GKE, App Engine",
+      "icon": "container",
+      "row": 0,
+      "column": 0,
+      "color": "purple"
+    },
+    {
+      "id": "management",
+      "title": "Management",
+      "subtitle": "Monitoring and admin tools",
+      "icon": "settings",
+      "color": "purple",
+      "row": 1,
+      "column": 0
+    },
+    {
+      "id": "networking",
+      "title": "Networking",
+      "subtitle": "VPC, load balancers, DNS",
+      "icon": "websocket",
+      "color": "purple",
+      "row": 2,
+      "column": 0
+    },
+    {
+      "id": "storage",
+      "title": "Storage & Databases",
+      "subtitle": "GCS, BigQuery, Cloud SQL",
+      "icon": "database",
+      "color": "purple",
+      "row": 3,
+      "column": 0
+    },
+    {
+      "id": "bigdata",
+      "title": "Big Data",
+      "subtitle": "Dataflow, Pub/Sub, Dataproc",
+      "icon": "workflow",
+      "color": "purple",
+      "row": 4,
+      "column": 0
+    },
+    {
+      "id": "identity",
+      "title": "Identity & Security",
+      "subtitle": "IAM and access management",
+      "icon": "shield",
+      "color": "purple",
+      "row": 5,
+      "column": 0
+    },
+    {
+      "id": "ml",
+      "title": "Machine Learning",
+      "subtitle": "Vertex AI and pre-trained APIs",
+      "icon": "sparkles",
+      "color": "purple",
+      "row": 6,
+      "column": 0
+    }
+  ],
+  "edges": []
+}

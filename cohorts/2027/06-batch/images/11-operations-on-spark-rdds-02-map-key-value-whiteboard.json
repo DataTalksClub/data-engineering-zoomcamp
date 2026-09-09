@@ -1,0 +1,15 @@
+{
+  "title": "map to key-value pairs",
+  "description": "map turns each Row into a key/value pair for grouping.",
+  "canvas": {"width": 1060, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "rows", "title": "RDD of rows", "subtitle": "taxi ride records", "color": "blue", "icon": "document", "x": 40, "y": 90},
+    {"id": "map", "title": "map", "subtitle": "row → (key, value)", "color": "amber", "icon": "settings", "x": 410, "y": 90},
+    {"id": "pairs", "title": "RDD of pairs", "subtitle": "key (H, Z) · val (AMT, CNT)", "color": "purple", "icon": "document", "x": 780, "y": 90}
+  ],
+  "edges": [
+    {"from": "rows", "to": "map"},
+    {"from": "map", "to": "pairs"}
+  ]
+}

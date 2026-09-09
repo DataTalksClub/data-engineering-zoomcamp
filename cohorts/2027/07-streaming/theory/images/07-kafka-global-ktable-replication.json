@@ -1,0 +1,19 @@
+{
+  "title": "Global KTable replication",
+  "description": "A Global KTable replicates partitioned reference data into complete local copies.",
+  "canvas": {"width": 1000, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 110},
+  "nodes": [
+    {"id": "pa", "title": "Kafka node A", "subtitle": "partitioned data", "color": "blue", "icon": "database", "x": 40, "y": 60},
+    {"id": "pb", "title": "Kafka node B", "subtitle": "partitioned data", "color": "blue", "icon": "database", "x": 40, "y": 390},
+    {"id": "global", "title": "Global KTable", "subtitle": "all partitions together", "color": "purple", "icon": "database", "x": 390, "y": 225},
+    {"id": "ca", "title": "App instance A", "subtitle": "complete local copy", "color": "green", "icon": "container", "x": 740, "y": 60},
+    {"id": "cb", "title": "App instance B", "subtitle": "complete local copy", "color": "green", "icon": "container", "x": 740, "y": 390}
+  ],
+  "edges": [
+    {"from": "pa", "to": "global", "route": "orthogonal"},
+    {"from": "pb", "to": "global", "route": "orthogonal"},
+    {"from": "global", "to": "ca", "route": "orthogonal"},
+    {"from": "global", "to": "cb", "route": "orthogonal"}
+  ]
+}

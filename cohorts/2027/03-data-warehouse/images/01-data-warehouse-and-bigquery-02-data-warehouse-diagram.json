@@ -1,0 +1,19 @@
+{
+  "title": "Data warehouse architecture",
+  "description": "Data warehouse architecture: sources, staging area, warehouse, data marts, users.",
+  "canvas": {"width": 1380, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "sources", "title": "Sources", "subtitle": "operational DBs · flat files", "color": "blue", "icon": "database", "x": 40, "y": 90},
+    {"id": "staging", "title": "Staging area", "subtitle": "clean and combine", "color": "amber", "icon": "settings", "x": 310, "y": 90},
+    {"id": "warehouse", "title": "Warehouse", "subtitle": "raw · summary · metadata", "color": "purple", "icon": "volume", "x": 580, "y": 90},
+    {"id": "marts", "title": "Data marts", "subtitle": "sales · purchasing · inventory", "color": "green", "icon": "database", "x": 850, "y": 90},
+    {"id": "users", "title": "Users", "subtitle": "analysis · reporting · mining", "color": "blue", "icon": "user", "x": 1120, "y": 90}
+  ],
+  "edges": [
+    {"from": "sources", "to": "staging"},
+    {"from": "staging", "to": "warehouse"},
+    {"from": "warehouse", "to": "marts"},
+    {"from": "marts", "to": "users"}
+  ]
+}

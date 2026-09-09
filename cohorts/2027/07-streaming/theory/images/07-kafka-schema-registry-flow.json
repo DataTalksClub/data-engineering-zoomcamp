@@ -1,0 +1,18 @@
+{
+  "title": "Schema Registry flow",
+  "description": "A Schema Registry mediates schemas between producers, topics, and consumers.",
+  "canvas": {"width": 1040, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "registry", "title": "Schema Registry", "subtitle": "stores and checks schemas", "color": "purple", "icon": "registry", "x": 410, "y": 40},
+    {"id": "producer", "title": "Producer", "subtitle": "writes events", "color": "blue", "icon": "api", "x": 40, "y": 360},
+    {"id": "topic", "variant": "icon", "title": "Topic", "icon": "queue", "color": "amber", "x": 420, "y": 380},
+    {"id": "consumer", "title": "Consumer", "subtitle": "reads events", "color": "green", "icon": "robot", "x": 780, "y": 360}
+  ],
+  "edges": [
+    {"from": "producer", "to": "topic", "route": "orthogonal", "color": "amber", "label": "send data"},
+    {"from": "topic", "to": "consumer", "route": "orthogonal", "color": "amber", "label": "consume"},
+    {"from": "producer", "to": "registry", "route": "orthogonal", "label": "send schema"},
+    {"from": "consumer", "to": "registry", "route": "orthogonal", "dashed": true, "label": "validate"}
+  ]
+}

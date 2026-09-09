@@ -10,7 +10,7 @@ Commands are how you interact with your Bruin project - running pipelines, valid
 
 *Use the commands as a loop: check the project, understand dependencies, inspect data, then execute the required scope.*
 
-![Bruin commands operate on a hierarchy from project to pipeline to assets and variables.](images/bruin-project-command-hierarchy-imagegen.png)
+![Bruin commands operate on a hierarchy from project to pipeline to assets and variables.](images/bruin-project-command-hierarchy.png)
 
 ## `bruin run` - Execute a Pipeline
 

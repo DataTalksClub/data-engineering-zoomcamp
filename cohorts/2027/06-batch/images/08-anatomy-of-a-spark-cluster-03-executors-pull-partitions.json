@@ -1,0 +1,156 @@
+{
+  "title": "Executors pull partitions",
+  "description": "Each executor pulls one partition from the DataFrame.",
+  "canvas": {
+    "width": 1300,
+    "height": 480,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 200,
+    "card_height": 70
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "variant": "icon",
+      "title": "You",
+      "icon": "user",
+      "color": "blue",
+      "x": 40,
+      "y": 200
+    },
+    {
+      "id": "driver",
+      "title": "Driver",
+      "subtitle": "spark-submit",
+      "color": "blue",
+      "x": 150,
+      "y": 190,
+      "width": 200,
+      "height": 100
+    },
+    {
+      "id": "cluster",
+      "variant": "boundary",
+      "title": "Cluster",
+      "contains": [
+        "master",
+        "ex1",
+        "ex2",
+        "ex3"
+      ]
+    },
+    {
+      "id": "master",
+      "title": "Master",
+      "subtitle": "UI on port 4040",
+      "color": "purple",
+      "icon": "workflow",
+      "x": 520,
+      "y": 190,
+      "width": 200,
+      "height": 100
+    },
+    {
+      "id": "ex1",
+      "title": "Executor 1",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 80
+    },
+    {
+      "id": "ex2",
+      "title": "Executor 2",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 215
+    },
+    {
+      "id": "ex3",
+      "title": "Executor 3",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 350
+    },
+    {
+      "id": "df",
+      "variant": "boundary",
+      "title": "DataFrame",
+      "contains": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    {
+      "id": "p1",
+      "title": "Partition 1",
+      "subtitle": "data file",
+      "color": "blue",
+      "x": 1020,
+      "y": 80
+    },
+    {
+      "id": "p2",
+      "title": "Partition 2",
+      "subtitle": "data file",
+      "color": "blue",
+      "x": 1020,
+      "y": 215
+    },
+    {
+      "id": "p3",
+      "title": "Partition 3",
+      "subtitle": "data file",
+      "color": "blue",
+      "x": 1020,
+      "y": 350
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "driver",
+      "route": "orthogonal"
+    },
+    {
+      "from": "driver",
+      "to": "master"
+    },
+    {
+      "from": "master",
+      "to": "ex1",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex2",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex3",
+      "route": "orthogonal"
+    },
+    {
+      "from": "p1",
+      "to": "ex1",
+      "color": "blue"
+    },
+    {
+      "from": "p2",
+      "to": "ex2",
+      "color": "blue"
+    },
+    {
+      "from": "p3",
+      "to": "ex3",
+      "color": "blue"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Analytics engineering toolchain",
+  "description": "Analytics engineering connects data loading and storage to modeling and business presentation.",
+  "canvas": {"width": 780, "height": 620, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "load", "title": "Data loading", "subtitle": "ingest from sources", "color": "purple", "icon": "api", "x": 60, "y": 40},
+    {"id": "storage", "title": "Data storage", "subtitle": "central warehouse", "color": "purple", "icon": "database", "x": 60, "y": 180},
+    {"id": "model", "title": "Data modeling", "subtitle": "transform and test", "color": "purple", "icon": "settings", "x": 60, "y": 320},
+    {"id": "present", "title": "Data presentation", "subtitle": "dashboards and reports", "color": "purple", "icon": "observability", "x": 60, "y": 460},
+    {"id": "warehouses", "title": "Cloud warehouses", "subtitle": "Snowflake, BigQuery, Redshift", "color": "gray", "x": 360, "y": 180, "width": 340},
+    {"id": "tools", "title": "Transform tools", "subtitle": "dbt and Dataform", "color": "gray", "x": 360, "y": 320, "width": 340},
+    {"id": "bi", "title": "BI tools", "subtitle": "Looker and Tableau", "color": "gray", "x": 360, "y": 460, "width": 340}
+  ],
+  "edges": [
+    {"from": "load", "to": "storage"},
+    {"from": "storage", "to": "model"},
+    {"from": "model", "to": "present"},
+    {"from": "storage", "to": "warehouses", "directed": false, "dashed": true},
+    {"from": "model", "to": "tools", "directed": false, "dashed": true},
+    {"from": "present", "to": "bi", "directed": false, "dashed": true}
+  ]
+}

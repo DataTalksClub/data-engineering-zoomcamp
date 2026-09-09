@@ -1,0 +1,144 @@
+{
+  "title": "S3 or GCS instead of HDFS",
+  "description": "Executors pull DataFrame partitions from S3 or GCS instead of HDFS.",
+  "canvas": {
+    "width": 1300,
+    "height": 480,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 200,
+    "card_height": 70
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "variant": "icon",
+      "title": "You",
+      "icon": "user",
+      "color": "blue",
+      "x": 40,
+      "y": 200
+    },
+    {
+      "id": "driver",
+      "title": "Driver",
+      "subtitle": "spark-submit",
+      "color": "blue",
+      "x": 150,
+      "y": 190,
+      "width": 200,
+      "height": 100
+    },
+    {
+      "id": "cluster",
+      "variant": "boundary",
+      "title": "Cluster",
+      "contains": [
+        "master",
+        "ex1",
+        "ex2",
+        "ex3"
+      ]
+    },
+    {
+      "id": "master",
+      "title": "Master",
+      "subtitle": "UI on port 4040",
+      "color": "purple",
+      "icon": "workflow",
+      "x": 520,
+      "y": 190,
+      "width": 200,
+      "height": 100
+    },
+    {
+      "id": "ex1",
+      "title": "Executor 1",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 80
+    },
+    {
+      "id": "ex2",
+      "title": "Executor 2",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 215
+    },
+    {
+      "id": "ex3",
+      "title": "Executor 3",
+      "subtitle": "running",
+      "color": "green",
+      "x": 770,
+      "y": 350
+    },
+    {
+      "id": "hdfs",
+      "title": "HDFS",
+      "subtitle": "not needed here",
+      "color": "gray",
+      "x": 1020,
+      "y": 80
+    },
+    {
+      "id": "s3",
+      "title": "S3 / GCS",
+      "subtitle": "object storage",
+      "color": "green",
+      "icon": "database",
+      "x": 1020,
+      "y": 282,
+      "width": 200,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "from": "user",
+      "to": "driver",
+      "route": "orthogonal"
+    },
+    {
+      "from": "driver",
+      "to": "master"
+    },
+    {
+      "from": "master",
+      "to": "ex1",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex2",
+      "route": "orthogonal"
+    },
+    {
+      "from": "master",
+      "to": "ex3",
+      "route": "orthogonal"
+    },
+    {
+      "from": "s3",
+      "to": "ex1",
+      "color": "blue",
+      "route": "orthogonal"
+    },
+    {
+      "from": "s3",
+      "to": "ex2",
+      "color": "blue",
+      "route": "orthogonal"
+    },
+    {
+      "from": "s3",
+      "to": "ex3",
+      "color": "blue",
+      "route": "orthogonal"
+    }
+  ]
+}

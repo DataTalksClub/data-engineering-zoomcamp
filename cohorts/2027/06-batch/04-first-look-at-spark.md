@@ -162,7 +162,7 @@ Imagine a Spark cluster. Inside it there are executors - the machines
 that actually do the computational work. They pull files from a data
 lake, say a folder in a Google Cloud Storage bucket, and process them.
 
-![Cloud storage partitions are processed by executors in a Spark cluster](images/04-first-look-at-spark-04-partitions-slides-imagegen.png)
+![Cloud storage partitions are processed by executors in a Spark cluster](images/04-first-look-at-spark-04-partitions-slides.png)
 
 If we have more files than executors, each file goes to an executor.
 When an executor finishes its file, it picks the next unclaimed one.

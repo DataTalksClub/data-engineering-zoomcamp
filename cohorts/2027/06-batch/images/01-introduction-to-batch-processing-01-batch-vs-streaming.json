@@ -1,0 +1,22 @@
+{
+  "title": "Batch vs streaming",
+  "description": "Batch processes a complete day's data in one job, while streaming processes events continuously.",
+  "canvas": {"width": 1080, "height": 500, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "lbl-b", "variant": "plain", "title": "Batch", "x": 30, "y": 85, "width": 130, "height": 50},
+    {"id": "taxi", "title": "Taxi trips", "subtitle": "one day · Jan 15", "color": "blue", "icon": "document", "x": 200, "y": 60},
+    {"id": "job", "title": "Batch job", "subtitle": "runs 00:00–23:59", "color": "amber", "icon": "settings", "x": 500, "y": 60},
+    {"id": "table", "title": "Warehouse table", "subtitle": "Jan 15 loaded", "color": "green", "icon": "database", "x": 800, "y": 60},
+    {"id": "lbl-s", "variant": "plain", "title": "Streaming", "x": 30, "y": 335, "width": 130, "height": 50},
+    {"id": "events", "title": "Ride events", "subtitle": "as they happen", "color": "blue", "icon": "message", "x": 200, "y": 310},
+    {"id": "proc", "title": "Stream processor", "subtitle": "runs continuously", "color": "amber", "icon": "settings", "x": 500, "y": 310},
+    {"id": "results", "title": "Live results", "subtitle": "updated continuously", "color": "green", "icon": "database", "x": 800, "y": 310}
+  ],
+  "edges": [
+    {"from": "taxi", "to": "job"},
+    {"from": "job", "to": "table"},
+    {"from": "events", "to": "proc"},
+    {"from": "proc", "to": "results"}
+  ]
+}

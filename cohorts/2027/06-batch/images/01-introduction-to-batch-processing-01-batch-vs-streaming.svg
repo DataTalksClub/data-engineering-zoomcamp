@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="500" viewBox="0 0 1080 500" role="img" aria-labelledby="title desc">
+  <title id="title">Batch vs streaming</title>
+  <desc id="desc">Batch processes a complete day&#x27;s data in one job, while streaming processes events continuously.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-document" viewBox="0 0 24 24">
+        <path d="M6 2h8l4 4v16H6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M4 4h16v12H9l-5 4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1080" height="500" fill="#ffffff"/>
+
+  <path class="edge" d="M440 110L500 110" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M740 110L800 110" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M440 360L500 360" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M740 360L800 360" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-plain node-blue" transform="translate(30 85)">
+    <text class="node-title" x="65" y="27" font-size="16">Batch</text>
+  </g>
+  <g class="node node-blue" transform="translate(200 60)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-document" x="16" y="20" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="42.76" font-size="16">Taxi trips</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">one day · Jan 15</text>
+  </g>
+  <g class="node node-amber" transform="translate(500 60)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="42.76" font-size="16">Batch job</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">runs 00:00–23:59</text>
+  </g>
+  <g class="node node-green" transform="translate(800 60)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-database" x="16" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="42.76" font-size="16">Warehouse table</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">Jan 15 loaded</text>
+  </g>
+  <g class="node node-plain node-blue" transform="translate(30 335)">
+    <text class="node-title" x="65" y="27" font-size="16">Streaming</text>
+  </g>
+  <g class="node node-blue" transform="translate(200 310)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-message" x="16" y="20" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="42.76" font-size="16">Ride events</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">as they happen</text>
+  </g>
+  <g class="node node-amber" transform="translate(500 310)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="42.76" font-size="16">Stream processor</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">runs continuously</text>
+  </g>
+  <g class="node node-green" transform="translate(800 310)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-database" x="16" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="42.76" font-size="16">Live results</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">updated continuously</text>
+  </g>
+</svg>

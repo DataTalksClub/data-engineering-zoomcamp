@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="800" viewBox="0 0 720 800" role="img" aria-labelledby="title desc">
+  <title id="title">BigQuery architecture</title>
+  <desc id="desc">BigQuery architecture: clients talk to a client interface, below it the Dremel query execution tree running on Borg, connected over the Jupiter network to Colossus storage.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#7c3aed"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#15803d"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#dc2626"/></marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <marker id="arrow-start-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
+    <symbol id="icon-api" viewBox="0 0 24 24">
+        <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-browser" viewBox="0 0 32 22">
+        <rect x="1" y="1.5" width="30" height="19" rx="2.25" fill="none" stroke="currentColor" stroke-width="2.67"/>
+        <path d="M1.5 6.5h29" fill="none" stroke="currentColor" stroke-width="2.67"/>
+        <circle cx="4" cy="4" r=".48" fill="currentColor"/>
+        <circle cx="6.2" cy="4" r=".48" fill="currentColor"/>
+        <circle cx="8.4" cy="4" r=".48" fill="currentColor"/>
+        <rect x="12" y="3.3" width="15" height="1.5" rx=".75" fill="currentColor" opacity=".35"/>
+      </symbol>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+    <symbol id="icon-websocket" viewBox="0 0 24 24">
+        <path d="M4 7a8 8 0 0 1 12.8-2.1M20 17a8 8 0 0 1-12.8 2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="m14 3 3 2-2 3M10 21l-3-2 2-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.5 9 6 12l2.5 3M15.5 9l2.5 3-2.5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <symbol id="icon-workflow" viewBox="0 0 24 24">
+        <path d="M4 11A8.5 8.5 0 0 1 19.5 8.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M19.5 4.5v4h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 13A8.5 8.5 0 0 1 4.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4.5 19.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    <style>
+      text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      symbol [stroke] { vector-effect: non-scaling-stroke; }
+      .node rect { stroke-width: 2; }
+      .node-boundary rect { stroke-width: 2; stroke-dasharray: 8 8; }
+      .boundary-title { font-size: 16px; font-weight: 750; text-anchor: start; }
+      .node-title { font-weight: 750; text-anchor: middle; }
+      .node-title.icon-copy { text-anchor: start; }
+      .node-subtitle { font-weight: 500; fill: #475569; text-anchor: middle; }
+      .eyebrow { font-weight: 750; letter-spacing: 1px; fill: #475569; text-anchor: middle; }
+      .mention-icon { font-size: 27px; font-weight: 750; text-anchor: middle; }
+      .standalone-mention { font-size: 52px; font-weight: 750; text-anchor: middle; }
+      .icon-node-title { font-size: 16px; font-weight: 750; text-anchor: middle; }
+      .edge { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .edge-label rect { stroke-width: 2; }
+      .edge-label text { font-size: 14px; font-weight: 750; text-anchor: middle; dominant-baseline: central; }
+      .divider { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 6 8; stroke-linecap: round; }
+      .center-annotation { fill: #f1f5f9; stroke: none; }
+      .center-title { font-weight: 800; letter-spacing: 0.08em; fill: #334155; text-anchor: middle; }
+      .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="720" height="800" fill="#ffffff"/>
+
+  <g class="node-boundary node-blue" transform="translate(220 280)">
+    <rect width="280" height="190" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">Borg</text>
+  </g>
+  <path class="edge" d="M360 130L360 170" stroke="#64748b" marker-start="url(#arrow-start-gray)" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M360 270L360 340" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M360 270L360 340" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M360 440L360 480" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M360 440L360 480" stroke="#64748b" marker-start="url(#arrow-start-gray)" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M360 580L360 620" stroke="#64748b" marker-start="url(#arrow-start-gray)" marker-end="url(#arrow-gray)"/>
+
+  <g class="node node-blue" transform="translate(240 30)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
+    <use href="#icon-browser" x="16" y="9" width="34" height="34" color="#2563eb"/>
+    <text class="node-title icon-copy" x="62" y="32.48" font-size="18">Clients</text>
+    <text class="node-subtitle" x="120" y="64" font-size="16">REST API · Web UI · bq</text>
+    <text class="node-subtitle" x="120" y="86" font-size="16">CLI</text>
+  </g>
+  <g class="node node-purple" transform="translate(240 170)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-api" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Client interface</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">public query endpoint</text>
+  </g>
+  <g class="node node-amber" transform="translate(240 340)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <use href="#icon-workflow" x="16" y="20" width="34" height="34" color="#c2410c"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Dremel</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">query execution tree</text>
+  </g>
+  <g class="node node-purple" transform="translate(240 480)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#f5f3ff" stroke="#7c3aed"/>
+    <use href="#icon-websocket" x="16" y="20" width="34" height="34" color="#7c3aed"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Jupiter</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">datacenter network</text>
+  </g>
+  <g class="node node-green" transform="translate(240 620)" filter="url(#shadow)">
+    <rect width="240" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <use href="#icon-database" x="16" y="20" width="34" height="34" color="#15803d"/>
+    <text class="node-title icon-copy" x="62" y="43.48" font-size="18">Colossus</text>
+    <text class="node-subtitle" x="120" y="75" font-size="16">distributed storage</text>
+  </g>
+</svg>

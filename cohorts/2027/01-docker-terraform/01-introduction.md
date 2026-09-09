@@ -118,7 +118,7 @@ So, we know that with docker we can restore any container to its initial state i
 The durable relationship is that host files can be shared with a container
 through a mounted volume:
 
-![Local host files can be shared with a Docker container through a mounted volume.](images/docker-volume-mapping-imagegen.png)
+![Local host files can be shared with a Docker container through a mounted volume.](images/docker-volume-mapping.png)
 
 Let's create some data in `test`:
 

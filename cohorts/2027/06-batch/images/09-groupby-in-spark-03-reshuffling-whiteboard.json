@@ -1,0 +1,99 @@
+{
+  "title": "Group-by reshuffling",
+  "description": "Group-by subresults are reshuffled by key into output partitions.",
+  "canvas": {
+    "width": 980,
+    "height": 620,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 280,
+    "card_height": 110
+  },
+  "nodes": [
+    {
+      "id": "s1",
+      "title": "Subresult 1",
+      "subtitle": "(h1, z1) \u00b7 (h1, z2)",
+      "color": "blue",
+      "icon": "document",
+      "x": 60,
+      "y": 50
+    },
+    {
+      "id": "s2",
+      "title": "Subresult 2",
+      "subtitle": "(h1, z1) \u00b7 (h1, z2)",
+      "color": "blue",
+      "icon": "document",
+      "x": 60,
+      "y": 250
+    },
+    {
+      "id": "s3",
+      "title": "Subresult 3",
+      "subtitle": "(h1, z1) \u00b7 (h1, z2)",
+      "color": "blue",
+      "icon": "document",
+      "x": 60,
+      "y": 450
+    },
+    {
+      "id": "p1",
+      "title": "Partition P1",
+      "subtitle": "all (h1, z1) rows",
+      "color": "purple",
+      "icon": "database",
+      "x": 640,
+      "y": 120
+    },
+    {
+      "id": "p2",
+      "title": "Partition P2",
+      "subtitle": "all (h1, z2) rows",
+      "color": "purple",
+      "icon": "database",
+      "x": 640,
+      "y": 380
+    }
+  ],
+  "edges": [
+    {
+      "from": "s1",
+      "to": "p1",
+      "route": "straight",
+      "color": "blue"
+    },
+    {
+      "from": "s1",
+      "to": "p2",
+      "route": "straight",
+      "color": "purple"
+    },
+    {
+      "from": "s2",
+      "to": "p1",
+      "route": "straight",
+      "color": "blue"
+    },
+    {
+      "from": "s2",
+      "to": "p2",
+      "route": "straight",
+      "color": "purple"
+    },
+    {
+      "from": "s3",
+      "to": "p1",
+      "route": "straight",
+      "color": "blue"
+    },
+    {
+      "from": "s3",
+      "to": "p2",
+      "route": "straight",
+      "color": "purple"
+    }
+  ]
+}

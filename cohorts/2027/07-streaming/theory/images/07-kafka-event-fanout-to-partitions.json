@@ -1,0 +1,20 @@
+{
+  "title": "Kafka event fanout to partitions",
+  "description": "One data point fans out into multiple event slots inside a Kafka topic.",
+  "canvas": {"width": 940, "height": 540, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 160, "card_height": 90},
+  "nodes": [
+    {"id": "event", "title": "One event", "subtitle": "single data point", "color": "blue", "icon": "message", "x": 370, "y": 40, "width": 200, "height": 100},
+    {"id": "topic", "variant": "boundary", "title": "Topic", "contains": ["s1", "s2", "s3", "s4"]},
+    {"id": "s1", "title": "Partition 1", "subtitle": "events", "color": "green", "x": 100, "y": 300},
+    {"id": "s2", "title": "Partition 2", "subtitle": "events", "color": "green", "x": 300, "y": 300},
+    {"id": "s3", "title": "Partition 3", "subtitle": "events", "color": "green", "x": 500, "y": 300},
+    {"id": "s4", "title": "Partition 4", "subtitle": "events", "color": "green", "x": 700, "y": 300}
+  ],
+  "edges": [
+    {"from": "event", "to": "s1", "route": "straight"},
+    {"from": "event", "to": "s2", "route": "straight"},
+    {"from": "event", "to": "s3", "route": "straight"},
+    {"from": "event", "to": "s4", "route": "straight"}
+  ]
+}

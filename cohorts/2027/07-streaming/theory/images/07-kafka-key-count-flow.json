@@ -1,0 +1,23 @@
+{
+  "title": "Kafka Streams key count flow",
+  "description": "Kafka Streams groups records by key, counts each group, and emits keyed output.",
+  "canvas": {"width": 1240, "height": 560, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 190, "card_height": 80},
+  "nodes": [
+    {"id": "records", "title": "Records", "subtitle": "keyed events", "color": "blue", "icon": "message", "x": 40, "y": 240, "width": 190, "height": 100},
+    {"id": "group", "title": "Group by key", "subtitle": "same key together", "color": "purple", "icon": "settings", "x": 320, "y": 240, "width": 190, "height": 100},
+    {"id": "ka", "title": "Key A", "subtitle": "3 events", "color": "blue", "x": 610, "y": 70},
+    {"id": "kb", "title": "Key B", "subtitle": "2 events", "color": "green", "x": 610, "y": 250},
+    {"id": "kc", "title": "Key C", "subtitle": "2 events", "color": "amber", "x": 610, "y": 430},
+    {"id": "count", "title": "Count", "subtitle": "aggregate per key", "color": "purple", "icon": "settings", "x": 900, "y": 240, "width": 190, "height": 100}
+  ],
+  "edges": [
+    {"from": "records", "to": "group"},
+    {"from": "group", "to": "ka", "route": "orthogonal", "color": "blue"},
+    {"from": "group", "to": "kb", "color": "green"},
+    {"from": "group", "to": "kc", "route": "orthogonal", "color": "amber"},
+    {"from": "ka", "to": "count", "route": "orthogonal", "color": "blue"},
+    {"from": "kb", "to": "count", "color": "green"},
+    {"from": "kc", "to": "count", "route": "orthogonal", "color": "amber"}
+  ]
+}

@@ -23,7 +23,7 @@ It is also distributed. We can have a cluster with tens, hundreds or
 thousands of machines, and all of them pull the data, process it, and
 save the results somewhere.
 
-![Spark as a data-processing engine moving data through a distributed cluster](images/02-introduction-to-spark-02-data-processing-engine-whiteboard-redraw-imagegen.png)
+![Spark as a data-processing engine moving data through a distributed cluster](images/02-introduction-to-spark-02-data-processing-engine-whiteboard-redraw.png)
 
 ## Languages
 
@@ -59,7 +59,7 @@ a managed version of Presto called Athena. So the rule of thumb is: if
 you can express your job as a SQL query, use Presto, Athena, or
 BigQuery with external tables over your lake.
 
-![Decision aid: use Hive, Presto, or Athena when the batch job can be expressed as SQL](images/02-introduction-to-spark-03-when-to-use-spark-whiteboard-redraw-imagegen.png)
+![Decision aid: use Hive, Presto, or Athena when the batch job can be expressed as SQL](images/02-introduction-to-spark-03-when-to-use-spark-whiteboard-redraw.png)
 
 Sometimes you cannot express the job with SQL. Maybe you need more
 flexibility, maybe the code becomes too difficult to manage as one big
@@ -84,7 +84,7 @@ Then there is often another flow: a second Spark job takes the trained
 model and applies it to the data. The results go back to the data lake,
 and from there they can make it into a data warehouse.
 
-![Typical workflow: SQL prepares data, Spark and Python train a model, and Spark applies it](images/02-introduction-to-spark-04-typical-workflow-whiteboard-imagegen.png)
+![Typical workflow: SQL prepares data, Spark and Python train a model, and Spark applies it](images/02-introduction-to-spark-04-typical-workflow-whiteboard.png)
 
 So the recommendation is: use SQL when you can, and use Spark for the
 cases where you cannot. In the next video we install Spark locally and

@@ -1,0 +1,15 @@
+{
+  "title": "Forward compatibility",
+  "description": "Forward compatibility lets a newer consumer expectation work with an older schema through the Schema Registry.",
+  "canvas": {"width": 1060, "height": 280, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 240, "card_height": 100},
+  "nodes": [
+    {"id": "old", "title": "Older schema", "subtitle": "data already written", "color": "amber", "icon": "document", "x": 40, "y": 90},
+    {"id": "registry", "title": "Schema Registry", "subtitle": "forward compatible", "color": "purple", "icon": "registry", "x": 410, "y": 90},
+    {"id": "new", "title": "Newer consumer", "subtitle": "expects new fields", "color": "blue", "icon": "robot", "x": 780, "y": 90}
+  ],
+  "edges": [
+    {"from": "old", "to": "registry"},
+    {"from": "registry", "to": "new"}
+  ]
+}

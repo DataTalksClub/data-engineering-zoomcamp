@@ -1,0 +1,19 @@
+{
+  "title": "Kafka notice board topics",
+  "description": "A Kafka-backed notice board routes producer messages through separate topics to consumers.",
+  "canvas": {"width": 1000, "height": 460, "background": "#ffffff"},
+  "layout": {"type": "manual", "card_width": 220, "card_height": 100},
+  "nodes": [
+    {"id": "producer", "title": "Producer", "subtitle": "posts messages", "color": "blue", "icon": "api", "x": 40, "y": 180},
+    {"id": "board", "variant": "boundary", "title": "Kafka · notice board", "contains": ["abc", "xyz"]},
+    {"id": "abc", "variant": "icon", "title": "ABC topic", "icon": "queue", "color": "purple", "x": 450, "y": 150},
+    {"id": "xyz", "variant": "icon", "title": "XYZ topic", "icon": "queue", "color": "purple", "x": 450, "y": 320},
+    {"id": "consumers", "title": "Consumers", "subtitle": "read categories", "color": "green", "icon": "robot", "x": 760, "y": 180}
+  ],
+  "edges": [
+    {"from": "producer", "to": "abc", "route": "orthogonal"},
+    {"from": "producer", "to": "xyz", "route": "orthogonal"},
+    {"from": "abc", "to": "consumers", "route": "orthogonal"},
+    {"from": "xyz", "to": "consumers", "route": "orthogonal"}
+  ]
+}

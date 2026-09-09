@@ -126,7 +126,7 @@ be done in a distributed fashion. The records inside each partition are
 sorted, which makes it easy to bring all records with the same key
 together.
 
-![Group-by subresults are reshuffled by key into output partitions](images/09-groupby-in-spark-03-reshuffling-whiteboard-imagegen.png)
+![Group-by subresults are reshuffled by key into output partitions](images/09-groupby-in-spark-03-reshuffling-whiteboard.png)
 
 Once the records with the same key are in the same partition, we can do
 another group by and reduce them into one: sum the amounts, sum the counts.

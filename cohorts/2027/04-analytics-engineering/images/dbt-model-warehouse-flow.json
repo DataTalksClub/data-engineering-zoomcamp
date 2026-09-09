@@ -1,0 +1,53 @@
+{
+  "title": "dbt model to warehouse",
+  "description": "dbt compiles a model, transforms it, and persists the derived model in the data warehouse.",
+  "canvas": {
+    "width": 1040,
+    "height": 280,
+    "background": "#ffffff"
+  },
+  "layout": {
+    "type": "manual",
+    "card_width": 240,
+    "card_height": 100
+  },
+  "nodes": [
+    {
+      "id": "model",
+      "title": "dbt model",
+      "subtitle": "SELECT statement + config",
+      "color": "blue",
+      "icon": "document",
+      "x": 40,
+      "y": 90
+    },
+    {
+      "id": "compile",
+      "title": "Compile and run",
+      "subtitle": "build the derived table",
+      "color": "amber",
+      "icon": "settings",
+      "x": 400,
+      "y": 90
+    },
+    {
+      "id": "warehouse",
+      "title": "Data warehouse",
+      "subtitle": "stores the derived model",
+      "color": "green",
+      "icon": "database",
+      "x": 760,
+      "y": 90
+    }
+  ],
+  "edges": [
+    {
+      "from": "model",
+      "to": "compile"
+    },
+    {
+      "from": "compile",
+      "to": "warehouse"
+    }
+  ]
+}
