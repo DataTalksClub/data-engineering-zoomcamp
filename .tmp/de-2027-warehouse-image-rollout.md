@@ -542,16 +542,38 @@ Postman chrome is removed only where it is outside the instructional UI.
   complementarity 2, durability 1, caption/accessibility 2).
 - Decision: `crop/replace`; the Postman response proves the deployed model
   version is `AVAILABLE`, a concrete state transition in the walkthrough.
-- Preparation: deterministic crop `(x=0, y=0, width=575, height=315)`;
-  resized 2x with a light unsharp mask. The Postman UI and JSON response were
-  retained while the terminal background was removed.
-- Method: deterministic PNG sibling
-  `06-deploying-a-machine-learning-model-04-model-status-cropped.png`.
-- Invariants checked: GET endpoint, `model_version_status`, `AVAILABLE`, and
-  response JSON remain unchanged; surrounding terminal, faces, camera tiles,
-  cursors, and unrelated chrome are absent.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Updated: 2026-09-09.
+- Preparation: the true native crop is `640x315` at `(x=0, y=0)`; an
+  independent `convert` extraction reproduces the committed native crop with
+  `compare -metric AE = 0`. The original JPG and native crop were both sent
+  to imagegen. The imagegen candidate was reviewed as a style/background
+  reference only; it supplied no instructional text or values.
+- Method: imagegen supplied a clean bright Postman-style background, cropped
+  to the focused request/response surface `(x=425, y=120, width=1220,
+  height=800)` from the generated `1672x941` canvas. A deterministic SVG
+  overlay then rendered the exact endpoint, GET request, response metadata,
+  and 14-line JSON payload in crisp native text. No source enlargement,
+  Lanczos resize, sharpening, or old crisp derivative was used. The first
+  dark-theme imagegen candidate was rejected as style-incompatible and was
+  not used.
+- Invariants checked: `GET`,
+  `http://localhost:8501/v1/models/tip_model`, `model_version_status`,
+  version `1`, state `AVAILABLE`, `error_code` `OK`, empty
+  `error_message`, `Status: 200 OK`, `Time: 17 ms`, and `Size: 263 B` remain
+  exact. The focused output removes browser/recording chrome, camera/face,
+  cursor, scrollbar, and unrelated sidebar content.
+- Validation: final `1220x800` output SHA-256 is
+  `4a950be87b8aae9ee970cb72b26b633723b40b1ef95b900c96656b2a2a0d600c`;
+  imagegen background SHA-256 is
+  `5b9b6df3be9e9dff4751447affc8f7eb6f11c080910da2b6ab64afc1339123cb`;
+  source JPG SHA-256 is
+  `5ce611080efdc428384a0385a66fc058c6144205b677ca3c4801aca2b5e89dd2`,
+  native-crop SHA-256 is
+  `19cb0bc9f13b09f602d5153ad10f528e224d0dacf2dd3c827f8b951f30882e0f`,
+  and proportional `608x398` render SHA-256 is
+  `76cc8f1b1a76387c3cf124e39a2475880518ed4b02ca36a7e83873ef9c1f7109`.
+  The final was inspected at 100% and 608px; Markdown reference resolves
+  and `git diff --check` passes.
 
 ### 06-deploying-a-machine-learning-model-05-predict.jpg
 
