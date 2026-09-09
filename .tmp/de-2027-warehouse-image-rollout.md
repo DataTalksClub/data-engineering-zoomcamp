@@ -578,17 +578,28 @@ Postman chrome is removed only where it is outside the instructional UI.
 - Decision: `crop/replace`; the before/after table relationship teaches how
   `Creation_date` becomes date partitions, and exact sample rows must remain
   trustworthy.
-- Preparation: deterministic crop `(x=20, y=18, width=600, height=335)`;
-  resized 2x with a light unsharp mask. Imagegen was rejected for this
-  table-heavy asset because it could alter exact rows or dates.
-- Method: deterministic PNG sibling
-  `01-data-warehouse-and-bigquery-05-partitioning-diagram-cropped.png`.
-- Invariants checked: source and partitioned table headings, `Creation_date`,
-  partition keys `20180301`, `20180302`, `20180303`, sample rows, and the
-  partition arrow are unchanged; no face, camera tile, cursor, or overlay was
-  present.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Preparation: true native crop `(x=25, y=26, width=590, height=330)` from
+  the original `640×360` JPG; crop dimensions `590×330`; crop SHA-256
+  `2aea787848cb56306eaca418fad6feba67266b7ea19ed675d4600ff8b69537e0`;
+  original JPG SHA-256
+  `27fef276a75fc4d517c18d46a15d247dd4f977ef27144153598583dad8cf78dd`.
+- Method: built-in imagegen, `scientific-educational`, using the original JPG
+  and native crop as the only image inputs. Artifact:
+  `/home/alexey/.codex/generated_images/01a0855a-8dcc-7d72-a9cb-17410103997b/exec-bf8f8a56-79eb-4b1c-9c86-d753f05f7f9e.png`;
+  artifact SHA-256 `27dd31260ed9fbdfe52e46bded062156962101a852f39e498048c9b323b33b48`.
+- Published PNG: `01-data-warehouse-and-bigquery-05-partitioning-diagram-crisp.png`;
+  byte-identical to the artifact; dimensions `1678×937`; final SHA-256
+  `27dd31260ed9fbdfe52e46bded062156962101a852f39e498048c9b323b33b48`.
+- C2PA: `urn:c2pa:cd945a7a-0515-4f2e-a292-519597e008d0`.
+- Semantic checks: `Partition in BQ`, both table titles, `Creation_date`, all
+  11 source rows, partition keys `20180301`, `20180302`, `20180303`, all
+  grouped partition rows, the blue right-facing `Partition` arrow, exact
+  dates, values, labels, and punctuation are retained. No rows were added,
+  removed, or reordered.
+- Overlay/size validation: no browser, video, camera, cursor, selection,
+  watermark, or other capture overlay; native output and proportional
+  `608×340` render were visually inspected and remained legible. Markdown
+  reference resolves and `git diff --check` passes.
 
 ### 01-data-warehouse-and-bigquery-04-external-table-details.jpg
 
