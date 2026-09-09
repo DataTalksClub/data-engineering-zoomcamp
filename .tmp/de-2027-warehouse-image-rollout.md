@@ -271,16 +271,40 @@ Postman chrome is removed only where it is outside the instructional UI.
 - Decision: `crop/replace`; the flow maps task types to BigQuery ML models and
   is useful as a durable overview, but its many exact labels rule out
   generated text.
-- Preparation: deterministic crop `(x=20, y=0, width=600, height=350)`;
-  resized 2x with a light unsharp mask. Imagegen was rejected because it
-  could alter algorithm names or decision branches.
-- Method: deterministic PNG sibling
-  `05-machine-learning-in-bigquery-01-model-choice-cropped.png`.
-- Invariants checked: legend, task branches, example descriptions, PCA,
-  autoencoder, K-Means, ARIMA-plus, and model names remain unchanged; no
-  face, camera tile, cursor, or overlay was present.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Preparation: original non-crisp source JPG is `640×360`, SHA-256
+  `0d2ae94fd9c2f35856cb4ec41202a7bf467c5cbe093495b55e90665cfcd14433`.
+  The true native crop was made directly from that JPG with
+  `convert 05-machine-learning-in-bigquery-01-model-choice.jpg
+  -crop 590x350+25+0 +repage
+  05-machine-learning-in-bigquery-01-model-choice-native-crop.png`,
+  i.e. `(x=25, y=0, width=590, height=350)`; its SHA-256 is
+  `28b05e187f672a9e8476dff3a4309bf59376391201dec18081344ea3b15df656`.
+  An independent ImageMagick comparison reports `AE=0`. The old crisp/
+  upscaled derivative was not used as the source of truth.
+- Method: deterministic vector-backed PNG sibling
+  `05-machine-learning-in-bigquery-01-model-choice-crisp.png`, rasterized
+  from the verified source labels and relationships. The prior C2PA-bearing
+  imagegen derivative was rejected in re-review: claim
+  `urn:c2pa:ce73181b-db5d-45a2-b97f-451385573eb0` and OCR/source comparison
+  exposed drift in `Dimensionality`, `Classifier`, the capitalization of
+  `Generate Recommendations`, and singular `Product recommendation`; no
+  generated text was used in the final.
+- Invariants checked: `ML in BigQuery`, the complete legend, all seven task
+  branches, all example labels, every model name including `PCA`,
+  `Autoencoder`, `K-Means`, and `ARIMA-PLUS`, the task-to-example and
+  example-to-model relationships, and the exact `Dimensionality`,
+  `Classifier`, capitalization, and singular/plural forms remain unchanged;
+  no face, camera tile, browser/recording chrome, cursor, watermark, or
+  unrelated overlay is present.
+- C2PA/evidence: the final deterministic PNG contains no C2PA/JUMBF/AI
+  metadata strings. Final SHA-256 is
+  `cd067aab23de22e97238c394faa0a517bcd8e7124a593093a7d27a98ef17cd9a`.
+- Validation: native output is `1672×941`; proportional `608×342` render
+  SHA-256 is
+  `209d21d160f2fbc32c85e673e2451ea277f97878555dc8b1917e0528c2f8d262`.
+  Both renders were visually inspected for readable exact text, complete
+  relationships, and no clipping; all four native corners are white.
+  Markdown reference resolves and `git diff --check` passes.
 
 ### 05-machine-learning-in-bigquery-02-feature-table.jpg
 
