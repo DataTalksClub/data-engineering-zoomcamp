@@ -1,6 +1,6 @@
 # Module 05 visual audit — 2026-09-09
 
-This audit records the eight source-backed conceptual illustrations published
+This audit records the six source-backed conceptual illustrations published
 for the Bruin/Data Platforms lessons. Each output was generated with the
 original non-crisp video frame and the focused source crop as references. Raw
 screenshots were not published; faces, webcams, browser/editor/recording
