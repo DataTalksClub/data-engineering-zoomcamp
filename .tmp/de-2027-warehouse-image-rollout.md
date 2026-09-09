@@ -646,7 +646,7 @@ Postman chrome is removed only where it is outside the instructional UI.
   imagegen canvas SHA-256 is
   `825425491215c7de0fd417a37a8c78e4e4785edf8a481cb487fda86c1910b4b4`;
   source JPG SHA-256 is
-  `09bd2719d206afa8f92885e189bac067e3b62bdcb7454b80217ff044b48730b06`.
+  `9bd2719d206afa8f92885e189bac067e3b62bdcb7454b80217ff044b48730b06`.
   The preparation crop is not a committed lesson asset; reviewers should
   reproduce the source crop command rather than rely on scratch PNG
   serialization hashes. Proportional `608x304` render SHA-256 is
