@@ -523,8 +523,9 @@ Postman chrome is removed only where it is outside the instructional UI.
 - Rubric: 11/12 (instructional contribution 2, relevance 2, readability 1,
   complementarity 2, durability 2, caption/accessibility 2).
 - Decision: `crop/replace`; the bounded interface makes the clustering
-  comparison concrete: the same date/vendor query processes `843.5 MB` on
-  the clustered table versus the `1.1 GB` estimate.
+  comparison concrete: the same date/vendor query has a `1.1 GB` estimate,
+  a source SQL comment of `864.5 MB`, and a bottom result status of
+  `843.5 MB processed`.
 - Preparation: original non-crisp source JPG is `640×360`, SHA-256
   `9e30b6dfe4881a55f9188a144b5d0e50edc25e6e844d847c0aff8d2bb5046aec`.
   The true native crop was made directly from that JPG with
@@ -547,20 +548,26 @@ Postman chrome is removed only where it is outside the instructional UI.
   `01-data-warehouse-and-bigquery-08-cluster-pruning-crisp.png`, rasterized
   from the verified source facts after the exactness gate rejected imagegen.
   Final SHA-256:
-  `4b1c26d38c41a95809b698f4a4c8bb2ad7717002301ecebfae8e4e5ec5b5280a`.
-- Invariants checked: every Explorer/table label, SQL line 46–61, `1.1 GB`,
-  `843.5 MB`, `VendorID=1`, both date literals, `europe-west3`, result row
-  `24227251`, syntax colors, selected clustered-table grouping, and the
+  `8ea2c9d03b2bf341b8233a7336ecb8fe50a605c9a2062a8d549a51b30b1b9c9e`.
+- Correction: independent review found that SQL line 57 must read
+  `-- Query scans 864.5 MB`; only that red line band was deterministically
+  replaced (pixel-diff bounding box `261×18`). The bottom result sentence
+  remains exactly `Query complete (0.8 sec elapsed, 843.5 MB processed)`.
+- Invariants checked: every Explorer/table label, SQL line 46–61 including
+  `-- Query scans 864.5 MB`, the `1.1 GB` estimate, bottom `843.5 MB
+  processed` result, `VendorID=1`, both date literals, `europe-west3`, result
+  row `24227251`, syntax colors, selected clustered-table grouping, and the
   partitioned-versus-clustered relationship remain exact; no face, camera,
   browser/recording chrome, cursor, SQL selection, watermark, or overlay is
   present. The final deterministic file intentionally makes no C2PA claim;
-  the rejected signed candidates and source/final hashes provide the
+  the rejected signed candidates and updated source/final hashes provide the
   generation evidence.
 - Validation: final native size is `1672×941`; a proportional `608×342`
   render was inspected and retains the complete status sentence
   `This query will process 1.1 GB when run.` plus all long tree/query labels
-  without clipping. Markdown reference resolves, and `git diff --check`
-  passes.
+  without clipping. The corrected SQL comment and unchanged bottom result
+  were rechecked; Markdown reference resolves, C2PA markers remain absent,
+  and `git diff --check` passes.
 
 ### 01-data-warehouse-and-bigquery-07-clustering-diagram.jpg
 
