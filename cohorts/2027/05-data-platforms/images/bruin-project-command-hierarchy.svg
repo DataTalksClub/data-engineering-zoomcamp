@@ -51,8 +51,8 @@
   <rect width="740" height="540" fill="#ffffff"/>
 
   <path class="edge" d="M370 130L370 200" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M250 250H275V430H300" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M490 250H465V430H440" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M370 300V340H180V380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M370 300V340H560V380" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <g class="node node-blue" transform="translate(250 30)" filter="url(#shadow)">
     <rect width="240" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>

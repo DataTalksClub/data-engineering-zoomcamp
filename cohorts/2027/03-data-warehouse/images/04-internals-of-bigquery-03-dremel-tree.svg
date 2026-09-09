@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="780" viewBox="0 0 1040 780" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="820" viewBox="0 0 1040 820" role="img" aria-labelledby="title desc">
   <title id="title">Dremel serving tree</title>
-  <desc id="desc">The Dremel serving tree: a root server rewrites SELECT A, COUNT(B) as SELECT A, SUM(C) and distributes it through mixers to leaf nodes, which read from Colossus.</desc>
+  <desc id="desc">The Dremel serving tree: a root server rewrites SELECT A, COUNT(B) as SELECT A, SUM(C) and distributes it through mixers to leaf nodes, which read column chunks from Colossus.</desc>
   <defs>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
       <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
@@ -13,10 +13,6 @@
     <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#64748b"/></marker>
     <symbol id="icon-api" viewBox="0 0 24 24">
         <path d="m8 5-5 7 5 7M16 5l5 7-5 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-    <symbol id="icon-database" viewBox="0 0 24 24">
-        <ellipse cx="12" cy="5" rx="8" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
-        <path d="M4 5v7c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12v7c0 1.66 3.58 3 8 3s8-1.34 8-3v-7" fill="none" stroke="currentColor" stroke-width="2"/>
       </symbol>
     <style>
       text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
@@ -40,18 +36,25 @@
       .center-detail { font-weight: 600; fill: #475569; text-anchor: middle; }
     </style>
   </defs>
-  <rect width="1040" height="780" fill="#ffffff"/>
+  <rect width="1040" height="820" fill="#ffffff"/>
 
+  <g class="node-boundary node-blue" transform="translate(80 590)">
+    <rect width="880" height="180" rx="22" fill="none" stroke="#2563eb"/>
+    <text class="boundary-title" x="20" y="31">Colossus</text>
+  </g>
   <path class="edge" d="M270 85L410 85" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M410 85H365V305H320" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M520 130V195H210V260" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M520 130L520 260" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M630 85H675V305H720" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M520 130V195H830V260" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M210 350L210 450" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M520 350L520 450" stroke="#64748b" marker-end="url(#arrow-gray)"/>
   <path class="edge" d="M830 350L830 450" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M320 495H210V660H100" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M520 540L520 630" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M720 495H830V660H940" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M210 540L210 650" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M210 540L210 650" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M520 540L520 650" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M520 540L520 650" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M830 540L830 650" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M830 540L830 650" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <g class="node node-plain node-blue" transform="translate(40 50)">
     <text class="node-title" x="115" y="27" font-size="17">SELECT A, COUNT(B)</text>
@@ -93,10 +96,19 @@
     <text class="node-title" x="110" y="38.12" font-size="17">Leaf node 23</text>
     <text class="node-subtitle" x="110" y="70" font-size="16">reads column chunks</text>
   </g>
-  <g class="node node-green" transform="translate(100 630)" filter="url(#shadow)">
-    <rect width="840" height="90" rx="18" fill="#ecfdf5" stroke="#15803d"/>
-    <use href="#icon-database" x="16" y="15" width="34" height="34" color="#15803d"/>
-    <text class="node-title icon-copy" x="62" y="38.12" font-size="17">Colossus</text>
-    <text class="node-subtitle" x="420" y="70" font-size="16">columnar storage</text>
+  <g class="node node-green" transform="translate(100 650)" filter="url(#shadow)">
+    <rect width="220" height="90" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <text class="node-title" x="110" y="38.12" font-size="17">Column chunks</text>
+    <text class="node-subtitle" x="110" y="70" font-size="16">tablet</text>
+  </g>
+  <g class="node node-green" transform="translate(410 650)" filter="url(#shadow)">
+    <rect width="220" height="90" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <text class="node-title" x="110" y="38.12" font-size="17">Column chunks</text>
+    <text class="node-subtitle" x="110" y="70" font-size="16">tablet</text>
+  </g>
+  <g class="node node-green" transform="translate(720 650)" filter="url(#shadow)">
+    <rect width="220" height="90" rx="18" fill="#ecfdf5" stroke="#15803d"/>
+    <text class="node-title" x="110" y="38.12" font-size="17">Column chunks</text>
+    <text class="node-subtitle" x="110" y="70" font-size="16">tablet</text>
   </g>
 </svg>
