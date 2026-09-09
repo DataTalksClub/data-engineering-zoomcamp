@@ -585,21 +585,25 @@ Postman chrome is removed only where it is outside the instructional UI.
   `27fef276a75fc4d517c18d46a15d247dd4f977ef27144153598583dad8cf78dd`.
 - Method: built-in imagegen, `scientific-educational`, using the original JPG
   and native crop as the only image inputs. Artifact:
-  `/home/alexey/.codex/generated_images/01a0855a-8dcc-7d72-a9cb-17410103997b/exec-bf8f8a56-79eb-4b1c-9c86-d753f05f7f9e.png`;
-  artifact SHA-256 `27dd31260ed9fbdfe52e46bded062156962101a852f39e498048c9b323b33b48`.
+  `/home/alexey/.codex/generated_images/01a0855a-8dcc-7d72-a9cb-17410103997b/exec-13700db3-1ced-4bf5-b0cd-ad45f986a8f1.png`;
+  artifact SHA-256 `618ab2467c3d273fab15e252c467eef52f6411a458ccdd9376f517ce5d6b147c`.
 - Published PNG: `01-data-warehouse-and-bigquery-05-partitioning-diagram-crisp.png`;
   byte-identical to the artifact; dimensions `1678×937`; final SHA-256
-  `27dd31260ed9fbdfe52e46bded062156962101a852f39e498048c9b323b33b48`.
-- C2PA: `urn:c2pa:cd945a7a-0515-4f2e-a292-519597e008d0`.
+  `618ab2467c3d273fab15e252c467eef52f6411a458ccdd9376f517ce5d6b147c`.
+- C2PA: `urn:c2pa:0d910e94-c0c4-4c09-826d-cd52476a4c20`.
 - Semantic checks: `Partition in BQ`, both table titles, `Creation_date`, all
   11 source rows, partition keys `20180301`, `20180302`, `20180303`, all
   grouped partition rows, the blue right-facing `Partition` arrow, exact
-  dates, values, labels, and punctuation are retained. No rows were added,
-  removed, or reordered.
+  dates, values, labels, and punctuation are retained. In particular,
+  `Help!!` (two exclamation marks) appears in both the source-table row and
+  the green `20180302` partition row; the prior `Help!` defect is corrected.
+  No rows were added, removed, or reordered.
 - Overlay/size validation: no browser, video, camera, cursor, selection,
   watermark, or other capture overlay; native output and proportional
-  `608×340` render were visually inspected and remained legible. Markdown
-  reference resolves and `git diff --check` passes.
+  `608×340` render (SHA-256
+  `30eb08b866dcec670286b8cafb262729f1c2d79fcdc0b0c7480c4384b541c1d2`)
+  were visually inspected and remained legible. Markdown reference resolves
+  and `git diff --check` passes.
 
 ### 01-data-warehouse-and-bigquery-04-external-table-details.jpg
 
