@@ -73,6 +73,30 @@ The crop files above were created with ImageMagick 6.9.12-98 Q16 x86_64
     convert <original.jpg> -crop <width>x<height>+<x>+<y> +repage -strip \
       -define png:exclude-chunk=tIME <target-imagegen-crop.png>
 
+## Strict semantic correction — explicit schema after review of `73be7e2`
+
+Independent review of commit `73be7e2` found that the lesson-04 schema output
+above was semantically wrong: it reproduced the inferred `StringType`,
+`LongType`, and `DoubleType` example from the source frame instead of the
+explicit schema taught by the live lesson. The prior row remains as historical
+provenance, but its published output is superseded by the correction below.
+
+The replacement was generated with the built-in imagegen tool from the
+original JPG and the retained native crop. The live source of truth is
+`04-first-look-at-spark.md` lines 109–123: `TimestampType` for both datetime
+fields, `IntegerType` for both location IDs, and `StringType` for
+`hvfhs_license_num`, `dispatching_base_num`, and `SR_Flag`, with the exact
+`types.StructType` / `types.StructField` code block. The previous crisp PNG was
+not supplied as an imagegen input. No resize, sharpening, or post-generation
+text edit was used; the generated artifact was copied byte-for-byte into the
+published target. Native output and a proportional 608px-wide lesson render
+were inspected. No webcam, editor/browser chrome, cursor, line-number gutter,
+selection, status-bar, or other overlay remains.
+
+| Published target | Original JPG SHA-256 | Retained native crop (geometry; SHA-256) | Imagegen artifact (path; SHA-256) | Published output SHA-256 | C2PA / validation |
+|---|---|---|---|---|---|
+| `images/04-first-look-at-spark-03-schema-structtype-crisp.png` | `93fdd5fe675c6c20b3362b8c7b5616e633076a0adc087bfb49fdbb68808c9ab2` | `x=45,y=28,w=455,h=300`; `27b60226e62ab1a502793c4c82ee587813bc6b97977a82edcd079783988052d3` | `/home/alexey/.codex/generated_images/01a084bb-4abf-70d1-baab-5bd6cc148624/exec-adf77ecb-2a8f-4c40-a569-04d634b4d953.png`; `c2ba8fde92920707571eb66328572b5c8b90c4b8cda0f820eba1d4125780fe9e` | `c2ba8fde92920707571eb66328572b5c8b90c4b8cda0f820eba1d4125780fe9e` | `urn:c2pa:f810f22c-3375-42b8-b3de-892009de35ba`; native `1672×941`, 608px `608×342`; exact lesson block retained, including `TimestampType`, `IntegerType`, `StringType`, `True`, field names, punctuation, and `types.` prefixes; no inferred types or capture overlays; published/artifact byte-identical. |
+
 ### Already-proven imagegen outputs left unchanged
 
 The audit rechecked but did not regenerate these five active lesson 01–05
