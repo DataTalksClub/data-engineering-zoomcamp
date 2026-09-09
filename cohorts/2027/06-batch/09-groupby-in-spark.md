@@ -51,7 +51,16 @@ With the `ORDER BY` there are three stages. Without it - two:
 - the first stage is the preparation for the group by
 - the second stage is the actual group by
 
-![Spark UI shows the scan, exchange, and final reduce stages](images/09-groupby-in-spark-02-three-stages-crisp.png)
+The three-stage plan can be represented as a static DAG:
+
+| Stage | Operators, top to bottom |
+| --- | --- |
+| 9 | `Scan parquet` → `WholeStageCodegen (1)` → `Exchange` |
+| 10 | `Exchange` → `WholeStageCodegen (2)` → `Exchange` |
+| 11 | `Exchange` → `WholeStageCodegen (3)` |
+
+The final `Exchange` in stage 9 feeds stage 10, and the final `Exchange` in
+stage 10 feeds stage 11.
 
 Let's unpack what these two stages mean.
 

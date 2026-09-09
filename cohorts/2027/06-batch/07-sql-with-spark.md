@@ -33,8 +33,6 @@ df_green = spark.read.parquet('data/pq/green/*/*')
 df_yellow = spark.read.parquet('data/pq/yellow/*/*')
 ```
 
-![The notebook reads the green and yellow parquet datasets](images/07-sql-with-spark-01-read-parquet-crisp.png)
-
 The two schemas are similar but not the same. Some fields are shared, like
 `fare_amount` and `congestion_surcharge`, but green has fields that yellow
 doesn't have (like `ehail_fee`) and the other way around. We want to keep
@@ -47,7 +45,28 @@ sets:
 set(df_green.columns) & set(df_yellow.columns)
 ```
 
-![The notebook lists the columns shared by the green and yellow DataFrames](images/07-sql-with-spark-02-common-columns-crisp.png)
+For these datasets, the intersection contains:
+
+```text
+{
+    'DOLocationID',
+    'PULocationID',
+    'RatecodeID',
+    'VendorID',
+    'congestion_surcharge',
+    'extra',
+    'fare_amount',
+    'improvement_surcharge',
+    'mta_tax',
+    'passenger_count',
+    'payment_type',
+    'store_and_fwd_flag',
+    'tip_amount',
+    'tolls_amount',
+    'total_amount',
+    'trip_distance'
+}
+```
 
 One problem: the pickup and dropoff time columns are named differently -
 `lpep_pickup_datetime` in green and `tpep_pickup_datetime` in yellow. We

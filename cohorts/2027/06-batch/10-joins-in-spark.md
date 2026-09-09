@@ -56,7 +56,17 @@ data and does the group by - that's green (or yellow, doesn't matter). The
 second one does the same for the other taxi type. And the third stage
 combines the two - the join itself.
 
-![Spark UI shows two scan stages feeding the sort-merge join DAG](images/10-joins-in-spark-02-sort-merge-join-stages-crisp.png)
+The plan can be represented as a static DAG. The two input branches stay
+separate until `SortMergeJoin`:
+
+```text
+Stage 53: Scan parquet -> WholeStageCodegen (3) -> Exchange
+Stage 54: Scan parquet -> WholeStageCodegen (1) -> Exchange
+Stage 55:
+  Exchange -> WholeStageCodegen (2) --\
+                                       -> SortMergeJoin -> WholeStageCodegen (5)
+  Exchange -> WholeStageCodegen (4) --/
+```
 
 ## How a join of two large tables works
 
@@ -172,8 +182,6 @@ Spark broadcasts the small table: it sends a full copy of it to every
 executor. Each executor processes its partition of the big table and does
 the join in memory: for each revenue record, it looks up the zone by ID and
 appends the zone information.
-
-![Spark UI shows the broadcast-exchange jobs](images/10-joins-in-spark-04-broadcast-exchange-crisp.png)
 
 No data needs to be shuffled - only the small table is sent around once.
 This is much, much faster than a sort merge join.
