@@ -481,16 +481,28 @@ Postman chrome is removed only where it is outside the instructional UI.
   complementarity 2, durability 1, caption/accessibility 2).
 - Decision: `crop/replace`; the terminal output demonstrates the `gsutil`
   copy and lists the downloaded model artifacts.
-- Preparation: deterministic crop `(x=0, y=0, width=628, height=350)`;
-  resized 2x with a light unsharp mask. Exact commands, paths, and output
-  were retained; no imagegen was used for terminal text.
-- Method: deterministic PNG sibling
-  `06-deploying-a-machine-learning-model-02-copy-model-local-cropped.png`.
-- Invariants checked: `/tmp/model`, `tip_model`, copied files, byte count,
-  and successful-operation output remain unchanged; terminal content is the
-  teaching target, with no face, camera tile, cursor, or unrelated chrome.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Preparation: the true native crop was verified directly from the JPG with
+  `convert 06-deploying-a-machine-learning-model-02-copy-model-local.jpg
+  -crop 630x350+0+0 +repage`; source-to-crop pixel comparison is exact.
+  The final terminal frame uses `(x=0, y=12, width=630, height=338)` from
+  that crop, removing only the browser/header strip and isolated cursor.
+- Method: deterministic 2x PNG sibling
+  `06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png`;
+  native terminal pixels were resized with Lanczos and a light unsharp pass.
+  No imagegen was used for exact terminal text.
+- Invariants checked: the exact command
+  `gsutil cp -r gs://taxi_ml_model/tip_model /tmp/model`, source and target
+  paths, shell prompts, copy output, and filenames
+  `DOLocationID.txt`, `PULocationID.txt`, `payment_type.txt`,
+  `saved_model.pb`, `variables/variables.data-00000-of-00001`, and
+  `variables/variables.index` remain in the same terminal relationship;
+  only browser/header chrome and cursor were removed.
+- Validation: source-to-native crop `compare -metric AE` = `0`; native and
+  608px renders were inspected for readability and clipping; SHA-256 and
+  metadata/C2PA checks were recorded (`crisp.png`:
+  `b321e206a394b6d3cdc7e11adad75080770b80a4b9417711001dae1312a4166c`,
+  no C2PA/JUMBF markers); Markdown reference resolves and `git diff --check`
+  passes.
 
 ### 06-deploying-a-machine-learning-model-03-docker-running.jpg
 
