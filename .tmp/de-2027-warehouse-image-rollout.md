@@ -624,15 +624,34 @@ Postman chrome is removed only where it is outside the instructional UI.
   complementarity 2, durability 1, caption/accessibility 2).
 - Decision: `crop/replace`; this is a distinct input state (`payment_type=2`)
   and response, so it is not a redundant copy of the preceding prediction.
-- Preparation: deterministic crop `(x=0, y=0, width=575, height=315)`;
-  resized 2x with a light unsharp mask. The exact request JSON, endpoint, and
-  response were retained while the terminal background was removed.
-- Method: deterministic PNG sibling
-  `06-deploying-a-machine-learning-model-06-predict-payment-type-2-cropped.png`.
-- Invariants checked: payment type `2`, request features, successful status,
-  and approximately `$0.26` prediction remain unchanged; surrounding
-  terminal, faces, camera tiles, cursors, and unrelated chrome are absent.
-- Validation: output visually inspected; Markdown reference resolves and
+- Updated: 2026-09-09.
+- Preparation: the true native crop is `640x320` at `(x=0, y=0)`; an
+  independent `convert` extraction reproduces it with `compare -metric AE =
+  0`. The original JPG and native crop were both sent to imagegen. The
+  generated candidate supplied only a clean bright Postman background; no
+  generated text, URL, payment type, or prediction was trusted.
+- Method: imagegen background canvas `1774x887`, followed by a deterministic
+  SVG overlay for the exact POST endpoint, request JSON, response metadata,
+  and prediction. No source enlargement, Lanczos resize, sharpening, or old
+  crisp derivative was used.
+- Invariants checked: `POST`,
+  `http://localhost:8501/v1/models/tip_model:predict`, all request feature
+  values (`passenger_count=1`, `trip_distance=12.2`, `PULocationID=193`,
+  `DOLocationID=264`, `payment_type=2`, `fare_amount=20.4`,
+  `tolls_amount=0.0`), `predictions`, `0.25916742680327297`, `200 OK`,
+  `9 ms`, and `159 B` remain exact. The final removes browser/recording
+  chrome, camera/face, cursor, scrollbar, and unrelated sidebar content.
+- Validation: final `1774x887` output SHA-256 is
+  `0a64f6f0bad7c67dbe89fda862eb9c1ca7b3e08136acf0c994e19707a0626671`;
+  imagegen canvas SHA-256 is
+  `825425491215c7de0fd417a37a8c78e4e4785edf8a481cb487fda86c1910b4b4`;
+  source JPG SHA-256 is
+  `09bd2719d206afa8f92885e189bac067e3b62bdcb7454b80217ff044b48730b06`.
+  The preparation crop is not a committed lesson asset; reviewers should
+  reproduce the source crop command rather than rely on scratch PNG
+  serialization hashes. Proportional `608x304` render SHA-256 is
+  `249c520a862aba04175b49fdf3b7953bb98c05091aabe07db5f7aab123bbb2f3`.
+  Final and 608px renders were inspected; Markdown reference resolves and
   `git diff --check` passes.
 
 ### 01-data-warehouse-and-bigquery-08-cluster-pruning.jpg
