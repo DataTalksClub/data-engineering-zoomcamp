@@ -36,20 +36,27 @@ The master has a web UI, but unlike the notebook-created cluster it is not
 on port 4040 - a standalone master listens on port 8080. Open it in the
 browser and you see the master with no workers connected yet:
 
-![The standalone Spark master web UI on port 8080, with no workers yet](images/14-creating-a-local-spark-cluster-01-spark-master-ui-crisp.png)
+The stable parts of the initial master view are:
 
-The master URL is shown at the top of the UI: `spark://de-zoomcamp...
-:7077`. This is the address that workers and applications use to connect.
-On a cloud virtual machine the hostname looks like
-`spark://de-zoomcamp.europe-west1-b.c.de-zoomcamp-nytaxi.internal:7077`;
-on your laptop it would be `spark://localhost:7077`.
+| Master UI check | Expected result |
+|---|---|
+| Web UI port | `8080` |
+| Status | `ALIVE` |
+| Workers | none registered |
+| Applications | none yet |
+| Master connection URL | `spark://<master-host>:7077` |
+
+The master URL is shown at the top of the UI as
+`spark://<master-host>:7077`. This is the address that workers and
+applications use to connect. Replace `<master-host>` with the hostname or
+address printed by your own master.
 
 ## Connecting to the master
 
 We can point our notebook at this master instead of `local[*]`:
 
 ```python
-master = "spark://de-zoomcamp.europe-west1-b.c.de-zoomcamp-nytaxi.internal:7077"
+master = "spark://<master-host>:7077"
 
 spark = SparkSession.builder \
     .appName('test') \
@@ -74,7 +81,7 @@ coordinates - the actual execution happens in workers, and we have none.
 In another terminal, still in the Spark directory, start one:
 
 ```bash
-URL="spark://de-zoomcamp.europe-west1-b.c.de-zoomcamp-nytaxi.internal:7077"
+URL="spark://<master-host>:7077"
 ./sbin/start-slave.sh ${URL}
 
 # for newer versions of spark use that:
@@ -83,9 +90,13 @@ URL="spark://de-zoomcamp.europe-west1-b.c.de-zoomcamp-nytaxi.internal:7077"
 
 Our Spark version is older, where a worker was called a slave - on newer
 versions the script is `start-worker.sh`. After starting it, the worker
-appears in the master UI:
+appears in the master UI. The stable parts of that next view are:
 
-![The worker is registered with the master and picks up the task](images/14-creating-a-local-spark-cluster-02-worker-registered-crisp.png)
+| Master UI check | Expected result |
+|---|---|
+| Workers | one worker registered |
+| Application state | the pending job can receive resources and run |
+| Runtime identifiers | host, IP, worker ID, application ID, and user values are local and omitted |
 
 Now the pending job gets resources and executes. The notebook application
 is connected to a real cluster with one worker.
@@ -156,7 +167,7 @@ they get. In practice this configuration lives outside the script, and
 the tool for supplying it is `spark-submit`, which ships with Spark:
 
 ```bash
-URL="spark://de-zoomcamp.europe-west1-b.c.de-zoomcamp-nytaxi.internal:7077"
+URL="spark://<master-host>:7077"
 
 spark-submit \
     --master="${URL}" \

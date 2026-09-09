@@ -15,9 +15,9 @@ for us, and we only submit jobs to it.
 In the Google Cloud console, open Dataproc. The first time, it asks you to
 enable the API - one click. Then click create cluster and configure it:
 
-- Name: `de-zoomcamp-cluster`.
+- Name: `<cluster-name>`.
 - Region and zone: pick the region where your bucket lives, so the cluster
-  is close to the data - our bucket is in `europe-west6` (Zurich).
+  is close to the data.
 - Cluster type: in practice you would use standard, one master plus
   several workers. Since we are just experimenting and our dataset is not
   large, single node is enough.
@@ -25,7 +25,15 @@ enable the API - one click. Then click create cluster and configure it:
   lets you run experiments right on the cluster - and Docker, which we
   will use in a later section.
 
-![Creating the Dataproc cluster in the Google Cloud console](images/15-setting-up-a-dataproc-cluster-01-create-cluster-crisp.png)
+The stable parts of the create-cluster form are:
+
+| Setting | Value |
+|---|---|
+| Cluster name | `<cluster-name>` |
+| Region and zone | the region and zone where the bucket lives |
+| Cluster type for this experiment | single node |
+| Additional components | Jupyter Notebook and Docker |
+| Machine types | defaults |
 
 Everything else - the machine types of the master and the workers - stays
 at the defaults. Click create, and after a few minutes the cluster is
@@ -45,7 +53,8 @@ bucket, into a `code` folder. In practice you would use a separate bucket
 for code, but for simplicity we put it into the same one:
 
 ```bash
-gsutil -m cp -r 06_spark_sql.py gs://dtc_data_lake_de-zoomcamp-nytaxi/code/06_spark_sql.py
+BUCKET="<bucket-name>"
+gsutil -m cp -r 06_spark_sql.py "gs://${BUCKET}/code/06_spark_sql.py"
 ```
 
 Remember that in the previous unit we removed the hardcoded master from
@@ -54,17 +63,14 @@ master itself.
 
 Open the cluster, click submit job, and fill in the form:
 
-- Job type: PySpark.
-- Main Python file: `gs://dtc_data_lake_de-zoomcamp-nytaxi/code/06_spark_sql.py`
-- No dependencies and no jar files are needed.
-- Arguments: the same three `--` arguments our script takes, with the
-  inputs and the output pointing at the bucket:
-
-* `--input_green=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/2021/*/`
-* `--input_yellow=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/yellow/2021/*/`
-* `--output=gs://dtc_data_lake_de-zoomcamp-nytaxi/report-2021`
-
-![The submit job form with the PySpark script and its arguments](images/15-setting-up-a-dataproc-cluster-02-submit-job-form-crisp.png)
+| Form field | Value |
+|---|---|
+| Job type | `PySpark` |
+| Main Python file | `gs://<bucket-name>/code/06_spark_sql.py` |
+| Dependencies and jar files | none |
+| `--input_green` | `gs://<bucket-name>/pq/green/2021/*/` |
+| `--input_yellow` | `gs://<bucket-name>/pq/yellow/2021/*/` |
+| `--output` | `gs://<bucket-name>/report-2021` |
 
 Submit and wait. The job page shows the driver output while it runs; when
 it finishes, the result is in the bucket: a `report-2021` folder with the
@@ -86,14 +92,18 @@ The SDK way is documented on the
 page. From the terminal of the virtual machine:
 
 ```bash
+CLUSTER_NAME="<cluster-name>"
+REGION="<bucket-region>"
+BUCKET="<bucket-name>"
+
 gcloud dataproc jobs submit pyspark \
-    --cluster=de-zoomcamp-cluster \
-    --region=europe-west6 \
-    gs://dtc_data_lake_de-zoomcamp-nytaxi/code/06_spark_sql.py \
+    --cluster="${CLUSTER_NAME}" \
+    --region="${REGION}" \
+    "gs://${BUCKET}/code/06_spark_sql.py" \
     -- \
-        --input_green=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/green/2020/*/ \
-        --input_yellow=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/yellow/2020/*/ \
-        --output=gs://dtc_data_lake_de-zoomcamp-nytaxi/report-2020
+        --input_green="gs://${BUCKET}/pq/green/2020/*/" \
+        --input_yellow="gs://${BUCKET}/pq/yellow/2020/*/" \
+        --output="gs://${BUCKET}/report-2020"
 ```
 
 Everything before the double minus configures the submission - cluster,
@@ -122,7 +132,15 @@ we saw in the web UI, and it finishes. Run it once more for a different
 year to see the parameterization at work - the 2020 report lands next to
 the 2021 one in the bucket.
 
-![Both reports in the bucket, computed by the Dataproc cluster](images/15-setting-up-a-dataproc-cluster-05-reports-in-bucket-crisp.png)
+The stable object layout is:
+
+```text
+<bucket-name>/
+├── code/
+├── pq/
+├── report-2020/
+└── report-2021/
+```
 
 When we wire this into Airflow later, the simplest possible approach is a
 BashOperator that runs exactly this `gcloud` command; there are also

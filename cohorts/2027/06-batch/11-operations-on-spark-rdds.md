@@ -245,16 +245,25 @@ the plan boxes look a bit different because of our maps. The reason there
 are two stages is `reduceByKey`: it needs the shuffle we know from the
 group by unit.
 
-![Spark UI shows the RDD job's two-stage DAG with partitionBy and mapPartitions](images/11-operations-on-spark-rdds-06-dag-two-stages-crisp.png)
+The stable shape of that execution plan is:
+
+| Part of the plan | Operations | Role |
+|---|---|---|
+| Before the shuffle | `filter` → `map` | Turn each row into a `(key, value)` pair in its input partition. |
+| Shuffle boundary | `partitionBy` / shuffle by key | Send records with the same key to the same partition. |
+| After the shuffle | `mapPartitions` / `reduceByKey` → `map` | Combine values for each key and unwrap the aggregate. |
+
+The same flow as a tree:
 
 ```text
-partition 1     partition 2     partition 3
-   filter          filter          filter
-   map             map             map      -> (key, value) records
-      \               |               /
-       + -------- shuffle by key ----- +
-                       |
-              reduceByKey per partition
+RDD rows
+└── stage before shuffle
+    ├── filter
+    └── map -> (key, value)
+        └── partitionBy / shuffle by key
+            └── stage after shuffle
+                ├── mapPartitions / reduceByKey
+                └── map / unwrap
 ```
 
 The map functions turn each record into a key/value pair, and all records
