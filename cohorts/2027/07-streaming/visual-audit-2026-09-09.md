@@ -25,7 +25,29 @@ The reviewer found no resize-only output, overlays, faces, unsupported exact
 details, or directional/layout defects. The full report is retained at
 `.tmp/workshop-processing/de-2027-m07/INDEPENDENT-REVIEW-BATCH-1.md`.
 
-Batch 2 is being generated and will be added only after the same original +
-crop + output review. The source audit remains the authority for candidates
-that must stay native or be removed; no historical unsupported visuals are
-being restored.
+## Published batch 2
+
+The following eight assets were generated from their original frame plus
+focused crop and passed independent review. The sixth candidate was corrected
+after review found that the first draft added unsupported backward and full
+compatibility panels; only the source-backed forward-compatibility diagram is
+published.
+
+| Lesson/video moment | Original frame SHA-256 | Focused crop SHA-256 | Published asset SHA-256 |
+| --- | --- | --- | --- |
+| 7.6 / `SXQtWyRpMKs` / 00:18:25 | `10a297e0104685425ac2cc302a61cd5a1c3ec2f01689b79d168fe82f194035a5` | `d19a8c3b29afebe6b25dfe5b99f9d134d8a5170b69f34273419165b30084048d` | `c4616444ed7b710a149c2978e5db28a02a918f2a9c7311cea7556a4c60c3e956` |
+| 7.10 / `r1OuLdwxbRc` / 00:02:06 | `d8a4de063f1146f548cb5ef1de5c660e1f47297da1995a4859f1cbe922522764` | `225b9a7fe2ff618843d6d4156e204f71579f35d77571da57c5d1e777aeb6c7fd` | `7a8ece112c8698486c3ece7e256d4693a6ddf16020bf49ce1d05c6925bb23ae8` |
+| 7.10 / `r1OuLdwxbRc` / 00:04:55 | `574f74470a04549a69ddf2d1078f021b4e7a33a39d594fcbdce27b16e34accaf` | `03977617acba1a1b66878fadb5f8a97a66e2769357612bb09e22fa3d5c679f85` | `eddfbc52a2283809a4df3622942e53b6d76d94a33784315cf8fb5ea0ae81b14a` |
+| 7.10 / `r1OuLdwxbRc` / 00:09:00 | `67e80e309cfe8bc79b8f59ac3b27226d6e1a9cdd1687cd8dfb30476829502dbf` | `bb995d6661d227330426f59fa435fd7570a27b62c76ff619a2b80e113f37711c` | `1368cbbdf3993097b11b6c21b277f369d3a8633bf5048ed9d95553e65a747200` |
+| 7.12 / `tBY_hBuyzwI` / 00:04:50 | `998612dc4715f15b586ba726277368d8bac3ad5e8641466b81b9fd1bc5f79e39` | `b41fbb1dea0cc62e16f7106e2da682f72bb8eb341293a0565418fa23ed641a08` | `19356f302de6b2ea5556a528a3f10148466eb98498bcd5a265669c49ba9d3380` |
+| 7.12 / `tBY_hBuyzwI` / 00:10:20 | `e5b4101dd702d0be3636f63370f923229db0b1dc276a374afb47695f1c746b9c` | `f2723e38e5cc72dd1a598ed19bac8f635d57be74a2ce949af727b79603601fa5` | `2a4d42db1a2cd9fd9c1bcb163ec5a2e2cfd9a6d556ea2509dd27d824b597294a` |
+| 7.7 / `dUyA_63eRb0` / 00:15:29 | `7f4e3dabfb578a5edc90f1d75885aadbe901493975f98b3e79723b5147122c20` | `00a8b05f6965cd9fa802b22462b81465d4714f7495503c8cf978ac10647ef4d1` | `81de3647b05b90f4aea931c57f0292948a1a7389cb21c010ea9bb54bfee84560` |
+| 7.9 / `TNx5rmLY8Pk` / 00:00:59 | `21e00efcaf32b434482c1275782e3473e3e2f7c7501d13c95e55032491fb47f5` | `70738347e4ab5d992846fb4554b59eb3e8d3c1f3c4124b7d7c36b106138d1b2b` | `8f3669da9bb9936910b995e23e6b867c2793485f22acec55e678701375776f81` |
+
+The batch-2 independent review is retained at
+`.tmp/workshop-processing/de-2027-m07/INDEPENDENT-REVIEW-BATCH-2.md`; the
+forward-compatibility correction and its independent PASS are recorded in
+`GENERATION-BATCH-2-FIX.md` and `INDEPENDENT-REVIEW-BATCH-2-FIX.md`.
+
+The source audit remains the authority for candidates that must stay native or
+be removed. No historical unsupported visuals are being restored.

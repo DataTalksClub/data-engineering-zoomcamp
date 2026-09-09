@@ -28,6 +28,8 @@ Code: [java/kafka_examples](java/kafka_examples)
 
 ![The Rides topic is divided into partitions distributed across separate Kafka nodes.](images/07-kafka-partitions-to-nodes-imagegen.png)
 
+![A consumer group assigns parallel Kafka partition lanes across its consumers.](images/07-kafka-consumer-group-partition-assignment-imagegen.png)
+
 Links:
 
 - [Slides](https://docs.google.com/presentation/d/1bCtdCba8v1HxJ_uMm9pwjRUC-NAMeB-6nOG2ng3KujA/edit?usp=sharing)
@@ -38,11 +40,28 @@ Links:
 ## Kafka Streams
 
 - [7.7 Kafka stream basics](https://youtu.be/dUyA_63eRb0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=73)
+
+![Kafka Streams groups records by key, counts each group, and emits keyed output.](images/07-kafka-key-count-flow-imagegen.png)
+
 - [7.8 Kafka stream join](https://youtu.be/NcpKlujh34Y&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=74)
 - [7.9 Kafka stream testing](https://youtu.be/TNx5rmLY8Pk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=75)
+
+![A Kafka Streams test topology joins two input topics and writes to an output topic.](images/07-kafka-testing-topology-imagegen.png)
+
 - [7.10 Kafka stream windowing](https://youtu.be/r1OuLdwxbRc&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=76)
+
+![A Global KTable replicates partitioned reference data into complete local copies.](images/07-kafka-global-ktable-replication-imagegen.png)
+
+![Two event streams produce join results inside a bounded join window.](images/07-kafka-stream-join-window-imagegen.png)
+
+![Tumbling windows divide stream time into equal adjacent non-overlapping intervals.](images/07-kafka-tumbling-window-timeline-imagegen.png)
+
 - [7.11 Kafka ksqlDB and Connect](https://youtu.be/DziQ4a4tn9Y&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=77)
 - [7.12 Kafka Schema registry](https://youtu.be/tBY_hBuyzwI&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=78)
+
+![A Schema Registry mediates schemas between producers, topics, and consumers.](images/07-kafka-schema-registry-flow-imagegen.png)
+
+![Forward compatibility lets a newer consumer expectation work with an older schema through the Schema Registry.](images/07-kafka-schema-forward-compatibility-imagegen.png)
 
 Links:
 
