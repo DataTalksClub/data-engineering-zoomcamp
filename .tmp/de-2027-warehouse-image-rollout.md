@@ -518,21 +518,49 @@ Postman chrome is removed only where it is outside the instructional UI.
 
 ### 01-data-warehouse-and-bigquery-08-cluster-pruning.jpg
 
-- Source: `01-data-warehouse-and-bigquery.md`, clustering query result.
+- Source: `01-data-warehouse-and-bigquery.md`, cluster-pruning query/result
+  surface.
 - Rubric: 11/12 (instructional contribution 2, relevance 2, readability 1,
   complementarity 2, durability 2, caption/accessibility 2).
-- Decision: `crop/replace`; the image supplies the query and measured
-  `843.5 MB` result needed to compare with the `1.1 GB` estimate.
-- Preparation: deterministic crop `(x=28, y=27, width=612, height=325)`;
-  resized 2x with a light unsharp mask. Exact SQL and result values were
-  retained rather than generated.
-- Method: deterministic PNG sibling
-  `01-data-warehouse-and-bigquery-08-cluster-pruning-cropped.png`.
-- Invariants checked: clustered table selection, query text, bytes processed,
-  and result row remain visible and unchanged; no face, camera tile, cursor,
-  or unrelated browser chrome is present.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Decision: `crop/replace`; the bounded interface makes the clustering
+  comparison concrete: the same date/vendor query processes `843.5 MB` on
+  the clustered table versus the `1.1 GB` estimate.
+- Preparation: original non-crisp source JPG is `640×360`, SHA-256
+  `9e30b6dfe4881a55f9188a144b5d0e50edc25e6e844d847c0aff8d2bb5046aec`.
+  The true native crop was made directly from that JPG with
+  `convert 01-data-warehouse-and-bigquery-08-cluster-pruning.jpg
+  -crop 612x325+28+27 +repage
+  .tmp/second-pass/warehouse-crops/01-data-warehouse-and-bigquery-08-cluster-pruning-crisp-source.png`,
+  i.e. `(x=28, y=27, width=612, height=325)`; its SHA-256 is
+  `d8327be8da3de35733d5ff07c51451fa3953813df7fb112854e2e64b4595e598`.
+  An independent ImageMagick comparison reports AE=0. The old
+  crisp/upscaled derivative was not used as an imagegen reference.
+- Imagegen gate: built-in imagegen received the original JPG and direct native
+  crop on every attempt. The C2PA-bearing candidates were rejected: the
+  first changed `GB` to `GiB` and misspelled tree labels; the second restored
+  outer browser/recording chrome; the third still misspelled
+  `yellow_tripdata_2019` and `yellow_tripdata_partitioned`. Candidate C2PA
+  claims were `urn:c2pa:dda53638-3a88-4362-9908-e096063fad41`,
+  `urn:c2pa:d6a27c9c-be56-440f-b734-b7a77c6b7bdc`, and
+  `urn:c2pa:f23d3144-5358-4535-9087-01f1dbdf040d`.
+- Method: deterministic vector-backed PNG sibling
+  `01-data-warehouse-and-bigquery-08-cluster-pruning-crisp.png`, rasterized
+  from the verified source facts after the exactness gate rejected imagegen.
+  Final SHA-256:
+  `4b1c26d38c41a95809b698f4a4c8bb2ad7717002301ecebfae8e4e5ec5b5280a`.
+- Invariants checked: every Explorer/table label, SQL line 46–61, `1.1 GB`,
+  `843.5 MB`, `VendorID=1`, both date literals, `europe-west3`, result row
+  `24227251`, syntax colors, selected clustered-table grouping, and the
+  partitioned-versus-clustered relationship remain exact; no face, camera,
+  browser/recording chrome, cursor, SQL selection, watermark, or overlay is
+  present. The final deterministic file intentionally makes no C2PA claim;
+  the rejected signed candidates and source/final hashes provide the
+  generation evidence.
+- Validation: final native size is `1672×941`; a proportional `608×342`
+  render was inspected and retains the complete status sentence
+  `This query will process 1.1 GB when run.` plus all long tree/query labels
+  without clipping. Markdown reference resolves, and `git diff --check`
+  passes.
 
 ### 01-data-warehouse-and-bigquery-07-clustering-diagram.jpg
 
