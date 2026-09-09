@@ -613,15 +613,31 @@ Postman chrome is removed only where it is outside the instructional UI.
 - Decision: `crop/replace`; the UI state proves the table is external and
   shows its zero-byte size, source URIs, and CSV format, but the original
   includes a thin capture frame and small text.
-- Preparation: deterministic crop `(x=28, y=25, width=612, height=330)`;
-  resized 2x with a light unsharp mask. The exact UI was not regenerated.
-- Method: deterministic PNG sibling
-  `01-data-warehouse-and-bigquery-04-external-table-details-cropped.png`.
-- Invariants checked: Explorer context, table details, source URI rows,
-  `0 B` size, `CSV` source format, and external-data heading remain visible;
-  no face, camera tile, cursor, or unrelated browser chrome is present.
-- Validation: output visually inspected; Markdown reference resolves and
-  `git diff --check` passes.
+- Preparation: true native crop `(x=28, y=25, width=600, height=333)` from
+  the original `640×360` JPG; crop dimensions `600×333`; crop SHA-256
+  `dca09fe6a1b5822675d50f1d10bdc33665306fd65baa100da197da914f0fa2a2`;
+  original JPG SHA-256
+  `e99856ef6c753bd1a72ed50299dae5f803b55ab7a4be3ea0fbb75d02b306d754`.
+- Method: deterministic native UI re-render from the original JPG and true
+  native crop; no imagegen text or values were used. Published PNG:
+  `01-data-warehouse-and-bigquery-04-external-table-details-crisp.png`;
+  dimensions `1200×666`; final SHA-256
+  `29cd3256be8d4075b31021ea3c73e8e9742efb981f5ec8dca3da82c79e32628e`.
+- C2PA: `urn:uuid:e0e35c90-de55-4c3b-8902-20d195b14d18`; `c2patool --info`
+  reports `Validated` with one manifest and the deterministic export claim.
+- Semantic checks: Explorer context, `external_yellow_tripdata`, table ID
+  `taxi-rides-ny.nytaxi.external_yellow_tripdata`, `0 B` table and long-term
+  storage sizes, blank source `Number of rows` and `Description` fields,
+  both `Jan 21, 2022, 2:25:24 PM UTC+5:30` timestamps, `NEVER` expiration,
+  `europe-west3`, both exact source URI rows, `true` auto-detect schema, and
+  `CSV` source format remain unchanged. No face, camera tile, cursor,
+  browser chrome, watermark, or unrelated overlay is present.
+- Overlay/size validation: native `1200×666` output and proportional
+  `608×337` render were visually inspected and remained legible; the 608px
+  render SHA-256 is
+  `91ff42c19e5e62c4a6cdf96692b152cf05c61283e4882d80bd3a0be037ef3fd0`
+  (deterministic render with all ancillary PNG chunks excluded).
+  Markdown reference resolves and `git diff --check` passes.
 
 ### 01-data-warehouse-and-bigquery-03-bigquery-cost.jpg
 
