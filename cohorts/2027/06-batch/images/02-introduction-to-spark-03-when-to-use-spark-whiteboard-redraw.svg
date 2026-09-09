@@ -55,8 +55,8 @@
     <rect x="-31" y="-16" width="62" height="32" rx="16.0" fill="#ffffff" stroke="#64748b"/>
     <text fill="#64748b">SQL</text>
   </g>
-  <path class="edge" d="M640 90H700V280H760" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge" d="M640 470H700V280H760" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M640 90H680V280H720" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge" d="M640 470H680V280H720" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <g class="node node-blue" transform="translate(40 230)" filter="url(#shadow)">
     <rect width="240" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
@@ -76,7 +76,7 @@
     <text class="node-title icon-copy" x="62" y="41.32" font-size="12">Hive · Presto · Athena</text>
     <text class="node-subtitle" x="120" y="75" font-size="16">if you can say it in SQL</text>
   </g>
-  <g class="node node-green" transform="translate(760 230)" filter="url(#shadow)">
+  <g class="node node-green" transform="translate(720 230)" filter="url(#shadow)">
     <rect width="240" height="100" rx="18" fill="#ecfdf5" stroke="#15803d"/>
     <use href="#icon-database" x="16" y="20" width="34" height="34" color="#15803d"/>
     <text class="node-title icon-copy" x="62" y="41.32" font-size="12">Data lake</text>

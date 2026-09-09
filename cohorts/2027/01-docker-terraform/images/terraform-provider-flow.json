@@ -2,13 +2,13 @@
   "title": "Terraform provider flow",
   "description": "Terraform runs on a local machine and manages resources in a cloud provider.",
   "canvas": {
-    "width": 940,
+    "width": 1240,
     "height": 280,
     "background": "#ffffff"
   },
   "layout": {
     "type": "manual",
-    "card_width": 220,
+    "card_width": 240,
     "card_height": 100
   },
   "nodes": [
@@ -27,7 +27,7 @@
       "subtitle": "infrastructure as code",
       "color": "amber",
       "icon": "settings",
-      "x": 360,
+      "x": 480,
       "y": 90
     },
     {
@@ -36,7 +36,7 @@
       "subtitle": "GCP \u00b7 AWS \u00b7 Azure",
       "color": "green",
       "icon": "environment",
-      "x": 680,
+      "x": 920,
       "y": 90
     }
   ],

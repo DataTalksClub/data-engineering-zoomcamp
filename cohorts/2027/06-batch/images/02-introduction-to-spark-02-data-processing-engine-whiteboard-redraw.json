@@ -35,11 +35,12 @@
     {
       "id": "spark",
       "title": "Spark",
-      "subtitle": "Java \u00b7 Scala \u00b7 PySpark",
+      "subtitle": "Java \u00b7 Scala \u00b7 Python \u00b7 R",
       "color": "amber",
       "icon": "settings",
       "x": 400,
-      "y": 100
+      "y": 100,
+      "width": 300
     },
     {
       "id": "ex1",

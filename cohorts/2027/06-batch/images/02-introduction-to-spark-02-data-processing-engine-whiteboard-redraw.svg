@@ -52,8 +52,8 @@
   </g>
   <path class="edge-boundary-halo" d="M260 150L400 150" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
   <path class="edge" d="M260 150L400 150" stroke="#64748b" marker-end="url(#arrow-gray)"/>
-  <path class="edge-boundary-halo" d="M620 150L860 150" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <path class="edge" d="M620 150L860 150" stroke="#64748b" marker-end="url(#arrow-gray)"/>
+  <path class="edge-boundary-halo" d="M700 150L860 150" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="edge" d="M700 150L860 150" stroke="#64748b" marker-end="url(#arrow-gray)"/>
 
   <g class="node node-blue" transform="translate(40 100)" filter="url(#shadow)">
     <rect width="220" height="100" rx="18" fill="#eff6ff" stroke="#2563eb"/>
@@ -62,10 +62,10 @@
     <text class="node-subtitle" x="110" y="75" font-size="16">distributed storage</text>
   </g>
   <g class="node node-amber" transform="translate(400 100)" filter="url(#shadow)">
-    <rect width="220" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
+    <rect width="300" height="100" rx="18" fill="#fff7ed" stroke="#c2410c"/>
     <use href="#icon-settings" x="16" y="20" width="34" height="34" color="#c2410c"/>
     <text class="node-title icon-copy" x="62" y="44.2" font-size="20">Spark</text>
-    <text class="node-subtitle" x="110" y="75" font-size="16">Java · Scala · PySpark</text>
+    <text class="node-subtitle" x="150" y="75" font-size="16">Java · Scala · Python · R</text>
   </g>
   <g class="node-icon-only node-purple" transform="translate(420 260)">
     <use href="#icon-container" x="0" y="0" width="48" height="48" color="#7c3aed"/>
