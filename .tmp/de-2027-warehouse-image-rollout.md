@@ -481,28 +481,40 @@ Postman chrome is removed only where it is outside the instructional UI.
   complementarity 2, durability 1, caption/accessibility 2).
 - Decision: `crop/replace`; the terminal output demonstrates the `gsutil`
   copy and lists the downloaded model artifacts.
+- Updated: 2026-09-09.
 - Preparation: the true native crop was verified directly from the JPG with
   `convert 06-deploying-a-machine-learning-model-02-copy-model-local.jpg
   -crop 630x350+0+0 +repage`; source-to-crop pixel comparison is exact.
   The final terminal frame uses `(x=0, y=12, width=630, height=338)` from
   that crop, removing only the browser/header strip and isolated cursor.
-- Method: deterministic 2x PNG sibling
-  `06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png`;
-  native terminal pixels were resized with Lanczos and a light unsharp pass.
-  No imagegen was used for exact terminal text.
+- Method: imagegen was used once with both the retained original JPG and the
+  true native crop. The generated `1712x919` candidate was used only as a
+  clean, text-free terminal background; its text/content role was rejected,
+  so imagegen supplied no command, URL, path, filename, number, or output
+  value. The final `1712x919` PNG sibling
+  `06-deploying-a-machine-learning-model-02-copy-model-local-crisp.png` is a
+  deterministic vector/text overlay in `DejaVu Sans Mono` over that background;
+  no source enlargement, Lanczos resize, sharpening, or old crisp derivative
+  was used. The first deterministic draft was rejected after source review
+  because it rendered `[5 files]`; it was rebuilt with the source-verified
+  `[6 files]` value and was not committed.
 - Invariants checked: the exact command
   `gsutil cp -r gs://taxi_ml_model/tip_model /tmp/model`, source and target
-  paths, shell prompts, copy output, and filenames
+  paths, the setup commands, shell prompts, copy output, transfer counts,
+  and filenames
   `DOLocationID.txt`, `PULocationID.txt`, `payment_type.txt`,
   `saved_model.pb`, `variables/variables.data-00000-of-00001`, and
   `variables/variables.index` remain in the same terminal relationship;
   only browser/header chrome and cursor were removed.
 - Validation: source-to-native crop `compare -metric AE` = `0`; native and
-  608px renders were inspected for readability and clipping; SHA-256 and
-  metadata/C2PA checks were recorded (`crisp.png`:
-  `b321e206a394b6d3cdc7e11adad75080770b80a4b9417711001dae1312a4166c`,
-  no C2PA/JUMBF markers); Markdown reference resolves and `git diff --check`
-  passes.
+  608px renders were visually inspected for readability, clipping, and
+  absence of face/camera/browser/cursor artifacts; final native output is
+  `1712x919`, SHA-256
+  `a8e16e7c03ed851ee50baebbf3d5786167afd03b82a9a7eb8298004a4a74964c`,
+  and proportional `608x326` render SHA-256
+  `e3fa0231e60f19460b4ae497dca247c52c1d8983e7ec4df884f2c08dc25384fa`.
+  Final PNG contains no C2PA/JUMB markers; Markdown reference resolves and
+  `git diff --check` passes.
 
 ### 06-deploying-a-machine-learning-model-03-docker-running.jpg
 
