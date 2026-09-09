@@ -13,9 +13,10 @@ source audit. The first pass found 41 live image references:
 
 After the cleanup, the lessons contain 14 live image references and no live
 `*-crisp.png` screenshot references. The exact captures removed from lessons
-11–15 were deleted in commit `81213ef`; their source frames, crops, and audit
-records remain in the scratch evidence area and in the tracked follow-up
-provenance document.
+11–15 were deleted in commit `81213ef`. A final independent reference audit
+then found four unreferenced legacy `*-crisp.png` artifacts; those were deleted
+in commit `5231444`. Source frames, focused crops, and audit records remain in
+the scratch evidence area and in the tracked follow-up provenance document.
 
 ## Quality gate
 
@@ -51,6 +52,9 @@ code, a table, or a deterministic diagram.
   area.
 - Lesson 11–15 native cleanup: `CLEANUP-11-15.md` in the processing evidence
   area.
+- Final reference audit: `FINAL-INDEPENDENT-REVIEW.md` in the processing
+  evidence area; it verified 14/14 live references and identified the four
+  stale artifacts removed in `5231444`.
 - Source/crop/output hashes and generation notes: `2026-09-09-follow-up-provenance.md`.
 
 The processing evidence is intentionally kept outside the course tree; the
