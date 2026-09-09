@@ -15,6 +15,8 @@ Each asset file contains two parts:
 
 *An asset joins a file type to its definition, execution behavior, materialization, and dependency relationships.*
 
+![Three upstream assets converge through a transform into one downstream asset.](images/bruin-asset-lineage-imagegen.png)
+
 ## Asset Types
 
 | Type | Description | Use Case |

@@ -16,6 +16,8 @@ All assets have dependencies that create the data lineage Bruin uses for orchest
 
 *The three layers separate raw extraction, cleaning and joins, and business-facing aggregations while preserving lineage.*
 
+![A Bruin pipeline separates raw ingestion, staging transformations, and business-facing reports while preserving lineage.](images/bruin-pipeline-lineage-imagegen.png)
+
 ## Project setup
 
 Initialize from the zoomcamp template:
