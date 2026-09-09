@@ -158,6 +158,8 @@ Refer to the provided [datasets](datasets.md) for possible selection.
 * [CI/CD for Airflow (with GitHub and S3 state file)](https://programmaticponderings.com/2021/12/14/devops-for-dataops-building-a-ci-cd-pipeline-for-apache-airflow-dags/)
 * [CD for Terraform](https://medium.com/towards-data-science/git-actions-terraform-for-data-engineers-scientists-gcp-aws-azure-448dc7c60fcc)
 * [Spark + Airflow](https://medium.com/doubtnut/github-actions-airflow-for-automating-your-spark-pipeline-c9dff32686b)
+* [dbt and Airflow Spiritual Alignment](https://docs.getdbt.com/blog/dbt-airflow-spiritual-alignment) — orchestrating dbt with Airflow; the trial dbt account exposes a dbt API, so an Airflow Python operator can trigger the job ([example code](https://github.com/sungchun12/airflow-toolkit/blob/95d40ac76122de337e1b1cdc8eed35ba1c3051ed/dags/examples/dbt_cloud_example.py)) — don't commit the API key or job ID
+* [Airflow DataProc operators](https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/operators/dataproc/index.html) — give the service account the DataProc Administrator and Service Account User roles ([why](https://stackoverflow.com/questions/63941429/user-not-authorized-to-act-as-service-account-when-using-workload-identity)), and when using `DataprocSubmitPySparkJobOperator` add the BigQuery connector jar (`gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.24.0.jar`), since DataProc doesn't include it by default
 
 
 ### Projects Gallery
