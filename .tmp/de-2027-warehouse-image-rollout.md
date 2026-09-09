@@ -298,10 +298,14 @@ Postman chrome is removed only where it is outside the instructional UI.
   unrelated overlay is present.
 - C2PA/evidence: the final deterministic PNG contains no C2PA/JUMBF/AI
   metadata strings. Final SHA-256 is
-  `cd067aab23de22e97238c394faa0a517bcd8e7124a593093a7d27a98ef17cd9a`.
+  `3d17f112d1d4a942889d4a1fcba26f1c838c66a448bbbd90e31ec306255c8aec`.
+- Layout correction: the Generate Recommendations example node height was
+  increased from `99` to `118` pixels; `Product recommendation` and
+  `Create personalized content` remain exact and fully inside the border,
+  with all existing branch relationships unchanged.
 - Validation: native output is `1672×941`; proportional `608×342` render
   SHA-256 is
-  `209d21d160f2fbc32c85e673e2451ea277f97878555dc8b1917e0528c2f8d262`.
+  `49ef215921e9785f0ef915ee6a9bc3b2c00c7aecd2dda8b1c85bb5b9185ae6b4`.
   Both renders were visually inspected for readable exact text, complete
   relationships, and no clipping; all four native corners are white.
   Markdown reference resolves and `git diff --check` passes.
