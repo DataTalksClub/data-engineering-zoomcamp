@@ -9,10 +9,24 @@ Code: [java/kafka_examples](java/kafka_examples)
 
 - [7.0.1 Introduction](https://youtu.be/hfvju3iOIP0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=67)
 - [7.0.2 What is stream processing](https://youtu.be/WxTxKGcfA-k&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=68)
+
+![Two source streams pass through separate Kafka and Spark topics before reaching realtime consumers.](images/07-stream-processing-two-topic-flow-imagegen.png)
+
 - [7.3 What is Kafka?](https://youtu.be/zPLZUDPi4AY&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=69)
+
+![One data point fans out into multiple event slots inside a Kafka topic.](images/07-kafka-event-fanout-to-partitions-imagegen.png)
+
+![A Kafka-backed notice board routes producer messages through separate topics to consumers.](images/07-kafka-notice-board-topics-imagegen.png)
+
 - [7.4 Confluent Cloud](https://youtu.be/ZnEZFEYKppw&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=70)
 - [7.5 Kafka producer consumer](https://youtu.be/aegTuyxX7Yg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=71)
 - [7.6 Kafka configuration](https://youtu.be/SXQtWyRpMKs&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=72)
+
+![A Kafka topic has a leader and follower replicas, with consumers reading from the leader.](images/07-kafka-replication-imagegen.png)
+
+![Kafka retention keeps recent records inside a retention window and expires older records.](images/07-kafka-retention-window-imagegen.png)
+
+![The Rides topic is divided into partitions distributed across separate Kafka nodes.](images/07-kafka-partitions-to-nodes-imagegen.png)
 
 Links:
 

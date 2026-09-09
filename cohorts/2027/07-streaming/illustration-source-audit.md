@@ -2,12 +2,19 @@
 
 **Audit date:** 2026-09-09
 
+> **Superseded status:** The initial blocked attempt recorded below was
+> superseded after the DataImpulse source/frame pass completed. The current
+> source inventory is `/home/alexey/git/.tmp/workshop-processing/de-2027-m07/STATUS.md`;
+> the first six published conceptual assets and their independent review are
+> recorded in `visual-audit-2026-09-09.md` and the scratch report
+> `.tmp/workshop-processing/de-2027-m07/INDEPENDENT-REVIEW-BATCH-1.md`.
+
 **Scope:** `cohorts/2027/07-streaming` and source workshop
 `07-streaming/workshop`
 
 **Source:** [YDUgFeHQzJU](https://www.youtube.com/watch?v=YDUgFeHQzJU)
 
-**Status:** blocked before frame extraction
+**Status:** superseded historical attempt (blocked before frame extraction)
 
 ## Outcome
 
