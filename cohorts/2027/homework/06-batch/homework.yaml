@@ -1,0 +1,20 @@
+schema_version: 2
+content_id: cdca9857-2ac4-4c18-b662-187a54ea9939
+slug: hw06
+title: "Module 6 Homework [DRAFT]"
+instructions_path: homework.md
+due_at: "2027-02-22T21:59:00Z"
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: c4d43fd3-54ed-4850-8ee3-52559c099ff3
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: "Describe one practical idea you took from this module."
+    points: 0

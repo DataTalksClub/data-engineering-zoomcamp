@@ -1,0 +1,20 @@
+schema_version: 2
+content_id: 4f639376-4a83-440c-9714-b340cb6c69cd
+slug: hw04
+title: "Module 4 Homework: Analytics Engineering with dbt [DRAFT]"
+instructions_path: homework.md
+due_at: "2027-02-08T21:59:00Z"
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 52d7fe57-84fd-4709-bf17-68ec125cf6c0
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: "Describe one practical idea you took from this module."
+    points: 0

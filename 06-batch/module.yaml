@@ -1,0 +1,52 @@
+schema_version: 2
+content_id: 298d9162-f7db-448a-b606-c477902a0503
+title: "Batch Processing"
+units:
+  - content_id: b752089b-6bf1-472a-a043-01dfe45a9c95
+    title: "Introduction to Batch Processing"
+    path: 01-introduction-to-batch-processing.md
+  - content_id: e2799195-99c4-449c-99dc-68bf8c70b90a
+    title: "Introduction to Spark"
+    path: 02-introduction-to-spark.md
+  - content_id: 32a4635a-211c-46cf-b12a-981593f7f28d
+    title: "Installing Spark"
+    path: 03-installing-spark.md
+  - content_id: fb271c55-3d41-4c40-af4b-7d9a0153e653
+    title: "First Look at Spark/PySpark"
+    path: 04-first-look-at-spark.md
+  - content_id: 9080486e-36b1-4fe1-b994-004a68b9be79
+    title: "Spark DataFrames"
+    path: 05-spark-dataframes.md
+  - content_id: 6bd2d36e-bee0-4114-8b56-faa7a8dbd292
+    title: "Preparing Yellow and Green Taxi Data"
+    path: 06-preparing-taxi-data.md
+  - content_id: 594618cc-79e9-4d17-a914-bd4fc9ba9845
+    title: "SQL with Spark"
+    path: 07-sql-with-spark.md
+  - content_id: 954c49d3-cd63-437d-8c79-9cfc06a64ac2
+    title: "Anatomy of a Spark Cluster"
+    path: 08-anatomy-of-a-spark-cluster.md
+  - content_id: 5d883172-a94a-4cc8-9278-c04f3adf66b9
+    title: "GroupBy in Spark"
+    path: 09-groupby-in-spark.md
+  - content_id: 824bd2d8-dd90-4ec1-81f0-1f6c06d841e6
+    title: "Joins in Spark"
+    path: 10-joins-in-spark.md
+  - content_id: a94dd7e0-e90f-470a-9efd-7fa0c398260d
+    title: "Operations on Spark RDDs"
+    path: 11-operations-on-spark-rdds.md
+  - content_id: deeb63f0-deb5-4931-a7e5-ca087d8199c5
+    title: "Spark RDD mapPartition"
+    path: 12-spark-rdd-mappartition.md
+  - content_id: f3c4ae39-6b2d-4ad3-b38f-5f2d6ada469f
+    title: "Connecting to Google Cloud Storage"
+    path: 13-connecting-to-google-cloud-storage.md
+  - content_id: 0adbd1ec-232f-4b5b-86c8-09dfcd4dacf7
+    title: "Creating a Local Spark Cluster"
+    path: 14-creating-a-local-spark-cluster.md
+  - content_id: 340be5ad-a530-4607-ae0b-0410522eed48
+    title: "Setting up a Dataproc Cluster"
+    path: 15-setting-up-a-dataproc-cluster.md
+  - content_id: 78bd0206-e7fa-48ab-98f4-ac1e7f9c44bd
+    title: "Connecting Spark to BigQuery"
+    path: 16-connecting-spark-to-bigquery.md

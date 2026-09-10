@@ -1,0 +1,20 @@
+schema_version: 2
+content_id: 667f04e4-8c67-4bf6-82f2-d08ef4213ba4
+slug: hw07
+title: "Homework [DRAFT]"
+instructions_path: homework.md
+due_at: "2027-03-01T21:59:00Z"
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 1f32d0ef-8cb7-4c4b-aa75-bd57396eb0fb
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: "Describe one practical idea you took from this module."
+    points: 0

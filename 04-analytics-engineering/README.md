@@ -1,95 +1,32 @@
-# Module 4: Analytics Engineering
+# Analytics Engineering
 
-Goal: Transforming the data loaded in DWH into Analytical Views developing a [dbt project](taxi_rides_ny/README.md).
+## Units
 
-### Prerequisites
-
-The prerequisites depend on which setup path you choose:
-
-**For Cloud Setup (BigQuery):**
-
-- Completed [Module 3: Data Warehouse](../03-data-warehouse/) with:
-  - A GCP project with BigQuery enabled
-  - Service account with BigQuery permissions
-  - NYC taxi data loaded into BigQuery (yellow and green taxi data for 2019-2020)
-
-**For Local Setup (DuckDB):**
-
-- No prerequisites! The local setup guide will walk you through downloading and loading the data.
-
-> [!NOTE]
-> This module focuses on **yellow and green taxi data** (2019-2020). While Module 3 may have included FHV data, it is not used in this dbt project.
-
-## Setting up your environment
-
-Choose your setup path:
-
-### 🏠 [Local Setup](setup/local_setup.md)
-
-- **Stack**: DuckDB + dbt Core
-- **Cost**: Free
-- [→ Get Started](setup/local_setup.md)
-
-### ☁️ [Cloud Setup](setup/cloud_setup.md)
-
-- **Stack**: BigQuery + dbt Cloud
-- **Cost**: Free tier available (dbt Cloud Developer), BigQuery costs vary
-- **Requires**: Completed Module 3 with BigQuery data
-- [→ Get Started](setup/cloud_setup.md)
-
-## Content
-
-### Introduction to Analytics Engineering
-
-[![](images/thumbnail-HxMIsPrIyGQ.jpg)](https://www.youtube.com/watch?v=HxMIsPrIyGQ)
-
-### Introduction to data modeling
-
-[![](images/thumbnail-uF76d5EmdtU.jpg)](https://www.youtube.com/watch?v=uF76d5EmdtU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=40)
-
-### What is dbt?
-
-[![](images/thumbnail-gsKuETFJr54.jpg)](https://www.youtube.com/watch?v=gsKuETFJr54&list=PLaNLNpjZpzwgneiI-Gl8df8GCsPYp_6Bs&index=5)
-
-### Differences between dbt Core and dbt Cloud
-
-[![](images/thumbnail-auzcdLRyEIk.jpg)](https://www.youtube.com/watch?v=auzcdLRyEIk)
-
-### Project Setup
-
-| Alternative A  | Alternative B   |
-|-----------------------------|--------------------------------|
-| BigQuery + dbt Platform | DuckDB + dbt core |
-| [![](images/thumbnail-GFbwlrt6f54.jpg)](https://www.youtube.com/watch?v=GFbwlrt6f54) | [![](images/thumbnail-GoFAbJYfvlw.jpg)](https://www.youtube.com/watch?v=GoFAbJYfvlw) |
-
-### dbt Course
-
-| dbt Project Structure | dbt Sources | dbt Models | Seeds and Macros |
-|-----------------------|-------------|------------|------------------|
-| [![](images/thumbnail-2dYDS4OQbT0.jpg)](https://www.youtube.com/watch?v=2dYDS4OQbT0) | [![](images/thumbnail-7CrrXazV_8k.jpg)](https://www.youtube.com/watch?v=7CrrXazV_8k) | [![](images/thumbnail-JQYz-8sl1aQ.jpg)](https://www.youtube.com/watch?v=JQYz-8sl1aQ) | [![](images/thumbnail-lT4fmTDEqVk.jpg)](https://www.youtube.com/watch?v=lT4fmTDEqVk) |
-
-| dbt Tests | Documentation | dbt Packages | dbt Commands |
-|-----------|---------------|----------------------|---------------|
-| [![](images/thumbnail-bvZ-rJm7uMU.jpg)](https://www.youtube.com/watch?v=bvZ-rJm7uMU) | [![](images/thumbnail-UqoWyMjcqrA.jpg)](https://www.youtube.com/watch?v=UqoWyMjcqrA) | [![](images/thumbnail-KfhUA9Kfp8Y.jpg)](https://www.youtube.com/watch?v=KfhUA9Kfp8Y) | [![](images/thumbnail-t4OeWHW3SsA.jpg)](https://www.youtube.com/watch?v=t4OeWHW3SsA) |
-
-## Troubleshooting
-
-- [DuckDB Troubleshooting Guide](setup/duckdb_troubleshooting.md) — If you're getting OOM errors during `dbt build` with DuckDB
-
-## Extra resources
-
-> [!NOTE]
-> If you find the videos above overwhelming, we recommend completing the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course and then rewatching the module. It provides a solid foundation for all the key concepts you need in this module.
-
-## SQL refresher
-
-The homework for this module focuses heavily on window functions and CTEs. If you need a refresher on these topics, you can refer to these notes.
-
-* [SQL refresher](refreshers/SQL.md)
+1. [Analytics Engineering Basics](01-analytics-engineering-basics.md)
+2. [What is dbt?](02-what-is-dbt.md)
+3. [dbt Core vs dbt Cloud](03-dbt-core-vs-dbt-cloud.md)
+4. [dbt Project Structure](04-dbt-project-structure.md)
+5. [dbt Sources](05-dbt-sources.md)
+6. [dbt Models](06-dbt-models.md)
+7. [dbt Seeds and Macros](07-dbt-seeds-and-macros.md)
+8. [Documentation](08-documentation.md)
+9. [dbt Tests](09-dbt-tests.md)
+10. [dbt Packages](10-dbt-packages.md)
+11. [dbt Commands](11-dbt-commands.md)
 
 ## Homework
 
-* [2026 Homework](../cohorts/2026/04-analytics-engineering/homework.md)
+
+## Setup guides
+
+* [Local setup (DuckDB + dbt Core)](setup/local_setup.md)
+* [Cloud setup (BigQuery + dbt Cloud)](setup/cloud_setup.md)
+* [DuckDB troubleshooting](setup/duckdb_troubleshooting.md)
+
+## Companion files
+
+* [`taxi_rides_ny/`](taxi_rides_ny/) — the dbt project built in this module
+* [SQL refresher](refreshers/SQL.md)
 
 # Community notes
 

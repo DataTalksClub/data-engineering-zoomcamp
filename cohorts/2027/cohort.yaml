@@ -1,42 +1,24 @@
-schema_version: 1
-content_id: de-zoomcamp/2027
-course: de-zoomcamp
+schema_version: 2
+content_id: c59e98a5-654f-4971-93c2-b49e4d6b2b14
 identifier: "2027"
-legacy_slug: de-zoomcamp-2027
-year: 2027
-title: Data Engineering Zoomcamp 2027
-description: The 2027 live delivery of Data Engineering Zoomcamp.
-format: modules
-# Draft: the cohort is unpublished and the dates below are placeholders
-# until the schedule is confirmed.
-#
-# Do not flip this to true yet — that is a publishing decision to make after
-# the schedule is confirmed. The module 03 and 06 lesson notes were authored
-# on 2026-09-06 (previously they were bare scaffolds marked SCAFFOLD-NO-WRITEUP;
-# that grep now finds nothing). There is no per-module or per-unit publish
-# flag, so this line is the only thing keeping the cohort off the site.
+course: de-zoomcamp
+delivery: live
 published: false
-start_date: 2027-01-11
-end_date: 2027-04-05
-flow:
-  - module:
-      source: cohorts/2027/01-docker-terraform/module.yaml
-      homework: cohorts/2027/01-docker-terraform/homework.yaml
-  - module:
-      source: cohorts/2027/02-workflow-orchestration/module.yaml
-      homework: cohorts/2027/02-workflow-orchestration/homework.yaml
-  - module:
-      source: cohorts/2027/03-data-warehouse/module.yaml
-      homework: cohorts/2027/03-data-warehouse/homework.yaml
-  - module:
-      source: cohorts/2027/04-analytics-engineering/module.yaml
-      homework: cohorts/2027/04-analytics-engineering/homework.yaml
-  - module:
-      source: cohorts/2027/05-data-platforms/module.yaml
-      homework: cohorts/2027/05-data-platforms/homework.yaml
-  - module:
-      source: cohorts/2027/06-batch/module.yaml
-      homework: cohorts/2027/06-batch/homework.yaml
-  - module:
-      source: cohorts/2027/07-streaming/module.yaml
-      homework: cohorts/2027/07-streaming/homework.yaml
+start_date: "2027-01-11"
+end_date: "2027-04-05"
+curriculum: current
+homework:
+  - module: 01-docker-terraform
+    source: cohorts/2027/homework/01-docker-terraform/homework.yaml
+  - module: 02-workflow-orchestration
+    source: cohorts/2027/homework/02-workflow-orchestration/homework.yaml
+  - module: 03-data-warehouse
+    source: cohorts/2027/homework/03-data-warehouse/homework.yaml
+  - module: 04-analytics-engineering
+    source: cohorts/2027/homework/04-analytics-engineering/homework.yaml
+  - module: 05-data-platforms
+    source: cohorts/2027/homework/05-data-platforms/homework.yaml
+  - module: 06-batch
+    source: cohorts/2027/homework/06-batch/homework.yaml
+  - module: 07-streaming
+    source: cohorts/2027/homework/07-streaming/homework.yaml

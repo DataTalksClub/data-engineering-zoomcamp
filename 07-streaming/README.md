@@ -1,12 +1,33 @@
-# Module 7: Stream Processing
+# Streaming
 
-Video: https://www.youtube.com/live/YDUgFeHQzJU
+## Units
 
-- [PyFlink workshop](workshop/) - build a real-time streaming pipeline step by step (Redpanda, Python, Flink, PostgreSQL)
-- [Homework](../cohorts/2026/07-streaming/homework.md)
-- [Kafka theory](theory/) - video lectures on Kafka concepts with Java code examples (optional)
-- [Extras](extras/) - supplementary Python and PyFlink examples from previous years (optional)
+1. [PyFlink: Stream Processing Workshop](01-introduction.md)
+2. [Redpanda - a Kafka-compatible broker](02-redpanda.md)
+3. [Produce messages to Kafka](03-produce-messages-to-kafka.md)
+4. [Consume messages with Python](04-consume-messages-with-python.md)
+5. [Save events to PostgreSQL](05-save-events-to-postgresql.md)
+6. [Why Flink?](06-why-flink.md)
+7. [The Flink image and services](07-the-flink-image-and-services.md)
+8. [The pass-through Flink job](08-the-pass-through-flink-job.md)
+9. [Offsets - earliest vs latest](09-offsets-earliest-vs-latest.md)
+10. [Aggregation with tumbling windows](10-aggregation-with-tumbling-windows.md)
+11. [Late events and upserts](11-late-events-and-upserts.md)
+12. [Understanding window types](12-understanding-window-types.md)
+13. [Cleanup](13-cleanup.md)
+14. [Q&A](14-questions-and-answers.md)
 
+## Homework
+
+
+## Workshop code
+
+* [`code/`](code/) — the PyFlink workshop project (Redpanda, Python, Flink, PostgreSQL)
+
+## Optional material
+
+* [Kafka theory](theory/) — video lectures on Kafka concepts with Java examples
+* [Extras](extras/) — Python and PyFlink examples from previous years
 
 ## Community notes
 

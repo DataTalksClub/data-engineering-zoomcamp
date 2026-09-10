@@ -1,0 +1,20 @@
+schema_version: 2
+content_id: 244b73f6-3a3f-42b8-bf50-238355aa2421
+slug: hw05
+title: "Module 5 Homework: Data Platforms with Bruin [DRAFT]"
+instructions_path: homework.md
+due_at: "2027-02-15T21:59:00Z"
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 1a952391-da54-4016-922f-0a094b354549
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: "Describe one practical idea you took from this module."
+    points: 0

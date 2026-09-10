@@ -1,0 +1,46 @@
+schema_version: 2
+content_id: 0fb59d16-56e8-4c97-a433-1ff6e90c0cf7
+title: "Streaming"
+units:
+  - content_id: 1f2dafad-c69f-4177-be26-1a7b7363ccb3
+    title: "PyFlink: Stream Processing Workshop"
+    path: 01-introduction.md
+  - content_id: 061ee0fa-ff25-42bb-ae6a-1dd86577a5ac
+    title: "Redpanda - a Kafka-compatible broker"
+    path: 02-redpanda.md
+  - content_id: b646bef5-3e1b-4a32-9f5c-041e78b8e871
+    title: "Produce messages to Kafka"
+    path: 03-produce-messages-to-kafka.md
+  - content_id: 8b0f2a6d-5358-4da5-bcc2-ed3a20084d1b
+    title: "Consume messages with Python"
+    path: 04-consume-messages-with-python.md
+  - content_id: 011ba04e-ff40-4f75-8b44-78250feafeee
+    title: "Save events to PostgreSQL"
+    path: 05-save-events-to-postgresql.md
+  - content_id: ab4178c7-2083-4e8e-9a5a-7792454ce8d6
+    title: "Why Flink?"
+    path: 06-why-flink.md
+  - content_id: f8903745-ccac-4d74-a190-456e0a7056db
+    title: "The Flink image and services"
+    path: 07-the-flink-image-and-services.md
+  - content_id: 88044514-e1a5-47a7-94fd-d32cfc095539
+    title: "The pass-through Flink job"
+    path: 08-the-pass-through-flink-job.md
+  - content_id: 1bc60a83-ca60-4487-b9d8-4bb3e59ba466
+    title: "Offsets - earliest vs latest"
+    path: 09-offsets-earliest-vs-latest.md
+  - content_id: b4a7bdf6-d3f8-420d-b38f-105b737a57da
+    title: "Aggregation with tumbling windows"
+    path: 10-aggregation-with-tumbling-windows.md
+  - content_id: 981bf292-0e65-4968-99da-2e0868bfc986
+    title: "Late events and upserts"
+    path: 11-late-events-and-upserts.md
+  - content_id: c4922d56-7529-4691-b418-a27b00a3c11b
+    title: "Understanding window types"
+    path: 12-understanding-window-types.md
+  - content_id: 4c4459a8-d608-4a78-87cf-0a347b09c7b9
+    title: "Cleanup"
+    path: 13-cleanup.md
+  - content_id: 07960502-72fb-4f51-903a-14c13ce524db
+    title: "Q&A"
+    path: 14-questions-and-answers.md

@@ -1,0 +1,43 @@
+schema_version: 2
+content_id: c7a2f290-c7f0-4393-9914-f26280a042c6
+title: "Containerization and Infrastructure as Code"
+units:
+  - content_id: 940c1ee5-8a9c-4485-b944-09afbc030e5b
+    title: "Introduction to Docker"
+    path: 01-introduction.md
+  - content_id: bd43e3cd-e623-463b-b9d2-caf174f10297
+    title: "Virtual Environments and Data Pipelines"
+    path: 02-virtual-environment.md
+  - content_id: d8cf9b9e-9db6-4960-8e13-bc191d13f26a
+    title: "Dockerizing the Pipeline"
+    path: 03-dockerizing-pipeline.md
+  - content_id: f81b8dd5-5a8f-4f17-9d60-888d121e46db
+    title: "Running PostgreSQL with Docker"
+    path: 04-postgres-docker.md
+  - content_id: ed350e99-a71d-4040-95c7-f5786f2e0dbe
+    title: "NY Taxi Dataset and Data Ingestion"
+    path: 05-data-ingestion.md
+  - content_id: 3e60638a-0289-4b70-8af3-d8fe943935ea
+    title: "Creating the Data Ingestion Script"
+    path: 06-ingestion-script.md
+  - content_id: 0ea9f94f-4482-45fa-a27b-e6339a7b4fec
+    title: "pgAdmin - Database Management Tool"
+    path: 07-pgadmin.md
+  - content_id: d61fdb67-8a73-4c9a-ad88-3d2adcdb324f
+    title: "Dockerizing the Ingestion Script"
+    path: 08-dockerizing-ingestion.md
+  - content_id: 49b47814-16dc-4578-ab7b-a06adb151a84
+    title: "Docker Compose"
+    path: 09-docker-compose.md
+  - content_id: 684b5291-406c-4bb3-9096-94d888be63d4
+    title: "SQL Refresher"
+    path: 10-sql-refresher.md
+  - content_id: ed009f0a-0de9-463f-af3e-c90bf94ce7e4
+    title: "Cleanup"
+    path: 11-cleanup.md
+  - content_id: 5c87355c-17e6-44c0-b148-7f0113e38881
+    title: "Terraform Overview"
+    path: 12-terraform-overview.md
+  - content_id: 72d444af-5b90-4d40-9204-630d0e11aa1a
+    title: "GCP Overview"
+    path: 13-gcp-overview.md

@@ -1,61 +1,33 @@
-# Introduction
+# Containerization and Infrastructure as Code
 
-[![](images/thumbnail-JgspdlKXS-w.jpg)](https://www.youtube.com/watch?v=JgspdlKXS-w)
+## Units
 
+1. [Introduction to Docker](01-introduction.md)
+2. [Virtual Environments and Data Pipelines](02-virtual-environment.md)
+3. [Dockerizing the Pipeline](03-dockerizing-pipeline.md)
+4. [Running PostgreSQL with Docker](04-postgres-docker.md)
+5. [NY Taxi Dataset and Data Ingestion](05-data-ingestion.md)
+6. [Creating the Data Ingestion Script](06-ingestion-script.md)
+7. [pgAdmin - Database Management Tool](07-pgadmin.md)
+8. [Dockerizing the Ingestion Script](08-dockerizing-ingestion.md)
+9. [Docker Compose](09-docker-compose.md)
+10. [SQL Refresher](10-sql-refresher.md)
+11. [Cleanup](11-cleanup.md)
+12. [Terraform Overview](12-terraform-overview.md)
+13. [GCP Overview](13-gcp-overview.md)
 
-We suggest watching videos in the same order as in this document.
-
-
-# Docker + Postgres
-
-## Workshop
-
-[![](images/thumbnail-lP8xXebHmuE.jpg)](https://youtu.be/lP8xXebHmuE&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
-
-* Video: https://www.youtube.com/watch?v=lP8xXebHmuE
-* Follow the instructions here: [docker-sql/](docker-sql/)
-
-## :movie_camera: SQL refresher
-
-
-[![](images/thumbnail-QEcps_iskgg.jpg)](https://youtu.be/QEcps_iskgg&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=10)
-
-* Video: https://www.youtube.com/watch?v=QEcps_iskgg
-* SQL queries: [10-sql-refresher.md](docker-sql/10-sql-refresher.md)
+## Homework
 
 
-# GCP
+## Setup guides
 
-## :movie_camera: Introduction to GCP (Google Cloud Platform)
+* [Terraform and GCP setup](setup/terraform-and-gcp-setup.md)
+* [Terraform and GCP on Windows](setup/terraform-on-windows.md)
 
-[![](images/thumbnail-18jIzE41fJ4.jpg)](https://youtu.be/18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=3)
+## Workshop code
 
-# Terraform
-
-[Code and notes](terraform/)
-
-## :movie_camera: Introduction Terraform: Concepts and Overview, a primer
-
-[![](images/thumbnail-s2bOYDCKl_M.jpg)](https://youtu.be/s2bOYDCKl_M&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=11)
-
-## :movie_camera: Terraform Basics: Simple one file Terraform Deployment
-
-[![](images/thumbnail-Y2ux7gq3Z0o.jpg)](https://youtu.be/Y2ux7gq3Z0o&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=12)
-
-## :movie_camera: Deployment with a Variables File
-
-[![](images/thumbnail-PBi0hHjLftk.jpg)](https://youtu.be/PBi0hHjLftk&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=13)
-
-## Configuring terraform and GCP SDK on Windows
-
-* [Instructions](terraform/windows.md)
-
-
-
-# Homework
-
-* [Homework](../cohorts/2026/01-docker-terraform/homework.md)
-
+* [Data pipeline](pipeline/) — the Dockerised ingestion pipeline built in units 3-9
+* [Terraform](terraform/) — the Terraform configuration used in units 12-13
 
 # Community notes
 

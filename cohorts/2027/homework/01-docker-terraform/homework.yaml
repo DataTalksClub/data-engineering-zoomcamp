@@ -1,0 +1,20 @@
+schema_version: 2
+content_id: 8f63b8f6-6e36-42bf-bfcb-b855707a33fc
+slug: hw01
+title: "Module 1 Homework: Docker & SQL [DRAFT]"
+instructions_path: homework.md
+due_at: "2027-01-18T21:59:00Z"
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 033404e3-2363-4366-98d6-1e95b8e5a7e4
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: "Describe one practical idea you took from this module."
+    points: 0

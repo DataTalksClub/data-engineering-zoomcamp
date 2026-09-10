@@ -1,0 +1,20 @@
+schema_version: 2
+content_id: 7442d348-c0f6-4c6c-aebe-52257a07cd4d
+slug: hw02
+title: "Module 2 Homework [DRAFT]"
+instructions_path: homework.md
+due_at: "2027-01-25T21:59:00Z"
+initial_state: closed
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: a8a08977-212b-4344-aaec-6ec588551006
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: "Describe one practical idea you took from this module."
+    points: 0

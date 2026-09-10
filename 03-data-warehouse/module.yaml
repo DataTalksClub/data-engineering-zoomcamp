@@ -1,0 +1,22 @@
+schema_version: 2
+content_id: c38e12d7-b52c-4e98-9dd5-441daff9ddf5
+title: "Data Warehousing"
+units:
+  - content_id: 9e208dd7-f9b5-45d5-8cbf-908663e55a72
+    title: "Data Warehouse and BigQuery"
+    path: 01-data-warehouse-and-bigquery.md
+  - content_id: dfc3ff3a-0071-446c-b2d1-40a02d22bf3b
+    title: "Partitioning vs Clustering"
+    path: 02-partitioning-vs-clustering.md
+  - content_id: cd41db3e-4fdb-41e0-a73a-5d3159ec5ff5
+    title: "BigQuery Best Practices"
+    path: 03-bigquery-best-practices.md
+  - content_id: 4cf6c6e0-6311-4f2e-9e0b-0bfc7202c014
+    title: "Internals of BigQuery"
+    path: 04-internals-of-bigquery.md
+  - content_id: 2a33a931-88f1-49aa-8e6a-0163e97fb099
+    title: "Machine Learning in BigQuery"
+    path: 05-machine-learning-in-bigquery.md
+  - content_id: 40110ed3-dd06-41d4-b1a5-63961af7110f
+    title: "Deploying a Machine Learning Model from BigQuery"
+    path: 06-deploying-a-machine-learning-model.md

@@ -1,11 +1,34 @@
-schema_version: 1
-content_id: de-zoomcamp
+schema_version: 2
+content_id: aeeff1c9-a209-4e0e-83bc-d9a98594aaa1
 slug: de-zoomcamp
 title: Data Engineering Zoomcamp
-description_path: SITE.md
+current_cohort: "2027"
+cohorts:
+  - identifier: "2027"
+    content: root
+  - identifier: "2026"
+    content: cohorts/2026
+    legacy: true
+  - identifier: "2025"
+    content: cohorts/2025
+    legacy: true
+  - identifier: "2024"
+    content: cohorts/2024
+    legacy: true
+  - identifier: "2023"
+    content: cohorts/2023
+    legacy: true
+  - identifier: "2022"
+    content: cohorts/2022
+    legacy: true
+description: |
+  Data Engineering Zoomcamp is a free, intensive course that takes you from data engineering fundamentals to building production-grade data pipelines with industry-standard tools. No previous data engineering experience is required.
+
+  The course runs for ten weeks: seven weeks of modules covering containerization and infrastructure as code, workflow orchestration, data warehousing, analytics engineering, batch processing, and streaming, followed by three weeks for a final project. Each module has video lectures, reading material, and a homework assignment.
 outcome: Build production-grade data pipelines with industry-standard tools, starting from data engineering fundamentals.
-repository_url: https://github.com/DataTalksClub/data-engineering-zoomcamp
-docs_url: https://datatalks.club/docs/courses/data-engineering-zoomcamp/
-faq_url: https://datatalks.club/faq/data-engineering-zoomcamp.html
+urls:
+  repository: https://github.com/DataTalksClub/data-engineering-zoomcamp
+  docs: https://datatalks.club/docs/courses/data-engineering-zoomcamp/
+  faq: https://datatalks.club/faq/data-engineering-zoomcamp.html
 hashtag: dezoomcamp
 published: true
