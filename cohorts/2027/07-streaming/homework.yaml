@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: f2a228c0-70ae-4704-863e-9c8b7bf17f16
+content_id: de-zoomcamp/2027/07-streaming/hw07
 slug: hw07
 title: "Homework [DRAFT]"
 instructions_path: homework.md
@@ -15,7 +15,7 @@ form:
 # Placeholder question. The graded questions are transcribed from
 # homework.md once the cohort's assignment is finalised.
 questions:
-  - content_id: f8e1780b-5890-4ea5-9a3a-057c7b2ab6a2
+  - content_id: de-zoomcamp/2027/07-streaming/hw07/reflection
     id: reflection
     type: free_form_long
     answer_type: any

@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: df641dd1-82c1-4c44-90d5-165199f7aa0f
+content_id: de-zoomcamp/2027/01-docker-terraform/hw01
 slug: hw01
 title: "Module 1 Homework: Docker & SQL [DRAFT]"
 instructions_path: homework.md
@@ -15,7 +15,7 @@ form:
 # Placeholder question. The graded questions are transcribed from
 # homework.md once the cohort's assignment is finalised.
 questions:
-  - content_id: 22680c7c-c47b-449f-816b-3435db951249
+  - content_id: de-zoomcamp/2027/01-docker-terraform/hw01/reflection
     id: reflection
     type: free_form_long
     answer_type: any

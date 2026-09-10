@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: 2288f206-9ae3-4e30-ac27-499c8b9c4f96
+content_id: de-zoomcamp/2027/05-data-platforms/hw05
 slug: hw05
 title: "Module 5 Homework: Data Platforms with Bruin [DRAFT]"
 instructions_path: homework.md
@@ -15,7 +15,7 @@ form:
 # Placeholder question. The graded questions are transcribed from
 # homework.md once the cohort's assignment is finalised.
 questions:
-  - content_id: 760698a4-f6bb-44b1-be74-f5f3f21702ea
+  - content_id: de-zoomcamp/2027/05-data-platforms/hw05/reflection
     id: reflection
     type: free_form_long
     answer_type: any

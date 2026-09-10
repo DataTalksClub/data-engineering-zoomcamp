@@ -1,52 +1,52 @@
 schema_version: 1
-content_id: 5c4f5904-5f37-4c41-bded-d3afbdc8fb31
+content_id: de-zoomcamp/2027/06-batch
 title: "Batch Processing"
 units:
-  - content_id: cee38c6b-a7f3-4b34-b294-38109a3a2445
+  - content_id: de-zoomcamp/2027/06-batch/01-introduction-to-batch-processing
     title: "Introduction to Batch Processing"
     path: 01-introduction-to-batch-processing.md
-  - content_id: a7134aec-c22f-415f-ae7e-1f1596434327
+  - content_id: de-zoomcamp/2027/06-batch/02-introduction-to-spark
     title: "Introduction to Spark"
     path: 02-introduction-to-spark.md
-  - content_id: ffada9c2-3ba4-470d-82e3-c996907a6e73
+  - content_id: de-zoomcamp/2027/06-batch/03-installing-spark
     title: "Installing Spark"
     path: 03-installing-spark.md
-  - content_id: adbec067-31fa-4f94-bc59-d0f43bfbdb31
+  - content_id: de-zoomcamp/2027/06-batch/04-first-look-at-spark
     title: "First Look at Spark/PySpark"
     path: 04-first-look-at-spark.md
-  - content_id: c4888208-6be4-4aba-a339-6dcc622eabd8
+  - content_id: de-zoomcamp/2027/06-batch/05-spark-dataframes
     title: "Spark DataFrames"
     path: 05-spark-dataframes.md
-  - content_id: 0e1c0a9b-3f39-49e3-9d63-29602a43eed2
+  - content_id: de-zoomcamp/2027/06-batch/06-preparing-taxi-data
     title: "Preparing Yellow and Green Taxi Data"
     path: 06-preparing-taxi-data.md
-  - content_id: a2c8a77d-b508-4416-a893-303d315d159f
+  - content_id: de-zoomcamp/2027/06-batch/07-sql-with-spark
     title: "SQL with Spark"
     path: 07-sql-with-spark.md
-  - content_id: 2645eb14-c866-4f29-8281-d5f4d2131b58
+  - content_id: de-zoomcamp/2027/06-batch/08-anatomy-of-a-spark-cluster
     title: "Anatomy of a Spark Cluster"
     path: 08-anatomy-of-a-spark-cluster.md
-  - content_id: 843e4c34-bb62-4f60-893f-90ca06af90c2
+  - content_id: de-zoomcamp/2027/06-batch/09-groupby-in-spark
     title: "GroupBy in Spark"
     path: 09-groupby-in-spark.md
-  - content_id: 31e3c36f-23db-46b4-962c-f6e946a0fd21
+  - content_id: de-zoomcamp/2027/06-batch/10-joins-in-spark
     title: "Joins in Spark"
     path: 10-joins-in-spark.md
-  - content_id: 4f4809d3-3e8a-4179-9735-564bbae360b5
+  - content_id: de-zoomcamp/2027/06-batch/11-operations-on-spark-rdds
     title: "Operations on Spark RDDs"
     path: 11-operations-on-spark-rdds.md
-  - content_id: ef856e8d-21bc-4ea3-ba8a-9f8e4ce2ee79
+  - content_id: de-zoomcamp/2027/06-batch/12-spark-rdd-mappartition
     title: "Spark RDD mapPartition"
     path: 12-spark-rdd-mappartition.md
-  - content_id: c9153cab-3fe3-4644-a3db-d1e44a7ab941
+  - content_id: de-zoomcamp/2027/06-batch/13-connecting-to-google-cloud-storage
     title: "Connecting to Google Cloud Storage"
     path: 13-connecting-to-google-cloud-storage.md
-  - content_id: 57628ce6-952c-4dd5-b46e-b2d3effe9f60
+  - content_id: de-zoomcamp/2027/06-batch/14-creating-a-local-spark-cluster
     title: "Creating a Local Spark Cluster"
     path: 14-creating-a-local-spark-cluster.md
-  - content_id: e2fca4d6-7974-42de-abd6-a29cd0d66f26
+  - content_id: de-zoomcamp/2027/06-batch/15-setting-up-a-dataproc-cluster
     title: "Setting up a Dataproc Cluster"
     path: 15-setting-up-a-dataproc-cluster.md
-  - content_id: 3983ba0f-7a3d-4b11-a1fc-75fe4ee45796
+  - content_id: de-zoomcamp/2027/06-batch/16-connecting-spark-to-bigquery
     title: "Connecting Spark to BigQuery"
     path: 16-connecting-spark-to-bigquery.md

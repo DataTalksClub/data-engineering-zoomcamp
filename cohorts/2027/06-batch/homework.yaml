@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: db888c59-70dd-434a-9fd0-cbb7c090c1a3
+content_id: de-zoomcamp/2027/06-batch/hw06
 slug: hw06
 title: "Module 6 Homework [DRAFT]"
 instructions_path: homework.md
@@ -15,7 +15,7 @@ form:
 # Placeholder question. The graded questions are transcribed from
 # homework.md once the cohort's assignment is finalised.
 questions:
-  - content_id: f94bbfea-d44b-4d6d-a215-d2eeaced903d
+  - content_id: de-zoomcamp/2027/06-batch/hw06/reflection
     id: reflection
     type: free_form_long
     answer_type: any
