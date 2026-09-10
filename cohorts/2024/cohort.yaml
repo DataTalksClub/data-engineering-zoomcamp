@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: "75bbc59f-adfa-457f-85b5-92d0bb170b19"
+identifier: "2024"
+course: de-zoomcamp
+delivery: live
+published: true
+start_date: "2024-01-15"
+end_date: "2024-05-28"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2024/README.md
+homework: []
