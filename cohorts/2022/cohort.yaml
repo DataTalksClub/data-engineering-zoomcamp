@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: "91f54f17-7a8a-4c95-8c00-0029fdb93f59"
+identifier: "2022"
+course: de-zoomcamp
+delivery: live
+published: true
+start_date: "2022-01-17"
+end_date: "2022-05-09"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2022/README.md
+homework: []
