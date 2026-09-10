@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: "9481cd9a-d07d-48bc-b1a2-47fee9d4eb23"
+identifier: "2023"
+course: de-zoomcamp
+delivery: live
+published: true
+start_date: "2023-01-16"
+end_date: "2023-05-11"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2023/README.md
+homework: []
