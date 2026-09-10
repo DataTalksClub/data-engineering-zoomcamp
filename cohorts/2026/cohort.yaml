@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: "e4c8b6d8-1add-473d-860d-7c9c227bfe34"
+identifier: "2026"
+course: de-zoomcamp
+delivery: live
+published: true
+start_date: "2026-01-12"
+end_date: "2026-05-11"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2026/README.md
+homework: []
