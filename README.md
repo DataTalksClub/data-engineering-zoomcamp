@@ -198,7 +198,7 @@ To keep discussions organized:
 
 ### Learning in Public
 
-Share your progress as you go — see the [learning in public guide](learning-in-public.md).
+Share your progress as you go — see the [learning in public guide](https://datatalks.club/docs/courses/zoomcamp-logistics/learning-in-public/).
 
 ## Sponsors
 
