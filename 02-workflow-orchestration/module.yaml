@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 2e4456c8-9215-461c-ba70-69648f6f99e8
 title: "Workflow Orchestration"
+summary: "Build scheduled ETL and ELT workflows with Kestra, including backfills and cloud deployment."
 units:
   - content_id: 438f15e4-0529-465e-a08a-b8d17a03bcd1
     title: "What is Workflow Orchestration?"

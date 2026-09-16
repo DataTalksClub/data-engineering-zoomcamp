@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 0fb59d16-56e8-4c97-a433-1ff6e90c0cf7
 title: "Streaming"
+summary: "Produce, consume, and process streaming data with Kafka-compatible tools, Python, and Flink."
 units:
   - content_id: 1f2dafad-c69f-4177-be26-1a7b7363ccb3
     title: "PyFlink: Stream Processing Workshop"

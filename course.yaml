@@ -28,6 +28,13 @@ description: |
 outcome: Build production-grade data pipelines with industry-standard tools, starting from data engineering fundamentals.
 starting_point: You are new to data engineering and want to understand how production data pipelines fit together.
 prerequisites: You can write Python and SQL, use the command line, and have some Docker familiarity.
+progression:
+  - heading: I can write code, but the pipeline is still a black box
+    description: I want to understand how data moves from a source into a dependable analytical system.
+  - heading: I connect every stage of the data journey
+    description: I practice ingestion, orchestration, warehousing, analytics engineering, batch processing, and streaming.
+  - heading: I ship a production-grade data pipeline
+    description: I bring the tools together in a final project that takes data from ingestion to useful output.
 urls:
   repository: https://github.com/DataTalksClub/data-engineering-zoomcamp
   docs: https://datatalks.club/docs/courses/data-engineering-zoomcamp/

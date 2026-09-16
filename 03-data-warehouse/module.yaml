@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: c38e12d7-b52c-4e98-9dd5-441daff9ddf5
 title: "Data Warehousing"
+summary: "Query and optimize analytical data in BigQuery with partitioning, clustering, and built-in ML."
 units:
   - content_id: 9e208dd7-f9b5-45d5-8cbf-908663e55a72
     title: "Data Warehouse and BigQuery"

@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 27aa2036-cc0c-4b14-a7d6-14d944b6ce64
 title: "Data Platforms"
+summary: "Build and deploy an end-to-end NYC taxi data pipeline with Bruin."
 units:
   - content_id: 07fd48ab-d284-4f01-ac3a-4958a5c630df
     title: "Introduction to Bruin"

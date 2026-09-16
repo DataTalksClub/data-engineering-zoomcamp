@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 298d9162-f7db-448a-b606-c477902a0503
 title: "Batch Processing"
+summary: "Process taxi data at scale with Spark, PySpark, and Spark SQL."
 units:
   - content_id: b752089b-6bf1-472a-a043-01dfe45a9c95
     title: "Introduction to Batch Processing"

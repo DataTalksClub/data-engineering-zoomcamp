@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 39e35eb5-0eae-43a0-b020-8147a3dde16d
 title: "Analytics Engineering"
+summary: "Transform, test, and document warehouse models with dbt."
 units:
   - content_id: a8547e47-1a29-4921-a41d-281ce5ae5672
     title: "Analytics Engineering Basics"

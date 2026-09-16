@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: c7a2f290-c7f0-4393-9914-f26280a042c6
 title: "Containerization and Infrastructure as Code"
+summary: "Run data pipelines and PostgreSQL in Docker, then provision cloud infrastructure with Terraform."
 units:
   - content_id: 940c1ee5-8a9c-4485-b944-09afbc030e5b
     title: "Introduction to Docker"
