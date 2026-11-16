@@ -73,7 +73,7 @@ graph LR
 3. In Part B, replace the `ingest_release_notes.fromExternalURLs` entry with the [raw Markdown for the 1.2 release notes](https://raw.githubusercontent.com/kestra-io/docs/b4ea2486d47bf27270ac03b37462cd04351883e3/src/contents/blogs/release-1-2/index.md).
 4. Run both flows and open their logs. For each answer, check whether the sentence you saved supports what the answer says about revision history.
 
-You can open both links in your browser. If you already use an MCP client, you can also check both URLs in one call with the keyless [Parallel Search MCP](https://mcp.parallel.ai/mcp). Add the URL as an HTTP server, then ask `web_fetch` to read both links with `full_content: true` and find the same sentence in each. If your client supports custom headers, set `User-Agent` to `data-engineering-zoomcamp-rag/1.0`.
+You can open both links in your browser. If you already use an MCP client, you can also check both URLs in one call with the keyless [Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/installation). Add `https://mcp.parallel.ai/mcp` to your client as an HTTP server, then ask `web_fetch` to read both links with `full_content: true` and find the same sentence in each. If your client supports custom headers, set `User-Agent` to `data-engineering-zoomcamp-rag/1.0`.
 
 ## RAG Best Practices
 1. **Keep documents updated**: Regularly re-ingest to ensure current information
