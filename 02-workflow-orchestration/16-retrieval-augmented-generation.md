@@ -63,6 +63,18 @@ graph LR
 
 **Key Learning:** RAG (Retrieval Augmented Generation) grounds AI responses in current documentation, eliminating hallucinations and providing accurate, context-aware answers.
 
+### Try another Kestra release (optional)
+
+1. For this run, ask **What changed for Namespace Files in Kestra 1.2?** Before running the flows, open the [release notes](https://kestra.io/blogs/release-1-2#revision-history-for-namespace-files) and save the URL and this sentence.
+
+   > Namespace Files in Kestra 1.2 now support comprehensive version control with revision history.
+
+2. Copy both flows under new flow IDs in your course namespace. Replace the user message in Part A (`messages[0].content`) and the prompt in Part B (`prompt`) with the same question above.
+3. In Part B, replace the `ingest_release_notes.fromExternalURLs` entry with the [raw Markdown for the 1.2 release notes](https://raw.githubusercontent.com/kestra-io/docs/b4ea2486d47bf27270ac03b37462cd04351883e3/src/contents/blogs/release-1-2/index.md).
+4. Run both flows and read the generated answer under the response heading in each log. Write down what each answer says about revision history and check it against the sentence you saved.
+
+You can open both links in your browser. If you already use an MCP client, you can also check both URLs in one call with the keyless [Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/installation). Add `https://mcp.parallel.ai/mcp` to your client as an HTTP server, then ask `web_fetch` to read both links with `full_content: true` and find the same sentence in each. If your client supports custom headers, set `User-Agent` to `data-engineering-zoomcamp-rag/1.0`.
+
 ## RAG Best Practices
 1. **Keep documents updated**: Regularly re-ingest to ensure current information
 2. **Chunk appropriately**: Break large documents into meaningful chunks
