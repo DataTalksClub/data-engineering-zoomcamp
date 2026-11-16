@@ -151,3 +151,7 @@ Do the same thing for the **yellow tripdata** table. The columns are almost iden
 - A `sources.yml` that declares both tables
 - A `stg_green_tripdata.sql` staging model
 - A `stg_yellow_tripdata.sql` staging model
+
+<!-- nav:start -->
+[← Previous: dbt Project Structure](04-dbt-project-structure.md) · [Next: dbt Models →](06-dbt-models.md)
+<!-- nav:end -->

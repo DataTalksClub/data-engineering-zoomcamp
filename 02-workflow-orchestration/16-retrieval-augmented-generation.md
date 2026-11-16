@@ -83,3 +83,7 @@ Kestra Plugin Documentation:
 External Documentation:
 - [Google Gemini](https://go.kestra.io/de-zoomcamp/gemini-docs)
 - [Google AI Studio](https://go.kestra.io/de-zoomcamp/ai-studio)
+
+<!-- nav:start -->
+[← Previous: AI Copilot in Kestra](15-ai-copilot-in-kestra.md) · [Next: Bonus: Deploy to the Cloud (Optional) →](17-deploy-to-the-cloud.md)
+<!-- nav:end -->

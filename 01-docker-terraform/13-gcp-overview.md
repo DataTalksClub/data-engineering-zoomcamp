@@ -52,3 +52,7 @@ For this course, we'll use a free version (upto EUR 300 credits).
 
 ## Terraform Workshop to create GCP Infra
 Continue [here](./terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
+
+<!-- nav:start -->
+[← Previous: Terraform Overview](12-terraform-overview.md) · [Next: What is Workflow Orchestration? →](../02-workflow-orchestration/01-what-is-workflow-orchestration.md)
+<!-- nav:end -->

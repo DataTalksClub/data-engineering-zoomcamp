@@ -157,3 +157,7 @@ warehouse, not in a bucket - so you can build dashboards on them. You
 could create an external table over the parquet files and copy them into
 a BigQuery table, but there is a more direct way: Spark can write
 straight to BigQuery. That is the next unit.
+
+<!-- nav:start -->
+[← Previous: Creating a Local Spark Cluster](14-creating-a-local-spark-cluster.md) · [Next: Connecting Spark to BigQuery →](16-connecting-spark-to-bigquery.md)
+<!-- nav:end -->

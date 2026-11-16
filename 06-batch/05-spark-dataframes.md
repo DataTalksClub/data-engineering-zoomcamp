@@ -212,3 +212,7 @@ SQL inside Spark itself.
 * [`code/04_pyspark.ipynb`](code/04_pyspark.ipynb) - inferring a schema through
   pandas, declaring an explicit `StructType`, repartitioning, writing parquet,
   actions vs transformations, built-in functions and a user-defined function.
+
+<!-- nav:start -->
+[← Previous: First Look at Spark/PySpark](04-first-look-at-spark.md) · [Next: Preparing Yellow and Green Taxi Data →](06-preparing-taxi-data.md)
+<!-- nav:end -->

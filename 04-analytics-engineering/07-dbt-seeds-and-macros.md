@@ -153,3 +153,7 @@ The fact trips model is left as an exercise. Here's what's expected:
 - **Add a primary key** (`trip_id`) — it has to be **unique**
 - **Find and fix duplicates** — there are quite a few in this dataset. Some come from the source, some get introduced during the union. Find them, understand why they happen, and fix them
 - **Enrich `payment_type`** (there is a seed for this in the repo).
+
+<!-- nav:start -->
+[← Previous: dbt Models](06-dbt-models.md) · [Next: Documentation →](08-documentation.md)
+<!-- nav:end -->

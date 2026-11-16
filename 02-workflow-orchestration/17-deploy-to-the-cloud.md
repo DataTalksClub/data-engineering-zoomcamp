@@ -18,3 +18,7 @@ Note: When committing your workflows to Kestra, make sure your workflow doesn't 
 - [Moving from Development to Production](https://go.kestra.io/de-zoomcamp/dev-to-prod)
 - [Using Git in Kestra](https://go.kestra.io/de-zoomcamp/git)
 - [Deploy Flows with GitHub Actions](https://go.kestra.io/de-zoomcamp/deploy-github-actions)
+
+<!-- nav:start -->
+[← Previous: Bonus: Retrieval Augmented Generation (RAG)](16-retrieval-augmented-generation.md) · [Next: Additional Resources →](18-additional-resources.md)
+<!-- nav:end -->

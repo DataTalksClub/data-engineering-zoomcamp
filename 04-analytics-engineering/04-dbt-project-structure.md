@@ -130,3 +130,7 @@ The `staging → intermediate → marts` structure is dbt's recommendation, but 
 - Other custom conventions
 
 If your organization already has a convention, follow it. Otherwise, stick with dbt's default structure — it's well thought out and what this course uses.
+
+<!-- nav:start -->
+[← Previous: dbt Core vs dbt Cloud](03-dbt-core-vs-dbt-cloud.md) · [Next: dbt Sources →](05-dbt-sources.md)
+<!-- nav:end -->

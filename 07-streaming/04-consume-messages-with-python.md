@@ -97,3 +97,7 @@ Received: PU=..., DO=..., distance=..., amount=$..., pickup=2025-...
 ...
 ... received 10 messages so far (stopping after 10 for demo)
 ```
+
+<!-- nav:start -->
+[← Previous: Produce messages to Kafka](03-produce-messages-to-kafka.md) · [Next: Save events to PostgreSQL →](05-save-events-to-postgresql.md)
+<!-- nav:end -->

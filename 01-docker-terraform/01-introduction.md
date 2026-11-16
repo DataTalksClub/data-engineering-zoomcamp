@@ -174,3 +174,7 @@ python list_files.py
 ```
 
 You'll see the files from your host machine are accessible in the container!
+
+<!-- nav:start -->
+[Next: Virtual Environments and Data Pipelines →](02-virtual-environment.md)
+<!-- nav:end -->

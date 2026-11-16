@@ -103,3 +103,7 @@ docker run -it --rm\
     --pg-db=ny_taxi \
     --target-table=yellow_taxi_trips
 ```
+
+<!-- nav:start -->
+[← Previous: Dockerizing the Ingestion Script](08-dockerizing-ingestion.md) · [Next: SQL Refresher →](10-sql-refresher.md)
+<!-- nav:end -->

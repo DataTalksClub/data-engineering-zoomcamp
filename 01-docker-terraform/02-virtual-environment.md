@@ -117,3 +117,7 @@ This script produces a binary (parquet) file, so let's make sure we don't accide
 ```
 *.parquet
 ```
+
+<!-- nav:start -->
+[← Previous: Introduction to Docker](01-introduction.md) · [Next: Dockerizing the Pipeline →](03-dockerizing-pipeline.md)
+<!-- nav:end -->

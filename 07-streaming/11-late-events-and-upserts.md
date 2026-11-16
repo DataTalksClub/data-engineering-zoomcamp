@@ -56,3 +56,7 @@ watch -n 1 'PGPASSWORD=postgres docker compose exec postgres psql -U postgres -d
 You'll see the counts for older windows increase as late events arrive
 and update the aggregation via upsert. This is why we set up the PRIMARY
 KEY - without it, late events would either be dropped or create duplicates.
+
+<!-- nav:start -->
+[← Previous: Aggregation with tumbling windows](10-aggregation-with-tumbling-windows.md) · [Next: Understanding window types →](12-understanding-window-types.md)
+<!-- nav:end -->

@@ -82,3 +82,7 @@ COPY pipeline.py pipeline.py
 # Set entry point
 ENTRYPOINT ["uv", "run", "python", "pipeline.py"]
 ```
+
+<!-- nav:start -->
+[← Previous: Virtual Environments and Data Pipelines](02-virtual-environment.md) · [Next: Running PostgreSQL with Docker →](04-postgres-docker.md)
+<!-- nav:end -->

@@ -19,3 +19,7 @@ The trade-off is infrastructure complexity - we need the JobManager and
 TaskManager containers. A streaming job is more like owning a server than
 running a batch pipeline - it runs 24/7 and needs monitoring. But for anything
 beyond simple consume-and-write, Flink pays for itself.
+
+<!-- nav:start -->
+[← Previous: Save events to PostgreSQL](05-save-events-to-postgresql.md) · [Next: The Flink image and services →](07-the-flink-image-and-services.md)
+<!-- nav:end -->

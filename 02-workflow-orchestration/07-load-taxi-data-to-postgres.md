@@ -35,3 +35,7 @@ The flow code: [`04_postgres_taxi.yaml`](flows/04_postgres_taxi.yaml).
 
 ## Resources
 - [Docker Compose with Kestra, Postgres and pgAdmin](docker-compose.yml)
+
+<!-- nav:start -->
+[← Previous: Getting Started Pipeline](06-getting-started-pipeline.md) · [Next: Local DB: Learn Scheduling and Backfills →](08-scheduling-and-backfills.md)
+<!-- nav:end -->

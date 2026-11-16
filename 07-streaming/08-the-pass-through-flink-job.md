@@ -161,3 +161,7 @@ SELECT count(*) FROM processed_events;
 
 Compare this to our Python consumer approach - same result, but Flink handles
 checkpointing, offset management, and PostgreSQL writes automatically.
+
+<!-- nav:start -->
+[← Previous: The Flink image and services](07-the-flink-image-and-services.md) · [Next: Offsets - earliest vs latest →](09-offsets-earliest-vs-latest.md)
+<!-- nav:end -->

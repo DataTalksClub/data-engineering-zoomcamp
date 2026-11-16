@@ -133,3 +133,7 @@ the choice comes down to.
   file: creating partitioned and partitioned-plus-clustered tables from the
   external table, inspecting `INFORMATION_SCHEMA.PARTITIONS`, and the paired
   queries that show how much data each variant scans.
+
+<!-- nav:start -->
+[← Previous: Data Warehouse and BigQuery](01-data-warehouse-and-bigquery.md) · [Next: BigQuery Best Practices →](03-bigquery-best-practices.md)
+<!-- nav:end -->

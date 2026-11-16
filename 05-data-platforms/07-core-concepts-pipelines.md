@@ -87,3 +87,7 @@ bruin run ./pipelines/nyc-taxi/pipeline.yml
 
 - [Bruin Documentation - Pipelines](https://getbruin.com/docs/bruin/pipelines/definition.html)
 - [Pipeline Configuration Reference](https://getbruin.com/docs/bruin/pipelines/definition.html)
+
+<!-- nav:start -->
+[← Previous: Core Concepts: Projects](06-core-concepts-projects.md) · [Next: Core Concepts: Assets →](08-core-concepts-assets.md)
+<!-- nav:end -->

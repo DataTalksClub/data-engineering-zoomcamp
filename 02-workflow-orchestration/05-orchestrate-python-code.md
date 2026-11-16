@@ -14,3 +14,7 @@ In our example Python workflow, [`02_python.yaml`](flows/02_python.yaml), our co
 
 ## Resources
 - [How-to Guide: Python](https://go.kestra.io/de-zoomcamp/python)
+
+<!-- nav:start -->
+[← Previous: Kestra Concepts](04-kestra-concepts.md) · [Next: Getting Started Pipeline →](06-getting-started-pipeline.md)
+<!-- nav:end -->

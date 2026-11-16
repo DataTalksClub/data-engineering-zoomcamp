@@ -100,3 +100,7 @@ job submission looks different depending on the deployment:
 The common pattern: your code lives in git, CI builds an artifact (JAR,
 Python zip, or Docker image), pushes it to a registry or object store, and
 then triggers the Flink cluster to pick it up.
+
+<!-- nav:start -->
+[← Previous: Cleanup](13-cleanup.md)
+<!-- nav:end -->

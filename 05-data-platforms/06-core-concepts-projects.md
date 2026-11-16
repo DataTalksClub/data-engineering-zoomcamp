@@ -94,3 +94,7 @@ bruin validate .
 
 - [Bruin Documentation - Projects](https://getbruin.com/docs/bruin/core-concepts/project.html)
 - [Bruin GitHub - Templates](https://github.com/bruin-data/bruin/tree/main/templates)
+
+<!-- nav:start -->
+[← Previous: Deploying to Bruin Cloud](05-bruin-cloud.md) · [Next: Core Concepts: Pipelines →](07-core-concepts-pipelines.md)
+<!-- nav:end -->

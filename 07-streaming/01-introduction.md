@@ -36,3 +36,7 @@ Code:
 
 The units that follow walk through building everything from scratch - you can
 follow along step by step or study the existing files and run the commands.
+
+<!-- nav:start -->
+[← Previous: Connecting Spark to BigQuery](../06-batch/16-connecting-spark-to-bigquery.md) · [Next: Redpanda - a Kafka-compatible broker →](02-redpanda.md)
+<!-- nav:end -->

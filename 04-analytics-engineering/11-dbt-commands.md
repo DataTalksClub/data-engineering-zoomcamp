@@ -200,3 +200,7 @@ The key is that you're comparing against a *different environment's artifacts* (
 Storing those JSON artifacts persistently is also just good practice in general — you can use them to analyze how your project evolves over time.
 
 > 📄 [Node selection syntax — docs](https://docs.getdbt.com/reference/node-selection/syntax)
+
+<!-- nav:start -->
+[← Previous: dbt Packages](10-dbt-packages.md) · [Next: Introduction to Bruin →](../05-data-platforms/01-introduction.md)
+<!-- nav:end -->

@@ -352,3 +352,7 @@ the topic of [the next unit](02-partitioning-vs-clustering.md).
 - [`big_query.sql`](big_query.sql) — the SQL used through the module. The first
   statements belong to this unit: querying a BigQuery public dataset, and
   creating an external table over the taxi CSVs in Cloud Storage.
+
+<!-- nav:start -->
+[← Previous: Additional Resources](../02-workflow-orchestration/18-additional-resources.md) · [Next: Partitioning vs Clustering →](02-partitioning-vs-clustering.md)
+<!-- nav:end -->

@@ -61,3 +61,7 @@ next_url: 04-dbt-project-structure.md
 ---
 
 *Note: This document was last updated February 2026. For the latest information on dbt Fusion and adapter support, always consult the official dbt documentation.*
+
+<!-- nav:start -->
+[← Previous: What is dbt?](02-what-is-dbt.md) · [Next: dbt Project Structure →](04-dbt-project-structure.md)
+<!-- nav:end -->

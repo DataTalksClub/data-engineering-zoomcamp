@@ -136,3 +136,7 @@ bruin lineage ./pipeline.yml --asset raw.trips_raw
 
 - [Bruin Documentation - Assets](https://getbruin.com/docs/bruin/assets/definition-schema.html)
 - [Materialization Strategies](https://getbruin.com/docs/bruin/assets/materialization.html)
+
+<!-- nav:start -->
+[← Previous: Core Concepts: Pipelines](07-core-concepts-pipelines.md) · [Next: Core Concepts: Variables →](09-core-concepts-variables.md)
+<!-- nav:end -->

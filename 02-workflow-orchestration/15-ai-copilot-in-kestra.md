@@ -63,3 +63,7 @@ docker compose up -d
    - ✅ Copilot follows current Kestra best practices
 
 **Key Learning:** Context matters! AI Copilot has access to current Kestra documentation, generating Kestra flows better than a generic ChatGPT assistant.
+
+<!-- nav:start -->
+[← Previous: Context Engineering with ChatGPT](14-context-engineering-with-chatgpt.md) · [Next: Bonus: Retrieval Augmented Generation (RAG) →](16-retrieval-augmented-generation.md)
+<!-- nav:end -->

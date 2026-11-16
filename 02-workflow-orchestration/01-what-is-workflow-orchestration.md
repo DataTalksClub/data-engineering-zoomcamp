@@ -18,3 +18,7 @@ In data engineering, you often need to move data from one place, to another, som
 
 
 In this module, we're going to build our own data pipeline using ETL (Extract, Transform Load) with Kestra at the core of the operation, but first we need to understand a bit more about how Kestra works before we can get building!
+
+<!-- nav:start -->
+[← Previous: GCP Overview](../01-docker-terraform/13-gcp-overview.md) · [Next: What is Kestra? →](02-what-is-kestra.md)
+<!-- nav:end -->

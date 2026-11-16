@@ -59,3 +59,7 @@ clicks a bunch of buttons, leaves for 2 minutes, then comes back - that's
 still technically the same session. You set a session gap (say, 30 minutes
 of inactivity) and Flink groups all the events within that session together.
 Sessionization is very powerful for behavioral analytics.
+
+<!-- nav:start -->
+[← Previous: Late events and upserts](11-late-events-and-upserts.md) · [Next: Cleanup →](13-cleanup.md)
+<!-- nav:end -->

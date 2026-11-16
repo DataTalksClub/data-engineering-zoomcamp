@@ -116,3 +116,7 @@ By the time we get to the end of the module, here's what we'll have built:
 3. Dashboards that consume the final output and make it useful for business stakeholders
 
 The next videos will walk through actually setting this up and building it out step by step.
+
+<!-- nav:start -->
+[← Previous: Analytics Engineering Basics](01-analytics-engineering-basics.md) · [Next: dbt Core vs dbt Cloud →](03-dbt-core-vs-dbt-cloud.md)
+<!-- nav:end -->

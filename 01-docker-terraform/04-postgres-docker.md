@@ -101,3 +101,7 @@ SELECT * FROM test;
 -- Exit
 \q
 ```
+
+<!-- nav:start -->
+[← Previous: Dockerizing the Pipeline](03-dockerizing-pipeline.md) · [Next: NY Taxi Dataset and Data Ingestion →](05-data-ingestion.md)
+<!-- nav:end -->

@@ -148,3 +148,7 @@ workshop-redpanda     redpandadata/redpanda:v25.3.9   redpanda       Up
 
 Check the Flink dashboard at [http://localhost:8081](http://localhost:8081) -
 you should see 1 task manager with 15 available task slots.
+
+<!-- nav:start -->
+[← Previous: Why Flink?](06-why-flink.md) · [Next: The pass-through Flink job →](08-the-pass-through-flink-job.md)
+<!-- nav:end -->

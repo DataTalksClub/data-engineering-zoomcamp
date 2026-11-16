@@ -202,3 +202,7 @@ This is much, much faster than a sort merge join.
 * [`code/07_groupby_join.ipynb`](code/07_groupby_join.ipynb) - the second half:
   the outer join of the two revenue tables, and the join against the small
   `zones` table.
+
+<!-- nav:start -->
+[← Previous: GroupBy in Spark](09-groupby-in-spark.md) · [Next: Operations on Spark RDDs →](11-operations-on-spark-rdds.md)
+<!-- nav:end -->

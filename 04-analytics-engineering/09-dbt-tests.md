@@ -219,3 +219,7 @@ models:
 The idea behind this comes from the concept of **data contracts** — you sit down with your stakeholder, agree on what the output dataset should look like (column names, types, freshness expectations), and the contract enforces that agreement automatically. If someone changes the model in a way that breaks it, they'll know immediately.
 
 > 📄 [Model contracts — docs](https://docs.getdbt.com/docs/mesh/govern/model-contracts)
+
+<!-- nav:start -->
+[← Previous: Documentation](08-documentation.md) · [Next: dbt Packages →](10-dbt-packages.md)
+<!-- nav:end -->

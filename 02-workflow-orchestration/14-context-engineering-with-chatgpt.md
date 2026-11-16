@@ -41,3 +41,7 @@ With proper context:
 - ✅ You can iterate faster by letting AI generate boilerplate workflow code
 
 In the next section, we'll see how Kestra's AI Copilot solves this problem.
+
+<!-- nav:start -->
+[← Previous: Introduction: Why AI for Workflows?](13-why-ai-for-workflows.md) · [Next: AI Copilot in Kestra →](15-ai-copilot-in-kestra.md)
+<!-- nav:end -->

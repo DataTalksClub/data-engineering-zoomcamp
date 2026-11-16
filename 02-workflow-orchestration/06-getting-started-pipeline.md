@@ -19,3 +19,7 @@ Add the flow [`03_getting_started_data_pipeline.yaml`](flows/03_getting_started_
 ## Resources
 - [ETL Tutorial Video](https://go.kestra.io/de-zoomcamp/etl-tutorial)
 - [ETL in 3 Minutes](https://go.kestra.io/de-zoomcamp/etl-get-started)
+
+<!-- nav:start -->
+[← Previous: Orchestrate Python Code](05-orchestrate-python-code.md) · [Next: Local DB: Load Taxi Data to Postgres →](07-load-taxi-data-to-postgres.md)
+<!-- nav:end -->

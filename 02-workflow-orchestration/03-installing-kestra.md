@@ -54,3 +54,7 @@ curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/
 
 ## Resources
 - [Install Kestra with Docker Compose](https://go.kestra.io/de-zoomcamp/docker-compose)
+
+<!-- nav:start -->
+[← Previous: What is Kestra?](02-what-is-kestra.md) · [Next: Kestra Concepts →](04-kestra-concepts.md)
+<!-- nav:end -->

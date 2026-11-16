@@ -146,3 +146,7 @@ bruin run ./pipeline.yml --exclusive-end-date
 
 - [Bruin Documentation - Variables](https://getbruin.com/docs/bruin/core-concepts/variables.html)
 - [Pipeline Runtime Options](https://getbruin.com/docs/bruin/commands/run.html)
+
+<!-- nav:start -->
+[← Previous: Core Concepts: Assets](08-core-concepts-assets.md) · [Next: Core Concepts: Commands →](10-core-concepts-commands.md)
+<!-- nav:end -->

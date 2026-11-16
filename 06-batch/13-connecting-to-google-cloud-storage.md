@@ -147,3 +147,7 @@ run Spark ourselves - on a virtual machine or on a laptop. Later in this
 section we use Dataproc, the managed Spark service on Google Cloud, and
 there this configuration is not needed: a Dataproc cluster can already
 talk to Google Cloud Storage out of the box.
+
+<!-- nav:start -->
+[← Previous: Spark RDD mapPartition](12-spark-rdd-mappartition.md) · [Next: Creating a Local Spark Cluster →](14-creating-a-local-spark-cluster.md)
+<!-- nav:end -->

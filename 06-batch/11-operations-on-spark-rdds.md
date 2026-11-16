@@ -286,3 +286,7 @@ case, `mapPartitions`).
 * [`code/08_rdds.ipynb`](code/08_rdds.ipynb) - the first half: dropping from a
   DataFrame to its RDD and rebuilding the green revenue report with `filter`,
   `map`, `reduceByKey` and an explicit result schema.
+
+<!-- nav:start -->
+[← Previous: Joins in Spark](10-joins-in-spark.md) · [Next: Spark RDD mapPartition →](12-spark-rdd-mappartition.md)
+<!-- nav:end -->

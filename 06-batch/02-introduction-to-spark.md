@@ -91,3 +91,7 @@ and from there they can make it into a data warehouse.
 So the recommendation is: use SQL when you can, and use Spark for the
 cases where you cannot. In the next video we install Spark locally and
 run our first experiments with it.
+
+<!-- nav:start -->
+[← Previous: Introduction to Batch Processing](01-introduction-to-batch-processing.md) · [Next: Installing Spark →](03-installing-spark.md)
+<!-- nav:end -->

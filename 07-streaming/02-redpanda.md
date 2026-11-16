@@ -125,3 +125,7 @@ docker compose ps
 NAME                IMAGE                           SERVICE    STATUS
 workshop-redpanda   redpandadata/redpanda:v25.3.9   redpanda   Up
 ```
+
+<!-- nav:start -->
+[← Previous: PyFlink: Stream Processing Workshop](01-introduction.md) · [Next: Produce messages to Kafka →](03-produce-messages-to-kafka.md)
+<!-- nav:end -->

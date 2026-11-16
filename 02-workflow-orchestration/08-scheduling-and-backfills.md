@@ -11,3 +11,7 @@ Note: given the large dataset, we'll backfill only data for the green taxi datas
 
 
 The flow code: [`05_postgres_taxi_scheduled.yaml`](flows/05_postgres_taxi_scheduled.yaml).
+
+<!-- nav:start -->
+[← Previous: Local DB: Load Taxi Data to Postgres](07-load-taxi-data-to-postgres.md) · [Next: ETL vs ELT →](09-etl-vs-elt.md)
+<!-- nav:end -->

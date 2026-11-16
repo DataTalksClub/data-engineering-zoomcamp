@@ -98,3 +98,7 @@ tip amount goes drastically down - to about 0.26 dollars:
 And that is the whole loop: a model trained with SQL inside BigQuery,
 exported, and served as a REST service from a Docker container on our own
 machine.
+
+<!-- nav:start -->
+[← Previous: Machine Learning in BigQuery](05-machine-learning-in-bigquery.md) · [Next: Analytics Engineering Basics →](../04-analytics-engineering/01-analytics-engineering-basics.md)
+<!-- nav:end -->

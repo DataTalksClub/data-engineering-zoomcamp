@@ -63,3 +63,7 @@ docker run -it \
 * We need to provide the network for Docker to find the Postgres container. It goes before the name of the image.
 * Since Postgres is running on a separate container, the host argument will have to point to the container name of Postgres (`pgdatabase`).
 * You can drop the table in pgAdmin beforehand if you want, but the script will automatically replace the pre-existing table.
+
+<!-- nav:start -->
+[← Previous: pgAdmin - Database Management Tool](07-pgadmin.md) · [Next: Docker Compose →](09-docker-compose.md)
+<!-- nav:end -->

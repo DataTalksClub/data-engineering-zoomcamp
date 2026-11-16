@@ -237,3 +237,7 @@ DataFrames, but not quite.
 
 * [`code/03_test.ipynb`](code/03_test.ipynb) - starting a local `SparkSession`,
   reading the taxi zone lookup CSV, and writing it back out as parquet.
+
+<!-- nav:start -->
+[← Previous: Installing Spark](03-installing-spark.md) · [Next: Spark DataFrames →](05-spark-dataframes.md)
+<!-- nav:end -->

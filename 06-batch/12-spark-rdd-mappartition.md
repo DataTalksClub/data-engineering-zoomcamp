@@ -270,3 +270,7 @@ RDDs ends.
 
 * [`code/08_rdds.ipynb`](code/08_rdds.ipynb) - the second half: `mapPartitions`
   applying a model to each partition as a pandas DataFrame.
+
+<!-- nav:start -->
+[← Previous: Operations on Spark RDDs](11-operations-on-spark-rdds.md) · [Next: Connecting to Google Cloud Storage →](13-connecting-to-google-cloud-storage.md)
+<!-- nav:end -->

@@ -68,3 +68,7 @@ batch job to backfill the gap. This way the streaming job stays fast and you
 don't lose data.
 
 > Change the offset back to `latest-offset` when you're done experimenting.
+
+<!-- nav:start -->
+[← Previous: The pass-through Flink job](08-the-pass-through-flink-job.md) · [Next: Aggregation with tumbling windows →](10-aggregation-with-tumbling-windows.md)
+<!-- nav:end -->

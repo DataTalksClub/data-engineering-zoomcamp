@@ -66,3 +66,7 @@ After a pipeline runs:
 
 - Join the [Bruin Slack community](https://getbruin.com/) for questions and feature requests
 - Submit issues on [GitHub](https://github.com/bruin-data/bruin)
+
+<!-- nav:start -->
+[← Previous: Using Bruin MCP with AI Agents](04-bruin-mcp.md) · [Next: Core Concepts: Projects →](06-core-concepts-projects.md)
+<!-- nav:end -->

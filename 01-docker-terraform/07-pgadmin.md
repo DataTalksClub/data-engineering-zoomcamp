@@ -87,3 +87,7 @@ You should now be able to load pgAdmin on a web browser by browsing to `http://l
 5. Save
 
 Now you can explore the database using the pgAdmin interface!
+
+<!-- nav:start -->
+[← Previous: Creating the Data Ingestion Script](06-ingestion-script.md) · [Next: Dockerizing the Ingestion Script →](08-dockerizing-ingestion.md)
+<!-- nav:end -->

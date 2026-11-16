@@ -18,3 +18,7 @@ To also remove the PostgreSQL data volume:
 ```bash
 docker compose down -v
 ```
+
+<!-- nav:start -->
+[← Previous: Understanding window types](12-understanding-window-types.md) · [Next: Q&A →](14-questions-and-answers.md)
+<!-- nav:end -->

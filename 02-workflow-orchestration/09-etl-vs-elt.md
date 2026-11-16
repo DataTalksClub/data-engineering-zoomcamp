@@ -24,3 +24,7 @@ Over the next few videos, we'll look at setting up BigQuery and transforming the
 - [ETL vs ELT Video](https://go.kestra.io/de-zoomcamp/etl-vs-elt)
 - [Data Warehouse 101 Video](https://go.kestra.io/de-zoomcamp/data-warehouse-101)
 - [Data Lakes 101 Video](https://go.kestra.io/de-zoomcamp/data-lakes-101)
+
+<!-- nav:start -->
+[← Previous: Local DB: Learn Scheduling and Backfills](08-scheduling-and-backfills.md) · [Next: Setup Google Cloud Platform (GCP) →](10-setup-google-cloud-platform.md)
+<!-- nav:end -->

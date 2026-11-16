@@ -161,3 +161,7 @@ This is where Flink comes in. Clear the table before moving on:
 ```sql
 TRUNCATE processed_events;
 ```
+
+<!-- nav:start -->
+[← Previous: Consume messages with Python](04-consume-messages-with-python.md) · [Next: Why Flink? →](06-why-flink.md)
+<!-- nav:end -->

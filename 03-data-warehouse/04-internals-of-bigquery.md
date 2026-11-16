@@ -107,3 +107,7 @@ general:
 - [Dremel paper on Google Research](https://research.google/pubs/pub36632/)
 - [BigQuery architecture guide on Panoply](https://panoply.io/data-warehouse-guide/bigquery-architecture/)
 - [A look at Dremel](http://www.goldsborough.me/distributed-systems/2019/05/18/21-09-00-a_look_at_dremel/)
+
+<!-- nav:start -->
+[← Previous: BigQuery Best Practices](03-bigquery-best-practices.md) · [Next: Machine Learning in BigQuery →](05-machine-learning-in-bigquery.md)
+<!-- nav:end -->

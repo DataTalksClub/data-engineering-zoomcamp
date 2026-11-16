@@ -266,3 +266,7 @@ total number of trips.
 Try this with a plain Python consumer - you'd need to implement the windowing
 logic, handle late events, manage state, and write the upsert SQL yourself.
 With Flink, it's a SQL query.
+
+<!-- nav:start -->
+[← Previous: Offsets - earliest vs latest](09-offsets-earliest-vs-latest.md) · [Next: Late events and upserts →](11-late-events-and-upserts.md)
+<!-- nav:end -->

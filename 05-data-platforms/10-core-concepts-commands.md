@@ -161,3 +161,7 @@ bruin query --connection duckdb-default \
 
 - [Bruin Documentation - CLI Reference](https://getbruin.com/docs/bruin/commands/overview.html)
 - [Bruin GitHub Repository](https://github.com/bruin-data/bruin)
+
+<!-- nav:start -->
+[← Previous: Core Concepts: Variables](09-core-concepts-variables.md) · [Next: Introduction to Batch Processing →](../06-batch/01-introduction-to-batch-processing.md)
+<!-- nav:end -->

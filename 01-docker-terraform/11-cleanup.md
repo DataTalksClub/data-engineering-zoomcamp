@@ -91,3 +91,7 @@ rm -rf .venv
 ---
 
 That's all for today. Happy learning! 🐳📊
+
+<!-- nav:start -->
+[← Previous: SQL Refresher](10-sql-refresher.md) · [Next: Terraform Overview →](12-terraform-overview.md)
+<!-- nav:end -->

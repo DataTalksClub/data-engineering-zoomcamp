@@ -78,3 +78,7 @@ A few more things that speed up queries:
 The reason the join order matters is not obvious until you see how
 BigQuery actually executes a query. We look at that in detail in the
 [next unit](04-internals-of-bigquery.md).
+
+<!-- nav:start -->
+[← Previous: Partitioning vs Clustering](02-partitioning-vs-clustering.md) · [Next: Internals of BigQuery →](04-internals-of-bigquery.md)
+<!-- nav:end -->

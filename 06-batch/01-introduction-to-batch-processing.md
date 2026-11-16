@@ -120,3 +120,7 @@ batch. The remaining 10-20% are streaming.
 We already saw how to do batch transformations with SQL in the previous
 module, and we touched Python scripts in week one. So the rest of this
 module is about Spark. See you in the next video.
+
+<!-- nav:start -->
+[← Previous: Core Concepts: Commands](../05-data-platforms/10-core-concepts-commands.md) · [Next: Introduction to Spark →](02-introduction-to-spark.md)
+<!-- nav:end -->

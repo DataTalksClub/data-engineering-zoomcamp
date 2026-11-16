@@ -89,3 +89,7 @@ Kimball's book uses a restaurant analogy to describe how data flows through a wa
 - **Presentation area (the dining hall)** — the final, polished output. This is what business stakeholders actually see and interact with. Clean, structured, ready to consume.
 
 We'll be building exactly this layered structure in our dbt project throughout the module.
+
+<!-- nav:start -->
+[← Previous: Deploying a Machine Learning Model from BigQuery](../03-data-warehouse/06-deploying-a-machine-learning-model.md) · [Next: What is dbt? →](02-what-is-dbt.md)
+<!-- nav:end -->

@@ -11,3 +11,7 @@ Since we now process data in a cloud environment with infinitely scalable storag
 
 
 The flow code: [`09_gcp_taxi_scheduled.yaml`](flows/09_gcp_taxi_scheduled.yaml).
+
+<!-- nav:start -->
+[← Previous: GCP Workflow: Load Taxi Data to BigQuery](11-load-taxi-data-to-bigquery.md) · [Next: Introduction: Why AI for Workflows? →](13-why-ai-for-workflows.md)
+<!-- nav:end -->

@@ -34,3 +34,7 @@ Bruin brings all of these together so you don't need to be a DevOps person, data
 - Lineage and how to build dependencies between assets
 - Metadata created automatically and manually
 - Parameterizing pipelines with custom variables
+
+<!-- nav:start -->
+[← Previous: dbt Commands](../04-analytics-engineering/11-dbt-commands.md) · [Next: Getting Started with Bruin →](02-getting-started.md)
+<!-- nav:end -->

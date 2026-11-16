@@ -137,3 +137,7 @@ Runs SQL queries against your database. Define dependencies to other assets — 
 | `bruin run --full-refresh` | Truncate and rebuild tables from scratch |
 | `bruin lineage <path>` | View asset dependencies |
 | `bruin query --connection <conn> --query "..."` | Execute ad-hoc SQL queries |
+
+<!-- nav:start -->
+[← Previous: Introduction to Bruin](01-introduction.md) · [Next: Building an End-to-End Pipeline with NYC Taxi Data →](03-nyc-taxi-pipeline.md)
+<!-- nav:end -->

@@ -105,3 +105,7 @@ from {{ source('staging', 'green_tripdata') }}
 That's it. The macro handles the rest — compiles to the right SQL for whatever warehouse you're targeting (MD5 hash for BigQuery, hash function for Snowflake, etc.).
 
 > 📄 [dbt deps command — docs](https://docs.getdbt.com/reference/commands/deps)
+
+<!-- nav:start -->
+[← Previous: dbt Tests](09-dbt-tests.md) · [Next: dbt Commands →](11-dbt-commands.md)
+<!-- nav:end -->

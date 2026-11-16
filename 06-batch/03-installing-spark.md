@@ -232,3 +232,7 @@ Alternatively, if the setups above don't work, you can run Spark in Google Colab
 
 Spark on YARN, needed for the Spark-and-Docker material rather than for this
 unit, has its own guide: [Hadoop and YARN](setup/hadoop-yarn.md).
+
+<!-- nav:start -->
+[← Previous: Introduction to Spark](02-introduction-to-spark.md) · [Next: First Look at Spark/PySpark →](04-first-look-at-spark.md)
+<!-- nav:end -->

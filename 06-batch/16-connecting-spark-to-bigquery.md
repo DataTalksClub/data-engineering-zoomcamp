@@ -124,3 +124,7 @@ submitted jobs to it from the UI and with `gcloud`, and finally wrote the
 results directly to BigQuery.
 
 The script is [`code/06_spark_sql_big_query.py`](code/06_spark_sql_big_query.py).
+
+<!-- nav:start -->
+[← Previous: Setting up a Dataproc Cluster](15-setting-up-a-dataproc-cluster.md) · [Next: PyFlink: Stream Processing Workshop →](../07-streaming/01-introduction.md)
+<!-- nav:end -->

@@ -212,3 +212,7 @@ Sent: Ride(PULocationID=..., DOLocationID=..., trip_distance=..., total_amount=.
 ...
 took 10.23 seconds
 ```
+
+<!-- nav:start -->
+[← Previous: Redpanda - a Kafka-compatible broker](02-redpanda.md) · [Next: Consume messages with Python →](04-consume-messages-with-python.md)
+<!-- nav:end -->

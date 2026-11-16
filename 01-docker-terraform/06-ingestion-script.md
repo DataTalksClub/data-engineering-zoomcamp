@@ -82,3 +82,7 @@ uv run python ingest_data.py \
   --pg-db=ny_taxi \
   --target-table=yellow_taxi_trips
 ```
+
+<!-- nav:start -->
+[← Previous: NY Taxi Dataset and Data Ingestion](05-data-ingestion.md) · [Next: pgAdmin - Database Management Tool →](07-pgadmin.md)
+<!-- nav:end -->

@@ -175,3 +175,7 @@ select * from trips_unioned
 The column discrepancy between yellow and green isn't just a technical problem — it's a **business story**. Yellow and green taxis exist because of how NYC taxi licensing works: yellow cabs stay in Manhattan, green cabs were created so people in the outer boroughs could get rides too. Understanding that context is what lets you make the right call on how to handle `trip_type` and `ehail_fee` — not just technically, but semantically.
 
 This is the part of analytics engineering where you stop just writing SQL and start understanding what the data actually represents.
+
+<!-- nav:start -->
+[← Previous: dbt Sources](05-dbt-sources.md) · [Next: dbt Seeds and Macros →](07-dbt-seeds-and-macros.md)
+<!-- nav:end -->

@@ -316,3 +316,7 @@ Open the pipeline YAML file in the Bruin panel and view the lineage tab to see a
 | `time_interval` | Delete rows in date range, then re-insert |
 | `delete+insert` | Delete matching rows, then insert |
 | `create+replace` | Create or replace the table |
+
+<!-- nav:start -->
+[← Previous: Getting Started with Bruin](02-getting-started.md) · [Next: Using Bruin MCP with AI Agents →](04-bruin-mcp.md)
+<!-- nav:end -->

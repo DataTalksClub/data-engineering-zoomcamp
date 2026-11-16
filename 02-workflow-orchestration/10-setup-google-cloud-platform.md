@@ -22,3 +22,7 @@ If you haven't already created the GCS bucket and BigQuery dataset in the first 
 
 ## Resources
 - [Set up Google Cloud Service Account in Kestra](https://go.kestra.io/de-zoomcamp/google-sa)
+
+<!-- nav:start -->
+[← Previous: ETL vs ELT](09-etl-vs-elt.md) · [Next: GCP Workflow: Load Taxi Data to BigQuery →](11-load-taxi-data-to-bigquery.md)
+<!-- nav:end -->

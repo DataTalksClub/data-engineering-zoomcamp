@@ -229,3 +229,7 @@ express in code.
   yellow into one `trips_data` temp table and running the revenue report as SQL.
 * [`code/06_spark_sql.py`](code/06_spark_sql.py) - the same report as a
   parameterised script, which the cloud units later submit to a cluster.
+
+<!-- nav:start -->
+[← Previous: Preparing Yellow and Green Taxi Data](06-preparing-taxi-data.md) · [Next: Anatomy of a Spark Cluster →](08-anatomy-of-a-spark-cluster.md)
+<!-- nav:end -->

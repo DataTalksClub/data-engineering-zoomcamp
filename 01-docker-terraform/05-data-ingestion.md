@@ -273,3 +273,7 @@ uv run pgcli -h localhost -p 5432 -u root -d ny_taxi
 ```
 
 And explore the data.
+
+<!-- nav:start -->
+[← Previous: Running PostgreSQL with Docker](04-postgres-docker.md) · [Next: Creating the Data Ingestion Script →](06-ingestion-script.md)
+<!-- nav:end -->

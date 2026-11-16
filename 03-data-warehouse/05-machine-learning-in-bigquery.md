@@ -307,3 +307,7 @@ it from a Docker container.
 - [BigQuery ML Reference Parameter](https://cloud.google.com/bigquery-ml/docs/analytics-reference-patterns)
 - [Hyper Parameter tuning](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-create-glm)
 - [Feature preprocessing](https://cloud.google.com/bigquery-ml/docs/reference/standard-sql/bigqueryml-syntax-preprocess-overview)
+
+<!-- nav:start -->
+[← Previous: Internals of BigQuery](04-internals-of-bigquery.md) · [Next: Deploying a Machine Learning Model from BigQuery →](06-deploying-a-machine-learning-model.md)
+<!-- nav:end -->

@@ -64,3 +64,7 @@ Continue [here](./terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
 
 ## References
 https://learn.hashicorp.com/collections/terraform/gcp-get-started
+
+<!-- nav:start -->
+[← Previous: Cleanup](11-cleanup.md) · [Next: GCP Overview →](13-gcp-overview.md)
+<!-- nav:end -->

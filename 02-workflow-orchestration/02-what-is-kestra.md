@@ -17,3 +17,7 @@ Kestra is a great choice for workflow orchestration:
 ## Resources
 - [Quickstart Guide](https://go.kestra.io/de-zoomcamp/quickstart)
 - [What is an Orchestrator?](https://go.kestra.io/de-zoomcamp/what-is-an-orchestrator)
+
+<!-- nav:start -->
+[← Previous: What is Workflow Orchestration?](01-what-is-workflow-orchestration.md) · [Next: Installing Kestra →](03-installing-kestra.md)
+<!-- nav:end -->

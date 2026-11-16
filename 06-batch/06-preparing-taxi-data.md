@@ -257,3 +257,7 @@ following along.
 * [`code/05_taxi_schema.ipynb`](code/05_taxi_schema.ipynb) - the explicit green
   and yellow schemas, and the loop that rewrites each month as partitioned
   parquet under `data/pq/`.
+
+<!-- nav:start -->
+[← Previous: Spark DataFrames](05-spark-dataframes.md) · [Next: SQL with Spark →](07-sql-with-spark.md)
+<!-- nav:end -->

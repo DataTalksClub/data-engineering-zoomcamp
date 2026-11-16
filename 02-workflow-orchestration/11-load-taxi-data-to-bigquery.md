@@ -28,3 +28,7 @@ graph LR
 ```
 
 The flow code: [`08_gcp_taxi.yaml`](flows/08_gcp_taxi.yaml).
+
+<!-- nav:start -->
+[← Previous: Setup Google Cloud Platform (GCP)](10-setup-google-cloud-platform.md) · [Next: GCP Workflow: Schedule and Backfill Full Dataset →](12-schedule-and-backfill-full-dataset.md)
+<!-- nav:end -->

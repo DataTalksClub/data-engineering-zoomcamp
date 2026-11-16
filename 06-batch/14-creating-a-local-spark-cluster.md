@@ -203,3 +203,7 @@ with the matching scripts from the same `sbin` directory:
 
 After that nothing is running, and trying to connect gives an error - the
 cluster is really gone.
+
+<!-- nav:start -->
+[← Previous: Connecting to Google Cloud Storage](13-connecting-to-google-cloud-storage.md) · [Next: Setting up a Dataproc Cluster →](15-setting-up-a-dataproc-cluster.md)
+<!-- nav:end -->

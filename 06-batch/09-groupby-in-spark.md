@@ -190,3 +190,7 @@ same external merge sort and reshuffling.
 
 * [`code/07_groupby_join.ipynb`](code/07_groupby_join.ipynb) - the first half:
   the hourly-per-zone revenue aggregations over green and yellow.
+
+<!-- nav:start -->
+[← Previous: Anatomy of a Spark Cluster](08-anatomy-of-a-spark-cluster.md) · [Next: Joins in Spark →](10-joins-in-spark.md)
+<!-- nav:end -->

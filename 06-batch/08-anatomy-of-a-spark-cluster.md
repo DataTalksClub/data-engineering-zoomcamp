@@ -110,3 +110,7 @@ cloud storage.
 - Executors are the machines that do the actual computation.
 - The data lives in cloud storage: we read from it and write the results
   back to it.
+
+<!-- nav:start -->
+[← Previous: SQL with Spark](07-sql-with-spark.md) · [Next: GroupBy in Spark →](09-groupby-in-spark.md)
+<!-- nav:end -->

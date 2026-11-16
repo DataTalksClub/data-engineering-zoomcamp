@@ -112,3 +112,7 @@ The agent understands the context of your pipeline — it knows the table struct
 - Understanding unfamiliar pipeline logic
 - Data validation and troubleshooting
 - Onboarding new team members to an existing pipeline
+
+<!-- nav:start -->
+[← Previous: Building an End-to-End Pipeline with NYC Taxi Data](03-nyc-taxi-pipeline.md) · [Next: Deploying to Bruin Cloud →](05-bruin-cloud.md)
+<!-- nav:end -->

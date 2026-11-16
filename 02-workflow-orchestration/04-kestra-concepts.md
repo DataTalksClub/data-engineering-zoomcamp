@@ -31,3 +31,7 @@ The flow [`01_hello_world.yaml`](flows/01_hello_world.yaml) showcases all of the
 ## Resources
 - [Tutorial](https://go.kestra.io/de-zoomcamp/tutorial)
 - [Workflow Components Documentation](https://go.kestra.io/de-zoomcamp/workflow-components)
+
+<!-- nav:start -->
+[← Previous: Installing Kestra](03-installing-kestra.md) · [Next: Orchestrate Python Code →](05-orchestrate-python-code.md)
+<!-- nav:end -->

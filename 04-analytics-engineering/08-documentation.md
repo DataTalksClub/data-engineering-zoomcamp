@@ -154,3 +154,7 @@ Two commands, run them in order:
 ![A dbt lineage graph traces source data through staging, intermediate, and final models to a BI dashboard.](images/dbt-lineage-graph.png)
 
 It's more of a **technical documentation** tool than a pretty data catalog. It's not going to replace something like Looker or Confluent's data catalog for non-technical stakeholders. But for the people building the models, it's genuinely useful — you can see at a glance what data assets exist, how they connect, and how they work.
+
+<!-- nav:start -->
+[← Previous: dbt Seeds and Macros](07-dbt-seeds-and-macros.md) · [Next: dbt Tests →](09-dbt-tests.md)
+<!-- nav:end -->

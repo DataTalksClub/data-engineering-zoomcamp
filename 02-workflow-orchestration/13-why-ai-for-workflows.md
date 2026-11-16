@@ -14,3 +14,7 @@ However, AI is only as good as the context we provide. This section teaches you 
 
 
 *AI can accelerate workflow creation, but context, validation, and human review remain the path to reliable deployment.*
+
+<!-- nav:start -->
+[← Previous: GCP Workflow: Schedule and Backfill Full Dataset](12-schedule-and-backfill-full-dataset.md) · [Next: Context Engineering with ChatGPT →](14-context-engineering-with-chatgpt.md)
+<!-- nav:end -->
