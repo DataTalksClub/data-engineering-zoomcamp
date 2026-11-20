@@ -25,8 +25,11 @@ This video is about telling dbt where your raw data actually lives. Sources are 
   - **tables** — the individual tables you want to reference
 
 ```yaml
+version: 2
+
 sources:
-  - name: nytaxi
+  - name: raw_data
+    description: "Raw data sources for NYC taxi rides"
     database: taxi_rides_ny # Or name of your GCP project
     schema: prod # Or name of your BigQuery dataset
 
@@ -58,12 +61,12 @@ The meaning of database, schema, and tables changes depending on your setup:
 - Instead of hard-coding the full path to your table (e.g. `FROM production.trips_data_all.green_tripdata`), you use the **`source()`** function
 - It's a **Jinja macro** — you'll recognize it by the double curly brackets `{{ }}`
 - It takes two arguments:
-  - The **source name** — the one you defined in your YAML (e.g. `staging`)
+  - The **source name** — the one you defined in your YAML (e.g. `raw_data`)
   - The **table name** — must match exactly what you put under `tables` in the YAML
 - As long as there's a YAML file somewhere in your project with a matching source declaration, this will resolve correctly at compile time
 
 ```sql
-select * from {{ source('staging', 'green_tripdata') }}
+select * from {{ source('raw_data', 'green_tripdata') }}
 ```
 
 - Run a preview and you should see the raw table data come back
@@ -94,19 +97,12 @@ select * from {{ source('staging', 'green_tripdata') }}
   - Monetary values → `numeric` or `float` (depends on your platform)
 
 ```sql
-with tripdata as (
-  select *
-  from {{ source('staging','green_tripdata') }}
-  where vendorid is not null
-),
-
-renamed as (
   select
       -- identifiers
-      cast(vendorid as integer) as vendorid,
-      cast(ratecodeid as integer) as ratecodeid,
-      cast(pulocationid as integer) as pickup_locationid,
-      cast(dolocationid as integer) as dropoff_locationid,
+      cast(vendorid as integer) as vendor_id,
+      cast(ratecodeid as integer) as ratecode_id,
+      cast(pulocationid as integer) as pickup_location_id,
+      cast(dolocationid as integer) as dropoff_location_id,
 
       -- timestamps
       cast(lpep_pickup_datetime as timestamp) as pickup_datetime,
@@ -128,11 +124,9 @@ renamed as (
       cast(improvement_surcharge as numeric) as improvement_surcharge,
       cast(total_amount as numeric) as total_amount,
       cast(payment_type as integer) as payment_type,
-      {{ get_payment_type_description('payment_type') }} as payment_type_description
-  from tripdata
-)
 
-select * from renamed
+from {{ source('staging','green_tripdata') }}
+where vendorid is not null
 ```
 
 ---
