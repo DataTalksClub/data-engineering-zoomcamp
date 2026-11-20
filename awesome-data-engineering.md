@@ -7,6 +7,7 @@ Have you found any cool resources about data engineering? Put them here
 * [Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) by DataTalks.Club (free)
 * [Big Data Platforms, Autumn 2022: Introduction to Big Data Processing Frameworks](https://big-data-platforms-22.mooc.fi/) by the University of Helsinki (free)   
 * [Awesome Data Engineering Learning Path](https://awesomedataengineering.com/)
+* [Fintech Data Engineering Roadmap](https://github.com/antony502189-max/fintech-data-engineering-roadmap) (free self-paced Python/SQL learning path with 100 lessons, 40 exercises, and 8 fintech scenario labs)
 
 
 ### Books
