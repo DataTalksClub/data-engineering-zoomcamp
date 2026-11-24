@@ -122,6 +122,7 @@ Conference talks from companies, blog posts, etc
 * [What Skills Do You Need to Become a Data Engineer](https://www.linkedin.com/pulse/what-skills-do-you-need-become-data-engineer-peng-wang/) (blog post) 
 * [The future history of Data Engineering](https://groupby1.substack.com/p/data-engineering?s=r) (blog post) 
 * [What Skills Do Data Engineers Need](https://www.theseattledataguy.com/what-skills-do-data-engineers-need/) (blog post)
+* [What Indian data engineering job postings ask for (India Tech Hiring Report, Oct 2026)](https://www.prepnplaced.com/data-engineer-skills) (report)
 
 ### Data Engineering Management 
 
