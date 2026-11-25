@@ -1,0 +1,75 @@
+slug: de-zoomcamp-project
+title: Data Engineering Zoomcamp project
+description: 'Peers score each of the 7 areas 0, 2 or 4 points. Full requirements: projects/README.md.'
+criteria:
+- id: problem-description
+  title: Problem description
+  type: scale
+  options:
+  - points: 0
+    text: Problem is not described
+  - points: 2
+    text: Problem is described but shortly or not clearly
+  - points: 4
+    text: Problem is well described and it's clear what the problem the project solves
+- id: cloud
+  title: Cloud
+  type: scale
+  options:
+  - points: 0
+    text: Cloud is not used, things run only locally
+  - points: 2
+    text: The project is developed in the cloud
+  - points: 4
+    text: The project is developed in the cloud and IaC tools are used
+- id: data-ingestion
+  title: Data ingestion
+  description: Choose either batch or stream. Score the option that matches the pipeline the project uses.
+  type: scale
+  options:
+  - points: 0
+    text: 'Batch / workflow orchestration: No workflow orchestration. Stream: No streaming system (like Kafka, Pulsar, etc)'
+  - points: 2
+    text: 'Batch / workflow orchestration: Partial workflow orchestration: some steps are orchestrated, some run manually. Stream: A simple pipeline with one consumer and one producer'
+  - points: 4
+    text: 'Batch / workflow orchestration: End-to-end pipeline: multiple steps in the DAG, uploading data to data lake. Stream: Using consumer/producers and streaming technologies (like Kafka streaming, Spark streaming, Flink, etc)'
+- id: data-warehouse
+  title: Data warehouse
+  type: scale
+  options:
+  - points: 0
+    text: No DWH is used
+  - points: 2
+    text: Tables are created in DWH, but not optimized
+  - points: 4
+    text: Tables are partitioned and clustered in a way that makes sense for the upstream queries (with explanation)
+- id: transformations
+  title: Transformations (dbt, spark, etc)
+  type: scale
+  options:
+  - points: 0
+    text: No tranformations
+  - points: 2
+    text: Simple SQL transformation (no dbt or similar tools)
+  - points: 4
+    text: Tranformations are defined with dbt, Spark or similar technologies
+- id: dashboard
+  title: Dashboard
+  type: scale
+  options:
+  - points: 0
+    text: No dashboard
+  - points: 2
+    text: A dashboard with 1 tile
+  - points: 4
+    text: A dashboard with 2 tiles
+- id: reproducibility
+  title: Reproducibility
+  type: scale
+  options:
+  - points: 0
+    text: No instructions how to run the code at all
+  - points: 2
+    text: Some instructions are there, but they are not complete
+  - points: 4
+    text: Instructions are clear, it's easy to run the code, and the code works
