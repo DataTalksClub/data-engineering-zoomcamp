@@ -22,3 +22,20 @@ homework:
     source: cohorts/2027/homework/06-batch/homework.yaml
   - module: 07-streaming
     source: cohorts/2027/homework/07-streaming/homework.yaml
+review_criteria:
+  - cohorts/2027/review_criteria/de-zoomcamp-project.yaml
+projects:
+  - slug: project-attempt-1
+    title: "Project Attempt 1"
+    description: cohorts/2027/project.md
+    submission_due: "2027-03-15T23:59:59Z"
+    review_due: "2027-03-22T23:59:59Z"
+    peers: 3
+    criteria_set: de-zoomcamp-project
+  - slug: project-attempt-2
+    title: "Project Attempt 2"
+    description: cohorts/2027/project.md
+    submission_due: "2027-03-29T23:59:59Z"
+    review_due: "2027-04-05T23:59:59Z"
+    peers: 3
+    criteria_set: de-zoomcamp-project
