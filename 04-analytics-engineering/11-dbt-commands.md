@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=t4OeWHW3SsA
+video_duration_seconds: 1004
 prev_url: 10-dbt-packages.md
 next_url: ../05-data-platforms/01-introduction.md
 ---

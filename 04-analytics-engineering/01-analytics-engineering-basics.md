@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=uF76d5EmdtU
+video_duration_seconds: 434
 prev_url: ../03-data-warehouse/06-deploying-a-machine-learning-model.md
 next_url: 02-what-is-dbt.md
 ---

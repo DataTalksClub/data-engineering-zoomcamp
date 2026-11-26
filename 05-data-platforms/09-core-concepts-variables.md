@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=XCx0nDmhhxA
+video_duration_seconds: 363
 prev_url: 08-core-concepts-assets.md
 next_url: 10-core-concepts-commands.md
 ---

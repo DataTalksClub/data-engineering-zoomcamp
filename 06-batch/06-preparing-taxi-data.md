@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=CI3P4tAtru4
+video_duration_seconds: 1529
 prev_url: 05-spark-dataframes.md
 next_url: 07-sql-with-spark.md
 ---

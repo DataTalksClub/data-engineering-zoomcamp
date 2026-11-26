@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=b-6KhfWfk2M
+video_duration_seconds: 177
 prev_url: 11-load-taxi-data-to-bigquery.md
 next_url: 13-why-ai-for-workflows.md
 ---

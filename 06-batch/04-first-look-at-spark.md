@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=r_Sf6fCB40c
+video_duration_seconds: 1094
 prev_url: 03-installing-spark.md
 next_url: 05-spark-dataframes.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=E04yurp1tSU
+video_duration_seconds: 216
 prev_url: 08-scheduling-and-backfills.md
 next_url: 10-setup-google-cloud-platform.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=YWDjnSxbBtY
+video_duration_seconds: 182
 prev_url: 05-bruin-cloud.md
 next_url: 07-core-concepts-pipelines.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=YDUgFeHQzJU
+video_duration_seconds: 5553
 prev_url: ../06-batch/16-connecting-spark-to-bigquery.md
 next_url: 02-redpanda.md
 ---

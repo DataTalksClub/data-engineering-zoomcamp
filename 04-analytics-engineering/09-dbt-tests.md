@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=bvZ-rJm7uMU
+video_duration_seconds: 509
 prev_url: 08-documentation.md
 next_url: 10-dbt-packages.md
 ---

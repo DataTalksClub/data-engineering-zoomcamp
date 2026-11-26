@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=lT4fmTDEqVk
+video_duration_seconds: 726
 prev_url: 06-dbt-models.md
 next_url: 08-documentation.md
 ---

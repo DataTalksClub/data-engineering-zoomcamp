@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=Yyz293hBVcQ
+video_duration_seconds: 526
 prev_url: 12-spark-rdd-mappartition.md
 next_url: 14-creating-a-local-spark-cluster.md
 ---

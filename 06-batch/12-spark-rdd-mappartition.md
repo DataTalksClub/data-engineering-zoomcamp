@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=k3uB2K99roI
+video_duration_seconds: 1004
 prev_url: 11-operations-on-spark-rdds.md
 next_url: 13-connecting-to-google-cloud-storage.md
 ---

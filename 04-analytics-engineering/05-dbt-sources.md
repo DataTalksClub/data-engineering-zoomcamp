@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=7CrrXazV_8k
+video_duration_seconds: 1095
 prev_url: 04-dbt-project-structure.md
 next_url: 06-dbt-models.md
 ---

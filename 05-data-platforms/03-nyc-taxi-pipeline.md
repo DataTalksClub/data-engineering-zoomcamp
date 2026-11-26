@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=q0k_iz9kWsI
+video_duration_seconds: 945
 prev_url: 02-getting-started.md
 next_url: 04-bruin-mcp.md
 ---

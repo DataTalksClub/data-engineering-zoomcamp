@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=52u9X_bfTAo
+video_duration_seconds: 423
 prev_url: 10-setup-google-cloud-platform.md
 next_url: 12-schedule-and-backfill-full-dataset.md
 ---

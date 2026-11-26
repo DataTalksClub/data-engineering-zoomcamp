@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=jrHljAoD6nM
+video_duration_seconds: 1384
 prev_url: ../02-workflow-orchestration/18-additional-resources.md
 next_url: 02-partitioning-vs-clustering.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=Bdu-xIrF3OM
+video_duration_seconds: 1453
 prev_url: 10-joins-in-spark.md
 next_url: 12-spark-rdd-mappartition.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=3IbjHfC8bMg
+video_duration_seconds: 160
 prev_url: 14-context-engineering-with-chatgpt.md
 next_url: 16-retrieval-augmented-generation.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=f6vg7lGqZx0
+video_duration_seconds: 197
 prev_url: ../04-analytics-engineering/11-dbt-commands.md
 next_url: 02-getting-started.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=XuPDQ1UcNyI
+video_duration_seconds: 183
 prev_url: 15-ai-copilot-in-kestra.md
 next_url: 17-deploy-to-the-cloud.md
 ---

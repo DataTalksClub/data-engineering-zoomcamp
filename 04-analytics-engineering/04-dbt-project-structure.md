@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=2dYDS4OQbT0
+video_duration_seconds: 1222
 prev_url: 03-dbt-core-vs-dbt-cloud.md
 next_url: 05-dbt-sources.md
 ---

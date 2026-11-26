@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=UqoWyMjcqrA
+video_duration_seconds: 510
 prev_url: 07-dbt-seeds-and-macros.md
 next_url: 09-dbt-tests.md
 ---

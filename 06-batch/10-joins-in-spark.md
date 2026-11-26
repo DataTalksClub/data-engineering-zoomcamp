@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=lu7TrqAWuH4
+video_duration_seconds: 1025
 prev_url: 09-groupby-in-spark.md
 next_url: 11-operations-on-spark-rdds.md
 ---

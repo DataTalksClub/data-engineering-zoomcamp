@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=MNOKVx8780E
+video_duration_seconds: 609
 prev_url: 03-installing-kestra.md
 next_url: 05-orchestrate-python-code.md
 ---

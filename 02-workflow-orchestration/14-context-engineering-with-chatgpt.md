@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=LmnfjGKwnVU
+video_duration_seconds: 100
 prev_url: 13-why-ai-for-workflows.md
 next_url: 15-ai-copilot-in-kestra.md
 ---

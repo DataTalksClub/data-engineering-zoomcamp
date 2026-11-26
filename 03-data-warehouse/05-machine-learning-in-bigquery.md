@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=B-WtpB0PuG4
+video_duration_seconds: 952
 prev_url: 04-internals-of-bigquery.md
 next_url: 06-deploying-a-machine-learning-model.md
 ---

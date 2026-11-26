@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=k81mLJVX08w
+video_duration_seconds: 225
 prev_url: 02-partitioning-vs-clustering.md
 next_url: 04-internals-of-bigquery.md
 ---

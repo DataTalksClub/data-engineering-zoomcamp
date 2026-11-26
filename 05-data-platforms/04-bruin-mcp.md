@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=224xH7h8OaQ
+video_duration_seconds: 558
 prev_url: 03-nyc-taxi-pipeline.md
 next_url: 05-bruin-cloud.md
 ---

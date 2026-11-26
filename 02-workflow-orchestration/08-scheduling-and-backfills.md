@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=1pu_C_oOAMA
+video_duration_seconds: 279
 prev_url: 07-load-taxi-data-to-postgres.md
 next_url: 09-etl-vs-elt.md
 ---

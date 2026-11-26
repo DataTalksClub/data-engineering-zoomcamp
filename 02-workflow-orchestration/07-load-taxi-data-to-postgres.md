@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=Z9ZmmwtXDcU
+video_duration_seconds: 916
 prev_url: 06-getting-started-pipeline.md
 next_url: 08-scheduling-and-backfills.md
 ---

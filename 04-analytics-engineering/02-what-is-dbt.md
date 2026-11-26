@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=gsKuETFJr54
+video_duration_seconds: 423
 prev_url: 01-analytics-engineering-basics.md
 next_url: 03-dbt-core-vs-dbt-cloud.md
 ---

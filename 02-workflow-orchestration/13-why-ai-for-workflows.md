@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=GHPtRDAv044
+video_duration_seconds: 68
 prev_url: 12-schedule-and-backfill-full-dataset.md
 next_url: 14-context-engineering-with-chatgpt.md
 ---

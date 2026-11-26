@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=uzp_DiR4Sok
+video_duration_seconds: 193
 prev_url: 06-core-concepts-projects.md
 next_url: 08-core-concepts-assets.md
 ---

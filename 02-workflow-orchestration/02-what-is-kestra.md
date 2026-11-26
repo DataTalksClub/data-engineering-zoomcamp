@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=ZvVN_NmB_1s
+video_duration_seconds: 152
 prev_url: 01-what-is-workflow-orchestration.md
 next_url: 03-installing-kestra.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=-KmwrCqRhic
+video_duration_seconds: 322
 prev_url: 05-orchestrate-python-code.md
 next_url: 07-load-taxi-data-to-postgres.md
 ---

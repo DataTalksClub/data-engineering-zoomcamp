@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=68CipcZt7ZA
+video_duration_seconds: 449
 prev_url: 07-sql-with-spark.md
 next_url: 09-groupby-in-spark.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=JJwHKSidX_c
+video_duration_seconds: 596
 prev_url: 01-introduction.md
 next_url: 03-nyc-taxi-pipeline.md
 ---

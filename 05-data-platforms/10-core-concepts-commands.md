@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=3nykPEs_V7E
+video_duration_seconds: 406
 prev_url: 09-core-concepts-variables.md
 next_url: ../06-batch/01-introduction-to-batch-processing.md
 ---

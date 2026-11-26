@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=HXBwSlXo5IA
+video_duration_seconds: 929
 prev_url: 13-connecting-to-google-cloud-storage.md
 next_url: 15-setting-up-a-dataproc-cluster.md
 ---

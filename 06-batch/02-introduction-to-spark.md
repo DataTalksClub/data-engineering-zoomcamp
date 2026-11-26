@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=FhaqbEOuQ8U
+video_duration_seconds: 407
 prev_url: 01-introduction-to-batch-processing.md
 next_url: 03-installing-spark.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=-CqXf7vhhDs
+video_duration_seconds: 463
 prev_url: 01-data-warehouse-and-bigquery.md
 next_url: 03-bigquery-best-practices.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=uAlp2VuZZPY
+video_duration_seconds: 933
 prev_url: 06-preparing-taxi-data.md
 next_url: 08-anatomy-of-a-spark-cluster.md
 ---

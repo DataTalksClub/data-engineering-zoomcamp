@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=eduHi1inM4s
+video_duration_seconds: 366
 prev_url: 03-bigquery-best-practices.md
 next_url: 05-machine-learning-in-bigquery.md
 ---

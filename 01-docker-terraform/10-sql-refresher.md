@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=QEcps_iskgg
+video_duration_seconds: 952
 prev_url: 09-docker-compose.md
 next_url: 11-cleanup.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=ZElY5SoqrwI
+video_duration_seconds: 370
 prev_url: 07-core-concepts-pipelines.md
 next_url: 09-core-concepts-variables.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=-JLnp-iLins
+video_duration_seconds: 301
 prev_url: ../01-docker-terraform/13-gcp-overview.md
 next_url: 02-what-is-kestra.md
 ---

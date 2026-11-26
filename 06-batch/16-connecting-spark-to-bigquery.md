@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=HIm2BOj8C0Q
+video_duration_seconds: 536
 prev_url: 15-setting-up-a-dataproc-cluster.md
 next_url: ../07-streaming/01-introduction.md
 ---

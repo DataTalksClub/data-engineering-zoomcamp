@@ -1,5 +1,6 @@
 ---
 video_url: https://www.youtube.com/watch?v=dcHe5Fl3MF8
+video_duration_seconds: 571
 prev_url: ../05-data-platforms/10-core-concepts-commands.md
 next_url: 02-introduction-to-spark.md
 ---
