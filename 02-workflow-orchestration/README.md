@@ -2,24 +2,24 @@
 
 ## Units
 
-1. [What is Workflow Orchestration?](01-what-is-workflow-orchestration.md)
-2. [What is Kestra?](02-what-is-kestra.md)
-3. [Installing Kestra](03-installing-kestra.md)
-4. [Kestra Concepts](04-kestra-concepts.md)
-5. [Orchestrate Python Code](05-orchestrate-python-code.md)
-6. [Getting Started Pipeline](06-getting-started-pipeline.md)
-7. [Local DB: Load Taxi Data to Postgres](07-load-taxi-data-to-postgres.md)
-8. [Local DB: Learn Scheduling and Backfills](08-scheduling-and-backfills.md)
-9. [ETL vs ELT](09-etl-vs-elt.md)
-10. [Setup Google Cloud Platform (GCP)](10-setup-google-cloud-platform.md)
-11. [GCP Workflow: Load Taxi Data to BigQuery](11-load-taxi-data-to-bigquery.md)
-12. [GCP Workflow: Schedule and Backfill Full Dataset](12-schedule-and-backfill-full-dataset.md)
-13. [Introduction: Why AI for Workflows?](13-why-ai-for-workflows.md)
-14. [Context Engineering with ChatGPT](14-context-engineering-with-chatgpt.md)
-15. [AI Copilot in Kestra](15-ai-copilot-in-kestra.md)
-16. [Bonus: Retrieval Augmented Generation (RAG)](16-retrieval-augmented-generation.md)
-17. [Bonus: Deploy to the Cloud (Optional)](17-deploy-to-the-cloud.md)
-18. [Additional Resources](18-additional-resources.md)
+1. [What is Workflow Orchestration?](01-what-is-workflow-orchestration.md) - Explain what workflow orchestration does and why it helps coordinate tools, schedules, and data movement.
+2. [What is Kestra?](02-what-is-kestra.md) - Introduce Kestra as an open-source orchestrator with YAML flows, plugins, and schedule or event triggers.
+3. [Installing Kestra](03-installing-kestra.md) - Install Kestra with Docker Compose next to Postgres and add the course flows through the UI or API.
+4. [Kestra Concepts](04-kestra-concepts.md) - Learn core Kestra concepts such as flows, tasks, inputs, outputs, triggers, variables, and concurrency using an example flow.
+5. [Orchestrate Python Code](05-orchestrate-python-code.md) - Run Python code inside Kestra flows and pass its outputs to later tasks, using a DockerHub pull-count example.
+6. [Getting Started Pipeline](06-getting-started-pipeline.md) - Build and run a getting-started flow that extracts data from a REST API, transforms it in Python, and queries it with DuckDB.
+7. [Local DB: Load Taxi Data to Postgres](07-load-taxi-data-to-postgres.md) - Build a Kestra flow that loads yellow and green taxi CSV data into a local Postgres database through monthly tables and a merge step.
+8. [Local DB: Learn Scheduling and Backfills](08-scheduling-and-backfills.md) - Schedule a Postgres taxi pipeline to run daily and backfill it for historical data.
+9. [ETL vs ELT](09-etl-vs-elt.md) - Compare ETL and ELT pipelines and when loading into a cloud warehouse before transforming makes sense.
+10. [Setup Google Cloud Platform (GCP)](10-setup-google-cloud-platform.md) - Set up Google Cloud Platform resources and store project, bucket, and dataset settings in the Kestra KV store.
+11. [GCP Workflow: Load Taxi Data to BigQuery](11-load-taxi-data-to-bigquery.md) - Build a Kestra ELT flow that uploads taxi CSVs to Google Cloud Storage and merges them into BigQuery tables.
+12. [GCP Workflow: Schedule and Backfill Full Dataset](12-schedule-and-backfill-full-dataset.md) - Schedule the BigQuery taxi pipeline for green and yellow data and backfill the full dataset from the Kestra UI.
+13. [Introduction: Why AI for Workflows?](13-why-ai-for-workflows.md) - Explain why AI tools help write workflow code faster and why context and human review still matter.
+14. [Context Engineering with ChatGPT](14-context-engineering-with-chatgpt.md) - Try a Kestra flow prompt in ChatGPT without context and see why outdated or invented syntax appears.
+15. [AI Copilot in Kestra](15-ai-copilot-in-kestra.md) - Configure Kestra's AI Copilot with a Gemini API key and compare its flow output against ChatGPT.
+16. [Bonus: Retrieval Augmented Generation (RAG)](16-retrieval-augmented-generation.md) - Use retrieval augmented generation to ground Kestra AI answers in release documentation stored as embeddings.
+17. [Bonus: Deploy to the Cloud (Optional)](17-deploy-to-the-cloud.md) - Review optional steps for deploying Kestra to Google Cloud and syncing workflows from a Git repository.
+18. [Additional Resources](18-additional-resources.md) - List Kestra documentation and community resources, plus troubleshooting tips for Module 2.
 
 ## Homework
 

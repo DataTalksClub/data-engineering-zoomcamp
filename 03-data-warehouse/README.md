@@ -2,12 +2,12 @@
 
 ## Units
 
-1. [Data Warehouse and BigQuery](01-data-warehouse-and-bigquery.md)
-2. [Partitioning vs Clustering](02-partitioning-vs-clustering.md)
-3. [BigQuery Best Practices](03-bigquery-best-practices.md)
-4. [Internals of BigQuery](04-internals-of-bigquery.md)
-5. [Machine Learning in BigQuery](05-machine-learning-in-bigquery.md)
-6. [Deploying a Machine Learning Model from BigQuery](06-deploying-a-machine-learning-model.md)
+1. [Data Warehouse and BigQuery](01-data-warehouse-and-bigquery.md) - Compare OLTP and OLAP databases, then explore BigQuery features, pricing, external tables, partitioning, and clustering.
+2. [Partitioning vs Clustering](02-partitioning-vs-clustering.md) - Compare BigQuery partitioning options and clustering, then choose between them by cost, granularity, and cardinality.
+3. [BigQuery Best Practices](03-bigquery-best-practices.md) - Apply BigQuery best practices to reduce query cost and improve performance, such as avoiding SELECT * and filtering on partitioned columns.
+4. [Internals of BigQuery](04-internals-of-bigquery.md) - Explain how BigQuery stores data in Colossus, executes queries with Dremel, and connects them through Jupiter.
+5. [Machine Learning in BigQuery](05-machine-learning-in-bigquery.md) - Train a linear regression tip model in BigQuery ML with SQL, then evaluate, explain, and tune it.
+6. [Deploying a Machine Learning Model from BigQuery](06-deploying-a-machine-learning-model.md) - Export the BigQuery tip model to Cloud Storage and serve it with TensorFlow Serving in Docker for HTTP predictions.
 
 ## Homework
 

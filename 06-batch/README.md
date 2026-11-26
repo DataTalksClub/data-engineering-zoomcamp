@@ -2,22 +2,22 @@
 
 ## Units
 
-1. [Introduction to Batch Processing](01-introduction-to-batch-processing.md)
-2. [Introduction to Spark](02-introduction-to-spark.md)
-3. [Installing Spark](03-installing-spark.md)
-4. [First Look at Spark/PySpark](04-first-look-at-spark.md)
-5. [Spark DataFrames](05-spark-dataframes.md)
-6. [Preparing Yellow and Green Taxi Data](06-preparing-taxi-data.md)
-7. [SQL with Spark](07-sql-with-spark.md)
-8. [Anatomy of a Spark Cluster](08-anatomy-of-a-spark-cluster.md)
-9. [GroupBy in Spark](09-groupby-in-spark.md)
-10. [Joins in Spark](10-joins-in-spark.md)
-11. [Operations on Spark RDDs](11-operations-on-spark-rdds.md)
-12. [Spark RDD mapPartition](12-spark-rdd-mappartition.md)
-13. [Connecting to Google Cloud Storage](13-connecting-to-google-cloud-storage.md)
-14. [Creating a Local Spark Cluster](14-creating-a-local-spark-cluster.md)
-15. [Setting up a Dataproc Cluster](15-setting-up-a-dataproc-cluster.md)
-16. [Connecting Spark to BigQuery](16-connecting-spark-to-bigquery.md)
+1. [Introduction to Batch Processing](01-introduction-to-batch-processing.md) - Define batch processing, contrast it with streaming, and see where Spark fits among batch tools.
+2. [Introduction to Spark](02-introduction-to-spark.md) - Explain what Spark is, which languages it supports, and when to use it instead of SQL on a data lake.
+3. [Installing Spark](03-installing-spark.md) - Install Java and Spark on a Linux machine, then run spark-shell and PySpark with a local SparkSession.
+4. [First Look at Spark/PySpark](04-first-look-at-spark.md) - Read a large CSV with an explicit schema, repartition it, and write it as parquet while watching the Spark UI.
+5. [Spark DataFrames](05-spark-dataframes.md) - Work with Spark DataFrames, including parquet schemas, select and filter, lazy transformations versus actions, and UDFs.
+6. [Preparing Yellow and Green Taxi Data](06-preparing-taxi-data.md) - Prepare yellow and green taxi CSVs for 2020 and 2021 by downloading them and rewriting them as typed parquet.
+7. [SQL with Spark](07-sql-with-spark.md) - Combine green and yellow taxi data in Spark, register it as a temp table, and run the revenue report in Spark SQL.
+8. [Anatomy of a Spark Cluster](08-anatomy-of-a-spark-cluster.md) - Describe the parts of a Spark cluster, including the driver, master, and executors, and why HDFS became less common.
+9. [GroupBy in Spark](09-groupby-in-spark.md) - Trace how Spark executes a GROUP BY in two stages, with a per-partition aggregate and a reshuffle by key.
+10. [Joins in Spark](10-joins-in-spark.md) - Compare sort merge joins for two large tables with broadcast joins for a large table and a small lookup table.
+11. [Operations on Spark RDDs](11-operations-on-spark-rdds.md) - Rebuild the green revenue query with RDD filter, map, and reduceByKey, then convert the result back to a DataFrame.
+12. [Spark RDD mapPartition](12-spark-rdd-mappartition.md) - Use mapPartitions to apply a model to each partition of a taxi dataset as a pandas DataFrame.
+13. [Connecting to Google Cloud Storage](13-connecting-to-google-cloud-storage.md) - Upload taxi parquet files to Google Cloud Storage and configure a local Spark session to read from the bucket.
+14. [Creating a Local Spark Cluster](14-creating-a-local-spark-cluster.md) - Run a standalone Spark cluster with a master and worker, convert the notebook to a script, and submit it with spark-submit.
+15. [Setting up a Dataproc Cluster](15-setting-up-a-dataproc-cluster.md) - Create a Dataproc cluster and submit the Spark job from the web UI and with gcloud, after granting the needed role.
+16. [Connecting Spark to BigQuery](16-connecting-spark-to-bigquery.md) - Write Spark job output directly to a BigQuery table using the BigQuery connector and a temporary GCS bucket.
 
 Units 11 and 12 cover RDDs, which the module marks optional, as is the taxi-data
 preparation in unit 6 and the guided Linux install in unit 3.

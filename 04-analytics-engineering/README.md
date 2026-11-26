@@ -2,17 +2,17 @@
 
 ## Units
 
-1. [Analytics Engineering Basics](01-analytics-engineering-basics.md)
-2. [What is dbt?](02-what-is-dbt.md)
-3. [dbt Core vs dbt Cloud](03-dbt-core-vs-dbt-cloud.md)
-4. [dbt Project Structure](04-dbt-project-structure.md)
-5. [dbt Sources](05-dbt-sources.md)
-6. [dbt Models](06-dbt-models.md)
-7. [dbt Seeds and Macros](07-dbt-seeds-and-macros.md)
-8. [Documentation](08-documentation.md)
-9. [dbt Tests](09-dbt-tests.md)
-10. [dbt Packages](10-dbt-packages.md)
-11. [dbt Commands](11-dbt-commands.md)
+1. [Analytics Engineering Basics](01-analytics-engineering-basics.md) - Introduce analytics engineering, the gap between data engineers and analysts, ETL versus ELT, and dimensional modeling.
+2. [What is dbt?](02-what-is-dbt.md) - Explain how dbt compiles and runs SQL transformations in a warehouse and the engineering practices it brings.
+3. [dbt Core vs dbt Cloud](03-dbt-core-vs-dbt-cloud.md) - Compare dbt Core and dbt Cloud, including hosting, the Fusion engine, and adapter support.
+4. [dbt Project Structure](04-dbt-project-structure.md) - Describe the dbt project files and folders and the staging, intermediate, and marts model layers.
+5. [dbt Sources](05-dbt-sources.md) - Declare raw warehouse tables as dbt sources in sources.yml and build staging models that rename and cast columns.
+6. [dbt Models](06-dbt-models.md) - Build dbt models with ref() to combine yellow and green trips and align their columns for a union.
+7. [dbt Seeds and Macros](07-dbt-seeds-and-macros.md) - Add lookup data with dbt seeds and reuse vendor name logic through a Jinja macro.
+8. [Documentation](08-documentation.md) - Document dbt sources, models, and columns in YAML and generate and serve the project docs site.
+9. [dbt Tests](09-dbt-tests.md) - Learn generic, singular, freshness, unit, and model contract tests for catching data quality problems in dbt.
+10. [dbt Packages](10-dbt-packages.md) - Install dbt packages such as dbt-utils with packages.yml and dbt deps, then use a surrogate key macro.
+11. [dbt Commands](11-dbt-commands.md) - Run core dbt commands for setup, compile, run, build, retry, and node selection with flags for targets and full refresh.
 
 ## Homework
 

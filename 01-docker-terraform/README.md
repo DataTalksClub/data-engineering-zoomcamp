@@ -2,19 +2,19 @@
 
 ## Units
 
-1. [Introduction to Docker](01-introduction.md)
-2. [Virtual Environments and Data Pipelines](02-virtual-environment.md)
-3. [Dockerizing the Pipeline](03-dockerizing-pipeline.md)
-4. [Running PostgreSQL with Docker](04-postgres-docker.md)
-5. [NY Taxi Dataset and Data Ingestion](05-data-ingestion.md)
-6. [Creating the Data Ingestion Script](06-ingestion-script.md)
-7. [pgAdmin - Database Management Tool](07-pgadmin.md)
-8. [Dockerizing the Ingestion Script](08-dockerizing-ingestion.md)
-9. [Docker Compose](09-docker-compose.md)
-10. [SQL Refresher](10-sql-refresher.md)
-11. [Cleanup](11-cleanup.md)
-12. [Terraform Overview](12-terraform-overview.md)
-13. [GCP Overview](13-gcp-overview.md)
+1. [Introduction to Docker](01-introduction.md) - Introduce Docker images and containers, basic Docker commands, stateless containers, and sharing host files through volumes.
+2. [Virtual Environments and Data Pipelines](02-virtual-environment.md) - Build a simple pandas pipeline and set up an isolated Python environment with uv.
+3. [Dockerizing the Pipeline](03-dockerizing-pipeline.md) - Containerize the pandas pipeline with Dockerfiles, first using pip and then using uv.
+4. [Running PostgreSQL with Docker](04-postgres-docker.md) - Run PostgreSQL in Docker with named volumes and port mapping, then connect and run basic SQL with pgcli.
+5. [NY Taxi Dataset and Data Ingestion](05-data-ingestion.md) - Load the NYC taxi CSV into PostgreSQL from a Jupyter notebook, setting dtypes and ingesting in chunks.
+6. [Creating the Data Ingestion Script](06-ingestion-script.md) - Convert the ingestion notebook into a Python script with click options for Postgres connection settings.
+7. [pgAdmin - Database Management Tool](07-pgadmin.md) - Run pgAdmin in a second container on a shared Docker network and connect it to the Postgres container.
+8. [Dockerizing the Ingestion Script](08-dockerizing-ingestion.md) - Build a Docker image for the ingestion script and run it against the Postgres container on a shared network.
+9. [Docker Compose](09-docker-compose.md) - Start Postgres and pgAdmin together with a Docker Compose file, then run the ingestion container on the compose network.
+10. [SQL Refresher](10-sql-refresher.md) - Practice SQL joins, data quality checks, grouping, and ordering on the taxi and zones tables.
+11. [Cleanup](11-cleanup.md) - Remove Docker containers, images, volumes, networks, and local files to free disk space after the workshop.
+12. [Terraform Overview](12-terraform-overview.md) - Explain Terraform concepts, files, declarations, and the init, plan, apply, and destroy workflow.
+13. [GCP Overview](13-gcp-overview.md) - Set up a Google Cloud project, service account, and credentials with the roles needed for GCS and BigQuery.
 
 ## Homework
 
