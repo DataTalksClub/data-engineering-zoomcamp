@@ -41,3 +41,17 @@ urls:
   faq: https://datatalks.club/faq/data-engineering-zoomcamp.html
 hashtag: dezoomcamp
 published: true
+instructors:
+  - name: Alexey Grigorev
+    url: https://linkedin.com/in/agrigorev
+  - name: Michael Shoemaker
+    url: https://www.linkedin.com/in/michaelshoemaker1/
+  - name: Will Russell
+    url: https://www.linkedin.com/in/wrussell1999/
+  - name: Anna Geller
+    url: https://www.linkedin.com/in/anna-geller-12a86811a/
+  - name: Juan Manuel Perafan
+    url: https://www.linkedin.com/in/jmperafan/
+  - name: Arsalan Noorafkan
+    url: https://www.linkedin.com/in/arsalan0/
+weekly_commitment: Free. Plan for 10 to 15 hours a week during the cohort.
